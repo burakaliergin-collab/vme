@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Verb Matrix — v2.8.0 (Akış Güncellemesi & PWA)</title>
+<title>Verb Matrix — v2.9.0 (SRS Modu)</title>
 <link rel="manifest" href="/manifest.json"> 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -12,14 +12,13 @@
 <style>
   /* --- Genel --- */
   *{box-sizing:border-box;margin:0;padding:0}
-  /* Orijinal sistem fontları ve Inter fontu kullanıldı */
   body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); min-height:100vh;padding:18px; transition: background .25s,color .25s;}
   .container{max-width:1200px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);transition:background .25s,color .25s}
   header{text-align:center;margin-bottom:18px}
   h1{color:#2d3748;font-size:1.9rem}
   .subtitle{color:#6b7280;margin-top:6px}
   
-  /* Bölüm Başlığı - FİİL SEÇ / BÖLÜM SEÇ için standart stil */
+  /* Bölüm Başlığı */
   .section-title{font-size:1.25rem;color:#2d3748;margin:16px 0 10px;padding-bottom:8px;border-bottom:3px solid #667eea;font-weight:700}
   
   /* MODU SEÇ için büyük, ortalanmış stil */
@@ -34,33 +33,11 @@
   
   .button-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:12px 0}
   
-  /* GRUP SEÇİM BAŞLIKLARI (BAŞLA) */
-  .group-select-header {
-    text-align: center;
-    margin-bottom: 24px;
-    padding-top: 18px;
-  }
-  .group-select-header h2 {
-    font-size: 2.5rem; 
-    color: #2d3748;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 18px;
-  }
-  .group-select-columns {
-    display: flex;
-    justify-content: space-between; 
-    margin-bottom: 12px;
-  }
-  /* Grup/Hikaye Sütun Başlıkları */
-  .group-column-title {
-    font-size: 1.4rem;
-    color: #2d3748;
-    font-weight: 700;
-    display: inline-block; 
-    padding: 0 10px 8px;
-    border-bottom: 3px solid #667eea;
-  }
+  /* GRUP SEÇİM BAŞLIKLARI */
+  .group-select-header { text-align: center; margin-bottom: 24px; padding-top: 18px; }
+  .group-select-header h2 { font-size: 2.5rem; color: #2d3748; font-weight: 800; letter-spacing: 2px; margin-bottom: 18px; }
+  .group-select-columns { display: flex; justify-content: space-between; margin-bottom: 12px; }
+  .group-column-title { font-size: 1.4rem; color: #2d3748; font-weight: 700; display: inline-block; padding: 0 10px 8px; border-bottom: 3px solid #667eea; }
   
   /* --- Genel Buton & Grid Stilleri --- */
   .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer; color:#fff}
@@ -72,26 +49,15 @@
   .btn-small{padding:8px 10px;font-size:.9rem}
   .btn.disabled, .btn:disabled{background:#cbd5e1;color:#718096;cursor:not-allowed;opacity:0.7}
   
-  /* YENİ - Çalışma modunda cevabı gizlemek için (v2.8.0) */
   .hidden { display: none; }
   
   .view{display:none}
   .view.active{display:block;animation:slideIn .18s ease}
   @keyframes slideIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
   
-  .group-story-grid {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 1fr 1fr;
-  }
-  /* BUTON DİZİLİMİ İÇİN YENİ YAPI (Daha esnek flexbox kullanıldı) */
-  .button-group-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-  }
-  /* Buton sırasının geniş cihazlarda yan yana olmasını sağlayan grid yapısı */
+  .group-story-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+  .button-group-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  
   #learningView .button-group-row-1 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -99,8 +65,17 @@
       justify-content: space-between;
       align-items: center;
   }
-  #learningView #toggleHintBtn {
-      justify-self: end; 
+  #learningView #toggleHintBtn { justify-self: end; }
+
+  /* YENİ: SRS Kontrol Butonları */
+  #srsControls {
+      display: none; /* Varsayılan olarak gizli */
+      justify-content: space-around;
+      margin-top: 15px;
+  }
+  #srsControls .btn {
+      flex: 1;
+      margin: 0 5px;
   }
 
   .mode-toggle{position:fixed;right:18px;top:18px;border-radius:50%;padding:10px;border:0;background:#fff;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.12);z-index:1200}
@@ -109,9 +84,7 @@
   .score-display{font-size:1.6rem;font-weight:800;color:#667eea;text-align:center;margin:12px 0}
   .small-muted{color:#6b7280;font-size:.9rem}
   .toggle-hint-btn{padding:8px 10px;border-radius:8px;border:0;background:#34495e;color:#fff;cursor:pointer}
-  .admin-badge{font-size:.85rem;padding:6px 8px;border-radius:8px;background:#1f2937;color:#fff}
   .content-box{background:#f9fafb;padding:16px;border-radius:12px;margin:12px 0;border-left:5px solid #667eea}
-  /* Input/Textarea genel stilleri */
   .input-field{width:100%;padding:10px;border-radius:8px;border:2px solid #e5e7eb;margin-top:8px;font-size:1rem;background:#fff;color:#0f1724}
   .select-field{width:100%;padding:10px;border-radius:8px;border:2px solid #e5e7eb;background:#fff;color:#0f1724}
   .progress-container{margin:12px 0}
@@ -119,17 +92,8 @@
   .progress-fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);width:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800; transition: width .2s;}
   .sentence{padding:12px;border-radius:8px;background:#fff;border-left:4px solid #667eea;margin:10px 0;font-weight:700;color:#0f1724}
   
-  /* YENİ - Soru cümlesini büyütme (v2.8.0) */
-  #learningContent .sentence {
-    font-size: 1.4rem; 
-    line-height: 1.5;
-  }
-  /* YENİ - Çalışma modundaki gizli cevabın normal boyutta kalması için (v2.8.0) */
-  #learningContent #answerDisplay.sentence {
-    font-size: 1.1rem; 
-    line-height: 1.4;
-    background: #f0f4f8;
-  }
+  #learningContent .sentence { font-size: 1.4rem; line-height: 1.5; }
+  #learningContent #answerDisplay.sentence { font-size: 1.1rem; line-height: 1.4; background: #f0f4f8; }
   
   .word-order-area{display:flex;gap:12px;flex-wrap:wrap}
   .word-pool,.word-selected{flex:1;min-width:220px}
@@ -151,12 +115,7 @@
   body.night-mode .content-box{background:#071831;border-left-color:#3b82f6}
   body.night-mode .input-field,.night-mode .select-field{background:#041226;color:#e6eef8;border-color:#082036}
   body.night-mode .sentence{background:#071226;color:#e6eef8;border-left-color:#3b82f6}
-  
-  /* YENİ - Gece modunda gizli cevap (v2.8.0) */
-  body.night-mode #learningContent #answerDisplay.sentence {
-    background: #0f2742;
-  }
-  
+  body.night-mode #learningContent #answerDisplay.sentence { background: #0f2742; }
   body.night-mode .word-item{background:#3b82f6;color:#fff}
   body.night-mode .word-item.top{background:#10b981}
   body.night-mode .hint-item{background:#052033;color:#c8ecff;border-left-color:#3b82f6}
@@ -197,7 +156,6 @@
         <div class="group-column-title" data-translate-key="titles.storySelect">Hikaye Seç</div>
       </div>
     </div>
-
     <div id="groupButtons"></div>
     <div class="button-group-row">
       <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
@@ -222,6 +180,15 @@
 
   <div id="modeMenu" class="view">
     <h2 class="large-centered-title" data-translate-key="titles.modeSelect">MODU SEÇ</h2>
+    
+    <div class="content-box" style="margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;">Çeviri Yönünü Seçin:</h4>
+        <div class="button-group-row">
+            <button class="btn btn-primary" id="modeTRDE" onclick="setConversionMode('tr-de')">🇹🇷 TR → DE 🇩🇪</button>
+            <button class="btn btn-info" id="modeDETR" onclick="setConversionMode('de-tr')">🇩🇪 DE → TR 🇹🇷</button>
+        </div>
+    </div>
+
     <div id="modeButtons" class="button-grid"></div>
     <div class="button-group-row">
       <button class="btn btn-danger btn-small" onclick="showView('sectionMenu')" data-translate-key="buttons.goBack">← Geri</button>
@@ -241,6 +208,12 @@
       <div id="hintPanel" class="hint-area" style="display:none"></div>
       <div id="resultArea"></div>
       <div id="answerArea"></div>
+    </div>
+
+    <div id="srsControls" class="button-group-row">
+        <button class="btn btn-danger" onclick="rateCard('hard')">Zor / Tekrar Et (10dk)</button>
+        <button class="btn btn-warning" onclick="rateCard('medium')">Orta (1 gün)</button>
+        <button class="btn btn-secondary" onclick="rateCard('easy')">Kolay (3 gün)</button>
     </div>
 
     <div id="quickEditPanel" class="content-box" style="display:none; margin-top: 15px;">
@@ -287,7 +260,7 @@
       <button class="btn btn-danger btn-small" onclick="showView('storyView')" data-translate-key="buttons.storyReturn">← Hikayeye Dön</button>
     </div>
   </div>
-
+  
   <div id="settings" class="view">
     <h2 class="section-title" data-translate-key="titles.settings">⚙️ Ayarlar & İçerik Yönetimi</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
@@ -313,6 +286,7 @@
         <button class="btn btn-info" style="width:100%;margin-bottom:8px" onclick="debugData()" data-translate-key="buttons.debugJSON">🔍 JSON Yapısı Kontrol</button>
         <button class="btn btn-danger" style="width:100%" onclick="resetProgressStorage()" data-translate-key="buttons.resetProgress">İlerlemeyi Sıfırla</button>
         <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetContentOverride()" data-translate-key="buttons.resetOverride">⚠️ İçerik Düzeltmelerini Sıfırla</button>
+        <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetSrsData()" data-translate-key="buttons.resetSrs">⚠️ Çalışma (SRS) Verisini Sıfırla</button>
       </div>
       
     </div>
@@ -350,12 +324,10 @@
       <button class="btn btn-primary" onclick="showView('adminHintView')" data-translate-key="admin.hintManagement">💡 İpucu Yönetimi</button>
       <button class="btn btn-primary" onclick="showView('adminSentenceListView')" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</button>
     </div>
-
     <div class="button-group-row" style="margin-top:12px">
       <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
     </div>
   </div>
-
   <div id="adminContentView" class="view">
     <h2 class="section-title" data-translate-key="admin.contentManagement">📚 İçerik Yönetimi</h2>
     <div class="content-box">
@@ -370,7 +342,6 @@
       <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
     </div>
   </div>
-
   <div id="adminStoryView" class="view">
     <h2 class="section-title" data-translate-key="admin.storyManagement">📚 Hikaye Yönetimi</h2>
     <div class="content-box">
@@ -384,10 +355,8 @@
       <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
     </div>
   </div>
-
   <div id="adminHintView" class="view">
     <h2 class="section-title" data-translate-key="admin.hintManagement">💡 İpucu Yönetimi</h2>
-    
     <div class="content-box" style="margin-bottom:12px">
       <h3 data-translate-key="admin.addNewHint">➕ Yeni İpucu Ekle</h3>
       <div class="button-group-row" style="display:flex;gap:8px;flex-wrap:wrap">
@@ -397,18 +366,15 @@
       </div>
       <div id="hintFormsArea" style="margin-top:12px"></div>
     </div>
-
     <div class="content-box">
       <h3 data-translate-key="admin.manageExistingHints">📋 Mevcut İpuçlarını Yönet (Düzenle / Sil)</h3>
       <p class="small-muted" data-translate-key="admin.manageHintsDesc">Burada mevcut tüm ipuçlarını görebilir, düzenleyebilir veya silebilirsiniz.</p>
       <div id="hintManagerArea" style="margin-top:12px"></div>
     </div>
-    
     <div class="button-group-row" style="margin-top:12px">
       <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
     </div>
   </div>
-
   <div id="adminSentenceListView" class="view">
     <h2 class="section-title" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</h2>
     <div class="content-box">
@@ -429,12 +395,11 @@
 
 <script>
 /* ===============================
-   Verb Matrix — v2.8.0 (Akış Güncellemesi)
-   - "Sonraki Bölüm" butonu eklendi.
-   - Soru yazı tipi büyütüldü.
-   - İpuçları varsayılan olarak gizlendi.
-   - Çalışma modu "göster" hatası düzeltildi.
-   - v2.7.0'dan gelen Geliştirici Override modu korundu.
+   Verb Matrix — v2.9.0 (SRS Modu)
+   - "Çalışma" modu Aralıklı Tekrar (SRS) mantığı ile değiştirildi.
+   - Artık kartlar Zor/Orta/Kolay olarak derecelendiriliyor.
+   - Sadece zamanı gelen kartlar gösteriliyor.
+   - SRS verisi localStorage'a kaydediliyor.
    =============================== */
 
 /* ---------------- Demo / default data (replace with your JSON) --------------- */
@@ -22435,13 +22400,16 @@ let data = {
         "subtitle": "Almanca Fiiller Öğrenme Platformu"
       },
       "menu": {
-        "groupSelect": "Grup Seç",
+        "start": "BAŞLA",
         "settings": "⚙️ Ayarlar",
         "progress": "📊 İlerleme",
-        "admin": "🔧 Yönetici (Admin)"
+        "admin": "🔧 Yönetici (Admin)",
+        "groupSelect": "Grup Seç"
       },
       "titles": {
+        "start": "BAŞLA",
         "groupSelect": "Grup Seç",
+        "storySelect": "Hikaye Seç",
         "verbSelect": "Fiil Seç",
         "sectionSelect": "Bölüm Seç",
         "modeSelect": "Modu Seç",
@@ -22473,6 +22441,8 @@ let data = {
         "exportJSON": "📤 JSON İndir",
         "debugJSON": "🔍 JSON Yapısı Kontrol",
         "resetProgress": "İlerlemeyi Sıfırla",
+        "resetOverride": "⚠️ İçerik Düzeltmelerini Sıfırla",
+        "resetSrs": "⚠️ Çalışma (SRS) Verisini Sıfırla",
         "pasteAndLoad": "📥 Yapıştır & Yükle",
         "clear": "Temizle",
         "refreshList": "🔄 Yenile Liste",
@@ -22482,7 +22452,8 @@ let data = {
         "update": "Güncelle",
         "add": "Ekle",
         "delete": "Sil",
-        "edit": "Düzenle"
+        "edit": "Düzenle",
+        "nextSection": "→ Sonraki Bölüm"
       },
       "settings": {
         "appearance": "🎨 Görünüm ve Dil",
@@ -22542,6 +22513,7 @@ let data = {
         "noGroups": "Henüz grup yok. JSON yükleyin.",
         "noVerbs": "Bu grupta fiil bulunamadı.",
         "noSentences": "Bu fiil ve bölüm için cümle bulunamadı!",
+        "noDueCards": "Bugün için tekrar edilecek kart kalmadı! 🎉",
         "noStory": "Bu grup için hikaye bulunamadı!",
         "noStoryAvailable": "Hikaye Yok",
         "noStoryQuestions": "Bu hikaye için henüz soru yok.",
@@ -22554,9 +22526,12 @@ let data = {
         "loadError": "✗ Hata:",
         "dataExported": "✓ Veriler indirildi!",
         "progressReset": "✓ İlerleme sıfırlandı",
+        "srsReset": "✓ Tüm çalışma (SRS) verisi sıfırlandı.",
         "jsonStatus": "📊 JSON DURUMU",
         "allFieldsError": "Tüm alanları doldurun",
-        "hintSaved": "✅ İpucu kaydedildi"
+        "hintSaved": "✅ İpucu kaydedildi",
+        "quickEditSaved": "✅ Cümle ve ipucu güncellendi (Yerel olarak kaydedildi)!",
+        "overrideReset": "✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir."
       }
     },
     "de": {
@@ -22820,7 +22795,8 @@ let data = {
   },
   "settings": {
     "language": "en",
-    "nightMode": true
+    "nightMode": true,
+    "conversionMode": "tr-de"
   }
 };
 
@@ -22829,10 +22805,96 @@ let state = {
   currentView:'mainMenu',
   group:null, groupData:null,
   verb:null, section:null, mode:null,
-  index:0, answers:[], showAnswer:false,
+  
+  // --- SRS & Quiz State ---
+  // Quiz modları 'answers' dizisini kullanır
+  answers:[], 
+  // Study (SRS) modu 'dueCards' ve 'dueCardPos' kullanır
+  dueCards: [], // Tekrar zamanı gelmiş kartların *orijinal indekslerini* tutar
+  dueCardPos: 0, // 'dueCards' dizisindeki mevcut pozisyon
+
+  showAnswer:false,
   wordPool:[], wordSelected:[], userAnswer:'', correctAnswer:'', showResult:false,
-  hintPanelVisible: false // YENİ (v2.8.0) - Artık varsayılan olarak kapalı
+  hintPanelVisible: false 
 };
+
+/* ---------- SRS (Aralıklı Tekrar) Yardımcı Fonksiyonları (YENİ) ---------- */
+
+// Milisaniye cinsinden aralıklar
+const MINUTE_MS = 60 * 1000;
+const DAY_MS = 24 * 60 * MINUTE_MS;
+
+// Global SRS verisi (performans için)
+let srsData = {};
+
+function getSrsKey(originalIndex) {
+    // Kart için benzersiz bir anahtar oluşturur
+    return `${state.verb}_s${state.section}_${originalIndex}`;
+}
+
+function loadSrsData() {
+    try {
+        const data = localStorage.getItem('verbmatrix_srs_data');
+        srsData = data ? JSON.parse(data) : {};
+    } catch (e) {
+        console.error("SRS verisi yüklenemedi", e);
+        srsData = {};
+    }
+}
+
+function saveSrsData() {
+    try {
+        localStorage.setItem('verbmatrix_srs_data', JSON.stringify(srsData));
+    } catch (e) {
+        console.error("SRS verisi kaydedilemedi", e);
+    }
+}
+
+function getCardSrsData(originalIndex) {
+    const key = getSrsKey(originalIndex);
+    if (!srsData[key]) {
+        // Bu kart için varsayılan (yeni) veri
+        srsData[key] = {
+            interval: 0, // Mevcut aralık (milisaniye)
+            ease: 2.5,   // Kolaylık faktörü (Anki varsayılanı)
+            nextReview: Date.now() // Hemen göster
+        };
+    }
+    return srsData[key];
+}
+
+function updateCardSrsData(originalIndex, difficulty) {
+    const cardData = getCardSrsData(originalIndex);
+    let newInterval;
+    const now = Date.now();
+
+    if (difficulty === 'hard') {
+        // 'Zor' - 10 dakika sonra tekrar göster
+        newInterval = 10 * MINUTE_MS; 
+    } else if (difficulty === 'medium') {
+        // 'Orta' - 1 gün sonra
+        newInterval = 1 * DAY_MS;
+    } else { // 'easy'
+        // 'Kolay' - 3 gün sonra
+        // (Daha gelişmiş bir algoritma burada cardData.interval * cardData.ease kullanırdı)
+        newInterval = 3 * DAY_MS;
+    }
+
+    cardData.interval = newInterval;
+    cardData.nextReview = now + newInterval;
+    
+    saveSrsData(); // Değişikliği anında kaydet
+}
+
+function resetSrsData() {
+    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    if (confirm(t.messages.srsResetConfirm || 'Tüm çalışma (Aralıklı Tekrar) verilerinizi sıfırlamak istediğinizden emin misiniz? Tüm kartların ilerlemesi sıfırlanacaktır.')) {
+        srsData = {};
+        saveSrsData();
+        alert(t.messages.srsReset);
+    }
+}
+
 
 /* ---------- Content Override Fonksiyonları (v2.7.0) ---------- */
 
@@ -22841,7 +22903,6 @@ function loadDataOverride() {
         const override = localStorage.getItem('verbmatrix_content_override');
         if (override) {
             const overrideData = JSON.parse(override);
-            // Default data objesi derin birleştirme ile güncellenir.
             data = deepMerge(data, overrideData);
             console.log('✅ Yerel içerik düzeltmeleri yüklendi (Override aktif).');
         }
@@ -22852,7 +22913,6 @@ function loadDataOverride() {
 }
 
 function saveDataOverride() {
-    // Sadece içerik ile ilgili kısımları kaydediyoruz
     const contentToSave = {
         groups: data.groups,
         verbs: data.verbs,
@@ -22880,6 +22940,35 @@ function resetContentOverride() {
 
 /* -------------------------------------------------------------------------- */
 
+/* ---------- Conversion Mode Fonksiyonları (v2.8.0) ---------- */
+
+function setConversionMode(mode) {
+    data.settings.conversionMode = mode;
+    saveSettings(); 
+    updateConversionButtons();
+}
+
+function updateConversionButtons() {
+    const trdeBtn = document.getElementById('modeTRDE');
+    const detrBtn = document.getElementById('modeDETR');
+    
+    if (!trdeBtn || !detrBtn) return;
+
+    if (data.settings.conversionMode === 'tr-de') {
+        trdeBtn.classList.remove('btn-info');
+        trdeBtn.classList.add('btn-primary');
+        detrBtn.classList.remove('btn-primary');
+        detrBtn.classList.add('btn-info');
+    } else {
+        trdeBtn.classList.remove('btn-primary');
+        trdeBtn.classList.add('btn-info');
+        detrBtn.classList.remove('btn-info');
+        detrBtn.classList.add('btn-primary');
+    }
+}
+
+/* -------------------------------------------------------- */
+
 
 function showView(id){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -22887,6 +22976,9 @@ function showView(id){
   if(el) el.classList.add('active');
   state.currentView = id;
 
+  if(id === 'modeMenu') { 
+      updateConversionButtons();
+  }
   if(id === 'adminHintView'){
     showHintManager('hintManagerArea'); 
     document.getElementById('hintFormsArea').innerHTML = ''; 
@@ -22906,7 +22998,13 @@ function getProperty(obj, keyString) {
 
 function updateUITexts(){
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  
+  // --- DÜZELTME 1: Dil objesinin boş olup olmadığını kontrol et ---
+  // Eğer data.translations[lang] mevcut ama boşsa (örn: de: {}), 'tr'ye geri dön.
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) 
+            ? data.translations[lang] 
+            : data.translations.tr;
+  // --- DÜZELTME 1 SONU ---
 
   document.querySelectorAll('[data-translate-key]').forEach(el => {
     const key = el.dataset.translateKey;
@@ -22948,6 +23046,7 @@ function loadSettings(){
     const s = JSON.parse(localStorage.getItem('verbmatrix_settings')||'{}');
     if(s.language) data.settings.language = s.language;
     if(typeof s.nightMode === 'boolean') data.settings.nightMode = s.nightMode;
+    if(s.conversionMode) data.settings.conversionMode = s.conversionMode; 
   }catch(e){}
   const toggleCheckbox = document.getElementById('nightModeToggle');
   if(toggleCheckbox) {
@@ -22961,12 +23060,12 @@ function loadSettings(){
   updateUITexts();
 }
 
-/* ---------- İlerleme Kalıcılığı Fonksiyonları ---------- */
+/* ---------- Quiz İlerleme Kalıcılığı Fonksiyonları ---------- */
 function saveProgress(){
   try {
     localStorage.setItem('verbmatrix_progress_answers', JSON.stringify(state.answers));
   } catch (e) {
-    console.error("İlerleme kaydedilemedi:", e);
+    console.error("Quiz ilerlemesi kaydedilemedi:", e);
   }
 }
 
@@ -22977,7 +23076,7 @@ function loadProgress(){
       state.answers = JSON.parse(savedAnswers);
     }
   } catch (e) {
-    console.error("İlerleme yüklenemedi:", e);
+    console.error("Quiz ilerlemesi yüklenemedi:", e);
   }
 }
 /* ---------------------------------------------------- */
@@ -22986,7 +23085,7 @@ function loadAndShowGroupMenu(){
   const container = document.getElementById('groupButtons');
   container.innerHTML = '';
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
 
   if(!data.groups || data.groups.length===0){
     container.innerHTML = `<div class="content-box">${t.messages.noGroups}</div>`;
@@ -23027,7 +23126,7 @@ function selectGroup(id){
   const container = document.getElementById('verbButtons'); container.innerHTML='';
   if(verbs.length===0){ 
     const lang = data.settings.language || 'tr';
-    const t = data.translations[lang] || data.translations.tr;
+    const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
     container.innerHTML = `<div class="content-box">${t.messages.noVerbs}</div>`; 
     showView('verbMenu'); 
     return; 
@@ -23068,7 +23167,7 @@ function selectSection(sectionNum){
   const container = document.getElementById('modeButtons'); container.innerHTML='';
   
   const modes = [
-    {id:'study', name:'📖 Çalışma'},
+    {id:'study', name:'📖 Çalışma (SRS)'},
     {id:'cloze', name:'🔲 Boşluk Doldurma'},
     {id:'wordorder', name:'🔤 Kelimeleri Sıralama'},
     {id:'quiz', name:'🎯 Quiz'}
@@ -23079,34 +23178,94 @@ function selectSection(sectionNum){
   });
   showView('modeMenu');
 }
-
 /* ---------- Learning flow ---------- */
 function startMode(modeId){
-  state.mode = modeId; state.index=0; state.showAnswer=false; state.userAnswer=''; state.correctAnswer=''; state.showResult=false;
+  state.mode = modeId; 
+  state.showAnswer=false; 
+  state.userAnswer=''; 
+  state.correctAnswer=''; 
+  state.showResult=false;
+
   const verbObj = (data.verbs[state.group]||[]).find(v=>v.id===state.verb);
   const title = `${(verbObj && (verbObj.verbTR||verbObj.verbDE)) || 'Fiil'} - ${data.sections[state.section]} - ${modeId}`;
   document.getElementById('learningTitle').textContent = title;
+
+  // --- YENİ SRS / QUIZ AYRIMI ---
+  if (modeId === 'study') {
+    // SRS (Çalışma) Modu
+    loadSrsData(); // En güncel SRS verisini yükle
+    const sentences = getSentences();
+    const now = Date.now();
+    state.dueCards = []; // Tekrar edilecek kartların (indeks) listesi
+
+    // Zamanı gelmiş kartları bul
+    for (let i = 0; i < sentences.length; i++) {
+        const cardData = getCardSrsData(i); // Kartın SRS verisini al
+        if (cardData.nextReview <= now) {
+            state.dueCards.push(i); // Bu kartın *orijinal indeksini* listeye ekle
+        }
+    }
+    
+    state.dueCards = shuffle(state.dueCards); // Kartları karıştır
+    state.dueCardPos = 0; // Tekrar listesinin başına dön
+    
+    if (state.dueCards.length === 0) {
+        // Tekrar edilecek kart yoksa
+        const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+        document.getElementById('learningContent').innerHTML = `<div class="content-box"><h3 style="text-align:center">${t.messages.noDueCards}</h3></div>`;
+        document.getElementById('progressText').textContent = "0 / 0";
+        document.getElementById('progressFill').style.width = '100%';
+        document.getElementById('progressFill').textContent = '100%';
+        showView('learningView');
+        return;
+    }
+
+  } else {
+    // Diğer (Quiz, Cloze, WordOrder) Modları
+    state.answers = []; // Quiz cevaplarını sıfırla
+    state.dueCards = []; // Bu modlar SRS kullanmaz
+    state.dueCardPos = 0; // Baştan başla (bu modlarda `dueCardPos` = `state.index` gibi davranır)
+  }
+
   showLearning();
 }
 
 function showLearning(){
-  const key = `${state.verb}_s${state.section}`;
-  const sentences = data.content[key] || [];
-  if(sentences.length===0){ 
-    const lang = data.settings.language || 'tr';
-    const t = data.translations[lang] || data.translations.tr;
+  const sentences = getSentences();
+  const lang = data.settings.language || 'tr';
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+
+  if (sentences.length === 0) {
     alert(t.messages.noSentences); 
     showView('sectionMenu'); 
-    return; 
+    return;
   }
-  updateProgress(sentences.length); 
+  
+  if (state.mode === 'study') {
+      // SRS Modu
+      if (state.dueCardPos >= state.dueCards.length) {
+          // Tüm 'due' kartlar bitti
+          showCompletion(state.dueCards.length);
+          return;
+      }
+      updateProgress(state.dueCards.length);
+  } else {
+      // Quiz Modları
+      if (state.dueCardPos >= sentences.length) {
+          // Tüm quiz soruları bitti
+          showCompletion(sentences.length);
+          return;
+      }
+      updateProgress(sentences.length);
+  }
+  
   renderSentence(sentences); 
   showView('learningView');
 }
 
 function updateProgress(total){
-  const currQuestionNum = Math.min(state.index + 1, total); 
-  const completedCount = state.index; 
+  const currQuestionNum = Math.min(state.dueCardPos + 1, total); 
+  const completedCount = state.dueCardPos; 
   
   const percent = total === 0 ? 0 : Math.round((completedCount / total) * 100); 
   
@@ -23124,19 +23283,15 @@ function buildHintHtml(verbId, sectionNum, sentenceIndex){
   const secKey = `${verbId}_s${sectionNum}`;
   const secCode = 'B' + sectionNum;
 
-  // Cümle İpucu
   if(data.hints && data.hints.sentences && data.hints.sentences[sentKey]){
     html += `<div class="hint-item"><strong>İpucu (Cümle):</strong> ${escapeHtml(data.hints.sentences[sentKey])}</div>`;
   }
-  // Bölüm-Fiil İpucu
   if(data.hints && data.hints.sections && data.hints.sections[secKey]){
     html += `<div class="hint-item"><strong>İpucu (Bölüm - Fiil):</strong> ${escapeHtml(data.hints.sections[secKey])}</div>`;
   }
-  // Fiil İpucu
   if(data.hints && data.hints.verbs && data.hints.verbs[verbId]){
     html += `<div class="hint-item"><strong>İpucu (Fiil):</strong> ${escapeHtml(data.hints.verbs[verbId])}</div>`;
   }
-  // Genel Bölüm İpucu
   if(data.sectionsHints && data.sectionsHints[secCode]) {
      html += `<div class="hint-item"><strong>İpucu (Genel Bölüm):</strong> ${escapeHtml(data.sectionsHints[secCode])}</div>`;
   }
@@ -23150,27 +23305,52 @@ function renderSentence(sentences){
   const hintPanelEl = document.getElementById('hintPanel');
   const quickEditPanel = document.getElementById('quickEditPanel');
   
-  // Hata Düzeltme panelini gizle
   quickEditPanel.style.display = 'none';
-
-  // YENİ (v2.8.0): İpucu panelinin durumu state'e göre (varsayılan kapalı) ayarlanır
   hintPanelEl.style.display = state.hintPanelVisible ? 'block' : 'none';
   hintPanelEl.innerHTML = ''; 
-  
-  state.showResult=false;
+  state.showResult = false;
 
-  if(state.index >= sentences.length){ showCompletion(sentences.length); return; }
-  const sent = sentences[state.index];
+  // --- KART SEÇİM MANTIĞI GÜNCELLENDİ ---
+  let originalIndex; // Bu, content dizisindeki gerçek indeks
+  if (state.mode === 'study') {
+      if(state.dueCardPos >= state.dueCards.length){ 
+          showCompletion(state.dueCards.length); 
+          return; 
+      }
+      originalIndex = state.dueCards[state.dueCardPos];
+  } else {
+      if(state.dueCardPos >= sentences.length){ 
+          showCompletion(sentences.length); 
+          return; 
+      }
+      originalIndex = state.dueCardPos; // Quiz modları sırayla gider
+  }
+  
+  const sent = sentences[originalIndex];
+  if (!sent) { 
+      console.error("Cümle bulunamadı, index:", originalIndex);
+      return; 
+  }
+  // --- KART SEÇİM MANTIĞI SONU ---
+  
   container.innerHTML = '';
-  const hintHtml = buildHintHtml(state.verb, state.section, state.index);
+  // İpucu anahtarı artık 'originalIndex' kullanmalı
+  const hintHtml = buildHintHtml(state.verb, state.section, originalIndex);
 
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+
+  const isTrDe = data.settings.conversionMode === 'tr-de';
+  const questionText = isTrDe ? sent.tr : sent.de;
+  const answerText = isTrDe ? sent.de : sent.tr;
+  const questionLang = isTrDe ? 'TR' : 'DE';
+  const answerLang = isTrDe ? 'DE' : 'TR';
+  const placeholderKey = 'quiz'; 
 
   if(state.mode === 'study'){
-    container.innerHTML = `<div class="sentence"><strong>TR:</strong> ${escapeHtml(sent.tr)}</div>
-                           <div id="answerDisplay" class="sentence hidden"><strong>DE:</strong> ${escapeHtml(sent.de)}</div>
-                           <textarea class="input-field" placeholder="${t.placeholders?.notes || 'Notlar...'}"></textarea>`;
+    container.innerHTML = `<div class="sentence"><strong>${questionLang}:</strong> ${escapeHtml(questionText)}</div>
+                           <div id="answerDisplay" class="sentence hidden"><strong>${answerLang}:</strong> ${escapeHtml(answerText)}</div>`;
+    // SRS modunda notlar/giriş alanı kaldırıldı, sadece gösterme ve derecelendirme.
   } else if(state.mode === 'cloze'){
     const words = sent.de.split(/\s+/).filter(Boolean);
     const idx = Math.floor(Math.random()*words.length);
@@ -23192,9 +23372,9 @@ function renderSentence(sentences){
                            </div>`;
     renderWordOrder();
   } else if(state.mode === 'quiz'){
-    state.correctAnswer = sent.de;
-    container.innerHTML = `<div class="sentence"><b>TR:</b> ${escapeHtml(sent.tr)}</div>
-                           <input id="quizInput" class="input-field" placeholder="${t.placeholders?.quiz || 'Almanca yazın...'}">`;
+    state.correctAnswer = answerText; 
+    container.innerHTML = `<div class="sentence"><b>${questionLang}:</b> ${escapeHtml(questionText)}</div>
+                           <input id="quizInput" class="input-field" placeholder="${t.placeholders?.[placeholderKey] || 'Çeviriyi yazın...'}">`;
   }
   
   if(hintHtml && state.hintPanelVisible){ 
@@ -23208,88 +23388,111 @@ function renderSentence(sentences){
   const btnDE = document.getElementById('btnPlayDE');
   const btnTR = document.getElementById('btnPlayTR');
   
-  if (state.mode === 'study') {
-    btnDE.disabled = false; btnDE.classList.remove('disabled');
-    btnTR.disabled = false; btnTR.classList.remove('disabled');
+  // --- DÜZELTME 2: Ses Butonu Kontrolü ---
+  if (state.mode !== 'study' && !state.showResult) {
+      // Eğer 'study' modu değilse VE cevap gösterilmemişse, butonları pasif yap
+      btnDE.disabled = true; btnDE.classList.add('disabled');
+      btnTR.disabled = true; btnTR.classList.add('disabled');
   } else {
-    btnDE.disabled = true; btnDE.classList.add('disabled');
-    btnTR.disabled = true; btnTR.classList.add('disabled');
+      // 'study' modundaysa veya cevap gösterilmişse (showResult=true) butonları aktif yap
+      btnDE.disabled = false; btnDE.classList.remove('disabled');
+      btnTR.disabled = false; btnTR.classList.remove('disabled');
   }
+  // --- DÜZELTME 2 SONU ---
 
-  if(state.mode === 'study'){
-    document.getElementById('actionBtn').textContent = t.buttons.show;
-    document.getElementById('actionBtn').onclick = handleAction;
+
+  // --- Buton Görünürlük Kontrolü (SRS) ---
+  const actionBtn = document.getElementById('actionBtn');
+  const srsControls = document.getElementById('srsControls');
+
+  if (state.mode === 'study') {
+      if (state.showAnswer) {
+          actionBtn.style.display = 'none';
+          srsControls.style.display = 'flex';
+      } else {
+          actionBtn.style.display = 'block';
+          srsControls.style.display = 'none';
+          actionBtn.textContent = t.buttons.show;
+          actionBtn.onclick = handleAction;
+      }
+      // 'Önceki' butonu SRS'te kafa karıştırıcı olabilir, gizleyelim.
+      document.querySelector('[onclick="previousQuestion()"]').style.display = 'none';
   } else {
-    document.getElementById('actionBtn').textContent = t.buttons.check;
-    document.getElementById('actionBtn').onclick = handleAction;
+      // Quiz modları
+      actionBtn.style.display = 'block';
+      srsControls.style.display = 'none';
+      actionBtn.textContent = t.buttons.check;
+      actionBtn.onclick = handleAction;
+      document.querySelector('[onclick="previousQuestion()"]').style.display = 'block';
   }
+  // --- Buton Görünürlük Kontrolü SONU ---
   
-  updateProgress(sentences.length);
+  // Hangi modu kullandığımıza göre ilerlemeyi güncelle
+  if (state.mode === 'study') {
+      updateProgress(state.dueCards.length);
+  } else {
+      updateProgress(sentences.length);
+  }
 }
 
-// Yeni Hızlı Düzenleme Fonksiyonları (v2.7.0)
+
 function showQuickEditPanel(){
     if (!state.verb || !state.section) return;
+    const sentences = getSentences();
+    let originalIndex;
 
-    const key = `${state.verb}_s${state.section}`;
-    const sentences = data.content[key] || [];
+    if (state.mode === 'study') {
+        if (state.dueCardPos >= state.dueCards.length) return;
+        originalIndex = state.dueCards[state.dueCardPos];
+    } else {
+        if (state.dueCardPos >= sentences.length) return;
+        originalIndex = state.dueCardPos;
+    }
 
-    if (state.index >= sentences.length) return;
-
-    const sent = sentences[state.index];
-    const hintKey = `${state.verb}_s${state.section}_${state.index}`;
+    const sent = sentences[originalIndex];
+    const hintKey = getSrsKey(originalIndex); // Aynı anahtar formatını kullanabiliriz
     const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[hintKey]) || '';
 
-    // Alanları doldur
     document.getElementById('qe_tr').value = sent.tr || '';
     document.getElementById('qe_de').value = sent.de || '';
     document.getElementById('qe_hint').value = currentHint;
-    document.getElementById('quickEditTitle').textContent = `Sayfa İçeriği Hızlı Düzenleme (Soru ${state.index + 1})`;
-
-    // Paneli göster
+    document.getElementById('quickEditTitle').textContent = `Hızlı Düzenle (Soru ${originalIndex + 1})`;
     document.getElementById('quickEditPanel').style.display = 'block';
 }
 
 function saveQuickEdit(){
     if (!state.verb || !state.section) return;
+    const sentences = getSentences();
+    let originalIndex;
 
-    const key = `${state.verb}_s${state.section}`;
-    const sentences = data.content[key] || [];
-    const hintKey = `${state.verb}_s${state.section}_${state.index}`;
-
-    if (state.index >= sentences.length) return;
+    if (state.mode === 'study') {
+        originalIndex = state.dueCards[state.dueCardPos];
+    } else {
+        originalIndex = state.dueCardPos;
+    }
+    
+    const hintKey = getSrsKey(originalIndex);
 
     const newTr = document.getElementById('qe_tr').value.trim();
     const newDe = document.getElementById('qe_de').value.trim();
     const newHint = document.getElementById('qe_hint').value.trim();
 
-    // 1. Cümleyi Güncelle (Ana data nesnesi güncellendi)
-    sentences[state.index].tr = newTr;
-    sentences[state.index].de = newDe;
+    sentences[originalIndex].tr = newTr;
+    sentences[originalIndex].de = newDe;
 
-    // 2. İpucunu Güncelle
     if(!data.hints) data.hints = {sentences:{}, verbs:{}, sections:{}};
     if(!data.hints.sentences) data.hints.sentences = {};
     
-    if (newHint) {
-        data.hints.sentences[hintKey] = newHint;
-    } else {
-        delete data.hints.sentences[hintKey];
-    }
+    if (newHint) { data.hints.sentences[hintKey] = newHint; } 
+    else { delete data.hints.sentences[hintKey]; }
     
-    // v2.7.0: Yerel Override Kaydını Güncelle
     saveDataOverride();
-    
-    // Paneli gizle
     document.getElementById('quickEditPanel').style.display = 'none';
-
-    // Sayfayı yeni içerikle yenile
     renderSentence(sentences);
     
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     alert(t.messages.quickEditSaved);
 }
-// Hızlı Düzenleme Fonksiyonları Sonu
 
 
 function renderWordOrder(){
@@ -23302,40 +23505,59 @@ function renderWordOrder(){
     const d = document.createElement('div'); d.className='word-item'; d.textContent = w; d.onclick = ()=> selectWordFromPool(w); pool.appendChild(d);
   });
 }
+function selectWordFromPool(word){ state.wordSelected.push(word); renderWordOrder(); }
+function unselectWord(index){ state.wordSelected.splice(index,1); renderWordOrder(); }
 
-function selectWordFromPool(word){
-  state.wordSelected.push(word);
-  renderWordOrder();
+// YENİ: SRS Derecelendirme Fonksiyonu
+function rateCard(difficulty) {
+    const sentences = getSentences();
+    const originalIndex = state.dueCards[state.dueCardPos];
+
+    // 1. Kartın SRS verisini güncelle
+    updateCardSrsData(originalIndex, difficulty);
+
+    // 2. Bir sonraki karta geç
+    state.dueCardPos++;
+    state.showAnswer = false;
+    
+    // 3. Bir sonraki kartı render et
+    renderSentence(sentences);
 }
 
-function unselectWord(index){
-  state.wordSelected.splice(index,1);
-  renderWordOrder();
-}
 
 function handleAction(){
   const sents = getSentences();
-  const sent = sents[state.index];
   const btn = document.getElementById('actionBtn');
   const resultArea = document.getElementById('resultArea'), answerArea = document.getElementById('answerArea');
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
 
-  if (state.mode !== 'study' && !state.showResult) { 
-    const btnDE = document.getElementById('btnPlayDE');
-    const btnTR = document.getElementById('btnPlayTR');
-    btnDE.disabled = false; btnDE.classList.remove('disabled');
-    btnTR.disabled = false; btnTR.classList.remove('disabled');
-  }
+  // Ses butonları referansları (DÜZELTME 2 için)
+  const btnDE = document.getElementById('btnPlayDE');
+  const btnTR = document.getElementById('btnPlayTR');
 
   if(state.mode === 'study'){
+    // --- YENİ SRS 'GÖSTER' MANTIĞI ---
     if(state.showAnswer){
-      state.index++; state.showAnswer=false; renderSentence(sents);
+      // Bu durum artık oluşmamalı, çünkü 'Göster' butonu gizleniyor.
+      // Ama güvenlik olarak 'rateCard'ı çağıralım.
+      rateCard('medium'); // Varsayılan olarak orta
     } else {
+      // Cevabı göster
       const ad = document.getElementById('answerDisplay'); 
-      if(ad) ad.classList.remove('hidden'); // v2.8.0 düzeltmesi: .hidden sınıfı artık CSS'te var.
-      state.showAnswer=true; btn.textContent = t.buttons.next;
+      if(ad) ad.classList.remove('hidden'); 
+      state.showAnswer = true; 
+      
+      // Butonları değiştir
+      btn.style.display = 'none';
+      document.getElementById('srsControls').style.display = 'flex';
+      
+      // DÜZELTME 2: 'study' modunda cevap gösterilince ses butonları aktif kalsın (zaten renderSentence'da yapılıyor)
+      // btnDE.disabled = false; btnDE.classList.remove('disabled');
+      // btnTR.disabled = false; btnTR.classList.remove('disabled');
     }
+    // --- SRS MANTIĞI SONU ---
+
   } else if(state.mode === 'cloze'){
     const input = document.getElementById('clozeInput'); const answer = (input && input.value.trim())||'';
     state.userAnswer = answer;
@@ -23344,63 +23566,104 @@ function handleAction(){
     resultArea.innerHTML = ok ? '<div class="result correct">✓ Doğru!</div>' : '<div class="result incorrect">✗ Yanlış!</div>';
     answerArea.innerHTML = `<div class="result"><strong>Sizin:</strong> ${escapeHtml(answer||'(boş)')}</div><div class="result"><strong>Doğru:</strong> ${escapeHtml(correct)}</div>`;
     state.answers.push(!!ok);
-    saveProgress(); // İlerleme kaydedildi
+    saveProgress(); 
     state.showResult=true; btn.textContent = t.buttons.next;
-    btn.onclick = ()=>{ state.index++; state.showAnswer=false; state.showResult=false; renderSentence(sents); };
+    // DÜZELTME 2: Cevap gösterilince ses butonlarını aktif et
+    btnDE.disabled = false; btnDE.classList.remove('disabled');
+    btnTR.disabled = false; btnTR.classList.remove('disabled');
+    // ---
+    btn.onclick = ()=>{ state.dueCardPos++; state.showAnswer=false; state.showResult=false; renderSentence(sents); };
   } else if(state.mode === 'wordorder'){
     const user = state.wordSelected.join(' ').trim();
     const ok = user === state.correctAnswer;
     resultArea.innerHTML = ok ? '<div class="result correct">✓ Doğru!</div>' : '<div class="result incorrect">✗ Yanlış!</div>';
     answerArea.innerHTML = `<div class="result"><strong>Sizin:</strong> ${escapeHtml(user||'(boş)')}</div><div class="result"><strong>Doğru:</strong> ${escapeHtml(state.correctAnswer)}</div>`;
     state.answers.push(!!ok);
-    saveProgress(); // İlerleme kaydedildi
+    saveProgress(); 
     state.showResult=true; btn.textContent = t.buttons.next;
-    btn.onclick = ()=>{ state.index++; state.showAnswer=false; state.showResult=false; state.wordSelected=[]; state.wordPool=[]; renderSentence(sents); };
+    // DÜZELTME 2: Cevap gösterilince ses butonlarını aktif et
+    btnDE.disabled = false; btnDE.classList.remove('disabled');
+    btnTR.disabled = false; btnTR.classList.remove('disabled');
+    // ---
+    btn.onclick = ()=>{ state.dueCardPos++; state.showAnswer=false; state.showResult=false; state.wordSelected=[]; state.wordPool=[]; renderSentence(sents); };
   } else if(state.mode === 'quiz'){
     const input = document.getElementById('quizInput'); const answer = (input && input.value.trim())||'';
     const ok = answer.toLowerCase() === (state.correctAnswer||'').toLowerCase();
     resultArea.innerHTML = ok ? '<div class="result correct">✓ Doğru! +3 Puan</div>' : '<div class="result incorrect">✗ Yanlış!</div>';
     answerArea.innerHTML = `<div class="result"><strong>Sizin:</strong> ${escapeHtml(answer||'(boş)')}</div><div class="result"><strong>Doğru:</strong> ${escapeHtml(state.correctAnswer)}</div>`;
     state.answers.push(ok?3:0);
-    saveProgress(); // İlerleme kaydedildi
+    saveProgress(); 
     state.showResult=true; btn.textContent = t.buttons.next;
-    btn.onclick = ()=>{ state.index++; state.showAnswer=false; state.showResult=false; renderSentence(sents); };
+    // DÜZELTME 2: Cevap gösterilince ses butonlarını aktif et
+    btnDE.disabled = false; btnDE.classList.remove('disabled');
+    btnTR.disabled = false; btnTR.classList.remove('disabled');
+    // ---
+    btn.onclick = ()=>{ state.dueCardPos++; state.showAnswer=false; state.showResult=false; renderSentence(sents); };
   }
 }
 
-function previousQuestion(){ if(state.index>0){ state.index--; state.showAnswer=false; state.showResult=false; renderSentence(getSentences()); } }
+function previousQuestion(){ 
+  // SRS modunda 'önceki' çalışmamalı
+  if (state.mode === 'study') return; 
+
+  if(state.dueCardPos > 0){ 
+      state.dueCardPos--; 
+      state.showAnswer=false; 
+      state.showResult=false; 
+      renderSentence(getSentences()); 
+  } 
+}
+
 function resetLearning(){ 
-  state.index=0; state.showAnswer=false; state.showResult=false; 
-  state.answers=[]; // Sıfırlama işlemi
-  saveProgress(); // LocalStorage'ı da sıfırla
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
-  alert(t.messages.progressReset); 
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+
+  if (state.mode === 'study') {
+      // SRS modu: Sadece mevcut sırayı baştan başlatır.
+      state.dueCardPos = 0;
+      state.dueCards = shuffle(state.dueCards); // İsteğe bağlı: sırayı karıştır
+  } else {
+      // Quiz modu: İlerlemeyi sıfırlar
+      state.dueCardPos = 0;
+      state.answers = []; 
+      saveProgress(); // Quiz ilerlemesini sıfırla
+      alert(t.messages.progressReset); 
+  }
+  state.showAnswer=false; state.showResult=false; 
   renderSentence(getSentences()); 
 }
 
-// YENİ FONKSİYON (v2.8.0)
+
 function goToNextSection(sectionNum) {
     state.section = sectionNum;
-    // state.mode mevcut modda kalır
     startMode(state.mode); 
 }
 
 function showCompletion(total){
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   let correctCount = 0;
-  if(state.mode === 'quiz'){
-    correctCount = state.answers.filter(a=>a>0).length;
-  } else {
-    correctCount = state.answers.filter(a=>a===true).length;
-  }
-  const percent = total===0?0:Math.round((correctCount/total)*100);
+  let scoreHtml = '';
   
-  // --- YENİ (v2.8.0) Sonraki Bölüm Butonu Mantığı ---
+  if (state.mode === 'study') {
+      // SRS modu tamamlandı
+      scoreHtml = `<p style="text-align:center">Bugün için ${total} kartı tekrar ettiniz!</p>`;
+  } else {
+      // Quiz modu tamamlandı
+      if(state.mode === 'quiz'){
+        correctCount = state.answers.filter(a=>a>0).length;
+      } else {
+        correctCount = state.answers.filter(a=>a===true).length;
+      }
+      const percent = total===0?0:Math.round((correctCount/total)*100);
+      scoreHtml = `<div class="score-display">${percent}%</div>
+                   <p style="text-align:center">Başarı: ${correctCount} / ${total}</p>`;
+      saveProgress(); // Quiz ilerlemesini kaydet
+  }
+  
+  // --- Sonraki Bölüm Butonu Mantığı ---
   let nextButtonHtml = '';
   const sectionKeys = Object.keys(data.sections).map(Number).sort((a, b) => a - b);
   const currentSectionIndex = sectionKeys.indexOf(state.section);
   let nextSectionNum = null;
-
   if (currentSectionIndex > -1 && currentSectionIndex < sectionKeys.length - 1) {
       for (let i = currentSectionIndex + 1; i < sectionKeys.length; i++) {
           const potentialNextSec = sectionKeys[i];
@@ -23411,34 +23674,45 @@ function showCompletion(total){
           }
       }
   }
-  
   if (nextSectionNum) {
       nextButtonHtml = `<button class="btn btn-secondary" style="margin-top:10px;" onclick="goToNextSection(${nextSectionNum})">${t.buttons.nextSection} (${data.sections[nextSectionNum]})</button>`;
   }
   // --- Sonraki Bölüm Mantığı Sonu ---
   
   document.getElementById('learningContent').innerHTML = `<div class="content-box"><h3 style="text-align:center">🎉 Tamamladınız!</h3>
-    <div class="score-display">${percent}%</div>
-    <p style="text-align:center">Başarı: ${correctCount} / ${total}</p>
+    ${scoreHtml}
     ${nextButtonHtml} </div>`;
   
-  document.getElementById('actionBtn').textContent='Tekrar Başla'; document.getElementById('actionBtn').onclick = resetLearning;
+  document.getElementById('actionBtn').textContent='Tekrar Başla'; 
+  document.getElementById('actionBtn').onclick = resetLearning;
   
+  // Butonları sıfırla
+  document.getElementById('actionBtn').style.display = 'block';
+  document.getElementById('srsControls').style.display = 'none';
+
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('progressFill').textContent = '100%';
   document.getElementById('progressText').textContent = `${total} / ${total}`;
   
+  // DÜZELTME 2: Tamamlanınca ses butonlarını pasif yap
   document.getElementById('btnPlayDE').disabled = true; document.getElementById('btnPlayDE').classList.add('disabled');
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
-
-  saveProgress(); // Tamamlanma anı kaydedildi
 }
 
 function playCurrentSentence(lang){
   const sentences = getSentences();
-  if (!sentences || sentences.length === 0 || state.index >= sentences.length) return;
+  if (!sentences || sentences.length === 0) return;
+
+  let originalIndex;
+  if (state.mode === 'study') {
+      if (state.dueCardPos >= state.dueCards.length) return;
+      originalIndex = state.dueCards[state.dueCardPos];
+  } else {
+      if (state.dueCardPos >= sentences.length) return;
+      originalIndex = state.dueCardPos;
+  }
   
-  const sent = sentences[state.index];
+  const sent = sentences[originalIndex];
   if (!sent) return;
 
   const text = (lang === 'de') ? sent.de : sent.tr;
@@ -23452,7 +23726,7 @@ function playCurrentSentence(lang){
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(ut);
   } else {
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     alert(t.messages.ttsNotSupported);
   }
 }
@@ -23461,7 +23735,7 @@ function playCurrentSentence(lang){
 function showGroupStory(groupId){
   state.group = groupId; state.groupData = data.groups.find(g=>g.id===groupId) || null;
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
   if(!state.groupData || !state.groupData.story){ alert(t.messages.noStory); return; }
   
   document.getElementById('storyTitle').textContent = state.groupData.story.title || t.titles.story;
@@ -23476,7 +23750,7 @@ function renderStoryContent(){
 
 function playStoryAudio(lang){
   const s = state.groupData && state.groupData.story;
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   
   if(!s){ alert(t.messages.noStoryFound); return; }
   
@@ -23499,7 +23773,7 @@ function showStoryQuestions(){
   const story = state.groupData && state.groupData.story;
   const container = document.getElementById('storyQuestionsContent');
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
 
   container.innerHTML = '';
   if(!story || !story.quiz || !Array.isArray(story.quiz) || story.quiz.length===0){ 
@@ -23535,7 +23809,7 @@ function checkStoryAnswers(){
 function importData(){
   const input = document.getElementById('fileInput');
   input.onchange = async (e)=>{ 
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     try{
       const file = e.target.files[0]; if(!file) return;
       const text = await file.text(); const imported = JSON.parse(text);
@@ -23556,7 +23830,6 @@ function importData(){
         data.translations = defaultTranslations;
       }
       
-      // JSON yüklenince yerel override olarak kaydedilir (v2.7.0)
       saveDataOverride();
       
       alert(`${t.messages.dataLoaded} ${data.groups.length}`);
@@ -23570,39 +23843,44 @@ function importData(){
   input.click();
 }
 function exportData(){
-  // Export edilen veri, her zaman localStorage'daki en güncel (override) veridir (v2.7.0)
   const json = JSON.stringify(data,null,2);
   const blob = new Blob([json],{type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a');
   a.href = url; a.download = 'verbmatrix_data.json'; a.click(); URL.revokeObjectURL(url); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   alert(t.messages.dataExported);
 }
 function debugData(){
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   let msg = `${t.messages.jsonStatus}\n\n`;
   msg += `Gruplar: ${(data.groups||[]).length}\n`;
   msg += `Verbs grup count: ${Object.keys(data.verbs||{}).length}\n`;
   msg += `Content keys: ${Object.keys(data.content||{}).length}\n`;
   msg += `SectionsHints (B#): ${Object.keys((data.sectionsHints||{})).length}\n`;
   msg += `Hints sentences: ${Object.keys((data.hints&&data.hints.sentences)||{}).length}\n`;
+  
+  // SRS Veri F debugging
+  loadSrsData();
+  const srsCount = Object.keys(srsData).length;
+  msg += `\nSRS Veri Kayıtları: ${srsCount}\n`;
+  
   alert(msg);
 }
 function resetProgressStorage(){ 
   state.answers=[]; 
-  saveProgress(); // LocalStorage'ı da sıfırla
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  saveProgress(); 
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   alert(t.messages.progressReset); 
 }
 function loadProgressView(){
-  loadProgress(); // İlerleme verilerini yükle
+  loadProgress(); 
   const total = state.answers.length; const correct = state.answers.filter(a=> a===true || a>0 ).length;
   const percent = total===0?0:Math.round((correct/total)*100);
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   
   if (total === 0) {
     document.getElementById('progressStats').innerHTML = `<p class="small-muted">${t.messages.noProgress}</p>`;
   } else {
-    document.getElementById('progressStats').innerHTML = `<div style="text-align:center"><h3>Genel İlerleme</h3><div class="score-display">${percent}%</div><p>Toplam: ${total} | Doğru: ${correct} | Yanlış: ${total-correct}</p></div>`;
+    document.getElementById('progressStats').innerHTML = `<div style="text-align:center"><h3>Quiz İlerlemesi</h3><div class="score-display">${percent}%</div><p>Toplam: ${total} | Doğru: ${correct} | Yanlış: ${total-correct}</p></div>`;
   }
 }
 
@@ -23610,7 +23888,7 @@ function loadProgressView(){
 function showHintForm(type){
   const area = document.getElementById('hintFormsArea'); area.innerHTML = '';
   const lang = data.settings.language || 'tr';
-  const t = data.translations[lang] || data.translations.tr;
+  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
 
   if(type==='sentence'){
     area.innerHTML = `<div class="content-box"><h4>${t.admin.hintSentence}</h4>
@@ -23648,42 +23926,42 @@ function hf_loadSentences(){ const verbId=document.getElementById('hf_verb').val
 
 function saveSentenceHint(){ 
     const verbId=document.getElementById('hf_verb').value; const section=document.getElementById('hf_section').value; const idx=document.getElementById('hf_sentence').value; const txt=document.getElementById('hf_text').value.trim(); 
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     if(!verbId||!section||idx===''||!txt){ alert(t.messages.allFieldsError); return; } 
     const key = `${verbId}_s${section}_${idx}`; 
     if(!data.hints) data.hints={sentences:{},verbs:{},sections:{}}; 
     data.hints.sentences[key] = txt; alert(t.messages.hintSaved); 
     document.getElementById('hintFormsArea').innerHTML=''; 
     if (state.currentView === 'adminHintView') { showHintManager('hintManagerArea'); }
-    saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+    saveDataOverride(); 
 }
 function vh_loadVerbs(){ const gid=document.getElementById('vh_group').value; const sel=document.getElementById('vh_verb'); sel.innerHTML=''; if(!gid) return; (data.verbs[gid]||[]).forEach(v=>{ const o=document.createElement('option'); o.value=v.id; o.textContent=(v.verbTR||v.verbDE); sel.appendChild(o); }); }
 function saveVerbHint(){ 
     const verbId = document.getElementById('vh_verb').value; const txt = document.getElementById('vh_text').value.trim(); 
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     if(!verbId||!txt){ alert(t.messages.allFieldsError); return; } 
     if(!data.hints) data.hints={sentences:{},verbs:{},sections:{}}; 
     data.hints.verbs[verbId] = txt; alert(t.messages.hintSaved); 
     document.getElementById('hintFormsArea').innerHTML=''; 
     if (state.currentView === 'adminHintView') { showHintManager('hintManagerArea'); }
-    saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+    saveDataOverride(); 
 }
 function saveSectionHint(){ 
     const code=document.getElementById('sh_section_code').value.trim(); const txt=document.getElementById('sh_text').value.trim(); 
-    const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
     if(!code||!txt){ alert(t.messages.allFieldsError); return; } 
     if(!data.sectionsHints) data.sectionsHints={}; 
     data.sectionsHints[code] = txt; alert(t.messages.hintSaved + ': ' + code); 
     document.getElementById('hintFormsArea').innerHTML=''; 
     if (state.currentView === 'adminHintView') { showHintManager('hintManagerArea'); }
-    saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+    saveDataOverride(); 
 }
 
 function adminEditHint(type, key) {
   const area = document.getElementById('hintFormsArea'); 
   area.innerHTML = ''; 
   const hintText = data.hints[type][key];
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
 
   if (type === 'sentences') {
     area.innerHTML = `<div class="content-box"><h4>Cümle İpucu Düzenle (${key})</h4>
@@ -23704,7 +23982,7 @@ function adminEditHint(type, key) {
 function adminEditSectionHint(key) {
   const area = document.getElementById('hintFormsArea');
   const hintText = data.sectionsHints[key];
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>Bölüm İpucu Düzenle (${key})</h4>
     <label>${t.labels.sectionCode}</label><input id="sh_section_code" class="input-field" value="${escapeHtml(key)}" readonly>
     <label>${t.labels.hintText}</label><textarea id="sh_text" class="input-field">${escapeHtml(hintText)}</textarea>
@@ -23721,7 +23999,7 @@ function saveEditedSentenceHint(key) {
   alert('✅ Cümle ipucu güncellendi');
   document.getElementById('hintFormsArea').innerHTML = ''; 
   showHintManager('hintManagerArea'); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function saveEditedVerbHint(key) {
   const txt = document.getElementById('vh_text_edit').value.trim();
@@ -23730,14 +24008,14 @@ function saveEditedVerbHint(key) {
   alert('✅ Fiil ipucu güncellendi');
   document.getElementById('hintFormsArea').innerHTML = ''; 
   showHintManager('hintManagerArea'); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 
 function showHintManager(targetId = 'hintFormsArea'){ 
   const area = document.getElementById(targetId);
   if(!area) { console.error("Hint manager target area not found:", targetId); return; }
   
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   let html = '';
   
   html += '<h5>Cümle İpuçları</h5>'; 
@@ -23781,14 +24059,14 @@ function deleteHint(type,key, targetId){
   if(!confirm('Silinsin mi?')) return; 
   if(data.hints && data.hints[type]) delete data.hints[type][key]; 
   if(targetId) showHintManager(targetId); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
   alert('Silindi'); 
 }
 function deleteSectionHint(key, targetId){ 
   if(!confirm('Genel bölüm ipucunu silmek istediğinize emin misiniz?')) return; 
   if(data.sectionsHints) delete data.sectionsHints[key]; 
   if(targetId) showHintManager(targetId); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
   alert('Silindi'); 
 }
 
@@ -23797,7 +24075,14 @@ function toggleHintPanel(){
     const hintPanelEl = document.getElementById('hintPanel'); 
     
     if(state.hintPanelVisible) {
-        const hintHtml = buildHintHtml(state.verb, state.section, state.index);
+        let originalIndex;
+        if (state.mode === 'study') {
+            originalIndex = state.dueCards[state.dueCardPos];
+        } else {
+            originalIndex = state.dueCardPos;
+        }
+        
+        const hintHtml = buildHintHtml(state.verb, state.section, originalIndex);
         if (hintHtml) {
             hintPanelEl.innerHTML = hintHtml;
             hintPanelEl.style.display = 'block';
@@ -23813,7 +24098,7 @@ function toggleHintPanel(){
 /* ---------- Admin: Add/Edit content ---------- */
 function showAdminAddGroup(){
   const area = document.getElementById('adminContentArea'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addGroup}</h4>
     <label>${t.labels.groupID}</label><input id="adm_group_id" class="input-field">
     <label>${t.labels.groupNameTR}</label><input id="adm_group_name" class="input-field">
@@ -23826,14 +24111,14 @@ function adminSaveGroup(){
   const named = document.getElementById('adm_group_named').value.trim();
   if(!id||!name){ alert('ID ve isim girin'); return; }
   if(data.groups.find(g=>g.id===id)){ alert('Bu ID zaten var'); return; }
-  data.groups.push({id,id,name:name,nameDE:named,story:null});
+  data.groups.push({id:id,name:name,nameDE:named,story:null});
   if(!data.verbs[id]) data.verbs[id]=[];
   alert('Grup eklendi'); document.getElementById('adminContentArea').innerHTML='';
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function showAdminAddVerb(){
   const area = document.getElementById('adminContentArea'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addVerb}</h4>
     <label>${t.labels.group}</label><select id="adm_v_group" class="select-field"></select>
     <label>${t.labels.verbID}</label><input id="adm_v_id" class="input-field">
@@ -23852,11 +24137,11 @@ function adminSaveVerb(){
   if((data.verbs[gid]||[]).find(v=>v.id===vid)){ alert('Bu fiil ID zaten var bu grupta'); return; }
   data.verbs[gid].push({id:vid,verbTR:vtr,verbDE:vde});
   alert('Fiil eklendi'); document.getElementById('adminContentArea').innerHTML='';
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function showAdminEditSentence(){
   const area = document.getElementById('adminContentArea'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>${t.admin.editSentence}</h4>
     <label>${t.labels.group}</label><select id="adm_es_group" class="select-field"></select>
     <label>${t.labels.verb}</label><select id="adm_es_verb" class="select-field"></select>
@@ -23895,7 +24180,7 @@ function adminSaveEditedSentence(){
   data.content[`${verbId}_s${section}`] = arr;
   alert('Cümle güncellendi'); 
   admin_es_loadSentences(); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function adminAddNewSentence(){
   const verbId=document.getElementById('adm_es_verb').value; const section=document.getElementById('adm_es_section').value;
@@ -23905,13 +24190,13 @@ function adminAddNewSentence(){
   data.content[`${verbId}_s${section}`].push({tr,de});
   alert('Yeni cümle eklendi'); 
   admin_es_loadSections(); 
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 
 /* ---------- Admin: Story management ---------- */
 function showAdminAddStory(){
   const area = document.getElementById('adminStoryArea'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addStory}</h4>
     <label>${t.labels.group}</label><select id="adm_story_group" class="select-field"></select>
     <label>${t.labels.title}</label><input id="adm_story_title" class="input-field">
@@ -23928,11 +24213,11 @@ function adminSaveStory(){
   if(!g) { alert('Grup bulunamadı'); return; }
   g.story = {title,de,tr,quiz:[]};
   alert('Hikaye kaydedildi'); document.getElementById('adminStoryArea').innerHTML='';
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function showAdminEditStory(){
   const area = document.getElementById('adminStoryArea'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   area.innerHTML = `<div class="content-box"><h4>${t.admin.editStory}</h4>
     <label>${t.labels.group}</label><select id="adm_esg_group" class="select-field"></select>
     <div class="button-group-row"><button class="btn btn-primary" onclick="adminLoadGroupStory()">Hikayeyi Yükle</button></div>
@@ -23944,7 +24229,7 @@ function adminLoadGroupStory(){
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story){ alert('Bu grupta hikaye yok'); return; }
   const s = g.story;
   const area = document.getElementById('adm_story_edit');
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   
   let html = `<div style="margin-top:8px"><label>${t.labels.title}</label><input id="ae_title" class="input-field" value="${escapeHtml(s.title||'')}">
     <label>${t.labels.deText}</label><textarea id="ae_de" class="input-field" rows="5">${escapeHtml(s.de||'')}</textarea>
@@ -23960,14 +24245,14 @@ function adminSaveEditedStory(gid){
   g.story.de = document.getElementById('ae_de').value.trim();
   g.story.tr = document.getElementById('ae_tr').value.trim();
   alert('Hikaye güncellendi');
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function adminDeleteStory(gid){ if(!confirm('Hikayeyi silmek istediğinize emin misiniz?')) return; const g = data.groups.find(x=>x.id===gid); if(g) { g.story = null; alert('Hikaye silindi'); document.getElementById('adm_story_edit').innerHTML=''; saveDataOverride(); } }
 
 function renderAdminQuizList(gid){
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story) return;
   const list = document.getElementById('ae_quiz_list'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   let html=''; 
   (g.story.quiz||[]).forEach((q,i)=>{ 
     html += `<div class="hint-item"><strong>${i+1}. ${escapeHtml(q.q)}</strong><div style="margin-top:6px">${q.options.map(o=>`<span class="muted">${escapeHtml(o)}</span>`).join(' , ')}</div>
@@ -23981,14 +24266,15 @@ function renderAdminQuizList(gid){
 function adminAddQuiz(gid){
   const q = {q:'Yeni soru', options:['Seçenek1','Seçenek2'], a:'Seçenek1'};
   const g = data.groups.find(x=>x.id===gid); if(!g.story) g.story={title:'',de:'',tr:'',quiz:[]};
+  if(!g.story.quiz) g.story.quiz = []; // Quiz dizisi yoksa oluştur
   g.story.quiz.push(q);
   renderAdminQuizList(gid);
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); 
 }
 function adminEditQuiz(gid, index){
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story) return;
   const q = g.story.quiz[index]; const container=document.getElementById('ae_quiz_list');
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
   const html = `<div class="content-box">
     <h4>Testi Düzenle</h4>
     <label>${t.labels.question}</label><input id="aq_q" class="input-field" value="${escapeHtml(q.q)}">
@@ -24008,145 +24294,155 @@ function adminSaveQuiz(gid,index){
   if(!qtext || opts.length<2 || !a){ alert('Soru, en az 2 seçenek ve doğru cevap gerekli'); return; }
   g.story.quiz[index] = {q:qtext, options:opts, a};
   renderAdminQuizList(gid);
-  saveDataOverride(); // v2.7.0: Kaydetme sonrası override kaydını güncelle
+  saveDataOverride(); // v2.9.0: Değişikliği kaydet
 }
-function adminDeleteQuiz(gid,index){ if(!confirm('Testi sil?')) return; const g = data.groups.find(x=>x.id===gid); if(!g||!g.story) return; g.story.quiz.splice(index,1); renderAdminQuizList(gid); saveDataOverride(); }
+
+function adminDeleteQuiz(gid,index){ 
+    if(!confirm('Testi sil?')) return; 
+    const g = data.groups.find(x=>x.id===gid); 
+    if(!g||!g.story) return; 
+    g.story.quiz.splice(index,1); 
+    renderAdminQuizList(gid); 
+    saveDataOverride(); 
+}
 
 /* ---------- All sentences table ---------- */
 function renderAllSentencesTable(){
-  const container = document.getElementById('allSentencesTable'); 
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
-  let html = `<table><thead><tr><th>${t.labels.group}</th><th>${t.labels.verb}</th><th>${t.labels.section}</th><th>${t.labels.index}</th><th>${t.labels.tr}</th><th>${t.labels.de}</th></tr></thead><tbody>`;
-  Object.entries(data.content||{}).forEach(([key,arr])=>{
-    const m = key.match(/^(.+)_s(\d+)$/);
-    if(!m) return;
-    const vid = m[1]; const sec = m[2];
-    let verbLabel = vid;
-    let groupLabel = '';
-    for(const g of Object.keys(data.verbs||{})){
-      const vs = data.verbs[g]||[];
-      const vv = vs.find(v=>v.id===vid);
-      if(vv){
-        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
-        verbLabel = (vv.verbTR||vv.verbDE) || vid;
-        break;
-      }
-    }
-    (arr||[]).forEach((s,i)=>{
-      html += `<tr><td>${escapeHtml(groupLabel)}</td><td>${escapeHtml(verbLabel)}</td><td>${escapeHtml(data.sections[sec]||sec)}</td><td>${i}</td><td>${escapeHtml(s.tr||'')}</td><td>${escapeHtml(s.de||'')}</td></tr>`;
-    });
-  });
-  html += '</tbody></table>';
-  container.innerHTML = html;
+  const container = document.getElementById('allSentencesTable'); 
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  let html = `<table><thead><tr><th>${t.labels.group}</th><th>${t.labels.verb}</th><th>${t.labels.section}</th><th>${t.labels.index}</th><th>${t.labels.tr}</th><th>${t.labels.de}</th></tr></thead><tbody>`;
+  Object.entries(data.content||{}).forEach(([key,arr])=>{
+    const m = key.match(/^(.+)_s(\d+)$/);
+    if(!m) return;
+    const vid = m[1]; const sec = m[2];
+    let verbLabel = vid;
+    let groupLabel = '';
+    for(const g of Object.keys(data.verbs||{})){
+      const vs = data.verbs[g]||[];
+      const vv = vs.find(v=>v.id===vid);
+      if(vv){
+        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
+        verbLabel = (vv.verbTR||vv.verbDE) || vid;
+        break;
+      }
+    }
+    (arr||[]).forEach((s,i)=>{
+      html += `<tr><td>${escapeHtml(groupLabel)}</td><td>${escapeHtml(verbLabel)}</td><td>${escapeHtml(data.sections[sec]||sec)}</td><td>${i}</td><td>${escapeHtml(s.tr||'')}</td><td>${escapeHtml(s.de||'')}</td></tr>`;
+Z   });
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
 }
 
 /* Export sentences CSV (simple) */
 function exportSentencesCsv(){
-  let rows = [['Grup','Fiil','Bölüm','Index','TR','DE']];
-  Object.entries(data.content||{}).forEach(([key,arr])=>{
-    const m = key.match(/^(.+)_s(\d+)$/);
-    if(!m) return;
-    const vid = m[1]; const sec = m[2];
-    let verbLabel = vid; let groupLabel = '';
-    for(const g of Object.keys(data.verbs||{})){
-      const vs = data.verbs[g]||[];
-       const vv = vs.find(v=>v.id===vid);
-      if(vv){
-        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
-        verbLabel = (vv.verbTR||vv.verbDE) || vid;
-        break;
-      }
-    }
-    (arr||[]).forEach((s,i)=>{
-      rows.push([groupLabel, verbLabel, data.sections[sec]||sec, i, s.tr||'', s.de||'']);
-    });
-  });
-  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
+  let rows = [['Grup','Fiil','Bölüm','Index','TR','DE']];
+  Object.entries(data.content||{}).forEach(([key,arr])=>{
+    const m = key.match(/^(.+)_s(\d+)$/);
+    if(!m) return;
+    const vid = m[1]; const sec = m[2];
+    let verbLabel = vid; let groupLabel = '';
+    for(const g of Object.keys(data.verbs||{})){
+      const vs = data.verbs[g]||[];
+       const vv = vs.find(v=>v.id===vid);
+      if(vv){
+        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
+        verbLabel = (vv.verbTR||vv.verbDE) || vid;
+        break;
+      }
+    }
+    (arr||[]).forEach((s,i)=>{
+      rows.push([groupLabel, verbLabel, data.sections[sec]||sec, i, s.tr||'', s.de||'']);
+    });
+  });
+  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
 }
 
 /* ---------- JSON paste loader ---------- */
 function loadJsonFromTextarea(){
-  const txt = document.getElementById('jsonPaste').value.trim();
-  const t = data.translations[data.settings.language || 'tr'] || data.translations.tr;
-  if(!txt){ alert('JSON yapıştırın'); return; }
-  try{
-    const imported = JSON.parse(txt);
-    
-    const defaultTranslations = JSON.parse(JSON.stringify(data.translations));
+  const txt = document.getElementById('jsonPaste').value.trim();
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  if(!txt){ alert('JSON yapıştırın'); return; }
+  try{
+    const imported = JSON.parse(txt);
+    
+    const defaultTranslations = JSON.parse(JSON.stringify(data.translations));
 
-    data.groups = imported.groups;
-    data.verbs = imported.verbs;
-    data.content = imported.content;
-    if(imported.sections) data.sections = imported.sections;
-    if(imported.sectionsHints) data.sectionsHints = imported.sectionsHints;
-    if(imported.hints) data.hints = imported.hints;
-    if(imported.settings) data.settings = Object.assign(data.settings || {}, imported.settings);
+    data.groups = imported.groups;
+    data.verbs = imported.verbs;
+    data.content = imported.content;
+    if(imported.sections) data.sections = imported.sections;
+    if(imported.sectionsHints) data.sectionsHints = imported.sectionsHints;
+    if(imported.hints) data.hints = imported.hints;
+    if(imported.settings) data.settings = Object.assign(data.settings || {}, imported.settings);
 
-    if (imported.translations) {
-      data.translations = deepMerge(defaultTranslations, imported.translations);
-    } else {
-      data.translations = defaultTranslations;
-    }
-      
-    // JSON yüklendiğinde, bu veriyi yerel override olarak kaydederiz (v2.7.0)
-    saveDataOverride();
+    if (imported.translations) {
+      data.translations = deepMerge(defaultTranslations, imported.translations);
+    } else {
+      data.translations = defaultTranslations;
+    }
+      
+    saveDataOverride();
 
-    alert('✓ Yapıştırılan JSON yüklendi.'); 
-    document.getElementById('jsonPaste').value='';
-    loadSettings(); 
-    showView('mainMenu');
-  } catch(e){ alert(`${t.messages.loadError} ${e.message}`); }
+    alert('✓ Yapıştırılan JSON yüklendi.'); 
+    document.getElementById('jsonPaste').value='';
+    loadSettings(); 
+    showView('mainMenu');
+  } catch(e){ alert(`${t.messages.loadError} ${e.message}`); }
 }
 
 /* ---------- Utils ---------- */
 function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 
 function isObject(item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
+  return (item && typeof item === 'object' && !Array.isArray(item));
 }
 function deepMerge(target, source) {
-  let output = Object.assign({}, target);
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target))
-          Object.assign(output, { [key]: source[key] });
-        else
-          output[key] = deepMerge(target[key], source[key]);
-      } else {
-        Object.assign(output, { [key]: source[key] });
-      }
-    });
-  }
-  return output;
+  let output = Object.assign({}, target);
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach(key => {
+      if (isObject(source[key])) {
+        if (!(key in target))
+          Object.assign(output, { [key]: source[key] });
+        else
+          output[key] = deepMerge(target[key], source[key]);
+      } else {
+        Object.assign(output, { [key]: source[key] });
+      }
+    });
+  }
+  return output;
 }
 
 /* ---------- Init ---------- */
 function init(){
-  // v2.7.0: Override verisini yükle. Bu, veriyi HTML'deki varsayılan verinin üzerine yazar.
-  loadDataOverride();
-  
-  // PWA: SERVICE WORKER REGISTRATION - DOM hazır olunca başla
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  }
+  // v2.7.0: Override verisini yükle.
+  loadDataOverride();
+  
+  // PWA: SERVICE WORKER REGISTRATION
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
 
-  // Event Listener'ları ekle
-  const modeToggleBtn = document.getElementById('modeToggleBtn');
-  if(modeToggleBtn) modeToggleBtn.addEventListener('click', toggleNightMode);
-  
-  const nightModeToggle = document.getElementById('nightModeToggle');
-  if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
+  // Event Listener'ları ekle
+  const modeToggleBtn = document.getElementById('modeToggleBtn');
+  if(modeToggleBtn) modeToggleBtn.addEventListener('click', toggleNightMode);
+  
+  const nightModeToggle = document.getElementById('nightModeToggle');
+  if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
 
-  loadSettings(); 
-  loadProgress(); // Başlangıçta ilerlemeyi yükle
-  console.log('Verb Matrix v2.8.0 (Akış Güncellemesi) hazır.');
-  // state.hintPanelVisible varsayılanı 'false' olarak ayarlandı (v2.8.0)
+  loadSettings(); 
+  loadProgress(); // Quiz ilerlemesini yükle
+  loadSrsData();  // SRS (Çalışma) verisini yükle
+  
+  updateConversionButtons();
+
+  console.log('Verb Matrix v2.9.0 (SRS Modu) hazır.');
 }
 
 // Tüm kodun DOM yüklendikten sonra çalışmasını sağla

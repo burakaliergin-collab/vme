@@ -18,6 +18,7 @@ self.addEventListener('install', event => {
           console.error('Service Worker: Failed to cache resources. Check file paths!', error);
         });
       })
+      .then(() => self.skipWaiting()) // YENİ EKLENDİ: Beklemeyi atla
   );
 });
 
@@ -33,7 +34,7 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim()) // YENİ EKLENDİ: Yönetimi devral
   );
 });
 
@@ -41,7 +42,7 @@ self.addEventListener('fetch', event => {
   // Önbellekte eşleşen kaynak varsa onu döndür, yoksa ağdan almaya çalış.
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true })
-      .then(response => {
+      .then(response =02:09 11.11.2025> {
         if (response) {
           return response;
         }
