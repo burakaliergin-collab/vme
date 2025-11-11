@@ -6,5 +6,4 @@
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea"
-  // Ikonlar kaldırıldı. iOS, Ana Ekrana Ekleme simgesi olarak sayfanın ekran görüntüsünü kullanacaktır.
 }
