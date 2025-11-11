@@ -1,29 +1,28 @@
-const CACHE_NAME = 'verbmatrix-cache-v3'; // Önbellek sürümü v3'e yükseltildi
+const CACHE_NAME = 'verbmatrix-cache-v4'; // Önbellek sürümü v4'e yükseltildi
 const CACHE_URLS = [
-  '/', 
-  '/index.html',
-  '/manifest.json'
-  // Yalnızca kesin var olan dosyalar listelendi.
+  './', 
+  'index.html',
+  'manifest.json'
+  // Sadece kesin var olan dosyalar listelendi.
 ];
 
 self.addEventListener('install', event => {
-  console.log('Service Worker: Installing cache V3...');
+  console.log('Service Worker: Installing cache V4...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
         return cache.addAll(CACHE_URLS).then(() => {
           console.log('Service Worker: Required resources successfully cached.');
         }).catch(error => {
-          // Bu hata artık oluşmamalı, ama oluşursa bile SW'nin kurulumu devam edebilir.
           console.error('Service Worker: Failed to cache resources. Check file paths!', error);
         });
       })
-      .then(() => self.skipWaiting()) // YENİ EKLENDİ: Beklemeyi atla
+      .then(() => self.skipWaiting()) // Beklemeyi atla
   );
 });
 
 self.addEventListener('activate', event => {
-  console.log('Service Worker: Activating V3 and clearing old caches...');
+  console.log('Service Worker: Activating V4 and clearing old caches...');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -34,19 +33,39 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    }).then(() => self.clients.claim()) // YENİ EKLENDİ: Yönetimi devral
+    }).then(() => self.clients.claim()) // Yönetimi devral
   );
 });
 
 self.addEventListener('fetch', event => {
   // Önbellekte eşleşen kaynak varsa onu döndür, yoksa ağdan almaya çalış.
   event.respondWith(
-    caches.match(event.request, { ignoreSearch: true })
-      .then(response =02:09 11.11.2025> {
+    caches.match(event.request)
+      .then(response => {
+        // Cache'te varsa döndür
         if (response) {
           return response;
         }
-        return fetch(event.request);
+        
+        // Cache'te yoksa network'ten al
+        return fetch(event.request).then(
+          (response) => {
+            // Yanıtı kontrol et
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // Yanıtı klonla. Bir klonu cache'e, diğeri tarayıcıya
+            var responseToCache = response.clone();
+
+            caches.open(CACHE_NAME)
+              .then(cache => {
+                cache.put(event.request, responseToCache);
+              });
+
+            return response;
+          }
+        );
       })
-  );
+    );
 });
