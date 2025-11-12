@@ -26863,7 +26863,7 @@ function init(){
   if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
 
   // --- YENİ: Müzik Çaları Başlat ve Event Listener Ekle ---
-  const streamURL = 'https://stream.publicdomainradio.org/classical.mp3';
+  const streamURL = 'http://radio.musopen.org/musopen-stream.mp3';
   musicPlayer = new MusicPlayer(streamURL, 'musicVolumeSlider', 'musicToggleBtn');
   
   const musicBtn = document.getElementById('musicToggleBtn');
