@@ -21,10 +21,10 @@
   .container{max-width:1200px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);transition:background .25s,color .25s}
   header{text-align:center;margin-bottom:18px}
   .subtitle{color:#6b7280;margin-top:6px}
-  
+   
   /* Bölüm Başlığı */
   .section-title{font-size:1.25rem;color:#2d3748;margin:16px 0 10px;padding-bottom:8px;border-bottom:3px solid #667eea;font-weight:700}
-  
+   
   /* MODU SEÇ için büyük, ortalanmış stil */
   .large-centered-title {
     text-align: center;
@@ -34,19 +34,19 @@
     margin: 24px 0;
     text-transform: uppercase;
   }
-  
+   
   .button-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:12px 0}
-  
+   
   /* GRUP SEÇİM BAŞLIKLARI */
   .group-select-header { text-align: center; margin-bottom: 24px; padding-top: 18px; }
   .group-select-header h2 { font-size: 2.5rem; color: #2d3748; font-weight: 800; letter-spacing: 2px; margin-bottom: 18px; }
   .group-select-columns { display: flex; justify-content: space-between; margin-bottom: 12px; }
   .group-column-title { font-size: 1.4rem; color: #2d3748; font-weight: 700; display: inline-block; padding: 0 10px 8px; border-bottom: 3px solid #667eea; }
-  
+   
   /* --- GENEL BUTON STİLLERİ --- */
   .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer; color:#fff}
   .btn-small{padding:8px 10px;font-size:.9rem}
-  
+   
   /* YENİ: PASTEL RENKLER VE BUTON STANDARTLAŞTIRMASI */
   .btn-danger {
     background: #f56565; /* Kırmızı kalacak */
@@ -63,7 +63,7 @@
   .btn-pastel:hover, .btn-primary:hover, .btn-secondary:hover, .btn-info:hover, .btn-warning:hover {
     background: #949daf;
   }
-  
+   
   /* Çalışma Sayfası Buton Gridi */
   .button-grid-learning { 
       display: grid; 
@@ -78,15 +78,15 @@
       font-size: 0.9rem;
       font-weight: 700;
   }
-  
+   
   .btn.disabled, .btn:disabled{background:#cbd5e1;color:#718096;cursor:not-allowed;opacity:0.7}
-  
+   
   .hidden { display: none; }
-  
+   
   .view{display:none}
   .view.active{display:block;animation:slideIn .18s ease}
   @keyframes slideIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  
+   
   .group-story-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
   .button-group-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 
@@ -113,13 +113,13 @@
   .progress-container{margin:12px 0}
   .progress-bar{height:28px;background:#e6eefc;border-radius:14px;overflow:hidden}
   .progress-fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);width:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800; transition: width .2s;}
-  
+   
   /* Öğrenme içeriği ortalandı ve büyütüldü */
   .sentence{padding:12px;border-radius:8px;background:#fff;border-left:4px solid #667eea;margin:10px 0;font-weight:700;color:#0f1724; text-align: center;}
-  
+   
   #learningContent .sentence { font-size: 1.6rem; line-height: 1.4; }
   #learningContent #answerDisplay.sentence { font-size: 1.3rem; line-height: 1.4; background: #f0f4f8; }
-  
+   
   /* YENİ: Kelime Sıralama (WordOrder) Modunda dikey sıralama için flex-direction column kullanıldı */
   .word-order-area {
     display: flex;
@@ -138,7 +138,7 @@
     border-radius: 8px;
     padding: 8px;
   }
-  
+   
   .word-item{display:inline-block;padding:8px 12px;border-radius:8px;background:#667eea;color:#fff;margin:6px;cursor:pointer;user-select:none}
   .word-item.top{background:#10b981}
   .word-item.disabled{background:#cbd5e1;color:#2d3748;cursor:not-allowed}
@@ -147,7 +147,7 @@
   .result{padding:10px;border-radius:8px;margin:8px 0;font-weight:700}
   .result.correct{background:#c6f6d5;color:#22543d;border-left:4px solid #48bb78}
   .result.incorrect{background:#fed7d7;color:#742a2a;border-left:4px solid #f56565}
-  
+   
   /* GECE MODU */
   body.night-mode{background:linear-gradient(135deg,#0f1724 0%,#071226 100%);color:#e6eef8}
   body.night-mode .container{background:#071226;color:#e6eef8;box-shadow:none}
@@ -161,7 +161,7 @@
   body.night-mode .word-item{background:#3b82f6;color:#fff}
   body.night-mode .word-item.top{background:#10b981}
   body.night-mode .hint-item{background:#052033;color:#c8ecff;border-left-color:#3b82f6}
-  
+   
   /* GECE MODU PASTEL RENKLER */
   body.night-mode .btn-pastel, body.night-mode .btn-primary, body.night-mode .btn-secondary, body.night-mode .btn-info, body.night-mode .btn-warning {
     background: #334155; 
@@ -174,7 +174,7 @@
   body.night-mode .btn.disabled, body.night-mode .btn:disabled {background:#1f2937;color:#4b5563;}
   body.night-mode .toggle-hint-btn{ background:#1f2937 }
   body.night-mode .group-story-grid .btn .small-muted { color: #9ca3af; }
-  
+   
   @media(max-width:768px){.container{padding:14px}}
 
   /* --- Müzik Çalar Stilleri --- */
@@ -282,11 +282,11 @@
     <h2 class="large-centered-title" data-translate-key="titles.modeSelect">MODU SEÇ</h2>
     
     <div class="content-box" style="margin-bottom: 20px;">
-        <h4 style="margin-bottom: 10px;">Çeviri Yönünü Seçin:</h4>
-        <div class="button-group-row">
-            <button class="btn btn-primary" id="modeTRDE" onclick="setConversionMode('tr-de')">🇹🇷 TR → DE 🇩🇪</button>
-            <button class="btn btn-info" id="modeDETR" onclick="setConversionMode('de-tr')">🇩🇪 DE → TR 🇹🇷</button>
-        </div>
+      <h4 style="margin-bottom: 10px;">Çeviri Yönünü Seçin:</h4>
+      <div class="button-group-row">
+        <button class="btn btn-primary" id="modeTRDE" onclick="setConversionMode('tr-de')">🇹🇷 TR → DE 🇩🇪</button>
+        <button class="btn btn-info" id="modeDETR" onclick="setConversionMode('de-tr')">🇩🇪 DE → TR 🇹🇷</button>
+      </div>
     </div>
 
     <div id="modeButtons" class="button-grid"></div>
@@ -520,13 +520,14 @@
 
 <script>
 /* ===============================
-   Verb Matrix — v2.9.2 (Final Güncelleme)
-   - Pastel butonlar, tek tip boyut ve hizalama uygulandı.
-   - TTS hız (Yavaş/Normal) ve Durdurma/Oynatma (Pause) kontrolleri eklendi.
-   - Kelime Sıralama (WordOrder) mantığı DİKEY sıralama için düzeltildi.
-   - SRS Aralıkları revize edildi.
-   - Çalışma sayfalarında logo gizlendi.
-   =============================== */
+    Verb Matrix — v2.9.2 (Final Güncelleme)
+    - Pastel butonlar, tek tip boyut ve hizalama uygulandı.
+    - TTS hız (Yavaş/Normal) ve Durdurma/Oynatma (Pause) kontrolleri eklendi.
+    - Kelime Sıralama (WordOrder) mantığı DİKEY sıralama için düzeltildi.
+    - SRS Aralıkları revize edildi.
+    - Çalışma sayfalarında logo gizlendi.
+    - **TTS Düzeltmesi (v2.9.3): iOS/iPadOS için Almanca dil ataması iyileştirildi.**
+    =============================== */
 
 /* ---------------- Demo / default data (replace with your JSON) --------------- */
 let data = {
@@ -700,8 +701,8 @@ let data = {
       // NOT: Diğer çeviriler eksik, ancak bu kadarı çalışması için yeterli.
     },
     en: { // YENİ: İngilizce çeviriler eklendi
-       app: { subtitle: 'German Learning Platform with Verbs' },
-       menu: { 
+        app: { subtitle: 'German Learning Platform with Verbs' },
+        menu: { 
         start: 'START', 
         settings: '⚙️ Settings', 
         progress: '📊 Progress', 
@@ -1343,7 +1344,7 @@ function buildHintHtml(verbId, sectionNum, sentenceIndex){
     html += `<div class="hint-item"><strong>İpucu (Fiil):</strong> ${escapeHtml(data.hints.verbs[verbId])}</div>`;
   }
   if(data.sectionsHints && data.sectionsHints[secCode]) {
-     html += `<div class="hint-item"><strong>İpucu (Genel Bölüm):</strong> ${escapeHtml(data.sectionsHints[secCode])}</div>`;
+      html += `<div class="hint-item"><strong>İpucu (Genel Bölüm):</strong> ${escapeHtml(data.sectionsHints[secCode])}</div>`;
   }
   
   return html;
@@ -1396,7 +1397,7 @@ function renderSentence(sentences){
 
   if(state.mode === 'study'){
     container.innerHTML = `<div class="sentence"><strong>${questionLang}:</strong> ${escapeHtml(questionText)}</div>
-                           <div id="answerDisplay" class="sentence hidden"><strong>${answerLang}:</strong> ${escapeHtml(answerText)}</div>`;
+                             <div id="answerDisplay" class="sentence hidden"><strong>${answerLang}:</strong> ${escapeHtml(answerText)}</div>`;
   } else if(state.mode === 'cloze'){
     const words = sent.de.split(/\s+/).filter(Boolean);
     const idx = Math.floor(Math.random()*words.length);
@@ -1404,8 +1405,8 @@ function renderSentence(sentences){
     words[idx] = '_____';
     state.correctAnswer = correct;
     container.innerHTML = `<div class="sentence"><b>TR:</b> ${escapeHtml(sent.tr)}</div>
-                           <div class="sentence"><b>DE:</b> ${escapeHtml(words.join(' '))}</div>
-                           <input id="clozeInput" class="input-field" placeholder="${t.placeholders?.cloze || 'Boşluğu doldurun...'}">`;
+                             <div class="sentence"><b>DE:</b> ${escapeHtml(words.join(' '))}</div>
+                             <input id="clozeInput" class="input-field" placeholder="${t.placeholders?.cloze || 'Boşluğu doldurun...'}">`;
   } else if(state.mode === 'wordorder'){
     const words = sent.de.split(/\s+/).filter(Boolean);
     
@@ -1418,15 +1419,15 @@ function renderSentence(sentences){
     
     // YENİ: Satırları DİKEY sırada (TR -> Karışık -> Seçilen) göster
     container.innerHTML = `<div class="sentence"><b>TR:</b> ${escapeHtml(sent.tr)}</div>
-                           <div class="word-order-area">
-                             <div class="word-pool"><strong>Karışık Kelimeler:</strong><div id="wordPoolArea"></div></div>
-                             <div class="word-selected"><strong>Düzenleme Satırı:</strong><div id="wordSelectedArea"></div></div>
-                           </div>`;
+                             <div class="word-order-area">
+                               <div class="word-pool"><strong>Karışık Kelimeler:</strong><div id="wordPoolArea"></div></div>
+                               <div class="word-selected"><strong>Düzenleme Satırı:</strong><div id="wordSelectedArea"></div></div>
+                             </div>`;
     renderWordOrder();
   } else if(state.mode === 'quiz'){
     state.correctAnswer = answerText; 
     container.innerHTML = `<div class="sentence"><b>${questionLang}:</b> ${escapeHtml(questionText)}</div>
-                           <input id="quizInput" class="input-field" placeholder="${t.placeholders?.[placeholderKey] || 'Çeviriyi yazın...'}">`;
+                             <input id="quizInput" class="input-field" placeholder="${t.placeholders?.[placeholderKey] || 'Çeviriyi yazın...'}">`;
   }
   
   if(hintHtml && state.hintPanelVisible){ 
@@ -1734,62 +1735,72 @@ function showCompletion(total){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 
-// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi
+// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi (ve iOS Dil Ataması Düzeltildi)
 function playCurrentSentence(lang){
-  resetSpeechButtons(); 
+    resetSpeechButtons(); 
 
-  const sentences = getSentences();
-  if (!sentences || sentences.length === 0) return;
+    const sentences = getSentences();
+    if (!sentences || sentences.length === 0) return;
 
-  let originalIndex;
-  if (state.mode === 'study') {
-      if (state.dueCardPos >= state.dueCards.length) return;
-      originalIndex = state.dueCards[state.dueCardPos];
-  } else {
-      if (state.dueCardPos >= sentences.length) return;
-      originalIndex = state.dueCardPos;
-  }
-  
-  const sent = sentences[originalIndex];
-  if (!sent) return;
-
-  const text = (lang === 'de') ? sent.de : sent.tr;
-  const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
-  
-  if (!text) return; 
-
-  if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
-    musicPlayer.dim_music(true);
-  }
-
-  if('speechSynthesis' in window){
-    speechUtterance = new SpeechSynthesisUtterance(text);
-    speechUtterance.lang = langCode;
-    speechUtterance.rate = state.speechRate; 
-
-    speechUtterance.onend = function() {
-      if (musicPlayer && musicPlayer.isPlaying) {
-        musicPlayer.dim_music(false);
-      }
-      resetSpeechButtons();
-    };
-    speechUtterance.onerror = function() {
-      if (musicPlayer && musicPlayer.isPlaying) {
-        musicPlayer.dim_music(false);
-      }
-      resetSpeechButtons();
-    };
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speechUtterance);
-  } else {
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
-    alert(t.messages.ttsNotSupported);
-    
-    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
-      musicPlayer.dim_music(false);
+    let originalIndex;
+    if (state.mode === 'study') {
+        if (state.dueCardPos >= state.dueCards.length) return;
+        originalIndex = state.dueCards[state.dueCardPos];
+    } else {
+        if (state.dueCardPos >= sentences.length) return;
+        originalIndex = state.dueCardPos;
     }
-  }
+    
+    const sent = sentences[originalIndex];
+    if (!sent) return;
+
+    const text = (lang === 'de') ? sent.de : sent.tr;
+    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR'; // Standart BCP 47 dil kodu
+    
+    if (!text) return; 
+
+    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+        musicPlayer.dim_music(true);
+    }
+
+    if('speechSynthesis' in window){
+        speechUtterance = new SpeechSynthesisUtterance(text);
+        
+        // KRİTİK: Dili açıkça belirt
+        speechUtterance.lang = langCode;
+        
+        // İSTEĞE BAĞLI: Doğru sesi bulup atamaya çalış (iOS/iPadOS için ek güvence)
+        const voices = window.speechSynthesis.getVoices();
+        const targetVoice = voices.find(voice => voice.lang.toLowerCase() === langCode.toLowerCase());
+        if (targetVoice) {
+            speechUtterance.voice = targetVoice;
+        }
+
+        speechUtterance.rate = state.speechRate; 
+
+        speechUtterance.onend = function() {
+            if (musicPlayer && musicPlayer.isPlaying) {
+                musicPlayer.dim_music(false);
+            }
+            resetSpeechButtons();
+        };
+        speechUtterance.onerror = function() {
+            if (musicPlayer && musicPlayer.isPlaying) {
+                musicPlayer.dim_music(false);
+            }
+            resetSpeechButtons();
+        };
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(speechUtterance);
+    } else {
+        const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+        alert(t.messages.ttsNotSupported);
+        
+        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+            musicPlayer.dim_music(false);
+        }
+    }
 }
 
 /* ---------- Story functions ---------- */
@@ -1806,54 +1817,64 @@ function showGroupStory(groupId){
 function renderStoryContent(){
   const sc = document.getElementById('storyContent'); const s = state.groupData.story;
   sc.innerHTML = `<div class="story-section"><h3>Almanca</h3><div class="story-content">${escapeHtml(s.de||'').replace(/\n/g,'<br>')}</div></div>
-                  <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
+                   <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
 }
 
-// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi
+// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi (ve iOS Dil Ataması Düzeltildi)
 function playStoryAudio(lang){
-  resetSpeechButtons(); 
+    resetSpeechButtons(); 
 
-  const s = state.groupData && state.groupData.story;
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
-  
-  if(!s){ alert(t.messages.noStoryFound); return; }
-  
-  const text = (lang === 'de') ? s.de : s.tr;
-  const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
-  
-  if(!text) return;
-
-  if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
-    musicPlayer.dim_music(true);
-  }
-
-  if('speechSynthesis' in window){
-    speechUtterance = new SpeechSynthesisUtterance(text);
-    speechUtterance.lang = langCode;
-    speechUtterance.rate = state.speechRate; 
-
-    speechUtterance.onend = function() {
-      if (musicPlayer && musicPlayer.isPlaying) {
-        musicPlayer.dim_music(false);
-      }
-      resetSpeechButtons();
-    };
-    speechUtterance.onerror = function() {
-      if (musicPlayer && musicPlayer.isPlaying) {
-        musicPlayer.dim_music(false);
-      }
-      resetSpeechButtons();
-    };
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speechUtterance);
-  } else {
-    alert(t.messages.ttsNotSupported);
+    const s = state.groupData && state.groupData.story;
+    const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+    
+    if(!s){ alert(t.messages.noStoryFound); return; }
+    
+    const text = (lang === 'de') ? s.de : s.tr;
+    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR'; // Standart BCP 47 dil kodu
+    
+    if(!text) return;
 
     if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
-      musicPlayer.dim_music(false);
+        musicPlayer.dim_music(true);
     }
-  }
+
+    if('speechSynthesis' in window){
+        speechUtterance = new SpeechSynthesisUtterance(text);
+        
+        // KRİTİK: Dili açıkça belirt
+        speechUtterance.lang = langCode;
+        
+        // İSTEĞE BAĞLI: Doğru sesi bulup atamaya çalış (iOS/iPadOS için ek güvence)
+        const voices = window.speechSynthesis.getVoices();
+        const targetVoice = voices.find(voice => voice.lang.toLowerCase() === langCode.toLowerCase());
+        if (targetVoice) {
+            speechUtterance.voice = targetVoice;
+        }
+        
+        speechUtterance.rate = state.speechRate; 
+
+        speechUtterance.onend = function() {
+            if (musicPlayer && musicPlayer.isPlaying) {
+                musicPlayer.dim_music(false);
+            }
+            resetSpeechButtons();
+        };
+        speechUtterance.onerror = function() {
+            if (musicPlayer && musicPlayer.isPlaying) {
+                musicPlayer.dim_music(false);
+            }
+            resetSpeechButtons();
+        };
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(speechUtterance);
+    } else {
+        alert(t.messages.ttsNotSupported);
+
+        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+            musicPlayer.dim_music(false);
+        }
+    }
 }
 
 function showStoryQuestions(){
@@ -2383,7 +2404,7 @@ function adminSaveQuiz(gid,index){
   if(!qtext || opts.length<2 || !a){ alert('Soru, en az 2 seçenek ve doğru cevap gerekli'); return; }
   g.story.quiz[index] = {q:qtext, options:opts, a};
   renderAdminQuizList(gid);
-  saveDataOverride(); 
+  saveDataOverride(); 
 }
 
 function adminDeleteQuiz(gid,index){ 
@@ -2397,89 +2418,89 @@ function adminDeleteQuiz(gid,index){
 
 /* ---------- All sentences table ---------- */
 function renderAllSentencesTable(){
-  const container = document.getElementById('allSentencesTable'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
-  let html = `<table><thead><tr><th>${t.labels.group}</th><th>${t.labels.verb}</th><th>${t.labels.section}</th><th>${t.labels.index}</th><th>${t.labels.tr}</th><th>${t.labels.de}</th></tr></thead><tbody>`;
-  Object.entries(data.content||{}).forEach(([key,arr])=>{
-    const m = key.match(/^(.+)_s(\d+)$/);
-    if(!m) return;
-    const vid = m[1]; const sec = m[2];
-    let verbLabel = vid;
-  
-    let groupLabel = '';
-    for(const g of Object.keys(data.verbs||{})){
-      const vs = data.verbs[g]||[];
-      const vv = vs.find(v=>v.id===vid);
-      if(vv){
-        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
-        verbLabel = (vv.verbTR||vv.verbDE) || vid;
-        break;
-      }
-    }
-    (arr||[]).forEach((s,i)=>{
-      html += `<tr><td>${escapeHtml(groupLabel)}</td><td>${escapeHtml(verbLabel)}</td><td>${escapeHtml(data.sections[sec]||sec)}</td><td>${i}</td><td>${escapeHtml(s.tr||'')}</td><td>${escapeHtml(s.de||'')}</td></tr>`;
-    });
-  });
-  html += '</tbody></table>';
-  container.innerHTML = html;
+  const container = document.getElementById('allSentencesTable'); 
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  let html = `<table><thead><tr><th>${t.labels.group}</th><th>${t.labels.verb}</th><th>${t.labels.section}</th><th>${t.labels.index}</th><th>${t.labels.tr}</th><th>${t.labels.de}</th></tr></thead><tbody>`;
+  Object.entries(data.content||{}).forEach(([key,arr])=>{
+    const m = key.match(/^(.+)_s(\d+)$/);
+    if(!m) return;
+    const vid = m[1]; const sec = m[2];
+    let verbLabel = vid;
+  
+    let groupLabel = '';
+    for(const g of Object.keys(data.verbs||{})){
+      const vs = data.verbs[g]||[];
+      const vv = vs.find(v=>v.id===vid);
+      if(vv){
+        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
+        verbLabel = (vv.verbTR||vv.verbDE) || vid;
+        break;
+      }
+    }
+    (arr||[]).forEach((s,i)=>{
+      html += `<tr><td>${escapeHtml(groupLabel)}</td><td>${escapeHtml(verbLabel)}</td><td>${escapeHtml(data.sections[sec]||sec)}</td><td>${i}</td><td>${escapeHtml(s.tr||'')}</td><td>${escapeHtml(s.de||'')}</td></tr>`;
+    });
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
 }
 
 /* Export sentences CSV (simple) */
 function exportSentencesCsv(){
-  let rows = [['Grup','Fiil','Bölüm','Index','TR','DE']];
-  Object.entries(data.content||{}).forEach(([key,arr])=>{
-    const m = key.match(/^(.+)_s(\d+)$/);
-    if(!m) return;
-    const vid = m[1]; const sec = m[2];
-    let verbLabel = vid; let groupLabel = '';
-    for(const g of Object.keys(data.verbs||{})){
-      const vs = data.verbs[g]||[];
-       const vv = vs.find(v=>v.id===vid);
-      if(vv){
-        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
-        verbLabel = (vv.verbTR||vv.verbDE) || vid;
-        break;
-      }
-    }
-    (arr||[]).forEach((s,i)=>{
-      rows.push([groupLabel, verbLabel, data.sections[sec]||sec, i, s.tr||'', s.de||'']);
-    });
-  });
-  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
+  let rows = [['Grup','Fiil','Bölüm','Index','TR','DE']];
+  Object.entries(data.content||{}).forEach(([key,arr])=>{
+    const m = key.match(/^(.+)_s(\d+)$/);
+    if(!m) return;
+    const vid = m[1]; const sec = m[2];
+    let verbLabel = vid; let groupLabel = '';
+    for(const g of Object.keys(data.verbs||{})){
+      const vs = data.verbs[g]||[];
+        const vv = vs.find(v=>v.id===vid);
+      if(vv){
+        groupLabel = (data.groups.find(x=>x.id===g)||{}).name || g;
+        verbLabel = (vv.verbTR||vv.verbDE) || vid;
+        break;
+      }
+    }
+    (arr||[]).forEach((s,i)=>{
+      rows.push([groupLabel, verbLabel, data.sections[sec]||sec, i, s.tr||'', s.de||'']);
+    });
+  });
+  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
 }
 
 /* ---------- JSON paste loader ---------- */
 function loadJsonFromTextarea(){
-  const txt = document.getElementById('jsonPaste').value.trim();
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
-  if(!txt){ alert('JSON yapıştırın'); return; }
-  try{
-    const imported = JSON.parse(txt);
-    
-    const defaultTranslations = JSON.parse(JSON.stringify(data.translations));
+  const txt = document.getElementById('jsonPaste').value.trim();
+  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  if(!txt){ alert('JSON yapıştırın'); return; }
+  try{
+    const imported = JSON.parse(txt);
+    
+    const defaultTranslations = JSON.parse(JSON.stringify(data.translations));
 
-    data.groups = imported.groups;
-    data.verbs = imported.verbs;
-    data.content = imported.content;
-    if(imported.sections) data.sections = imported.sections;
-    if(imported.sectionsHints) data.sectionsHints = imported.sectionsHints;
-    if(imported.hints) data.hints = imported.hints;
-    if(imported.settings) data.settings = Object.assign(data.settings || {}, imported.settings);
+    data.groups = imported.groups;
+    data.verbs = imported.verbs;
+    data.content = imported.content;
+    if(imported.sections) data.sections = imported.sections;
+    if(imported.sectionsHints) data.sectionsHints = imported.sectionsHints;
+    if(imported.hints) data.hints = imported.hints;
+    if(imported.settings) data.settings = Object.assign(data.settings || {}, imported.settings);
 
-    if (imported.translations) {
-      data.translations = deepMerge(defaultTranslations, imported.translations);
-    } else {
-      data.translations = defaultTranslations;
-    }
-      
-    saveDataOverride();
+    if (imported.translations) {
+      data.translations = deepMerge(defaultTranslations, imported.translations);
+    } else {
+      data.translations = defaultTranslations;
+    }
+      
+    saveDataOverride();
 
-    alert('✓ Yapıştırılan JSON yüklendi.'); 
-    document.getElementById('jsonPaste').value='';
-    loadSettings(); 
-    showView('mainMenu');
-  } catch(e){ alert(`${t.messages.loadError} ${e.message}`); }
+    alert('✓ Yapıştırılan JSON yüklendi.'); 
+    document.getElementById('jsonPaste').value='';
+    loadSettings(); 
+    showView('mainMenu');
+  } catch(e){ alert(`${t.messages.loadError} ${e.message}`); }
 }
 
 
@@ -2577,43 +2598,43 @@ function parseAndImportTsv() {
 function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 
 function isObject(item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
+  return (item && typeof item === 'object' && !Array.isArray(item));
 }
 function deepMerge(target, source) {
-  let output = Object.assign({}, target);
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target))
-          Object.assign(output, { [key]: source[key] });
-        else
-          output[key] = deepMerge(target[key], source[key]);
-      } else {
-        Object.assign(output, { [key]: source[key] });
-      }
-    });
-  }
-  return output;
+  let output = Object.assign({}, target);
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach(key => {
+      if (isObject(source[key])) {
+        if (!(key in target))
+          Object.assign(output, { [key]: source[key] });
+        else
+          output[key] = deepMerge(target[key], source[key]);
+      } else {
+        Object.assign(output, { [key]: source[key] });
+      }
+    });
+  }
+  return output;
 }
 
 /* ---------- Init ---------- */
 function init(){
-  loadDataOverride();
-  
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      console.log('ServiceWorker registration failed: ', err);
-    }); 
-  }
+  loadDataOverride();
+  
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      console.log('ServiceWorker registration failed: ', err);
+    }); 
+  }
 
-  // Event Listener'ları ekle
-  const modeToggleBtn = document.getElementById('modeToggleBtn');
-  if(modeToggleBtn) modeToggleBtn.addEventListener('click', toggleNightMode);
-  
-  const nightModeToggle = document.getElementById('nightModeToggle');
-  if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
+  // Event Listener'ları ekle
+  const modeToggleBtn = document.getElementById('modeToggleBtn');
+  if(modeToggleBtn) modeToggleBtn.addEventListener('click', toggleNightMode);
+  
+  const nightModeToggle = document.getElementById('nightModeToggle');
+  if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
 
   // --- Müzik Çaları Başlat (Yerel MP3) ---
   const streamURL = './telifsiz-klasik.mp3'; 
@@ -2634,13 +2655,13 @@ function init(){
   }
   // --- Müzik Çalar Kodu SONU ---
 
-  loadSettings(); 
-  loadProgress(); 
-  loadSrsData();  
-  
-  updateConversionButtons();
+  loadSettings(); 
+  loadProgress(); 
+  loadSrsData();  
+  
+  updateConversionButtons();
 
-  console.log('Verb Matrix v2.9.2 (Final Güncelleme) hazır.');
+  console.log('Verb Matrix v2.9.2 (Final Güncelleme) hazır.');
 }
 
 window.addEventListener('DOMContentLoaded', init);
