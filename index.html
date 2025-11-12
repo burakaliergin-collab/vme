@@ -26858,7 +26858,7 @@ function init(){
   if(nightModeToggle) nightModeToggle.addEventListener('change', toggleNightMode);
 
   // --- YENİ: Müzik Çaları Başlat ve Event Listener Ekle ---
-  const streamURL = 'http://relay.publicdomainradio.org/classical.mp3';
+  const streamURL = 'https://stream.publicdomainradio.org/classical.mp3';
   musicPlayer = new MusicPlayer(streamURL, 'musicVolumeSlider', 'musicToggleBtn');
   
   const musicBtn = document.getElementById('musicToggleBtn');
