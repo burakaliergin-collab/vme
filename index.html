@@ -25059,6 +25059,11 @@ class MusicPlayer {
       if (this.toggleBtn) this.toggleBtn.textContent = '🔊';
       console.log("Müzik duraklatıldı.");
     } else {
+      // YENİ SATIR:
+      // Canlı yayın (stream) olduğu için, play() demeden önce load() çağırmak
+      // tarayıcıyı kaynağı yeniden yüklemeye zorlar ve bu hatayı çözer.
+      this.audio.load();
+      
       // Telifsiz yayını yüklemeyi dene
       this.audio.play().then(() => {
         this.isPlaying = true;
