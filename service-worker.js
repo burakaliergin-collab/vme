@@ -1,13 +1,13 @@
-const CACHE_NAME = 'verbmatrix-cache-v8'; // Önbellek sürümü v8'e yükseltildi
+const CACHE_NAME = 'verbmatrix-cache-v8'; // Önbellek sürümü v8
 const CACHE_URLS = [
   './', 
   'index.html',
   'manifest.json',
   'favicon.ico',
-  'logo.png',          // Yeni eklenen logo
-  'icon-192.png',      // PWA ikonu
-  'icon-512.png',      // PWA ikonu
-  './telifsiz-klasik.mp3' // Yeni eklenen müzik dosyası
+  'logo.png',
+  'icon-192.png',
+  'icon-512.png',
+  './telifsiz-klasik.mp3' // Yerel müzik dosyası
 ];
 
 self.addEventListener('install', event => {
@@ -21,7 +21,7 @@ self.addEventListener('install', event => {
           console.error('Service Worker: Failed to cache resources. Check file paths!', error);
         });
       })
-      .then(() => self.skipWaiting()) // Beklemeyi atla
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -37,45 +37,32 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    }).then(() => self.clients.claim()) // Yönetimi devral
+    }).then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', event => {
-  // Canlı yayın (stream) kontrolünü kaldırdık, çünkü artık yerel dosya kullanıyoruz.
-  
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Cache'te varsa döndür (Önbellek öncelikli strateji)
         if (response) {
           return response;
         }
-        
-        // Cache'te yoksa network'ten al
         return fetch(event.request).then(
           (response) => {
-            // Yanıtı kontrol et (Başarılı ve Temel kaynak mı?)
             if(!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
-
-            // Yanıtı klonla. Bir klonu cache'e, diğeri tarayıcıya
             var responseToCache = response.clone();
-
             caches.open(CACHE_NAME)
               .then(cache => {
-                // Sadece GET isteklerini cache'le (POST, PUT vb. değil)
                 if (event.request.method === 'GET') {
                     cache.put(event.request, responseToCache);
                 }
               });
-
             return response;
           }
         ).catch(error => {
-            // Network hatası durumunda (çevrimdışı) bile cache'e bakmayı dener
-            // Bu kısım genellikle PWA'nın çevrimdışı çalışmasını sağlar
             console.log('Network error, serving from cache if available:', error);
             return caches.match(event.request);
         });
