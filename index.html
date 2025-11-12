@@ -526,7 +526,7 @@
     - Kelime Sıralama (WordOrder) mantığı DİKEY sıralama için düzeltildi.
     - SRS Aralıkları revize edildi.
     - Çalışma sayfalarında logo gizlendi.
-    - **TTS Düzeltmesi (v2.9.3): iOS/iPadOS için Almanca dil ataması iyileştirildi.**
+    - **TTS Düzeltmesi (v2.9.3): iOS/iPadOS için Almanca dil ataması ve seslerin yüklenmesi ('onvoiceschanged') mantığı eklendi.**
     =============================== */
 
 /* ---------------- Demo / default data (replace with your JSON) --------------- */
@@ -1693,7 +1693,7 @@ function showCompletion(total){
       } else {
         correctCount = state.answers.filter(a=>a===true).length;
       }
-      const percent = total===0?0:Math.round((correctCount/total)*100);
+      const percent = total===0?0:Math.round((correct/total)*100);
       scoreHtml = `<div class="score-display">${percent}%</div>
                    <p style="text-align:center">Başarı: ${correctCount} / ${total}</p>`;
       saveProgress(); 
@@ -1735,8 +1735,8 @@ function showCompletion(total){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 
-// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi (ve iOS Dil Ataması Düzeltildi)
-function playCurrentSentence(lang){
+// GÜNCELLENDİ: iOS için 'voiceschanged' olayı eklendi, ses seçimi garanti altına alındı
+function playCurrentSentence(lang) {
     resetSpeechButtons(); 
 
     const sentences = getSentences();
@@ -1755,7 +1755,8 @@ function playCurrentSentence(lang){
     if (!sent) return;
 
     const text = (lang === 'de') ? sent.de : sent.tr;
-    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR'; // Standart BCP 47 dil kodu
+    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
+    const baseLang = lang.split('-')[0]; // 'de' veya 'tr'
     
     if (!text) return; 
 
@@ -1764,35 +1765,43 @@ function playCurrentSentence(lang){
     }
 
     if('speechSynthesis' in window){
-        speechUtterance = new SpeechSynthesisUtterance(text);
-        
-        // KRİTİK: Dili açıkça belirt
-        speechUtterance.lang = langCode;
-        
-        // İSTEĞE BAĞLI: Doğru sesi bulup atamaya çalış (iOS/iPadOS için ek güvence)
+        const speakNow = () => {
+            const voices = window.speechSynthesis.getVoices();
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = langCode;
+            utter.rate = state.speechRate || 1;
+            
+            // Uygun ses seçimi: Önce tam, sonra kısmi eşleşme
+            const voiceMatch = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            if (voiceMatch) {
+                utter.voice = voiceMatch;
+            } else {
+                const fallback = voices.find(v => v.lang.toLowerCase().startsWith(baseLang));
+                if (fallback) utter.voice = fallback;
+            }
+
+            utter.onend = utter.onerror = () => {
+                if (musicPlayer && musicPlayer.isPlaying) {
+                    musicPlayer.dim_music(false);
+                }
+                resetSpeechButtons();
+            };
+
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utter);
+        };
+
+        // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
         const voices = window.speechSynthesis.getVoices();
-        const targetVoice = voices.find(voice => voice.lang.toLowerCase() === langCode.toLowerCase());
-        if (targetVoice) {
-            speechUtterance.voice = targetVoice;
+        if (voices.length === 0) {
+            window.speechSynthesis.onvoiceschanged = function handler() {
+                window.speechSynthesis.onvoiceschanged = null; // Sadece bir kere çalışsın
+                speakNow();
+            };
+        } else {
+            speakNow();
         }
 
-        speechUtterance.rate = state.speechRate; 
-
-        speechUtterance.onend = function() {
-            if (musicPlayer && musicPlayer.isPlaying) {
-                musicPlayer.dim_music(false);
-            }
-            resetSpeechButtons();
-        };
-        speechUtterance.onerror = function() {
-            if (musicPlayer && musicPlayer.isPlaying) {
-                musicPlayer.dim_music(false);
-            }
-            resetSpeechButtons();
-        };
-
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(speechUtterance);
     } else {
         const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
         alert(t.messages.ttsNotSupported);
@@ -1820,57 +1829,71 @@ function renderStoryContent(){
                    <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
 }
 
-// GÜNCELLENDİ: Hız ve Pause kontrolü entegre edildi (ve iOS Dil Ataması Düzeltildi)
-function playStoryAudio(lang){
+// GÜNCELLENDİ: iOS için 'voiceschanged' olayı eklendi, ses seçimi garanti altına alındı
+function playStoryAudio(lang) {
     resetSpeechButtons(); 
 
     const s = state.groupData && state.groupData.story;
-    const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
-    
-    if(!s){ alert(t.messages.noStoryFound); return; }
-    
+    const t = (data.translations[data.settings.language || 'tr'] &&
+               Object.keys(data.translations[data.settings.language || 'tr']).length > 0)
+              ? data.translations[data.settings.language || 'tr']
+              : data.translations.tr;
+
+    if (!s) { alert(t.messages.noStoryFound); return; }
+
     const text = (lang === 'de') ? s.de : s.tr;
-    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR'; // Standart BCP 47 dil kodu
-    
-    if(!text) return;
+    const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
+    const baseLang = lang.split('-')[0]; // 'de' veya 'tr'
+
+    if (!text) return;
 
     if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
         musicPlayer.dim_music(true);
     }
 
-    if('speechSynthesis' in window){
-        speechUtterance = new SpeechSynthesisUtterance(text);
-        
-        // KRİTİK: Dili açıkça belirt
-        speechUtterance.lang = langCode;
-        
-        // İSTEĞE BAĞLI: Doğru sesi bulup atamaya çalış (iOS/iPadOS için ek güvence)
+    if ('speechSynthesis' in window) {
+        const speakNow = () => {
+            const voices = window.speechSynthesis.getVoices();
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = langCode;
+            utter.rate = state.speechRate || 1;
+            utter.pitch = 1; // Ses tonunu normal tut
+            utter.volume = 1; // Ses seviyesini tam tut
+
+            // Uygun ses seçimi: Önce tam, sonra kısmi eşleşme
+            const voiceMatch = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            if (voiceMatch) {
+                utter.voice = voiceMatch;
+            } else {
+                // Kısmi eşleşme (örn. "de-DE" yerine "de" ile başlayan)
+                const fallback = voices.find(v => v.lang.toLowerCase().startsWith(baseLang));
+                if (fallback) utter.voice = fallback;
+            }
+
+            utter.onend = utter.onerror = () => {
+                if (musicPlayer && musicPlayer.isPlaying) {
+                    musicPlayer.dim_music(false);
+                }
+                resetSpeechButtons();
+            };
+
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utter);
+        };
+
+        // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
         const voices = window.speechSynthesis.getVoices();
-        const targetVoice = voices.find(voice => voice.lang.toLowerCase() === langCode.toLowerCase());
-        if (targetVoice) {
-            speechUtterance.voice = targetVoice;
+        if (voices.length === 0) {
+            window.speechSynthesis.onvoiceschanged = function handler() {
+                window.speechSynthesis.onvoiceschanged = null; // Sadece bir kere çalışsın
+                speakNow();
+            };
+        } else {
+            speakNow();
         }
-        
-        speechUtterance.rate = state.speechRate; 
 
-        speechUtterance.onend = function() {
-            if (musicPlayer && musicPlayer.isPlaying) {
-                musicPlayer.dim_music(false);
-            }
-            resetSpeechButtons();
-        };
-        speechUtterance.onerror = function() {
-            if (musicPlayer && musicPlayer.isPlaying) {
-                musicPlayer.dim_music(false);
-            }
-            resetSpeechButtons();
-        };
-
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(speechUtterance);
     } else {
         alert(t.messages.ttsNotSupported);
-
         if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
             musicPlayer.dim_music(false);
         }
