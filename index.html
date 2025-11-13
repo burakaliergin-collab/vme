@@ -1,3 +1,1137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Verb Matrix — v2.9.5 (LED Güncellemesi)</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="manifest" href="manifest.json"> 
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#667eea">
+
+<style>
+  /* --- Genel --- */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); min-height:100vh;padding:18px; transition: background .25s,color .25s;}
+  .container{max-width:1200px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);transition:background .25s,color .25s}
+  header{text-align:center;margin-bottom:18px}
+  .subtitle{color:#6b7280;margin-top:6px}
+   
+  /* Bölüm Başlığı */
+  .section-title{font-size:1.25rem;color:#2d3748;margin:16px 0 10px;padding-bottom:8px;border-bottom:3px solid #667eea;font-weight:700}
+   
+  /* MODU SEÇ için büyük, ortalanmış stil */
+  .large-centered-title {
+    text-align: center;
+    font-size: 2.5rem; 
+    color: #2d3748;
+    font-weight: 800;
+    margin: 24px 0;
+    text-transform: uppercase;
+  }
+   
+  .button-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:12px 0}
+   
+  /* GRUP SEÇİM BAŞLIKLARI */
+  .group-select-header { text-align: center; margin-bottom: 24px; padding-top: 18px; }
+  .group-select-header h2 { font-size: 2.5rem; color: #2d3748; font-weight: 800; letter-spacing: 2px; margin-bottom: 18px; }
+  .group-select-columns { display: flex; justify-content: space-between; margin-bottom: 12px; }
+  .group-column-title { font-size: 1.4rem; color: #2d3748; font-weight: 700; display: inline-block; padding: 0 10px 8px; border-bottom: 3px solid #667eea; }
+   
+  /* --- GENEL BUTON STİLLERİ --- */
+  .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer; color:#fff; text-align: left; display:flex; align-items:center;}
+  .btn-small{padding:8px 10px;font-size:.9rem}
+   
+  /* YENİ: PASTEL RENKLER VE BUTON STANDARTLAŞTIRMASI */
+  .btn-danger {
+    background: #f56565; /* Kırmızı kalacak */
+    color: #fff;
+  }
+  .btn-danger:hover { background: #e53e3e; }
+
+  /* PASTEL RENKLER (Tüm ana menü ve pastel aksiyon butonları) */
+  .btn-pastel, .btn-primary, .btn-secondary, .btn-info, .btn-warning {
+    background: #aeb4c5; /* Pastel Gri/Mavi */
+    color: #1e293b;
+    border: 0;
+  }
+  .btn-pastel:hover, .btn-primary:hover, .btn-secondary:hover, .btn-info:hover, .btn-warning:hover {
+    background: #949daf;
+  }
+   
+  /* Çalışma Sayfası Buton Gridi */
+  .button-grid-learning { 
+      display: grid; 
+      gap: 8px; 
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+      margin-top: 15px; 
+  }
+  /* Buton metninin ortalanması için ayar (LED eklendiği için) */
+  .button-grid-learning .btn {
+      min-width: 130px; 
+      padding: 10px 8px; 
+      font-size: 0.9rem;
+      font-weight: 700;
+      justify-content: center; /* Metni ve LED'i ortala */
+  }
+   
+  .btn.disabled, .btn:disabled{background:#cbd5e1;color:#718096;cursor:not-allowed;opacity:0.7}
+   
+  .hidden { display: none; }
+   
+  .view{display:none}
+  .view.active{display:block;animation:slideIn .18s ease}
+  @keyframes slideIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+   
+  .group-story-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+  .group-story-grid .btn { justify-content: center; text-align: center; flex-direction: column; height: 60px; } /* Grup/Hikaye butonları */
+   
+  .button-group-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .button-group-row .btn { justify-content: center; } /* Geri/Ana Menü butonları */
+   
+  .button-grid .btn { justify-content: center; } /* Ana menü butonları */
+
+
+  /* YENİ: LED Gösterge Stilleri */
+  .led-indicator {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #555; /* Varsayılan: Sönük */
+    border: 1px solid #333;
+    margin-right: 7px;
+    vertical-align: middle;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+  .led-indicator.active {
+    background-color: #39e75f; /* Aktif: Yeşil */
+    box-shadow: 0 0 6px #39e75f, 0 0 3px rgba(255,255,255,0.5) inset;
+    border-color: #2b9e44;
+  }
+  /* Gece Modu LED */
+  body.night-mode .led-indicator {
+    background-color: #333;
+    border-color: #111;
+  }
+  body.night-mode .led-indicator.active {
+    background-color: #39e75f;
+    box-shadow: 0 0 8px #39e75f;
+    border-color: #2b9e44;
+  }
+  /* --- LED Bitiş --- */
+
+
+  /* YENİ: SRS Kontrol Butonları */
+  #srsControls {
+      display: none; 
+      justify-content: space-around;
+      margin-top: 15px;
+  }
+  #srsControls .btn {
+      flex: 1;
+      margin: 0 5px;
+      justify-content: center; /* SRS butonları ortalı */
+  }
+
+  .mode-toggle{position:fixed;right:18px;top:18px;border-radius:50%;padding:10px;border:0;background:#fff;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.12);z-index:1200}
+  .lang-btn{padding:8px 12px;border-radius:8px;border:2px solid #667eea;background:#fff;color:#667eea;cursor:pointer}
+  .lang-btn.active{background:#667eea;color:#fff}
+  .score-display{font-size:1.6rem;font-weight:800;color:#667eea;text-align:center;margin:12px 0}
+  .small-muted{color:#6b7280;font-size:.9rem}
+  .toggle-hint-btn{padding:8px 10px;border-radius:8px;border:0;background:#34495e;color:#fff;cursor:pointer}
+  .content-box{background:#f9fafb;padding:16px;border-radius:12px;margin:12px 0;border-left:5px solid #667eea}
+  .input-field{width:100%;padding:10px;border-radius:8px;border:2px solid #e5e7eb;margin-top:8px;font-size:1rem;background:#fff;color:#0f1724}
+  .select-field{width:100%;padding:10px;border-radius:8px;border:2px solid #e5e7eb;background:#fff;color:#0f1724}
+  .progress-container{margin:12px 0}
+  .progress-bar{height:28px;background:#e6eefc;border-radius:14px;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);width:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800; transition: width .2s;}
+   
+  /* Öğrenme içeriği ortalandı ve büyütüldü */
+  .sentence{padding:12px;border-radius:8px;background:#fff;border-left:4px solid #667eea;margin:10px 0;font-weight:700;color:#0f1724; text-align: center;}
+   
+  #learningContent .sentence { font-size: 1.6rem; line-height: 1.4; }
+  #learningContent #answerDisplay.sentence { font-size: 1.3rem; line-height: 1.4; background: #f0f4f8; }
+   
+  /* YENİ: Kelime Sıralama (WordOrder) Modunda dikey sıralama için flex-direction column kullanıldı */
+  .word-order-area {
+    display: flex;
+    flex-direction: column; /* Yan yana değil, alt alta sırala */
+    gap: 12px;
+    flex-wrap: nowrap; /* Sarılmayı engelle */
+    justify-content: center;
+    align-items: center; /* Merkezi ortala */
+    padding: 10px 0;
+  }
+  .word-pool, .word-selected {
+    width: 95%; /* Tam genişlik kullan */
+    min-width: 95%;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+  }
+   
+  .word-item{display:inline-block;padding:8px 12px;border-radius:8px;background:#667eea;color:#fff;margin:6px;cursor:pointer;user-select:none}
+  .word-item.top{background:#10b981}
+  .word-item.disabled{background:#cbd5e1;color:#2d3748;cursor:not-allowed}
+  .hint-area{margin-top:10px}
+  .hint-item{background:#e6f3ff;padding:10px;border-left:4px solid #4299e1;border-radius:8px;margin:8px 0;color:#0f1724}
+  .result{padding:10px;border-radius:8px;margin:8px 0;font-weight:700}
+  .result.correct{background:#c6f6d5;color:#22543d;border-left:4px solid #48bb78}
+  .result.incorrect{background:#fed7d7;color:#742a2a;border-left:4px solid #f56565}
+   
+  /* GECE MODU */
+  body.night-mode{background:linear-gradient(135deg,#0f1724 0%,#071226 100%);color:#e6eef8}
+  body.night-mode .container{background:#071226;color:#e6eef8;box-shadow:none}
+  body.night-mode .section-title{border-bottom-color:#3b82f6;color:#e6eef8}
+  body.night-mode .large-centered-title{color: #e6eef8;} 
+  body.night-mode .group-column-title{color: #e6eef8;border-bottom-color: #3b82f6;}
+  body.night-mode .content-box{background:#071831;border-left-color:#3b82f6}
+  body.night-mode .input-field,.night-mode .select-field{background:#041226;color:#e6eef8;border-color:#082036}
+  body.night-mode .sentence{background:#071226;color:#e6eef8;border-left-color:#3b82f6}
+  body.night-mode #learningContent #answerDisplay.sentence { background: #0f2742; }
+  body.night-mode .word-item{background:#3b82f6;color:#fff}
+  body.night-mode .word-item.top{background:#10b981}
+  body.night-mode .hint-item{background:#052033;color:#c8ecff;border-left-color:#3b82f6}
+   
+  /* GECE MODU PASTEL RENKLER */
+  body.night-mode .btn-pastel, body.night-mode .btn-primary, body.night-mode .btn-secondary, body.night-mode .btn-info, body.night-mode .btn-warning {
+    background: #334155; 
+    color: #e2e8f0; 
+  }
+  body.night-mode .btn-pastel:hover, body.night-mode .btn-primary:hover, body.night-mode .btn-secondary:hover, body.night-mode .btn-info:hover, body.night-mode .btn-warning:hover {
+    background: #475569;
+  }
+
+  body.night-mode .btn.disabled, body.night-mode .btn:disabled {background:#1f2937;color:#4b5563;}
+  body.night-mode .toggle-hint-btn{ background:#1f2937 }
+  body.night-mode .group-story-grid .btn .small-muted { color: #9ca3af; }
+   
+  @media(max-width:768px){.container{padding:14px}}
+
+  /* --- Müzik Çalar Stilleri --- */
+  .music-player-container {
+    position: fixed;
+    left: 18px;
+    top: 18px;
+    z-index: 1200;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    transition: background .25s;
+  }
+  .music-toggle-btn {
+    border: 0;
+    background: #667eea;
+    color: #fff;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .music-volume-slider {
+    display: none; 
+    margin-left: 8px;
+    margin-right: 10px;
+    width: 80px;
+    vertical-align: middle;
+    z-index: 1;
+    transition: opacity 0.3s;
+  }
+  .music-player-container:hover .music-volume-slider {
+    display: inline-block;
+  }
+  body.night-mode .music-player-container {
+    background: rgba(31, 41, 55, 0.9); 
+  }
+  body.night-mode .music-toggle-btn {
+    background: #3b82f6;
+  }
+</style>
+</head>
+<body>
+<button id="modeToggleBtn" class="mode-toggle" title="Gece/Gündüz toggle">🌙</button>
+
+<div id="musicPlayerContainer" class="music-player-container">
+    <button id="musicToggleBtn" class="music-toggle-btn" title="Müzik Çal/Durdur">🔊</button>
+    <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="music-volume-slider" style="display: none;">
+</div>
+<div class="container">
+  <header>
+    <img src="logo.png" alt="Verb Matrix Logo" style="max-width: 280px; height: auto; margin: 10px auto 0; display: block;">
+    <div class="subtitle" id="appSubtitle" data-translate-key="app.subtitle">Fiiller İle Almanca Öğrenme Platformu</div>
+  </header>
+
+  <div id="mainMenu" class="view active">
+    <div class="button-grid">
+      <button class="btn btn-primary" id="btnGroupSelect" data-translate-key="menu.start" onclick="loadAndShowGroupMenu()">🏁 BAŞLA</button>
+      <button class="btn btn-info" onclick="showView('settings')" data-translate-key="menu.settings">⚙️ Ayarlar</button>
+      <button class="btn btn-secondary" onclick="showView('progress')" data-translate-key="menu.progress">📊 İlerleme</button>
+      <button class="btn btn-warning" onclick="showView('adminView')" data-translate-key="menu.admin">🔧 Yönetici (Admin)</button>
+    </div>
+  </div>
+
+  <div id="groupMenu" class="view">
+    <div class="group-select-header">
+      <h2 data-translate-key="titles.start">BAŞLA</h2>
+    </div>
+    <div class="group-select-columns">
+      <div class="group-column-title-container">
+        <div class="group-column-title" data-translate-key="titles.groupSelect">Fiil Seç</div>
+      </div>
+      <div class="group-column-title-container">
+        <div class="group-column-title" data-translate-key="titles.storySelect">Hikaye Seç</div>
+      </div>
+    </div>
+    <div id="groupButtons"></div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
+    </div>
+  </div>
+
+  <div id="verbMenu" class="view">
+    <h2 class="section-title" data-translate-key="titles.verbSelect">FİİL SEÇ</h2>
+    <div id="verbButtons" class="button-grid"></div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('groupMenu')" data-translate-key="buttons.goBack">← Geri</button>
+    </div>
+  </div>
+
+  <div id="sectionMenu" class="view">
+    <h2 class="section-title" data-translate-key="titles.sectionSelect">BÖLÜM SEÇ</h2>
+    <div id="sectionButtons" class="button-grid"></div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('verbMenu')" data-translate-key="buttons.goBack">← Geri</button>
+    </div>
+  </div>
+
+  <div id="modeMenu" class="view">
+    <h2 class="large-centered-title" data-translate-key="titles.modeSelect">MODU SEÇ</h2>
+    
+    <div class="content-box" style="margin-bottom: 20px;">
+      <h4 style="margin-bottom: 10px;">Çeviri Yönünü Seçin:</h4>
+      <div class="button-group-row">
+        <button class="btn btn-primary" id="modeTRDE" onclick="setConversionMode('tr-de')">🇹🇷 TR → DE 🇩🇪</button>
+        <button class="btn btn-info" id="modeDETR" onclick="setConversionMode('de-tr')">🇩🇪 DE → TR 🇹🇷</button>
+      </div>
+    </div>
+
+    <div id="modeButtons" class="button-grid"></div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('sectionMenu')" data-translate-key="buttons.goBack">← Geri</button>
+    </div>
+  </div>
+
+  <div id="learningView" class="view">
+    <h2 class="section-title" id="learningTitle" data-translate-key="titles.learning">Çalışma</h2>
+
+    <div class="progress-container">
+      <div class="progress-bar"><div id="progressFill" class="progress-fill">0%</div></div>
+      <div style="text-align:center;margin-top:8px;font-weight:700;"><span id="progressText">0 / 0</span></div>
+    </div>
+
+    <div class="content-box">
+      <div id="learningContent"></div>
+      <div id="hintPanel" class="hint-area" style="display:none"></div>
+      <div id="resultArea"></div>
+      <div id="answerArea"></div>
+    </div>
+
+    <div id="srsControls" class="button-group-row">
+        <button class="btn btn-danger" onclick="rateCard('hard')">Zor (5dk)</button>
+        <button class="btn btn-warning" onclick="rateCard('medium')">Normal (20dk)</button>
+        <button class="btn btn-secondary" onclick="rateCard('good')">İyi (1saat)</button>
+        <button class="btn btn-primary" onclick="rateCard('easy')">Çok İyi (1gün)</button>
+    </div>
+
+    <div id="quickEditPanel" class="content-box" style="display:none; margin-top: 15px;">
+        <h4 id="quickEditTitle" style="margin-bottom: 10px;">Sayfa İçeriği Hızlı Düzenleme</h4>
+        <label style="display:block;margin-top:12px;">TR Cümle:</label><textarea id="qe_tr" class="input-field" rows="3"></textarea>
+        <label style="display:block;margin-top:12px;">DE Cümle:</label><textarea id="qe_de" class="input-field" rows="3"></textarea>
+        <label style="display:block;margin-top:12px;">Cümle İpucu:</label><textarea id="qe_hint" class="input-field" rows="3" placeholder="Bu cümleye özel ipucu ekleyin/düzenleyin."></textarea>
+        <div class="button-group-row">
+            <button class="btn btn-secondary" onclick="saveQuickEdit()">✅ Kaydet & Kapat</button>
+            <button class="btn btn-danger" onclick="document.getElementById('quickEditPanel').style.display='none'">İptal</button>
+        </div>
+    </div>
+
+    <div class="button-grid-learning">
+      <button class="btn btn-pastel" id="actionBtn" data-translate-key="buttons.show" onclick="handleAction()">Kontrol Et / Göster</button>
+      <button class="btn btn-pastel" id="toggleHintBtn" data-translate-key="buttons.hintToggle" onclick="toggleHintPanel()">İpuçları Aç / Kapat</button>
+      <button class="btn btn-pastel" id="btnQuickEdit" onclick="showQuickEditPanel()">✏️ Düzelt/Ekle</button>
+      <button class="btn btn-danger" onclick="resetLearning()" data-translate-key="buttons.reset">Başa Dön</button>
+      
+      <button class="btn btn-pastel" id="autoPlayBtn" onclick="toggleAutoPlay()">
+        <span class="led-indicator" id="autoPlayLed"></span>Otomatik Dinle
+      </button>
+      
+      <button class="btn btn-pastel" id="slowModeToggleBtn" onclick="toggleSpeechSpeed()">
+        <span class="led-indicator" id="slowModeLedL"></span>🔊 Yavaş Mod
+      </button>
+      
+      <button class="btn btn-pastel" id="pauseBtn" onclick="toggleSpeechPause()">⏸️ Durdur</button>
+      <button class="btn btn-pastel" id="btnPlayDE" data-translate-key="buttons.playDE" onclick="playCurrentSentence('de')">🔊 Almanca Dinle</button>
+      <button class="btn btn-pastel" id="btnPlayTR" data-translate-key="buttons.playTR" onclick="playCurrentSentence('tr')">🔊 Türkçe Dinle</button>
+      
+      <button class="btn btn-pastel" onclick="previousQuestion()" data-translate-key="buttons.previous">← Önceki</button>
+      <button class="btn btn-danger" onclick="showView('modeMenu')" data-translate-key="buttons.menuReturn">Menüye Dön</button>
+    </div>
+
+  </div>
+
+  <div id="storyView" class="view">
+    <h2 class="section-title" id="storyTitle" data-translate-key="titles.story">Hikaye</h2>
+    <div class="content-box" id="storyContent"></div>
+    <div class="button-grid-learning"> 
+      <button class="btn btn-warning" onclick="showStoryQuestions()" data-translate-key="buttons.questions">📝 Sorular</button>
+      
+      <button class="btn btn-pastel" id="storySlowModeToggleBtn" onclick="toggleSpeechSpeed()">
+        <span class="led-indicator" id="slowModeLedS"></span>🔊 Yavaş Mod
+      </button>
+      <button class="btn btn-pastel" id="storyPauseBtn" onclick="toggleSpeechPause()">⏸️ Durdur</button>
+      
+      <button class="btn btn-pastel" id="btnPlayDE" data-translate-key="buttons.playDE" onclick="playStoryAudio('de')">🔊 Almanca Dinle</button>
+      <button class="btn btn-pastel" onclick="playStoryAudio('tr')" data-translate-key="buttons.playTR">🔊 Türkçe Dinle</button>
+      <button class="btn btn-danger" onclick="showView('groupMenu')" data-translate-key="buttons.groupMenuReturn">← Grup Menüsüne Dön</button>
+    </div>
+  </div>
+
+  <div id="storyQuestionsView" class="view">
+    <h2 class="section-title" id="storyQuestionsTitle" data-translate-key="titles.storyQuestions">Hikaye Soruları</h2>
+    <div class="content-box" id="storyQuestionsContent"></div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('storyView')" data-translate-key="buttons.storyReturn">← Hikayeye Dön</button>
+    </div>
+  </div>
+  
+  <div id="settings" class="view">
+    <h2 class="section-title" data-translate-key="titles.settings">⚙️ Ayarlar & İçerik Yönetimi</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+      <div class="content-box">
+        <h3 data-translate-key="settings.appearance">🎨 Görünüm ve Dil</h3>
+        <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+          <input type="checkbox" id="nightModeToggle"> <span data-translate-key="settings.nightMode">Gece Modu</span>
+        </label>
+        <div style="margin-top:12px;">
+          <label style="display:block;font-weight:700;margin-bottom:6px" data-translate-key="settings.language">Dil:</label>
+          <div style="display:flex;gap:8px">
+            <button class="lang-btn active" id="langTR" onclick="changeLanguage('tr', this)">Türkçe</button>
+            <button class="lang-btn" id="langDE" onclick="changeLanguage('de', this)">Deutsch</button>
+            <button class="lang-btn" id="langEN" onclick="changeLanguage('en', this)">English</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 data-translate-key="settings.dataManagement">💾 Veri Yönetimi</h3>
+        <button class="btn btn-primary" style="width:100%;margin-bottom:8px" onclick="importData()" data-translate-key="buttons.importJSON">📥 JSON Yükle (Dosya)</button>
+        <button class="btn btn-secondary" style="width:100%;margin-bottom:8px" onclick="exportData()" data-translate-key="buttons.exportJSON">📤 JSON İndir</button>
+        <button class="btn btn-info" style="width:100%;margin-bottom:8px" onclick="debugData()" data-translate-key="buttons.debugJSON">🔍 JSON Yapısı Kontrol</button>
+        <button class="btn btn-danger" style="width:100%" onclick="resetProgressStorage()" data-translate-key="buttons.resetProgress">İlerlemeyi Sıfırla</button>
+        <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetContentOverride()" data-translate-key="buttons.resetOverride">⚠️ İçerik Düzeltmelerini Sıfırla</button>
+        <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetSrsData()" data-translate-key="buttons.resetSrs">⚠️ Çalışma (SRS) Verisini Sıfırla</button>
+      </div>
+      
+    </div>
+
+    <div class="content-box" style="margin-top:12px">
+      <h3 data-translate-key="settings.pasteJSONTitle">📝 JSON Yapıştır (Dosya gönderemeyen mobil kullanıcılar için)</h3>
+      <p class="small-muted" data-translate-key="settings.pasteJSONDesc">JSON dosyanızı buraya yapıştırabilirsiniz. (Uzun olabilir — iPhone/Android tarayıcılarında kesme olmadan yapıştırın.)</p>
+      <textarea id="jsonPaste" class="input-field" data-translate-key="placeholders.jsonPaste" placeholder="JSON içeriğinizi buraya yapıştırın..." rows="10"></textarea>
+      <div class="button-group-row" style="margin-top:8px">
+        <button class="btn btn-primary" onclick="loadJsonFromTextarea()" data-translate-key="buttons.pasteAndLoad">📥 Yapıştır & Yükle</button>
+        <button class="btn btn-danger" onclick="document.getElementById('jsonPaste').value=''" data-translate-key="buttons.clear">Temizle</button>
+      </div>
+    </div>
+
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
+    </div>
+  </div>
+
+  <div id="progress" class="view">
+    <h2 class="section-title" data-translate-key="titles.progress">📊 İlerleme</h2>
+    <div class="content-box" id="progressStats">
+      <p class="small-muted" data-translate-key="messages.noProgress">Henüz ilerleme yok.</p>
+    </div>
+    <div class="button-group-row">
+      <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
+    </div>
+  </div>
+
+  <div id="adminView" class="view">
+    <h2 class="section-title" data-translate-key="titles.adminPanel">🔧 Yönetici Paneli</h2>
+    <div class="button-grid">
+      <button class="btn btn-primary" onclick="showView('adminContentView')" data-translate-key="admin.contentManagement">📚 İçerik Yönetimi</button>
+      <button class="btn btn-primary" onclick="showView('adminStoryView')" data-translate-key="admin.storyManagement">📚 Hikaye Yönetimi</button>
+      <button class="btn btn-primary" onclick="showView('adminHintView')" data-translate-key="admin.hintManagement">💡 İpucu Yönetimi</button>
+      <button class="btn btn-primary" onclick="showView('adminSentenceListView')" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</button>
+    </div>
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('mainMenu')" data-translate-key="buttons.mainMenu">← Ana Menü</button>
+    </div>
+  </div>
+
+  <div id="adminContentView" class="view">
+    <h2 class="section-title" data-translate-key="admin.contentManagement">📚 İçerik Yönetimi</h2>
+    <div class="content-box">
+      
+      <div style="margin-bottom:8px;" class="button-group-row">
+        <button class="btn btn-primary" onclick="showAdminAddGroup()" data-translate-key="admin.addGroup">➕ Grup Ekle</button>
+        <button class="btn btn-info" onclick="showAdminAddVerb()" data-translate-key="admin.addVerb">➕ Fiil Ekle</button>
+        <button class="btn btn-secondary" onclick="showAdminEditSentence()" data-translate-key="admin.editSentence">✏️ Cümle Düzenle</button>
+        <button class="btn btn-secondary" style="background-color:#10b981;" onclick="showTsvImporter()">📊 Toplu Cümle Yükle</button>
+      </div>
+      
+      <div id="adminContentArea"></div>
+
+      <div id="adminTsvArea" class="content-box" style="display:none; margin-top: 15px; border-color: #10b981;">
+          <h4>📊 Toplu Cümle Yükleme (Excel'den Kopyala-Yapıştır)</h4>
+          <p class="small-muted">
+            Excel veya Google E-Tablolar'da hazırladığınız veriyi buraya yapıştırın.<br>
+            Kullanmanız gereken sütun sırası (BAŞLIK SATIRI OLMADAN):<br>
+            <b>GrupID | FiilID | BölümNumarası | TR_Cümle | DE_Cümle | CümleIpucu (İsteğe bağlı)</b>
+          </p>
+          <textarea id="tsvPasteArea" class="input-field" rows="15" placeholder="GrupID (Tab) FiilID (Tab) BölümNo (Tab) TR Cümle (Tab) DE Cümle (Tab) İpucu..."></textarea>
+          <div class="button-group-row">
+              <button class="btn btn-secondary" style="background-color:#10b981;" onclick="parseAndImportTsv()">✅ Yükle ve İşle</button>
+              <button class="btn btn-danger" onclick="document.getElementById('adminTsvArea').style.display='none'">İptal</button>
+          </div>
+      </div>
+      </div>
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
+    </div>
+  </div>
+  <div id="adminStoryView" class="view">
+    <h2 class="section-title" data-translate-key="admin.storyManagement">📚 Hikaye Yönetimi</h2>
+    <div class="content-box">
+      <div style="margin-bottom:8px;" class="button-group-row">
+        <button class="btn btn-primary" onclick="showAdminAddStory()" data-translate-key="admin.addStory">➕ Hikaye Ekle</button>
+        <button class="btn btn-info" onclick="showAdminEditStory()" data-translate-key="admin.editStory">✏️ Hikaye Düzenle / Testler</button>
+      </div>
+      <div id="adminStoryArea"></div>
+    </div>
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
+    </div>
+  </div>
+  <div id="adminHintView" class="view">
+    <h2 class="section-title" data-translate-key="admin.hintManagement">💡 İpucu Yönetimi</h2>
+    <div class="content-box" style="margin-bottom:12px">
+      <h3 data-translate-key="admin.addNewHint">➕ Yeni İpucu Ekle</h3>
+      <div class="button-group-row" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-info btn-small" onclick="showHintForm('sentence')" data-translate-key="admin.hintSentence">➕ Cümle İpucu</button>
+        <button class="btn btn-info btn-small" onclick="showHintForm('verb')" data-translate-key="admin.hintVerb">➕ Fiil İpucu</button>
+        <button class="btn btn-info btn-small" onclick="showHintForm('section')" data-translate-key="admin.hintSection">➕ Bölüm İpucu (B1, B2...)</button>
+      </div>
+      <div id="hintFormsArea" style="margin-top:12px"></div>
+    </div>
+    <div class="content-box">
+      <h3 data-translate-key="admin.manageExistingHints">📋 Mevcut İpuçlarını Yönet (Düzenle / Sil)</h3>
+      <p class="small-muted" data-translate-key="admin.manageHintsDesc">Burada mevcut tüm ipuçlarını görebilir, düzenleyebilir veya silebilirsiniz.</p>
+      <div id="hintManagerArea" style="margin-top:12px"></div>
+    </div>
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
+    </div>
+  </div>
+  <div id="adminSentenceListView" class="view">
+    <h2 class="section-title" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</h2>
+    <div class="content-box">
+      <div class="button-group-row" style="margin-bottom:8px;">
+        <button class="btn btn-secondary" onclick="renderAllSentencesTable()" data-translate-key="buttons.refreshList">🔄 Yenile Liste</button>
+        <button class="btn btn-warning" onclick="exportSentencesCsv()" data-translate-key="buttons.exportCSV">📤 CSV İndir (Tablo)</button>
+      </div>
+      <div id="allSentencesTable" style="max-height:60vh;overflow:auto"></div>
+    </div>
+    <div class="button-group-row" style="margin-top:12px">
+      <button class="btn btn-danger btn-small" onclick="showView('adminView')" data-translate-key="buttons.adminReturn">← Yönetici Paneline Dön</button>
+    </div>
+  </div>
+
+
+</div>
+
+<input type="file" id="fileInput" accept=".json" style="display:none">
+
+<script>
+/* ===============================
+    Verb Matrix — v2.9.5 (LED Güncellemesi)
+    - TTS Düzeltmesi (v2.9.3): iOS/iPadOS'ta Shelly/Düşük kaliteli ses yerine Anna/Markus gibi kaliteli sesleri bulmak için gelişmiş zorlama mantığı ve onvoiceschanged entegrasyonu yapıldı.
+    - YENİ (v2.9.4): "Otomatik Dinle" butonu ve "Yavaş Mod" için LED göstergeler eklendi.
+    - YENİ (v2.9.4): "handleAction" fonksiyonu, Otomatik Dinle aktifken Almanca sesi çalacak şekilde güncellendi.
+    - GÜNCELLENDİ (v2.9.5): "Yavaş Mod" butonu metni sabitlendi, sadece LED'in durumu (aktif/pasif) değiştirildi.
+    =============================== */
+
+/* ---------------- Demo / default data (replace with your JSON) --------------- */
+let data = {
+  // Orijinal veriler (Uygulama ilk yüklendiğinde hafızaya alınır. overrideData varsa geçersiz kılınır.)
+  groups: [
+    {
+      id: "g1",
+      name: "ALGI & İLETİŞİM",
+      nameDE: "Wahrnehmung & Kommunikation",
+      story: {
+        title: "Maria und der Film",
+        de: "Maria sieht einen interessanten Film im Fernsehen. Sie zeigt ihrem Bruder das neue Bild auf dem Bildschirm. Der Bruder hört aufmerksam zu und lässelt. Am Ende sagen beide: 'Der Film war sehr spannend!'",
+        tr: "Maria televizyonda ilginç bir film izliyor. Ekrandaki yeni görüntüyü kardeşine gösteriyor. Kardeşi dikkatle dinliyor ve gülümsüyor. Sonunda ikisi de diyor: 'Film çok heyecanlıydı!'",
+        quiz:[
+          { q:"Maria ne izliyor?", options:["Bir film","Bir haber","Bir konser"], a:"Bir film" },
+          { q:"Kardeşi ne yapıyor?", options:["Uyuyor","Dinliyor","Yazıyor"], a:"Dinliyor" },
+          { q:"Film hakkında ne düşünüyorlar?", options:["Sıkıcı","Heyecanlı","Üzücü"], a:"Heyecanlı" }
+        ]
+      }
+    }
+  ],
+  verbs:{
+    g1: [
+      { id:'v1', verbTR:'göstermek', verbDE:'zeigen' },
+      { id:'v2', verbTR:'dinlemek', verbDE:'zuhören' }
+    ]
+  },
+  content: {
+    'v1_s1': [
+      { tr:'Ben fotoğrafı gösteriyorum', de:'Ich zeige das Foto' },
+      { tr:'Sen yolu gösteriyorsun', de:'Du zeigst den Weg' }
+    ],
+    'v1_s2': [
+      { tr:'Bana yolu gösteriyor', de:'Er zeigt mir den Weg' }
+    ],
+    'v2_s1': [
+      { tr:'Ben öğretmeni dinliyorum', de:'Ich höre dem Lehrer zu' }
+    ]
+  },
+  sections: {
+    1: "Kişi Zamiri",2: "Objektpronomen",3:"Singular Objekte",4:"Plural Objekte",
+    5:"Imperative",6:"Adjektive",7:"Possessive",8:"W-Fragen",9:"Negation",10:"Präpositionen",
+    11:"Adverbien",12:"Tenses",13:"Modalverben",14:"Akkusativ + Dativ"
+  },
+  sectionsHints: {
+    "B1": "(Kişi Zamiri): Fiiller kişi zamirleriyle çekimlenir (ich, du, er...)",
+    "B2": "(Objektpronomen): Nesne zamirleri (mich, dich, ihm...)"
+  },
+  hints: {
+    sentences: {},
+    verbs: {},
+    sections: {}
+  },
+  
+  // GÜNCELLENDİ: 'de' ve 'en' için örnek çeviriler eklendi.
+  translations: {
+    tr: {
+      app: { subtitle: 'Fiiller İle Almanca Öğrenme Platformu' }, 
+      menu: { 
+        start: 'BAŞLA', 
+        settings: '⚙️ Ayarlar', 
+        progress: '📊 İlerleme', 
+        admin: '🔧 Yönetici (Admin)' 
+      },
+      titles: {
+        start: 'START', // TR 'BAŞLA' olmalı, ancak JS'de DE'den alıyor, bu sorun değil.
+        groupSelect: 'Fiil Seç', 
+        storySelect: 'Hikaye Seç', 
+        verbSelect: 'FİİL SEÇ', 
+        sectionSelect: 'BÖLÜM SEÇ', 
+        modeSelect: 'MODU SEÇ', 
+        learning: 'Çalışma', 
+        story: 'Hikaye', 
+        storyQuestions: 'Hikaye Soruları',
+        settings: '⚙️ Ayarlar & İçerik Yönetimi', 
+        progress: '📊 İlerleme', 
+        adminPanel: '🔧 Yönetici Paneli'
+      },
+      buttons: {
+        mainMenu: '← Ana Menü', goBack: '← Geri', show: 'Göster', next: '→ Sonraki', check: 'Kontrol Et', start: 'Başla',
+        previous: '← Önceki', menuReturn: 'Menüye Dön', reset: 'Başa Dön', hintToggle: 'İpuçları Aç / Kapat',
+        questions: '📝 Sorular', playDE: '🔊 Almanca Dinle', playTR: '🔊 Türkçe Dinle',
+        groupMenuReturn: '← Grup Menüsüne Dön', storyReturn: '← Hikayeye Dön', adminReturn: '← Yönetici Paneline Dön',
+        importJSON: '📥 JSON Yükle (Dosya)', exportJSON: '📤 JSON İndir', debugJSON: '🔍 JSON Yapısı Kontrol',
+        resetProgress: 'İlerlemeyi Sıfırla (Quiz)', resetOverride: '⚠️ İçerik Düzeltmelerini Sıfırla',
+        resetSrs: '⚠️ Çalışma (SRS) Verisini Sıfırla',
+        pasteAndLoad: '📥 Yapıştır & Yükle', clear: 'Temizle',
+        refreshList: '🔄 Yenile Liste', exportCSV: '📤 CSV İndir (Tablo)',
+        save: 'Kaydet', cancel: 'İptal', update: 'Güncelle', add: 'Ekle', delete: 'Sil', edit: 'Düzenle',
+        nextSection: '→ Sonraki Bölüm' 
+      },
+      settings: {
+        appearance: '🎨 Görünüm ve Dil', nightMode: 'Gece Modu', language: 'Dil:',
+        dataManagement: '💾 Veri Yönetimi',
+        pasteJSONTitle: '📝 JSON Yapıştır (Dosya gönderemeyen mobil kullanıcılar için)',
+        pasteJSONDesc: 'JSON dosyanızı buraya yapıştırabilirsiniz. (Uzun olabilir — iPhone/Android tarayıcılarında kesme olmadan yapıştırın.)'
+      },
+      admin: {
+        contentManagement: '📚 İçerik Yönetimi', storyManagement: '📚 Hikaye Yönetimi', hintManagement: '💡 İpucu Yönetimi',
+        listAllSentences: '📋 Tüm Cümleleri Listele', addGroup: '➕ Grup Ekle', addVerb: '➕ Fiil Ekle',
+        editSentence: '✏️ Cümle Düzenle', addStory: '➕ Hikaye Ekle', editStory: '✏️ Hikaye Düzenle / Testler',
+        addNewHint: '➕ Yeni İpucu Ekle', hintSentence: '➕ Cümle İpucu', hintVerb: '➕ Fiil İpucu', hintSection: '➕ Bölüm İpucu (B1, B2...)',
+        manageExistingHints: '📋 Mevcut İpuçlarını Yönet (Düzenle / Sil)',
+        manageHintsDesc: 'Burada mevcut tüm ipuçlarını görebilir, düzenleyebilir veya silebilirsiniz.'
+      },
+      labels: {
+        group: 'Grup:', verb: 'Fiil:', section: 'Bölüm:', sentence: 'Cümle:', index: 'Index:',
+        hintText: 'İpucu metni:', tr: 'TR:', de: 'DE:', title: 'Başlık:', deText: 'DE metin:', trText: 'TR metin:',
+        groupID: 'Grup ID (ör: g5):', groupNameTR: 'Ad (TR):', groupNameDE: 'Ad (DE):',
+        verbID: 'Fiil ID (örn v10):', verbTR: 'Fiil TR:', verbDE: 'Fiil DE:',
+        sectionCode: 'Bölüm Kodu (örn: B1):', question: 'Soru:', options: 'Seçenekler (virgülle ayır):',
+        correctAnswer: 'Doğru cevap (tam metin):'
+      },
+      placeholders: {
+        jsonPaste: 'JSON içeriğinizi buraya yapıştırın...',
+        notes: 'Notlar...',
+        cloze: 'Boşluğu doldurun...',
+        quiz: 'Çeviriyi yazın...' 
+      },
+      messages: {
+        noGroups: 'Henüz grup yok. JSON yükleyin.',
+        noVerbs: 'Bu grupta fiil bulunamadı.',
+        noSentences: 'Bu fiil ve bölüm için cümle bulunamadı!',
+        noDueCards: 'Bugün için tekrar edilecek kart kalmadı! 🎉',
+        noStory: 'Bu grup için hikaye bulunamadı!',
+        noStoryAvailable: 'Hikaye Yok',
+        noStoryQuestions: 'Bu hikaye için henüz soru yok.',
+        noProgress: 'Henüz quiz ilerlemesi yok.',
+        noHints: 'Yok',
+        noStoryFound: 'Hikaye bulunamadı',
+        ttsNotSupported: 'Tarayıcı TTS desteklemiyor.',
+        dataLoaded: '✓ Veriler yüklendi. Grup sayısı:',
+        invalidJSON: '✗ Geçersiz JSON formatı. (groups, verbs, content gereklidir)',
+        loadError: '✗ Hata:',
+        dataExported: '✓ Veriler indirildi!',
+        progressReset: '✓ Quiz ilerlemesi sıfırlandı',
+        srsReset: '✓ Tüm çalışma (SRS) verisi sıfırlandı.',
+        jsonStatus: '📊 JSON DURUMU',
+        allFieldsError: 'Tüm alanları doldurun',
+        hintSaved: '✅ İpucu kaydedildi',
+        quickEditSaved: '✅ Cümle ve ipucu güncellendi (Yerel olarak kaydedildi)!',
+        overrideReset: '✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir.'
+      }
+    },
+    de: { // YENİ: Almanca çeviriler eklendi
+      app: { subtitle: 'Deutsch-Lernplattform mit Verben' },
+      menu: { 
+        start: 'START', 
+        settings: '⚙️ Einstellungen', 
+        progress: '📊 Fortschritt', 
+        admin: '🔧 Admin' 
+      },
+      titles: {
+        start: 'START', 
+        groupSelect: 'Verb wählen', 
+        storySelect: 'Geschichte wählen',
+        settings: '⚙️ Einstellungen & Inhaltsverwaltung',
+        progress: '📊 Fortschritt',
+        adminPanel: '🔧 Admin-Panel'
+      },
+      buttons: {
+        mainMenu: '← Hauptmenü', goBack: '← Zurück', show: 'Zeigen', next: '→ Nächste', check: 'Prüfen',
+        playDE: '🔊 Deutsch hören', playTR: '🔊 Türkisch hören',
+        resetProgress: 'Fortschritt zurücksetzen (Quiz)',
+        resetSrs: '⚠️ Lernfortschritt (SRS) zurücksetzen'
+      },
+      settings: {
+        appearance: '🎨 Ansicht & Sprache', nightMode: 'Nachtmodus', language: 'Sprache:',
+        dataManagement: '💾 Datenverwaltung'
+      }
+      // NOT: Diğer çeviriler eksik, ancak bu kadarı çalışması için yeterli.
+    },
+    en: { // YENİ: İngilizce çeviriler eklendi
+        app: { subtitle: 'German Learning Platform with Verbs' },
+        menu: { 
+        start: 'START', 
+        settings: '⚙️ Settings', 
+        progress: '📊 Progress', 
+        admin: '🔧 Admin' 
+      }
+    }
+  },
+  settings:{ language:'tr', nightMode:false, conversionMode: 'tr-de' }
+};
+
+/* ---------------- State ---------------- */
+let state = {
+  currentView:'mainMenu',
+  group:null, groupData:null,
+  verb:null, section:null, mode:null,
+  
+  // --- SRS & Quiz State ---
+  answers:[], 
+  dueCards: [], 
+  dueCardPos: 0, 
+
+  showAnswer:false,
+  wordPool:[], wordSelected:[], userAnswer:'', correctAnswer:'', showResult:false,
+  hintPanelVisible: false,
+  
+  // GÜNCELLENDİ: Hız ve Otomatik Dinle durumu
+  speechRate: 1.0, // 1.0 = Normal, 0.5 = Yavaş
+  isSpeaking: false,
+  autoPlayAudio: false // YENİ: Otomatik dinle durumu
+};
+
+/* ---------- YENİ: Müzik Çalar Mantığı (HTML5 Audio) ---------- */
+class MusicPlayer {
+  constructor(streamUrl, volumeSliderId, toggleBtnId) {
+    this.audio = new Audio(streamUrl);
+    this.audio.crossOrigin = "anonymous";
+    this.audio.loop = true; 
+
+    this.isPlaying = false;
+    this.currentVolume = 0.7; 
+    this.dimmedVolume = 0.2;
+    this.isDimmed = false;
+
+    this.slider = document.getElementById(volumeSliderId);
+    this.toggleBtn = document.getElementById(toggleBtnId);
+
+    const savedVolume = parseFloat(localStorage.getItem('verbmatrix_music_volume')) || 0.7;
+    this.currentVolume = savedVolume;
+    this.audio.volume = this.currentVolume;
+    if (this.slider) {
+      this.slider.value = this.currentVolume * 100;
+    }
+  }
+
+  toggleMusic() {
+    if (this.isPlaying) {
+      this.audio.pause();
+      this.isPlaying = false;
+      if (this.toggleBtn) this.toggleBtn.textContent = '🔊';
+      console.log("Müzik duraklatıldı.");
+    } else {
+      this.audio.load(); 
+      
+      this.audio.play().then(() => {
+        this.isPlaying = true;
+        if (this.toggleBtn) this.toggleBtn.textContent = '⏸️'; 
+        console.log("Müzik çalınıyor.");
+      }).catch(error => {
+        console.error("Müzik çalınamadı:", error);
+        alert("Müzik dosyası yüklenemedi. (telifsiz-klasik.mp3 dosyasını kontrol edin.)");
+      });
+    }
+  }
+
+  setVolume(volumeValue) { 
+    const newVolume = parseFloat(volumeValue) / 100;
+    this.currentVolume = newVolume;
+    
+    if (!this.isDimmed) {
+      this.audio.volume = this.currentVolume;
+    }
+    
+    try {
+      localStorage.setItem('verbmatrix_music_volume', this.currentVolume.toString());
+    } catch (e) {}
+  }
+
+  dim_music(dim) {
+    if (!this.isPlaying) return; 
+
+    if (dim) {
+      this.isDimmed = true;
+      this.audio.volume = this.dimmedVolume;
+      console.log("Müzik kısıldı (dim).");
+    } else {
+      this.isDimmed = false;
+      this.audio.volume = this.currentVolume; 
+      console.log("Müzik normale döndü.");
+    }
+  }
+}
+
+let musicPlayer = null;
+
+/* ---------- YENİ: Hız, Durdurma ve Otomatik Dinle Kontrolü ---------- */
+let speechUtterance = null; 
+
+// YENİ: Otomatik Dinle Butonu
+function toggleAutoPlay() {
+  state.autoPlayAudio = !state.autoPlayAudio;
+  const btn = document.getElementById('autoPlayBtn');
+  const led = document.getElementById('autoPlayLed');
+  
+  if (btn) {
+    if (state.autoPlayAudio) {
+      // Buton metnini (çeviri anahtarı varsa) güncelleyebiliriz, şimdilik sabit
+      btn.innerHTML = `<span class='led-indicator active' id='autoPlayLed'></span>Otomatik Aktif`;
+    } else {
+      btn.innerHTML = `<span class='led-indicator' id='autoPlayLed'></span>Otomatik Dinle`;
+    }
+  }
+  console.log("Otomatik Dinle: " + state.autoPlayAudio);
+}
+
+
+// GÜNCELLENDİ (v2.9.5): Yavaş Mod Buton Arayüzünü Güncelleyen Merkezi Fonksiyon
+// Artık sadece LED'i kontrol ediyor, metne dokunmuyor.
+function updateSpeedButtonUI() {
+    const ledL = document.getElementById('slowModeLedL');
+    const ledS = document.getElementById('slowModeLedS');
+    
+    if (state.speechRate === 0.5) { // Yavaş mod aktif
+        if(ledL) ledL.classList.add('active');
+        if(ledS) ledS.classList.add('active');
+    } else { // Normal mod aktif
+        if(ledL) ledL.classList.remove('active');
+        if(ledS) ledS.classList.remove('active');
+    }
+}
+
+// GÜNCELLENDİ: Yavaş Mod Mantığı (UI güncellemesini merkezi fonksiyona devretti)
+function toggleSpeechSpeed() {
+    if (state.speechRate === 1.0) {
+        state.speechRate = 0.5; // Yavaş moda geç
+        console.log("Sesli okuma hızı YAVAŞ mod: 0.5");
+    } else {
+        state.speechRate = 1.0; // Normal moda geç
+        console.log("Sesli okuma hızı NORMAL mod: 1.0");
+    }
+    
+    updateSpeedButtonUI(); // Arayüzü güncelle
+
+    // Hız değiştiğinde aktif TTS varsa yeniden başlat
+    if (speechUtterance && !speechSynthesis.paused) {
+        speechSynthesis.cancel();
+        speechSynthesis.speak(speechUtterance);
+    }
+}
+
+function toggleSpeechPause() {
+    if ('speechSynthesis' in window) {
+        // Görünür olan butonu bul
+        const btnL = document.getElementById('pauseBtn');
+        const btnS = document.getElementById('storyPauseBtn');
+        const btn = btnL && btnL.offsetParent !== null ? btnL : btnS;
+
+        if (!btn) return;
+        
+        if (speechSynthesis.paused) {
+            speechSynthesis.resume();
+            btn.textContent = '⏸️ Durdur';
+            console.log("Sesli okuma devam ediyor.");
+        } else {
+            speechSynthesis.pause();
+            btn.textContent = '▶️ Oynat';
+            console.log("Sesli okuma duraklatıldı.");
+        }
+    }
+}
+
+function resetSpeechButtons() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
+    // Her iki pause butonunun metnini sıfırla
+    const pauseBtnL = document.getElementById('pauseBtn');
+    const pauseBtnS = document.getElementById('storyPauseBtn');
+
+    if (pauseBtnL) { pauseBtnL.textContent = '⏸️ Durdur'; }
+    if (pauseBtnS) { pauseBtnS.textContent = '⏸️ Durdur'; }
+}
+/* ---------- Kontrol Fonksiyonları SONU ---------- */
+
+
+/* ---------- SRS (Aralıklı Tekrar) Yardımcı Fonksiyonları ---------- */
+
+const MINUTE_MS = 60 * 1000;
+const DAY_MS = 24 * 60 * MINUTE_MS;
+const HOUR_MS = 60 * MINUTE_MS;
+
+let srsData = {};
+
+function getSrsKey(originalIndex) {
+    return `${state.verb}_s${state.section}_${originalIndex}`;
+}
+
+function loadSrsData() {
+    try {
+        const data = localStorage.getItem('verbmatrix_srs_data');
+        srsData = data ? JSON.parse(data) : {};
+    } catch (e) {
+        console.error("SRS verisi yüklenemedi", e);
+        srsData = {};
+    }
+}
+
+function saveSrsData() {
+    try {
+        localStorage.setItem('verbmatrix_srs_data', JSON.stringify(srsData));
+    } catch (e) {
+        console.error("SRS verisi kaydedilemedi", e);
+    }
+}
+
+function getCardSrsData(originalIndex) {
+    const key = getSrsKey(originalIndex);
+    if (!srsData[key]) {
+        srsData[key] = {
+            interval: 0, 
+            ease: 2.5,   
+            nextReview: Date.now() 
+        };
+    }
+    return srsData[key];
+}
+
+function updateCardSrsData(originalIndex, difficulty) {
+    const cardData = getCardSrsData(originalIndex);
+    let newInterval;
+    const now = Date.now();
+
+    // SRS Aralıkları revize edildi: Zor (5dk), Normal (20dk), İyi (1saat), Çok İyi (1gün)
+    if (difficulty === 'hard') {
+        newInterval = 5 * MINUTE_MS; // 5 dakika
+    } else if (difficulty === 'medium') {
+        newInterval = 20 * MINUTE_MS; // 20 dakika
+    } else if (difficulty === 'good') { 
+        newInterval = 1 * HOUR_MS; // 1 saat
+    } else { // 'easy'
+        newInterval = 1 * DAY_MS; // 1 gün
+    }
+
+    cardData.interval = newInterval;
+    cardData.nextReview = now + newInterval;
+    
+    saveSrsData(); 
+}
+
+function resetSrsData() {
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    if (confirm(t.messages.srsResetConfirm || 'Tüm çalışma (Aralıklı Tekrar) verilerinizi sıfırlamak istediğinizden emin misiniz? Tüm kartların ilerlemesi sıfırlanacaktır.')) {
+        srsData = {};
+        saveSrsData();
+        alert(t.messages.srsReset);
+    }
+}
+
+
+/* ---------- Content Override Fonksiyonları ---------- */
+
+function loadDataOverride() {
+    try {
+        const override = localStorage.getItem('verbmatrix_content_override');
+        if (override) {
+            const overrideData = JSON.parse(override);
+            data = deepMerge(data, overrideData);
+            console.log('✅ Yerel içerik düzeltmeleri yüklendi (Override aktif).');
+        }
+    } catch (e) {
+        console.error("Yerel içerik düzeltmeleri yüklenirken hata:", e);
+        localStorage.removeItem('verbmatrix_content_override');
+    }
+}
+
+function saveDataOverride() {
+    const contentToSave = {
+        groups: data.groups,
+        verbs: data.verbs,
+        content: data.content,
+        sections: data.sections,
+        sectionsHints: data.sectionsHints,
+        hints: data.hints
+    };
+    try {
+        localStorage.setItem('verbmatrix_content_override', JSON.stringify(contentToSave));
+        console.log('✅ İçerik güncellendi ve yerel olarak kaydedildi.');
+    } catch (e) {
+        console.error("İçerik depolanamadı:", e);
+    }
+}
+
+function resetContentOverride() {
+    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    if (confirm(t.messages.overrideResetConfirm || 'Tüm yerel içerik düzeltmelerini silmek istediğinizden emin misiniz? Uygulama varsayılan HTML içeriğine dönecektir.')) {
+        localStorage.removeItem('verbmatrix_content_override');
+        alert(t.messages.overrideReset);
+        window.location.reload(); 
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* ---------- Conversion Mode Fonksiyonları ---------- */
+
+function setConversionMode(mode) {
+    data.settings.conversionMode = mode;
+    saveSettings(); 
+    updateConversionButtons();
+}
+
+function updateConversionButtons() {
+    const trdeBtn = document.getElementById('modeTRDE');
+    const detrBtn = document.getElementById('modeDETR');
+    
+    if (!trdeBtn || !detrBtn) return;
+    
+    if (data.settings.conversionMode === 'tr-de') {
+        trdeBtn.classList.add('btn-primary');
+        detrBtn.classList.remove('btn-primary');
+    } else {
+        trdeBtn.classList.remove('btn-primary');
+        detrBtn.classList.add('btn-primary');
+    }
+}
+
+/* -------------------------------------------------------- */
+
+
+// GÜNCELLENDİ: showView (Yavaş Mod LED'lerini güncellemek için)
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  state.currentView = id;
+  
+  // YENİ: Çalışma/Hikaye modlarında logoyu gizle
+  const headerEl = document.querySelector('.container > header');
+  const hideLogo = ['learningView', 'storyView', 'storyQuestionsView'].includes(id);
+  if (headerEl) {
+      headerEl.style.display = hideLogo ? 'none' : 'block';
+  }
+
+  resetSpeechButtons(); 
+
+  // YENİ: Öğrenme veya Hikaye görünümüne girerken Yavaş Mod butonunun durumunu güncelle
+  if (id === 'learningView' || id === 'storyView') {
+      updateSpeedButtonUI();
+  }
+
+  if(id === 'modeMenu') { 
+      updateConversionButtons();
+  }
+  if(id === 'adminContentView'){
+    document.getElementById('adminTsvArea').style.display = 'none'; 
+    document.getElementById('adminContentArea').innerHTML = '';
+  }
+  if(id === 'adminHintView'){
+    showHintManager('hintManagerArea'); 
+    document.getElementById('hintFormsArea').innerHTML = ''; 
+  }
+  if(id === 'adminSentenceListView'){
+    renderAllSentencesTable(); 
+  }
+  if(id === 'progress') {
+    loadProgressView();
+  }
+}
+
+function getProperty(obj, keyString) {
+  if (!keyString) return null;
+  return keyString.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
+}
 function updateUITexts(){
   const lang = data.settings.language || 'tr';
   
