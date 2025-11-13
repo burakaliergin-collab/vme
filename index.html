@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Verb Matrix — v2.9.5 (LED Güncellemesi)</title>
+<title>Verb Matrix — v2.9.7 (Çeviri Motoru Düzeltmesi)</title>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -259,6 +259,21 @@
   body.night-mode .music-toggle-btn {
     background: #3b82f6;
   }
+  
+  /* YENİ (v2.9.7): Göster butonunu ortalamak için */
+  .primary-action-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; 
+    margin-bottom: 8px; 
+  }
+  .primary-action-container #actionBtn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    min-width: 200px;
+    justify-content: center; 
+    text-align: center; /*
+  }
 </style>
 </head>
 <body>
@@ -276,7 +291,7 @@
 
   <div id="mainMenu" class="view active">
     <div class="button-grid">
-      <button class="btn btn-primary" id="btnGroupSelect" data-translate-key="menu.start" onclick="loadAndShowGroupMenu()">🏁 BAŞLA</button>
+      <button class="btn btn-primary" id="btnGroupSelect" data-translate-key="menu.start" onclick="loadAndShowGroupMenu()">BAŞLA</button>
       <button class="btn btn-info" onclick="showView('settings')" data-translate-key="menu.settings">⚙️ Ayarlar</button>
       <button class="btn btn-secondary" onclick="showView('progress')" data-translate-key="menu.progress">📊 İlerleme</button>
       <button class="btn btn-warning" onclick="showView('adminView')" data-translate-key="menu.admin">🔧 Yönetici (Admin)</button>
@@ -366,9 +381,12 @@
             <button class="btn btn-danger" onclick="document.getElementById('quickEditPanel').style.display='none'">İptal</button>
         </div>
     </div>
+    
+    <div class="primary-action-container">
+      <button class="btn btn-pastel" id="actionBtn" data-translate-key="buttons.show" onclick="handleAction()">Kontrol Et / Göster</button>
+    </div>
 
     <div class="button-grid-learning">
-      <button class="btn btn-pastel" id="actionBtn" data-translate-key="buttons.show" onclick="handleAction()">Kontrol Et / Göster</button>
       <button class="btn btn-pastel" id="toggleHintBtn" data-translate-key="buttons.hintToggle" onclick="toggleHintPanel()">İpuçları Aç / Kapat</button>
       <button class="btn btn-pastel" id="btnQuickEdit" onclick="showQuickEditPanel()">✏️ Düzelt/Ekle</button>
       <button class="btn btn-danger" onclick="resetLearning()" data-translate-key="buttons.reset">Başa Dön</button>
@@ -382,6 +400,7 @@
       </button>
       
       <button class="btn btn-pastel" id="pauseBtn" onclick="toggleSpeechPause()">⏸️ Durdur</button>
+      
       <button class="btn btn-pastel" id="btnPlayDE" data-translate-key="buttons.playDE" onclick="playCurrentSentence('de')">🔊 Almanca Dinle</button>
       <button class="btn btn-pastel" id="btnPlayTR" data-translate-key="buttons.playTR" onclick="playCurrentSentence('tr')">🔊 Türkçe Dinle</button>
       
@@ -442,6 +461,9 @@
         <button class="btn btn-danger" style="width:100%" onclick="resetProgressStorage()" data-translate-key="buttons.resetProgress">İlerlemeyi Sıfırla</button>
         <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetContentOverride()" data-translate-key="buttons.resetOverride">⚠️ İçerik Düzeltmelerini Sıfırla</button>
         <button class="btn btn-danger" style="width:100%;margin-top:8px;" onclick="resetSrsData()" data-translate-key="buttons.resetSrs">⚠️ Çalışma (SRS) Verisini Sıfırla</button>
+        
+        <button class="btn btn-warning" style="width:100%;margin-top:8px;" onclick="forceUpdateApp()">🔄 Uygulamayı Güncelle</button>
+        
       </div>
       
     </div>
@@ -569,11 +591,12 @@
 
 <script>
 /* ===============================
-    Verb Matrix — v2.9.5 (LED Güncellemesi)
-    - TTS Düzeltmesi (v2.9.3): iOS/iPadOS'ta Shelly/Düşük kaliteli ses yerine Anna/Markus gibi kaliteli sesleri bulmak için gelişmiş zorlama mantığı ve onvoiceschanged entegrasyonu yapıldı.
-    - YENİ (v2.9.4): "Otomatik Dinle" butonu ve "Yavaş Mod" için LED göstergeler eklendi.
-    - YENİ (v2.9.4): "handleAction" fonksiyonu, Otomatik Dinle aktifken Almanca sesi çalacak şekilde güncellendi.
-    - GÜNCELLENDİ (v2.9.5): "Yavaş Mod" butonu metni sabitlendi, sadece LED'in durumu (aktif/pasif) değiştirildi.
+    Verb Matrix — v2.9.7 (Çeviri Motoru Düzeltmesi)
+    - GÜNCELLENDİ (v2.9.6): Android TTS 'getVoices()' gecikmesi için 'init' ve 'play...' fonksiyonlarına yeniden deneme mantığı eklendi.
+    - YENİ (v2.9.7): `getMergedTranslations(lang)` fonksiyonu eklendi.
+    - GÜNCELLENDİ (v2.9.7): Tüm fonksiyonlar (`updateUITexts`, `loadAndShowGroupMenu` vb.) artık eksik çeviri anahtarları için 'tr' diline (varsayılan) düşen `getMergedTranslations` fonksiyonunu kullanıyor. Bu, 'en' ve 'de' dillerindeki çökmeleri ve karışık dil sorunlarını düzeltir.
+    - GÜNCELLENDİ (v2.9.7): 🏁 emojisi 'BAŞLA' butonu için HTML'den çeviri dosyasına (`data.translations`) taşındı.
+    - GÜNCELLENDİ (v2.9.7): 'Göster/Kontrol Et' butonu, CSS ile ortalanması için kendi `div`'ine taşındı.
     =============================== */
 
 /* ---------------- Demo / default data (replace with your JSON) --------------- */
@@ -629,18 +652,18 @@ let data = {
     sections: {}
   },
   
-  // GÜNCELLENDİ: 'de' ve 'en' için örnek çeviriler eklendi.
+  // GÜNCELLENDİ (v2.9.7): Bayrak emojileri çeviriye eklendi.
   translations: {
     tr: {
       app: { subtitle: 'Fiiller İle Almanca Öğrenme Platformu' }, 
       menu: { 
-        start: 'BAŞLA', 
+        start: '🏁 BAŞLA', // GÜNCELLENDİ
         settings: '⚙️ Ayarlar', 
         progress: '📊 İlerleme', 
         admin: '🔧 Yönetici (Admin)' 
       },
       titles: {
-        start: 'START', // TR 'BAŞLA' olmalı, ancak JS'de DE'den alıyor, bu sorun değil.
+        start: 'BAŞLA',
         groupSelect: 'Fiil Seç', 
         storySelect: 'Hikaye Seç', 
         verbSelect: 'FİİL SEÇ', 
@@ -719,10 +742,10 @@ let data = {
         overrideReset: '✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir.'
       }
     },
-    de: { // YENİ: Almanca çeviriler eklendi
+    de: { 
       app: { subtitle: 'Deutsch-Lernplattform mit Verben' },
       menu: { 
-        start: 'START', 
+        start: '🏁 START', // GÜNCELLENDİ
         settings: '⚙️ Einstellungen', 
         progress: '📊 Fortschritt', 
         admin: '🔧 Admin' 
@@ -745,12 +768,11 @@ let data = {
         appearance: '🎨 Ansicht & Sprache', nightMode: 'Nachtmodus', language: 'Sprache:',
         dataManagement: '💾 Datenverwaltung'
       }
-      // NOT: Diğer çeviriler eksik, ancak bu kadarı çalışması için yeterli.
     },
-    en: { // YENİ: İngilizce çeviriler eklendi
+    en: { 
         app: { subtitle: 'German Learning Platform with Verbs' },
         menu: { 
-        start: 'START', 
+        start: '🏁 START', // GÜNCELLENDİ
         settings: '⚙️ Settings', 
         progress: '📊 Progress', 
         admin: '🔧 Admin' 
@@ -765,7 +787,7 @@ let state = {
   currentView:'mainMenu',
   group:null, groupData:null,
   verb:null, section:null, mode:null,
-  
+
   // --- SRS & Quiz State ---
   answers:[], 
   dueCards: [], 
@@ -774,11 +796,11 @@ let state = {
   showAnswer:false,
   wordPool:[], wordSelected:[], userAnswer:'', correctAnswer:'', showResult:false,
   hintPanelVisible: false,
-  
+
   // GÜNCELLENDİ: Hız ve Otomatik Dinle durumu
   speechRate: 1.0, // 1.0 = Normal, 0.5 = Yavaş
   isSpeaking: false,
-  autoPlayAudio: false // YENİ: Otomatik dinle durumu
+  autoPlayAudio: true // YENİ: Otomatik dinle durumu
 };
 
 /* ---------- YENİ: Müzik Çalar Mantığı (HTML5 Audio) ---------- */
@@ -1009,7 +1031,7 @@ function updateCardSrsData(originalIndex, difficulty) {
 }
 
 function resetSrsData() {
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // GÜNCELLENDİ v2.9.7
     if (confirm(t.messages.srsResetConfirm || 'Tüm çalışma (Aralıklı Tekrar) verilerinizi sıfırlamak istediğinizden emin misiniz? Tüm kartların ilerlemesi sıfırlanacaktır.')) {
         srsData = {};
         saveSrsData();
@@ -1052,7 +1074,7 @@ function saveDataOverride() {
 }
 
 function resetContentOverride() {
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // GÜNCELLENDİ v2.9.7
     if (confirm(t.messages.overrideResetConfirm || 'Tüm yerel içerik düzeltmelerini silmek istediğinizden emin misiniz? Uygulama varsayılan HTML içeriğine dönecektir.')) {
         localStorage.removeItem('verbmatrix_content_override');
         alert(t.messages.overrideReset);
@@ -1132,12 +1154,30 @@ function getProperty(obj, keyString) {
   if (!keyString) return null;
   return keyString.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
 }
+/* ===============================
+    YENİ ÇEVİRİ MOTORU (v2.9.7)
+   =============================== */
+
+// GÜNCELLENDİ (v2.9.7): Çeviri Motoru
+// Eksik anahtarlar için 'tr' (varsayılan) diline düşer.
+// Bu, 'en' ve 'de' dillerindeki çökmeleri ve karışık dil sorunlarını düzeltir.
+function getMergedTranslations(lang = 'tr') {
+    const defaultLang = 'tr';
+    const defaultTranslations = data.translations[defaultLang] || {};
+    
+    // Dil 'tr' ise veya seçilen dil objesi boşsa, sadece 'tr'yi kullan
+    if (lang === defaultLang || !data.translations[lang] || Object.keys(data.translations[lang]).length === 0) {
+        return defaultTranslations;
+    }
+    
+    // Seçilen dili, 'tr' (varsayılan) üzerine birleştir (eksikleri tamamla)
+    return deepMerge(defaultTranslations, data.translations[lang]);
+}
+
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function updateUITexts(){
   const lang = data.settings.language || 'tr';
-  
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) 
-            ? data.translations[lang] 
-            : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   document.querySelectorAll('[data-translate-key]').forEach(el => {
     const key = el.dataset.translateKey;
@@ -1150,7 +1190,7 @@ function updateUITexts(){
         el.textContent = translation;
       }
     } else {
-      console.warn(`Translation key not found: ${key} for lang: ${lang}`);
+      console.warn(`Translation key not found (and not in fallback): ${key} for lang: ${lang}`);
     }
   });
   
@@ -1225,11 +1265,12 @@ function loadProgress(){
 }
 /* ---------------------------------------------------- */
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function loadAndShowGroupMenu(){
   const container = document.getElementById('groupButtons');
   container.innerHTML = '';
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   if(!data.groups || data.groups.length===0){
     container.innerHTML = `<div class="content-box">${t.messages.noGroups}</div>`;
@@ -1264,13 +1305,14 @@ function loadAndShowGroupMenu(){
 }
 
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function selectGroup(id){
   state.group = id; state.groupData = data.groups.find(x=>x.id===id) || null;
   const verbs = (data.verbs[id]||[]).filter(v=>v.id);
   const container = document.getElementById('verbButtons'); container.innerHTML='';
   if(verbs.length===0){ 
     const lang = data.settings.language || 'tr';
-    const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+    const t = getMergedTranslations(lang); // YENİ MOTOR
     container.innerHTML = `<div class="content-box">${t.messages.noVerbs}</div>`; 
     showView('verbMenu'); 
     return; 
@@ -1323,6 +1365,7 @@ function selectSection(sectionNum){
   showView('modeMenu');
 }
 /* ---------- Learning flow ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function startMode(modeId){
   state.mode = modeId; 
   state.showAnswer=false; 
@@ -1352,7 +1395,7 @@ function startMode(modeId){
     state.dueCardPos = 0; 
     
     if (state.dueCards.length === 0) {
-        const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+        const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
         document.getElementById('learningContent').innerHTML = `<div class="content-box"><h3 style="text-align:center">${t.messages.noDueCards}</h3></div>`;
         document.getElementById('progressText').textContent = "0 / 0";
         document.getElementById('progressFill').style.width = '100%';
@@ -1370,10 +1413,11 @@ function startMode(modeId){
   showLearning();
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showLearning(){
   const sentences = getSentences();
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
   
   resetSpeechButtons(); 
 
@@ -1437,6 +1481,7 @@ function buildHintHtml(verbId, sectionNum, sentenceIndex){
   return html;
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function renderSentence(sentences){
   const container = document.getElementById('learningContent');
   document.getElementById('resultArea').innerHTML=''; document.getElementById('answerArea').innerHTML=''; 
@@ -1473,7 +1518,7 @@ function renderSentence(sentences){
   const hintHtml = buildHintHtml(state.verb, state.section, originalIndex);
 
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   const isTrDe = data.settings.conversionMode === 'tr-de';
   const questionText = isTrDe ? sent.tr : sent.de;
@@ -1590,6 +1635,7 @@ function showQuickEditPanel(){
     document.getElementById('quickEditPanel').style.display = 'block';
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function saveQuickEdit(){
     if (!state.verb || !state.section) return;
     const sentences = getSentences();
@@ -1620,7 +1666,7 @@ function saveQuickEdit(){
     document.getElementById('quickEditPanel').style.display = 'none';
     renderSentence(sentences);
     
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
     alert(t.messages.quickEditSaved);
 }
 
@@ -1674,23 +1720,20 @@ function rateCard(difficulty) {
 }
 
 
-// GÜNCELLENDİ: handleAction (Otomatik Dinle mantığı eklendi)
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function handleAction(){
   const sents = getSentences();
   const btn = document.getElementById('actionBtn');
   const resultArea = document.getElementById('resultArea'), answerArea = document.getElementById('answerArea');
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   const btnDE = document.getElementById('btnPlayDE');
   const btnTR = document.getElementById('btnPlayTR');
 
   // YENİ: Otomatik Çalma Tetikleyicisi
-  // "Göster" veya "Kontrol Et" butonuna basıldığında, sonucu göster VE otomatik çalma açıksa Almanca'yı çal.
   const triggerAutoPlay = () => {
       if (state.autoPlayAudio) {
-          // Almanca'yı (veya DE->TR modunda ise Türkçe'yi) çal.
-          // Almanca öğrenme odaklı olduğu için 'de' tercih edilmiştir.
           playCurrentSentence('de');
       }
   };
@@ -1766,8 +1809,9 @@ function previousQuestion(){
   } 
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function resetLearning(){ 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
 
   if (state.mode === 'study') {
       state.dueCardPos = 0;
@@ -1788,8 +1832,9 @@ function goToNextSection(sectionNum) {
     startMode(state.mode); 
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showCompletion(total){
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   let correctCount = 0;
   let scoreHtml = '';
   
@@ -1843,9 +1888,11 @@ function showCompletion(total){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 
-// GÜNCELLENDİ: playCurrentSentence (iOS için Anna/Markus'u zorlayan v2.9.3 mantığı)
-function playCurrentSentence(lang) {
-    resetSpeechButtons(); 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
+function playCurrentSentence(lang, retryCount = 0) {
+    if (retryCount === 0) {
+        resetSpeechButtons(); 
+    }
 
     const sentences = getSentences();
     if (!sentences || sentences.length === 0) return;
@@ -1867,13 +1914,21 @@ function playCurrentSentence(lang) {
     
     if (!text) return; 
 
-    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying && retryCount === 0) {
         musicPlayer.dim_music(true);
     }
 
     if('speechSynthesis' in window){
         const speakNow = () => {
             const voices = window.speechSynthesis.getVoices();
+            
+            // YENİ (v2.9.6): Android Gecikme Kontrolü
+            if (voices.length === 0 && retryCount < 3) {
+                console.warn(`TTS Sesleri henüz yüklenmedi (Android?). ${retryCount + 1}. deneme 500ms sonra...`);
+                setTimeout(() => playCurrentSentence(lang, retryCount + 1), 500);
+                return;
+            }
+
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = langCode;
             utter.rate = state.speechRate || 1;
@@ -1913,7 +1968,8 @@ function playCurrentSentence(lang) {
         };
 
         // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
-        if (window.speechSynthesis.getVoices().length === 0) {
+        if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && navigator.userAgent.match(/iPad|iPhone|iPod/i)) {
+             console.log("iOS/iPadOS cihazı algılandı, onvoiceschanged bekleniyor...");
             window.speechSynthesis.onvoiceschanged = function handler() {
                 window.speechSynthesis.onvoiceschanged = null; 
                 speakNow();
@@ -1923,7 +1979,7 @@ function playCurrentSentence(lang) {
         }
 
     } else {
-        const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+        const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
         alert(t.messages.ttsNotSupported);
         
         if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
@@ -1933,10 +1989,11 @@ function playCurrentSentence(lang) {
 }
 
 /* ---------- Story functions ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showGroupStory(groupId){
   state.group = groupId; state.groupData = data.groups.find(g=>g.id===groupId) || null;
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
   if(!state.groupData || !state.groupData.story){ alert(t.messages.noStory); return; }
   
   document.getElementById('storyTitle').textContent = state.groupData.story.title || t.titles.story;
@@ -1949,15 +2006,14 @@ function renderStoryContent(){
                    <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
 }
 
-// GÜNCELLENDİ: playStoryAudio (iOS için Anna/Markus'u zorlayan v2.9.3 mantığı)
-function playStoryAudio(lang) {
-    resetSpeechButtons(); 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
+function playStoryAudio(lang, retryCount = 0) {
+    if (retryCount === 0) {
+        resetSpeechButtons(); 
+    }
 
     const s = state.groupData && state.groupData.story;
-    const t = (data.translations[data.settings.language || 'tr'] &&
-               Object.keys(data.translations[data.settings.language || 'tr']).length > 0)
-              ? data.translations[data.settings.language || 'tr']
-              : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
 
     if (!s) { alert(t.messages.noStoryFound); return; }
 
@@ -1966,18 +2022,26 @@ function playStoryAudio(lang) {
     
     if (!text) return;
 
-    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+    if (lang === 'de' && musicPlayer && musicPlayer.isPlaying && retryCount === 0) {
         musicPlayer.dim_music(true);
     }
 
     if ('speechSynthesis' in window) {
         const speakNow = () => {
             const voices = window.speechSynthesis.getVoices();
+
+            // YENİ (v2.9.6): Android Gecikme Kontrolü
+            if (voices.length === 0 && retryCount < 3) {
+                console.warn(`TTS Sesleri henüz yüklenmedi (Android?). ${retryCount + 1}. deneme 500ms sonra...`);
+                setTimeout(() => playStoryAudio(lang, retryCount + 1), 500);
+                return;
+            }
+
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = langCode;
             utter.rate = state.speechRate || 1;
-            utter.pitch = 1; // Ses tonunu normal tut
-            utter.volume = 1; // Ses seviyesini tam tut
+            utter.pitch = 1; 
+            utter.volume = 1; 
 
             // v2.9.3 Ses Seçimi Mantığı: Anna/Markus'u zorla
             let voice = null;
@@ -2013,7 +2077,8 @@ function playStoryAudio(lang) {
         };
 
         // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
-        if (window.speechSynthesis.getVoices().length === 0) {
+        if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && navigator.userAgent.match(/iPad|iPhone|iPod/i)) {
+             console.log("iOS/iPadOS cihazı algılandı, onvoiceschanged bekleniyor...");
             window.speechSynthesis.onvoiceschanged = function handler() {
                 window.speechSynthesis.onvoiceschanged = null; // Sadece bir kere çalışsın
                 speakNow();
@@ -2030,11 +2095,12 @@ function playStoryAudio(lang) {
     }
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showStoryQuestions(){
   const story = state.groupData && state.groupData.story;
   const container = document.getElementById('storyQuestionsContent');
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   container.innerHTML = '';
   if(!story || !story.quiz || !Array.isArray(story.quiz) || story.quiz.length===0){ 
@@ -2067,10 +2133,11 @@ function checkStoryAnswers(){
 }
 
 /* ---------- Data import/export/debug ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function importData(){
   const input = document.getElementById('fileInput');
   input.onchange = async (e)=>{ 
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
     try{
       const file = e.target.files[0]; if(!file) return;
       const text = await file.text(); const imported = JSON.parse(text);
@@ -2103,15 +2170,17 @@ function importData(){
   };
   input.click();
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function exportData(){
   const json = JSON.stringify(data,null,2);
   const blob = new Blob([json],{type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a');
   a.href = url; a.download = 'verbmatrix_data.json'; a.click(); URL.revokeObjectURL(url); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   alert(t.messages.dataExported);
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function debugData(){
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   let msg = `${t.messages.jsonStatus}\n\n`;
   msg += `Gruplar: ${(data.groups||[]).length}\n`;
   msg += `Verbs grup count: ${Object.keys(data.verbs||{}).length}\n`;
@@ -2125,17 +2194,19 @@ function debugData(){
   
   alert(msg);
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function resetProgressStorage(){ 
   state.answers=[]; 
   saveProgress(); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   alert(t.messages.progressReset); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function loadProgressView(){
   loadProgress(); 
   const total = state.answers.length; const correct = state.answers.filter(a=> a===true || a>0 ).length;
   const percent = total===0?0:Math.round((correct/total)*100);
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   
   if (total === 0) {
     document.getElementById('progressStats').innerHTML = `<p class="small-muted">${t.messages.noProgress}</p>`;
@@ -2145,10 +2216,11 @@ function loadProgressView(){
 }
 
 /* ---------- Hint forms & manager (Admin paneline taşındı) ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showHintForm(type){
   const area = document.getElementById('hintFormsArea'); area.innerHTML = '';
   const lang = data.settings.language || 'tr';
-  const t = (data.translations[lang] && Object.keys(data.translations[lang]).length > 0) ? data.translations[lang] : data.translations.tr;
+  const t = getMergedTranslations(lang); // YENİ MOTOR
 
   if(type==='sentence'){
     area.innerHTML = `<div class="content-box"><h4>${t.admin.hintSentence}</h4>
@@ -2184,9 +2256,10 @@ function hf_loadVerbs(){ const gid=document.getElementById('hf_group').value; co
 function hf_loadSections(){ const verbId=document.getElementById('hf_verb').value; const sel=document.getElementById('hf_section'); sel.innerHTML=''; if(!verbId) return; Object.entries(data.sections).forEach(([num,name])=>{ const key = `${verbId}_s${num}`; if(data.content[key] && data.content[key].length>0){ const o=document.createElement('option'); o.value=num; o.textContent=`${num}. ${name}`; sel.appendChild(o); } }); hf_loadSentences(); }
 function hf_loadSentences(){ const verbId=document.getElementById('hf_verb').value; const section=document.getElementById('hf_section').value; const sel=document.getElementById('hf_sentence'); sel.innerHTML=''; if(!verbId||!section) return; const arr = data.content[`${verbId}_s${section}`]||[]; arr.forEach((s,i)=>{ const o=document.createElement('option'); o.value=i; o.textContent = (s.tr||s.de||'').substring(0,80); sel.appendChild(o); }); }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function saveSentenceHint(){ 
     const verbId=document.getElementById('hf_verb').value; const section=document.getElementById('hf_section').value; const idx=document.getElementById('hf_sentence').value; const txt=document.getElementById('hf_text').value.trim(); 
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
     if(!verbId||!section||idx===''||!txt){ alert(t.messages.allFieldsError); return; } 
     const key = `${verbId}_s${section}_${idx}`; 
     if(!data.hints) data.hints={sentences:{},verbs:{},sections:{}}; 
@@ -2196,9 +2269,10 @@ function saveSentenceHint(){
     saveDataOverride(); 
 }
 function vh_loadVerbs(){ const gid=document.getElementById('vh_group').value; const sel=document.getElementById('vh_verb'); sel.innerHTML=''; if(!gid) return; (data.verbs[gid]||[]).forEach(v=>{ const o=document.createElement('option'); o.value=v.id; o.textContent=(v.verbTR||v.verbDE); sel.appendChild(o); }); }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function saveVerbHint(){ 
     const verbId = document.getElementById('vh_verb').value; const txt = document.getElementById('vh_text').value.trim(); 
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
     if(!verbId||!txt){ alert(t.messages.allFieldsError); return; } 
     if(!data.hints) data.hints={sentences:{},verbs:{},sections:{}}; 
     data.hints.verbs[verbId] = txt; alert(t.messages.hintSaved); 
@@ -2206,9 +2280,10 @@ function saveVerbHint(){
     if (state.currentView === 'adminHintView') { showHintManager('hintManagerArea'); }
     saveDataOverride(); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function saveSectionHint(){ 
     const code=document.getElementById('sh_section_code').value.trim(); const txt=document.getElementById('sh_text').value.trim(); 
-    const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+    const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
     if(!code||!txt){ alert(t.messages.allFieldsError); return; } 
     if(!data.sectionsHints) data.sectionsHints={}; 
     data.sectionsHints[code] = txt; alert(t.messages.hintSaved + ': ' + code); 
@@ -2217,11 +2292,12 @@ function saveSectionHint(){
     saveDataOverride(); 
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function adminEditHint(type, key) {
   const area = document.getElementById('hintFormsArea'); 
   area.innerHTML = ''; 
   const hintText = data.hints[type][key];
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
 
   if (type === 'sentences') {
     area.innerHTML = `<div class="content-box"><h4>Cümle İpucu Düzenle (${key})</h4>
@@ -2239,10 +2315,11 @@ function adminEditHint(type, key) {
       </div></div>`;
   }
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function adminEditSectionHint(key) {
   const area = document.getElementById('hintFormsArea');
   const hintText = data.sectionsHints[key];
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>Bölüm İpucu Düzenle (${key})</h4>
     <label>${t.labels.sectionCode}</label><input id="sh_section_code" class="input-field" value="${escapeHtml(key)}" readonly>
     <label>${t.labels.hintText}</label><textarea id="sh_text" class="input-field">${escapeHtml(hintText)}</textarea>
@@ -2271,11 +2348,12 @@ function saveEditedVerbHint(key) {
   saveDataOverride(); 
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showHintManager(targetId = 'hintFormsArea'){ 
   const area = document.getElementById(targetId);
   if(!area) { console.error("Hint manager target area not found:", targetId); return; }
   
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   let html = '';
   
   html += '<h5>Cümle İpuçları</h5>'; 
@@ -2356,10 +2434,11 @@ function toggleHintPanel(){
 }
 
 /* ---------- Admin: Add/Edit content ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showAdminAddGroup(){
   document.getElementById('adminTsvArea').style.display = 'none'; // TSV'yi gizle
   const area = document.getElementById('adminContentArea'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addGroup}</h4>
     <label>${t.labels.groupID}</label><input id="adm_group_id" class="input-field">
     <label>${t.labels.groupNameTR}</label><input id="adm_group_name" class="input-field">
@@ -2377,10 +2456,11 @@ function adminSaveGroup(){
   alert('Grup eklendi'); document.getElementById('adminContentArea').innerHTML='';
   saveDataOverride(); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showAdminAddVerb(){
   document.getElementById('adminTsvArea').style.display = 'none'; // TSV'yi gizle
   const area = document.getElementById('adminContentArea'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addVerb}</h4>
     <label>${t.labels.group}</label><select id="adm_v_group" class="select-field"></select>
     <label>${t.labels.verbID}</label><input id="adm_v_id" class="input-field">
@@ -2401,10 +2481,11 @@ function adminSaveVerb(){
   alert('Fiil eklendi'); document.getElementById('adminContentArea').innerHTML='';
   saveDataOverride(); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showAdminEditSentence(){
   document.getElementById('adminTsvArea').style.display = 'none'; // TSV'yi gizle
   const area = document.getElementById('adminContentArea'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>${t.admin.editSentence}</h4>
     <label>${t.labels.group}</label><select id="adm_es_group" class="select-field"></select>
     <label>${t.labels.verb}</label><select id="adm_es_verb" class="select-field"></select>
@@ -2457,9 +2538,10 @@ function adminAddNewSentence(){
 }
 
 /* ---------- Admin: Story management ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showAdminAddStory(){
   const area = document.getElementById('adminStoryArea'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>${t.admin.addStory}</h4>
     <label>${t.labels.group}</label><select id="adm_story_group" class="select-field"></select>
     <label>${t.labels.title}</label><input id="adm_story_title" class="input-field">
@@ -2478,21 +2560,23 @@ function adminSaveStory(){
   alert('Hikaye kaydedildi'); document.getElementById('adminStoryArea').innerHTML='';
   saveDataOverride(); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function showAdminEditStory(){
   const area = document.getElementById('adminStoryArea'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   area.innerHTML = `<div class="content-box"><h4>${t.admin.editStory}</h4>
     <label>${t.labels.group}</label><select id="adm_esg_group" class="select-field"></select>
     <div class="button-group-row"><button class="btn btn-primary" onclick="adminLoadGroupStory()">Hikayeyi Yükle</button></div>
     <div id="adm_story_edit"></div></div>`;
   fillSelect('adm_esg_group', data.groups.map(g=>({v:g.id,t:g.name})), true);
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function adminLoadGroupStory(){
   const gid=document.getElementById('adm_esg_group').value; if(!gid) return;
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story){ alert('Bu grupta hikaye yok'); return; }
   const s = g.story;
   const area = document.getElementById('adm_story_edit');
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   
   let html = `<div style="margin-top:8px"><label>${t.labels.title}</label><input id="ae_title" class="input-field" value="${escapeHtml(s.title||'')}">
     <label>${t.labels.deText}</label><textarea id="ae_de" class="input-field" rows="5">${escapeHtml(s.de||'')}</textarea>
@@ -2512,10 +2596,11 @@ function adminSaveEditedStory(gid){
 }
 function adminDeleteStory(gid){ if(!confirm('Hikayeyi silmek istediğinize emin misiniz?')) return; const g = data.groups.find(x=>x.id===gid); if(g) { g.story = null; alert('Hikaye silindi'); document.getElementById('adm_story_edit').innerHTML=''; saveDataOverride(); } }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function renderAdminQuizList(gid){
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story) return;
   const list = document.getElementById('ae_quiz_list'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   let html=''; 
   (g.story.quiz||[]).forEach((q,i)=>{ 
     html += `<div class="hint-item"><strong>${i+1}. ${escapeHtml(q.q)}</strong><div style="margin-top:6px">${q.options.map(o=>`<span class="muted">${escapeHtml(o)}</span>`).join(' , ')}</div>
@@ -2534,10 +2619,11 @@ function adminAddQuiz(gid){
   renderAdminQuizList(gid);
   saveDataOverride(); 
 }
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function adminEditQuiz(gid, index){
   const g = data.groups.find(x=>x.id===gid); if(!g || !g.story) return;
   const q = g.story.quiz[index]; const container=document.getElementById('ae_quiz_list');
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   const html = `<div class="content-box">
     <h4>Testi Düzenle</h4>
     <label>${t.labels.question}</label><input id="aq_q" class="input-field" value="${escapeHtml(q.q)}">
@@ -2570,9 +2656,10 @@ function adminDeleteQuiz(gid,index){
 }
 
 /* ---------- All sentences table ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function renderAllSentencesTable(){
   const container = document.getElementById('allSentencesTable'); 
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   let html = `<table><thead><tr><th>${t.labels.group}</th><th>${t.labels.verb}</th><th>${t.labels.section}</th><th>${t.labels.index}</th><th>${t.labels.tr}</th><th>${t.labels.de}</th></tr></thead><tbody>`;
   Object.entries(data.content||{}).forEach(([key,arr])=>{
     const m = key.match(/^(.+)_s(\d+)$/);
@@ -2620,13 +2707,14 @@ function exportSentencesCsv(){
     });
   });
   const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob([csv],{type:'text/csv;charset=utf-f;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'sentences.csv'; a.click(); URL.revokeObjectURL(url); alert('CSV indirildi');
 }
 
 /* ---------- JSON paste loader ---------- */
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function loadJsonFromTextarea(){
   const txt = document.getElementById('jsonPaste').value.trim();
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
   if(!txt){ alert('JSON yapıştırın'); return; }
   try{
     const imported = JSON.parse(txt);
@@ -2655,7 +2743,50 @@ function loadJsonFromTextarea(){
     showView('mainMenu');
   } catch(e){ alert(`${t.messages.loadError} ${e.message}`); }
 }
+/* ---------- YENİ (v2.9.8): Zorla Güncelleme Fonksiyonu ---------- */
+function forceUpdateApp() {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    // 1. Service Worker Desteği var mı?
+    if ('serviceWorker' in navigator) {
+        
+        // 2. Tüm aktif Service Worker kayıtlarını bul
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            
+            // 3. Tüm kayıtları kaldır (unregister)
+            const unregisterPromises = registrations.map(reg => {
+                console.log('Service Worker kaydı kaldırılıyor:', reg);
+                return reg.unregister();
+            });
 
+            // 4. Service Worker'ın tuttuğu tüm önbelleği (Cache Storage) sil
+            const deleteCachePromises = window.caches ? caches.keys().then(keys => {
+                return Promise.all(keys.map(key => {
+                    console.log('Service Worker önbelleği siliniyor:', key);
+                    return caches.delete(key);
+                }));
+            }) : Promise.resolve(); // Cache API yoksa bu adımı atla
+
+            // 5. Tüm işlemler bittiğinde...
+            Promise.all([].concat(unregisterPromises, [deleteCachePromises]))
+                .then(() => {
+                    alert('✅ Güncelleme tamamlandı. \n\Uygulama sunucudan yeniden yüklenecek.');
+                    // Sayfayı sunucudan zorla yeniden yükle
+                    window.location.reload(true);
+                });
+
+        }).catch(err => {
+            console.error('Güncelleme hatası (SW):', err);
+            alert('Güncelleme sırasında bir hata oluştu: ' + err.message);
+        });
+
+    } else {
+        // Service Worker desteği yoksa, sadece sayfayı yenile
+        alert('Service Worker desteği yok. Sayfa normal olarak yeniden yükleniyor.');
+        window.location.reload(true);
+    }
+}
+/* ---------- Güncelleme Fonksiyonu SONU ---------- */
 
 /* ---------- YENİ: Admin Toplu Yükleme (TSV/Excel) Aracı ---------- */
 
@@ -2665,9 +2796,10 @@ function showTsvImporter() {
   document.getElementById('tsvPasteArea').value = ''; 
 }
 
+// GÜNCELLENDİ (v2.9.7): Yeni çeviri motorunu kullanır
 function parseAndImportTsv() {
   const tsvData = document.getElementById('tsvPasteArea').value.trim();
-  const t = (data.translations[data.settings.language || 'tr'] && Object.keys(data.translations[data.settings.language || 'tr']).length > 0) ? data.translations[data.settings.language || 'tr'] : data.translations.tr;
+  const t = getMergedTranslations(data.settings.language || 'tr'); // YENİ MOTOR
 
   if (!tsvData) {
     alert('Lütfen veriyi yapıştırın.');
@@ -2753,6 +2885,7 @@ function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).
 function isObject(item) {
   return (item && typeof item === 'object' && !Array.isArray(item));
 }
+// GÜNCELLENDİ (v2.9.7): Artık 'tr' (varsayılan) ile 'hedef' dili birleştiriyor
 function deepMerge(target, source) {
   let output = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
@@ -2781,6 +2914,17 @@ function init(){
       console.log('ServiceWorker registration failed: ', err);
     }); 
   }
+
+  // YENİ (v2.9.6): Android TTS motorunu "uyandır"
+  if ('speechSynthesis' in window) {
+    // onvoiceschanged olayını yükle, bu Android'in sesleri yüklemesini tetikler
+    window.speechSynthesis.onvoiceschanged = () => {
+        console.log("TTS Sesleri yüklendi (onvoiceschanged tetiklendi).");
+    };
+    // Ekstra güvence olarak sesleri listelemeyi talep et
+    window.speechSynthesis.getVoices(); 
+  }
+  // --- Android Düzeltmesi Sonu ---
 
   // Event Listener'ları ekle
   const modeToggleBtn = document.getElementById('modeToggleBtn');
@@ -2814,7 +2958,7 @@ function init(){
   
   updateConversionButtons();
 
-  console.log('Verb Matrix v2.9.5 (LED Güncellemesi) hazır.');
+  console.log('Verb Matrix v2.9.7 (Çeviri Motoru Düzeltmesi) hazır.');
 }
 
 window.addEventListener('DOMContentLoaded', init);
