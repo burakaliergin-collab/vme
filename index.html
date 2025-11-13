@@ -520,13 +520,13 @@
 
 <script>
 /* ===============================
-    Verb Matrix — v2.9.2 (Final Güncelleme)
+    Verb Matrix — v2.9.3 (TTS Güncellemesi)
     - Pastel butonlar, tek tip boyut ve hizalama uygulandı.
-    - TTS hız (Yavaş/Normal) ve Durdurma/Oynatma (Pause) kontrolleri eklendi.
+    - TTS hız (Yavaş/Normal) ve Durdurma/Oynatma (Pause) kontrolleri entegre.
     - Kelime Sıralama (WordOrder) mantığı DİKEY sıralama için düzeltildi.
     - SRS Aralıkları revize edildi.
     - Çalışma sayfalarında logo gizlendi.
-    - **TTS Düzeltmesi (v2.9.3): iOS/iPadOS için Almanca dil ataması ve seslerin yüklenmesi ('onvoiceschanged') mantığı eklendi.**
+    - **TTS Düzeltmesi (v2.9.3): iOS/iPadOS'ta Shelly/Düşük kaliteli ses yerine Anna/Markus gibi kaliteli sesleri bulmak için gelişmiş zorlama mantığı ve onvoiceschanged entegrasyonu yapıldı.**
     =============================== */
 
 /* ---------------- Demo / default data (replace with your JSON) --------------- */
@@ -1735,7 +1735,7 @@ function showCompletion(total){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 
-// GÜNCELLENDİ: iOS için 'voiceschanged' olayı eklendi, ses seçimi garanti altına alındı
+// GÜNCELLENDİ: Hem playCurrentSentence hem de playStoryAudio'ya geliştirilmiş ses seçimi uygulandı.
 function playCurrentSentence(lang) {
     resetSpeechButtons(); 
 
@@ -1756,7 +1756,6 @@ function playCurrentSentence(lang) {
 
     const text = (lang === 'de') ? sent.de : sent.tr;
     const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
-    const baseLang = lang.split('-')[0]; // 'de' veya 'tr'
     
     if (!text) return; 
 
@@ -1770,14 +1769,28 @@ function playCurrentSentence(lang) {
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = langCode;
             utter.rate = state.speechRate || 1;
+            utter.pitch = 1; 
+            utter.volume = 1; 
             
-            // Uygun ses seçimi: Önce tam, sonra kısmi eşleşme
-            const voiceMatch = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
-            if (voiceMatch) {
-                utter.voice = voiceMatch;
+            // Yeni Ses Seçimi Mantığı: Anna/Markus'u zorla
+            let voice = null;
+            if (lang === 'de') {
+                // 1. Anna veya Markus'u dene (yüksek kaliteli sesler)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
+            }
+            if (!voice) {
+                // 2. Tam dil kodu eşleşmesini dene
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            }
+            if (!voice && lang === 'de') {
+                 // 3. Bölge olmadan Almanca eşleşmesini dene
+                 voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+            }
+
+            if (voice) {
+                utter.voice = voice;
             } else {
-                const fallback = voices.find(v => v.lang.toLowerCase().startsWith(baseLang));
-                if (fallback) utter.voice = fallback;
+                console.warn("Uygun Almanca ses bulunamadı, varsayılan kullanılacak.");
             }
 
             utter.onend = utter.onerror = () => {
@@ -1792,10 +1805,9 @@ function playCurrentSentence(lang) {
         };
 
         // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
-        const voices = window.speechSynthesis.getVoices();
-        if (voices.length === 0) {
+        if (window.speechSynthesis.getVoices().length === 0) {
             window.speechSynthesis.onvoiceschanged = function handler() {
-                window.speechSynthesis.onvoiceschanged = null; // Sadece bir kere çalışsın
+                window.speechSynthesis.onvoiceschanged = null; 
                 speakNow();
             };
         } else {
@@ -1829,7 +1841,7 @@ function renderStoryContent(){
                    <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
 }
 
-// GÜNCELLENDİ: iOS için 'voiceschanged' olayı eklendi, ses seçimi garanti altına alındı
+// GÜNCELLENDİ: Hem playCurrentSentence hem de playStoryAudio'ya geliştirilmiş ses seçimi uygulandı.
 function playStoryAudio(lang) {
     resetSpeechButtons(); 
 
@@ -1843,8 +1855,7 @@ function playStoryAudio(lang) {
 
     const text = (lang === 'de') ? s.de : s.tr;
     const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
-    const baseLang = lang.split('-')[0]; // 'de' veya 'tr'
-
+    
     if (!text) return;
 
     if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
@@ -1860,15 +1871,27 @@ function playStoryAudio(lang) {
             utter.pitch = 1; // Ses tonunu normal tut
             utter.volume = 1; // Ses seviyesini tam tut
 
-            // Uygun ses seçimi: Önce tam, sonra kısmi eşleşme
-            const voiceMatch = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
-            if (voiceMatch) {
-                utter.voice = voiceMatch;
-            } else {
-                // Kısmi eşleşme (örn. "de-DE" yerine "de" ile başlayan)
-                const fallback = voices.find(v => v.lang.toLowerCase().startsWith(baseLang));
-                if (fallback) utter.voice = fallback;
+            // Yeni Ses Seçimi Mantığı: Anna/Markus'u zorla
+            let voice = null;
+            if (lang === 'de') {
+                // 1. Anna veya Markus'u dene (yüksek kaliteli sesler)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
             }
+            if (!voice) {
+                // 2. Tam dil kodu eşleşmesini dene
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            }
+            if (!voice && lang === 'de') {
+                 // 3. Bölge olmadan Almanca eşleşmesini dene
+                 voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+            }
+
+            if (voice) {
+                utter.voice = voice;
+            } else {
+                console.warn("Uygun Almanca ses bulunamadı, varsayılan kullanılacak.");
+            }
+
 
             utter.onend = utter.onerror = () => {
                 if (musicPlayer && musicPlayer.isPlaying) {
@@ -1882,8 +1905,7 @@ function playStoryAudio(lang) {
         };
 
         // iOS/iPadOS için kritik: Sesler yüklenmeden önce boş dönebilir
-        const voices = window.speechSynthesis.getVoices();
-        if (voices.length === 0) {
+        if (window.speechSynthesis.getVoices().length === 0) {
             window.speechSynthesis.onvoiceschanged = function handler() {
                 window.speechSynthesis.onvoiceschanged = null; // Sadece bir kere çalışsın
                 speakNow();
@@ -2684,7 +2706,7 @@ function init(){
   
   updateConversionButtons();
 
-  console.log('Verb Matrix v2.9.2 (Final Güncelleme) hazır.');
+  console.log('Verb Matrix v2.9.3 (TTS Güncellemesi) hazır.');
 }
 
 window.addEventListener('DOMContentLoaded', init);
