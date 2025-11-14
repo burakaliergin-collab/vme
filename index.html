@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Verb Matrix — v3.0 (Yeni Akış)</title>
+<title>Verb Matrix — v3.1 (Hata Düzeltmeleri)</title>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -234,6 +234,32 @@
   }
 
   .mode-toggle{position:fixed;right:18px;top:18px;border-radius:50%;padding:10px;border:0;background:#fff;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.12);z-index:1200}
+  
+  /* --- YENİ EKLENEN STİL (Ana Menü Butonu) --- */
+  .home-float-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px; /* Konumu sağ alt köşe yaptık */
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(0,0,0,.12);
+    z-index: 1200;
+    font-size: 1.4rem; /* İkonu biraz büyüttük */
+    line-height: 1;
+    width: 48px;
+    height: 48px;
+    display: none; /* Başlangıçta gizli */
+  }
+  body.night-mode .home-float-btn {
+      background: #1f2937; /* Gece modu stili */
+      color: #e6eef8;
+  }
+  /* --- YENİ STİL SONU --- */
+
   .lang-btn{padding:8px 12px;border-radius:8px;border:2px solid #667eea;background:#fff;color:#667eea;cursor:pointer}
   .lang-btn.active{background:#667eea;color:#fff}
   .score-display{font-size:1.6rem;font-weight:800;color:#667eea;text-align:center;margin:12px 0}
@@ -406,6 +432,7 @@
 <body>
 <button id="modeToggleBtn" class="mode-toggle" title="Gece/Gündüz toggle">🌙</button>
 
+<button id="floatingHomeBtn" class="home-float-btn" title="Ana Menü" onclick="showView('mainMenu')">🏠</button>
 <div id="musicPlayerContainer" class="music-player-container">
     <button id="musicToggleBtn" class="music-toggle-btn" title="Müzik Çal/Durdur">🔊</button>
     <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="music-volume-slider" style="display: none;">
@@ -425,7 +452,8 @@
       <button class="btn btn-secondary" style="background-color: #4a5568;" onclick="showView('adminView')" data-translate-key="menu.admin">🔧 Yönetici</button>
     </div>
   </div>
-<div id="tekrarMenu" class="view">
+
+  <div id="tekrarMenu" class="view">
     <h2 class="large-centered-title" data-translate-key="titles.tekrar">🔄 TEKRAR</h2>
     <div class="button-grid">
       <button class="btn btn-srs-zor" onclick="startTekrar('zor')">
@@ -458,7 +486,7 @@
       <button class="btn btn-secondary" onclick="startTekrarMode('cloze')">🔲 <span data-translate-key="modes.cloze">Boşluk Doldurma</span></button>
       <button class="btn btn-secondary" onclick="startTekrarMode('wordorder')">🔤 <span data-translate-key="modes.wordorder">Kelimeleri Sıralama</span></button>
       <button class="btn btn-primary" onclick="startTekrarMode('quiz')">🎯 <span data-translate-key="modes.quiz">Quiz (Test)</span></button>
-      </div>
+    </div>
     <div class="button-group-row">
       <button class="btn btn-danger btn-small" onclick="showView('tekrarMenu')" data-translate-key="buttons.goBack">← Geri</button>
     </div>
@@ -626,7 +654,7 @@
           <div style="display:flex;gap:8px">
             <button class="lang-btn active" id="langTR" onclick="changeLanguage('tr', this)">Türkçe</button>
             <button class="lang-btn" id="langDE" onclick="changeLanguage('de', this)">Deutsch</button>
-            </div>
+          </div>
       </div>
       <label style="display:flex;align-items:center;gap:8px;margin-top:15px;">
           <input type="checkbox" id="nightModeToggle" style="width: 20px; height: 20px;"> <span data-translate-key="settings.nightMode">Gece Modu</span>
@@ -772,7 +800,10 @@
 
 <script>
 /* ===============================
-    Verb Matrix — v3.0 (Yeni Akış ve SRS Sistemi)
+    Verb Matrix — v3.1 (Hata Düzeltmeleri)
+    - DÜZELTME: 'Çalış' modu (study) 'rateCard' fonksiyonu düzeltildi, artık sonraki karta geçiyor.
+    - DÜZELTME: 'Tekrar' modları (quiz, cloze, wordorder) 'handleAction' fonksiyonu düzeltildi, 'Sonraki' butonu artık çalışıyor.
+    - YENİ: Sağ alt köşeye kalıcı 'Ana Menü' butonu eklendi.
     - YENİ: Ana Menü akışı (Çalış, Tekrar, İlerleme, Ayarlar)
     - YENİ: "Çalış" akışı (Eski "study" modu), cümleleri 'new' (yeni) statüsünden 'zor', 'normal' veya 'ogrendim' statüsüne taşır.
     - YENİ: "Tekrar" akışı, statüye (zor, normal, öğrendim) göre kartları çeker ve Quiz, Cloze, WordOrder modlarını sunar.
@@ -785,6 +816,7 @@
     - GÜNCELLENDİ: 'modeMenu' artık sadece çeviri yönü seçtiriyor, 'Çalış' akışı doğrudan 'study' moduna (yeni kart öğrenme) yönlendiriyor.
     - GÜNCELLENDİ: 'learningView' artık 3'lü SRS butonlarını (Zor, Normal, Öğrendim) gösteriyor.
     - GÜNCELLENDİ: Ayarlar menüsü yeniden düzenlendi.
+    - GÜNCELLENDİ: 'importData' butonu 'importDataFromFile' fonksiyonuna bağlandı.
     - KALDIRILDI: İngilizce dil desteği ('en') kaldırıldı.
     =============================== */
 
@@ -955,7 +987,6 @@ let data = {
         ogrendiklerim: 'GEKONNT'
       }
     }
-    // İngilizce (en) kaldırıldı
   },
   settings:{ language:'tr', nightMode:false, conversionMode: 'tr-de' }
 };
@@ -1458,6 +1489,18 @@ function showView(id){
   if (id === 'learningView' || id === 'storyView') {
       updateSpeedButtonUI();
   }
+  
+  /* --- YENİ EKLENEN KOD BLOĞU (v3.1) --- */
+  // Yüzen Ana Menü butonunu yönet
+  const homeBtn = document.getElementById('floatingHomeBtn');
+  if (homeBtn) {
+    if (id === 'mainMenu') {
+      homeBtn.style.display = 'none'; // Ana menüde gizle
+    } else {
+      homeBtn.style.display = 'block'; // Diğer tüm ekranlarda göster
+    }
+  }
+  /* --- YENİ KOD SONU --- */
 
   if(id === 'modeMenu' || id === 'tekrarModeMenu') { 
       updateConversionButtons();
@@ -2064,7 +2107,7 @@ function renderWordOrder(){
 function selectWordFromPool(index){ const word = state.wordPool[index]; state.wordSelected.push(word); state.wordPool.splice(index, 1); renderWordOrder(); }
 function unselectWord(index, word){ const removedWord = state.wordSelected.splice(index, 1)[0]; state.wordPool.push(removedWord); renderWordOrder(); }
 
-// GÜNCELLENDİ (v3.0): handleAction (Yeni SRS mantığı)
+// GÜNCELLENDİ (v3.1): handleAction (Tüm modlar için döngü düzeltildi)
 function handleAction(){
   const btn = document.getElementById('actionBtn');
   const resultArea = document.getElementById('resultArea'), answerArea = document.getElementById('answerArea');
@@ -2096,12 +2139,14 @@ function handleAction(){
 
   } else { // quiz, cloze, wordorder
   
-    // "Sonraki" butonuna basıldı
+    // "Sonraki" butonuna basıldı (DÜZELTİLDİ v3.1)
     if(state.showResult){
         state.deckPos++; 
         state.showAnswer=false; 
         state.showResult=false; 
-        showLearning();
+        // renderSentence() yerine showLearning() çağrılmalı.
+        // showLearning() bir sonraki kartı (yeni deckPos'a göre) yükler.
+        showLearning(); // <-- DÜZELTİLDİ
         return;
     }
   
@@ -2568,7 +2613,7 @@ function showAdminVerbForm(area) {
     const loadVerbs = () => {
         const gid = groupSelect.value;
         verbSelect.innerHTML = '<option value="">-- YENİ FİİL --</option>';
-        if (!gid || !data.verbs[gid]) return;
+        if (!gid || !data.verbs[gid]) { adminLoadVerbFields(); return; } // Seçili fiili temizle
         const verbOptions = (data.verbs[gid] || []).map(v => `<option value="${v.id}">${v.verbTR || v.verbDE} (${v.id})</option>`).join('');
         verbSelect.innerHTML += verbOptions;
         adminLoadVerbFields(); // Seçili fiili yükle
@@ -2576,6 +2621,7 @@ function showAdminVerbForm(area) {
     
     groupSelect.onchange = loadVerbs;
     verbSelect.onchange = adminLoadVerbFields;
+    if(groupSelect.options.length > 0) groupSelect.selectedIndex = 0; // İlk grubu seç
     loadVerbs(); // İlk yükleme
 }
 
@@ -2695,8 +2741,7 @@ function adminDeleteSection() {
     showAdminForm('addSection'); // Formu yenile
 }
 
-// Diğer Admin Formları (Cümle, Hikaye, İpucu) buraya eklenebilir...
-// (Kısalık için 'showAdminSentenceForm' ekleniyor, diğerleri benzer şekilde birleştirilebilir)
+// Cümle Düzenleme Formu
 function showAdminSentenceForm(area) {
     const t = getMergedTranslations(data.settings.language || 'tr');
     area.innerHTML = `<div class="content-box"><h4>${t.admin.editSentence}</h4>
@@ -2716,8 +2761,13 @@ function showAdminSentenceForm(area) {
     document.getElementById('adm_es_verb').onchange = admin_es_loadSections;
     document.getElementById('adm_es_section').onchange = admin_es_loadSentences;
     document.getElementById('adm_es_sentence').onchange = admin_es_loadSentenceFields;
+    // İlk yükleme için
+    if (data.groups.length > 0) {
+        document.getElementById('adm_es_group').selectedIndex = 1;
+        admin_es_loadVerbs();
+    }
 }
-// showAdminStoryForm ve showAdminHintForm benzer şekilde buraya entegre edilebilir...
+// Diğer admin formları (Hikaye, İpucu) benzer şekilde buraya eklenebilir
 // ... (admin_es_... yardımcı fonksiyonları aşağıda) ...
 
 /* ---------- Admin: Toplu Yükleme Aracı ---------- */
@@ -2988,7 +3038,10 @@ async function init(){
   updateUITexts(); // Çevirileri uygula
   updateProgressView(); // İlerleme ekranı statülerini güncelle
 
-  console.log('Verb Matrix v3.0 (Yeni Akış) hazır.');
+  console.log('Verb Matrix v3.1 (Hata Düzeltmeleri) hazır.');
+  
+  // Başlangıçta Ana Menü'yü göster (ve yüzen butonu gizle)
+  showView('mainMenu');
 }
 
 window.addEventListener('DOMContentLoaded', init);
