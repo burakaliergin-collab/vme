@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Verb Matrix — v3.1 (Hata Düzeltmeleri)</title>
+<title>Verb Matrix — v3.2 (Admin Butonu Güncellemesi)</title>
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -235,7 +235,7 @@
 
   .mode-toggle{position:fixed;right:18px;top:18px;border-radius:50%;padding:10px;border:0;background:#fff;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.12);z-index:1200}
   
-  /* --- YENİ EKLENEN STİL (Ana Menü Butonu) --- */
+  /* --- Yüzen Ana Menü Butonu (v3.1) --- */
   .home-float-btn {
     position: fixed;
     right: 18px;
@@ -256,6 +256,30 @@
   }
   body.night-mode .home-float-btn {
       background: #1f2937; /* Gece modu stili */
+      color: #e6eef8;
+  }
+
+  /* --- YENİ EKLENEN STİL (Admin Butonu v3.2) --- */
+  .admin-float-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 80px; /* Ev butonunun üstünde (18px + 48px + 14px boşluk) */
+    border-radius: 50%;
+    padding: 10px;
+    border: 0;
+    background: #4a5568; /* Orijinal butonun rengi */
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(0,0,0,.12);
+    z-index: 1200;
+    font-size: 1.4rem;
+    line-height: 1;
+    width: 48px;
+    height: 48px;
+    display: none; /* Başlangıçta gizli (JS ile yöneteceğiz) */
+  }
+  body.night-mode .admin-float-btn {
+      background: #334155; /* Gece modu stili */
       color: #e6eef8;
   }
   /* --- YENİ STİL SONU --- */
@@ -433,6 +457,7 @@
 <button id="modeToggleBtn" class="mode-toggle" title="Gece/Gündüz toggle">🌙</button>
 
 <button id="floatingHomeBtn" class="home-float-btn" title="Ana Menü" onclick="showView('mainMenu')">🏠</button>
+<button id="floatingAdminBtn" class="admin-float-btn" title="Yönetici" onclick="showView('adminView')">🔧</button>
 <div id="musicPlayerContainer" class="music-player-container">
     <button id="musicToggleBtn" class="music-toggle-btn" title="Müzik Çal/Durdur">🔊</button>
     <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="music-volume-slider" style="display: none;">
@@ -449,8 +474,7 @@
       <button class="btn btn-info" id="btnTekrar" data-translate-key="menu.tekrar" onclick="showView('tekrarMenu')">🔄 Tekrar</button>
       <button class="btn btn-warning" id="btnProgress" data-translate-key="menu.progress" onclick="showView('progress')">📊 İlerleme</button>
       <button class="btn btn-secondary" id="btnSettings" data-translate-key="menu.settings" onclick="showView('settings')">⚙️ Ayarlar</button>
-      <button class="btn btn-secondary" style="background-color: #4a5568;" onclick="showView('adminView')" data-translate-key="menu.admin">🔧 Yönetici</button>
-    </div>
+      </div>
   </div>
 
   <div id="tekrarMenu" class="view">
@@ -800,24 +824,12 @@
 
 <script>
 /* ===============================
-    Verb Matrix — v3.1 (Hata Düzeltmeleri)
+    Verb Matrix — v3.2 (Admin Butonu Güncellemesi)
+    - YENİ: 'Yönetici' butonu ana menü ızgarasından kaldırıldı.
+    - YENİ: Sağ alta 'Yönetici' 🔧 butonu eklendi, sadece ana menüde görünür.
+    - GÜNCELLENDİ: 'Ana Menü' 🏠 butonu artık ana menüde gizli, diğer ekranlarda görünür.
     - DÜZELTME: 'Çalış' modu (study) 'rateCard' fonksiyonu düzeltildi, artık sonraki karta geçiyor.
     - DÜZELTME: 'Tekrar' modları (quiz, cloze, wordorder) 'handleAction' fonksiyonu düzeltildi, 'Sonraki' butonu artık çalışıyor.
-    - YENİ: Sağ alt köşeye kalıcı 'Ana Menü' butonu eklendi.
-    - YENİ: Ana Menü akışı (Çalış, Tekrar, İlerleme, Ayarlar)
-    - YENİ: "Çalış" akışı (Eski "study" modu), cümleleri 'new' (yeni) statüsünden 'zor', 'normal' veya 'ogrendim' statüsüne taşır.
-    - YENİ: "Tekrar" akışı, statüye (zor, normal, öğrendim) göre kartları çeker ve Quiz, Cloze, WordOrder modlarını sunar.
-    - YENİ: SRS Mantığı (Zor, Normal, Öğrendim).
-    - YENİ: SRS (İlerleme) verisi (srsData), içerik verisinden (data) ayrıldı.
-    - YENİ: İlerleme (srsData) için ayrı JSON içe/dışa aktarma.
-    - YENİ: İçerik (data) artık sunucudan 'verbmatrix_data.json' olarak çekiliyor (fetch).
-    - YENİ: İlerleme (progress) ekranı yeni SRS statülerini (Zor, Normal, Öğrendim) ve toplam ilerlemeyi gösterir.
-    - YENİ: Admin Paneli, "Bölüm Ekle/Düzenle" özelliği ile güncellendi ve tek bir 'İçerik Yönetimi' ekranında birleştirildi.
-    - GÜNCELLENDİ: 'modeMenu' artık sadece çeviri yönü seçtiriyor, 'Çalış' akışı doğrudan 'study' moduna (yeni kart öğrenme) yönlendiriyor.
-    - GÜNCELLENDİ: 'learningView' artık 3'lü SRS butonlarını (Zor, Normal, Öğrendim) gösteriyor.
-    - GÜNCELLENDİ: Ayarlar menüsü yeniden düzenlendi.
-    - GÜNCELLENDİ: 'importData' butonu 'importDataFromFile' fonksiyonuna bağlandı.
-    - KALDIRILDI: İngilizce dil desteği ('en') kaldırıldı.
     =============================== */
 
 /* ---------------- Varsayılan Veri (Sunucu Çökmesi Durumunda) --------------- */
@@ -1490,8 +1502,9 @@ function showView(id){
       updateSpeedButtonUI();
   }
   
-  /* --- YENİ EKLENEN KOD BLOĞU (v3.1) --- */
-  // Yüzen Ana Menü butonunu yönet
+  /* --- Yüzen Butonları Yönet (v3.2) --- */
+  
+  // Yüzen Ana Menü 🏠 butonunu yönet
   const homeBtn = document.getElementById('floatingHomeBtn');
   if (homeBtn) {
     if (id === 'mainMenu') {
@@ -1500,7 +1513,17 @@ function showView(id){
       homeBtn.style.display = 'block'; // Diğer tüm ekranlarda göster
     }
   }
-  /* --- YENİ KOD SONU --- */
+
+  // Yüzen Admin 🔧 butonunu yönet
+  const adminBtn = document.getElementById('floatingAdminBtn');
+  if (adminBtn) {
+    if (id === 'mainMenu') {
+      adminBtn.style.display = 'block'; // SADECE Ana menüde göster
+    } else {
+      adminBtn.style.display = 'none'; // Diğer tüm ekranlarda gizle
+    }
+  }
+  /* --- Güncelleme Sonu --- */
 
   if(id === 'modeMenu' || id === 'tekrarModeMenu') { 
       updateConversionButtons();
@@ -3038,9 +3061,9 @@ async function init(){
   updateUITexts(); // Çevirileri uygula
   updateProgressView(); // İlerleme ekranı statülerini güncelle
 
-  console.log('Verb Matrix v3.1 (Hata Düzeltmeleri) hazır.');
+  console.log('Verb Matrix v3.2 (Admin Buton Güncellemesi) hazır.');
   
-  // Başlangıçta Ana Menü'yü göster (ve yüzen butonu gizle)
+  // Başlangıçta Ana Menü'yü göster (ve yüzen butonları ayarla)
   showView('mainMenu');
 }
 
