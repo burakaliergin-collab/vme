@@ -1,4 +1,4 @@
-const CACHE_NAME = 'verbmatrix-cache-v8'; // Önbellek sürümü v8
+const CACHE_NAME = 'verbmatrix-cache-v9'; // Önbellek sürümü v9
 const CACHE_URLS = [
   './', 
   'index.html',
@@ -69,3 +69,4 @@ self.addEventListener('fetch', event => {
       })
     );
 });
+
