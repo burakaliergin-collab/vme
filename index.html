@@ -1,6 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Verb Matrix — v3.5 (Mobil Görünüm Düzeltmeli)</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="manifest" href="manifest.json"> 
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#667eea">
+
 <style>
   /* --- Genel --- */
   *{box-sizing:border-box;margin:0;padding:0}
+  /* Mobil uyumluluğu garantilemek için min-width: 100% eklendi */
   body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); min-height:100vh;padding:18px; transition: background .25s,color .25s; min-width: 100%;}
   .container{max-width:1200px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);transition:background .25s,color .25s}
   header{text-align:center;margin-bottom:18px}
@@ -368,7 +385,10 @@
     z-index: 1500;
     overflow-y: auto;
     padding: 20px;
+    display: none; /* Varsayılan olarak gizli */
   }
+  #hintDetailView.active { display: block; }
+
   #hintDetailView .container {
     max-width: 800px;
     margin: 40px auto;
@@ -413,11 +433,6 @@
   }
   /* Bitiş: İpucu Detay Görünümü Stili */
 
-  @media(max-width:768px){
-    .container{padding:14px}
-    #mainMenu .button-grid { grid-template-columns: 1fr; } /* Mobil ana menü tek sütun */
-    #mainMenu .btn { height: auto; padding: 16px; }
-  }
 
   /* --- Müzik Çalar Stilleri --- */
   .music-player-container {
@@ -488,6 +503,23 @@
   }
   body.night-mode .primary-action-container #actionBtn:hover {
     background: #475569;
+  }
+  
+  /* MOBİL CİHAZ GÖRÜNÜM DÜZELTMESİ (Kesin Çözüm) */
+  @media(max-width:768px){
+    .container{padding:14px}
+    /* TÜM BUTTON-GRID'LERİ MOBİLDE TEK SÜTUNA ÇEVİR VE GENİŞLET */
+    .button-grid, 
+    #mainMenu .button-grid, 
+    .button-grid-learning,
+    .group-story-grid { /* Grup/Hikaye butonları da alt alta gelsin */
+        grid-template-columns: 1fr !important; /* Tek sütun ve tam genişlik */
+    } 
+    #mainMenu .btn { 
+        height: auto; 
+        padding: 16px; 
+        font-size: 1.2rem; /* Butonları biraz büyütelim */
+    }
   }
 
 </style>
@@ -707,8 +739,8 @@
             <button class="lang-btn active" id="langTR" onclick="changeLanguage('tr', this)">Türkçe</button>
             <button class="lang-btn" id="langDE" onclick="changeLanguage('de', this)">Deutsch</button>
           </div>
-      </div>
-      <label style="display:flex;align-items:center;gap:8px;margin-top:15px;">
+      </div
+      ><label style="display:flex;align-items:center;gap:8px;margin-top:15px;">
           <input type="checkbox" id="nightModeToggle" style="width: 20px; height: 20px;"> <span data-translate-key="settings.nightMode">Gece Modu</span>
       </label>
       <div style="margin-top: 15px;">
@@ -855,12 +887,9 @@
 
 <script>
 /* ===============================
-    Verb Matrix — v3.5 (Grup Sıralama & Tam Hata Düzeltmesi)
-    - YENİ (v3.5): Grup sıralamasını Admin panelinde düzenleme ve JSON'a kaydetme özelliği eklendi.
-    - YENİ (v3.5): Çalışma ekranı güncellemeleri, ipucu başlığı ve detaylı ipucu görünümü eklendi.
-    - DÜZELTME (v3.4): Eksik olan tüm çekirdek fonksiyonlar (loadAndShowGroupMenu, showView) eklendi.
-    - DÜZELTME (v3.4): Eksik olan Admin form fonksiyonları (Hint, Story) eklendi.
-    - YENİ (v3.3): Admin Paneline "Toplu Grup & Fiil Yükleme" aracı eklendi.
+    Verb Matrix — v3.5 (Mobil Görünüm Düzeltmeli Son Sürüm)
+    - MOBİL DÜZELTME: Tüm buton gridleri mobil cihazlarda tek sütun (full width) olarak ayarlandı.
+    - Tüm eski talepler (ipucu başlığı, ipucu detay sayfası, otomatik başlama) entegre edildi.
     =============================== */
 
 /* ---------------- Varsayılan Veri --------------- */
@@ -908,7 +937,7 @@ let data = {
         groupMenuReturn: '← Grup Menüsüne Dön', storyReturn: '← Hikayeye Dön', adminReturn: '← Yönetici Paneline Dön',
         importJSON: '📥 İçerik Yükle (JSON)', exportJSON: '📤 İçerik İndir (JSON)',
         importProgress: '📥 İlerleme Yükle', exportProgress: '📤 İlerleme İndir',
-        resetSrs: '⚠️ Tüm İlerlemeyi Sıfırla',
+        resetSrs: '⚠️ Tüm İilerlemeyi Sıfırla',
         pasteAndLoad: '📥 Yapıştır & Yükle', clear: 'Temizle',
         refreshList: '🔄 Yenile Liste', exportCSV: '📤 TSV İndir (Tablo)',
         save: 'Kaydet', cancel: 'İptal', update: 'Güncelle', add: 'Ekle', delete: 'Sil', edit: 'Düzenle',
@@ -923,7 +952,7 @@ let data = {
         progressManagement: '💾 İlerleme Veri Yönetimi',
         appUpdate: '🔄 Uygulama',
         pasteJSONTitle: '📝 JSON Yapıştır (Mobil)',
-        pasteJSONDesc: 'İçerik JSON dosyanızı buraya yapıştırabilirsiniz.'
+        pasteJSONDesc: 'İçerik JSON dosyanızı buraya yapıştırın...'
       },
       admin: {
         contentManagement: '📚 İçerik Yönetimi',
@@ -1066,7 +1095,6 @@ let state = {
 
 /* ---------- Müzik Çalar ---------- */
 class MusicPlayer {
-// ... (MusicPlayer sınıfı olduğu gibi kaldı)
   constructor(streamUrl, volumeSliderId, toggleBtnId, settingsSliderId, settingsToggleId) {
     this.audio = new Audio(streamUrl);
     this.audio.crossOrigin = "anonymous";
@@ -1141,7 +1169,6 @@ let musicPlayer = null;
 /* ---------- Konuşma Sentezi ---------- */
 let speechUtterance = null;
 function toggleAutoPlay() {
-// ... (toggleAutoPlay fonksiyonu olduğu gibi kaldı)
   state.autoPlayAudio = !state.autoPlayAudio;
   const btn = document.getElementById('autoPlayBtn');
   const led = document.getElementById('autoPlayLed');
@@ -1156,7 +1183,6 @@ function toggleAutoPlay() {
   }
 }
 function updateSpeedButtonUI() {
-// ... (updateSpeedButtonUI fonksiyonu olduğu gibi kaldı)
     const ledL = document.getElementById('slowModeLedL');
     const ledS = document.getElementById('slowModeLedS');
     if (state.speechRate === 0.5) {
@@ -1168,7 +1194,6 @@ function updateSpeedButtonUI() {
     }
 }
 function toggleSpeechSpeed() {
-// ... (toggleSpeechSpeed fonksiyonu olduğu gibi kaldı)
     state.speechRate = (state.speechRate === 1.0) ? 0.5 : 1.0;
     updateSpeedButtonUI();
     if (speechUtterance && !speechSynthesis.paused) {
@@ -1177,7 +1202,6 @@ function toggleSpeechSpeed() {
     }
 }
 function toggleSpeechPause() {
-// ... (toggleSpeechPause fonksiyonu olduğu gibi kaldı)
     if ('speechSynthesis' in window) {
         const btnL = document.getElementById('pauseBtn');
         const btnS = document.getElementById('storyPauseBtn');
@@ -1193,7 +1217,6 @@ function toggleSpeechPause() {
     }
 }
 function resetSpeechButtons() {
-// ... (resetSpeechButtons fonksiyonu olduğu gibi kaldı)
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
     }
@@ -1205,11 +1228,9 @@ function resetSpeechButtons() {
 
 /* ---------- SRS (İlerleme) Veri Yönetimi ---------- */
 function getSrsKey(verbId, sectionNum, sentenceIndex) {
-// ... (getSrsKey fonksiyonu olduğu gibi kaldı)
     return `${verbId}_s${sectionNum}_${sentenceIndex}`;
 }
 function loadSrsData() {
-// ... (loadSrsData fonksiyonu olduğu gibi kaldı)
     try {
         const data = localStorage.getItem('verbmatrix_srs_data_v3');
         srsData = data ? JSON.parse(data) : {};
@@ -1220,7 +1241,6 @@ function loadSrsData() {
     updateProgressView();
 }
 function saveSrsData() {
-// ... (saveSrsData fonksiyonu olduğu gibi kaldı)
     try {
         localStorage.setItem('verbmatrix_srs_data_v3', JSON.stringify(srsData));
     } catch (e) {
@@ -1229,7 +1249,6 @@ function saveSrsData() {
     updateProgressView();
 }
 function getCardSrsData(key) {
-// ... (getCardSrsData fonksiyonu olduğu gibi kaldı)
     if (!srsData[key]) {
         srsData[key] = {
             status: 'new',
@@ -1239,7 +1258,6 @@ function getCardSrsData(key) {
     return srsData[key];
 }
 function exportSrsData() {
-// ... (exportSrsData fonksiyonu olduğu gibi kaldı)
     const t = getMergedTranslations(data.settings.language || 'tr');
     const json = JSON.stringify(srsData, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -1252,7 +1270,6 @@ function exportSrsData() {
     alert(t.messages.progressExported);
 }
 function importSrsData() {
-// ... (importSrsData fonksiyonu olduğu gibi kaldı)
     const input = document.getElementById('progressFileInput');
     input.onchange = async (e) => {
         const t = getMergedTranslations(data.settings.language || 'tr');
@@ -1275,7 +1292,6 @@ function importSrsData() {
     input.click();
 }
 function rateCard(newStatus) {
-// ... (rateCard fonksiyonu olduğu gibi kaldı)
     const cardData = getCardSrsData(state.currentCardKey);
     cardData.status = newStatus;
     cardData.quizHistory = [];
@@ -1286,7 +1302,6 @@ function rateCard(newStatus) {
     showLearning();
 }
 function updateSrsStatusAfterQuiz(key, isCorrect) {
-// ... (updateSrsStatusAfterQuiz fonksiyonu olduğu gibi kaldı)
     const cardData = getCardSrsData(key);
     const history = cardData.quizHistory || [];
     history.push(isCorrect ? 1 : 0);
@@ -1319,7 +1334,6 @@ function updateSrsStatusAfterQuiz(key, isCorrect) {
     saveSrsData();
 }
 function resetSrsData() {
-// ... (resetSrsData fonksiyonu olduğu gibi kaldı)
     const t = getMergedTranslations(data.settings.language || 'tr');
     if (confirm(t.messages.srsResetConfirm)) {
         srsData = {};
@@ -1330,7 +1344,6 @@ function resetSrsData() {
 
 /* ---------- İçerik (Content) Veri Yönetimi ---------- */
 async function loadDataFromServer() {
-// ... (loadDataFromServer fonksiyonu olduğu gibi kaldı)
     try {
         const response = await fetch('verbmatrix_data.json');
         if (!response.ok) {
@@ -1346,7 +1359,6 @@ async function loadDataFromServer() {
     }
 }
 function loadContentOverride() {
-// ... (loadContentOverride fonksiyonu olduğu gibi kaldı)
     try {
         const override = localStorage.getItem('verbmatrix_content_override');
         if (override) {
@@ -1363,7 +1375,6 @@ function loadContentOverride() {
     }
 }
 function saveContentOverride() {
-// ... (saveContentOverride fonksiyonu olduğu gibi kaldı)
     const contentToSave = {
         groups: data.groups,
         verbs: data.verbs,
@@ -1381,7 +1392,6 @@ function saveContentOverride() {
     }
 }
 function exportData(){
-// ... (exportData fonksiyonu olduğu gibi kaldı)
   const t = getMergedTranslations(data.settings.language || 'tr');
   const json = JSON.stringify(data,null,2);
   const blob = new Blob([json],{type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a');
@@ -1391,7 +1401,6 @@ function exportData(){
 
 // GÜNCELLENMİŞ FONKSİYON (v3.4 - Akıllı Birleştirme)
 function importData(imported){
-// ... (importData fonksiyonu olduğu gibi kaldı)
     const t = getMergedTranslations(data.settings.language || 'tr');
     try {
         const defaultTranslations = JSON.parse(JSON.stringify(data.translations || {}));
@@ -1454,7 +1463,6 @@ function importData(imported){
 }
 
 function importDataFromFile(){
-// ... (importDataFromFile fonksiyonu olduğu gibi kaldı)
   const input = document.getElementById('fileInput');
   input.onchange = async (e)=>{
     try{
@@ -1471,7 +1479,6 @@ function importDataFromFile(){
   input.click();
 }
 function loadJsonFromTextarea(){
-// ... (loadJsonFromTextarea fonksiyonu olduğu gibi kaldı)
   const txt = document.getElementById('jsonPaste').value.trim();
   const t = getMergedTranslations(data.settings.language || 'tr');
   if(!txt){ alert('JSON yapıştırın'); return; }
@@ -1484,7 +1491,6 @@ function loadJsonFromTextarea(){
 
 /* ---------- Ayarlar ve Arayüz Fonksiyonları ---------- */
 function showView(id){
-// ... (showView fonksiyonu güncellendi)
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el = document.getElementById(id);
   if(el) el.classList.add('active');
@@ -1543,12 +1549,10 @@ function showView(id){
 }
 
 function getProperty(obj, keyString) {
-// ... (getProperty fonksiyonu olduğu gibi kaldı)
   if (!keyString) return null;
   return keyString.split('.').reduce((acc, key) => (acc && acc[key] !== undefined) ? acc[key] : null, obj);
 }
 function getMergedTranslations(lang = 'tr') {
-// ... (getMergedTranslations fonksiyonu olduğu gibi kaldı)
     const defaultLang = 'tr';
     const defaultTranslations = data.translations[defaultLang] || {};
     if (lang === defaultLang || !data.translations[lang] || Object.keys(data.translations[lang]).length === 0) {
@@ -1557,7 +1561,6 @@ function getMergedTranslations(lang = 'tr') {
     return deepMerge(defaultTranslations, data.translations[lang]);
 }
 function updateUITexts(){
-// ... (updateUITexts fonksiyonu olduğu gibi kaldı)
   const lang = data.settings.language || 'tr';
   const t = getMergedTranslations(lang);
   document.querySelectorAll('[data-translate-key]').forEach(el => {
@@ -1592,7 +1595,6 @@ function updateUITexts(){
   }
 }
 function updateAutoPlayButtonText() {
-// ... (updateAutoPlayButtonText fonksiyonu olduğu gibi kaldı)
     const autoPlayBtn = document.getElementById('autoPlayBtn');
     if (autoPlayBtn) {
         if (state.autoPlayAudio) {
@@ -1603,7 +1605,6 @@ function updateAutoPlayButtonText() {
     }
 }
 function changeLanguage(lang, btnEl){
-// ... (changeLanguage fonksiyonu olduğu gibi kaldı)
   data.settings.language = lang;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   if(btnEl) btnEl.classList.add('active');
@@ -1611,7 +1612,6 @@ function changeLanguage(lang, btnEl){
   saveSettings();
 }
 function toggleNightMode(){
-// ... (toggleNightMode fonksiyonu olduğu gibi kaldı)
   const body = document.body;
   const on = body.classList.toggle('night-mode');
   data.settings.nightMode = on;
@@ -1621,7 +1621,6 @@ function toggleNightMode(){
 }
 function saveSettings(){ try{ localStorage.setItem('verbmatrix_settings', JSON.stringify(data.settings)); }catch(e){} }
 function loadSettings(){
-// ... (loadSettings fonksiyonu olduğu gibi kaldı)
   try{
     const s = JSON.parse(localStorage.getItem('verbmatrix_settings')||'{}');
     if(s.language) data.settings.language = s.language;
@@ -1640,13 +1639,11 @@ function loadSettings(){
 
 /* ---------- Çeviri Yönü (Conversion Mode) ---------- */
 function setConversionMode(mode) {
-// ... (setConversionMode fonksiyonu olduğu gibi kaldı)
     data.settings.conversionMode = mode;
     saveSettings();
     updateConversionButtons();
 }
 function updateConversionButtons() {
-// ... (updateConversionButtons fonksiyonu olduğu gibi kaldı)
     const modes = ['mode', 'tekrarMode'];
     modes.forEach(prefix => {
         const trdeBtn = document.getElementById(prefix + 'TRDE');
@@ -1670,7 +1667,6 @@ function updateConversionButtons() {
 
 /* ---------- Akış 1: Çalış (Grup/Fiil/Bölüm Seçimi) ---------- */
 function loadAndShowGroupMenu(){
-// ... (loadAndShowGroupMenu fonksiyonu olduğu gibi kaldı)
   const container = document.getElementById('groupButtons');
   container.innerHTML = '';
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -1704,7 +1700,6 @@ function loadAndShowGroupMenu(){
   showView('groupMenu');
 }
 function selectGroup(id){
-// ... (selectGroup fonksiyonu olduğu gibi kaldı)
   state.group = id; state.groupData = data.groups.find(x=>x.id===id) || null;
   const verbs = (data.verbs[id]||[]).filter(v=>v.id);
   const container = document.getElementById('verbButtons'); container.innerHTML='';
@@ -1720,7 +1715,6 @@ function selectGroup(id){
   showView('verbMenu');
 }
 function selectVerb(verbId){
-// ... (selectVerb fonksiyonu olduğu gibi kaldı)
   state.verb = verbId;
   const container = document.getElementById('sectionButtons'); container.innerHTML='';
   Object.entries(data.sections).forEach(([num,name])=>{
@@ -1751,14 +1745,12 @@ function selectVerb(verbId){
   showView('sectionMenu');
 }
 function selectSection(sectionNum){
-// ... (selectSection fonksiyonu olduğu gibi kaldı)
   state.section = sectionNum;
   showView('modeMenu');
 }
 
 /* ---------- Akış 2: Tekrar (Statü/Mod Seçimi) ---------- */
 function startTekrar(status) {
-// ... (startTekrar fonksiyonu olduğu gibi kaldı)
     state.tekrarStatus = status;
     state.mode = null;
     const t = getMergedTranslations(data.settings.language || 'tr');
@@ -1774,10 +1766,8 @@ function startTekrar(status) {
 function startTekrarModePrompt() {
     // Çeviri modu zaten setConversionMode ile ayarlandı.
     // Kullanıcıya hangi modu seçeceğini sormak için tekrarModeMenu'yu gösteriyoruz.
-    // Modu seçtikten sonra startTekrarMode(modeId) fonksiyonu asıl işi yapacak.
 }
 function startTekrarMode(modeId) {
-// ... (startTekrarMode fonksiyonu olduğu gibi kaldı)
     state.mode = modeId;
     const allCardsOfStatus = [];
     Object.keys(srsData).forEach(key => {
@@ -1793,7 +1783,6 @@ function startTekrarMode(modeId) {
 
 /* ---------- Akış 3: Çalışma Ekranı (Learning View) ---------- */
 function startMode(modeId){
-// ... (startMode fonksiyonu olduğu gibi kaldı)
   state.mode = modeId;
   state.tekrarStatus = null;
   const sentences = getSentences();
@@ -1811,14 +1800,12 @@ function startMode(modeId){
   showLearning();
 }
 function getSentences(){
-// ... (getSentences fonksiyonu olduğu gibi kaldı)
     if (!state.verb || !state.section) return [];
     return data.content[`${state.verb}_s${state.section}`] || [];
 }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]] } return a; }
 
 function showLearning(){
-// ... (showLearning fonksiyonu güncellendi)
   const t = getMergedTranslations(data.settings.language || 'tr');
   resetSpeechButtons();
   const exitBtn = document.getElementById('learningExitBtn');
@@ -1861,7 +1848,6 @@ function showLearning(){
   showView('learningView');
 }
 function updateProgress(current, total){
-// ... (updateProgress fonksiyonu olduğu gibi kaldı)
   const currQuestionNum = Math.min(current + 1, total);
   const percent = total === 0 ? 100 : Math.round((current / total) * 100);
   document.getElementById('progressFill').style.width = percent + '%';
@@ -1906,7 +1892,6 @@ function showHintDetail(type) {
     showView('hintDetailView');
 }
 function renderSentence(){
-// ... (renderSentence fonksiyonu güncellendi)
   const container = document.getElementById('learningContent');
   document.getElementById('resultArea').innerHTML='';
   document.getElementById('answerArea').innerHTML='';
@@ -2010,7 +1995,6 @@ function renderSentence(){
   updateProgress(state.deckPos, state.deck.length);
 }
 function showQuickEditPanel(){
-// ... (showQuickEditPanel fonksiyonu olduğu gibi kaldı)
     if (!state.currentCardData) return;
     const sent = state.currentCardData;
     const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[state.currentCardKey]) || '';
@@ -2021,7 +2005,6 @@ function showQuickEditPanel(){
     document.getElementById('quickEditPanel').style.display = 'block';
 }
 function saveQuickEdit(){
-// ... (saveQuickEdit fonksiyonu olduğu gibi kaldı)
     if (!state.currentCardKey) return;
     const parts = state.currentCardKey.match(/^(.*?)_s(\d+)_(\d+)$/);
     const verbId = parts[1];
@@ -2045,7 +2028,6 @@ function saveQuickEdit(){
     alert(t.messages.quickEditSaved);
 }
 function renderWordOrder(){
-// ... (renderWordOrder fonksiyonu olduğu gibi kaldı)
   const pool = document.getElementById('wordPoolArea');
   const sel = document.getElementById('wordSelectedArea');
   pool.innerHTML='';
@@ -2060,7 +2042,6 @@ function renderWordOrder(){
 function selectWordFromPool(index){ const word = state.wordPool[index]; state.wordSelected.push(word); state.wordPool.splice(index, 1); renderWordOrder(); }
 function unselectWord(index, word){ const removedWord = state.wordSelected.splice(index, 1)[0]; state.wordPool.push(removedWord); renderWordOrder(); }
 function handleAction(){
-// ... (handleAction fonksiyonu olduğu gibi kaldı)
   const btn = document.getElementById('actionBtn');
   const resultArea = document.getElementById('resultArea'), answerArea = document.getElementById('answerArea');
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -2113,7 +2094,6 @@ function handleAction(){
   }
 }
 function previousQuestion(){
-// ... (previousQuestion fonksiyonu olduğu gibi kaldı)
   if (state.mode === 'study') return;
   if(state.deckPos > 0){
       state.deckPos--;
@@ -2126,7 +2106,7 @@ function previousQuestion(){
       renderSentence();
   }
 }
-// Başa Dön/Tekrar Başla işlevselliği kaldırıldığı için resetLearning ve goToNextSection artık kullanılmıyor
+// resetLearning ve goToNextSection artık kullanılmıyor, ancak hataları önlemek için tanımlı kalabilir (ya da kaldırılabilirler, burada kaldırdık).
 /*
 function resetLearning(){
   state.deckPos = 0;
@@ -2140,7 +2120,6 @@ function goToNextSection(sectionNum) {
 }
 */
 function showCompletion(){
-// ... (showCompletion fonksiyonu güncellendi)
   const t = getMergedTranslations(data.settings.language || 'tr');
   let scoreHtml = '';
   if (state.mode === 'study') {
@@ -2149,31 +2128,10 @@ function showCompletion(){
       scoreHtml = `<p style="text-align:center">"${state.tekrarStatus}" kategorisindeki ${state.deck.length} kartı tekrar ettiniz!</p>`;
   }
   let nextButtonHtml = '';
-  // "Sonraki Bölüm" butonu kaldırıldı (Eski işlevsellikten kalma)
-  /*
-  if (state.mode === 'study') {
-      const sectionKeys = Object.keys(data.sections).map(Number).sort((a, b) => a - b);
-      const currentSectionIndex = sectionKeys.indexOf(state.section);
-      let nextSectionNum = null;
-      if (currentSectionIndex > -1 && currentSectionIndex < sectionKeys.length - 1) {
-          for (let i = currentSectionIndex + 1; i < sectionKeys.length; i++) {
-              const potentialNextSec = sectionKeys[i];
-              const contentKey = `${state.verb}_s${potentialNextSec}`;
-              if (data.content[contentKey] && data.content[contentKey].length > 0) {
-                  nextSectionNum = potentialNextSec;
-                  break;
-              }
-          }
-      }
-      if (nextSectionNum) {
-          nextButtonHtml = `<button class="btn btn-secondary" style="margin-top:10px;" onclick="goToNextSection(${nextSectionNum})">${t.buttons.nextSection} (${data.sections[nextSectionNum]})</button>`;
-      }
-  }
-  */
   document.getElementById('learningContent').innerHTML = `<div class="content-box"><h3 style="text-align:center">🎉 Tamamladınız!</h3>
     ${scoreHtml}
     ${nextButtonHtml} </div>`;
-  // Butonları Menüye Dönmek için yeniden tanımla
+  // Menüye Dönmek için action butonu
   const actionBtn = document.getElementById('actionBtn');
   actionBtn.textContent = t.buttons.menuReturn;
   actionBtn.onclick = (state.mode === 'study') ? () => showView('modeMenu') : () => showView('tekrarModeMenu');
@@ -2184,7 +2142,6 @@ function showCompletion(){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 function playCurrentSentence(lang, retryCount = 0) {
-// ... (playCurrentSentence fonksiyonu olduğu gibi kaldı)
     if (retryCount === 0) resetSpeechButtons();
     if (!state.currentCardData) return;
     const sent = state.currentCardData;
@@ -2239,7 +2196,6 @@ function playCurrentSentence(lang, retryCount = 0) {
 
 /* ---------- Hikaye Fonksiyonları ---------- */
 function showGroupStory(groupId){
-// ... (showGroupStory fonksiyonu olduğu gibi kaldı)
   state.group = groupId; state.groupData = data.groups.find(g=>g.id===groupId) || null;
   const t = getMergedTranslations(data.settings.language || 'tr');
   if(!state.groupData || !state.groupData.story){ alert(t.messages.noStory); return; }
@@ -2248,13 +2204,11 @@ function showGroupStory(groupId){
   showView('storyView');
 }
 function renderStoryContent(){
-// ... (renderStoryContent fonksiyonu olduğu gibi kaldı)
   const sc = document.getElementById('storyContent'); const s = state.groupData.story;
   sc.innerHTML = `<div class="story-section"><h3>Almanca</h3><div class="story-content">${escapeHtml(s.de||'').replace(/\n/g,'<br>')}</div></div>
                    <div class="story-section"><h3>Türkçe</h3><div class="story-content">${escapeHtml(s.tr||'').replace(/\n/g,'<br>')}</div></div>`;
 }
 function playStoryAudio(lang, retryCount = 0) {
-// ... (playStoryAudio fonksiyonu olduğu gibi kaldı)
     if (retryCount === 0) resetSpeechButtons();
     const s = state.groupData && state.groupData.story;
     const t = getMergedTranslations(data.settings.language || 'tr');
@@ -2299,7 +2253,6 @@ function playStoryAudio(lang, retryCount = 0) {
     }
 }
 function showStoryQuestions(){
-// ... (showStoryQuestions fonksiyonu olduğu gibi kaldı)
   const story = state.groupData && state.groupData.story;
   const container = document.getElementById('storyQuestionsContent');
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -2323,7 +2276,6 @@ function showStoryQuestions(){
   showView('storyQuestionsView');
 }
 function checkStoryAnswers(){
-// ... (checkStoryAnswers fonksiyonu olduğu gibi kaldı)
   const story = state.groupData.story; const quiz = story.quiz;
   let correct=0;
   quiz.forEach((q,i)=>{
@@ -2335,7 +2287,6 @@ function checkStoryAnswers(){
 
 /* ---------- Debug & İlerleme Ekranı ---------- */
 function debugData(){
-// ... (debugData fonksiyonu olduğu gibi kaldı)
   const t = getMergedTranslations(data.settings.language || 'tr');
   let msg = `${t.messages.jsonStatus}\n\n`;
   msg += `Gruplar: ${(data.groups||[]).length}\n`;
@@ -2348,7 +2299,6 @@ function debugData(){
   alert(msg);
 }
 function updateProgressView(){
-// ... (updateProgressView fonksiyonu olduğu gibi kaldı)
   const t = getMergedTranslations(data.settings.language || 'tr');
   let totalCards = 0;
   let learnedCards = 0;
@@ -2383,13 +2333,12 @@ function updateProgressView(){
   }
 }
 function toggleHintPanel(){
-// ... (toggleHintPanel fonksiyonu güncellendi - Artık sadece cümle ipucunu gösteriyor)
     state.hintPanelVisible = !state.hintPanelVisible;
     const hintPanelEl = document.getElementById('hintPanel');
     if(state.hintPanelVisible) {
         // buildSentenceHintHtml() sadece cümle ipucunu hazırlar
         const hintHtml = buildSentenceHintHtml();
-        hintPanelEl.innerHTML = hintHtml;
+        hintPanelEl.innerHTML = hintHtml || '<div class="hint-item">Bu kart için ipucu yok.</div>';
         hintPanelEl.style.display = 'block';
     } else {
         hintPanelEl.style.display = 'none';
@@ -2397,8 +2346,6 @@ function toggleHintPanel(){
 }
 
 
-/* -------------------------------------------------------- */
-/* -------------------------------------------------------- */
 /* -------------------------------------------------------- */
 /* -------------------------------------------------------- */
 
@@ -3264,8 +3211,6 @@ async function init(){
   document.getElementById('nightModeToggle').addEventListener('change', toggleNightMode);
   document.getElementById('fileInput').onchange = importDataFromFile;
   document.getElementById('progressFileInput').onchange = importSrsData;
-  // Kaldırılan butonun işlevi artık kullanılmadığı için butonu kaldırdık.
-  // document.querySelector('[onclick="resetLearning()"]').style.display = 'none';
 
   musicPlayer = new MusicPlayer(
       './telifsiz-klasik.mp3',
@@ -3286,19 +3231,6 @@ async function init(){
 
 window.addEventListener('DOMContentLoaded', init);
 
-// Kaldırılan Fonksiyonlar (Artık kullanılmadığı için bu şekilde bırakılabilir)
-/*
-function resetLearning(){
-  state.deckPos = 0;
-  state.deck = shuffle(state.deck);
-  state.showAnswer=false;
-  state.showResult=false;
-  showLearning();
-}
-function goToNextSection(sectionNum) {
-    selectSection(sectionNum);
-}
-*/
 </script>
 </body>
 </html>
