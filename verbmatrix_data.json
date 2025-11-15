@@ -1,6 +1,2046 @@
 {
   "groups": [
     {
+      "id": "g1",
+      "name": "1. ALGI & İLETİŞİM - SEHEN, ZUHÖREN, ZEIGEN",
+      "nameDE": "Wahrnehmung & Kommunikation",
+      "story": {
+        "title": "Maria und der Film",
+        "de": "Maria sieht einen interessanten Film im Fernsehen. Sie zeigt ihrem Bruder das neue Bild auf dem Bildschirm. Der Bruder hört aufmerksam zu und lächelt. Am Ende sagen beide: 'Der Film war sehr spannend!'",
+        "tr": "Maria televizyonda ilginç bir film izliyor. Ekrandaki yeni görüntüyü kardeşine gösteriyor. Kardeşi dikkatle dinliyor ve gülümsüyor. Sonunda ikisi de diyor: 'Film çok heyecanlıydı!'",
+        "quiz": [
+          {
+            "q": "Maria filmi nerede görüyor?",
+            "options": [
+              "Sinemada",
+              "Televizyonda",
+              "Bilgisayarda"
+            ],
+            "a": "Televizyonda"
+          },
+          {
+            "q": "Maria kardeşine ne gösteriyor?",
+            "options": [
+              "Bir fotoğraf",
+              "Ekrandaki yeni görüntüyü",
+              "Bir harita"
+            ],
+            "a": "Ekrandaki yeni görüntüyü"
+          },
+          {
+            "q": "Kardeş nerede dinliyor?",
+            "options": [
+              "Okulda",
+              "Mutfakta",
+              "Oturma odasında"
+            ],
+            "a": "Oturma odasında"
+          },
+          {
+            "q": "Film hakkında Maria ne diyor?",
+            "options": [
+              "Kötü",
+              "Çok heyecanlı",
+              "Uzun"
+            ],
+            "a": "Çok heyecanlı"
+          },
+          {
+            "q": "Öğretmen fotoğrafı nasıl gösteriyor?",
+            "options": [
+              "Elimle",
+              "Parmağıyla",
+              "Kalemle"
+            ],
+            "a": "Parmağıyla"
+          },
+          {
+            "q": "Çocuklar okulda nasıl dinliyor?",
+            "options": [
+              "Sabırlıkla",
+              "Hızlıca",
+              "Sessizce"
+            ],
+            "a": "Sabırlıkla"
+          },
+          {
+            "q": "Maria kardeşine ne söylüyor?",
+            "options": [
+              "Benimle oynama!",
+              "Beni dinle!",
+              "Evde kal!"
+            ],
+            "a": "Beni dinle!"
+          },
+          {
+            "q": "Maria duvardaki ne gösteriyor?",
+            "options": [
+              "Resimleri",
+              "Yazıları",
+              "Önemli şeyleri"
+            ],
+            "a": "Önemli şeyleri"
+          },
+          {
+            "q": "Maria pencereden ne görüyor?",
+            "options": [
+              "Bir cadde",
+              "Güzel bir bahçe",
+              "Bir ev"
+            ],
+            "a": "Güzel bir bahçe"
+          },
+          {
+            "q": "Hikayenin sonunda Maria ve kardeş ne yapıyor?",
+            "options": [
+              "Film seyrediyor",
+              "Uyuyor",
+              "Birlikte dinliyor"
+            ],
+            "a": "Birlikte dinliyor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g2",
+      "name": "2. BESLENME & ZEVK - ESSEN, SCHMECKEN, BRINGEN",
+      "nameDE": "Ernährung & Genuss",
+      "story": {
+        "title": "Das Familienessen",
+        "de": "Die Familie isst zusammen zu Abend. Die Mutter bringt frisches Brot und die Kinder trinken Milch. Der Vater sagt: 'Das Essen schmeckt sehr gut!'",
+        "tr": "Aile birlikte akşam yemeği yiyor. Anne taze ekmek getiriyor, çocuklar süt içiyor. Baba diyor ki: 'Yemek çok lezzetli!'",
+        "quiz": [
+          {
+            "q": "Anne sabah ne getiriyor?",
+            "options": [
+              "Sıcak ekmek",
+              "Tatlı reçel",
+              "Soğuk süt"
+            ],
+            "a": "Sıcak ekmek"
+          },
+          {
+            "q": "Aile ne yiyor?",
+            "options": [
+              "Fransa ekmeğini",
+              "Taze ekmeği",
+              "Siyah ekmeği"
+            ],
+            "a": "Taze ekmeği"
+          },
+          {
+            "q": "Baba hakkında ne düşünüyor?",
+            "options": [
+              "Çok kötü",
+              "Çok lezzetli",
+              "Soğuk"
+            ],
+            "a": "Çok lezzetli"
+          },
+          {
+            "q": "Maria reçeli nereden getiriyor?",
+            "options": [
+              "Bahçeden",
+              "Mutfaktan",
+              "Masadan"
+            ],
+            "a": "Mutfaktan"
+          },
+          {
+            "q": "Çorba kimin tadında?",
+            "options": [
+              "Babasının",
+              "Annenin",
+              "Anneanninin"
+            ],
+            "a": "Anneanninin"
+          },
+          {
+            "q": "Kardeş ne getiriyor?",
+            "options": [
+              "Sıcak kahve",
+              "Soğuk süt",
+              "Taze meyve"
+            ],
+            "a": "Soğuk süt"
+          },
+          {
+            "q": "Çocuklar yemekten sonra ne yiyor?",
+            "options": [
+              "Pasta",
+              "Sağlıklı elma",
+              "Çikolata"
+            ],
+            "a": "Sağlıklı elma"
+          },
+          {
+            "q": "Anne babaya ne getiriyor?",
+            "options": [
+              "Şay",
+              "Sıcak kahve",
+              "Limonata"
+            ],
+            "a": "Sıcak kahve"
+          },
+          {
+            "q": "Tüm aile ne yapıyor?",
+            "options": [
+              "Evi temizliyor",
+              "Bahçeyi görmek istiyorlar",
+              "Pencereden bahçeyi görüyor"
+            ],
+            "a": "Pencereden bahçeyi görüyor"
+          },
+          {
+            "q": "Yemek herkese nasıl geliyor?",
+            "options": [
+              "Korkunç",
+              "Sıcak",
+              "Lezzetli"
+            ],
+            "a": "Lezzetli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g3",
+      "name": "3. İLETİŞİM & YAZIŞMA - LESEN, ANTWORTEN, SCHREIBEN",
+      "nameDE": "Kommunikation & Korrespondenz",
+      "story": {
+        "title": "Annas Brief",
+        "de": "Anna schreibt einen Brief an ihre Freundin. Sie erzählt von ihrem neuen Job und bedankt sich für die Hilfe. Am Ende schreibt sie: 'Bis bald!'",
+        "tr": "Anna arkadaşına bir mektup yazıyor. Yeni işinden bahsediyor ve yardımı için teşekkür ediyor. Sonunda yazıyor: 'Yakında görüşürüz!'",
+        "quiz": [
+          {
+            "q": "Anna nerede oturuyor?",
+            "options": [
+              "Mutfakta",
+              "Odasında",
+              "Bahçede"
+            ],
+            "a": "Odasında"
+          },
+          {
+            "q": "Anna hangi kelimeleri yazıyor?",
+            "options": [
+              "Zor",
+              "Önemli",
+              "Uzun"
+            ],
+            "a": "Önemli"
+          },
+          {
+            "q": "Anne kahvaltıda ne okuyor?",
+            "options": [
+              "Mektup",
+              "Kitap",
+              "Gazete"
+            ],
+            "a": "Gazete"
+          },
+          {
+            "q": "Anna annesinin sorusuna nasıl cevap veriyor?",
+            "options": [
+              "Yavaşça",
+              "Hızlıca",
+              "Sesizce"
+            ],
+            "a": "Hızlıca"
+          },
+          {
+            "q": "Anna kime mektup yazıyor?",
+            "options": [
+              "Öğretmenine",
+              "Arkadaşına",
+              "Babaya"
+            ],
+            "a": "Arkadaşına"
+          },
+          {
+            "q": "Anne kibarica ne soruyor?",
+            "options": [
+              "Oku bana!",
+              "Ne yazıyorsun?",
+              "Çabuk ol!"
+            ],
+            "a": "Ne yazıyorsun?"
+          },
+          {
+            "q": "Anna mektubu nasıl okuyor?",
+            "options": [
+              "Sessizce",
+              "Yüksek sesle",
+              "Uyuyan birine"
+            ],
+            "a": "Yüksek sesle"
+          },
+          {
+            "q": "Anna ne yazıyor?",
+            "options": [
+              "Ailesi hakkında",
+              "Lezzetli yemeği",
+              "Okul hakkında"
+            ],
+            "a": "Lezzetli yemeği"
+          },
+          {
+            "q": "Arkadaşın cevabı nasıl?",
+            "options": [
+              "Uzun",
+              "Kısa",
+              "Hemen"
+            ],
+            "a": "Hemen"
+          },
+          {
+            "q": "Arkadaş mektubu hakkında ne diyor?",
+            "options": [
+              "Kötü",
+              "Çok güzel",
+              "Uzun"
+            ],
+            "a": "Çok güzel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g4",
+      "name": "4. ÖĞRENME & AÇIKLAMA - LERNEN, ZUSCHAUEN, ERKLÄREN",
+      "nameDE": "Lernen & Erklären",
+      "story": {
+        "title": "Tom lernt Deutsch",
+        "de": "Tom lernt Deutsch und übt mit seinem Lehrer. Er liest Texte, schreibt kurze Sätze und wiederholt die Wörter. Am Ende des Tages fühlt sich Tom sicherer.",
+        "tr": "Tom Almanca öğreniyor ve öğretmeniyle çalışıyor. Metin okuyor, kısa cümleler yazıyor ve kelimeleri tekrar ediyor. Günün sonunda Tom kendini daha güvende hissediyor.",
+        "quiz": [
+          {
+            "q": "Tom dün ne yaptı?",
+            "options": [
+              "Kitap okudu",
+              "Almanca kelimeleri öğrendi",
+              "Film seyireti"
+            ],
+            "a": "Almanca kelimeleri öğrendi"
+          },
+          {
+            "q": "Tom hangi dilini öğreniyor?",
+            "options": [
+              "İngilizce",
+              "Almanca",
+              "Fransızca"
+            ],
+            "a": "Almanca"
+          },
+          {
+            "q": "Öğretmen kuralı nasıl açıklıyor?",
+            "options": [
+              "Kızgın",
+              "Açık şekilde",
+              "Hızlıca"
+            ],
+            "a": "Açık şekilde"
+          },
+          {
+            "q": "Tom dersi nasıl izliyor?",
+            "options": [
+              "Uyuyan",
+              "Heyecanlı",
+              "Dikkatle"
+            ],
+            "a": "Dikkatle"
+          },
+          {
+            "q": "Tom sporda da ne yapıyor?",
+            "options": [
+              "Sadece oynadı",
+              "İzledi ve öğrendi",
+              "Uyudu"
+            ],
+            "a": "İzledi ve öğrendi"
+          },
+          {
+            "q": "Öğretmen ne okuyor?",
+            "options": [
+              "Gazete",
+              "Kitaptan metinler",
+              "Mektup"
+            ],
+            "a": "Kitaptan metinler"
+          },
+          {
+            "q": "Tom zor kelimeleri ne kadar hızlı öğreniyor?",
+            "options": [
+              "Yavaşça",
+              "Hemen",
+              "Hızlıca"
+            ],
+            "a": "Hızlıca"
+          },
+          {
+            "q": "Tom diğer öğrencileri nasıl izliyor?",
+            "options": [
+              "Yazarak",
+              "Oynarken",
+              "Uyurken"
+            ],
+            "a": "Yazarak"
+          },
+          {
+            "q": "Öğretmen problemi nasıl açıklıyor?",
+            "options": [
+              "Karmaşık",
+              "Basit şekilde",
+              "Hızlı"
+            ],
+            "a": "Basit şekilde"
+          },
+          {
+            "q": "Tom şu anda nasıl öğreniyor?",
+            "options": [
+              "Okuyarak ve yazarak",
+              "Dinleyerek ve okuyarak",
+              "Yazarak ve izleyerek"
+            ],
+            "a": "Dinleyerek ve okuyarak"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g5",
+      "name": "5. YARATICILIK & YAPIM - MACHEN, HELFEN, GEBEN",
+      "nameDE": "Kreativität & Herstellung",
+      "story": {
+        "title": "Das Familienprojekt",
+        "de": "Die Familie arbeitet gemeinsam an einem Projekt. Lisa übernimmt viele Aufgaben und alle helfen zusammen. Am Ende präsentieren sie das Ergebnis stolz.",
+        "tr": "Aile birlikte bir projede çalışıyor. Lisa birçok görevi üstleniyor ve herkes birlikte yardım ediyor. Sonunda sonucu gururla sunuyorlar.",
+        "quiz": [
+          {
+            "q": "Lisa hangi proje yapıyor?",
+            "options": [
+              "Kütüphane",
+              "Güzel bir proje",
+              "Ev"
+            ],
+            "a": "Güzel bir proje"
+          },
+          {
+            "q": "Lisa kimler için proje yapıyor?",
+            "options": [
+              "Okul için",
+              "Ailesi için",
+              "Arkadaşları için"
+            ],
+            "a": "Ailesi için"
+          },
+          {
+            "q": "Lisa'nın ödevleri nasıl?",
+            "options": [
+              "Kolay",
+              "Eğlenceli",
+              "Zor"
+            ],
+            "a": "Zor"
+          },
+          {
+            "q": "Baba Lisa'ya nasıl yardım ediyor?",
+            "options": [
+              "İsteksizce",
+              "Sevinçle",
+              "Memnun değil"
+            ],
+            "a": "Sevinçle"
+          },
+          {
+            "q": "Lisa annesine ne veriyor?",
+            "options": [
+              "Yeni bir kitap",
+              "Paraları",
+              "Anahtarı"
+            ],
+            "a": "Yeni bir kitap"
+          },
+          {
+            "q": "Anne Lisa'ya ne yapıyor?",
+            "options": [
+              "Okuyor",
+              "Yazma ve okumada yardım",
+              "Pişiriyor"
+            ],
+            "a": "Yazma ve okumada yardım"
+          },
+          {
+            "q": "Lisa babaya ne veriyor?",
+            "options": [
+              "Ağır anahtarı",
+              "Kitabı",
+              "Kalemi"
+            ],
+            "a": "Ağır anahtarı"
+          },
+          {
+            "q": "Lisa'nın kardeşi ne yapıyor?",
+            "options": [
+              "Uyuyor",
+              "Okula gidiyor",
+              "Küçük proje yapıyor"
+            ],
+            "a": "Küçük proje yapıyor"
+          },
+          {
+            "q": "Lisa kardeşine ne veriyor?",
+            "options": [
+              "Paran",
+              "Öğrenme için ilginç kelimeler",
+              "Oyuncak"
+            ],
+            "a": "Öğrenme için ilginç kelimeler"
+          },
+          {
+            "q": "Tüm aile ne yaptı?",
+            "options": [
+              "Yemek yedi",
+              "Birlikte projeyi yaptı",
+              "Uyudu"
+            ],
+            "a": "Birlikte projeyi yaptı"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g6",
+      "name": "6. HAREKET & TAKİP - NEHMEN, FOLGEN, HOLEN",
+      "nameDE": "Bewegung & Folgen",
+      "story": {
+        "title": "Max und sein Schultag",
+        "de": "Max hat einen vollen Schultag. Er fährt Bus, besucht die Bibliothek und lernt neue Wörter. Am Abend geht er nach Hause und übt weiter.",
+        "tr": "Max yoğun bir okul günü geçirdi. Otobüse biniyor, kütüphaneyi ziyaret ediyor ve yeni kelimeler öğreniyor. Akşam eve gidip çalışmaya devam ediyor.",
+        "quiz": [
+          {
+            "q": "Max parasını nereden alıyor?",
+            "options": [
+              "Masadan",
+              "Cebin",
+              "Bankadan"
+            ],
+            "a": "Cebin"
+          },
+          {
+            "q": "Max nereye gidiyor?",
+            "options": [
+              "Okula",
+              "Otobüse",
+              "Kütüphaneye"
+            ],
+            "a": "Otobüse"
+          },
+          {
+            "q": "Otobüs nereye gidiyor?",
+            "options": [
+              "Evine",
+              "Okula",
+              "Parkına"
+            ],
+            "a": "Okula"
+          },
+          {
+            "q": "Max'ın annesi nereye gidiyor?",
+            "options": [
+              "Bankanın",
+              "İstasyona",
+              "Mağazaya"
+            ],
+            "a": "İstasyona"
+          },
+          {
+            "q": "Anne ne alıyor?",
+            "options": [
+              "Paket",
+              "Kitap",
+              "Bilet"
+            ],
+            "a": "Paket"
+          },
+          {
+            "q": "Max hangi öğretmeni takip etmek istiyor?",
+            "options": [
+              "Kötü",
+              "Yeni ve nazik",
+              "Yaşlı"
+            ],
+            "a": "Yeni ve nazik"
+          },
+          {
+            "q": "Kütüphanede Max ne yapıyor?",
+            "options": [
+              "Kitap ödünç alıyor",
+              "Yemek yiyor",
+              "Uyuyor"
+            ],
+            "a": "Kitap ödünç alıyor"
+          },
+          {
+            "q": "Kitaplar nasıl?",
+            "options": [
+              "Hafif",
+              "Ağır",
+              "Rengarenk"
+            ],
+            "a": "Ağır"
+          },
+          {
+            "q": "Max kaç kitap alıyor?",
+            "options": [
+              "Bir",
+              "Üç",
+              "İki"
+            ],
+            "a": "İki"
+          },
+          {
+            "q": "Eve dönerken Max ne yapıyor?",
+            "options": [
+              "Yemek yiyor",
+              "Arkadaşıyla otobüse biniyor",
+              "Uyuyor"
+            ],
+            "a": "Arkadaşıyla otobüse biniyor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g7",
+      "name": "7. İHTİYAÇ & TEDARİK - BRAUCHEN, FEHLEN, SCHICKEN",
+      "nameDE": "Bedarf & Beschaffung",
+      "story": {
+        "title": "Die Reisevorbereitung",
+        "de": "Anna bereitet ihre Reise vor. Sie packt ihren Koffer, kauft Dinge und organisiert alles rechtzeitig.",
+        "tr": "Anna seyahat hazırlığı yapıyor. Bavulunu hazırlıyor, eşyalar satın alıyor ve her şeyi zamanında düzenliyor.",
+        "quiz": [
+          {
+            "q": "Anna neye ihtiyaç duyuyor?",
+            "options": [
+              "Telefona",
+              "Bilgisayarına",
+              "Araba"
+            ],
+            "a": "Bilgisayarına"
+          },
+          {
+            "q": "Anna nereye gidiyor?",
+            "options": [
+              "Mağazaya",
+              "Bankaya",
+              "Okula"
+            ],
+            "a": "Bankaya"
+          },
+          {
+            "q": "Anna bankadan ne alıyor?",
+            "options": [
+              "Borç",
+              "Para",
+              "Bilgi"
+            ],
+            "a": "Para"
+          },
+          {
+            "q": "Evde ne eksik?",
+            "options": [
+              "Kitap",
+              "Bavul",
+              "Elbise"
+            ],
+            "a": "Bavul"
+          },
+          {
+            "q": "Bavul ne için önemli?",
+            "options": [
+              "Saklama",
+              "Seyahat",
+              "Dekorasyon"
+            ],
+            "a": "Seyahat"
+          },
+          {
+            "q": "Kardeş ne yapıyor?",
+            "options": [
+              "Yardım edebiliyor",
+              "Uyuyor",
+              "Ağlıyor"
+            ],
+            "a": "Yardım edebiliyor"
+          },
+          {
+            "q": "Kardeş nereye gidiyor?",
+            "options": [
+              "Evine",
+              "Mağazaya",
+              "Okula"
+            ],
+            "a": "Mağazaya"
+          },
+          {
+            "q": "Kardeş ne satın alıyor?",
+            "options": [
+              "Eski bavul",
+              "Yeni bavul",
+              "Çanta"
+            ],
+            "a": "Yeni bavul"
+          },
+          {
+            "q": "Paket ne ve ağır mı?",
+            "options": [
+              "Küçük ve hafif",
+              "Büyük ve ağır",
+              "Uzun ve hafif"
+            ],
+            "a": "Büyük ve ağır"
+          },
+          {
+            "q": "Paket gönderilirken Anna ne yapıyor?",
+            "options": [
+              "Uyuyor",
+              "Sevinçli oluyor",
+              "Ağlıyor"
+            ],
+            "a": "Sevinçli oluyor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g8",
+      "name": "8. TİCARET & DEĞİŞİM - KAUFEN, GEHÖREN, VERKAUFEN",
+      "nameDE": "Handel & Austausch",
+      "story": {
+        "title": "Der Autoverkauf",
+        "de": "Peter verkauft sein altes Auto. Er geht in eine Galerie und zeigt das Auto potentiellen Käufern.",
+        "tr": "Peter eski arabasını satıyor. Bir galeride arabayı potansiyel alıcılara gösteriyor.",
+        "quiz": [
+          {
+            "q": "Peter'in arabası nasıl?",
+            "options": [
+              "Yeni",
+              "Eski",
+              "Kırmızı"
+            ],
+            "a": "Eski"
+          },
+          {
+            "q": "Araba Peter'in kaç yıldır?",
+            "options": [
+              "Bir",
+              "İki",
+              "Üç"
+            ],
+            "a": "Üç"
+          },
+          {
+            "q": "Peter nereye gidiyor?",
+            "options": [
+              "Fabrikaya",
+              "Galiye",
+              "Parkına"
+            ],
+            "a": "Galiye"
+          },
+          {
+            "q": "Galeride kaç araba var?",
+            "options": [
+              "Biraz",
+              "Çok",
+              "Hiç"
+            ],
+            "a": "Çok"
+          },
+          {
+            "q": "Hangi araba Peter'e çok hoşa gidiyor?",
+            "options": [
+              "Mavi",
+              "Siyah",
+              "Kırmızı"
+            ],
+            "a": "Kırmızı"
+          },
+          {
+            "q": "Araba kaç Euro tutuyor?",
+            "options": [
+              "5.000",
+              "10.000",
+              "15.000"
+            ],
+            "a": "15.000"
+          },
+          {
+            "q": "Peter'in eski arabası kaç Euro'ya satılıyor?",
+            "options": [
+              "5.000",
+              "8.000",
+              "10.000"
+            ],
+            "a": "8.000"
+          },
+          {
+            "q": "Arabayı kim satın alıyor?",
+            "options": [
+              "Genç bir adam",
+              "Yaşlı bir kadın",
+              "Bir çocuk"
+            ],
+            "a": "Genç bir adam"
+          },
+          {
+            "q": "Peter satışla ne hissediyor?",
+            "options": [
+              "Kızgın",
+              "Memnun",
+              "Üzgün"
+            ],
+            "a": "Memnun"
+          },
+          {
+            "q": "Peter'in annesi arabalar hakkında ne diyor?",
+            "options": [
+              "Kötü",
+              "Çok güzel",
+              "Eski"
+            ],
+            "a": "Çok güzel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g9",
+      "name": "9. KEŞİF & ARAŞTIRMA - FINDEN, BEGEGNEN, EMPFEHLEN",
+      "nameDE": "Entdeckung & Forschung",
+      "story": {
+        "title": "Die Suche nach dem perfekten Restaurant",
+        "de": "Lisa and her friend look for a great restaurant. They search online and compare reviews before going.",
+        "tr": "Lisa ve arkadaşı mükemmel bir restoran arıyor. İnternette arama yapıyor ve yorumları karşılaştırıyorlar.",
+        "quiz": [
+          {
+            "q": "Lisa ve arkadaşı ne arıyor?",
+            "options": [
+              "Okul",
+              "İyi restoran",
+              "Ev"
+            ],
+            "a": "İyi restoran"
+          },
+          {
+            "q": "Arayış nerede yapılıyor?",
+            "options": [
+              "Gazetede",
+              "İnternette",
+              "Kitapta"
+            ],
+            "a": "İnternette"
+          },
+          {
+            "q": "İnternette kaç restoran bulunuyor?",
+            "options": [
+              "Biraz",
+              "Az",
+              "Çok"
+            ],
+            "a": "Çok"
+          },
+          {
+            "q": "Hangi restoran Lisa'ya hoşa gidiyor?",
+            "options": [
+              "Türk",
+              "İtalyan",
+              "Çinli"
+            ],
+            "a": "İtalyan"
+          },
+          {
+            "q": "Restoran nerde konumlanıyor?",
+            "options": [
+              "Uzakta",
+              "Dairelerinden yakın",
+              "Şehir merkezinde"
+            ],
+            "a": "Dairelerinden yakın"
+          },
+          {
+            "q": "Arkadaş ne diyor?",
+            "options": [
+              "Gitme!",
+              "Bu restoranı tavsiye ediyorum",
+              "Evde kal"
+            ],
+            "a": "Bu restoranı tavsiye ediyorum"
+          },
+          {
+            "q": "Restorandaki komşu kimdir?",
+            "options": [
+              "Garson",
+              "Marco",
+              "Şef"
+            ],
+            "a": "Marco"
+          },
+          {
+            "q": "Marco'nun işi nedir?",
+            "options": [
+              "Garson",
+              "Orada çalışıyor",
+              "Müdür"
+            ],
+            "a": "Orada çalışıyor"
+          },
+          {
+            "q": "Pizzanın tadı nasıl?",
+            "options": [
+              "Korkunç",
+              "Orta",
+              "Çok lezzetli"
+            ],
+            "a": "Çok lezzetli"
+          },
+          {
+            "q": "Yemeğin sonunda Lisa'ya ne oluyor?",
+            "options": [
+              "Hasta oluyor",
+              "Mutlu oluyor",
+              "Uyuyor"
+            ],
+            "a": "Mutlu oluyor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g10",
+      "name": "10. ARAMA & ULAŞMA - SUCHEN, PASSEN, VERSPRECHEN",
+      "nameDE": "Suchen & Erreichen",
+      "story": {
+        "title": "Das perfekte Kleid",
+        "de": "Maria looks for the perfect dress for a party. She visits several shops before choosing one.",
+        "tr": "Maria mükemmel elbiseyi arıyor. Birkaç mağaza geziyor ve sonunda bir tane seçiyor.",
+        "quiz": [
+          {
+            "q": "Maria ne arıyor?",
+            "options": [
+              "Ayakkabı",
+              "Güzel elbise",
+              "Çanta"
+            ],
+            "a": "Güzel elbise"
+          },
+          {
+            "q": "Elbise niye için?",
+            "options": [
+              "Okul",
+              "İş",
+              "Parti"
+            ],
+            "a": "Parti"
+          },
+          {
+            "q": "Maria nereye gidiyor?",
+            "options": [
+              "Kapalıçarşıya",
+              "Mağazaya",
+              "Pazara"
+            ],
+            "a": "Mağazaya"
+          },
+          {
+            "q": "Orada kaç elbise var?",
+            "options": [
+              "Bir",
+              "Az",
+              "Çok"
+            ],
+            "a": "Çok"
+          },
+          {
+            "q": "Hangi elbise Maria'ya hoşa gidiyor?",
+            "options": [
+              "Kırmızı",
+              "Mavi",
+              "Yeşil"
+            ],
+            "a": "Mavi"
+          },
+          {
+            "q": "Elbise Maria'ya nasıl uyuyor?",
+            "options": [
+              "Kötü",
+              "Biraz",
+              "Çok iyi"
+            ],
+            "a": "Çok iyi"
+          },
+          {
+            "q": "Ayakkabılar hakkında ne sorun var?",
+            "options": [
+              "Kırmızı renkli",
+              "Mavi elbiseye uymuyor",
+              "Çok pahalı"
+            ],
+            "a": "Mavi elbiseye uymuyor"
+          },
+          {
+            "q": "Hangi ayakkabılar daha iyi uyuyor?",
+            "options": [
+              "Kırmızı",
+              "Siyah",
+              "Kahverengi"
+            ],
+            "a": "Siyah"
+          },
+          {
+            "q": "Satış danışmanı ne yapıyor?",
+            "options": [
+              "Elbise satıyor",
+              "İndirim vaat ediyor",
+              "Gitmeyi söylüyor"
+            ],
+            "a": "İndirim vaat ediyor"
+          },
+          {
+            "q": "Partide insanlar elbise hakkında ne diyor?",
+            "options": [
+              "Kötü",
+              "Orta",
+              "Çok şık"
+            ],
+            "a": "Çok şık"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g11",
+      "name": "11. DUYGUSAL BAĞ - LIEBEN, GEFALLEN, SCHENKEN",
+      "nameDE": "Emotionale Bindung",
+      "story": {
+        "title": "Annas Geburtstag",
+        "de": "Anna hat heute Geburtstag. Sie ist 25 Jahre alt. Ihre Familie liebt sie sehr. Am Morgen bringt ihr Bruder Blumen. \"Diese Blumen sind für dich\", sagt er. Anna freut sich. Die Blumen gefallen ihr sehr gut. Sie sind rot und schön. Anna sagt: \"Danke, ich liebe Blumen.\"",
+        "tr": "Anna'nın bugün doğum günü. 25 yaşında. Ailesi onu çok seviyor. Sabah kardeşi çiçek getiriyor. \"Bu çiçekler senin için\" diyor. Anna sevinir. Çiçekler ona çok hoşa gidiyor. Kırmızı ve güzel. Anna diyor: \"Teşekkürler, çiçekleri seviyorum.\"",
+        "quiz": [
+          {
+            "q": "Anna bugün kaç yaşında oluyor?",
+            "options": [
+              "20",
+              "25",
+              "30"
+            ],
+            "a": "25"
+          },
+          {
+            "q": "Sabah kardeş Anna'ya ne getiriyor?",
+            "options": [
+              "Kek",
+              "Çiçek",
+              "Şapka"
+            ],
+            "a": "Çiçek"
+          },
+          {
+            "q": "Çiçekler hangi renk?",
+            "options": [
+              "Sarı",
+              "Beyaz",
+              "Kırmızı"
+            ],
+            "a": "Kırmızı"
+          },
+          {
+            "q": "Çiçekler Anna'ya nasıl geliyor?",
+            "options": [
+              "Kötü",
+              "Çok hoşa",
+              "Normal"
+            ],
+            "a": "Çok hoşa"
+          },
+          {
+            "q": "Anne Anna'ya ne hediye ediyor?",
+            "options": [
+              "Çiçek",
+              "Yeni kitap",
+              "Para"
+            ],
+            "a": "Yeni kitap"
+          },
+          {
+            "q": "Kitap ne tür?",
+            "options": [
+              "Öykü",
+              "Yemek kitabı",
+              "Tarih"
+            ],
+            "a": "Yemek kitabı"
+          },
+          {
+            "q": "Anna hangi konuyu seviyor?",
+            "options": [
+              "Spor",
+              "Yemek yapmak",
+              "Müzik"
+            ],
+            "a": "Yemek yapmak"
+          },
+          {
+            "q": "Akşam kaç kişi partiye geliyor?",
+            "options": [
+              "2",
+              "5",
+              "Çok"
+            ],
+            "a": "Çok"
+          },
+          {
+            "q": "Arkadaş Anna'ya ne hediye ediyor?",
+            "options": [
+              "Kitap",
+              "CD",
+              "Çanta"
+            ],
+            "a": "CD"
+          },
+          {
+            "q": "Anna son olarak ne diyor?",
+            "options": [
+              "\"Evde kal!\"",
+              "\"Hepinizi seviyorum\"",
+              "\"Gitmeyin!\""
+            ],
+            "a": "\"Hepinizi seviyorum\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "g12",
+      "name": "12. TERCİH & BEĞENİ - MÖGEN, VERTRAUEN, WÜNSCHEN",
+      "nameDE": "Präferenz & Vorliebe",
+      "story": {
+        "title": "Tom und das Wetter",
+        "de": "Tom mag den Sommer sehr. Er mag die Sonne und das warme Wetter. Seine Schwester mag den Winter lieber. Sie mag Schnee und kalte Tage. Tom sagt: \"Ich mag es nicht, wenn es kalt ist.\"",
+        "tr": "Tom yazı çok seviyor. Güneşi ve sıcak havayı seviyor. Kız kardeşi kışı daha çok seviyor. Karı ve soğuk günleri seviyor. Tom diyor: \"Soğuk olmasını sevmiyorum.\"",
+        "quiz": [
+          {
+            "q": "Tom hangi mevsimi çok seviyor?",
+            "options": [
+              "Kış",
+              "Yaz",
+              "Sonbahar"
+            ],
+            "a": "Yaz"
+          },
+          {
+            "q": "Tom ne seviyor?",
+            "options": [
+              "Karı",
+              "Güneşi ve sıcak havayı",
+              "Soğuğu"
+            ],
+            "a": "Güneşi ve sıcak havayı"
+          },
+          {
+            "q": "Kız kardeş hangi mevsimi daha çok seviyor?",
+            "options": [
+              "Yaz",
+              "Kış",
+              "Bahar"
+            ],
+            "a": "Kış"
+          },
+          {
+            "q": "Kız kardeş ne seviyor?",
+            "options": [
+              "Güneşi",
+              "Karı ve soğuk günleri",
+              "Yağmuru"
+            ],
+            "a": "Karı ve soğuk günleri"
+          },
+          {
+            "q": "Tom soğuk hava hakkında ne diyor?",
+            "options": [
+              "\"Güzel\"",
+              "\"Seviyorum\"",
+              "\"Sevmiyorum\""
+            ],
+            "a": "\"Sevmiyorum\""
+          },
+          {
+            "q": "Kız kardeş kara hakkında ne düşünüyor?",
+            "options": [
+              "\"Kötü\"",
+              "\"Güzel ve beyaz\"",
+              "\"Kirli\""
+            ],
+            "a": "\"Güzel ve beyaz\""
+          },
+          {
+            "q": "Yazın Tom kendine ne diliyor?",
+            "options": [
+              "Yağmur",
+              "Her gün güneş",
+              "Kar"
+            ],
+            "a": "Her gün güneş"
+          },
+          {
+            "q": "Tom hangi sporu seviyor?",
+            "options": [
+              "Futbol",
+              "Yüzme",
+              "Tenis"
+            ],
+            "a": "Yüzme"
+          },
+          {
+            "q": "Anne hava durumu konusunda kimi seviyor?",
+            "options": [
+              "Yağmuru",
+              "Güneşi",
+              "Rüzgarı"
+            ],
+            "a": "Güneşi"
+          },
+          {
+            "q": "Kız kardeş tüm mevsimler hakkında ne diyor?",
+            "options": [
+              "\"Hepsi kötü\"",
+              "\"Hepsi güzel\"",
+              "\"Hepsi normal\""
+            ],
+            "a": "\"Hepsi güzel\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "g13",
+      "name": "13. HAFIZA & KAYIP - VERGESSEN, WEHTUN, LEIHEN",
+      "nameDE": "Gedächtnis & Verlust",
+      "story": {
+        "title": "Sarahs Tag",
+        "de": "Sarah hat heute Probleme. Sie vergisst viele Sachen. Am Morgen vergisst sie ihr Handy zu Hause. Sie geht zur Arbeit und ärgert sich. Ohne Handy kann sie ihre Freunde nicht anrufen.",
+        "tr": "Sarah'ın bugün sorunları var. Birçok şeyi unutuyor. Sabah telefonunu evde unutuyor. İşe gidiyor ve sinirleniyor. Telefonsuz arkadaşlarını arayamıyor.",
+        "quiz": [
+          {
+            "q": "Sarah sabah ne unutuyor?",
+            "options": [
+              "Anahtarı",
+              "Telefonunu",
+              "Cüzdanı"
+            ],
+            "a": "Telefonunu"
+          },
+          {
+            "q": "Sarah telefonu nerede unutuyor?",
+            "options": [
+              "Otobüste",
+              "Evde",
+              "İşte"
+            ],
+            "a": "Evde"
+          },
+          {
+            "q": "Telefon olmadan Sarah ne yapamıyor?",
+            "options": [
+              "Uyumak",
+              "Yemek yemek",
+              "Arkadaşlarını aramak"
+            ],
+            "a": "Arkadaşlarını aramak"
+          },
+          {
+            "q": "Sarah hakkında ne düşünüyor?",
+            "options": [
+              "\"Her zaman hatırlıyorum\"",
+              "\"Hep bir şey unutuyorum\"",
+              "\"Hiç unutmuyorum\""
+            ],
+            "a": "\"Hep bir şey unutuyorum\""
+          },
+          {
+            "q": "Sarah'ın baş ağrısı var mı?",
+            "options": [
+              "Hayır",
+              "Evet",
+              "Biraz"
+            ],
+            "a": "Evet"
+          },
+          {
+            "q": "Baş ağrısı ne kadar geçiyor?",
+            "options": [
+              "30 dakika",
+              "Bir saat",
+              "İki saat"
+            ],
+            "a": "Bir saat"
+          },
+          {
+            "q": "Öğle vakti Sarah'ın ayakları ağrıyor çünkü?",
+            "options": [
+              "Uzun yürüdü",
+              "Yeni ayakkabı giyiyor",
+              "Hasta"
+            ],
+            "a": "Yeni ayakkabı giyiyor"
+          },
+          {
+            "q": "Ayakkabılar nasıl?",
+            "options": [
+              "Güzel ve rahat",
+              "Güzel ama rahat değil",
+              "Çirkin"
+            ],
+            "a": "Güzel ama rahat değil"
+          },
+          {
+            "q": "Sarah işten sonra nereye gidiyor?",
+            "options": [
+              "Eve",
+              "Kütüphaneye",
+              "Parkına"
+            ],
+            "a": "Kütüphaneye"
+          },
+          {
+            "q": "Kütüphanede kitap okuduktan sonra Sarah nasıl oluyor?",
+            "options": [
+              "Üzgün",
+              "Yorgun",
+              "Tekrar mutlu"
+            ],
+            "a": "Tekrar mutlu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g14",
+      "name": "14. KAYIP & BULMA - VERLIEREN, NÜTZEN, BORGEN",
+      "nameDE": "Verlust & Finden",
+      "story": {
+        "title": "Der verlorene Schlüssel",
+        "de": "Emma verliert oft ihre Sachen. Heute verliert sie ihren Hausschlüssel. Sie sucht überall. Der Schlüssel ist nicht in ihrer Tasche. Er ist auch nicht auf dem Tisch.",
+        "tr": "Emma sık sık eşyalarını kaybediyor. Bugün ev anahtarını kaybediyor. Her yerde arıyor. Anahtar çantasında değil. Masada da değil.",
+        "quiz": [
+          {
+            "q": "Emma sık sık ne yapıyor?",
+            "options": [
+              "Unutuyor",
+              "Eşyalarını kaybediyor",
+              "Ağlıyor"
+            ],
+            "a": "Eşyalarını kaybediyor"
+          },
+          {
+            "q": "Emma bugün ne kaybediyor?",
+            "options": [
+              "Çantasını",
+              "Ev anahtarını",
+              "Telefonunu"
+            ],
+            "a": "Ev anahtarını"
+          },
+          {
+            "q": "Anahtar nerede değil?",
+            "options": [
+              "Çantada",
+              "Masada",
+              "Her ikisinde de"
+            ],
+            "a": "Her ikisinde de"
+          },
+          {
+            "q": "Emma kendini nasıl hissediyor?",
+            "options": [
+              "Mutlu",
+              "Üzgün ve şaşkın",
+              "Kızgın"
+            ],
+            "a": "Üzgün ve şaşkın"
+          },
+          {
+            "q": "Komşu Emma'ya ne yapıyor?",
+            "options": [
+              "Gülüyor",
+              "Yardım etmek istiyor",
+              "Gidiyor"
+            ],
+            "a": "Yardım etmek istiyor"
+          },
+          {
+            "q": "Komşu Emma ile nerede arıyor?",
+            "options": [
+              "Bahçede",
+              "Evde",
+              "Mağazada"
+            ],
+            "a": "Bahçede"
+          },
+          {
+            "q": "Anahtar bahçede mi var?",
+            "options": [
+              "Evet",
+              "Hayır",
+              "Bilinmiyor"
+            ],
+            "a": "Hayır"
+          },
+          {
+            "q": "Sonra nerede arıyorlar?",
+            "options": [
+              "Evde",
+              "Parkta",
+              "Arabada"
+            ],
+            "a": "Arabada"
+          },
+          {
+            "q": "Emma eve gittikten sonra anahtarı nerede bulabiliyor?",
+            "options": [
+              "Ceket cebinde",
+              "Mutfakta",
+              "Yatak odasında"
+            ],
+            "a": "Ceket cebinde"
+          },
+          {
+            "q": "Emma'ya hediye olarak ne veriliyor?",
+            "options": [
+              "Para",
+              "Kitap",
+              "Hiçbir şey"
+            ],
+            "a": "Kitap"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g15",
+      "name": "15. ALMA & EDİNME - BEKOMMEN, DANKEN, ANBIETEN",
+      "nameDE": "Bekommen & Erhalten",
+      "story": {
+        "title": "Mikes erster Job",
+        "de": "Mike sucht einen Job. Er geht zu vielen Firmen und fragt nach Arbeit. Aber er bekommt immer eine negative Antwort. Mike ist traurig und weiß nicht, was er machen soll.",
+        "tr": "Mike iş arıyor. Birçok firmaya gidiyor ve iş soruyor. Ama hep olumsuz cevap alıyor. Mike üzgün ve ne yapacağını bilmiyor.",
+        "quiz": [
+          {
+            "q": "Mike ne arıyor?",
+            "options": [
+              "Ev",
+              "İş",
+              "Arkadaş"
+            ],
+            "a": "İş"
+          },
+          {
+            "q": "Mike kaç firmaya gidiyor?",
+            "options": [
+              "Bir",
+              "Birkaç",
+              "Çok"
+            ],
+            "a": "Çok"
+          },
+          {
+            "q": "Firmalar Mike'a ne cevap veriyor?",
+            "options": [
+              "Evet",
+              "Belki",
+              "Hayır"
+            ],
+            "a": "Hayır"
+          },
+          {
+            "q": "Mike hakkında annesi ne diyor?",
+            "options": [
+              "\"Vazgeç\"",
+              "\"Vazgeçme. Kesinlikle iyi iş bulacaksın\"",
+              "\"İş yok\""
+            ],
+            "a": "\"Vazgeçme. Kesinlikle iyi iş bulacaksın\""
+          },
+          {
+            "q": "Kafede sahibi ne yapıyor?",
+            "options": [
+              "İş istiyor",
+              "Kahve ve iş teklif ediyor",
+              "Reddediyor"
+            ],
+            "a": "Kahve ve iş teklif ediyor"
+          },
+          {
+            "q": "Kafede Mike'a ne teklif ediliyor?",
+            "options": [
+              "Yemek",
+              "Para",
+              "İş"
+            ],
+            "a": "İş"
+          },
+          {
+            "q": "Kafede kimin yardımına ihtiyaç var?",
+            "options": [
+              "Aşçıya",
+              "Kasiyere",
+              "Mike'a"
+            ],
+            "a": "Mike'a"
+          },
+          {
+            "q": "Mike işi kabul ediyor mi?",
+            "options": [
+              "Hayır",
+              "Belki",
+              "Evet, sevinçle"
+            ],
+            "a": "Evet, sevinçle"
+          },
+          {
+            "q": "Yeni işinde Mike'ın meslektaşları nasıl?",
+            "options": [
+              "Kötü",
+              "Nazik ve adil ücret",
+              "Az"
+            ],
+            "a": "Nazik ve adil ücret"
+          },
+          {
+            "q": "İşten sonra Mike annesine ne diyor?",
+            "options": [
+              "\"Haklıydın\"",
+              "\"Vazgeç\"",
+              "\"İş kötü\""
+            ],
+            "a": "\"Haklıydın\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "g16",
+      "name": "16. ERİŞİM & KONTROL - ÖFFNEN, GRATULIEREN, ERZÄHLEN",
+      "nameDE": "Zugang & Kontrolle",
+      "story": {
+        "title": "Der wichtige Tag",
+        "de": "Maria öffnet ihr kleines Geschäft am frühen Morgen. Sie ist sehr nervös, weil heute ein wichtiger Tag ist. Ihr bester Freund kommt zu Besuch.",
+        "tr": "Maria sabah erkenden küçük işyerini açıyor. Çok gergin çünkü bugün önemli bir gün. En iyi arkadaşı ziyarete geliyor.",
+        "quiz": [
+          {
+            "q": "Maria sabah ne yapıyor?",
+            "options": [
+              "Kapıyı kapatıyor",
+              "Kapıyı açıyor",
+              "Uyuyor"
+            ],
+            "a": "Kapıyı açıyor"
+          },
+          {
+            "q": "Maria neden gergin?",
+            "options": [
+              "Hastaydı",
+              "Bugün önemli gün",
+              "Para yok"
+            ],
+            "a": "Bugün önemli gün"
+          },
+          {
+            "q": "Maria'nın işyeri nasıl?",
+            "options": [
+              "Büyük",
+              "Küçük",
+              "Eski"
+            ],
+            "a": "Küçük"
+          },
+          {
+            "q": "Saat kaçta arkadaş geliyor?",
+            "options": [
+              "9",
+              "10",
+              "11"
+            ],
+            "a": "10"
+          },
+          {
+            "q": "Arkadaş Maria'ya ne hediye ediyor?",
+            "options": [
+              "Kitap",
+              "Para",
+              "Güzel çiçekler"
+            ],
+            "a": "Güzel çiçekler"
+          },
+          {
+            "q": "Maria'nın anlattığı hikaye nasıl?",
+            "options": [
+              "Üzücü",
+              "Komik",
+              "Korkunç"
+            ],
+            "a": "Komik"
+          },
+          {
+            "q": "Kimin işyerine yaşlı kadın geliyor?",
+            "options": [
+              "Maria'nın",
+              "Arkadaşın",
+              "Annenin"
+            ],
+            "a": "Maria'nın"
+          },
+          {
+            "q": "Yaşlı kadın ne almak istiyor?",
+            "options": [
+              "Küçük kek",
+              "Büyük kek",
+              "Çikolata"
+            ],
+            "a": "Büyük kek"
+          },
+          {
+            "q": "Maria yaşlı kadına ne veriyor?",
+            "options": [
+              "Büyük kek",
+              "Para",
+              "Küçük kek"
+            ],
+            "a": "Küçük kek"
+          },
+          {
+            "q": "Arkadaş hikaye hakkında ne diyor?",
+            "options": [
+              "\"Kötü\"",
+              "\"Gerçekten komik\"",
+              "\"Üzücü\""
+            ],
+            "a": "\"Gerçekten komik\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "g17",
+      "name": "17. KAPAMA & KORUMA - SCHLIEßEN, SCHADEN, BESORGEN",
+      "nameDE": "Schließen & Schutz",
+      "story": {
+        "title": "Das kaputte Fenster",
+        "de": "Paul wohnt in einem alten Haus. Heute ist das Wetter sehr schlecht. Es regnet stark und der Wind ist laut. Paul schließt alle Fenster in seinem kleinen Zimmer.",
+        "tr": "Paul eski bir evde oturuyor. Bugün hava çok kötü. Sert yağıyor ve rüzgar gürültülü. Paul küçük odasındaki tüm pencereleri kapatıyor.",
+        "quiz": [
+          {
+            "q": "Paul nerede oturuyor?",
+            "options": [
+              "Yeni evde",
+              "Eski evde",
+              "Apartmanda"
+            ],
+            "a": "Eski evde"
+          },
+          {
+            "q": "Bugün hava nasıl?",
+            "options": [
+              "Güzel",
+              "Çok kötü",
+              "Normal"
+            ],
+            "a": "Çok kötü"
+          },
+          {
+            "q": "Paul ne kapatıyor?",
+            "options": [
+              "Kapıları",
+              "Tüm pencereleri",
+              "Camı"
+            ],
+            "a": "Tüm pencereleri"
+          },
+          {
+            "q": "Sorun nedir?",
+            "options": [
+              "Bir pencere kırık",
+              "Kapı kırık",
+              "Çatı kırık"
+            ],
+            "a": "Bir pencere kırık"
+          },
+          {
+            "q": "Paul kimi arıyor?",
+            "options": [
+              "Tamircisi",
+              "Komşusu",
+              "Doktoru"
+            ],
+            "a": "Komşusu"
+          },
+          {
+            "q": "Komşu hemen geliyor mi?",
+            "options": [
+              "Hayır",
+              "Evet, hemen",
+              "Yarın"
+            ],
+            "a": "Evet, hemen"
+          },
+          {
+            "q": "Komşu pencereyi gördükten sonra ne diyor?",
+            "options": [
+              "\"İyi\"",
+              "\"Bu iyi değil\"",
+              "\"Güzel\""
+            ],
+            "a": "\"Bu iyi değil\""
+          },
+          {
+            "q": "Yağmur neye zarar veriyor?",
+            "options": [
+              "Masaya",
+              "Tüm odaya",
+              "Kapıya"
+            ],
+            "a": "Tüm odaya"
+          },
+          {
+            "q": "Komşu materyal getiriyor mu?",
+            "options": [
+              "Hayır",
+              "Evet, gerekli her şeyi",
+              "Biraz"
+            ],
+            "a": "Evet, gerekli her şeyi"
+          },
+          {
+            "q": "Onarımdan sonra Paul komşuya ne hediye ediyor?",
+            "options": [
+              "Kitap",
+              "Para",
+              "İyi şarap"
+            ],
+            "a": "İyi şarap"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g18",
+      "name": "18. SES & DUYUM - HÖREN, DROHEN, SENDEN",
+      "nameDE": "Schall & Gehör",
+      "story": {
+        "title": "Die laute Musik",
+        "de": "Lisa wohnt in einer kleinen Wohnung. Ihr junger Nachbar hört jeden Abend sehr laute Musik. Lisa kann nicht schlafen und ist müde.",
+        "tr": "Lisa küçük bir dairede oturuyor. Genç komşusu her akşam çok gürültülü müzik dinliyor. Lisa uyuyamıyor ve yorgun.",
+        "quiz": [
+          {
+            "q": "Lisa nerede oturuyor?",
+            "options": [
+              "Büyük",
+              "Küçük dairede",
+              "Villada"
+            ],
+            "a": "Küçük dairede"
+          },
+          {
+            "q": "Komşu her akşam ne yapıyor?",
+            "options": [
+              "Yemek yiyor",
+              "Gürültülü müzik dinliyor",
+              "Uyuyor"
+            ],
+            "a": "Gürültülü müzik dinliyor"
+          },
+          {
+            "q": "Lisa uyuyabiliyor mu?",
+            "options": [
+              "Evet",
+              "Hayır, dinleyemiyor",
+              "Biraz"
+            ],
+            "a": "Hayır, dinleyemiyor"
+          },
+          {
+            "q": "Lisa kendini nasıl hissediyor?",
+            "options": [
+              "Mutlu",
+              "Üzgün",
+              "Kızgın ve uyku eksikliği"
+            ],
+            "a": "Kızgın ve uyku eksikliği"
+          },
+          {
+            "q": "Lisa komşunun kapısını çalıyor mu?",
+            "options": [
+              "Hayır",
+              "Evet",
+              "Mektup gönderiyor"
+            ],
+            "a": "Evet"
+          },
+          {
+            "q": "Lisa ne demeye çalışıyor?",
+            "options": [
+              "Müzik güzel",
+              "Müzik çok gürültülü",
+              "Müzik yok"
+            ],
+            "a": "Müzik çok gürültülü"
+          },
+          {
+            "q": "Komşu Lisa'ya nasıl tepki veriyor?",
+            "options": [
+              "Dinliyor",
+              "Sinirleniyor ve tehdit ediyor",
+              "Çıkıyor"
+            ],
+            "a": "Sinirleniyor ve tehdit ediyor"
+          },
+          {
+            "q": "Lisa ev sahibine ne yapıyor?",
+            "options": [
+              "Yazı yazıyor",
+              "Ağlıyor",
+              "Şikayette bulunuyor"
+            ],
+            "a": "Şikayette bulunuyor"
+          },
+          {
+            "q": "Ev sahibi ne yapıyor?",
+            "options": [
+              "Yapamıyor",
+              "Resmi mektup gönderiyor",
+              "Bilinmiyor"
+            ],
+            "a": "Resmi mektup gönderiyor"
+          },
+          {
+            "q": "Mektup aldıktan sonra komşu ne yapıyor?",
+            "options": [
+              "Müziği daha yükseltyor",
+              "Müziği kısıyor",
+              "Müzikten vazgeçmiyor"
+            ],
+            "a": "Müziği kısıyor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g19",
+      "name": "19. İÇECEK & TÜKETİM - TRINKEN, ZUVORKOMMEN, MITBRINGEN",
+      "nameDE": "Getränk & Konsum",
+      "story": {
+        "title": "Die Geburtstagsparty",
+        "de": "Anna hat heute Geburtstag. Sie macht eine große Party in ihrem schönen Garten. Viele nette Freunde kommen zu Besuch. Anna trinkt kalten Orangensaft und ist sehr glücklich.",
+        "tr": "Anna'nın bugün doğum günü. Güzel bahçesinde büyük parti yapıyor. Birçok nazik arkadaş ziyarete geliyor. Anna soğuk portakal suyu içiyor ve çok mutlu.",
+        "quiz": [
+          {
+            "q": "Anna'nın bugün ne günü?",
+            "options": [
+              "İş günü",
+              "Doğum günü",
+              "Tatil"
+            ],
+            "a": "Doğum günü"
+          },
+          {
+            "q": "Anna kaç yaşında?",
+            "options": [
+              "20",
+              "23",
+              "25"
+            ],
+            "a": "25"
+          },
+          {
+            "q": "Parti nerede yapılıyor?",
+            "options": [
+              "Evde",
+              "Bahçede",
+              "Parkta"
+            ],
+            "a": "Bahçede"
+          },
+          {
+            "q": "Tom ne getiriyor?",
+            "options": [
+              "Soğuk su",
+              "Sıcak kahve",
+              "Soğuk kola"
+            ],
+            "a": "Sıcak kahve"
+          },
+          {
+            "q": "İlk arkadaş ne getiriyor?",
+            "options": [
+              "Çiçekler",
+              "Büyük kek",
+              "Para"
+            ],
+            "a": "Büyük kek"
+          },
+          {
+            "q": "Hangi kek Anna'nın sevgisi?",
+            "options": [
+              "Vanilya",
+              "Çikolatası",
+              "Çilekli"
+            ],
+            "a": "Çikolatası"
+          },
+          {
+            "q": "Anna kekle beraber ne içiyor?",
+            "options": [
+              "Kahve",
+              "Çay",
+              "Süt"
+            ],
+            "a": "Çay"
+          },
+          {
+            "q": "Daha sonra hangi içecek geliyor?",
+            "options": [
+              "Su",
+              "Bira",
+              "Soğuk kola"
+            ],
+            "a": "Soğuk kola"
+          },
+          {
+            "q": "Akşam Anna'nın duygusu nasıl?",
+            "options": [
+              "Hüzünlü",
+              "Romantik ve mutlu",
+              "Yorgun"
+            ],
+            "a": "Romantik ve mutlu"
+          },
+          {
+            "q": "Anna'nın kendine söyleyişi ne?",
+            "options": [
+              "\"Daha az eğlenceli\"",
+              "\"Bu en güzel gün\"",
+              "\"Hüzünlü bir gün\""
+            ],
+            "a": "\"Bu en güzel gün\""
+          }
+        ]
+      }
+    },
+    {
+      "id": "g20",
+      "name": "20. SUÇ & AFFETME - STEHLEN, VERZEIHEN, BERAUBEN",
+      "nameDE": "Verbrechen & Vergebung",
+      "story": {
+        "title": "Der verlorene Geldbeutel",
+        "de": "Max geht durch die belebte Stadt. Er hat seinen neuen Geldbeutel in der kleinen Tasche. Plötzlich sieht er einen verdächtigen Mann.",
+        "tr": "Max kalabalık şehirde yürüyor. Yeni cüzdanını küçük çantada taşıyor. Aniden şüpheli bir adam görüyor.",
+        "quiz": [
+          {
+            "q": "Max nerede yürüyor?",
+            "options": [
+              "Tenha yerde",
+              "Kalabalık şehirde",
+              "Parkte"
+            ],
+            "a": "Kalabalık şehirde"
+          },
+          {
+            "q": "Max cüzdanını nerede taşıyor?",
+            "options": [
+              "Cepta",
+              "Sırt çantasında",
+              "Küçük çantada"
+            ],
+            "a": "Küçük çantada"
+          },
+          {
+            "q": "Max şüpheli bir adam görüyor mu?",
+            "options": [
+              "Hayır",
+              "Evet",
+              "Bilinmiyor"
+            ],
+            "a": "Evet"
+          },
+          {
+            "q": "Adam ne yapıyor?",
+            "options": [
+              "Uyuyor",
+              "Max'ın cüzdanına bakıyor",
+              "Yürüyor"
+            ],
+            "a": "Max'ın cüzdanına bakıyor"
+          },
+          {
+            "q": "Max ne zaman cüzdanı kaybediyor?",
+            "options": [
+              "Hemen",
+              "On dakika sonra",
+              "Bir saat sonra"
+            ],
+            "a": "On dakika sonra"
+          },
+          {
+            "q": "Cüzdan ne oldu?",
+            "options": [
+              "Bulundu",
+              "Kaybetti",
+              "Çalındı"
+            ],
+            "a": "Çalındı"
+          },
+          {
+            "q": "Max kimi arıyor?",
+            "options": [
+              "Doktoru",
+              "Polisi",
+              "Arkadaşını"
+            ],
+            "a": "Polisi"
+          },
+          {
+            "q": "Polis nasıl?",
+            "options": [
+              "Kötü",
+              "Yaşlı ve nazik",
+              "Genç"
+            ],
+            "a": "Yaşlı ve nazik"
+          },
+          {
+            "q": "Cüzdan kim tarafından bulunuyor?",
+            "options": [
+              "Polis",
+              "Dürüst bir çocuk",
+              "Temizlik görevlisi"
+            ],
+            "a": "Dürüst bir çocuk"
+          },
+          {
+            "q": "Max çocuğa ne yapıyor?",
+            "options": [
+              "Ödül veriyor",
+              "Teşekkür ediyor",
+              "Affediyor"
+            ],
+            "a": "Ödül veriyor"
+          }
+        ]
+      }
+    },
+    {
       "id": "g21",
       "name": "PAKET TESLİM SÜRECİ",
       "nameDE": "PAKET TESLİM SÜRECİ",
@@ -110,8 +2150,8 @@
       "name": "BELGE VE İMZA İŞLEMLERİ",
       "nameDE": "BELGE VE İMZA İŞLEMLERİ",
       "story": {
-        "title": "Ein Mitarbeiter  ist da",
-        "de": "Ein Mitarbeiter  ist da. Eine Kollegin  ist auch da. Ich reiche dem Mitarbeiter den Kugelschreiber. Der Mitarbeiter unterschreibt den Vertrag. Die Kollegin unterschreibt die Bestätigung. Ich reiche dem Team das Formular. Alle unterschreiben das Papier. Ich danke  dem Mitarbeiter. Ich danke  der Kollegin.",
+        "title": "Ein Mitarbeiter  ist da",
+        "de": "Ein Mitarbeiter  ist da. Eine Kollegin  ist auch da. Ich reiche dem Mitarbeiter den Kugelschreiber. Der Mitarbeiter unterschreibt den Vertrag. Die Kollegin unterschreibt die Bestätigung. Ich reiche dem Team das Formular. Alle unterschreiben das Papier. Ich danke  dem Mitarbeiter. Ich danke  der Kollegin.",
         "tr": "Bir çalışan burada. Bir kadın meslektaş da burada. Çalışana tükenmez kalemi uzatıyorum. Çalışan sözleşmeyi imzalıyor. Kadın meslektaş onayı da imzalıyor. Takıma formu uzatıyorum. Hepsi kağıdı imzalıyor. Çalışana teşekkür ediyorum. Kadın meslektaşa teşekkür ediyorum.",
         "quiz": [
           {
@@ -250,16 +2290,16 @@
   "verbs": {
     "g1": [
       {
-        "id": "v2",
-        "verbTR": "dinlemek",
-        "verbDE": "zuhören",
-        "objects": "das Kind, die Mutter, der Lehrer"
-      },
-      {
         "id": "v1",
         "verbTR": "görmek",
         "verbDE": "sehen",
         "objects": "das Bild, die Nachricht, der Film"
+      },
+      {
+        "id": "v2",
+        "verbTR": "dinlemek",
+        "verbDE": "zuhören",
+        "objects": "das Kind, die Mutter, der Lehrer"
       },
       {
         "id": "v3",
@@ -23527,22 +25567,7 @@
     "13": "Modalverben",
     "14": "Akkusativ + Dativ"
   },
-  "sectionsHints": {
-    "B1": "(Kişi Zamiri): Fiiller kişi zamirleriyle çekimlenir (ich, du, er...)",
-    "B2": "(Objektpronomen): Nesne zamirleri (mich, dich, ihm...)",
-    "B3": "(Singular Objekte): Tekil isimlerle fiilleri kullanıyoruz. İsmin haline (Akkusativ veya Dativ) göre artikel değişimlerini öğreniyoruz. Der/die/das artikellerinin Akkusativ ve Dativ hallerini pratik yapıyoruz.",
-    "B4": "(Plural Objekte): Çoğul isimlerle fiilleri kullanıyoruz. Çoğul isimlerin die artikeli ve Dativ halde -n takısı alması gibi kuralları öğreniyoruz. Çoğul isimlerle fiil uyumunu pekiştiriyoruz.",
-    "B5": "(Imperative): Emir kipi. Fiilin du, ihr ve Sie formlarındaki emir kipi çekimlerini öğreniyoruz. Düzensiz fiillerde kök değişikliği ve olumsuz emir kipi kullanımını pratik ediyoruz.",
-    "B6": "(Adjektive): Sıfatlarla birlikte fiil kullanımı. Sıfatların ismin haline (Nominativ, Akkusativ, Dativ) göre çekimlenmesini öğreniyoruz. Belirli, belirsiz ve artikelsiz sıfat çekimlerini karşılaştırıyoruz.",
-    "B7": "(Possessive): İyelik zamirleriyle (mein, dein, sein, ihr, unser, euer, ihr, Ihr) fiil kullanımı. İyelik zamirlerinin ismin cinsiyetine, haline ve sayısına göre çekimlenmesini öğreniyoruz.",
-    "B8": "(W-Fragen): W-Fragen (Was, Wer, Wo, Wann, Wie, Warum, Welcher) ile fiil kullanımı. Soru zamirlerinin fiilin aldığı hale göre değişimini (Wer/Wen/Wem) ve soru cümlelerinde fiil pozisyonunu öğreniyoruz.",
-    "B9": "(Negation): Olumsuzluk (nicht, kein) ile fiil kullanımı. Kein'in isimlerle, nicht'in fiillerle ve cümle öğeleriyle kullanımını ayırt ediyoruz. Olumsuz cümle yapılarını pekiştiriyoruz.",
-    "B10": "(Präpositionen): Edatlarla fiil kullanımı. Akkusativ, Dativ ve Wechselpräpositionen (iki hal edatları) ile fiilleri kullanmayı öğreniyoruz. Edatların ismin halini nasıl belirlediğini pratik ediyoruz.",
-    "B11": "(Adverbien): Zarflarla (heute, hier, schnell, gut) fiil kullanımı. Zaman, yer, tarz ve miktar zarflarının cümledeki pozisyonlarını ve fiille uyumunu öğreniyoruz.",
-    "B12": "(Tenses): Fiilin farklı zamanlarda (Präteritum, Perfekt) çekimi. Düzenli ve düzensiz fiillerin geçmiş zaman çekimlerini, haben/sein yardımcı fiillerinin kullanımını öğreniyoruz.",
-    "B13": "(Modalverben): Modal fiiller (wollen, können, sollen, müssen, dürfen, möchten) ile fiil kullanımı. Modal fiillerin çekimi ve asıl fiilin Infinitiv halde cümle sonunda kullanımını pekiştiriyoruz.",
-    "B14": "(Akkusativ + Dativ): Fiilin hem Akkusativ hem Dativ nesne aldığı durumlar. Dativ nesnenin (kişi) ve Akkusativ nesnenin (şey) cümledeki sıralamasını ve zamir kullanımını öğreniyoruz."
-  },
+  "sectionsHints": {},
   "hints": {
     "sentences": {
       "v1_s1_0": "'sehen' fiili Akkusativ alır. Bu cümlede 'den Film' Akkusativ haldedir.",
@@ -24264,28 +26289,32 @@
   "translations": {
     "tr": {
       "app": {
-        "subtitle": "Almanca Fiiller Öğrenme Platformu"
+        "subtitle": "Fiiller İle Almanca Öğrenme Platformu"
       },
       "menu": {
-        "start": "BAŞLA",
+        "calis": "📚 Çalış",
+        "tekrar": "🔄 Tekrar",
         "settings": "⚙️ Ayarlar",
         "progress": "📊 İlerleme",
-        "admin": "🔧 Yönetici (Admin)",
-        "groupSelect": "Grup Seç"
+        "admin": "🔧 Yönetici"
       },
       "titles": {
         "start": "BAŞLA",
-        "groupSelect": "Grup Seç",
+        "tekrar": "🔄 TEKRAR",
+        "groupSelect": "Fiil Seç",
         "storySelect": "Hikaye Seç",
-        "verbSelect": "Fiil Seç",
-        "sectionSelect": "Bölüm Seç",
-        "modeSelect": "Modu Seç",
+        "verbSelect": "FİİL SEÇ",
+        "sectionSelect": "BÖLÜM SEÇ",
+        "modeSelect": "MODU SEÇ",
+        "conversionSelect": "ÇEVİRİ YÖNÜ",
         "learning": "Çalışma",
         "story": "Hikaye",
         "storyQuestions": "Hikaye Soruları",
-        "settings": "⚙️ Ayarlar & İçerik Yönetimi",
+        "settings": "⚙️ Ayarlar",
         "progress": "📊 İlerleme",
-        "adminPanel": "🔧 Yönetici Paneli"
+        "adminPanel": "🔧 Yönetici Paneli",
+        "srsStats": "Tekrar Durumu",
+        "totalProgress": "Toplam Çalışma İlerlemesi"
       },
       "buttons": {
         "mainMenu": "← Ana Menü",
@@ -24304,48 +26333,50 @@
         "groupMenuReturn": "← Grup Menüsüne Dön",
         "storyReturn": "← Hikayeye Dön",
         "adminReturn": "← Yönetici Paneline Dön",
-        "importJSON": "📥 JSON Yükle (Dosya)",
-        "exportJSON": "📤 JSON İndir",
-        "debugJSON": "🔍 JSON Yapısı Kontrol",
-        "resetProgress": "İlerlemeyi Sıfırla",
-        "resetOverride": "⚠️ İçerik Düzeltmelerini Sıfırla",
-        "resetSrs": "⚠️ Çalışma (SRS) Verisini Sıfırla",
+        "importJSON": "📥 İçerik Yükle (JSON)",
+        "exportJSON": "📤 İçerik İndir (JSON)",
+        "importProgress": "📥 İlerleme Yükle",
+        "exportProgress": "📤 İlerleme İndir",
+        "resetSrs": "⚠️ Tüm İlerlemeyi Sıfırla",
         "pasteAndLoad": "📥 Yapıştır & Yükle",
         "clear": "Temizle",
         "refreshList": "🔄 Yenile Liste",
-        "exportCSV": "📤 CSV İndir (Tablo)",
+        "exportCSV": "📤 TSV İndir (Tablo)",
         "save": "Kaydet",
         "cancel": "İptal",
         "update": "Güncelle",
         "add": "Ekle",
         "delete": "Sil",
         "edit": "Düzenle",
-        "nextSection": "→ Sonraki Bölüm"
+        "nextSection": "→ Sonraki Bölüm",
+        "startStudy": "📖 Çalışmaya Başla",
+        "forceUpdate": "🔄 Uygulamayı Güncelle",
+        "pasteAndLoadTsv": "Yükle ve İşle"
       },
       "settings": {
-        "appearance": "🎨 Görünüm ve Dil",
+        "appearance": "🎨 Görünüm ve Diğer",
         "nightMode": "Gece Modu",
         "language": "Dil:",
-        "dataManagement": "💾 Veri Yönetimi",
-        "pasteJSONTitle": "📝 JSON Yapıştır (Dosya gönderemeyen mobil kullanıcılar için)",
-        "pasteJSONDesc": "JSON dosyanızı buraya yapıştırabilirsiniz. (Uzun olabilir — iPhone/Android tarayıcılarında kesme olmadan yapıştırın.)"
+        "music": "Müzik:",
+        "dataManagement": "💾 İçerik Veri Yönetimi",
+        "progressManagement": "💾 İlerleme Veri Yönetimi",
+        "appUpdate": "🔄 Uygulama",
+        "pasteJSONTitle": "📝 JSON Yapıştır (Mobil)",
+        "pasteJSONDesc": "İçerik JSON dosyanızı buraya yapıştırabilirsiniz."
       },
       "admin": {
         "contentManagement": "📚 İçerik Yönetimi",
-        "storyManagement": "📚 Hikaye Yönetimi",
-        "hintManagement": "💡 İpucu Yönetimi",
         "listAllSentences": "📋 Tüm Cümleleri Listele",
-        "addGroup": "➕ Grup Ekle",
-        "addVerb": "➕ Fiil Ekle",
-        "editSentence": "✏️ Cümle Düzenle",
-        "addStory": "➕ Hikaye Ekle",
-        "editStory": "✏️ Hikaye Düzenle / Testler",
-        "addNewHint": "➕ Yeni İpucu Ekle",
-        "hintSentence": "➕ Cümle İpucu",
-        "hintVerb": "➕ Fiil İpucu",
-        "hintSection": "➕ Bölüm İpucu (B1, B2...)",
-        "manageExistingHints": "📋 Mevcut İpuçlarını Yönet (Düzenle / Sil)",
-        "manageHintsDesc": "Burada mevcut tüm ipuçlarını görebilir, düzenleyebilir veya silebilirsiniz."
+        "addGroup": "Grup Ekle/Düzenle",
+        "addVerb": "Fiil Ekle/Düzenle",
+        "addSection": "Bölüm Ekle/Düzenle",
+        "editSentence": "Cümle Ekle/Düzenle",
+        "addStory": "Hikaye Ekle/Düzenle",
+        "hintManagement": "İpucu Ekle/Düzenle",
+        "groupVerbTitle": "🏗️ Toplu Grup & Fiil Yükleme",
+        "groupVerbDesc": "Excel'den kopyaladığınız YENİ GRUP ve FİİL listenizi buraya yapıştırın.<br>Kullanmanız gereken sütun sırası (Sekme/Tab ile ayrılmış):<br><b>GrupID | GrupAdı | FiilID | FiilAdı (TR) | FiilAdı (DE)</b>",
+        "tsvTitle": "📊 Toplu Cümle Yükleme (Excel'den Kopyala-Yapıştır)",
+        "tsvDesc": "Excel veya Google E-Tablolar'da hazırladığınız veriyi buraya yapıştırın.<br>Kullanmanız gereken sütun sırası (BAŞLIK SATIRI OLMADAN):<br><b>GrupID | FiilID | BölümNumarası | TR_Cümle | DE_Cümle | CümleIpucu (İsteğe bağlı)</b>"
       },
       "labels": {
         "group": "Grup:",
@@ -24366,21 +26397,23 @@
         "verbTR": "Fiil TR:",
         "verbDE": "Fiil DE:",
         "sectionCode": "Bölüm Kodu (örn: B1):",
+        "sectionNum": "Bölüm Numarası (örn: 1):",
+        "sectionName": "Bölüm Adı (örn: Kişi Zamiri):",
         "question": "Soru:",
         "options": "Seçenekler (virgülle ayır):",
         "correctAnswer": "Doğru cevap (tam metin):"
       },
       "placeholders": {
         "jsonPaste": "JSON içeriğinizi buraya yapıştırın...",
-        "notes": "Notlar...",
         "cloze": "Boşluğu doldurun...",
-        "quiz": "Almanca yazın..."
+        "quiz": "Çeviriyi yazın..."
       },
       "messages": {
         "noGroups": "Henüz grup yok. JSON yükleyin.",
         "noVerbs": "Bu grupta fiil bulunamadı.",
         "noSentences": "Bu fiil ve bölüm için cümle bulunamadı!",
-        "noDueCards": "Bugün için tekrar edilecek kart kalmadı! 🎉",
+        "noDueCards": "Bu kategoride tekrar edilecek kart kalmadı! 🎉",
+        "noNewCards": "Bu bölümdeki tüm kartları çalıştınız! 🎉",
         "noStory": "Bu grup için hikaye bulunamadı!",
         "noStoryAvailable": "Hikaye Yok",
         "noStoryQuestions": "Bu hikaye için henüz soru yok.",
@@ -24388,280 +26421,84 @@
         "noHints": "Yok",
         "noStoryFound": "Hikaye bulunamadı",
         "ttsNotSupported": "Tarayıcı TTS desteklemiyor.",
-        "dataLoaded": "✓ Veriler yüklendi. Grup sayısı:",
-        "invalidJSON": "✗ Geçersiz JSON formatı. (groups, verbs, content gereklidir)",
+        "dataLoaded": "✓ İçerik verisi yüklendi. Grup sayısı:",
+        "progressLoaded": "✓ İlerleme verisi yüklendi.",
+        "invalidJSON": "✗ Geçersiz JSON formatı.",
         "loadError": "✗ Hata:",
-        "dataExported": "✓ Veriler indirildi!",
-        "progressReset": "✓ İlerleme sıfırlandı",
+        "dataExported": "✓ İçerik verisi (verbmatrix_data.json) indirildi!",
+        "progressExported": "✓ İlerleme verisi (verbmatrix_ilerleme_data.json) indirildi!",
         "srsReset": "✓ Tüm çalışma (SRS) verisi sıfırlandı.",
         "jsonStatus": "📊 JSON DURUMU",
         "allFieldsError": "Tüm alanları doldurun",
         "hintSaved": "✅ İpucu kaydedildi",
         "quickEditSaved": "✅ Cümle ve ipucu güncellendi (Yerel olarak kaydedildi)!",
-        "overrideReset": "✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir."
+        "overrideReset": "✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir.",
+        "srsResetConfirm": "Tüm çalışma (Aralıklı Tekrar) verilerinizi sıfırlamak istediğinizden emin misiniz? Tüm kartların ilerlemesi (Zor, Normal, Öğrendim) silinecektir.",
+        "totalProgressDesc": "Tüm içerikteki (cümlelerdeki) ilerleme durumunuz."
+      },
+      "srs": {
+        "zor": "🥵 ZOR",
+        "normal": "🤔 NORMAL",
+        "ogrendim": "✅ ÖĞRENDİM",
+        "zorlandiklarim": "ZORLANDIKLARIM",
+        "ogrendiklerim": "ÖĞRENDİKLERİM"
+      },
+      "modes": {
+        "cloze": "Boşluk Doldurma",
+        "wordorder": "Kelimeleri Sıralama",
+        "quiz": "Quiz (Test)",
+        "study": "Çalışma (Yeni Kartlar)"
       }
     },
     "de": {
       "app": {
-        "subtitle": "Lernplattform für deutsche Verben"
+        "subtitle": "Deutsch-Lernplattform mit Verben"
       },
       "menu": {
-        "start": "START",
+        "calis": "📚 Lernen",
+        "tekrar": "🔄 Wiederholen",
         "settings": "⚙️ Einstellungen",
         "progress": "📊 Fortschritt",
-        "admin": "🔧 Admin",
-        "groupSelect": "Gruppe Wählen"
+        "admin": "🔧 Admin"
       },
       "titles": {
         "start": "START",
-        "groupSelect": "Gruppe Wählen",
+        "tekrar": "🔄 WIEDERHOLEN",
+        "groupSelect": "Verb wählen",
         "storySelect": "Geschichte wählen",
-        "settings": "⚙️ Einstellungen & Inhaltsverwaltung",
+        "settings": "⚙️ Einstellungen",
         "progress": "📊 Fortschritt",
         "adminPanel": "🔧 Admin-Panel",
-        "verbSelect": "Verb Wählen",
-        "sectionSelect": "Abschnitt Wählen",
-        "modeSelect": "Modus Wählen",
-        "learning": "Lernen",
-        "story": "Geschichte",
-        "storyQuestions": "Fragen zur Geschichte"
+        "srsStats": "Lernstatus",
+        "totalProgress": "Gesamtfortschritt",
+        "conversionSelect": "ÜBERSETZUNG"
       },
       "buttons": {
         "mainMenu": "← Hauptmenü",
         "goBack": "← Zurück",
         "show": "Zeigen",
-        "next": "Weiter",
+        "next": "→ Nächste",
         "check": "Prüfen",
-        "playDE": "🔊 Deutsch Anhören",
-        "playTR": "🔊 Türkisch Anhören",
-        "resetProgress": "Fortschritt Zurücksetzen",
-        "resetSrs": "⚠️ Lernfortschritt (SRS) zurücksetzen",
-        "start": "Starten",
-        "previous": "← Zurück",
-        "menuReturn": "Zum Menü",
-        "reset": "Neustart",
-        "hintToggle": "Hinweise An/Aus",
-        "questions": "📝 Fragen",
-        "groupMenuReturn": "← Zurück zur Gruppenauswahl",
-        "storyReturn": "← Zurück zur Geschichte",
-        "adminReturn": "← Zurück zum Admin-Panel",
-        "importJSON": "📥 JSON Importieren (Datei)",
-        "exportJSON": "📤 JSON Exportieren",
-        "debugJSON": "🔍 JSON-Struktur Prüfen",
-        "pasteAndLoad": "📥 Einfügen & Laden",
-        "clear": "Löschen",
-        "refreshList": "🔄 Liste Aktualisieren",
-        "exportCSV": "📤 CSV Exportieren",
-        "save": "Speichern",
-        "cancel": "Abbrechen",
-        "update": "Aktualisieren",
-        "add": "Hinzufügen",
-        "delete": "Löschen",
-        "edit": "Bearbeiten"
+        "playDE": "🔊 Deutsch hören",
+        "playTR": "🔊 Türkisch hören",
+        "resetSrs": "⚠️ Lernfortschritt zurücksetzen",
+        "startStudy": "📖 Lernen starten"
       },
       "settings": {
-        "appearance": "🎨 Ansicht & Sprache",
+        "appearance": "🎨 Ansicht & Sonstiges",
         "nightMode": "Nachtmodus",
         "language": "Sprache:",
-        "dataManagement": "💾 Datenverwaltung",
-        "pasteJSONTitle": "📝 JSON Einfügen (für mobile Nutzer)",
-        "pasteJSONDesc": "Fügen Sie hier Ihren JSON-Inhalt ein. (Kann lang sein – ohne Unterbrechung einfügen.)"
+        "music": "Musik:",
+        "dataManagement": "💾 Inhaltsdaten",
+        "progressManagement": "💾 Fortschrittsdaten",
+        "appUpdate": "🔄 App"
       },
-      "admin": {
-        "contentManagement": "📚 Inhaltsverwaltung",
-        "storyManagement": "📚 Geschichtsverwaltung",
-        "hintManagement": "💡 Hinweisverwaltung",
-        "listAllSentences": "📋 Alle Sätze Auflisten",
-        "addGroup": "➕ Gruppe Hinzufügen",
-        "addVerb": "➕ Verb Hinzufügen",
-        "editSentence": "✏️ Satz Bearbeiten",
-        "addStory": "➕ Geschichte Hinzufügen",
-        "editStory": "✏️ Geschichte/Tests Bearbeiten",
-        "addNewHint": "➕ Neuen Hinweis Hinzufügen",
-        "hintSentence": "➕ Satzhinweis",
-        "hintVerb": "➕ Verbenhinweis",
-        "hintSection": "➕ Abschnittshinweis (B1, B2...)",
-        "manageExistingHints": "📋 Vorhandene Hinweise Verwalten (Bearbeiten / Löschen)",
-        "manageHintsDesc": "Hier können Sie alle vorhandenen Hinweise sehen, bearbeiten oder löschen."
-      },
-      "labels": {
-        "group": "Gruppe:",
-        "verb": "Verb:",
-        "section": "Abschnitt:",
-        "sentence": "Satz:",
-        "index": "Index:",
-        "hintText": "Hinweistext:",
-        "tr": "TR:",
-        "de": "DE:",
-        "title": "Titel:",
-        "deText": "DE Text:",
-        "trText": "TR Text:",
-        "groupID": "Gruppen-ID (z.B. g5):",
-        "groupNameTR": "Name (TR):",
-        "groupNameDE": "Name (DE):",
-        "verbID": "Verb-ID (z.B. v10):",
-        "verbTR": "Verb TR:",
-        "verbDE": "Verb DE:",
-        "sectionCode": "Abschnittscode (z.B. B1):",
-        "question": "Frage:",
-        "options": "Optionen (mit Komma trennen):",
-        "correctAnswer": "Richtige Antwort (genauer Text):"
-      },
-      "placeholders": {
-        "jsonPaste": "Fügen Sie hier Ihren JSON-Inhalt ein...",
-        "notes": "Notizen...",
-        "cloze": "Füllen Sie die Lücke...",
-        "quiz": "Schreiben Sie auf Deutsch..."
-      },
-      "messages": {
-        "noGroups": "Keine Gruppen vorhanden. JSON importieren.",
-        "noVerbs": "Keine Verben in dieser Gruppe gefunden.",
-        "noSentences": "Keine Sätze für dieses Verb und diesen Abschnitt gefunden!",
-        "noStory": "Keine Geschichte für diese Gruppe gefunden!",
-        "noStoryAvailable": "Keine Geschichte",
-        "noStoryQuestions": "Noch keine Fragen für diese Geschichte.",
-        "noProgress": "Noch kein Fortschritt.",
-        "noHints": "Keine",
-        "noStoryFound": "Geschichte nicht gefunden",
-        "ttsNotSupported": "Browser unterstützt keine Sprachsynthese (TTS).",
-        "dataLoaded": "✓ Daten geladen. Anzahl Gruppen:",
-        "invalidJSON": "✗ Ungültiges JSON-Format. (groups, verbs, content erforderlich)",
-        "loadError": "✗ Fehler:",
-        "dataExported": "✓ Daten exportiert!",
-        "progressReset": "✓ Fortschritt zurückgesetzt",
-        "jsonStatus": "📊 JSON-STATUS",
-        "allFieldsError": "Bitte alle Felder ausfüllen",
-        "hintSaved": "✅ Hinweis gespeichert"
-      }
-    },
-    "en": {
-      "app": {
-        "subtitle": "German Verbs Learning Platform"
-      },
-      "menu": {
-        "start": "START",
-        "settings": "⚙️ Settings",
-        "progress": "📊 Progress",
-        "admin": "🔧 Admin",
-        "groupSelect": "Select Group"
-      },
-      "titles": {
-        "groupSelect": "Select Group",
-        "verbSelect": "Select Verb",
-        "sectionSelect": "Select Section",
-        "modeSelect": "Select Mode",
-        "learning": "Study",
-        "story": "Story",
-        "storyQuestions": "Story Questions",
-        "settings": "⚙️ Settings & Content Management",
-        "progress": "📊 Progress",
-        "adminPanel": "🔧 Admin Panel"
-      },
-      "buttons": {
-        "mainMenu": "← Main Menu",
-        "goBack": "← Back",
-        "show": "Show",
-        "next": "Next",
-        "check": "Check",
-        "start": "Start",
-        "previous": "← Previous",
-        "menuReturn": "Back to Menu",
-        "reset": "Reset",
-        "hintToggle": "Toggle Hints",
-        "questions": "📝 Questions",
-        "playDE": "🔊 Listen (German)",
-        "playTR": "🔊 Listen (Turkish)",
-        "groupMenuReturn": "← Back to Groups",
-        "storyReturn": "← Back to Story",
-        "adminReturn": "← Back to Admin Panel",
-        "importJSON": "📥 Import JSON (File)",
-        "exportJSON": "📤 Export JSON",
-        "debugJSON": "🔍 Debug JSON Structure",
-        "resetProgress": "Reset Progress",
-        "pasteAndLoad": "📥 Paste & Load",
-        "clear": "Clear",
-        "refreshList": "🔄 Refresh List",
-        "exportCSV": "📤 Export CSV",
-        "save": "Save",
-        "cancel": "Cancel",
-        "update": "Update",
-        "add": "Add",
-        "delete": "Delete",
-        "edit": "Edit"
-      },
-      "settings": {
-        "appearance": "🎨 Appearance & Language",
-        "nightMode": "Night Mode",
-        "language": "Language:",
-        "dataManagement": "💾 Data Management",
-        "pasteJSONTitle": "📝 Paste JSON (for mobile users)",
-        "pasteJSONDesc": "You can paste your JSON content here. (May be long — paste without interruption.)"
-      },
-      "admin": {
-        "contentManagement": "📚 Content Management",
-        "storyManagement": "📚 Story Management",
-        "hintManagement": "💡 Hint Management",
-        "listAllSentences": "📋 List All Sentences",
-        "addGroup": "➕ Add Group",
-        "addVerb": "➕ Add Verb",
-        "editSentence": "✏️ Edit Sentence",
-        "addStory": "➕ Add Story",
-        "editStory": "✏️ Edit Story / Quizzes",
-        "addNewHint": "➕ Add New Hint",
-        "hintSentence": "➕ Sentence Hint",
-        "hintVerb": "➕ Verb Hint",
-        "hintSection": "➕ Section Hint (B1, B2...)",
-        "manageExistingHints": "📋 Manage Existing Hints (Edit / Delete)",
-        "manageHintsDesc": "Here you can view, edit, or delete all existing hints."
-      },
-      "labels": {
-        "group": "Group:",
-        "verb": "Verb:",
-        "section": "Section:",
-        "sentence": "Sentence:",
-        "index": "Index:",
-        "hintText": "Hint text:",
-        "tr": "TR:",
-        "de": "DE:",
-        "title": "Title:",
-        "deText": "DE text:",
-        "trText": "TR text:",
-        "groupID": "Group ID (e.g., g5):",
-        "groupNameTR": "Name (TR):",
-        "groupNameDE": "Name (DE):",
-        "verbID": "Verb ID (e.g., v10):",
-        "verbTR": "Verb TR:",
-        "verbDE": "Verb DE:",
-        "sectionCode": "Section Code (e.g., B1):",
-        "question": "Question:",
-        "options": "Options (comma-separated):",
-        "correctAnswer": "Correct Answer (exact text):"
-      },
-      "placeholders": {
-        "jsonPaste": "Paste your JSON content here...",
-        "notes": "Notes...",
-        "cloze": "Fill in the blank...",
-        "quiz": "Write in German..."
-      },
-      "messages": {
-        "noGroups": "No groups yet. Import JSON.",
-        "noVerbs": "No verbs found in this group.",
-        "noSentences": "No sentences found for this verb and section!",
-        "noStory": "No story found for this group!",
-        "noStoryAvailable": "No Story",
-        "noStoryQuestions": "No questions for this story yet.",
-        "noProgress": "No progress yet.",
-        "noHints": "None",
-        "noStoryFound": "Story not found",
-        "ttsNotSupported": "Browser does not support TTS.",
-        "dataLoaded": "✓ Data loaded. Group count:",
-        "invalidJSON": "✗ Invalid JSON format. (groups, verbs, content required)",
-        "loadError": "✗ Error:",
-        "dataExported": "✓ Data exported!",
-        "progressReset": "✓ Progress reset",
-        "jsonStatus": "📊 JSON STATUS",
-        "allFieldsError": "Please fill all fields",
-        "hintSaved": "✅ Hint saved"
+      "srs": {
+        "zor": "🥵 SCHWER",
+        "normal": "🤔 NORMAL",
+        "ogrendim": "✅ GEKONNT",
+        "zorlandiklarim": "SCHWIERIG",
+        "ogrendiklerim": "GEKONNT"
       }
     }
   },
