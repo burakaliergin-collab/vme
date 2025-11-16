@@ -25567,7 +25567,6 @@
     "13": "Modalverben",
     "14": "Akkusativ + Dativ"
   },
-  "sectionsHints": {},
   "hints": {
     "sentences": {
       "v1_s1_0": "'sehen' fiili Akkusativ alır. Bu cümlede 'den Film' Akkusativ haldedir.",
@@ -26289,6 +26288,10 @@
       "B1": "(Kişi Zamiri)"
     }
   },
+  "guideText": {
+    "title": "Kullanım Kılavuzu",
+    "content": "⭐ Verb Matrix (v4.0) Kullanım Kılavuzu\n1. Çalışma Akışı ve Kategorizasyon\n\nÇalışma (Study): Cümleleri gördüğünüzde, kendinizi değerlendirerek her kartı \"Zor,\" \"Normal\" veya \"Öğrendim\" olarak kategorize edin. Bu, konuya farkındalık sağlayarak ilerlemenizi kaydeder.\n\nTekrar (Review): Tekrar modunda, kategorilendirdiğiniz cümleleri Boşluk Doldurma ve Kelimeleri Sıralama gibi modlar ile çalışabilirsiniz.\n\n2. Akıllı Quiz Mekaniği (SRS)\n\nBu mekanizma, kartlarınızın hangi kategoriye ait olduğunu otomatik olarak belirler ve akışı yönetir:Durum,Kriter,Yeni Kategori\nZor → Normal,Quiz modunda 3 defa arka arkaya doğru yapma.,Normal\nNormal → Öğrendim,Quiz modunda 2 defa kesintisiz doğru yapma.,Öğrendim\nÖğrendim → Normal,Öğrendim kümesinde 2 defa hata yapma.,Normal\n\nQuiz modunda statüsü değişen kartlar, o anki test kümesinden anında çıkarılır.\n\n3. Odaklanma ve Destek\n\nMüzik: Sol üst köşedeki müzik butonunu kullanarak odaklanmanızı kolaylaştırmak için arka plan müziğini açıp kapatabilirsiniz.\n\nİlerleme: Ana sayfadaki \"İlerleme\" butonundan genel başarı istatistiklerinizi ve kategorilere ayrılmış kart sayılarınızı görebilirsiniz.\n\nİpucu: Çalışma ekranındaki \"İpucu\" butonları aracılığıyla, cümlenizin kategorize olduğu konu (bölüm) ve fiil hakkında önemli dilbilgisi notlarına erişebilirsiniz.\n\n4. Navigasyon ve Kolaylık\n\nSabit Butonlar: Ekranın kenarlarındaki sabit butonlar (Geri, Ana Menü, Kılavuz, Gece Modu) sayesinde uygulamada hızlı ve kolayca gezinebilirsiniz."
+  },
   "translations": {
     "tr": {
       "app": {
@@ -26304,13 +26307,14 @@
       "titles": {
         "start": "BAŞLA",
         "tekrar": "🔄 TEKRAR",
+        "guide": "⭐ Kullanım Kılavuzu",
         "groupSelect": "Fiil Seç",
         "storySelect": "Hikaye Seç",
         "verbSelect": "FİİL SEÇ",
         "sectionSelect": "BÖLÜM SEÇ",
         "modeSelect": "MODU SEÇ",
         "conversionSelect": "ÇEVİRİ YÖNÜ",
-        "learning": "📚 Çalışma ve İpucu",
+        "learning": "📚 Çalışma",
         "story": "Hikaye",
         "storyQuestions": "Hikaye Soruları",
         "settings": "⚙️ Ayarlar",
@@ -26320,27 +26324,20 @@
         "totalProgress": "Toplam Çalışma İlerlemesi"
       },
       "buttons": {
-        "mainMenu": "← Ana Menü",
-        "goBack": "← Geri",
         "show": "Göster",
         "next": "→ Sonraki",
         "check": "Kontrol Et",
         "start": "Başla",
         "previous": "← Önceki",
-        "menuReturn": "Menüye Dön",
-        "reset": "Başa Dön",
-        "hintToggle": "Cümle İpucu Aç / Kapat",
+        "hintToggle": "Cümle İpucu",
         "questions": "📝 Sorular",
         "playDE": "🔊 Almanca Dinle",
         "playTR": "🔊 Türkçe Dinle",
-        "groupMenuReturn": "← Grup Menüsüne Dön",
-        "storyReturn": "← Hikayeye Dön",
-        "adminReturn": "← Yönetici Paneline Dön",
         "importJSON": "📥 İçerik Yükle (JSON)",
         "exportJSON": "📤 İçerik İndir (JSON)",
         "importProgress": "📥 İlerleme Yükle",
         "exportProgress": "📤 İlerleme İndir",
-        "resetSrs": "⚠️ Tüm İlerlemeyi Sıfırla",
+        "resetSrs": "⚠️ Tüm İilerlemeyi Sıfırla",
         "pasteAndLoad": "📥 Yapıştır & Yükle",
         "clear": "Temizle",
         "refreshList": "🔄 Yenile Liste",
@@ -26352,6 +26349,8 @@
         "delete": "Sil",
         "edit": "Düzenle",
         "nextSection": "→ Sonraki Bölüm",
+        "nextVerb": "→ Sonraki Fiil",
+        "goToStory": "→ Hikayeye Git",
         "startStudy": "📖 Çalışmaya Başla",
         "forceUpdate": "🔄 Uygulamayı Güncelle",
         "pasteAndLoadTsv": "Yükle ve İşle"
@@ -26365,7 +26364,7 @@
         "progressManagement": "💾 İlerleme Veri Yönetimi",
         "appUpdate": "🔄 Uygulama",
         "pasteJSONTitle": "📝 JSON Yapıştır (Mobil)",
-        "pasteJSONDesc": "İçerik JSON dosyanızı buraya yapıştırabilirsiniz."
+        "pasteJSONDesc": "İçerik JSON dosyanızı buraya yapıştırın..."
       },
       "admin": {
         "contentManagement": "📚 İçerik Yönetimi",
@@ -26376,6 +26375,7 @@
         "editSentence": "Cümle Ekle/Düzenle",
         "addStory": "Hikaye Ekle/Düzenle",
         "hintManagement": "İpucu Ekle/Düzenle",
+        "editGuide": "⭐ Kılavuz Metnini Düzenle",
         "groupVerbTitle": "🏗️ Toplu Grup & Fiil Yükleme",
         "groupVerbDesc": "Excel'den kopyaladığınız YENİ GRUP ve FİİL listenizi buraya yapıştırın.<br>Kullanmanız gereken sütun sırası (Sekme/Tab ile ayrılmış):<br><b>GrupID | GrupAdı | FiilID | FiilAdı (TR) | FiilAdı (DE)</b>",
         "tsvTitle": "📊 Toplu Cümle Yükleme (Excel'den Kopyala-Yapıştır)",
@@ -26404,7 +26404,9 @@
         "sectionName": "Bölüm Adı (örn: Kişi Zamiri):",
         "question": "Soru:",
         "options": "Seçenekler (virgülle ayır):",
-        "correctAnswer": "Doğru cevap (tam metin):"
+        "correctAnswer": "Doğru cevap (tam metin):",
+        "guideTitle": "Kılavuz Başlığı:",
+        "guideContent": "Kılavuz İçeriği (Metin):"
       },
       "placeholders": {
         "jsonPaste": "JSON içeriğinizi buraya yapıştırın...",
@@ -26434,10 +26436,13 @@
         "jsonStatus": "📊 JSON DURUMU",
         "allFieldsError": "Tüm alanları doldurun",
         "hintSaved": "✅ İpucu kaydedildi",
+        "guideSaved": "✅ Kılavuz metni kaydedildi",
         "quickEditSaved": "✅ Cümle ve ipucu güncellendi (Yerel olarak kaydedildi)!",
         "overrideReset": "✅ İçerik düzeltmeleri silindi. Sayfa yenilendikten sonra varsayılan içeriğe dönülecektir.",
         "srsResetConfirm": "Tüm çalışma (Aralıklı Tekrar) verilerinizi sıfırlamak istediğinizden emin misiniz? Tüm kartların ilerlemesi (Zor, Normal, Öğrendim) silinecektir.",
-        "totalProgressDesc": "Tüm içerikteki (cümlelerdeki) ilerleme durumunuz."
+        "totalProgressDesc": "Tüm içerikteki (cümlelerdeki) ilerleme durumunuz.",
+        "srsPromotion": "🎉 Tebrikler! Kart \"%s\" listesine taşındı.",
+        "srsDemotion": "🤔 Dikkat! Kart \"%s\" listesine taşındı."
       },
       "srs": {
         "zor": "🥵 ZOR",
@@ -26465,28 +26470,28 @@
         "admin": "🔧 Admin"
       },
       "titles": {
+        "guide": "⭐ Anleitung",
         "start": "START",
         "tekrar": "🔄 WIEDERHOLEN",
-        "groupSelect": "Verb wählen",
-        "storySelect": "Geschichte wählen",
         "settings": "⚙️ Einstellungen",
         "progress": "📊 Fortschritt",
         "adminPanel": "🔧 Admin-Panel",
         "srsStats": "Lernstatus",
         "totalProgress": "Gesamtfortschritt",
         "conversionSelect": "ÜBERSETZUNG",
-        "learning": "📚 Lernen und Hinweis"
+        "learning": "📚 Lernen"
       },
       "buttons": {
-        "mainMenu": "← Hauptmenü",
-        "goBack": "← Zurück",
         "show": "Zeigen",
         "next": "→ Nächste",
         "check": "Prüfen",
         "playDE": "🔊 Deutsch hören",
         "playTR": "🔊 Türkisch hören",
         "resetSrs": "⚠️ Lernfortschritt zurücksetzen",
-        "startStudy": "📖 Lernen starten"
+        "startStudy": "📖 Lernen starten",
+        "nextSection": "→ Nächste Lektion",
+        "nextVerb": "→ Nächstes Verb",
+        "goToStory": "→ Zur Geschichte"
       },
       "settings": {
         "appearance": "🎨 Ansicht & Sonstiges",
@@ -26497,18 +26502,31 @@
         "progressManagement": "💾 Fortschrittsdaten",
         "appUpdate": "🔄 App"
       },
+      "admin": {
+        "editGuide": "⭐ Anleitung bearbeiten"
+      },
+      "labels": {
+        "guideTitle": "Anleitung Titel:",
+        "guideContent": "Anleitung Inhalt:"
+      },
       "srs": {
         "zor": "🥵 SCHWER",
         "normal": "🤔 NORMAL",
         "ogrendim": "✅ GEKONNT",
         "zorlandiklarim": "SCHWIERIG",
         "ogrendiklerim": "GEKONNT"
+      },
+      "messages": {
+        "srsPromotion": "🎉 Super! Karte nach \"%s\" verschoben.",
+        "srsDemotion": "🤔 Achtung! Karte nach \"%s\" verschoben.",
+        "guideSaved": "✅ Anleitungstext gespeichert."
       }
     }
   },
   "settings": {
     "language": "tr",
-    "nightMode": false,
+    "nightMode": true,
     "conversionMode": "tr-de"
-  }
+  },
+  "sectionsHints": {}
 }
