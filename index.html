@@ -1026,7 +1026,7 @@
 <input type="file" id="progressFileInput" accept=".json" style="display:none">
 <script>
 /* ===============================
-    Verb Matrix — v4.0 (Nihai Sürüm)
+    Verb Matrix — v4.0 (Kılavuz ve İpucu Düzeltmeleri)
     =============================== */
 
 /* ---------------- Varsayılan Veri --------------- */
@@ -1036,11 +1036,11 @@ let data = {
   content: {},
   sections: { 1: "Bölüm 1" },
   hints: { sentences: {}, verbs: {}, sections: {} },
-  // YENİ: Dinamik Kılavuz Metni (v4.0)
-  guideText: {
-      title: "Kullanım Kılavuzu",
-      content: "Kılavuz metni buraya gelecek.\n\nBu alanı Admin panelinden düzenleyebilirsiniz."
-  },
+  // KRİTİK EKLENTİ: Kılavuz Metni
+  guideText: { 
+      title: "Kullanım Kılavuzu", 
+      content: "Kılavuz metni henüz ayarlanmadı. Admin panelinden düzenleyebilirsiniz." 
+  }, 
   translations: {
     tr: {
       app: { subtitle: 'Fiiller İle Almanca Öğrenme Platformu' },
@@ -1071,7 +1071,6 @@ let data = {
         totalProgress: 'Toplam Çalışma İlerlemesi'
       },
       buttons: {
-        // Kırmızı butonlar kaldırıldı
         show: 'Göster', next: '→ Sonraki', check: 'Kontrol Et', start: 'Başla',
         previous: '← Önceki', hintToggle: 'Cümle İpucu', 
         questions: '📝 Sorular', playDE: '🔊 Almanca Dinle', playTR: '🔊 Türkçe Dinle',
@@ -1463,25 +1462,28 @@ function rateCard(newStatus) {
 function updateSrsStatusAfterQuiz(key, isCorrect) {
     const t = getMergedTranslations(data.settings.language || 'tr');
     const cardData = getCardSrsData(key);
-    const history = cardData.quizHistory || [];
+    cardData.quizHistory = cardData.quizHistory || [];
+    const history = cardData.quizHistory;
     history.push(isCorrect ? 1 : 0);
     while (history.length > 5) {
         history.shift();
     }
-    cardData.quizHistory = history;
-    const currentStatus = cardData.status;
     let newStatus = null;
 
-    if (currentStatus === 'zor' && history.length >= 2 && history.slice(-2).every(v => v === 1)) {
+    // Zor -> Normal (3 defa doğru yerine 2 defa doğru yapalım)
+    if (cardData.status === 'zor' && history.length >= 2 && history.slice(-2).every(v => v === 1)) {
         newStatus = 'normal';
     }
-    else if (currentStatus === 'normal' && history.length >= 3 && history.slice(-3).every(v => v === 1)) {
+    // Normal -> Öğrendim (2 defa doğru)
+    else if (cardData.status === 'normal' && history.length >= 2 && history.slice(-2).every(v => v === 1)) {
         newStatus = 'ogrendim';
     }
-    else if (currentStatus === 'normal' && history.length >= 3 && history.slice(-3).every(v => v === 0)) {
+    // Normal -> Zor (3 defa yanlış yerine 2 defa yanlış yapalım)
+    else if (cardData.status === 'normal' && history.length >= 2 && history.slice(-2).every(v => v === 0)) {
         newStatus = 'zor';
     }
-    else if (currentStatus === 'ogrendim' && history.length >= 2 && history.slice(-2).every(v => v === 0)) {
+    // Öğrendim -> Normal (2 defa yanlış)
+    else if (cardData.status === 'ogrendim' && history.length >= 2 && history.slice(-2).every(v => v === 0)) {
         newStatus = 'normal';
     }
 
@@ -1503,7 +1505,7 @@ function updateSrsStatusAfterQuiz(key, isCorrect) {
         state.deck = state.deck.filter(deckKey => deckKey !== key);
         
         // Sonucu göster (ama "Sonraki" butonu artık bir sonraki karta atlayacak)
-        showResult(isCorrect, userAnswer, message); 
+        showResult(isCorrect, null, message); // userAnswer'ı null geçelim, sonuçta zaten gösterilecek
         
         return true; // Statü değiştiğini belirt
     } else {
@@ -1650,7 +1652,7 @@ function loadJsonFromTextarea(){
 
 // YENİ: showView (v4.0) - Geri Butonu Geçmişi Yönetimi
 function showView(id, isBack = false){
-  if (id === state.currentView) return; // Zaten bu ekranda
+  if (id === state.currentView && !isBack) return; // Zaten bu ekranda
   
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el = document.getElementById(id);
@@ -1661,23 +1663,10 @@ function showView(id, isBack = false){
       if (id === 'mainMenu') { state.viewHistory = ['mainMenu']; } // Ana menü tarihi sıfırlar
       else if (id === 'detailViewLayer') { state.viewHistory.push(id); } // Detay katmanı da tarihe eklenir
       else {
-          // Eğer bir alt menüye gidiyorsak (örn: gruptan fiile)
-          // ve fiil menüsü zaten tarihteyse (örn: geri gittik, tekrar ileri bastık)
-          // tarihi temizle
-          const lastView = state.viewHistory[state.viewHistory.length - 1];
-          if ( (lastView === 'groupMenu' && id === 'verbMenu') ||
-               (lastView === 'verbMenu' && id === 'sectionMenu') ||
-               (lastView === 'sectionMenu' && id === 'modeMenu') ||
-               (lastView === 'tekrarMenu' && id === 'tekrarModeMenu') ) 
-          {
-               // İleri gidiyor, tarihi koru
-          }
-          else if (id !== 'mainMenu' && !id.includes('Menu') && id !== 'detailViewLayer') {
-               // Eğer 'Menu' değilse (örn: learningView, storyView) tarihi temizle
-               const menuViews = ['mainMenu', 'groupMenu', 'verbMenu', 'sectionMenu', 'modeMenu', 'tekrarMenu', 'tekrarModeMenu'];
-               let baseHistory = state.viewHistory.filter(v => menuViews.includes(v));
-               state.viewHistory = baseHistory;
-          }
+          // Eğer bir alt menüye gidiyorsak, tarihi basitleştir
+          const menuViews = ['mainMenu', 'groupMenu', 'verbMenu', 'sectionMenu', 'modeMenu', 'tekrarMenu', 'tekrarModeMenu', 'adminView', 'adminContentView', 'adminSentenceListView', 'storyView', 'storyQuestionsView'];
+          let baseHistory = state.viewHistory.filter(v => menuViews.includes(v));
+          state.viewHistory = baseHistory;
           state.viewHistory.push(id);
       }
   }
@@ -1754,18 +1743,20 @@ function goBackInHistory() {
     showView(prevView, true); // 'isBack' bayrağıyla (tarihe tekrar eklememesi için) göster
 }
 
-// YENİ: Ortak Detay Gösterim Fonksiyonu (v4.0)
+// YENİ: Ortak Detay Gösterim Fonksiyonu (v4.0.3 - Markdown Destekli)
 // AI İpucu, Bölüm İpucu ve Kılavuz tarafından kullanılır
 function showDetailView(title, content) {
     document.getElementById('detailViewTitle').textContent = title;
-    document.getElementById('detailViewContent').innerHTML = content.replace(/\n/g, '<br>');
+    // KRİTİK DÜZELTME: Markdown işlemcisi ile innerHTML kullanılıyor
+    document.getElementById('detailViewContent').innerHTML = processGuideMarkdown(content);
     showView('detailViewLayer');
 }
 
 // YENİ: Kılavuz Gösterim Fonksiyonu (v4.0)
 function showGuide() {
     const t = getMergedTranslations(data.settings.language || 'tr');
-    const guide = data.guideText || { title: t.titles.guide, content: "Kılavuz yüklenemedi." };
+    // data.guideText, admin panelinden kaydedilen metni içerir.
+    const guide = data.guideText || { title: t.titles.guide || 'Kullanım Kılavuzu', content: "Kılavuz metni henüz düzenlenmedi. Admin panelinden düzenleyebilirsiniz." };
     showDetailView(guide.title, guide.content);
 }
 
@@ -1882,7 +1873,7 @@ function updateConversionButtons() {
             detrBtn.classList.remove('btn-primary');
         } else {
             trdeBtn.classList.add('btn-info');
-            trdeBtn.classList.remove('btn-primary');
+            detrBtn.classList.remove('btn-primary');
             detrBtn.classList.add('btn-primary');
             detrBtn.classList.remove('btn-info');
         }
@@ -1901,6 +1892,8 @@ function updateConversionButtons() {
         }
     });
 }
+
+
 /* ---------- AI İpucu Entegrasyonu (v4.0 Güncellemesi) ---------- */
 async function getAIHint() {
     const t = getMergedTranslations(data.settings.language || 'tr');
@@ -1914,7 +1907,7 @@ async function getAIHint() {
 
     // Ortak detay görünümünü kullanıyoruz
     showDetailView("🧠 Yapay Zeka İpucu Oluşturuluyor...", 
-        "<div style='text-align:center; padding: 20px;'>Yükleniyor... Bu işlem birkaç saniye sürebilir.</div>"
+        "Yükleniyor... Bu işlem birkaç saniye sürebilir."
     );
 
     const isTrDe = data.settings.conversionMode === 'tr-de';
@@ -1948,22 +1941,21 @@ async function getAIHint() {
         const responseData = await response.json();
         const generatedHint = responseData.text || "Yapay zekadan ipucu alınamadı.";
 
+        // KRİTİK DÜZELTME: generatedHint'i olduğu gibi gönderiyoruz. processGuideMarkdown() bunu biçimlendirecek.
         showDetailView(
             "🧠 Yapay Zeka İpucu (Detaylı Analiz)", 
-            generatedHint.replace(/\n/g, '<br>')
+            generatedHint 
         ); 
         
     } catch (error) {
         console.error("AI İpucu Hatası:", error);
         showDetailView(
             "❌ Yapay Zeka Hatası",
-            `<div style="color: #991b1b; padding: 15px; border: 1px solid #991b1b; background: #fee2e2; border-radius: 8px;">
-            **Yapay Zeka İpucu Alınamadı!**
-            <br><br>
-            **Hata Nedeni:** **${error.message}**<br>
-            <br>
-            **ÇÖZÜM İÇİN NOT:** Bu özelliğin çalışması için, Yapay Zeka (Gemini, OpenAI vb.) API anahtarınızı güvenli bir şekilde yöneten, arka planda çalışan bir **sunucu (proxy)** veya **sunucusuz işlev (serverless function)** kurmuş olmanız gerekir. Tarayıcınız, \`http://localhost:3000/api/ai-hint\` adresine bağlanmayı denedi.
-            </div>`
+            `**Yapay Zeka İpucu Alınamadı!**
+            
+            **Hata Nedeni:** **${error.message}**
+            
+            **ÇÖZÜM İÇİN NOT:** Bu özelliğin çalışması için, Yapay Zeka (Gemini, OpenAI vb.) API anahtarınızı güvenli bir şekilde yöneten, arka planda çalışan bir sunucu (proxy) veya sunucusuz işlev (serverless function) kurmuş olmanız gerekir. Tarayıcınız, \`http://localhost:3000/api/ai-hint\` adresine bağlanmayı denedi.`
         );
     }
 }
@@ -2836,8 +2828,8 @@ function showAdminGuideForm(area) {
 function adminSaveGuide() {
     const t = getMergedTranslations(data.settings.language || 'tr');
     const title = document.getElementById('adm_g_title').value.trim();
-    const content = document.getElementById('adm_g_content').value.trim();
-    if (!title || !content) { alert('Başlık ve içerik boş olamaz.'); return; }
+    const content = document.getElementById('adm_g_content').value; // .trim() kaldırıldı
+    if (!title || !content.trim()) { alert('Başlık ve içerik boş olamaz.'); return; }
 
     data.guideText = { title: title, content: content };
     saveContentOverride();
@@ -3586,78 +3578,19 @@ function forceUpdateApp() {
 }
 
 /* ---------- Utils ---------- */
-function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-function isObject(item) { return (item && typeof item === 'object' && !Array.isArray(item)); }
-function deepMerge(target, source) {
-  let output = Object.assign({}, target);
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target)) Object.assign(output, { [key]: source[key] });
-        else output[key] = deepMerge(target[key], source[key]);
-      } else {
-        Object.assign(output, { [key]: source[key] });
-      }
-    });
-  }
-  return output;
-}
-/* --- YENİ: Basit Markdown İşleyici Fonksiyonu (Kılavuz İçin) --- */
+// YENİ: Markdown İşleyici Fonksiyonu (Kılavuz/İpucu için CRITICAL FIX)
 function processGuideMarkdown(text) {
     if (!text) return '';
     let processedText = text;
     
-    // 1. **Bold** -> <b>bold</b>
-    processedText = processedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-
-    // 2. Basit Liste İşleyici (* veya - ile başlayan satırlar)
-    let listRegex = /^\s*(\*|-)\s+(.*)/gm;
-    let listOpen = false;
-    processedText = processedText.split('\n').map(line => {
-        if (listRegex.test(line)) {
-            let item = line.replace(listRegex, '<li>$2</li>');
-            if (!listOpen) {
-                listOpen = true;
-                return '<ul>' + item;
-            }
-            return item;
-        } else {
-            if (listOpen) {
-                listOpen = false;
-                return '</ul>' + line;
-            }
-            return line;
-        }
-    }).join('\n');
-    
-    if (listOpen) {
-        processedText += '</ul>';
-    }
-
-    // 3. İki boş satırı paragraflara (<p>) çevir
-    processedText = processedText.replace(/\n\n/g, '</p><p>');
-    // Geri kalan tek satır atlamalarını <br> yap
-    processedText = processedText.replace(/\n/g, '<br>');
-    
-    // Sonucu <p> etiketine sar
-    if (processedText.trim().length > 0) {
-        processedText = '<p>' + processedText + '</p>';
-    }
-    
-    return processedText;
-}
-/* --- YENİ: Basit Markdown İşleyici Fonksiyonu (Kılavuz İçin) --- */
-function processGuideMarkdown(text) {
-    if (!text) return '';
-    let processedText = text;
-    
-    // 1. HTML kodunu temizle (güvenlik)
+    // 1. HTML Güvenliği (Önce kaçış karakterlerini uygula)
     processedText = escapeHtml(processedText);
 
     // 2. **Bold** -> <b>bold</b>
     processedText = processedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+    processedText = processedText.replace(/__(.*?)__/g, '<b>$1</b>');
 
-    // 3. Basit Liste İşleyici (* veya - ile başlayan satırlar)
+    // 3. Liste İşleyici (* veya - ile başlayan satırlar)
     let listRegex = /^\s*(\*|-)\s+(.*)/gm;
     let listOpen = false;
     processedText = processedText.split('\n').map(line => {
@@ -3671,7 +3604,7 @@ function processGuideMarkdown(text) {
         } else {
             if (listOpen) {
                 listOpen = false;
-                return '</ul>' + line;
+                return '</ul>' + line; 
             }
             return line;
         }
@@ -3686,14 +3619,53 @@ function processGuideMarkdown(text) {
     // Geri kalan tek satır atlamalarını <br> yap
     processedText = processedText.replace(/\n/g, '<br>');
     
-    // 5. Sonucu <p> etiketine sar
-    if (processedText.trim().length > 0) {
+    // 5. Sonucu <p> etiketine sar (HTML öğesi içermiyorsa)
+    if (processedText.trim().length > 0 && processedText.indexOf('<p>') === -1 && processedText.indexOf('<ul') === -1 && processedText.indexOf('<hr') === -1 && processedText.indexOf('<h') === -1) {
         processedText = '<p>' + processedText + '</p>';
     }
     
+    // 6. Temizlik
+    processedText = processedText.replace(/<br><\/p>/g, '</p>').replace(/<p><br>/g, '<p>');
+
     return processedText;
 }
-/* ---------- Başlatma (Init v4.0) ---------- */
+
+function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+function isObject(item) { return (item && typeof item === 'object' && !Array.isArray(item)); }
+function deepMerge(target, source) {
+    let output = Object.assign({}, target);
+    if (isObject(target) && isObject(source)) {
+        Object.keys(source).forEach(key => {
+            if (isObject(source[key])) {
+                if (!(key in target)) Object.assign(output, { [key]: source[key] });
+                else output[key] = deepMerge(target[key], source[key]);
+            } else {
+                Object.assign(output, { [key]: source[key] });
+            }
+        });
+    }
+    return output;
+}
+
+// YENİ: Universal Detail View Handler (HINT/GUIDE için temel fonksiyon)
+function showDetailView(title, content) {
+    // Sizin dosyanızdaki #detailViewLayer'daki elemanları kullanıyoruz.
+    document.getElementById('detailViewTitle').textContent = title;
+    // KRİTİK DÜZELTME: Markdown işlemcisi ile innerHTML kullanılıyor
+    document.getElementById('detailViewContent').innerHTML = processGuideMarkdown(content); 
+    showView('detailViewLayer');
+}
+
+// YENİ: Kılavuz Açma Fonksiyonu (⭐ butonu için)
+function showGuide() {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    // data.guideText, admin panelinden kaydedilen metni içerir.
+    const guide = data.guideText || { title: t.titles.guide || 'Kullanım Kılavuzu', content: "Kılavuz metni henüz düzenlenmedi. Admin panelinden düzenleyebilirsiniz." };
+    showDetailView(guide.title, guide.content);
+}
+
+
+/* ---------- Başlatma (Init v3.7) ---------- */
 async function init(){
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js').then(reg => {
@@ -3703,16 +3675,20 @@ async function init(){
     });
   }
   if ('speechSynthesis' in window) {
-    if (navigator.userAgent.match(/iPad|iPhone|iPod/i) || (navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i))) {
-        window.speechSynthesis.onvoiceschanged = () => console.log("TTS Sesleri yüklendi (init).");
-    }
-    window.speechSynthesis.getVoices(); 
+    window.speechSynthesis.onvoiceschanged = () => console.log("TTS Sesleri yüklendi.");
+    window.speechSynthesis.getVoices();
   }
   document.getElementById('modeToggleBtn').addEventListener('click', toggleNightMode);
   document.getElementById('nightModeToggle').addEventListener('change', toggleNightMode);
   document.getElementById('fileInput').onchange = importDataFromFile;
   document.getElementById('progressFileInput').onchange = importSrsData;
-
+  
+  // KRİTİK DÜZELTME: Yıldız butonu tıklama olayını burada tanımlıyoruz
+  const floatingGuideBtn = document.getElementById('floatingGuideBtn');
+  if (floatingGuideBtn) {
+      floatingGuideBtn.onclick = showGuide;
+  }
+  
   musicPlayer = new MusicPlayer(
       './telifsiz-klasik.mp3',
       'musicVolumeSlider',
@@ -3726,12 +3702,13 @@ async function init(){
   updateConversionButtons();
   updateUITexts();
   updateProgressView();
-  console.log('Verb Matrix v4.0 (Nihai Sürüm) hazır.');
-  showView('mainMenu');
+  console.log('Verb Matrix v4.0 (Güncellenmiş Kılavuz) hazır.');
+  
+  // Admin butonu ve Home/Back butonlarının görünürlüğünü ayarlamak için
+  showView('mainMenu'); 
 }
 
 window.addEventListener('DOMContentLoaded', init);
-
 </script>
 </body>
 </html>
