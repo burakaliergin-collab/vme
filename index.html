@@ -3602,7 +3602,97 @@ function deepMerge(target, source) {
   }
   return output;
 }
+/* --- YENİ: Basit Markdown İşleyici Fonksiyonu (Kılavuz İçin) --- */
+function processGuideMarkdown(text) {
+    if (!text) return '';
+    let processedText = text;
+    
+    // 1. **Bold** -> <b>bold</b>
+    processedText = processedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
 
+    // 2. Basit Liste İşleyici (* veya - ile başlayan satırlar)
+    let listRegex = /^\s*(\*|-)\s+(.*)/gm;
+    let listOpen = false;
+    processedText = processedText.split('\n').map(line => {
+        if (listRegex.test(line)) {
+            let item = line.replace(listRegex, '<li>$2</li>');
+            if (!listOpen) {
+                listOpen = true;
+                return '<ul>' + item;
+            }
+            return item;
+        } else {
+            if (listOpen) {
+                listOpen = false;
+                return '</ul>' + line;
+            }
+            return line;
+        }
+    }).join('\n');
+    
+    if (listOpen) {
+        processedText += '</ul>';
+    }
+
+    // 3. İki boş satırı paragraflara (<p>) çevir
+    processedText = processedText.replace(/\n\n/g, '</p><p>');
+    // Geri kalan tek satır atlamalarını <br> yap
+    processedText = processedText.replace(/\n/g, '<br>');
+    
+    // Sonucu <p> etiketine sar
+    if (processedText.trim().length > 0) {
+        processedText = '<p>' + processedText + '</p>';
+    }
+    
+    return processedText;
+}
+/* --- YENİ: Basit Markdown İşleyici Fonksiyonu (Kılavuz İçin) --- */
+function processGuideMarkdown(text) {
+    if (!text) return '';
+    let processedText = text;
+    
+    // 1. HTML kodunu temizle (güvenlik)
+    processedText = escapeHtml(processedText);
+
+    // 2. **Bold** -> <b>bold</b>
+    processedText = processedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+
+    // 3. Basit Liste İşleyici (* veya - ile başlayan satırlar)
+    let listRegex = /^\s*(\*|-)\s+(.*)/gm;
+    let listOpen = false;
+    processedText = processedText.split('\n').map(line => {
+        if (listRegex.test(line)) {
+            let item = line.replace(listRegex, '<li>$2</li>');
+            if (!listOpen) {
+                listOpen = true;
+                return '<ul>' + item;
+            }
+            return item;
+        } else {
+            if (listOpen) {
+                listOpen = false;
+                return '</ul>' + line;
+            }
+            return line;
+        }
+    }).join('\n');
+    
+    if (listOpen) {
+        processedText += '</ul>';
+    }
+
+    // 4. İki boş satırı paragraflara (<p>) çevir
+    processedText = processedText.replace(/\n\n/g, '</p><p>');
+    // Geri kalan tek satır atlamalarını <br> yap
+    processedText = processedText.replace(/\n/g, '<br>');
+    
+    // 5. Sonucu <p> etiketine sar
+    if (processedText.trim().length > 0) {
+        processedText = '<p>' + processedText + '</p>';
+    }
+    
+    return processedText;
+}
 /* ---------- Başlatma (Init v4.0) ---------- */
 async function init(){
   if ('serviceWorker' in navigator) {
