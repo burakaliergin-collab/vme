@@ -1157,10 +1157,9 @@
 <input type="file" id="fileInput" accept=".json" style="display:none">
 <input type="file" id="progressFileInput" accept=".json" style="display:none">
 
-<script>
-/* ======================================================
-   VERB MATRIX v4.0 - TAM VE ÇALIŞIR FİNAL SCRIPT
-   (Tüm Admin Panel Simülasyonları ve iOS/Safari TTS Sorunu Giderilmiştir.)
+<script>/* ======================================================
+   VERB MATRIX v4.0 - NİHAİ SÜRÜM
+   (Tüm Admin, TSV ve Gelişmiş iOS/Safari TTS Düzeltmeleri Dahil)
    ====================================================== */
 
 /* ---------------- Varsayılan Veri ve Durum --------------- */
@@ -2132,7 +2131,7 @@ function showCompletion(){
   updateProgress(state.deck.length, state.deck.length); 
 }
 
-// **ONARILMIŞ IOS TTS FONKSİYONU**
+// **GELİŞMİŞ TTS SES SEÇİMİ VE IOS FIX DAHİL**
 function playCurrentSentence(lang, retryCount = 0) {
     if (retryCount === 0) resetSpeechButtons();
     if (!state.currentCardData) return;
@@ -2152,12 +2151,29 @@ function playCurrentSentence(lang, retryCount = 0) {
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = langCode;
             utter.rate = state.speechRate || 1;
-            let voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            
+            let voice = null;
+            if (lang === 'de') {
+                // 1. Anna veya Markus'u dene (Yüksek kaliteli Almanca sesler)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
+            }
+            if (!voice) {
+                // 2. Tam dil kodu eşleşmesini dene (Örn: de-DE)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            }
+            if (!voice && lang === 'de') {
+                 // 3. Bölge olmadan Almanca eşleşmesini dene (Örn: de ile başlayan)
+                 voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+            }
             if (voice) utter.voice = voice;
+
             utter.onend = utter.onerror = () => {
-                if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+                if (musicPlayer && musicPlayer.isPlaying) {
+                    musicPlayer.dim_music(false);
+                }
                 resetSpeechButtons();
             };
+
             window.speechSynthesis.cancel();
             window.speechSynthesis.speak(utter);
         };
@@ -2165,16 +2181,22 @@ function playCurrentSentence(lang, retryCount = 0) {
         // IOS FIX: Cihaz iOS/Safari ise ve sesler yüklenmediyse, onvoiceschanged eventini bekle
         const isIOS = navigator.userAgent.match(/iPad|iPhone|iPod/i) || (navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i));
         if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && isIOS) {
+             console.log("iOS/iPadOS cihazı algılandı, onvoiceschanged bekleniyor...");
              window.speechSynthesis.onvoiceschanged = function handler() {
                 window.speechSynthesis.onvoiceschanged = null; 
                 speakNow();
             };
-            setTimeout(speakNow, 250);
+            // Fallback: iOS onvoiceschanged bazen tetiklenmeyebilir
+            setTimeout(speakNow, 250); 
         } else {
             speakNow();
         }
     } else {
-        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+        const t = getMergedTranslations(data.settings.language || 'tr');
+        alert(t.messages.ttsNotSupported);
+        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) {
+            musicPlayer.dim_music(false);
+        }
     }
 }
 
@@ -2191,7 +2213,7 @@ function showGroupStory(groupId){
   showView('storyView');
 }
 
-// **ONARILMIŞ IOS TTS FONKSİYONU**
+// **GELİŞMİŞ TTS SES SEÇİMİ VE IOS FIX DAHİL**
 function playStoryAudio(lang, retryCount = 0) {
     if (retryCount === 0) resetSpeechButtons();
     const s = state.groupData && state.groupData.story;
@@ -2211,12 +2233,27 @@ function playStoryAudio(lang, retryCount = 0) {
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = langCode;
             utter.rate = state.speechRate || 1;
-            let voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            
+            let voice = null;
+            if (lang === 'de') {
+                // 1. Anna veya Markus'u dene (Yüksek kaliteli Almanca sesler)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
+            }
+            if (!voice) {
+                // 2. Tam dil kodu eşleşmesini dene (Örn: de-DE)
+                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+            }
+            if (!voice && lang === 'de') {
+                 // 3. Bölge olmadan Almanca eşleşmesini dene (Örn: de ile başlayan)
+                 voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+            }
             if (voice) utter.voice = voice;
+
             utter.onend = utter.onerror = () => {
                 if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
                 resetSpeechButtons();
             };
+
             window.speechSynthesis.cancel();
             window.speechSynthesis.speak(utter);
         };
@@ -2228,6 +2265,7 @@ function playStoryAudio(lang, retryCount = 0) {
                 window.speechSynthesis.onvoiceschanged = null;
                 speakNow();
             };
+            // Fallback: iOS onvoiceschanged bazen tetiklenmeyebilir
             setTimeout(speakNow, 250);
         } else {
             speakNow();
