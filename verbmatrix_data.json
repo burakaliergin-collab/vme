@@ -2,7 +2,7 @@
   "groups": [
     {
       "id": "g1",
-      "name": "1. ALGI & İLETİŞİM - SEHEN, ZUHÖREN, ZEIGEN",
+      "name": "1. ALGI & İLETİŞİM",
       "nameDE": "Wahrnehmung & Kommunikation",
       "story": {
         "title": "Maria und der Film",
@@ -104,7 +104,7 @@
     },
     {
       "id": "g2",
-      "name": "2. BESLENME & ZEVK - ESSEN, SCHMECKEN, BRINGEN",
+      "name": "2. BESLENME & ZEVK",
       "nameDE": "Ernährung & Genuss",
       "story": {
         "title": "Das Familienessen",
@@ -206,7 +206,7 @@
     },
     {
       "id": "g3",
-      "name": "3. İLETİŞİM & YAZIŞMA - LESEN, ANTWORTEN, SCHREIBEN",
+      "name": "3. İLETİŞİM & YAZIŞMA",
       "nameDE": "Kommunikation & Korrespondenz",
       "story": {
         "title": "Annas Brief",
@@ -308,7 +308,7 @@
     },
     {
       "id": "g4",
-      "name": "4. ÖĞRENME & AÇIKLAMA - LERNEN, ZUSCHAUEN, ERKLÄREN",
+      "name": "4. ÖĞRENME & AÇIKLAMA",
       "nameDE": "Lernen & Erklären",
       "story": {
         "title": "Tom lernt Deutsch",
@@ -410,7 +410,7 @@
     },
     {
       "id": "g5",
-      "name": "5. YARATICILIK & YAPIM - MACHEN, HELFEN, GEBEN",
+      "name": "5. YARATICILIK & YAPIM",
       "nameDE": "Kreativität & Herstellung",
       "story": {
         "title": "Das Familienprojekt",
@@ -512,7 +512,7 @@
     },
     {
       "id": "g6",
-      "name": "6. HAREKET & TAKİP - NEHMEN, FOLGEN, HOLEN",
+      "name": "6. HAREKET & TAKİP",
       "nameDE": "Bewegung & Folgen",
       "story": {
         "title": "Max und sein Schultag",
@@ -614,7 +614,7 @@
     },
     {
       "id": "g7",
-      "name": "7. İHTİYAÇ & TEDARİK - BRAUCHEN, FEHLEN, SCHICKEN",
+      "name": "7. İHTİYAÇ & TEDARİK",
       "nameDE": "Bedarf & Beschaffung",
       "story": {
         "title": "Die Reisevorbereitung",
@@ -716,7 +716,7 @@
     },
     {
       "id": "g8",
-      "name": "8. TİCARET & DEĞİŞİM - KAUFEN, GEHÖREN, VERKAUFEN",
+      "name": "8. TİCARET & DEĞİŞİM",
       "nameDE": "Handel & Austausch",
       "story": {
         "title": "Der Autoverkauf",
@@ -818,7 +818,7 @@
     },
     {
       "id": "g9",
-      "name": "9. KEŞİF & ARAŞTIRMA - FINDEN, BEGEGNEN, EMPFEHLEN",
+      "name": "9. KEŞİF & ARAŞTIRMA",
       "nameDE": "Entdeckung & Forschung",
       "story": {
         "title": "Die Suche nach dem perfekten Restaurant",
@@ -920,7 +920,7 @@
     },
     {
       "id": "g10",
-      "name": "10. ARAMA & ULAŞMA - SUCHEN, PASSEN, VERSPRECHEN",
+      "name": "10. ARAMA & ULAŞMA",
       "nameDE": "Suchen & Erreichen",
       "story": {
         "title": "Das perfekte Kleid",
@@ -1022,7 +1022,7 @@
     },
     {
       "id": "g11",
-      "name": "11. DUYGUSAL BAĞ - LIEBEN, GEFALLEN, SCHENKEN",
+      "name": "11. DUYGUSAL BAĞ",
       "nameDE": "Emotionale Bindung",
       "story": {
         "title": "Annas Geburtstag",
@@ -1124,7 +1124,7 @@
     },
     {
       "id": "g12",
-      "name": "12. TERCİH & BEĞENİ - MÖGEN, VERTRAUEN, WÜNSCHEN",
+      "name": "12. TERCİH & BEĞENİ",
       "nameDE": "Präferenz & Vorliebe",
       "story": {
         "title": "Tom und das Wetter",
@@ -1226,7 +1226,7 @@
     },
     {
       "id": "g13",
-      "name": "13. HAFIZA & KAYIP - VERGESSEN, WEHTUN, LEIHEN",
+      "name": "13. HAFIZA & KAYIP",
       "nameDE": "Gedächtnis & Verlust",
       "story": {
         "title": "Sarahs Tag",
@@ -1328,7 +1328,7 @@
     },
     {
       "id": "g14",
-      "name": "14. KAYIP & BULMA - VERLIEREN, NÜTZEN, BORGEN",
+      "name": "14. KAYIP & BULMA",
       "nameDE": "Verlust & Finden",
       "story": {
         "title": "Der verlorene Schlüssel",
@@ -1430,7 +1430,7 @@
     },
     {
       "id": "g15",
-      "name": "15. ALMA & EDİNME - BEKOMMEN, DANKEN, ANBIETEN",
+      "name": "15. ALMA & EDİNME",
       "nameDE": "Bekommen & Erhalten",
       "story": {
         "title": "Mikes erster Job",
@@ -1532,7 +1532,7 @@
     },
     {
       "id": "g16",
-      "name": "16. ERİŞİM & KONTROL - ÖFFNEN, GRATULIEREN, ERZÄHLEN",
+      "name": "16. ERİŞİM & KONTROL",
       "nameDE": "Zugang & Kontrolle",
       "story": {
         "title": "Der wichtige Tag",
@@ -1634,7 +1634,7 @@
     },
     {
       "id": "g17",
-      "name": "17. KAPAMA & KORUMA - SCHLIEßEN, SCHADEN, BESORGEN",
+      "name": "17. KAPAMA & KORUMA",
       "nameDE": "Schließen & Schutz",
       "story": {
         "title": "Das kaputte Fenster",
@@ -1736,7 +1736,7 @@
     },
     {
       "id": "g18",
-      "name": "18. SES & DUYUM - HÖREN, DROHEN, SENDEN",
+      "name": "18. SES & DUYUM",
       "nameDE": "Schall & Gehör",
       "story": {
         "title": "Die laute Musik",
@@ -1838,7 +1838,7 @@
     },
     {
       "id": "g19",
-      "name": "19. İÇECEK & TÜKETİM - TRINKEN, ZUVORKOMMEN, MITBRINGEN",
+      "name": "19. İÇECEK & TÜKETİM",
       "nameDE": "Getränk & Konsum",
       "story": {
         "title": "Die Geburtstagsparty",
@@ -1940,7 +1940,7 @@
     },
     {
       "id": "g20",
-      "name": "20. SUÇ & AFFETME - STEHLEN, VERZEIHEN, BERAUBEN",
+      "name": "20. SUÇ & AFFETME",
       "nameDE": "Verbrechen & Vergebung",
       "story": {
         "title": "Der verlorene Geldbeutel",
@@ -3301,7 +3301,7 @@
         "de": "Er sieht das Bild"
       },
       {
-        "tr": "O filmi görüyor",
+        "tr": "O (kadın) filmi görüyor",
         "de": "Sie sieht den Film"
       },
       {
@@ -22458,8 +22458,8 @@
         "de": "Sie holt es ab."
       },
       {
-        "tr": "Biz onları (zarfları) alıyoruz.",
-        "de": "Wir holen sie ab."
+        "tr": "Biz onları (zarfı) alıyoruz.",
+        "de": "Wir holen ihn ab."
       },
       {
         "tr": "Siz (çoğul) onu (zarfı) alıyorsunuz.",
@@ -22512,10 +22512,6 @@
       {
         "tr": "Sen kutuları alıyor musun?",
         "de": "Holst du die Kartons ab?"
-      },
-      {
-        "tr": "O (kadın) malları alıyor.",
-        "de": "Sie holt die Waren ab."
       }
     ],
     "v61_s5": [
@@ -22629,7 +22625,7 @@
       },
       {
         "tr": "Biz zarfları almıyoruz. (Hiç zarf)",
-        "de": "Wir holen keine Umschläge ab."
+        "de": "Wir holen die Umschläge nicht ab."
       },
       {
         "tr": "Siz (çoğul) paleti almıyorsunuz.",
@@ -22718,7 +22714,7 @@
         "de": "Ihr habt sie abgeholt."
       },
       {
-        "tr": "Ben zarfı aldım (geçmiş).",
+        "tr": "Ben zarfı aldım (preteritum).",
         "de": "Ich holte den Umschlag ab."
       },
       {
@@ -25612,7 +25608,7 @@
       "v61_s9_0": "Olumsuzluk 'kein' Akkusativ maskulin.",
       "v61_s9_1": "Olumsuzluk 'kein' Akkusativ feminin.",
       "v61_s9_2": "Olumsuzluk 'kein' Akkusativ nötr.",
-      "v61_s9_3": "Olumsuzluk 'kein' Akkusativ çoğul.",
+      "v61_s9_3": "Olumsuzluk 'nicht' Akkusativ çoğul.",
       "v61_s9_4": "Olumsuzluk 'nicht' belirli nesneyi (die Palette) olumsuzlar.",
       "v61_s9_5": "Olumsuzluk 'nicht' zamanı ('heute') olumsuzlar.",
       "v61_s9_6": "Olumsuzluk 'nicht' direkt fiili olumsuzlar.",
@@ -26283,7 +26279,10 @@
       "v62": "helfen = yardım etmek, yardımcı olmak\nGramer Yapısı\n1. Fiil Çekimi (Präsens)\n\nich helfe\ndu hilfst ⚠️\ner/sie/es hilft ⚠️\nwir helfen\nihr helft\nsie/Sie helfen\n\n⚠️ Önemli: Bu bir starkes Verb (düzensiz fiil). \"e\" → \"i\" değişimi var!\n2. Geçmiş Zaman\n\nPerfekt: Ich habe dir geholfen\nPräteritum: Ich half dir\n\n3. Hal Kullanımı - ÇOK ÖNEMLİ! 🎯\nhelfen fiili DATIV (yönelme hali) alır, Akkusativ değil!\nDoğru: Ich helfe dir (sana)\nYanlış: Ich helfe dich\nGünlük Kullanım Örnekleri\n👥 Birine yardım etmek\n\nKann ich dir helfen?\n(Sana yardım edebilir miyim?)\nEr hilft mir immer.\n(O bana her zaman yardım eder.)\nWir helfen den Kindern bei den Hausaufgaben.\n(Çocuklara ödevlerinde yardım ediyoruz.)\n\n🔧 Bir şey yapmada yardım etmek\n\nKannst du mir beim Umzug helfen?\n(Taşınmada bana yardım edebilir misin?)\nIch helfe dir beim Kochen.\n(Yemek yapmada sana yardım ederim.)\nEr hilft ihr bei der Arbeit.\n(İşte ona yardım ediyor.)\n\n💊 İyileşmeye yardımcı olmak\n\nDiese Medizin hilft gegen Kopfschmerzen.\n(Bu ilaç baş ağrısına iyi gelir.)\nSport hilft beim Abnehmen.\n(Spor kilo vermede yardımcı olur.)\n\nÖnemli Yapılar\n\"bei etwas helfen\" = bir şeyde yardım etmek\n\nHilfst du mir bei der Reparatur?\n(Tamirde bana yardım eder misin?)\n\n\"helfen + zu + Infinitiv\" = yapmaya yardım etmek\n\nIch helfe dir, das zu verstehen.\n(Bunu anlamana yardım ederim.)\n\n\"jemandem helfen\" = birine yardım etmek\n\nIch helfe meiner Mutter.\n(Anneme yardım ediyorum.)\n\nYaygın İfadeler\n\nKann ich Ihnen helfen? = Size yardımcı olabilir miyim? (mağazalarda)\nHilfe! = İmdat!\nDas hilft nichts. = Bu işe yaramaz.\nEs hilft nichts. = Çare yok, başka çare yok.\nsich selbst helfen = kendi kendine yardım etmek\nWer nicht hören will, muss fühlen. (atasözü - yardımı kabul etmeyene ne yapabilirsin)\n\nDativ Örnekleri - Pratik Tablosu\nZamirDativÖrnekichmirHilf mir!dudirIch helfe dir.er/esihmSie hilft ihm.sieihrWir helfen ihr.wirunsEr hilft uns.ihreuchIch helfe euch.sie/Sieihnen/IhnenHilf ihnen!",
       "v63": "\"übergeben\" - Hızlı Öğrenme Rehberi\n1. Temel Anlam\nBir şeyi birine teslim etmek, vermek (resmi/önemli)\n2. Ayrılabilir Fiil! ÖNEMLİ! 🔴\n\nüber + geben = ikiye ayrılır\nüber → cümle sonuna gider\ngeben → çekimlenir (düzensiz!)\n\n3. Çekim (sadece önemlileri)\n\nich gebe... über\ndu gibst... über ⚠️\ner/sie gibt... über ⚠️\nPerfekt: Ich habe übergeben\n\n4. Temel Cümle Yapısı\nIch gebe + [neyi] + [kime] + über\n5. En Sık Kullanılan 5 Cümle (ezberle!)\n\nIch gebe dir das Dokument über. (Dokümanı sana teslim ediyorum)\nEr gibt den Schlüssel über. (Anahtarı teslim ediyor)\nWann können Sie das übergeben? (Bunu ne zaman teslim edebilirsiniz?)\nIch habe es schon übergeben. (Onu zaten teslim ettim)\nBitte übergeben Sie das Paket! (Lütfen paketi teslim edin!)\n\n6. Günlük Hayatta Kullan\n\n📄 Belge/evrak teslimi\n🔑 Anahtar teslimi\n📦 Paket/kargo teslimi\n🏠 Daire teslimi (taşınırken)\n🎁 Hediye verme (resmi)\n\n7. DİKKAT! İki Farklı Anlam Var! ⚠️\nA) übergeben (ayrılabilir) = teslim etmek ✅\nIch gebe das Paket über.\nB) sich übergeben (ayrılamaz) = kusmak 🤢\nIch muss mich übergeben. (Kusmam gerekiyor)\n\nBurada über ayrılmaz!\n\n8. Benzer Fiiller ile Fark\n\ngeben = vermek (genel, günlük)\nübergeben = teslim etmek (resmi, önemli)\nabgeben = teslim etmek (okul, iş yerinde)"
     },
-    "sections": {},
+    "sections": {
+      "B6": "Temel Kural\nSıfat isimden önce geldiğinde çekilir, sonra geldiğinde çekilmez:\nDas Auto ist rot ✓ (çekilmez)\nDas rote Auto ✓ (çekilir)\n3 Tip Çekim Var\n1. Belirli Artikel Çekimi (der/die/das ile)\nArtikelde bilgi vardır, sıfat rahat takılır → çoğunlukla -e veya -en alır\n\nMaskulin\nFeminin\nNötral\nÇoğul\nNominativ\nder gute\ndie gute\ndas gute\ndie guten\nAkkusativ\nden guten\ndie gute\ndas gute\ndie guten\nDativ\ndem guten\nder guten\ndem guten\nden guten\nGenitiv\ndes guten\nder guten\ndes guten\nder guten\nPüf nokta: Nominativ'de hepsi -e, akkusativ'de sadece maskulin -en, geri kalanı hep -en.\n2. Belirsiz Artikel Çekimi (ein/eine ile)\nArtikelde daha az bilgi var, sıfat daha fazla çalışır:\n\nMaskulin\nFeminin\nNötral\nNominativ\nein guter\neine gute\nein gutes\nAkkusativ\neinen guten\neine gute\nein gutes\nDativ\neinem guten\neiner guten\neinem guten\nGenitiv\neines guten\neiner guten\neines guten\nPüf nokta: Nominativ maskulin -er, nötral -es alır. Feminin ve akkusativ'den sonrası belirli artikel gibi.\n3. Artikelsiz Çekim\nArtikel yok, sıfat tüm işi yapar → artikelin ekini alır:\n\nMaskulin\nFeminin\nNötral\nÇoğul\nNominativ\nguter Wein\ngute Milch\ngutes Bier\ngute Äpfel\nAkkusativ\nguten Wein\ngute Milch\ngutes Bier\ngute Äpfel\nDativ\ngutem Wein\nguter Milch\ngutem Bier\nguten Äpfeln\nHızlı Öğrenme Stratejisi\nİlk önce belirli artikel çekimini ezberle - en kolay ve en sık kullanılanı\nKalıpları fark et: Nominativ'de -e/-en, sonrası hep -en\nBelirsiz artikel için sadece nominativ maskulin (-er) ve nötral (-es) ekini öğren, geri kalanı zaten biliyorsun\nGünlük cümlelerle pratik yap: \"das rote Auto\", \"ein guter Mann\", \"kalte Milch\"\nAltın Kural\nEmin olmadığında -en tak - çoğu durumda doğru olur! 😊",
+      "B7": "**Almanca Possessive (İyelik Sıfatları) - Pratik Kılavuz**\n\n### Temel Liste\n\n<table style=\"width:100%; border-collapse: collapse; margin-top: 10px; color: #0f1724;\">\n    <thead>\n        <tr style=\"background-color: #f0f0f0; border-bottom: 2px solid #ccc;\">\n            <th style=\"padding: 8px; text-align: left;\">Türkçe</th>\n            <th style=\"padding: 8px; text-align: left;\">Almanca</th>\n            <th style=\"padding: 8px; text-align: left;\">Örnek</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">benim</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">mein</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">mein Auto</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">senin</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">dein</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">dein Buch</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">onun (erkek)</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">sein</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">sein Haus</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">onun (kadın)</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">ihr</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">ihr Kind</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">onun (nötr)</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">sein</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">sein Zimmer</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">bizim</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">unser</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">unser Garten</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">sizin</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">euer</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">euer Freund</td></tr>\n        <tr><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">onların</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">ihr</td><td style=\"padding: 8px; border-bottom: 1px solid #eee;\">ihr Lehrer</td></tr>\n        <tr><td style=\"padding: 8px;\">Sizin (saygılı)</td><td style=\"padding: 8px;\">Ihr</td><td style=\"padding: 8px;\">Ihr Name</td></tr>\n    </tbody>\n</table>\n\n***\n\n### Kritik Nokta: İKİ UYUM VAR!\n\n* 1. Sahip ile uyum: mein / dein / sein / ihr seç\n* 2. Nesne ile uyum: Possessive, **ein** gibi çekilir! (Cinsiyet ve Hal)\n\n### Çekim Tablosu (mein örneği)\n\n<table style=\"width:100%; border-collapse: collapse; margin-top: 10px; color: #0f1724;\">\n    <thead>\n        <tr style=\"background-color: #fff3cd; border-bottom: 2px solid #e59200;\">\n            <th style=\"padding: 8px;\"></th>\n            <th style=\"padding: 8px;\">Maskulin</th>\n            <th style=\"padding: 8px;\">Feminin</th>\n            <th style=\"padding: 8px;\">Nötral</th>\n            <th style=\"padding: 8px;\">Çoğul</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr><td style=\"padding: 8px; font-weight: bold;\">Nominativ</td><td style=\"padding: 8px;\">mein Vater</td><td style=\"padding: 8px;\">meine Mutter</td><td style=\"padding: 8px;\">mein Kind</td><td style=\"padding: 8px;\">meine Eltern</td></tr>\n        <tr><td style=\"padding: 8px; font-weight: bold;\">Akkusativ</td><td style=\"padding: 8px; background-color: #ffe0b2;\">**meinen** Vater</td><td style=\"padding: 8px;\">meine Mutter</td><td style=\"padding: 8px;\">mein Kind</td><td style=\"padding: 8px;\">meine Eltern</td></tr>\n        <tr><td style=\"padding: 8px; font-weight: bold;\">Dativ</td><td style=\"padding: 8px;\">meinem Vater</td><td style=\"padding: 8px; background-color: #fff8e1;\">meiner Mutter</td><td style=\"padding: 8px;\">meinem Kind</td><td style=\"padding: 8px;\">meinen Eltern</td></tr>\n        <tr><td style=\"padding: 8px; font-weight: bold;\">Genitiv</td><td style=\"padding: 8px;\">meines Vaters</td><td style=\"padding: 8px; background-color: #fff8e1;\">meiner Mutter</td><td style=\"padding: 8px;\">meines Kindes</td><td style=\"padding: 8px; background-color: #fff8e1;\">meiner Eltern</td></tr>\n    </tbody>\n</table>\n\n### Pratik Örnekler\n\n* **Nominativ:**\n    * Das ist mein Bruder (bu benim erkek kardeşim)\n    * Das ist meine Schwester (bu benim kız kardeşim)\n    * Das sind meine Kinder (bunlar benim çocuklarım)\n* **Akkusativ:**\n    * Ich liebe **meinen** Vater (babamı seviyorum - maskulin!)\n    * Ich liebe meine Mutter (annemi seviyorum)\n    * Ich liebe mein Kind (çocuğumu seviyorum)\n* **Dativ:**\n    * Ich helfe **meinem** Bruder (erkek kardeşime yardım ediyorum)\n    * Ich helfe **meiner** Schwester (kız kardeşime yardım ediyorum)\n    * mit **meinen** Freunden (arkadaşlarımla)\n\n### Özel Dikkat: EUER\n\neuer kullanırken 'e' düşer:\n\n* euer Hund ✓\n* eure Katze ✓ (e eklenince ortadaki e düşer)\n* euren Hund ✓\n\n### Hızlı Öğrenme Stratejisi\n\n**3 Adımda Düşün:**\n\n1.  **Kim sahip?** → mein/dein/sein/ihr seç\n2.  **Nesne ne cins?** → maskulin/feminin/nötral/çoğul\n3.  **Hangi hal?** → nominativ/akkusativ/dativ/genitiv\n\n**Örnek:** \"Ich sehe seinen Vater\"\n\n* Kim sahip? → O (erkek) = sein\n* Nesne? → Vater (maskulin)\n* Hal? → sehen fiili akkusativ ister\n* **Sonuç:** seinen Vater ✓\n\n### Altın İpuçları\n\n* **Ihr** (büyük harfle) = Sizin (saygılı)\n* **ihr** (küçük harfle) = onun (kadın) **VEYA** onların\n* Context'ten anlaşılır:\n    * \"Frau Müller und ihr Mann\" (kadının kocası)\n    * \"Die Kinder und ihr Lehrer\" (çocukların öğretmeni)"
+    },
     "globalSections": {
       "B1": "(Kişi Zamiri)"
     }
