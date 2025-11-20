@@ -1082,6 +1082,7 @@
      <h2 class="section-title" data-translate-key="admin.contentManagement">📚 İçerik Yönetimi</h2>
      <div class="button-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
         <button class="btn btn-warning" onclick="showAdminForm('groupOrder')">↕️ Sıralamayı Düzenle (Gruplar)</button>  <button class="btn btn-primary" onclick="showAdminForm('addGroup')">➕ <span data-translate-key="admin.addGroup">Grup Ekle/Düzenle</span></button>
+        <button class="btn btn-danger" onclick="showView('adminBulkEditView')">✏️ Toplu Cümle Düzenle</button>
         <button class="btn btn-primary" onclick="showAdminForm('addVerb')">➕ <span data-translate-key="admin.addVerb">Fiil Ekle/Düzenle</span></button>
         <button class="btn btn-primary" onclick="showAdminForm('addSection')">➕ <span data-translate-key="admin.addSection">Bölüm Ekle/Düzenle</span></button>
         <button class="btn btn-info" onclick="showAdminForm('addStory')">➕ <span data-translate-key="admin.addStory">Hikaye Ekle/Düzenle</span></button>
@@ -1103,6 +1104,30 @@
       <div id="allSentencesTable" style="max-height:60vh;overflow:auto"></div>
     </div>
     </div>
+  <div id="adminBulkEditView" class="view">
+    <h2 class="section-title">✏️ Toplu Cümle Yönetimi</h2>
+    <div class="content-box">
+        <h4 style="margin-bottom: 15px;">Filtreleme ve Yönetim</h4>
+        <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+            <label>Grup:</label>
+            <select id="bulk_edit_group" class="select-field" style="flex: 1; min-width: 150px;"></select>
+            <label>Fiil:</label>
+            <select id="bulk_edit_verb" class="select-field" style="flex: 1; min-width: 150px;"></select>
+            <label>Bölüm:</label>
+            <select id="bulk_edit_section" class="select-field" style="flex: 1; min-width: 150px;"></select>
+        </div>
+
+        <div class="button-group-row" style="margin-bottom:15px;">
+            <button class="btn btn-primary" onclick="adminSaveBulkEdit()">💾 Tüm Değişiklikleri Kaydet</button>
+            <button class="btn btn-info" onclick="loadBulkEditTable()">🔄 Listeyi Yükle/Yenile</button>
+            <button class="btn btn-secondary" onclick="adminAddNewSentencePrompt()">➕ Yeni Cümle Ekle</button>
+        </div>
+
+        <div id="bulkEditTableContainer" style="max-height: 70vh; overflow-y: auto;">
+            <p class="small-muted">Filtreleme alanlarını kullanarak bir Grup, Fiil ve Bölüm seçin, ardından "Listeyi Yükle/Yenile" butonuna basın.</p>
+        </div>
+    </div>
+</div>
 </div>
 
 <input type="file" id="fileInput" accept=".json" style="display:none">
@@ -2228,7 +2253,15 @@ function getSentences(){
     if (!state.verb || !state.section) return [];
     return data.content[`${state.verb}_s${state.section}`] || [];
 }
-function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[i],a[j]] } return a; }
+// index.html, (Utils/yardımcı fonksiyonlar bölümünde)
+
+function shuffle(a){ 
+    for(let i=a.length-1; i > 0; i--){ 
+        const j=Math.floor(Math.random()*(i+1)); 
+        [a[i], a[j]]=[a[j], a[i]]; // Elemanları yer değiştir
+    } 
+    return a; 
+}
 
 function showLearning(){
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -3366,15 +3399,19 @@ function adminDeleteSection() {
     saveContentOverride();
     showAdminForm('addSection');
 }
+
 function showAdminStoryForm(area) {
     const t = getMergedTranslations(data.settings.language || 'tr');
     let groupOptions = data.groups.map(g => `<option value="${g.id}">${g.name}</option>`).join('');
+    
+    // YENİ HTML YAPISI: SADECE İKİ BAŞLIK ALANI İÇERİR
     area.innerHTML = `<div class="content-box"><h4>${t.admin.addStory}</h4>
       <label>${t.labels.group}</label>
       <select id="adm_st_group" class="select-field">${groupOptions}</select>
-      <label>${t.labels.title}</label><input id="adm_st_title" class="input-field">
+      
       <label>Hikaye Başlığı (Türkçe - TR)</label><input id="adm_st_title" class="input-field">
       <label>Hikaye Başlığı (Almanca - DE)</label><input id="adm_st_title_de" class="input-field">
+      
       <label>${t.labels.deText}</label><textarea id="adm_st_de" class="textarea-field" rows="5"></textarea>
       <label>${t.labels.trText}</label><textarea id="adm_st_tr" class="textarea-field" rows="5"></textarea>
       <h5 style="margin-top:10px;">Hikaye Soruları (Quiz)</h5>
@@ -3383,6 +3420,7 @@ function showAdminStoryForm(area) {
       <div class="button-group-row">
         <button class="btn btn-primary" onclick="adminSaveStory()">✅ ${t.buttons.save}</button>
       </div></div>`;
+      
     document.getElementById('adm_st_group').onchange = adminStoryLoadFields;
     if(data.groups.length > 0) {
         document.getElementById('adm_st_group').selectedIndex = 0;
@@ -3697,6 +3735,37 @@ function renderAllSentencesTable(){
   html += '</tbody></table>';
   container.innerHTML = html;
 }
+// Seçicileri dolduran yardımcı fonksiyon
+function fillBulkEditSelectors() {
+    // 1. Grup Seçicisini doldur
+    fillSelect('bulk_edit_group', data.groups.map(g => ({ v: g.id, t: g.name })), true);
+    
+    // Olay Dinleyicileri
+    document.getElementById('bulk_edit_group').onchange = bulkEditLoadVerbs;
+    document.getElementById('bulk_edit_verb').onchange = bulkEditLoadSections;
+    document.getElementById('bulk_edit_section').onchange = loadBulkEditTable;
+    
+    // Başlangıç yüklemesi
+    bulkEditLoadVerbs();
+}
+
+// Seçilen Gruba göre Fiilleri doldurur
+function bulkEditLoadVerbs() {
+    const gid = document.getElementById('bulk_edit_group').value;
+    fillSelect('bulk_edit_verb', (data.verbs[gid] || []).map(v => ({ v: v.id, t: (v.verbTR || v.verbDE) })), true);
+    bulkEditLoadSections();
+}
+
+// Seçilen Fiile göre Bölümleri doldurur
+function bulkEditLoadSections() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const items = Object.entries(data.sections).map(([num, name]) => {
+        const count = (data.content[`${verbId}_s${num}`] || []).length;
+        return { v: num, t: `${num}. ${name} (${count} c)` };
+    });
+    fillSelect('bulk_edit_section', items, true);
+    // Seçim değiştiğinde tabloyu otomatik yüklemesin, kullanıcı butona bassın
+}
 function exportSentencesCsv(){
   console.log("TSV Dışa Aktarma Başlatılıyor...");
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -3730,7 +3799,144 @@ function exportSentencesCsv(){
   URL.revokeObjectURL(url);
   alert('TSV (Excel) formatında yedek indirildi. Bu dosyayı kopyalayıp Toplu Yüklemeye yapıştırabilirsiniz.');
 }
+function loadBulkEditTable() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    const container = document.getElementById('bulkEditTableContainer');
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    if (!verbId || !section) {
+        container.innerHTML = `<p class="small-muted">${t.messages.allFieldsError}</p>`;
+        return;
+    }
 
+    const key = `${verbId}_s${section}`;
+    const sentences = data.content[key] || [];
+    const sectionName = data.sections[section] || section;
+    
+    if (sentences.length === 0) {
+        container.innerHTML = `<div class="content-box"><p>${t.messages.noSentences}</p></div>`;
+        return;
+    }
+
+    let html = `<p><b>Bölüm:</b> ${sectionName} (${sentences.length} cümle)</p>
+        <table id="bulkEditTable" style="width:100%; border-collapse: collapse; margin-top: 10px;">
+        <thead><tr style="text-align:left; background: #eee; color: #0f1724;">
+            <th style="padding: 6px; width: 30px;">#</th>
+            <th style="width: 35%;">TR Cümle</th>
+            <th style="width: 35%;">DE Cümle</th>
+            <th style="width: 20%;">İpucu</th>
+            <th style="width: 10%;">Eylem</th>
+        </tr></thead><tbody>`;
+
+    sentences.forEach((s, i) => {
+        const srsKey = getSrsKey(verbId, section, i);
+        const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[srsKey]) || '';
+        
+        html += `<tr data-index="${i}" data-key="${srsKey}" style="border-bottom: 1px solid #eee;">
+            <td style="padding: 6px;">${i}</td>
+            <td><textarea rows="2" class="textarea-field bulk-tr" style="min-height: 50px;">${escapeHtml(s.tr || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-de" style="min-height: 50px;">${escapeHtml(s.de || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-hint" style="min-height: 50px;">${escapeHtml(currentHint)}</textarea></td>
+            <td><button class="btn btn-danger btn-small" onclick="adminDeleteSentenceFromBulk('${key}', ${i}, this)">Sil</button></td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
+}
+// Tüm Tablo Değişikliklerini Kaydetme
+function adminSaveBulkEdit() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    if (!verbId || !section) return;
+
+    const contentKey = `${verbId}_s${section}`;
+    const table = document.getElementById('bulkEditTable');
+    if (!table) return;
+
+    let updatedSentences = [];
+    let hintsUpdated = 0;
+    let sentencesUpdated = 0;
+    
+    // Tablonun her satırını döner
+    table.querySelectorAll('tbody tr').forEach(row => {
+        const index = parseInt(row.dataset.index);
+        const srsKey = row.dataset.key;
+        const tr = row.querySelector('.bulk-tr').value.trim();
+        const de = row.querySelector('.bulk-de').value.trim();
+        const hint = row.querySelector('.bulk-hint').value.trim();
+        
+        if (tr || de) { // İçerik varsa kaydet
+            updatedSentences.push({ tr, de });
+            sentencesUpdated++;
+            
+            // İpucu kontrolü
+            if (srsKey) {
+                if (!data.hints.sentences) data.hints.sentences = {};
+                if (hint) {
+                    data.hints.sentences[srsKey] = hint;
+                    hintsUpdated++;
+                } else {
+                    delete data.hints.sentences[srsKey];
+                }
+            }
+        } else {
+            // TR ve DE boşsa bu satır atlanır (silinmek üzere işaretlenmediği sürece)
+        }
+    });
+
+    data.content[contentKey] = updatedSentences;
+    saveContentOverride();
+    alert(`✅ ${sentencesUpdated} cümle güncellendi/kaydedildi. ${hintsUpdated} ipucu işlendi.`);
+    loadBulkEditTable(); // Tabloyu yenile
+}
+
+// Tek Bir Cümleyi Silme (Tablo Üzerinden)
+function adminDeleteSentenceFromBulk(contentKey, index, buttonEl) {
+    if (!confirm(`${index + 1}. cümleyi silmek istediğinizden emin misiniz? Kaydetmeden önce silme işlemi tamamlanmaz.`)) return;
+
+    // UI'da satırı kaldır
+    const row = buttonEl.closest('tr');
+    if (row) {
+        row.remove();
+        alert('Cümle geçici olarak listeden kaldırıldı. Değişikliği kalıcı yapmak için "Kaydet"e basınız.');
+    }
+}
+
+// Yeni Boş Cümle Satırı Ekleme (Basitleştirilmiş)
+function adminAddNewSentencePrompt() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    const container = document.getElementById('bulkEditTableContainer');
+
+    if (!verbId || !section) {
+         alert('Lütfen önce Grup, Fiil ve Bölüm seçin.');
+         return;
+    }
+    
+    // Tabloya yeni boş satır ekle
+    const tableBody = document.querySelector('#bulkEditTable tbody');
+    if (!tableBody) {
+        // Eğer tablo yoksa, boş bir tablo yapısı oluştur
+         container.innerHTML = 'Hata: Tablo yüklenmedi.';
+         return; 
+    }
+    
+    // Yeni index (mevcut satır sayısı)
+    const newIndex = tableBody.children.length; 
+    
+    const newRowHtml = `<tr data-index="${newIndex}" data-key="new_${Math.random().toString(36).substring(2, 9)}" style="border-bottom: 1px solid #eee; background-color: #f7fff7;">
+        <td style="padding: 6px;">YENİ</td>
+        <td><textarea rows="2" class="textarea-field bulk-tr" style="min-height: 50px;"></textarea></td>
+        <td><textarea rows="2" class="textarea-field bulk-de" style="min-height: 50px;"></textarea></td>
+        <td><textarea rows="2" class="textarea-field bulk-hint" style="min-height: 50px;"></textarea></td>
+        <td><button class="btn btn-danger btn-small" onclick="this.closest('tr').remove()">İptal</button></td>
+    </tr>`;
+    
+    tableBody.insertAdjacentHTML('beforeend', newRowHtml);
+    alert('Yeni bir satır eklendi. Kaydetmek için "Tüm Değişiklikleri Kaydet"e basınız.');
+}
 /* ---------- Uygulama Güncelleme ---------- */
 function forceUpdateApp() {
     if ('serviceWorker' in navigator) {
@@ -3897,7 +4103,7 @@ async function init(){
   // Admin butonu ve Home/Back butonlarının görünürlüğünü ayarlamak için
   showView('mainMenu'); 
 }
-
+window.addEventListener('load', fillBulkEditSelectors);
 window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
