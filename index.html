@@ -25,7 +25,52 @@
 
   /* Bölüm Başlığı */
   .section-title{font-size:1.25rem;color:#2d3748;margin:16px 0 10px;padding-bottom:8px;border-bottom:3px solid #667eea;font-weight:700}
+/* --- YAMA DÜZELTMESİ: BAŞLIK HİZALAMA --- */
 
+/* Tüm büyük başlıkları (TEKRAR, ÇEVİRİ YÖNÜ) ortalar */
+.large-centered-title {
+  text-align: center !important;
+  /* Diğer stil özelliklerini koru */
+}
+
+/* Grup Seçimi Başlıklarını (Fiil Seç, Hikaye Seç) Yönetir */
+/* YAMA DÜZELTMESİ: BAŞLIK SÜTUNLARI VE HİZALAMA */
+.group-select-columns { 
+    display: flex; /* Grid yerine flex kullanarak daha iyi kontrol */
+    justify-content: center; /* Merkeze hizala */
+    gap: 24px; /* Buton gridleri arasındaki boşluk (grup-hikaye gridinin genişliğini ayarlar) */
+    margin-bottom: 12px; 
+    padding: 0 12px; 
+    width: 100%; /* Tam genişlik */
+}
+
+/* GRUP/HİKAYE GRIDİ - Şimdi butonu ve hikaye butonunu yan yana getirmek için 2 sütunlu grid */
+/* YAMA DÜZELTMESİ: GRUP/HİKAYE BUTON GRİDİ */
+.group-story-grid { 
+    display: grid; 
+    gap: 12px; 
+    grid-template-columns: 1fr 1fr; /* 2 Eşit sütun */
+    margin: 12px auto; /* Merkeze hizalama */
+    margin-top: 0;
+    max-width: 900px; /* Opsiyonel: Belli bir boyutta merkezde tutmak için */
+    justify-items: stretch; /* Butonların sütunu doldurmasını sağlar */
+}
+/* Mobil görünümde grup seçim başlıklarını da tam ortala */
+@media(max-width:768px){
+    /* ... (diğer mobil stiller) */
+    .group-select-columns { 
+        grid-template-columns: 1fr !important; /* Tek sütun ve tam genişlik */
+        margin: 0 !important;
+        padding: 0 14px !important;
+    } 
+    /* Bu, başlık kutusunu ortalar */
+    .group-column-title-container {
+        text-align: center; 
+    }
+    /* ... (diğer mobil stiller) */
+}
+
+/* --- YAMA DÜZELTMESİ SONU --- */
   /* MODU SEÇ için büyük, ortalanmış stil */
   .large-centered-title {
     text-align: center;
@@ -646,25 +691,65 @@
       padding: 16px;
       font-size: 1.2rem;
     }
-    /* Grup menüsü (zaten ayarlıydı, kalsın) */
-    .group-story-grid .btn {
-      height: 60px;
-      font-size: 1rem;
-      padding: 10px 14px;
-    }
-    
-    /* Akordeon Ana Butonları (Mobilde 3'lü kalsın) */
-    .learning-controls-main {
-        grid-template-columns: 1fr 1fr 1fr !important;
-    }
-    .learning-controls-main .btn {
-        font-size: 0.9rem; /* Mobilde biraz küçültelim sığması için */
-        padding: 10px 6px;
-    }
-    /* Akordeon İç Butonları (Mobilde tek sütun) */
-    .learning-controls-panel .button-grid-learning {
-        grid-template-columns: 1fr !important;
-    }
+    /* GRUP/HİKAYE GRIDİ - SADECE BUTTON STİLİ DÜZELTİLDİ (v4.0.2) */
+/* index.html, 150. satır civarındaki GÜNCELLEME */
+/* index.html, yaklaşık 150. satırdaki .group-story-grid .btn bloğunu bulun: */
+
+.group-story-grid .btn { 
+    flex-direction: column; 
+    height: auto; 
+    min-height: 60px; 
+    font-size: 1rem;
+    padding: 10px 14px;
+    text-align: center; /* <-- KRİTİK DÜZELTME: Metinleri ortala */
+    justify-content: center; /* İçeriği dikeyde ortala */
+    align-items: center; /* İçeriği yatayda ortala */
+}
+
+/* Zorunlu metin bloklarını tam genişlikte yapalım ki ortalama çalışsın */
+.group-story-grid .btn strong,
+.group-story-grid .btn .small-muted,
+.group-story-grid .btn .verb-list-text { /* Fiil listesi için yeni sınıf */
+    width: 100%; 
+    display: block; 
+}
+
+/* Fiil listesi için daha küçük bir stil */
+.group-story-grid .btn .verb-list-text {
+    font-size: 0.8rem;
+    color: #cbd5e1; /* Daha açık, göze batmayan gri */
+    margin-top: 2px;
+}
+
+/* Ana başlığın boyutunu ve kalınlığını koru */
+.group-story-grid .btn strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* İkincil başlığın stilini koru */
+.group-story-grid .btn .small-muted {
+    font-size: 0.9rem;
+    color: #cbd5e1; /* Daha açık, göze batmayan gri (Gece modu stiline göre ayarlanabilir) */
+}
+/* Not: Gece modunda da bu rengi ayarlamalısınız (bkz: 2. adım) */
+/* Buton içeriği içindeki fiil özeti stilleri (Hizalamayı garantilemek için) */
+.group-story-grid .btn .group-title,
+.group-story-grid .btn .group-subtitle,
+.group-story-grid .btn .group-summary {
+    width: 100%;
+    text-align: center; /* KRİTİK: İçerideki tüm başlıkları ortalar */
+}
+.group-story-grid .btn .group-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+.group-story-grid .btn .group-summary {
+    font-size: 0.8rem; 
+    font-weight: 400; 
+    opacity: 0.8; 
+    margin-top: 6px; 
+}
 
   }
 
@@ -742,7 +827,7 @@
     </div>
     <div class="group-select-columns">
       <div class="group-column-title-container">
-        <div class="group-column-title" data-translate-key="titles.groupSelect">Fiil Seç</div>
+        <div class="group-column-title" data-translate-key="titles.groupSelect">Grup Seç</div>
       </div>
       <div class="group-column-title-container">
         <div class="group-column-title" data-translate-key="titles.storySelect">Hikaye Seç</div>
@@ -837,7 +922,6 @@
                 <button class="btn" id="slowModeToggleBtn" onclick="toggleSpeechSpeed()">
                     <span class="led-indicator" id="slowModeLedL"></span>🔊 Yavaş Mod
                 </button>
-                <button class="btn" id="pauseBtn" onclick="toggleSpeechPause()">⏸️ Durdur</button>
                 <button class="btn" id="btnPlayDE" data-translate-key="buttons.playDE" onclick="playCurrentSentence('de')">🔊 Almanca Dinle</button>
                 <button class="btn" id="btnPlayTR" data-translate-key="buttons.playTR" onclick="playCurrentSentence('tr')">🔊 Türkçe Dinle</button>
              </div>
@@ -866,7 +950,6 @@
       <button class="btn" id="storySlowModeToggleBtn" onclick="toggleSpeechSpeed()">
         <span class="led-indicator" id="slowModeLedS"></span>🔊 Yavaş Mod
       </button>
-      <button class="btn" id="storyPauseBtn" onclick="toggleSpeechPause()">⏸️ Durdur</button>
       <button class="btn" id="btnPlayDE" data-translate-key="buttons.playDE" onclick="playStoryAudio('de')">🔊 Almanca Dinle</button>
       <button class="btn" onclick="playStoryAudio('tr')" data-translate-key="buttons.playTR">🔊 Türkçe Dinle</button>
       </div>
@@ -1055,7 +1138,7 @@ let data = {
         start: 'BAŞLA',
         tekrar: '🔄 TEKRAR',
         guide: '⭐ Kullanım Kılavuzu', // YENİ
-        groupSelect: 'Fiil Seç',
+        groupSelect: 'Grup Seç',
         storySelect: 'Hikaye Seç',
         verbSelect: 'FİİL SEÇ',
         sectionSelect: 'BÖLÜM SEÇ',
@@ -1374,12 +1457,9 @@ function toggleSpeechPause() {
 }
 function resetSpeechButtons() {
     if ('speechSynthesis' in window) {
+        // Sadece aktif konuşmayı iptal eder, buton durumu yönetimi playCurrentSentence içindedir.
         window.speechSynthesis.cancel();
     }
-    const pauseBtnL = document.getElementById('pauseBtn');
-    const pauseBtnS = document.getElementById('storyPauseBtn');
-    if (pauseBtnL) { pauseBtnL.textContent = '⏸️ Durdur'; }
-    if (pauseBtnS) { pauseBtnS.textContent = '⏸️ Durdur'; }
 }
 
 /* ---------- SRS (İlerleme) Veri Yönetimi ---------- */
@@ -1809,6 +1889,11 @@ function updateUITexts(){
   if (learningTitleEl) {
       learningTitleEl.textContent = t.titles.learning;
   }
+// updateUITexts fonksiyonunun sonuna ekle
+  // Eğer Grup menüsündeysek, Grup Menüsünü yeniden yükle (YAMA 3A)
+  if (state.currentView === 'groupMenu') {
+      loadAndShowGroupMenu();
+  }
 }
 function updateAutoPlayButtonText() {
     const autoPlayBtn = document.getElementById('autoPlayBtn');
@@ -1963,11 +2048,12 @@ async function getAIHint() {
 
 /* ---------- ANA AKIŞ FONKSİYONLARI (v4.0) ---------- */
 
-/* --- Çalışma Ekranı Akışları (Tekrar / Çalış) --- */
 function loadAndShowGroupMenu(){
   const container = document.getElementById('groupButtons');
   container.innerHTML = '';
   const t = getMergedTranslations(data.settings.language || 'tr');
+  const currentLang = data.settings.language || 'tr'; 
+
   if(!data.groups || data.groups.length===0){
     container.innerHTML = `<div class="content-box">${t.messages.noGroups}</div>`;
     showView('groupMenu');
@@ -1975,17 +2061,58 @@ function loadAndShowGroupMenu(){
   }
   const grid = document.createElement('div');
   grid.className = 'group-story-grid';
+  
   data.groups.forEach(g=>{
+    // --- GRUP BİLGİSİNİ HAZIRLA (Fiil Listesi dahil) ---
+    const primaryGroupName = currentLang === 'de' ? g.nameDE || g.name : g.name;
+    const secondaryGroupName = currentLang === 'de' ? g.name || '' : g.nameDE || '';
+    const verbs = data.verbs[g.id] || [];
+    const verbCount = verbs.length;
+    
+    // Fiil listesini hazırlar (İlk 3 fiil, mevcut dile göre)
+    const verbListText = verbs
+        .slice(0, 3)
+        .map(v => currentLang === 'de' ? v.verbDE || v.verbTR : v.verbTR)
+        .filter(Boolean)
+        .join(', ');
+        
+    const verbHtml = verbListText.length > 0 
+        ? `<span class="small-muted verb-list-text">${escapeHtml(verbListText)}</span>` 
+        : '';
+
+    // --- GRUP BUTONUNU OLUŞTUR ---
     const groupBtn = document.createElement('button');
     groupBtn.className = 'btn btn-primary';
-    groupBtn.innerHTML = `<strong>${g.name}</strong><span class="small-muted">${g.nameDE || ''}</span>`;
+    
+    // Butonun içindeki HTML (3 satır: Ana İsim, İkincil İsim/Count, Fiil Özeti)
+    groupBtn.innerHTML = `
+      <strong>${escapeHtml(primaryGroupName)} <span class="group-summary">(${verbCount})</span></strong>
+      <span class="small-muted">${escapeHtml(secondaryGroupName)}</span>
+      ${verbHtml}
+    `;
+    
     groupBtn.onclick = ()=>selectGroup(g.id);
     grid.appendChild(groupBtn);
+    
+    // --- HİKAYE BUTONUNU OLUŞTUR (Yerelleştirilmiş başlıklar) ---
     const storyBtn = document.createElement('button');
     storyBtn.className = 'btn btn-warning';
+    
     if (g.story && g.story.title) {
-      storyBtn.textContent = g.story.title;
-      storyBtn.onclick = ()=>showGroupStory(g.id);
+        // title varsayılan (Türkçe) başlık, titleDE ise Almanca başlık kabul ediliyor
+        const storyTitleTR = g.story.title;
+        // Hikaye verisinde titleDE alanı yoksa (ki sizde yoktu), TR başlığını kullanıyoruz
+        const storyTitleDE = g.story.titleDE || g.story.title; 
+        
+        const primaryStoryTitle = currentLang === 'de' ? storyTitleDE : storyTitleTR;
+        const secondaryStoryTitle = currentLang === 'de' ? storyTitleTR : (g.story.titleDE || '');
+
+        // Hikaye butonu da hiyerarşik başlıkları gösterir
+        storyBtn.innerHTML = `
+          <strong>${escapeHtml(primaryStoryTitle)}</strong>
+          <span class="small-muted">${escapeHtml(secondaryStoryTitle)}</span>
+        `;
+        storyBtn.onclick = ()=>showGroupStory(g.id);
     } else {
       storyBtn.textContent = t.messages.noStoryAvailable;
       storyBtn.classList.add('disabled');
@@ -2063,6 +2190,9 @@ function startTekrarModePrompt() {
 }
 function startTekrarMode(modeId) {
     state.mode = modeId;
+    // KRİTİK SIFIRLAMA EKLENDİ (YAMA 1 - Devam)
+    state.showAnswer = false;
+    
     const allCardsOfStatus = [];
     Object.keys(srsData).forEach(key => {
         if (srsData[key].status === state.tekrarStatus) {
@@ -2077,6 +2207,9 @@ function startTekrarMode(modeId) {
 function startMode(modeId){
   state.mode = modeId;
   state.tekrarStatus = null;
+  // KRİTİK SIFIRLAMA EKLENDİ (YAMA 1 - Devam)
+  state.showAnswer = false;
+  
   const sentences = getSentences();
   const newCards = [];
   for (let i = 0; i < sentences.length; i++) {
@@ -2230,6 +2363,23 @@ function renderSentence(){
   const quickEditPanel = document.getElementById('quickEditPanel');
   quickEditPanel.style.display = 'none';
   
+  // YAMA 1 KRİTİK DÜZELTME: Buton durumlarını resetle
+  const actionBtn = document.getElementById('actionBtn');
+  const srsControls = document.getElementById('srsControls');
+  
+  if (state.mode === 'study') {
+      actionBtn.style.display = state.showAnswer ? 'none' : 'flex'; 
+      srsControls.style.display = state.showAnswer ? 'flex' : 'none';
+      actionBtn.textContent = getMergedTranslations(data.settings.language || 'tr').buttons.show;
+      document.querySelector('#panelEdit button[onclick="previousQuestion()"]').style.display = 'none';
+  } else {
+      actionBtn.style.display = state.showResult ? 'none' : 'flex'; // Sonucu gösterdikten sonra aksiyon butonunu gizle
+      srsControls.style.display = 'none';
+      actionBtn.textContent = getMergedTranslations(data.settings.language || 'tr').buttons.check;
+      document.querySelector('#panelEdit button[onclick="previousQuestion()"]').style.display = 'flex';
+  }
+  // YAMA 1 KRİTİK DÜZELTME SONU
+
   hintPanelEl.style.display = state.hintPanelVisible ? 'block' : 'none';
   hintPanelEl.innerHTML = '';
   
@@ -2313,27 +2463,8 @@ function renderSentence(){
   btnDE.disabled = !canPlayDE; btnDE.classList.toggle('disabled', !canPlayDE);
   btnTR.disabled = !canPlayTR; btnTR.classList.toggle('disabled', !canPlayTR);
   
-  const actionBtn = document.getElementById('actionBtn');
-  const srsControls = document.getElementById('srsControls');
+  // Srs Butonlarının görünürlüğü zaten yukarıda ayarlandı.
   
-  if (state.mode === 'study') {
-      if (state.showAnswer) {
-          actionBtn.style.display = 'none';
-          srsControls.style.display = 'flex';
-      } else {
-          actionBtn.style.display = 'flex'; 
-          srsControls.style.display = 'none';
-          actionBtn.textContent = t.buttons.show;
-          actionBtn.onclick = handleAction;
-      }
-      document.querySelector('#panelEdit button[onclick="previousQuestion()"]').style.display = 'none';
-  } else {
-      actionBtn.style.display = 'flex'; 
-      srsControls.style.display = 'none';
-      actionBtn.textContent = t.buttons.check;
-      actionBtn.onclick = handleAction;
-      document.querySelector('#panelEdit button[onclick="previousQuestion()"]').style.display = 'flex';
-  }
   updateProgress(state.deckPos, state.deck.length);
 }
 function showQuickEditPanel(){
@@ -2444,18 +2575,24 @@ function handleAction(){
     
     let userAnswer = '';
     let isCorrect = false;
+    
+    // YAMA 1C KRİTİK DÜZELTME: normalizeString ile duyarsız kontrol
+    let normalizedCorrectAnswer = normalizeString(state.correctAnswer);
+    
     if (state.mode === 'cloze') {
         const input = document.getElementById('clozeInput');
         userAnswer = (input && input.value.trim())||'';
-        isCorrect = userAnswer.toLowerCase() === state.correctAnswer.toLowerCase();
+        isCorrect = normalizeString(userAnswer) === normalizedCorrectAnswer;
     } else if (state.mode === 'wordorder') {
         userAnswer = state.wordSelected.join(' ').trim();
-        isCorrect = userAnswer === state.correctAnswer;
+        // Kelime sıralamada tam eşleşme (boşluklar dahil) gerektiği için bu modda tam kontrol kalır:
+        isCorrect = userAnswer === state.correctAnswer; 
     } else if (state.mode === 'quiz') {
         const input = document.getElementById('quizInput');
         userAnswer = (input && input.value.trim())||'';
-        isCorrect = userAnswer.toLowerCase() === (state.correctAnswer||'').toLowerCase();
+        isCorrect = normalizeString(userAnswer) === normalizedCorrectAnswer;
     }
+    // YAMA 1C KRİTİK DÜZELTME SONU
     
     const statusChanged = updateSrsStatusAfterQuiz(state.currentCardKey, isCorrect);
     
@@ -2469,8 +2606,11 @@ function previousQuestion(){
   if (state.mode === 'study') return;
   if(state.deckPos > 0){
       state.deckPos--;
+      
+      // KRİTİK SIFIRLAMA EKLENDİ (YAMA 1 - Devam)
       state.showAnswer=false;
       state.showResult=false;
+      
       state.currentCardKey = state.deck[state.deckPos];
       const parts = state.currentCardKey.match(/^(.*?)_s(\d+)_(\d+)$/);
       const verbId = parts[1], sectionNum = parts[2], sentenceIndex = parseInt(parts[3]);
@@ -2601,56 +2741,64 @@ function showCompletion(){
   document.getElementById('btnPlayTR').disabled = true; document.getElementById('btnPlayTR').classList.add('disabled');
 }
 function playCurrentSentence(lang, retryCount = 0) {
-    if (retryCount === 0) resetSpeechButtons();
+    if ('speechSynthesis' in window) {
+        const isCurrentlySpeaking = window.speechSynthesis.speaking;
+        const isPaused = window.speechSynthesis.paused;
+        
+        // KRİTİK TOGGLE MANTIĞI: Eğer konuşma varsa, durdur.
+        if (isCurrentlySpeaking || isPaused) {
+            window.speechSynthesis.cancel();
+            if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+            return; 
+        }
+    } else {
+        const t = getMergedTranslations(data.settings.language || 'tr');
+        alert(t.messages.ttsNotSupported);
+        return;
+    }
+    
     if (!state.currentCardData) return;
     const sent = state.currentCardData;
     const text = (lang === 'de') ? sent.de : sent.tr;
     const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
     if (!text) return;
+
     if (lang === 'de' && musicPlayer && musicPlayer.isPlaying && retryCount === 0) {
         musicPlayer.dim_music(true);
     }
-    if('speechSynthesis' in window){
-        const speakNow = () => {
-            const voices = window.speechSynthesis.getVoices();
-            if (voices.length === 0 && retryCount < 3) {
-                setTimeout(() => playCurrentSentence(lang, retryCount + 1), 500);
-                return;
-            }
-            const utter = new SpeechSynthesisUtterance(text);
-            utter.lang = langCode;
-            utter.rate = state.speechRate || 1;
-            let voice = null;
-            if (lang === 'de') {
-                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
-            }
-            if (!voice) {
-                voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
-            }
-            if (!voice && lang === 'de') {
-                 voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
-            }
-            if (voice) utter.voice = voice;
-            utter.onend = utter.onerror = () => {
-                if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
-                resetSpeechButtons();
-            };
-            window.speechSynthesis.cancel();
-            window.speechSynthesis.speak(utter);
-        };
-        if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && (navigator.userAgent.match(/iPad|iPhone|iPod/i) || navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i))) {
-             window.speechSynthesis.onvoiceschanged = function handler() {
-                window.speechSynthesis.onvoiceschanged = null; 
-                speakNow();
-            };
-            setTimeout(speakNow, 250);
-        } else {
-            speakNow();
+
+    const speakNow = () => {
+        const voices = window.speechSynthesis.getVoices();
+        if (voices.length === 0 && retryCount < 3) {
+            setTimeout(() => playCurrentSentence(lang, retryCount + 1), 500);
+            return;
         }
+        
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = langCode;
+        utter.rate = state.speechRate || 1;
+        
+        let voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
+        if (!voice) voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+        if (!voice && lang === 'de') voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+        if (voice) utter.voice = voice;
+        
+        utter.onend = utter.onerror = () => {
+            if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+        };
+        
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utter);
+    };
+
+    if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && (navigator.userAgent.match(/iPad|iPhone|iPod/i) || navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i))) {
+        window.speechSynthesis.onvoiceschanged = function handler() {
+            window.speechSynthesis.onvoiceschanged = null; 
+            speakNow();
+        };
+        setTimeout(speakNow, 250);
     } else {
-        const t = getMergedTranslations(data.settings.language || 'tr');
-        alert(t.messages.ttsNotSupported);
-        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+        speakNow();
     }
 }
 
@@ -2669,48 +2817,61 @@ function renderStoryContent(){
                    <div class="story-section"><h3>Türkçe</h3><div class="story-content" style="white-space: pre-wrap;">${escapeHtml(s.tr||'')}</div></div>`;
 }
 function playStoryAudio(lang, retryCount = 0) {
-    if (retryCount === 0) resetSpeechButtons();
+    if ('speechSynthesis' in window) {
+        const isCurrentlySpeaking = window.speechSynthesis.speaking;
+        const isPaused = window.speechSynthesis.paused;
+        
+        // KRİTİK TOGGLE MANTIĞI: Eğer konuşma varsa, durdur.
+        if (isCurrentlySpeaking || isPaused) {
+            window.speechSynthesis.cancel();
+            if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+            return; 
+        }
+    } else {
+        const t = getMergedTranslations(data.settings.language || 'tr');
+        alert(t.messages.ttsNotSupported);
+        return;
+    }
+
     const s = state.groupData && state.groupData.story;
     const t = getMergedTranslations(data.settings.language || 'tr');
     if (!s) { alert(t.messages.noStoryFound); return; }
+    
     const text = (lang === 'de') ? s.de : s.tr;
     const langCode = (lang === 'de') ? 'de-DE' : 'tr-TR';
     if (!text) return;
+    
     if (lang === 'de' && musicPlayer && musicPlayer.isPlaying && retryCount === 0) musicPlayer.dim_music(true);
-    if ('speechSynthesis' in window) {
-        const speakNow = () => {
-            const voices = window.speechSynthesis.getVoices();
-            if (voices.length === 0 && retryCount < 3) {
-                setTimeout(() => playStoryAudio(lang, retryCount + 1), 500);
-                return;
-            }
-            const utter = new SpeechSynthesisUtterance(text);
-            utter.lang = langCode;
-            utter.rate = state.speechRate || 1;
-            let voice = null;
-            if (lang === 'de') voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
-            if (!voice) voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
-            if (!voice && lang === 'de') voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
-            if (voice) utter.voice = voice;
-            utter.onend = utter.onerror = () => {
-                if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
-                resetSpeechButtons();
-            };
-            window.speechSynthesis.cancel();
-            window.speechSynthesis.speak(utter);
-        };
-        if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && (navigator.userAgent.match(/iPad|iPhone|iPod/i) || navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i))) {
-             window.speechSynthesis.onvoiceschanged = function handler() {
-                window.speechSynthesis.onvoiceschanged = null;
-                speakNow();
-            };
-            setTimeout(speakNow, 250);
-        } else {
-            speakNow();
+    
+    const speakNow = () => {
+        const voices = window.speechSynthesis.getVoices();
+        if (voices.length === 0 && retryCount < 3) {
+            setTimeout(() => playStoryAudio(lang, retryCount + 1), 500);
+            return;
         }
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = langCode;
+        utter.rate = state.speechRate || 1;
+        let voice = null;
+        if (lang === 'de') voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase() && /anna|markus/i.test(v.name));
+        if (!voice) voice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+        if (!voice && lang === 'de') voice = voices.find(v => v.lang.toLowerCase().startsWith('de'));
+        if (voice) utter.voice = voice;
+        utter.onend = utter.onerror = () => {
+            if (musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+        };
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utter);
+    };
+
+    if (window.speechSynthesis.getVoices().length === 0 && retryCount === 0 && (navigator.userAgent.match(/iPad|iPhone|iPod/i) || navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i))) {
+         window.speechSynthesis.onvoiceschanged = function handler() {
+             window.speechSynthesis.onvoiceschanged = null;
+             speakNow();
+         };
+         setTimeout(speakNow, 250);
     } else {
-        alert(t.messages.ttsNotSupported);
-        if (lang === 'de' && musicPlayer && musicPlayer.isPlaying) musicPlayer.dim_music(false);
+        speakNow();
     }
 }
 function showStoryQuestions(){
@@ -3212,6 +3373,8 @@ function showAdminStoryForm(area) {
       <label>${t.labels.group}</label>
       <select id="adm_st_group" class="select-field">${groupOptions}</select>
       <label>${t.labels.title}</label><input id="adm_st_title" class="input-field">
+      <label>Hikaye Başlığı (Türkçe - TR)</label><input id="adm_st_title" class="input-field">
+      <label>Hikaye Başlığı (Almanca - DE)</label><input id="adm_st_title_de" class="input-field">
       <label>${t.labels.deText}</label><textarea id="adm_st_de" class="textarea-field" rows="5"></textarea>
       <label>${t.labels.trText}</label><textarea id="adm_st_tr" class="textarea-field" rows="5"></textarea>
       <h5 style="margin-top:10px;">Hikaye Soruları (Quiz)</h5>
@@ -3226,13 +3389,20 @@ function showAdminStoryForm(area) {
         adminStoryLoadFields(); 
     }
 }
+// index.html, adminStoryLoadFields fonksiyonu
 function adminStoryLoadFields() {
     const gid = document.getElementById('adm_st_group').value;
     const g = data.groups.find(x => x.id === gid);
     const story = g ? g.story : null;
-    document.getElementById('adm_st_title').value = story ? story.title || '' : '';
+    
+    // TR Başlığını yükle (JSON'daki 'title' anahtarı)
+    document.getElementById('adm_st_title').value = story ? story.title || '' : ''; 
+    // DE Başlığını yükle (JSON'daki 'titleDE' anahtarı)
+    document.getElementById('adm_st_title_de').value = story ? story.titleDE || '' : '';
+    
     document.getElementById('adm_st_de').value = story ? story.de || '' : '';
     document.getElementById('adm_st_tr').value = story ? story.tr || '' : '';
+    
     const quizArea = document.getElementById('adm_st_quiz_area');
     quizArea.innerHTML = '';
     if (story && story.quiz) {
@@ -3257,11 +3427,16 @@ function adminStoryAddQuestion(q = null) {
     `;
     quizArea.appendChild(qDiv);
 }
+// index.html, adminSaveStory fonksiyonu
 function adminSaveStory() {
     const gid = document.getElementById('adm_st_group').value;
     const g = data.groups.find(x => x.id === gid);
     if (!g) { alert('Grup bulunamadı'); return; }
-    const title = document.getElementById('adm_st_title').value;
+    
+    // Formdan TR ve DE Başlıklarını al
+    const title = document.getElementById('adm_st_title').value; 
+    const titleDE = document.getElementById('adm_st_title_de').value; 
+    
     const de = document.getElementById('adm_st_de').value;
     const tr = document.getElementById('adm_st_tr').value;
     const quiz = [];
@@ -3273,7 +3448,8 @@ function adminSaveStory() {
             quiz.push({ q, options: opts, a });
         }
     });
-    g.story = { title, de, tr, quiz };
+    // title ve titleDE olarak kaydediliyor
+    g.story = { title, titleDE, de, tr, quiz }; 
     saveContentOverride();
     alert('Hikaye kaydedildi!');
 }
@@ -3578,6 +3754,20 @@ function forceUpdateApp() {
 }
 
 /* ---------- Utils ---------- */
+// Yeni: Büyük/küçük harf ve noktalama işaretlerinden arındırır (YAMA 1)
+function normalizeString(str) {
+    if (!str) return '';
+    // Noktalama işaretlerini, boşlukları ve harf büyüklüğünü temizler
+    return String(str)
+        .toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+        .replace(/\s{2,}/g, " ")
+        .trim();
+}
+
+// Orijinal escapeHtml fonksiyonunuzun hemen üstüne/altına eklenebilir.
+function escapeHtml(t){ if(t===undefined||t===null) return ''; return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+// ... (Diğer Utils fonksiyonları)
 // YENİ: Markdown İşleyici Fonksiyonu (Kılavuz/İpucu için CRITICAL FIX)
 function processGuideMarkdown(text) {
     if (!text) return '';
