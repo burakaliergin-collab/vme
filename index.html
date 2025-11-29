@@ -43,7 +43,35 @@
     padding: 0 12px; 
     width: 100%; /* Tam genişlik */
 }
-
+/* --- YILDIZ SİSTEMİ STİLLERİ --- */
+.star-rating-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+.star-rating-buttons .btn {
+    font-size: 1.2em;
+    padding: 5px 10px;
+    background: #e2e8f0;
+    color: #a0aec0;
+    border: none;
+    transition: color 0.2s, transform 0.1s;
+}
+.star-rating-buttons .btn:hover {
+    transform: scale(1.1);
+}
+/* Yıldız renkleri */
+.btn-star-filter.active, .star-active {
+    color: #ffc107; /* Altın Sarısı */
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    background: #fff8e1;
+    border: 1px solid #ffc107;
+}
+.btn-star-filter {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+}
 /* GRUP/HİKAYE GRIDİ - Şimdi butonu ve hikaye butonunu yan yana getirmek için 2 sütunlu grid */
 /* YAMA DÜZELTMESİ: GRUP/HİKAYE BUTON GRİDİ */
 .group-story-grid { 
@@ -102,6 +130,46 @@
   .group-select-header { text-align: center; margin-bottom: 12px; padding-top: 18px; } /* Margin azaltıldı */
   .group-select-header h2 { font-size: 2.5rem; color: #2d3748; font-weight: 800; letter-spacing: 2px; margin-bottom: 18px; }
   
+ /* --- ALAN (DOMAIN) SEKMELERİ --- */
+  .domain-tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+  }
+  
+  .domain-tab-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background: #f1f5f9;
+    color: #64748b;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+  }
+  
+  .domain-tab-btn:hover {
+    background: #e2e8f0;
+    color: #475569;
+  }
+  
+  .domain-tab-btn.active {
+    background: #667eea;
+    color: #fff;
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+  
+  /* Gece Modu Uyumu */
+  body.night-mode .domain-tabs-container { border-bottom-color: #334155; }
+  body.night-mode .domain-tab-btn { background: #1e293b; color: #94a3b8; }
+  body.night-mode .domain-tab-btn:hover { background: #334155; color: #e2e8f0; }
+  body.night-mode .domain-tab-btn.active { background: #3b82f6; color: #fff; border-color: #3b82f6; }
   /* YENİ: Başlıklar ve Butonlar için Eşit Grid Yapısı */
   .group-select-columns { 
       display: grid; 
@@ -752,16 +820,124 @@
 }
 
   }
+/* --- SPLASH SCREEN & NAVIGASYON STİLLERİ --- */
 
+/* Siyah Açılış Perdesi */
+#splashScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999; /* Her şeyin üstünde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Yavaşça kaybolma efekti */
+}
+
+/* Logo Animasyonu */
+.splash-logo {
+    max-width: 200px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: logoFadeIn 2s forwards; /* 2 saniyede belirsin */
+    pointer-events: none;
+}
+
+@keyframes logoFadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); } /* Hafif büyüsün */
+    100% { opacity: 1; transform: scale(1); } /* Normale dönsün */
+}
+
+/* Sınıf Butonu Stili */
+#classNavBtn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s;
+}
+#classNavBtn:active { transform: scale(0.95); }
+
+/* Splash bittiğinde bu class eklenir ve ekranı yok eder */
+.splash-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+/* Karşılama Ekranı İyileştirmesi */
+#welcomeView {
+    /* Arka plan şeffaf kalsın ki body'nin güzel gradient'i görünsün */
+    background: transparent; 
+}
+/* Butonların mobilde düzgün durması için */
+#classSelectionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+/* --- KONU (BÖLÜM) BUTONLARI İÇİN EŞİTLEME DÜZELTMESİ --- */
+
+/* 1. Izgara (Grid) Yapısı: Kutuları eşitler */
+#sectionButtons.button-grid {
+    display: grid;
+    /* Kutuların en az 200px genişliğinde olmasını, sığmazsa alt satıra geçmesini sağlar */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important; 
+    gap: 15px; /* Kutular arası boşluk */
+    align-items: stretch; /* Tüm kutuları en uzun olanın boyuna eşitler */
+}
+
+/* 2. Buton Stili: İçeriği ortalar ve taşmayı önler */
+#sectionButtons .btn {
+    width: 100%;
+    height: 100%; /* Izgara hücresinin tüm yüksekliğini kapla */
+    display: flex;
+    flex-direction: column; /* İçeriği alt alta diz */
+    justify-content: center; /* Dikeyde ortala */
+    align-items: center; /* Yatayda ortala */
+    text-align: center; /* Metni ortala */
+    
+    /* Metin Ayarları */
+    white-space: normal !important; /* Metni alt satıra indir */
+    word-wrap: break-word; /* Çok uzun kelimeleri böl (Almanca için kritik) */
+    overflow-wrap: break-word;
+    
+    padding: 15px;
+    min-height: 100px; /* En az bu kadar yüksek olsun */
+}
+
+/* Mobilde daha geniş görünmesi için ayar */
+@media(max-width: 768px) {
+    #sectionButtons.button-grid {
+        grid-template-columns: 1fr 1fr !important; /* Mobilde yan yana 2 kutu olsun */
+    }
+}
 </style>
 </head>
 <body>
+<div id="splashScreen">
+    <img src="logo.png" alt="Logo" class="splash-logo">
+</div>
+
+<div id="welcomeView" class="view" style="z-index: 3000;">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center;">
+        <h1 style="color: #ffffff; font-size: 2.8rem; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">Hoş Geldiniz!</h1>
+        <p style="color: #e2e8f0; font-size: 1.2rem; margin-bottom: 40px; max-width: 500px;">Lütfen çalışmak istediğiniz Almanca seviyesini seçin.</p>
+        
+        <div id="classSelectionContainer" class="button-grid" style="max-width: 600px; width: 100%; justify-content: center;">
+            </div>
+    </div>
+</div>
 <div id="musicPlayerContainer" class="music-player-container">
     <button id="musicToggleBtn" class="music-toggle-btn" title="Müzik Çal/Durdur">🔊</button>
     <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="music-volume-slider" style="display: none;">
 </div>
 
 <div id="floatingNavTopRight">
+    <button id="classNavBtn" class="floating-nav-btn" style="width: auto; padding: 0 15px; border-radius: 20px; font-weight: bold; font-size: 1rem;" onclick="openClassSelection()">A1</button>
+    
     <button id="floatingGuideBtn" class="floating-nav-btn" title="Kullanım Kılavuzu" onclick="showGuide()">⭐</button>
     <button id="modeToggleBtn" class="floating-nav-btn" title="Gece/Gündüz toggle">🌙</button>
 </div>
@@ -775,14 +951,17 @@
     <div class="subtitle" id="appSubtitle" data-translate-key="app.subtitle">Fiiller İle Almanca Öğrenme Platformu</div>
   </header>
 
-  <div id="mainMenu" class="view active">
-    <div class="button-grid">
-      <button class="btn btn-primary" id="btnCalis" data-translate-key="menu.calis" onclick="loadAndShowGroupMenu()">📚 Çalış</button>
-      <button class="btn btn-info" id="btnTekrar" data-translate-key="menu.tekrar" onclick="showView('tekrarMenu')">🔄 Tekrar</button>
-      <button class="btn btn-warning" id="btnProgress" data-translate-key="menu.progress" onclick="showView('progress')">📊 İlerleme</button>
-      <button class="btn btn-secondary" id="btnSettings" data-translate-key="menu.settings" onclick="showView('settings')">⚙️ Ayarlar</button>
-    </div>
+ <div id="mainMenu" class="view active">
+  <div class="button-grid">
+    <button class="btn btn-primary" id="btnCalis" data-translate-key="menu.calis" onclick="loadAndShowGroupMenu()">📚 Çalış</button>
+    <button class="btn btn-ai" id="mixedModeBtn" onclick="openMixedModeSettings()">
+        ⭐ Karma Mod / Düzenle
+    </button>
+    <button class="btn btn-info" id="btnTekrar" data-translate-key="menu.tekrar" onclick="showView('tekrarMenu')">🔄 Tekrar</button>
+    <button class="btn btn-warning" id="btnProgress" data-translate-key="menu.progress" onclick="showView('progress')">📊 İlerleme</button>
+    <button class="btn btn-secondary" id="btnSettings" data-translate-key="menu.settings" onclick="showView('settings')">⚙️ Ayarlar</button>
   </div>
+</div>
 
   <div id="tekrarMenu" class="view">
     <h2 class="large-centered-title" data-translate-key="titles.tekrar">🔄 TEKRAR</h2>
@@ -840,7 +1019,6 @@
     <h2 class="section-title" data-translate-key="titles.verbSelect">FİİL SEÇ</h2>
     <div id="verbButtons" class="button-grid"></div>
     </div>
-
   <div id="sectionMenu" class="view">
     <h2 class="section-title" data-translate-key="titles.sectionSelect">BÖLÜM SEÇ</h2>
     <div id="sectionButtons" class="button-grid"></div>
@@ -866,7 +1044,7 @@
       <div class="progress-bar"><div id="progressFill" class="progress-fill">0%</div></div>
       <div style="text-align:center;margin-top:8px;font-weight:700;"><span id="progressText">0 / 0</span></div>
     </div>
-    <div class="content-box">
+      <div class="content-box">
       <div id="learningContent"></div>
       <div id="hintPanel" class="hint-area" style="display:none"></div>
       <div id="resultArea"></div>
@@ -1047,6 +1225,7 @@
       <button class="btn btn-warning" onclick="showGroupVerbImporter()">🏗️ Grup & Fiil Yükle</button>
       <button class="btn btn-info" onclick="showTsvImporter()">📊 Toplu Cümle Yükle</button>
       <button class="btn btn-secondary" onclick="showView('adminSentenceListView')" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</button>
+      <button class="btn btn-success" onclick="showView('adminDataManagementView')">💾 Gelişmiş Veri Yönetimi</button> 
     </div>
 
     <div id="adminGroupVerbArea" class="content-box" style="display:none; margin-top: 15px; border-color: #fbd38d;">
@@ -1060,8 +1239,8 @@
         <div class="button-group-row">
             <button class="btn btn-warning" onclick="parseAndImportGroupsAndVerbs()">✅ <span data-translate-key="buttons.pasteAndLoadTsv">Yükle ve İşle</span></button>
             <button class="btn btn-danger" onclick="document.getElementById('adminGroupVerbArea').style.display='none'" data-translate-key="buttons.cancel">İptal</button>
-        </div>
-    </div>
+      </div>
+ </div>
 
     <div id="adminTsvArea" class="content-box" style="display:none; margin-top: 15px; border-color: #10b981;">
         <h4 data-translate-key="admin.tsvTitle">📊 Toplu Cümle Yükleme (Excel'den Kopyala-Yapıştır)</h4>
@@ -1081,13 +1260,20 @@
   <div id="adminContentView" class="view">
      <h2 class="section-title" data-translate-key="admin.contentManagement">📚 İçerik Yönetimi</h2>
      <div class="button-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
-        <button class="btn btn-warning" onclick="showAdminForm('groupOrder')">↕️ Sıralamayı Düzenle (Gruplar)</button>  <button class="btn btn-primary" onclick="showAdminForm('addGroup')">➕ <span data-translate-key="admin.addGroup">Grup Ekle/Düzenle</span></button>
+        
+
+
+        <button class="btn btn-secondary" onclick="showAdminForm('editSentence')">✏️ <span data-translate-key="admin.editSentence">Cümle Ekle/Düzenle</span></button>  
         <button class="btn btn-danger" onclick="showView('adminBulkEditView')">✏️ Toplu Cümle Düzenle</button>
+        <button class="btn btn-primary" onclick="showAdminForm('addGroup')">➕ <span data-translate-key="admin.addGroup">Grup Ekle/Düzenle</span></button>
         <button class="btn btn-primary" onclick="showAdminForm('addVerb')">➕ <span data-translate-key="admin.addVerb">Fiil Ekle/Düzenle</span></button>
-        <button class="btn btn-primary" onclick="showAdminForm('addSection')">➕ <span data-translate-key="admin.addSection">Bölüm Ekle/Düzenle</span></button>
+        <button class="btn btn-primary" onclick="showAdminForm('addSection')">➕ <span data-translate-key="admin.addSection">Konu Havuzu Ekle/Düzenle</span></button>
         <button class="btn btn-info" onclick="showAdminForm('addStory')">➕ <span data-translate-key="admin.addStory">Hikaye Ekle/Düzenle</span></button>
         <button class="btn btn-info" onclick="showAdminForm('addHint')">💡 <span data-translate-key="admin.hintManagement">İpucu Ekle/Düzenle</span></button>
-        <button class="btn btn-secondary" onclick="showAdminForm('editSentence')">✏️ <span data-translate-key="admin.editSentence">Cümle Ekle/Düzenle</span></button>
+        
+        <button class="btn btn-warning" onclick="showAdminForm('groupOrder')">↕️ Sıralamayı Düzenle (Gruplar)</button> 
+        <button class="btn btn-warning" onclick="showAdminForm('classManagement')">🎓 Sınıf Yönetimi</button>
+        <button class="btn btn-warning" onclick="showAdminForm('domainManager')">📂 Alan (Kategori) Yönetimi</button>
         <button class="btn btn-primary" onclick="showAdminForm('editGuide')">⭐ <span data-translate-key="admin.editGuide">Kılavuz Metnini Düzenle</span></button>
      </div>
      <div id="adminContentArea" class="content-box" style="margin-top: 15px; display: none;">
@@ -1105,31 +1291,144 @@
     </div>
     </div>
   <div id="adminBulkEditView" class="view">
-    <h2 class="section-title">✏️ Toplu Cümle Yönetimi</h2>
+    <h2 class="large-centered-title">Toplu Cümle Düzenleme</h2>
+    
     <div class="content-box">
-        <h4 style="margin-bottom: 15px;">Filtreleme ve Yönetim</h4>
-        <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
-            <label>Grup:</label>
-            <select id="bulk_edit_group" class="select-field" style="flex: 1; min-width: 150px;"></select>
-            <label>Fiil:</label>
-            <select id="bulk_edit_verb" class="select-field" style="flex: 1; min-width: 150px;"></select>
-            <label>Bölüm:</label>
-            <select id="bulk_edit_section" class="select-field" style="flex: 1; min-width: 150px;"></select>
+        <div class="button-group-row" style="align-items: flex-end; gap: 10px;">
+            
+            <div style="flex-grow: 1;">
+                <label style="display:block; margin-bottom:5px; font-weight:bold;">1. Fiil Seçin</label>
+                <select id="bulk_edit_verb" class="select-field" onchange="bulkEditLoadSections()">
+                    <option value="">Yükleniyor...</option>
+                </select>
+            </div>
+
+            <div style="flex-grow: 1;">
+                <label style="display:block; margin-bottom:5px; font-weight:bold;">2. Konu Seçin</label>
+                <select id="bulk_edit_section" class="select-field" onchange="bulkEditLoadSentences()">
+                    <option value="">Önce Fiil Seçin</option>
+                </select>
+            </div>
+            
+            <div>
+                <button class="btn btn-secondary" onclick="fillBulkEditSelectors()" title="Listeyi Yenile">🔄</button>
+            </div>
         </div>
 
-        <div class="button-group-row" style="margin-bottom:15px;">
-            <button class="btn btn-primary" onclick="adminSaveBulkEdit()">💾 Tüm Değişiklikleri Kaydet</button>
-            <button class="btn btn-info" onclick="loadBulkEditTable()">🔄 Listeyi Yükle/Yenile</button>
-            <button class="btn btn-secondary" onclick="adminAddNewSentencePrompt()">➕ Yeni Cümle Ekle</button>
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #ccc;">
+            <button class="btn btn-warning" style="width: 100%;" onclick="adminStartBatchAnalysis()">
+                🧠 YZ Toplu Analiz & İpucu Üret (Seçili Liste İçin)
+            </button>
+             <p class="small-muted" style="margin-top:5px; text-align:center;">
+                Not: "Tüm Bölümler" seçiliyken bu işlem uzun sürebilir. Sunucunun (server.js) açık olduğundan emin olun.
+            </p>
+        </div>
+    </div>
+
+    <div id="bulkEditTableContainer" class="content-box" style="margin-top: 20px;">
+        <p style="text-align:center; color:#718096;">Lütfen yukarıdan Fiil ve Konu seçiniz.</p>
+    </div>
+
+    <div class="button-group-row">
+        <button class="btn btn-secondary" onclick="showView('adminContentView')">← Geri Dön</button>
+    </div>
+</div>
+<div id="mixedModeSettingsView" class="view">
+    <h2 class="large-centered-title">⭐ YILDIZLI KONU LİSTESİ (KARMA MOD)</h2>
+    <div id="starRatingFilterArea" class="button-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+        <button class="btn btn-secondary btn-star-filter active" onclick="loadMixedModeSettings(0)">TÜMÜ</button>
+        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(1)">⭐ 1</button>
+        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(2)">⭐⭐ 2</button>
+        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(3)">⭐⭐⭐ 3</button>
+    </div>
+    
+    <div class="primary-action-container" style="margin-top: 15px;">
+      <button class="btn btn-primary" id="startMixedModeBtn" onclick="startMixedMode()">
+        📚 Yıldızlı Konularla Çalışmaya Başla
+      </button>
+    </div>
+
+    <div id="mixedModeTopicList" class="button-grid" style="margin-top: 20px;">
+        </div>
+</div>
+<div id="adminDataManagementView" class="view">
+    <h2 class="section-title">💾 Gelişmiş Veri Yönetimi</h2>
+
+    <div id="adminDataManagement" class="content-box">
+        <h3 style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom:10px;">Yapılandırma & Yedekleme Araçları</h3>
+
+        <div style="margin-bottom: 20px;">
+            <h4 class="small-title">A. Tam Sistem Yedeği (JSON)</h4>
+            <p class="small-muted">Tüm ayarları, ilerlemeyi ve içerikleri tek dosya olarak indirip yükler.</p>
+            <div class="button-group-row">
+                <button class="btn btn-secondary" onclick="exportData()">⬇️ Tam Yedeği İndir (.json)</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">⬆️ Yedek Yükle</button>
+            </div>
         </div>
 
-        <div id="bulkEditTableContainer" style="max-height: 70vh; overflow-y: auto;">
-            <p class="small-muted">Filtreleme alanlarını kullanarak bir Grup, Fiil ve Bölüm seçin, ardından "Listeyi Yükle/Yenile" butonuna basın.</p>
+        <div style="margin-bottom: 20px; background: #f0fff4; padding: 15px; border-radius: 8px; border: 1px dashed #48bb78;">
+            <h4 class="small-title" style="color:#2f855a;">B. Alan & Grup & Fiil Yapılandırması (TSV)</h4>
+            <p class="small-muted">Format: <b>AlanID | AlanTR | AlanDE | GrupID | GrupAdı | FiilID | FiilTR | FiilDE</b></p>
+            
+            <div class="button-group-row">
+                <button class="btn btn-primary" onclick="downloadStructureTSV()">⬇️ Yapıyı İndir (Txt)</button>
+                <button class="btn btn-warning" onclick="toggleStructureImport()">⬆️ Yapısal Veri Yükle</button>
+            </div>
+
+            <div id="structureImportArea" style="display:none; margin-top: 15px;">
+                <textarea id="structureInput" class="textarea-field" rows="10" placeholder="Örn: mesleki|Mesleki Almanca|Beruf|g1|Ofis|v1|yazmak|schreiben..."></textarea>
+                <div style="text-align: right; margin-top: 5px;">
+                    <button class="btn btn-success" onclick="processStructureImport()">✅ Verileri İşle ve Kaydet</button>
+                </div>
+                <p class="small-muted" style="color:red;">Uyarı: Bu işlem Alan ve Grup yapınızı günceller.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px; background: #fff5f5; padding: 15px; border-radius: 8px; border: 1px dashed #fc8181;">
+            <h4 class="small-title" style="color:#c53030;">C. ID Değiştirme ve Veri Taşıma Sihirbazı</h4>
+            <p class="small-muted">Bir Grubun veya Fiilin ID'sini değiştirirseniz, içindeki cümleleri kaybetmemek için buradan taşıma yapmalısınız.</p>
+            
+            <div class="button-group-row" style="align-items: flex-end;">
+                <div style="flex-grow:1;">
+                    <label style="font-size:0.8rem; font-weight:bold;">Türü Seçin</label>
+                    <select id="mig_type" class="select-field">
+                        <option value="verb">Fiil ID'si Taşı (v1 -> meslek_v1)</option>
+                        <option value="group">Grup ID'si Taşı (g1 -> meslek_g1)</option>
+                    </select>
+                </div>
+                <div style="flex-grow:1;">
+                    <label style="font-size:0.8rem; font-weight:bold;">Eski ID</label>
+                    <input type="text" id="mig_old_id" class="input-field" placeholder="Örn: v1">
+                </div>
+                <div style="flex-grow:1;">
+                    <label style="font-size:0.8rem; font-weight:bold;">Yeni ID</label>
+                    <input type="text" id="mig_new_id" class="input-field" placeholder="Örn: meslek_v1">
+                </div>
+                <button class="btn btn-danger" onclick="executeMigration()">🚀 Taşı</button>
+            </div>
+            <p id="mig_result" class="small-muted" style="margin-top:10px; color:#2f855a; font-weight:bold;"></p>
+        </div>
+
+        <div style="margin-bottom: 20px; background: #fffaf0; padding: 15px; border-radius: 8px; border: 1px dashed #ed8936;">
+            <h4 class="small-title" style="color:#c05621;">D. Konu Numarasını Değiştir (Başlık + İçerik)</h4>
+            <p class="small-muted">Bir konunun numarasını değiştirdiğinizde, o konuya ait başlık ve tüm cümleler yeni numaraya taşınır.</p>
+            
+            <div class="button-group-row" style="align-items: flex-end;">
+                <div style="flex-grow:1;">
+                    <label style="font-size:0.8rem; font-weight:bold;">Mevcut Numara</label>
+                    <input type="number" id="mov_old_sec" class="input-field" placeholder="Örn: 6">
+                </div>
+                <div style="flex-grow:1;">
+                    <label style="font-size:0.8rem; font-weight:bold;">Yeni Numara</label>
+                    <input type="number" id="mov_new_sec" class="input-field" placeholder="Örn: 16">
+                </div>
+                
+                <button class="btn btn-warning" onclick="changeTopicNumberSystem()">🔄 Numarayı Değiştir</button>
+            </div>
+            <p id="mov_result" class="small-muted" style="margin-top:10px; color:#c05621; font-weight:bold;"></p>
         </div>
     </div>
 </div>
-</div>
-
 <input type="file" id="fileInput" accept=".json" style="display:none">
 <input type="file" id="progressFileInput" accept=".json" style="display:none">
 <script>
@@ -1139,16 +1438,205 @@
 
 /* ---------------- Varsayılan Veri --------------- */
 let data = {
-  groups: [ { id: "g1", name: "Varsayılan Grup", nameDE: "Standardgruppe" } ],
+  // YENİ: Sınıflar Yapısı (A1, A2, B1 listesi)
+  classes: [
+    { id: 'A1', name: 'A1 (Başlangıç)', nameDE: 'A1 (Anfänger)' },
+    { id: 'A2', name: 'A2 (Temel)', nameDE: 'A2 (Grundlagen)' },
+    { id: 'B1', name: 'B1 (Orta)', nameDE: 'B1 (Mittelstufe)' },
+    { id: 'B2', name: 'B2 (Orta İleri)', nameDE: 'B2 (Obere Mittelstufe)' },
+    { id: 'C1', name: 'C1 (Uzman)', nameDE: 'C1 (Fortgeschrittenes Niveau)' },
+    { id: 'K', name: '⭐ Karma Mod', nameDE: '⭐ Mixed Mode' }
+  ],
+
+  domains: [
+    { id: 'gunluk', name: 'Günlük Hayat', nameDE: 'Alltag' },
+    { id: 'mesleki', name: 'Mesleki Almanca', nameDE: 'Beruf' },
+    { id: 'gramer', name: 'Gramer', nameDE: 'Grammatik' }
+  ],
+  
+  categories: [
+    { 
+        id: 'c_gunluk', 
+        name: 'GÜNLÜK HAYAT', 
+        domain_id: 'gunluk',
+        group_ids: [
+            'g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'g7', 'g8', 'g9', 'g10', 
+            'g11', 'g12', 'g13', 'g14', 'g15', 'g16', 'g17', 'g18', 'g19', 'g20'
+        ]
+    },
+    { 
+        id: 'c_mesleki', 
+        name: 'MESLEKİ ALMANCA', 
+        domain_id: 'mesleki',
+        group_ids: [
+            'g21', 'g22', 'g23', 'g24', 'g25', 'g26', 'g27', 'g28', 'g29', 'g30',
+            'g31', 'g32', 'g33', 'g34', 'g35', 'g36', 'g37'
+        ]
+    }
+  ],
+
+
+  
   verbs: { g1: [ { id:'v1', verbTR:'Yükleniyor...', verbDE:'Laden...' } ] },
   content: {},
-  sections: { 1: "Bölüm 1" },
-  hints: { sentences: {}, verbs: {}, sections: {} },
-  // KRİTİK EKLENTİ: Kılavuz Metni
-  guideText: { 
-      title: "Kullanım Kılavuzu", 
-      content: "Kılavuz metni henüz ayarlanmadı. Admin panelinden düzenleyebilirsiniz." 
-  }, 
+  
+// index.html, let data = { ... } bloğunun içi
+groups: [
+    // --- GÜNLÜK HAYAT (1 - 20) ---
+    { id: 'g1', name: 'ALGI & İLETİŞİM (Wahrnehmung & Kommunikation)', description: 'görmek, dinlemek, göstermek' },
+    { id: 'g2', name: 'BESLENME & ZEVK (Ernährung & Genuss)', description: 'getirmek, tadı gelmek, yemek' },
+    { id: 'g3', name: 'İLETİŞİM & YAZIŞMA (Kommunikation & Korrespondenz)', description: 'cevap vermek, okumak, yazmak' },
+    { id: 'g4', name: 'ÖĞRENME & AÇIKLAMA (Lernen & Erklären)', description: 'açıklamak, öğrenmek, seyretmek' },
+    { id: 'g5', name: 'YARATICILIK & YAPIM (Kreativität & Herstellung)', description: 'vermek, yapmak, yardım etmek' },
+    { id: 'g6', name: 'HAREKET & TAKİP (Bewegung & Folgen)', description: 'alıp getirmek, almak, takip etmek' },
+    { id: 'g7', name: 'İHTİYAÇ & TEDARİK (Bedarf & Beschaffung)', description: 'eksik olmak, göndermek, ihtiyaç duymak' },
+    { id: 'g8', name: 'TİCARET & DEĞİŞİM (Handel & Austausch)', description: 'ait olmak, satın almak, satmak' },
+    { id: 'g9', name: 'KEŞİF & ARAŞTIRMA (Entdeckung & Forschung)', description: 'bulmak, karşılaşmak, tavsiye etmek' },
+    { id: 'g10', name: 'ARAMA & ULAŞMA (Suchen & Erreichen)', description: 'aramak, söz vermek, uymak' },
+    { id: 'g11', name: 'DUYGUSAL BAĞ (Emotionale Bindung)', description: 'hediye etmek, hoşuna gitmek, sevmek' },
+    { id: 'g12', name: 'TERCİH & BEĞENİ (Präferenz & Vorliebe)', description: 'dilemek, güvenmek, hoşlanmak' },
+    { id: 'g13', name: 'HAFIZA & KAYIP (Gedächtnis & Verlust)', description: 'acımak, ağrımak, ödünç vermek, unutmak' },
+    { id: 'g14', name: 'KAYIP & BULMA (Verlust & Finden)', description: 'faydalı olmak, kaybetmek, ödünç almak/vermek' },
+    { id: 'g15', name: 'ALMA & EDİNME (Bekommen & Erhalten)', description: 'almak, elde etmek, teklif/ikram etmek, teşekkür etmek' },
+    { id: 'g16', name: 'ERİŞİM & KONTROL (Zugang & Kontrolle)', description: 'açmak, anlatmak, tebrik etmek' },
+    { id: 'g17', name: 'KAPAMA & KORUMA (Schließen & Schutz)', description: 'kapatmak, tedarik etmek, zarar vermek' },
+    { id: 'g18', name: 'SES & DUYUM (Schall & Gehör)', description: 'duymak, göndermek, tehdit etmek' },
+    { id: 'g19', name: 'İÇECEK & TÜKETİM (Getränk & Konsum)', description: 'içmek, önce davranmak, yanında getirmek' },
+    { id: 'g20', name: 'SUÇ & AFFETME (Verbrechen & Vergebung)', description: 'affetmek, çalmak, soymak' },
+
+    // --- MESLEKİ ALMANCA (21 - 37) ---
+    { id: 'g21', name: 'PAKET TESLİM SÜRECİ (Paketzustellung)', description: 'almak, toplamak, yardım etmek, teslim etmek' },
+    { id: 'g22', name: 'ADRES BULMA VE YÖNLENDİRME (Adressfindung & Navigation)', description: 'aramak, takip etmek, göstermek' },
+    { id: 'g23', name: 'BELGE VE İMZA İŞLEMLERİ (Dokumente & Unterschrift)', description: 'imzalamak, teşekkür etmek, uzatmak' },
+    { id: 'g24', name: 'İLETİŞİM VE BİLDİRİM (Kommunikation & Benachrichtigung)', description: 'taramak, cevap vermek, göndermek' }, 
+    { id: 'g25', name: 'YÜKLEME VE PAKETLEME (Verladen & Verpacken)', description: 'yüklemek, güvenmek, vermek' }, 
+    { id: 'g26', name: 'TAŞIMA VE TRANSFER (Transport & Übergabe)', description: 'taşımak, rastlamak, götürmek' }, 
+    { id: 'g27', name: 'SINIFLANDIRMA VE DÜZENLEME (Klassifizierung & Sortierung)', description: 'sınıflandırmak, dinlemek, açıklamak' }, 
+    { id: 'g28', name: 'KONTROL VE DENETLEME (Kontrolle & Prüfung)', description: 'kontrol etmek, yardım etmek, göstermek' }, 
+    { id: 'g29', name: 'YER BULMA VE TESPİT (Ortung & Feststellung)', description: 'bulmak, takip etmek, söylemek' }, 
+    { id: 'g30', name: 'ARAÇ BAKIMI VE HAZIRLIK (Fahrzeugwartung & Vorbereitung)', description: 'kontrol etmek, güvenmek, vermek' }, 
+    { id: 'g31', name: 'PARK VE YAKIT İŞLEMLERİ (Parken & Kraftstoff)', description: 'park etmek, teşekkür etmek, teslim etmek' }, 
+    { id: 'g32', name: 'ENERJİ VE ŞARJ (Energie & Aufladung)', description: 'yakıt almak, yardım etmek, götürmek' }, 
+    { id: 'g33', name: 'ŞARJ VE YÜKLEME (Aufladung & Verladen)', description: 'yüklemek, şarj etmek, güvenmek, uzatmak' }, 
+    { id: 'g34', name: 'PAKETLEME VE HAZIRLIK (Verpackung & Vorbereitung)', description: 'paketlemek, dinlemek, göndermek' }, 
+    { id: 'g35', name: 'YÜKLEME VE BOŞALTMA (Be- und Entladen)', description: 'yüklemek, cevap vermek, teslim etmek' }, 
+    { id: 'g36', name: 'AÇMA VE KAPAMA (Öffnen & Schließen)', description: 'açmak, rastlamak, göstermek' }, 
+    { id: 'g37', name: 'KAPAMA VE RAPORLAMA (Abschluss & Berichterstattung)', description: 'kapatmak, teşekkür etmek, rapor etmek' } 
+  ],
+// 1. YENİ KONU HAVUZU (50 Madde)
+  topicPool: {
+    1: "KİŞİ ZAMİRLERİ (Personalpronomen)",
+    2: "NESNELER TEKİL - (Objekte Singular)",
+    3: "NESNELER ÇOĞUL - (Objekte Plural)",
+    4: "KİŞİ ZAMİRİ NESNELERİ (Objektpronomen)",
+    5: "EMİR CÜMLELERİ (Imperativ)",
+    6: "SAHİPLİK ZAMİRLERİ (Possessivpronomen)",
+    7: "W-FRAGEN (Soru Kelimeleri)",
+    8: "OLUMSUZ - (Negation)",
+    9: "EDATLAR (Präpositionen)",
+    10: "ZARFLAR (Adverbien)",
+    11: "GEÇMİŞ ZAMAN (PERFEKT)",
+    12: "MODAL VERBEN",
+    13: "AKK+DAT KULLANIMI (Çift Nesne)",
+    14: "PRÄTERITUM (GEÇMİŞ ZAMAN)",
+    15: "MODAL VERBEN + KARMAŞIK CÜMLELER",
+    16: "SIFAT ÇEKİMLERİ (Adjektivdeklination)",
+    17: "DASS-CÜMLELERİ (Nebensätze)",
+    18: "WEIL-CÜMLELERİ (Kausalsätze)",
+    19: "WENN-CÜMLELERİ (Konditionalsätze)",
+    20: "ZAMAN İFADELERİ (Temporale Angaben)",
+    21: "PLUSQUAMPERFEKT (Önceki Geçmiş)",
+    22: "FUTUR I - (GELECEK ZAMAN I)",
+    23: "PASSİV PRÄSENS (Edilgen Şimdiki Zaman)",
+    24: "PASSİV PERFEKT (Edilgen Geçmiş Zaman)",
+    25: "KONJUNKTIV II (İstek Kipi - höfliche Bitte)",
+    26: "WENN-CÜMLELERİ (Şart Cümleleri - Irreal)",
+    27: "OBWOHL-CÜMLELERİ (Konzessivsätze)",
+    28: "RELATIVSÄTZE (İlgi Cümleleri)",
+    29: "İNDİREKT REDE (Dolaylı Anlatım - Basit)",
+    30: "ÜSTÜNLÜK (Superlativ)",
+    31: "PLUSQUAMPERFEKT (Önceki Geçmiş Zaman - Tekrar)",
+    32: "FUTUR II (Gelecekte Tamamlanmış)",
+    33: "KONJUNKTIV II - GEÇMİŞ",
+    34: "PASSİV MIT MODALVERBEN",
+    35: "NOMINALISIERUNG (İsimleştirme)",
+    36: "PARTIZIP I & II ALS ADJEKTIV",
+    37: "WÄHREND-CÜMLELERİ (Zamansallık)",
+    38: "DAMIT/UM...ZU (Amaç Cümleleri)",
+    39: "JE...DESTO (Karşılaştırmalı Cümleler)",
+    40: "ALTERNATIF EDATLAR (Genitiv vb.)",
+    41: "KONJUNKTIV I (Dolaylı Anlatım - İleri)",
+    42: "PASSİV ERSATZFORMEN (Pasif Alternatifleri)",
+    43: "ERWEITERTE PARTIZIPIALKONSTRUKTIONEN",
+    44: "FUNKTIONSVERBGEFÜGE (İşlevsel Fiil Öbekleri)",
+    45: "NOMINALISIERTE İNFİNİTİVE",
+    46: "MODALPARTIKELN (Modal Parçacıklar)",
+    47: "KONZESSIVE KONNEKTOREN",
+    48: "ADVERSATIVE KONNEKTOREN",
+    49: "SUBJEKTIVE MODALVERBEN",
+    50: "KAUSAL/KONDITIONAL KOMPLEKS"
+  },
+
+  // 2. SINIFLARA GÖRE DAĞILIM (A1 - C1)
+  topics: {
+    "A1": {
+        1: "KİŞİ ZAMİRLERİ",
+        2: "NESNELER TEKİL",
+        3: "NESNELER ÇOĞUL",
+        4: "KİŞİ ZAMİRİ NESNELERİ",
+        5: "EMİR CÜMLELERİ",
+        6: "SAHİPLİK ZAMİRLERİ",
+        7: "W-FRAGEN",
+        8: "OLUMSUZ (Negation)",
+        9: "EDATLAR (Temel)",
+        10: "ZARFLAR (Temel)"
+    },
+    "A2": {
+        11: "PERFEKT (Geçmiş Zaman)",
+        12: "MODAL VERBEN",
+        13: "AKK+DAT (Çift Nesne)",
+        14: "PRÄTERITUM",
+        15: "MODAL + KARMAŞIK",
+        16: "SIFAT ÇEKİMLERİ",
+        17: "DASS-CÜMLELERİ",
+        18: "WEIL-CÜMLELERİ",
+        19: "WENN-CÜMLELERİ",
+        20: "ZAMAN İFADELERİ"
+    },
+    "B1": {
+        21: "PLUSQUAMPERFEKT",
+        22: "FUTUR I",
+        23: "PASSİV PRÄSENS",
+        24: "PASSİV PERFEKT",
+        25: "KONJUNKTIV II (İstek)",
+        26: "WENN (Şart - Irreal)",
+        27: "OBWOHL (Rağmen)",
+        28: "RELATIVSÄTZE",
+        29: "DOLAYLI ANLATIM (Basit)",
+        30: "SUPERLATIV"
+    },
+    "B2": {
+        32: "FUTUR II",
+        33: "KONJUNKTIV II (Geçmiş)",
+        34: "PASSİV + MODAL",
+        35: "İSİMLEŞTİRME",
+        36: "PARTIZIP SIFATLAR",
+        37: "WÄHREND (İken)",
+        38: "DAMIT / UM...ZU",
+        39: "JE...DESTO",
+        40: "İLERİ EDATLAR"
+    },
+    "C1": {
+        41: "KONJUNKTIV I (Haber)",
+        42: "PASİF ALTERNATİFLERİ",
+        43: "PARTIZIPIALKONSTRUKTIONEN",
+        44: "FUNKTIONSVERBGEFÜGE",
+        46: "MODALPARTIKELN",
+        49: "SUBJEKTIVE MODALVERBEN"
+    }
+  },
+
+  // ... (content, hints, guideText vb. aynı kalacak) ...
   translations: {
     tr: {
       app: { subtitle: 'Fiiller İle Almanca Öğrenme Platformu' },
@@ -1206,7 +1694,7 @@ let data = {
       admin: {
         contentManagement: '📚 İçerik Yönetimi',
         listAllSentences: '📋 Tüm Cümleleri Listele',
-        addGroup: 'Grup Ekle/Düzenle', addVerb: 'Fiil Ekle/Düzenle', addSection: 'Bölüm Ekle/Düzenle',
+        addGroup: 'Grup Ekle/Düzenle', addVerb: 'Fiil Ekle/Düzenle', addSection: 'Konu Ekle/Düzenle',
         editSentence: 'Cümle Ekle/Düzenle', addStory: 'Hikaye Ekle/Düzenle',
         hintManagement: 'İpucu Ekle/Düzenle',
         editGuide: '⭐ Kılavuz Metnini Düzenle', // YENİ
@@ -1628,6 +2116,8 @@ function resetSrsData() {
 }
 
 /* ---------- İçerik (Content) Veri Yönetimi ---------- */
+// index.html, yaklaşık 860. satır (loadDataFromServer)
+
 async function loadDataFromServer() {
     try {
         const response = await fetch('verbmatrix_data.json');
@@ -1637,43 +2127,61 @@ async function loadDataFromServer() {
         const serverData = await response.json();
         data = deepMerge(data, serverData);
         console.log('✅ Sunucudan içerik verisi yüklendi.');
-        loadContentOverride();
+        // loadContentOverride(); <-- BU SATIR ARTIK BURADA YOK
     } catch (e) {
         console.error("Sunucudan 'verbmatrix_data.json' yüklenemedi. Varsayılan veri kullanılacak.", e);
-        loadContentOverride();
+        // loadContentOverride(); <-- BU SATIR DA ARTIK BURADA YOK
     }
 }
+// index.html, yaklaşık 870. satır (loadContentOverride)
+
 function loadContentOverride() {
     try {
         const override = localStorage.getItem('verbmatrix_content_override');
         if (override) {
-            contentOverride = JSON.parse(override);
-            data = deepMerge(data, contentOverride);
+            const contentOverride = JSON.parse(override);
+            
+            // 🔥 KRİTİK DEĞİŞİKLİK: LocalStorage'daki tüm anahtarları (classes, groups, topics, vb.)
+            // direkt olarak global 'data' nesnesinin üzerine yazıyoruz.
+            // Bu, yeni sınıfların eski varsayılan sınıfları tamamen geçersiz kılmasını sağlar.
+            Object.assign(data, deepMerge(data, contentOverride));
+            
             console.log('✅ Yerel içerik düzenlemeleri (Override) yüklendi.');
-        } else {
-            contentOverride = {};
         }
     } catch (e) {
         console.error("Yerel içerik düzenlemeleri yüklenirken hata:", e);
-        localStorage.removeItem('verbmatrix_content_override');
-        contentOverride = {};
+        // Hata durumunda bozuk veriyi temizleyebiliriz
+        localStorage.removeItem('verbmatrix_content_override'); 
     }
 }
 function saveContentOverride() {
+    // BURADAKİ HATA DÜZELTİLDİ: 
+    // Eskiden sadece groups ve verbs kaydediliyordu. 
+    // Artık Classes (Sınıflar), Domains (Alanlar) ve Translations (Çeviriler) de ekleniyor.
+    
     const contentToSave = {
+        classes: data.classes,           // 🔥 EKLENDİ: Yeni eklenen sınıfları (C1 vb.) kaydeder
+        domains: data.domains,           // 🔥 EKLENDİ: Alan yönetimini kaydeder
+        topicPool: data.topicPool,       // 🔥 EKLENDİ: Konu başlıklarını kaydeder
+        translations: data.translations, // 🔥 EKLENDİ: Sınıf isim çevirilerini kaydeder
+        
+        // Zaten var olanlar:
         groups: data.groups,
         verbs: data.verbs,
         content: data.content,
-        sections: data.sections,
         hints: data.hints,
-        guideText: data.guideText // YENİ
+        guideText: data.guideText
     };
+
+    // Mevcut override verisiyle birleştir (eski veriyi kaybetmemek için)
     contentOverride = deepMerge(contentOverride, contentToSave);
+
     try {
         localStorage.setItem('verbmatrix_content_override', JSON.stringify(contentOverride));
-        console.log('✅ İçerik güncellendi ve yerel olarak kaydedildi (Override).');
+        console.log('✅ TÜM Veriler (Sınıflar dahil) güncellendi ve kaydedildi.');
     } catch (e) {
-        console.error("İçerik depolanamadı:", e);
+        console.error("İçerik depolanamadı (Quota Exceeded olabilir):", e);
+        alert("Hata: Veri çok büyüdü, kaydedilemiyor! (Local Storage Doldu)");
     }
 }
 function exportData(){
@@ -1755,56 +2263,54 @@ function loadJsonFromTextarea(){
 
 /* ---------- Ayarlar ve Arayüz Fonksiyonları (v4.0) ---------- */
 
-// YENİ: showView (v4.0) - Geri Butonu Geçmişi Yönetimi
+/* --- GÜNCELLENMİŞ SHOWVIEW (Çeviri Yönü Ekranında Sınıf Butonu Gizleme) --- */
 function showView(id, isBack = false){
-  if (id === state.currentView && !isBack) return; // Zaten bu ekranda
+  if (id === state.currentView && !isBack) return; 
   
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el = document.getElementById(id);
   if(el) el.classList.add('active');
   state.currentView = id;
+  if(id === 'adminSentenceListView') renderAllSentencesTable();
+  if(id === 'progress' || id === 'tekrarMenu') updateProgressView();
 
+  // 👇 BU SATIRI EKLEYİN 👇
+  if(id === 'adminBulkEditView') fillBulkEditSelectors();
+  // Geri Butonu Tarihçesi
   if (!isBack) {
-      if (id === 'mainMenu') { state.viewHistory = ['mainMenu']; } // Ana menü tarihi sıfırlar
-      else if (id === 'detailViewLayer') { state.viewHistory.push(id); } // Detay katmanı da tarihe eklenir
+      if (id === 'mainMenu') { state.viewHistory = ['mainMenu']; }
+      else if (id === 'detailViewLayer' || id === 'welcomeView') { /* Ekleme */ } 
       else {
-          // Eğer bir alt menüye gidiyorsak, tarihi basitleştir
           const menuViews = ['mainMenu', 'groupMenu', 'verbMenu', 'sectionMenu', 'modeMenu', 'tekrarMenu', 'tekrarModeMenu', 'adminView', 'adminContentView', 'adminSentenceListView', 'storyView', 'storyQuestionsView'];
           let baseHistory = state.viewHistory.filter(v => menuViews.includes(v));
           state.viewHistory = baseHistory;
           state.viewHistory.push(id);
       }
   }
-  // Tarihi temizle (çok derine inmemek için)
-  if (state.viewHistory.length > 10) {
-      state.viewHistory = state.viewHistory.slice(-10);
-      state.viewHistory[0] = 'mainMenu'; // Her zaman bir kök olmalı
-  }
-  console.log("View History:", state.viewHistory.join(' -> '));
 
+  // Header Logo Kontrolü
   const headerEl = document.querySelector('.container > header');
-  const hideLogo = ['learningView', 'storyView', 'storyQuestionsView', 'detailViewLayer'].includes(id);
-  if (headerEl) {
-      headerEl.style.display = hideLogo ? 'none' : 'block';
-  }
+  const hideLogo = ['learningView', 'storyView', 'storyQuestionsView', 'detailViewLayer', 'welcomeView'].includes(id);
+  if (headerEl) headerEl.style.display = hideLogo ? 'none' : 'block';
+
   resetSpeechButtons();
   
+  // Çalışma Ekranı Ayarları
   if (id === 'learningView') { 
       updateSpeedButtonUI();
-      toggleLearningPanel(null); // Akordeonu kapat
+      toggleLearningPanel(null);
       document.getElementById('learningControlsAccordion').style.display = 'block';
       document.getElementById('completionControls').style.display = 'none';
       document.getElementById('actionBtn').style.display = 'flex';
   }
-  if(id === 'storyView') { 
-      updateSpeedButtonUI();
-  }
-
-  // --- Yüzen Butonları Yönet (v4.0) ---
+  
+  // --- YÜZEN BUTONLARI YÖNET ---
   const homeBtn = document.getElementById('floatingHomeBtn');
   const backBtn = document.getElementById('floatingBackBtn');
   const adminBtn = document.getElementById('floatingAdminBtn');
+  const classBtn = document.getElementById('classNavBtn'); // Sınıf Butonu
   
+  // 1. Ana Menüde butonlar
   if (id === 'mainMenu') {
       homeBtn.style.display = 'none';
       backBtn.style.display = 'none';
@@ -1815,28 +2321,35 @@ function showView(id, isBack = false){
       adminBtn.style.display = 'none';
   }
 
-  if(id === 'modeMenu' || id === 'tekrarModeMenu') {
-      updateConversionButtons();
+  // 2. Sınıf Butonu Kuralı:
+  // Aşağıdaki ekranların hepsinde Sınıf Butonu GİZLENECEK (Pasif olacak)
+  const hiddenClassViews = [
+      'learningView',       // Ders Ekranı
+      'storyView',          // Hikaye
+      'storyQuestionsView', // Hikaye Soruları
+      'welcomeView',        // Sınıf Seçim Ekranı
+      'splashScreen',       // Açılış
+      'modeMenu',           // YENİ: Çeviri Yönü Ekranı (Konu seçildikten sonra)
+      'tekrarModeMenu'      // YENİ: Tekrar Modu Seçimi
+  ];
+
+  if (hiddenClassViews.includes(id)) {
+      if(classBtn) classBtn.style.display = 'none';
+  } else {
+      // Sadece Ana Menü, Grup Seç, Fiil Seç ve Konu Seç ekranlarında görünür
+      if(classBtn) classBtn.style.display = 'block';
+      updateClassNavButton(); 
   }
+
+  // Diğer güncellemeler
+  if(id === 'modeMenu' || id === 'tekrarModeMenu') updateConversionButtons();
   if(id === 'adminView'){
     document.getElementById('adminTsvArea').style.display = 'none';
     document.getElementById('adminGroupVerbArea').style.display = 'none';
   }
-  if(id === 'adminContentView'){
-    document.getElementById('adminContentArea').style.display = 'none';
-    document.getElementById('adminContentArea').innerHTML = '';
-  }
-  if(id === 'adminSentenceListView'){
-    renderAllSentencesTable();
-  }
-  if(id === 'progress') {
-    updateProgressView();
-  }
-  if(id === 'tekrarMenu') {
-    updateProgressView();
-  }
+  if(id === 'adminSentenceListView') renderAllSentencesTable();
+  if(id === 'progress' || id === 'tekrarMenu') updateProgressView();
 }
-
 // YENİ: Geri Butonu Fonksiyonu (v4.0)
 function goBackInHistory() {
     if (state.viewHistory.length <= 1) {
@@ -2073,80 +2586,161 @@ async function getAIHint() {
 
 /* ---------- ANA AKIŞ FONKSİYONLARI (v4.0) ---------- */
 
-function loadAndShowGroupMenu(){
-  const container = document.getElementById('groupButtons');
-  container.innerHTML = '';
-  const t = getMergedTranslations(data.settings.language || 'tr');
-  const currentLang = data.settings.language || 'tr'; 
+/* --- GÜNCELLENMİŞ GRUP MENÜSÜ (SEKMELİ YAPI) --- */
 
-  if(!data.groups || data.groups.length===0){
-    container.innerHTML = `<div class="content-box">${t.messages.noGroups}</div>`;
-    showView('groupMenu');
-    return;
-  }
-  const grid = document.createElement('div');
-  grid.className = 'group-story-grid';
-  
-  data.groups.forEach(g=>{
-    // --- GRUP BİLGİSİNİ HAZIRLA (Fiil Listesi dahil) ---
-    const primaryGroupName = currentLang === 'de' ? g.nameDE || g.name : g.name;
-    const secondaryGroupName = currentLang === 'de' ? g.name || '' : g.nameDE || '';
-    const verbs = data.verbs[g.id] || [];
-    const verbCount = verbs.length;
-    
-    // Fiil listesini hazırlar (İlk 3 fiil, mevcut dile göre)
-    const verbListText = verbs
-        .slice(0, 3)
-        .map(v => currentLang === 'de' ? v.verbDE || v.verbTR : v.verbTR)
-        .filter(Boolean)
-        .join(', ');
-        
-    const verbHtml = verbListText.length > 0 
-        ? `<span class="small-muted verb-list-text">${escapeHtml(verbListText)}</span>` 
-        : '';
+// Hangi sekmenin aktif olduğunu hafızada tutmak için global değişken (veya data.settings içine de alınabilir)
+let activeDomainTab = 'all'; // Varsayılan hepsi veya ilk sekme
 
-    // --- GRUP BUTONUNU OLUŞTUR ---
-    const groupBtn = document.createElement('button');
-    groupBtn.className = 'btn btn-primary';
+function loadAndShowGroupMenu() {
+    const container = document.getElementById('groupButtons');
+    container.innerHTML = '';
+    const t = getMergedTranslations(data.settings.language || 'tr');
     
-    // Butonun içindeki HTML (3 satır: Ana İsim, İkincil İsim/Count, Fiil Özeti)
-    groupBtn.innerHTML = `
-      <strong>${escapeHtml(primaryGroupName)} <span class="group-summary">(${verbCount})</span></strong>
-      <span class="small-muted">${escapeHtml(secondaryGroupName)}</span>
-      ${verbHtml}
-    `;
-    
-    groupBtn.onclick = ()=>selectGroup(g.id);
-    grid.appendChild(groupBtn);
-    
-    // --- HİKAYE BUTONUNU OLUŞTUR (Yerelleştirilmiş başlıklar) ---
-    const storyBtn = document.createElement('button');
-    storyBtn.className = 'btn btn-warning';
-    
-    if (g.story && g.story.title) {
-        // title varsayılan (Türkçe) başlık, titleDE ise Almanca başlık kabul ediliyor
-        const storyTitleTR = g.story.title;
-        // Hikaye verisinde titleDE alanı yoksa (ki sizde yoktu), TR başlığını kullanıyoruz
-        const storyTitleDE = g.story.titleDE || g.story.title; 
-        
-        const primaryStoryTitle = currentLang === 'de' ? storyTitleDE : storyTitleTR;
-        const secondaryStoryTitle = currentLang === 'de' ? storyTitleTR : (g.story.titleDE || '');
-
-        // Hikaye butonu da hiyerarşik başlıkları gösterir
-        storyBtn.innerHTML = `
-          <strong>${escapeHtml(primaryStoryTitle)}</strong>
-          <span class="small-muted">${escapeHtml(secondaryStoryTitle)}</span>
-        `;
-        storyBtn.onclick = ()=>showGroupStory(g.id);
-    } else {
-      storyBtn.textContent = t.messages.noStoryAvailable;
-      storyBtn.classList.add('disabled');
-      storyBtn.disabled = true;
+    // Eğer hiç grup yoksa uyarı ver
+    if (!data.groups || data.groups.length === 0) {
+        container.innerHTML = `<div class="content-box">${t.messages.noGroups}</div>`;
+        showView('groupMenu');
+        return;
     }
-    grid.appendChild(storyBtn);
-  });
-  container.appendChild(grid);
-  showView('groupMenu');
+
+    // 1. ALAN (DOMAIN) KONTROLÜ
+    // Eğer hiç alan tanımlanmamışsa eski usül (hepsini dök) çalışsın
+    if (!data.domains || data.domains.length === 0) {
+        renderGroupGrid(data.groups, container);
+        showView('groupMenu');
+        return;
+    }
+
+    // 2. SEKMELERİ OLUŞTUR
+    // "Tümü" seçeneği opsiyoneldir, isterseniz kaldırabilirsiniz. Ben kullanıcı rahatlığı için ekliyorum.
+    let tabsHtml = `<div class="domain-tabs-container">`;
+    
+    // a) Tüm Gruplar Sekmesi
+    tabsHtml += `<button class="domain-tab-btn ${activeDomainTab === 'all' ? 'active' : ''}" onclick="switchDomainTab('all')">Tümü</button>`;
+    
+    // b) Tanımlı Alanlar
+    data.domains.forEach(d => {
+        const isActive = activeDomainTab === d.id ? 'active' : '';
+        tabsHtml += `<button class="domain-tab-btn ${isActive}" onclick="switchDomainTab('${d.id}')">${d.name}</button>`;
+    });
+
+    // c) Tanımsızlar (Genel) - Eğer alanı olmayan grup varsa gösterelim
+    const unassignedGroups = data.groups.filter(g => !g.domainId);
+    if (unassignedGroups.length > 0) {
+        const isActive = activeDomainTab === 'general' ? 'active' : '';
+        tabsHtml += `<button class="domain-tab-btn ${isActive}" onclick="switchDomainTab('general')">Diğer</button>`;
+    }
+    
+    tabsHtml += `</div>`;
+    
+    // Sekmeleri konteynerin tepesine ekle
+    container.innerHTML = tabsHtml;
+
+    // 3. İÇERİK ALANI OLUŞTUR
+    const contentDiv = document.createElement('div');
+    contentDiv.id = 'domainContentArea';
+    container.appendChild(contentDiv);
+
+    // 4. SEÇİLİ SEKMENİN GRUPLARINI FİLTRELE VE GÖSTER
+    renderActiveTabContent();
+    
+    showView('groupMenu');
+}
+
+// Sekme Değiştirme Fonksiyonu
+function switchDomainTab(domainId) {
+    activeDomainTab = domainId;
+    // Tüm butonların aktifliğini kaldır, tıklananı aktif yap
+    document.querySelectorAll('.domain-tab-btn').forEach(btn => btn.classList.remove('active'));
+    // Tıklanan butonu bulup active class eklemek için event target kullanmıyoruz çünkü fonksiyon render içinde tekrar çağrılıyor.
+    // Yeniden çizdirmek en temizi:
+    loadAndShowGroupMenu(); 
+}
+
+// Filtreleme ve Çizdirme Mantığı
+function renderActiveTabContent() {
+    const contentDiv = document.getElementById('domainContentArea');
+    contentDiv.innerHTML = '';
+
+    let filteredGroups = [];
+
+    if (activeDomainTab === 'all') {
+        filteredGroups = data.groups;
+    } else if (activeDomainTab === 'general') {
+        // Domain ID'si olmayanlar
+        filteredGroups = data.groups.filter(g => !g.domainId);
+    } else {
+        // Seçili domain ID'sine sahip olanlar
+        filteredGroups = data.groups.filter(g => g.domainId === activeDomainTab);
+    }
+
+    if (filteredGroups.length === 0) {
+        contentDiv.innerHTML = `<div class="content-box" style="text-align:center; color:#718096;">Bu alanda henüz grup yok.</div>`;
+    } else {
+        renderGroupGrid(filteredGroups, contentDiv);
+    }
+}
+
+// Yardımcı: Izgara (Grid) Oluşturucu (Eski kodunuzun ayrıştırılmış hali)
+function renderGroupGrid(groupList, targetElement) {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    const currentLang = data.settings.language || 'tr'; 
+
+    const grid = document.createElement('div');
+    grid.className = 'group-story-grid';
+
+    groupList.forEach(g => {
+        // --- GRUP BİLGİSİNİ HAZIRLA ---
+        const primaryGroupName = currentLang === 'de' ? g.nameDE || g.name : g.name;
+        const secondaryGroupName = currentLang === 'de' ? g.name || '' : g.nameDE || '';
+        const verbs = data.verbs[g.id] || [];
+        const verbCount = verbs.length;
+
+        const verbListText = verbs
+            .slice(0, 3)
+            .map(v => currentLang === 'de' ? v.verbDE || v.verbTR : v.verbTR)
+            .filter(Boolean)
+            .join(', ');
+            
+        const verbHtml = verbListText.length > 0 
+            ? `<span class="small-muted verb-list-text">${escapeHtml(verbListText)}</span>` 
+            : '';
+
+        // --- GRUP BUTONU ---
+        const groupBtn = document.createElement('button');
+        groupBtn.className = 'btn btn-primary';
+        groupBtn.innerHTML = `
+          <strong>${escapeHtml(primaryGroupName)} <span class="group-summary">(${verbCount})</span></strong>
+          <span class="small-muted">${escapeHtml(secondaryGroupName)}</span>
+          ${verbHtml}
+        `;
+        groupBtn.onclick = () => selectGroup(g.id);
+        grid.appendChild(groupBtn);
+        
+        // --- HİKAYE BUTONU ---
+        const storyBtn = document.createElement('button');
+        storyBtn.className = 'btn btn-warning';
+        
+        if (g.story && g.story.title) {
+            const storyTitleTR = g.story.title;
+            const storyTitleDE = g.story.titleDE || g.story.title; 
+            const primaryStoryTitle = currentLang === 'de' ? storyTitleDE : storyTitleTR;
+            const secondaryStoryTitle = currentLang === 'de' ? storyTitleTR : (g.story.titleDE || '');
+
+            storyBtn.innerHTML = `
+              <strong>${escapeHtml(primaryStoryTitle)}</strong>
+              <span class="small-muted">${escapeHtml(secondaryStoryTitle)}</span>
+            `;
+            storyBtn.onclick = () => showGroupStory(g.id);
+        } else {
+            storyBtn.textContent = t.messages.noStoryAvailable || 'Hikaye Yok';
+            storyBtn.classList.add('disabled');
+            storyBtn.disabled = true;
+        }
+        grid.appendChild(storyBtn);
+    });
+
+    targetElement.appendChild(grid);
 }
 function selectGroup(id){
   state.group = id; state.groupData = data.groups.find(x=>x.id===id) || null;
@@ -2163,40 +2757,142 @@ function selectGroup(id){
   });
   showView('verbMenu');
 }
+// index.html, selectVerb fonksiyonunu bulun ve güncelleyin
+
 function selectVerb(verbId){
   state.verb = verbId;
   state.verbData = (data.verbs[state.group] || []).find(v => v.id === verbId); 
-  const container = document.getElementById('sectionButtons'); container.innerHTML='';
-  Object.entries(data.sections).forEach(([num,name])=>{
+  const container = document.getElementById('sectionButtons'); 
+  container.innerHTML='';
+
+  const currentClassId = data.settings.currentClass || 'A1';
+  
+  // 🔥 KRİTİK FİLTRELEME BAŞLANGICI
+  let topicsToRender = {};
+  
+  if (currentClassId === 'K') {
+      // 1. K SINIFI: Sadece yıldızlı konuları topla
+      const starredTopicIds = getMixedModeContentKeys()
+          .filter(key => key.startsWith(`${verbId}_s`)) // Sadece bu fiile ait olanları al
+          .map(key => key.split('_s')[1]); // Sadece Konu ID'lerini al ('1', '5' gibi)
+
+      // Tekrarları önlemek için Set kullan
+      Array.from(new Set(starredTopicIds)).forEach(topicId => {
+          // Konu adını ana havuzdan (topicPool) al
+          if (data.topicPool[topicId]) {
+              topicsToRender[topicId] = data.topicPool[topicId];
+          }
+      });
+      
+      // Eğer yıldızlı konu yoksa
+      if (Object.keys(topicsToRender).length === 0) {
+           container.innerHTML = `<div class="content-box">⚠️ Uyarı: Bu fiil için yıldızlı konu bulunamadı. Lütfen "⭐ Karma Mod" menüsünden konularınızı yıldızlayın.</div>`;
+           showView('sectionMenu');
+           return;
+      }
+      
+  } else {
+      // 2. STANDART SINIFLAR (A1, A2, B1): Normal akışı kullan
+      topicsToRender = data.topics[currentClassId];
+      if (!topicsToRender) {
+          container.innerHTML = `<div class="content-box">⚠️ Uyarı: "${currentClassId}" sınıfı için konu listesi bulunamadı. Lütfen Yönetici panelinden sınıf ayarlarını kontrol edin.</div>`;
+          showView('sectionMenu');
+          return;
+      }
+  }
+  // 🔥 KRİTİK FİLTRELEME BİTİŞİ
+  
+
+  // 3. Bölüm Butonlarını Oluştur
+  Object.entries(topicsToRender).forEach(([num, name]) => {
+    // ... (Mevcut buton oluşturma mantığı)
     const b = document.createElement('button');
     const key = `${verbId}_s${num}`;
     const contentArray = data.content[key] || [];
     const sentenceCount = contentArray.length;
     let newCount = 0;
-    if (sentenceCount > 0) {
-        for(let i=0; i < sentenceCount; i++) {
-            const srsKey = getSrsKey(verbId, num, i);
-            const cardData = getCardSrsData(srsKey);
-            if (cardData.status === 'new') {
-                newCount++;
-            }
+
+    // ... (Yeni kart sayısını hesaplama ve butonu ekleme mantığı) ...
+    for(let i=0; i < sentenceCount; i++) {
+        const srsKey = getSrsKey(verbId, num, i);
+        const cardData = getCardSrsData(srsKey);
+        if (cardData.status === 'new') {
+            newCount++;
         }
     }
-    b.textContent = `${num}. ${name} (${newCount}/${sentenceCount})`;
+
+    // Buton Metni: Konu Adı + İstatistik
+    // Sadece yıldızlı konuları işaretlemek için (Opsiyonel ama faydalı)
+    const starRating = getTopicStarRating(num); 
+    const stars = starRating > 0 ? '⭐'.repeat(starRating) : '';
+    
+    b.innerHTML = `<strong>${num}. ${name} ${stars}</strong><br><span style="font-size:0.8em">(${newCount} yeni / ${sentenceCount} toplam)</span>`;
+    
     if (sentenceCount > 0) {
       b.className = (newCount > 0) ? 'btn btn-primary' : 'btn btn-secondary';
       b.onclick = ()=>selectSection(parseInt(num));
     } else {
-      b.className='btn btn-danger disabled';
+      b.className='btn btn-secondary disabled';
       b.disabled = true;
+      b.style.opacity = "0.6";
     }
+    
     container.appendChild(b);
   });
+
+  // Başlığı güncelle
+  const t = getMergedTranslations(data.settings.language || 'tr');
+  document.querySelector('#sectionMenu h2').textContent = `${t.titles.sectionSelect} (${currentClassId === 'K' ? '⭐ Karma Mod' : currentClassId})`;
+  
   showView('sectionMenu');
 }
 function selectSection(sectionNum){
   state.section = sectionNum;
   showView('modeMenu');
+}
+// index.html, JS section
+
+// Filtreleme butonlarına tıklandığında çalışır
+function filterSections(rating) {
+    // state.starFilter'ı ayarla
+    state.starFilter = rating; 
+    
+    // Aktif butonu görsel olarak vurgula
+    document.querySelectorAll('.btn-star-filter').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.onclick.toString().includes(`filterSections(${rating})`)) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Filtre uygulandıktan sonra listeyi yeniden yükle
+    selectVerb(state.verb); 
+}
+
+// Filtre butonlarının üzerindeki sayıları ve aktif filtre yazısını günceller
+function updateFilterCounts(classTopics, totalTopicsInView) {
+    const activeFilterSpan = document.getElementById('activeStarFilter');
+    
+    // Toplam konu sayısını güncelle
+    document.querySelector('.btn-star-filter:nth-child(1)').textContent = `Tümü (${Object.keys(classTopics).length} Konu)`;
+    
+    // Her bir yıldız seviyesinde kaç konu olduğunu say
+    for (let r = 1; r <= 3; r++) {
+        let count = 0;
+        Object.keys(classTopics).forEach(topicId => {
+            if (getTopicStarRating(topicId) === r) {
+                count++;
+            }
+        });
+        document.querySelector(`.btn-star-filter:nth-child(${r + 1})`).textContent = `⭐${r} (${count} Konu)`;
+    }
+
+    // Aktif filtre metnini güncelle
+    if (state.starFilter === 0) {
+        activeFilterSpan.textContent = `Tümü (${Object.keys(classTopics).length} Konu)`;
+    } else {
+        activeFilterSpan.textContent = `⭐${state.starFilter} İşaretliler (${totalTopicsInView} Konu)`;
+    }
 }
 function startTekrar(status) {
     state.tekrarStatus = status;
@@ -2253,16 +2949,13 @@ function getSentences(){
     if (!state.verb || !state.section) return [];
     return data.content[`${state.verb}_s${state.section}`] || [];
 }
-// index.html, (Utils/yardımcı fonksiyonlar bölümünde)
-
 function shuffle(a){ 
     for(let i=a.length-1; i > 0; i--){ 
         const j=Math.floor(Math.random()*(i+1)); 
-        [a[i], a[j]]=[a[j], a[i]]; // Elemanları yer değiştir
+        [a[i], a[j]]=[a[j], a[i]]; 
     } 
     return a; 
 }
-
 function showLearning(){
   const t = getMergedTranslations(data.settings.language || 'tr');
   resetSpeechButtons();
@@ -2360,8 +3053,171 @@ function showHintDetail(type) {
     // Ortak detay görünümünü kullan
     showDetailView(title, content);
 }
+/* --- YENİ: ALAN (DOMAIN) YÖNETİMİ --- */
 
+function showAdminDomainForm(area) {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    // Mevcut Alanları Listele
+    let domainListHtml = '<div style="max-height: 200px; overflow-y: auto; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px;">';
+    if(!data.domains || data.domains.length === 0) {
+        domainListHtml += '<p class="small-muted">Henüz hiç alan tanımlanmamış.</p>';
+    } else {
+        domainListHtml += '<table style="width:100%; font-size:0.9rem;"><thead><tr><th>ID</th><th>TR İsim</th><th>DE İsim</th><th>İşlem</th></tr></thead><tbody>';
+        data.domains.forEach(d => {
+            domainListHtml += `<tr>
+                <td><b>${d.id}</b></td>
+                <td>${d.name}</td>
+                <td>${d.nameDE || ''}</td>
+                <td style="text-align:right;"><button class="btn btn-danger btn-small" onclick="adminDeleteDomain('${d.id}')">Sil</button></td>
+            </tr>`;
+        });
+        domainListHtml += '</tbody></table>';
+    }
+    domainListHtml += '</div>';
+
+    area.innerHTML = `<div class="content-box">
+        <h4 style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">📂 Alan (Kategori) Yönetimi</h4>
+        
+        <label style="font-weight:bold;">Mevcut Alanlar</label>
+        ${domainListHtml}
+        
+        <hr style="margin: 15px 0; border:0; border-top:1px dashed #ccc;">
+        
+        <h5 style="color:#2f855a;">➕ Yeni Alan Ekle</h5>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+                <label>Alan ID (Benzersiz, örn: a1_genel)</label>
+                <input id="new_dom_id" class="input-field" placeholder="bos_zaman">
+            </div>
+            <div>
+                 <label>Alan Adı (TR)</label>
+                <input id="new_dom_name" class="input-field" placeholder="Boş Zaman">
+            </div>
+            <div style="grid-column: span 2;">
+                <label>Alan Adı (DE)</label>
+                <input id="new_dom_name_de" class="input-field" placeholder="Freizeit">
+            </div>
+        </div>
+        
+        <div class="button-group-row" style="margin-top:15px;">
+            <button class="btn btn-success" onclick="adminAddDomain()">✅ Yeni Alanı Kaydet</button>
+        </div>
+    </div>`;
+}
+
+function adminAddDomain() {
+    const id = document.getElementById('new_dom_id').value.trim();
+    const name = document.getElementById('new_dom_name').value.trim();
+    const nameDE = document.getElementById('new_dom_name_de').value.trim();
+
+    if (!id || !name) { alert("Lütfen ID ve TR İsim giriniz."); return; }
+    
+    if (!data.domains) data.domains = [];
+    if (data.domains.find(d => d.id === id)) { alert("Bu ID zaten kullanılıyor!"); return; }
+
+    data.domains.push({ id, name, nameDE });
+    saveContentOverride(); // Kaydet
+    alert("Alan eklendi!");
+    showAdminForm('domainManager'); // Formu yenile
+}
+
+function adminDeleteDomain(id) {
+    if (!confirm(`${id} alanını silmek istiyor musunuz? (Bu alana bağlı gruplar 'Tanımsız'a düşecektir)`)) return;
+    
+    data.domains = data.domains.filter(d => d.id !== id);
+    saveContentOverride();
+    showAdminForm('domainManager');
+}
+
+// showAdminForm fonksiyonuna yeni case eklemeyi unutmayın:
+// Mevcut showAdminForm fonksiyonunuzun içine şu satırı ekleyin:
+// else if (formType === 'domainManager') showAdminDomainForm(area);
 // YENİ: Öğrenme Ekranı Akordeon Kontrolü (v4.0)
+/* --- GÜNCELLENMİŞ GRUP YÖNETİMİ (ALAN SEÇİMLİ) --- */
+
+function showAdminGroupForm(area) {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    // Grup Listesi
+    let options = data.groups.map(g => `<option value="${g.id}">${g.name} (${g.id})</option>`).join('');
+    
+    // Alan (Domain) Listesi
+    let domainOptions = '<option value="">-- Alan Yok (Genel) --</option>';
+    if (data.domains) {
+        data.domains.forEach(d => {
+            domainOptions += `<option value="${d.id}">${d.name} (${d.nameDE})</option>`;
+        });
+    }
+
+    area.innerHTML = `<div class="content-box"><h4>${t.admin.addGroup}</h4>
+      <label>${t.labels.group} (Düzenlemek için seçin)</label>
+      <select id="adm_g_select" class="select-field"><option value="">-- YENİ GRUP --</option>${options}</select>
+      
+      <div style="background:#f0fff4; padding:10px; border-radius:8px; margin:10px 0; border:1px solid #c6f6d5;">
+          <label style="font-weight:bold; color:#276749;">📂 Bağlı Olduğu Alan (Kategori)</label>
+          <select id="adm_g_domain" class="select-field" style="border-color:#48bb78;">
+              ${domainOptions}
+          </select>
+          <p class="small-muted">Bu grubun ana ekranda hangi sekmede görüneceğini belirler.</p>
+      </div>
+
+      <label>${t.labels.groupID}</label><input id="adm_g_id" class="input-field">
+      <label>${t.labels.groupNameTR}</label><input id="adm_g_name_tr" class="input-field">
+      <label>${t.labels.groupNameDE}</label><input id="adm_g_name_de" class="input-field">
+      
+      <div class="button-group-row">
+        <button class="btn btn-primary" onclick="adminSaveGroup()">✅ ${t.buttons.save}</button>
+        <button class="btn btn-danger" onclick="adminDeleteGroup()">🗑 ${t.buttons.delete}</button>
+      </div></div>`;
+
+    document.getElementById('adm_g_select').onchange = (e) => {
+        const gid = e.target.value;
+        const g = data.groups.find(x => x.id === gid);
+        if (g) {
+            document.getElementById('adm_g_id').value = g.id;
+            document.getElementById('adm_g_id').readOnly = true;
+            document.getElementById('adm_g_name_tr').value = g.name;
+            document.getElementById('adm_g_name_de').value = g.nameDE || '';
+            // Alan seçimini getir
+            document.getElementById('adm_g_domain').value = g.domainId || ''; 
+        } else {
+            // Yeni kayıt modu
+            document.getElementById('adm_g_id').value = '';
+            document.getElementById('adm_g_id').readOnly = false;
+            document.getElementById('adm_g_name_tr').value = '';
+            document.getElementById('adm_g_name_de').value = '';
+            document.getElementById('adm_g_domain').value = '';
+        }
+    };
+}
+
+// Kaydetme Fonksiyonunu da güncellememiz lazım (DomainId'yi kaydetsin diye)
+function adminSaveGroup() {
+    const selId = document.getElementById('adm_g_select').value;
+    const id = document.getElementById('adm_g_id').value.trim();
+    const name = document.getElementById('adm_g_name_tr').value.trim();
+    const named = document.getElementById('adm_g_name_de').value.trim();
+    const domainId = document.getElementById('adm_g_domain').value; // YENİ: Alan ID
+
+    if (!id || !name) { alert('ID ve TR İsim gerekli'); return; }
+    
+    let g = data.groups.find(x => x.id === (selId || id));
+    if (g) {
+        g.name = name;
+        g.nameDE = named;
+        g.domainId = domainId; // GÜNCELLEME
+        alert('Grup güncellendi');
+    } else {
+        if (data.groups.find(x => x.id === id)) { alert('Bu ID zaten var'); return; }
+        // YENİ EKLEME
+        data.groups.push({ id: id, name: name, nameDE: named, domainId: domainId, story: null });
+        if (!data.verbs[id]) data.verbs[id] = [];
+        alert('Grup eklendi');
+    }
+    saveContentOverride();
+    showAdminForm('addGroup');
+}
 function toggleLearningPanel(panelId) {
     const panels = ['panelHint', 'panelListen', 'panelEdit'];
     
@@ -3030,20 +3886,110 @@ function adminSaveGuide() {
     alert(t.messages.guideSaved);
     showAdminForm('editGuide');
 }
+// Tablodan tek bir cümleyi siler (Kaydetmek için adminSaveBulkEdit çağrılmalıdır)
+function adminDeleteSentenceFromBulk(contentKey, index, buttonElement) {
+    if (confirm(`Cümle ${contentKey}_${index} silinmek üzere işaretlenecek. Tüm değişiklikleri kaydettiğinizde silinecektir. Devam?`)) {
+        // Tablodaki satırı görsel olarak kaldır
+        buttonElement.closest('tr').remove();
+    }
+}
+// index.html içine ekleyin (Eksik fonksiyonu tamamlar)
 
+function changeTopicNumberSystem() {
+    const oldSec = document.getElementById('mov_old_sec').value.trim();
+    const newSec = document.getElementById('mov_new_sec').value.trim();
+    const resultEl = document.getElementById('mov_result');
 
-function showAdminGroupOrderForm(area) {
-    const t = getMergedTranslations(data.settings.language || 'tr');
-    area.innerHTML = `
-        <div class="content-box">
-            <h4>↕️ Grup Sıralamasını Düzenle</h4>
-            <p class="small-muted">Okları kullanarak grupların menüdeki sırasını ayarlayın. Kaydetmek için butona basın.</p>
-            <ul id="groupOrderList" style="list-style: none; padding: 0;"></ul>
-            <div class="button-group-row" style="margin-top:15px;">
-                <button class="btn btn-primary" onclick="adminSaveGroupOrder()">✅ Sıralamayı Kaydet</button>
-            </div>
-        </div>`;
-    renderGroupOrderList();
+    if (!oldSec || !newSec) {
+        alert("Lütfen Eski ve Yeni konu numaralarını girin.");
+        return;
+    }
+    if (oldSec === newSec) {
+        alert("Eski ve yeni numara aynı olamaz.");
+        return;
+    }
+
+    // Güvenlik onayı
+    if (!confirm(`DİKKAT: ${oldSec} numaralı konuyu ve İÇİNDEKİ TÜM CÜMLELERİ ${newSec} numarasına taşımak üzeresiniz.\n\nBu işlem:\n1. Konu başlığını (varsa) taşır.\n2. Tüm fiillerin altındaki bu konuya ait cümleleri yeni numaraya aktarır.\n\nDevam edilsin mi?`)) return;
+
+    let movedSentencesCount = 0;
+    let movedTopicName = "";
+
+    // 1. BAŞLIĞI TAŞI (Topic Pool - Konu Havuzu)
+    // "Konu havuzu eklemedik" deseniz bile kodun içinde data.topicPool yapısı var, onu güncelliyoruz.
+    if (data.topicPool && data.topicPool[oldSec]) {
+        movedTopicName = data.topicPool[oldSec];
+        
+        // Yeni numarada zaten bir başlık var mı?
+        if (data.topicPool[newSec]) {
+            if (!confirm(`UYARI: ${newSec} numarasında zaten "${data.topicPool[newSec]}" isminde bir konu var.\nÜzerine yazılıp "${movedTopicName}" olarak değiştirilsin mi?`)) {
+                return; // İptal
+            }
+        }
+        data.topicPool[newSec] = movedTopicName;
+        delete data.topicPool[oldSec];
+    } else {
+        console.log("Bu numara için kayıtlı bir konu başlığı bulunamadı, sadece cümleler taşınacak.");
+    }
+
+    // 2. CÜMLELERİ TAŞI (data.content)
+    // Tüm fiil ve bölüm kombinasyonlarını tarıyoruz
+    Object.keys(data.content).forEach(key => {
+        // Anahtar yapısı: "fiilID_sKonuNo" (Örn: v1_s6)
+        // Regex ile anahtarın sonunun "_sESKİNO" ile bitip bitmediğine bakıyoruz.
+        const regex = new RegExp(`_s${oldSec}$`);
+        
+        if (regex.test(key)) {
+            const verbId = key.replace(regex, ''); // "v1_s6" -> "v1" kalır
+            const newKey = `${verbId}_s${newSec}`; // Yeni anahtar: "v1_s16"
+            
+            const sentencesToMove = data.content[key];
+            
+            if (sentencesToMove && sentencesToMove.length > 0) {
+                // Yeni adres zaten dolu mu?
+                if (data.content[newKey]) {
+                    // Doluysa sonuna ekle (Merge)
+                    data.content[newKey] = data.content[newKey].concat(sentencesToMove);
+                } else {
+                    // Boşsa direkt taşı
+                    data.content[newKey] = sentencesToMove;
+                }
+                movedSentencesCount += sentencesToMove.length;
+            }
+            
+            // Eski adresi sil
+            delete data.content[key];
+        }
+    });
+
+    // 3. İPUÇLARINI TAŞI (data.hints)
+    // İpucu anahtarları: "fiilID_sKonuNo_Index" (Örn: v1_s6_0)
+    if (data.hints && data.hints.sentences) {
+        const searchPart = `_s${oldSec}_`; // "_s6_" parçasını arıyoruz
+        const replacePart = `_s${newSec}_`; // "_s16_" ile değiştireceğiz
+
+        Object.keys(data.hints.sentences).forEach(hintKey => {
+             if (hintKey.includes(searchPart)) {
+                 const newHintKey = hintKey.replace(searchPart, replacePart);
+                 data.hints.sentences[newHintKey] = data.hints.sentences[hintKey];
+                 delete data.hints.sentences[hintKey];
+             }
+        });
+    }
+
+    // 4. KAYDET VE BİTİR
+    saveContentOverride();
+    
+    const successMsg = `✅ Başarılı! ${movedTopicName ? '"'+movedTopicName+'" ' : ''}konusu (${oldSec} -> ${newSec}) olarak değiştirildi.\nToplam ${movedSentencesCount} adet cümle yeni numaraya taşındı.`;
+    
+    if (resultEl) resultEl.textContent = successMsg;
+    alert(successMsg);
+    
+    // Eğer "Toplu Düzenleme" sayfası açıksa listeleri yenile ki değişikliği gör
+    if (document.getElementById('bulk_edit_section')) {
+        // Bu fonksiyon varsa çağıralım
+        try { fillBulkEditSelectors(); } catch(e) {} 
+    }
 }
 function renderGroupOrderList() {
     const listContainer = document.getElementById('groupOrderList');
@@ -3204,62 +4150,216 @@ function showAdminForm(formType) {
     area.innerHTML = 'Yükleniyor...';
     if (formType === 'addGroup') showAdminGroupForm(area);
     else if (formType === 'addVerb') showAdminVerbForm(area);
-    else if (formType === 'addSection') showAdminSectionForm(area);
+    else if (formType === 'addSection') adminShowTopicPoolForm(area); 
+    else if (formType === 'classManagement') adminShowClassManagement(area); // YENİ
     else if (formType === 'addStory') showAdminStoryForm(area);
     else if (formType === 'addHint') showAdminHintForm(area);
     else if (formType === 'editSentence') showAdminSentenceForm(area);
     else if (formType === 'groupOrder') showAdminGroupOrderForm(area); 
     else if (formType === 'editGuide') showAdminGuideForm(area); // YENİ: Kılavuz
+    else if (formType === 'domainManager') showAdminDomainForm(area);
     else area.innerHTML = 'Form bulunamadı.';
 }
+/* --- ID VE VERİ TAŞIMA SİSTEMİ (MIGRATION) --- */
+
+function executeMigration() {
+    const type = document.getElementById('mig_type').value;
+    const oldId = document.getElementById('mig_old_id').value.trim();
+    const newId = document.getElementById('mig_new_id').value.trim();
+    const resultEl = document.getElementById('mig_result');
+
+    if (!oldId || !newId) {
+        alert("Lütfen Eski ve Yeni ID'leri girin.");
+        return;
+    }
+    if (oldId === newId) {
+        alert("Eski ve Yeni ID aynı olamaz.");
+        return;
+    }
+
+    // 1. FİİL TAŞIMA İŞLEMİ
+    if (type === 'verb') {
+        // A. Fiil Tanımını Bul ve Güncelle
+        let verbFound = false;
+        let parentGroupId = null;
+
+        // Tüm grupları gez, fiili bul
+        for (const [gid, verbs] of Object.entries(data.verbs)) {
+            const vIndex = verbs.findIndex(v => v.id === oldId);
+            if (vIndex > -1) {
+                // Fiili bulduk, ID'sini güncelle
+                verbs[vIndex].id = newId; 
+                parentGroupId = gid;
+                verbFound = true;
+                break; 
+            }
+        }
+
+        if (!verbFound) {
+            // Eğer fiil listede yoksa bile (belki silinmiştir) içerik taşımasına izin verelim mi?
+            // Veri kurtarma için evet.
+            console.warn("Fiil tanımı listede bulunamadı, sadece içerikler taşınacak.");
+        }
+
+        // B. Cümleleri ve İpuçlarını Taşı (data.content & data.hints)
+        let movedCount = 0;
+        
+        // TopicPool'daki veya Section'lardaki tüm olası kombinasyonları tara
+        // (Veya mevcut tüm data.content anahtarlarını tara - daha güvenli)
+        Object.keys(data.content).forEach(key => {
+            // Anahtar şununla başlıyorsa: "oldId_s..."
+            if (key.startsWith(`${oldId}_s`)) {
+                const suffix = key.substring(oldId.length); // "_s1" kısmını al
+                const newKey = `${newId}${suffix}`;         // "newId_s1" yap
+                
+                // Veriyi taşı
+                data.content[newKey] = data.content[key];
+                delete data.content[key]; // Eski veriyi sil
+                movedCount++;
+            }
+        });
+
+        // C. İpuçlarını Taşı (data.hints)
+        // İpuçları "verbID_s1_0" formatında bir anahtar (srsKey) kullanırsa onları da güncellemeliyiz.
+        // Ancak şu an srsKey'i dinamik oluşturuyoruz, o yüzden data.content taşınınca ipuçları da dolaylı olarak kurtulur mu?
+        // Hayır, data.hints.sentences içinde KEY olarak saklanıyor olabilir. Kontrol edelim.
+        if (data.hints && data.hints.sentences) {
+            Object.keys(data.hints.sentences).forEach(hintKey => {
+                if (hintKey.startsWith(`${oldId}_s`)) {
+                    const suffix = hintKey.substring(oldId.length);
+                    const newHintKey = `${newId}${suffix}`;
+                    
+                    data.hints.sentences[newHintKey] = data.hints.sentences[hintKey];
+                    delete data.hints.sentences[hintKey];
+                }
+            });
+        }
+
+        resultEl.textContent = `✅ Başarılı! Fiil ID'si "${oldId}" -> "${newId}" olarak değiştirildi. ${movedCount} adet konu içeriği yeni adrese taşındı.`;
+    }
+
+    // 2. GRUP TAŞIMA İŞLEMİ
+    else if (type === 'group') {
+        // A. Grup Tanımını Güncelle
+        const group = data.groups.find(g => g.id === oldId);
+        if (group) {
+            group.id = newId;
+        } else {
+            alert("Uyarı: Bu ID'ye sahip bir grup bulunamadı. Sadece fiil listeleri taşınacak.");
+        }
+
+        // B. Bu gruba ait Fiil Listesini Taşı (data.verbs[gid])
+        if (data.verbs[oldId]) {
+            data.verbs[newId] = data.verbs[oldId];
+            delete data.verbs[oldId];
+            resultEl.textContent = `✅ Başarılı! Grup ID'si "${oldId}" -> "${newId}" yapıldı ve içindeki fiiller yeni gruba aktarıldı.`;
+        } else {
+            resultEl.textContent = `✅ Grup ID güncellendi ancak bu gruba ait fiil listesi boştu.`;
+        }
+    }
+
+    saveSettings(); // Kaydet
+    // Arayüzü yenile (Gerekirse)
+    // fillBulkEditSelectors(); 
+}
+/* --- GÜNCELLENMİŞ GRUP YÖNETİMİ (ALAN SEÇİMLİ) --- */
+
 function showAdminGroupForm(area) {
     const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    // Grup Listesini Hazırla
     let options = data.groups.map(g => `<option value="${g.id}">${g.name} (${g.id})</option>`).join('');
+    
+    // Alan (Domain) Listesini Hazırla (YENİ)
+    let domainOptions = '<option value="">-- Alan Yok (Genel) --</option>';
+    if (data.domains) {
+        data.domains.forEach(d => {
+            domainOptions += `<option value="${d.id}">${d.name} (${d.nameDE || ''})</option>`;
+        });
+    }
+
+    // Form HTML'i
     area.innerHTML = `<div class="content-box"><h4>${t.admin.addGroup}</h4>
       <label>${t.labels.group} (Düzenlemek için seçin)</label>
       <select id="adm_g_select" class="select-field"><option value="">-- YENİ GRUP --</option>${options}</select>
+      
+      <div style="background:#f0fff4; padding:10px; border-radius:8px; margin:15px 0; border:1px solid #48bb78;">
+          <label style="font-weight:bold; color:#2f855a;">📂 Bağlı Olduğu Alan (Kategori)</label>
+          <select id="adm_g_domain" class="select-field" style="border-color:#48bb78;">
+              ${domainOptions}
+          </select>
+          <p class="small-muted" style="margin-top:5px;">Bu grubun ana ekranda hangi sekmede görüneceğini belirler.</p>
+      </div>
+
       <label>${t.labels.groupID}</label><input id="adm_g_id" class="input-field">
       <label>${t.labels.groupNameTR}</label><input id="adm_g_name_tr" class="input-field">
       <label>${t.labels.groupNameDE}</label><input id="adm_g_name_de" class="input-field">
+      
       <div class="button-group-row">
         <button class="btn btn-primary" onclick="adminSaveGroup()">✅ ${t.buttons.save}</button>
         <button class="btn btn-danger" onclick="adminDeleteGroup()">🗑 ${t.buttons.delete}</button>
       </div></div>`;
+
+    // Seçim değiştiğinde verileri doldur
     document.getElementById('adm_g_select').onchange = (e) => {
         const gid = e.target.value;
         const g = data.groups.find(x => x.id === gid);
         if (g) {
+            // Düzenleme Modu
             document.getElementById('adm_g_id').value = g.id;
             document.getElementById('adm_g_id').readOnly = true;
             document.getElementById('adm_g_name_tr').value = g.name;
             document.getElementById('adm_g_name_de').value = g.nameDE || '';
+            // Kayıtlı Alanı Getir
+            document.getElementById('adm_g_domain').value = g.domainId || ''; 
         } else {
+            // Yeni Kayıt Modu
             document.getElementById('adm_g_id').value = '';
             document.getElementById('adm_g_id').readOnly = false;
             document.getElementById('adm_g_name_tr').value = '';
             document.getElementById('adm_g_name_de').value = '';
+            document.getElementById('adm_g_domain').value = '';
         }
     };
 }
+
 function adminSaveGroup() {
     const selId = document.getElementById('adm_g_select').value;
     const id = document.getElementById('adm_g_id').value.trim();
     const name = document.getElementById('adm_g_name_tr').value.trim();
     const named = document.getElementById('adm_g_name_de').value.trim();
+    
+    // YENİ: Alan Seçimini Al
+    const domainId = document.getElementById('adm_g_domain').value; 
+
     if (!id || !name) { alert('ID ve TR İsim gerekli'); return; }
+    
     let g = data.groups.find(x => x.id === (selId || id));
+    
     if (g) {
+        // GÜNCELLEME
         g.name = name;
         g.nameDE = named;
-        alert('Grup güncellendi');
+        g.domainId = domainId; // Alan bilgisini güncelle
+        alert('✅ Grup ve Alan bilgisi güncellendi');
     } else {
+        // YENİ EKLEME
         if (data.groups.find(x => x.id === id)) { alert('Bu ID zaten var'); return; }
-        data.groups.push({ id: id, name: name, nameDE: named, story: null });
+        
+        data.groups.push({ 
+            id: id, 
+            name: name, 
+            nameDE: named, 
+            domainId: domainId, // Alan bilgisiyle kaydet
+            story: null 
+        });
+        
         if (!data.verbs[id]) data.verbs[id] = [];
-        alert('Grup eklendi');
+        alert('✅ Yeni Grup eklendi');
     }
+    
     saveContentOverride();
-    showAdminForm('addGroup');
+    showAdminForm('addGroup'); // Formu yenile
 }
 function adminDeleteGroup() {
     const selId = document.getElementById('adm_g_select').value;
@@ -3317,6 +4417,121 @@ function adminLoadVerbFields() {
         document.getElementById('adm_v_de').value = '';
     }
 }
+// index.html, adminShowClassManagement fonksiyonu (SADELEŞTİRİLMİŞ VE GÜNCELLENMİŞ)
+
+function adminShowClassManagement(area) {
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    area.innerHTML = `
+        <div id="classManagementTab" class="content-box">
+            <h4>🎓 Sınıf Yönetimi</h4>
+            <p class="small-muted">Yeni sınıf ekleyin veya mevcut sınıfların adını düzenleyin.</p>
+            <div class="button-group-row">
+                <input type="text" id="newClassId" placeholder="ID (Örn: C1)" style="width: 100px;">
+                <input type="text" id="newClassName" placeholder="Sınıf Adı (Örn: İleri Seviye)" style="flex-grow: 1;">
+                <button class="btn btn-primary" onclick="adminAddOrUpdateClass()">Kaydet / Güncelle</button>
+            </div>
+            <div id="classListContainer"></div>
+        </div>`;
+    adminLoadClassListSimple();
+}
+
+// Sınıf Listesini Yükle (Sadece Düzenle ve Sil butonu var)
+function adminLoadClassListSimple() {
+    const container = document.getElementById('classListContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    if (!data.classes || data.classes.length === 0) {
+        container.innerHTML = '<p>Henüz sınıf tanımlanmamış.</p>';
+        return;
+    }
+
+    let html = '<table style="width:100%; border-collapse: collapse; margin-top: 15px;">';
+    data.classes.forEach(c => {
+        html += `
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px; width: 20%;"><strong>${c.id}</strong></td>
+                <td style="padding: 8px;">${c.name}</td>
+                <td style="padding: 8px; text-align: right;">
+                    <button class="btn btn-small btn-warning" onclick="adminPrepareClassEdit('${c.id}', '${c.name}')">✏️ Düzenle</button>
+                    <button class="btn btn-small btn-danger" onclick="adminDeleteClass('${c.id}')">🗑 Sil</button>
+                </td>
+            </tr>
+        `;
+    });
+    html += '</table>';
+    container.innerHTML = html;
+}
+// index.html, yaklaşık 1580. satır (adminDeleteClass)
+
+function adminDeleteClass(classId) {
+    if (!confirm(`'${classId}' sınıfını ve ona bağlı tüm Konu bağlantılarını silmek istediğinizden emin misiniz?`)) return;
+    
+    // Sınıfı sil
+    data.classes = data.classes.filter(c => c.id !== classId);
+    
+    // Konu bağlantılarını sil (data.topics[C1] silinir)
+    if (data.topics && data.topics[classId]) {
+        delete data.topics[classId];
+    }
+    
+    // 💡 KRİTİK DÜZELTME: Çeviri verisinden de sil
+    if (data.translations.tr[classId]) {
+        delete data.translations.tr[classId];
+    }
+    if (data.translations.de[classId]) {
+        delete data.translations.de[classId];
+    }
+
+    alert(`✅ Sınıf ${classId} silindi.`);
+    saveContentOverride();
+    adminLoadClassListSimple();
+}
+// index.html, yaklaşık 1550. satır (adminAddOrUpdateClass)
+
+function adminAddOrUpdateClass() {
+    const idInput = document.getElementById('newClassId');
+    const nameInput = document.getElementById('newClassName');
+    const id = idInput.value.trim().toUpperCase();
+    const name = nameInput.value.trim();
+    // nameDE'yi Türkçe adıyla aynı kabul ediyoruz
+    const nameDE = nameInput.value.trim(); 
+
+    if (!id || !name) { alert('Lütfen ID ve İsim girin.'); return; }
+
+    const existingClass = data.classes.find(c => c.id === id);
+
+    if (existingClass) {
+        existingClass.name = name;
+        existingClass.nameDE = nameDE; 
+        alert(`Sınıf (${id}) ismi güncellendi.`);
+    } else {
+        // YENİ EKLEME
+        data.classes.push({ id: id, name: name, nameDE: nameDE });
+        data.topics[id] = {}; // Yeni sınıf için boş konu listesi aç
+        alert(`Yeni Sınıf (${id}) eklendi.`);
+    }
+
+    // 💡 EK KRİTİK DÜZELTME: Sınıf adlarını çeviri verisine de ekle (Sınıf Seçim Ekranı için)
+    // Bu, sınıf adının çevrilmesini sağlayarak stabiliteyi artırır.
+    data.translations.tr[id] = name;
+    data.translations.de[id] = nameDE;
+    
+    // 🔥 KRİTİK DÜZELTME: TÜM DEĞİŞİKLİKLERİ KALICI HALE GETİR
+    saveContentOverride(); 
+    
+    idInput.value = '';
+    nameInput.value = '';
+    adminLoadClassListSimple();
+}
+// Düzenle butonuna basınca inputları doldurur
+function adminPrepareClassEdit(id, name) {
+    document.getElementById('newClassId').value = id;
+    document.getElementById('newClassId').readOnly = true; // ID değiştirilemez, sadece isim
+    document.getElementById('newClassName').value = name;
+    document.getElementById('newClassName').focus();
+    alert('Sınıf bilgileri yukarıya taşındı. İsmi değiştirip "Kaydet/Güncelle" butonuna basın.');
+}
 function adminSaveVerb() {
     const gid = document.getElementById('adm_v_group').value;
     const selId = document.getElementById('adm_v_select').value;
@@ -3348,56 +4563,169 @@ function adminDeleteVerb() {
     saveContentOverride();
     showAdminForm('addVerb');
 }
-function showAdminSectionForm(area) {
+
+
+function adminShowTopicPoolForm(area) {
     const t = getMergedTranslations(data.settings.language || 'tr');
-    let options = Object.entries(data.sections).map(([num, name]) => `<option value="${num}">${num}. ${name}</option>`).join('');
-    area.innerHTML = `<div class="content-box"><h4>${t.admin.addSection}</h4>
-      <label>Bölüm (Düzenlemek için seçin)</label>
-      <select id="adm_s_select" class="select-field"><option value="">-- YENİ BÖLÜM --</option>${options}</select>
-      <label>${t.labels.sectionNum}</label><input id="adm_s_num" class="input-field" type="number">
-      <label>${t.labels.sectionName}</label><input id="adm_s_name" class="input-field">
-      <div class="button-group-row">
-        <button class="btn btn-primary" onclick="adminSaveSection()">✅ ${t.buttons.save}</button>
-        <button class="btn btn-danger" onclick="adminDeleteSection()">🗑 ${t.buttons.delete}</button>
-      </div></div>`;
-    document.getElementById('adm_s_select').onchange = (e) => {
-        const num = e.target.value;
-        const name = data.sections[num];
-        if (name) {
-            document.getElementById('adm_s_num').value = num;
-            document.getElementById('adm_s_num').readOnly = true;
-            document.getElementById('adm_s_name').value = name;
-        } else {
-            document.getElementById('adm_s_num').value = '';
-            document.getElementById('adm_s_num').readOnly = false;
-            document.getElementById('adm_s_name').value = '';
+    
+    // Konu Listesi (Dropdown için)
+    let topicOptions = Object.entries(data.topicPool).map(([num, name]) => `<option value="${num}">${num}. ${name}</option>`).join('');
+    
+    // Sınıf Listesi (Görünürlük Seçimi için)
+    // "bağımsız" seçeneğini en başa ekliyoruz
+    let classOptions = `<option value="independent">🌐 BAĞIMSIZ (Tüm Sınıflarda Göster)</option>`;
+    data.classes.forEach(c => {
+        classOptions += `<option value="${c.id}">Sadece ${c.id} (${c.name})</option>`;
+    });
+
+    area.innerHTML = `
+        <div class="content-box">
+            <h4>📚 Konu (Bölüm) Yönetimi</h4>
+            
+            <label>Düzenlenecek Konuyu Seç (Yeni eklemek için boş bırakın)</label>
+            <select id="adm_tp_select" class="select-field" onchange="adminLoadTopicDetailsToForm()">
+                <option value="">-- YENİ KONU OLUŞTUR --</option>
+                ${topicOptions}
+            </select>
+
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ddd;">
+
+            <label>${t.labels.sectionNum} (ID)</label>
+            <input id="adm_tp_num" class="input-field" type="number" placeholder="Örn: 15">
+            
+            <label>${t.labels.sectionName} (Konu Başlığı)</label>
+            <input id="adm_tp_name" class="input-field" placeholder="Örn: Edatlar">
+            
+            <label style="margin-top: 10px; font-weight: bold; color: #667eea;">🔗 Hangi Sınıfta Görünsün?</label>
+            <select id="adm_tp_visibility" class="select-field" style="border: 2px solid #667eea;">
+                ${classOptions}
+            </select>
+            <p class="small-muted">"Bağımsız" seçerseniz konu A1, A2, B1 gibi TÜM sınıflara eklenir.</p>
+
+            <div class="button-group-row">
+                <button class="btn btn-primary" onclick="adminSaveTopicWithLink()">✅ Kaydet ve Bağla</button>
+                <button class="btn btn-danger" onclick="adminDeleteTopicPool()">🗑 Konuyu Sil</button>
+            </div>
+        </div>
+        
+        <div id="topicListPreview" class="content-box" style="margin-top:15px; max-height: 300px; overflow-y:auto;">
+             <h5>Mevcut Konu Havuzu:</h5>
+             ${renderSimpleTopicList()}
+        </div>`;
+}
+
+// Formdaki basit liste görünümü için yardımcı fonksiyon
+function renderSimpleTopicList() {
+    if (!data.topicPool) return '';
+    return Object.entries(data.topicPool).map(([id, name]) => `<div><b>${id}.</b> ${name}</div>`).join('');
+}
+
+// Seçilen konunun bilgilerini forma doldurur
+function adminLoadTopicDetailsToForm() {
+    const selNum = document.getElementById('adm_tp_select').value;
+    if (!selNum) {
+        // Yeni konu modu: Alanları temizle
+        document.getElementById('adm_tp_num').value = '';
+        document.getElementById('adm_tp_num').readOnly = false;
+        document.getElementById('adm_tp_name').value = '';
+        document.getElementById('adm_tp_visibility').value = 'independent'; // Varsayılan bağımsız
+        return;
+    }
+
+    // Mevcut konuyu yükle
+    const name = data.topicPool[selNum];
+    document.getElementById('adm_tp_num').value = selNum;
+    document.getElementById('adm_tp_num').readOnly = true; // ID değiştirilemez
+    document.getElementById('adm_tp_name').value = name;
+
+    // Konunun hangi sınıfa bağlı olduğunu bulmaya çalış (Görünürlük ayarını tahmin et)
+    let foundClass = null;
+    let linkedCount = 0;
+    
+    Object.keys(data.topics).forEach(classId => {
+        if (data.topics[classId][selNum]) {
+            linkedCount++;
+            foundClass = classId;
         }
-    };
-}
-function adminSaveSection() {
-    const selNum = document.getElementById('adm_s_select').value;
-    const num = document.getElementById('adm_s_num').value.trim();
-    const name = document.getElementById('adm_s_name').value.trim();
-    if (!num || !name) { alert('Numara ve İsim gerekli'); return; }
-    if (data.sections[num] && !selNum) {
-        alert('Bu bölüm numarası zaten var'); return;
+    });
+
+    // Eğer konu sınıf sayısı kadar yerde varsa "Bağımsız"dır, yoksa tek bir sınıftadır
+    if (linkedCount >= data.classes.length) {
+        document.getElementById('adm_tp_visibility').value = 'independent';
+    } else if (linkedCount === 1 && foundClass) {
+        document.getElementById('adm_tp_visibility').value = foundClass;
+    } else {
+        // Karmaşık durum (örn: hem A1 hem A2'de ama B1'de yok), varsayılan bağımsız gösterelim
+        document.getElementById('adm_tp_visibility').value = 'independent'; 
     }
-    data.sections[num] = name;
-    if (selNum && selNum !== num) {
-        delete data.sections[selNum];
-    }
-    alert(selNum ? 'Bölüm güncellendi' : 'Bölüm eklendi');
-    saveContentOverride();
-    showAdminForm('addSection');
 }
-function adminDeleteSection() {
-    const selNum = document.getElementById('adm_s_select').value;
-    if (!selNum) { alert('Silmek için bir bölüm seçin'); return; }
-    if (!confirm(`'${selNum}' numaralı bölümü silmek istediğinizden emin misiniz?`)) return;
-    delete data.sections[selNum];
-    alert('Bölüm silindi');
+// index.html, adminSaveTopicWithLink fonksiyonu (YENİ KAYDETME MANTIĞI)
+
+function adminSaveTopicWithLink() {
+    const selNum = document.getElementById('adm_tp_select').value; // Düzenleme modu mu?
+    const num = document.getElementById('adm_tp_num').value.trim();
+    const name = document.getElementById('adm_tp_name').value.trim();
+    const visibility = document.getElementById('adm_tp_visibility').value; // independent veya ClassID
+
+    if (!num || !name) { alert('Numara ve İsim gereklidir.'); return; }
+
+    // 1. KONUYU HAVUZA KAYDET (Master List)
+    // Eğer yeni ekliyorsak ve numara zaten varsa uyar
+    if (!selNum && data.topicPool[num]) {
+        alert('Bu konu numarası zaten kullanılıyor. Lütfen başka bir numara verin.');
+        return;
+    }
+    data.topicPool[num] = name;
+
+    // 2. BAĞLANTILARI AYARLA (Sınıflara Dağıt)
+    if (visibility === 'independent') {
+        // Seçenek: BAĞIMSIZ -> Tüm sınıflara ekle
+        data.classes.forEach(c => {
+            if (!data.topics[c.id]) data.topics[c.id] = {};
+            // Konuyu sınıfa ekle (İsmi de Master listesindeki gibi yap)
+            data.topics[c.id][num] = name; 
+        });
+    } else {
+        // Seçenek: TEK SINIF (Örn: A1)
+        const targetClassId = visibility;
+        
+        // a) Hedef sınıfa ekle
+        if (!data.topics[targetClassId]) data.topics[targetClassId] = {};
+        data.topics[targetClassId][num] = name;
+
+        // b) DİĞER sınıflardan kaldır (Çünkü artık bağımsız değil, sadece buraya özel)
+        data.classes.forEach(c => {
+            if (c.id !== targetClassId) {
+                if (data.topics[c.id] && data.topics[c.id][num]) {
+                    delete data.topics[c.id][num];
+                }
+            }
+        });
+    }
+
+    alert(`Konu (${num}. ${name}) kaydedildi ve görünürlük ayarlandı: ${visibility === 'independent' ? 'TÜM SINIFLAR' : visibility}`);
     saveContentOverride();
-    showAdminForm('addSection');
+    
+    // Formu yenile
+    adminShowTopicPoolForm(document.getElementById('adminContentArea'));
+}
+function adminDeleteTopicPool() {
+    const selNum = document.getElementById('adm_tp_select').value;
+    if (!selNum) { alert('Silmek için bir konu seçin'); return; }
+    if (!confirm(`'${selNum}' numaralı konuyu havuzdan silmek istediğinizden emin misiniz? Bu, tüm sınıflardan kaldırılacaktır.`)) return;
+    
+    delete data.topicPool[selNum];
+    
+    // Bağlı olduğu tüm sınıflardan da kaldır
+    Object.keys(data.topics).forEach(classId => {
+        if (data.topics[classId][selNum]) {
+            delete data.topics[classId][selNum];
+        }
+    });
+
+    alert('Konu silindi');
+    saveContentOverride();
+    adminShowTopicPoolForm(document.getElementById('adminContentArea'));
 }
 
 function showAdminStoryForm(area) {
@@ -3516,7 +4844,7 @@ function adminHintLoadTargetSelectors() {
     document.getElementById('adm_h_text').value = ''; 
     if (type === 'section') {
         let options = Object.entries(data.sections).map(([num, name]) => `<option value="B${num}">${num}. ${name} (B${num})</option>`).join('');
-        targetArea.innerHTML = `<label>Bölüm Seç</label><select id="adm_h_target" class="select-field">${options}</select>`;
+        targetArea.innerHTML = `<label>Konu Seç</label><select id="adm_h_target" class="select-field">${options}</select>`;
         document.getElementById('adm_h_target').onchange = adminHintLoadText;
     }
     else if (type === 'verb') {
@@ -3641,9 +4969,15 @@ function admin_es_loadVerbs() {
     fillSelect('adm_es_verb', (data.verbs[gid] || []).map(v => ({ v: v.id, t: (v.verbTR || v.verbDE) })), true);
     admin_es_loadSections();
 }
+// index.html, admin_es_loadSections fonksiyonunu BUL ve DEĞİŞTİR
+
 function admin_es_loadSections() {
     const verbId = document.getElementById('adm_es_verb').value;
-    const items = Object.entries(data.sections).map(([num, name]) => {
+    
+    // DÜZELTME: data.sections -> data.topicPool
+    const source = data.topicPool || {};
+
+    const items = Object.entries(source).map(([num, name]) => {
         const count = (data.content[`${verbId}_s${num}`] || []).length;
         return { v: num, t: `${num}. ${name} (${count} cümle)` };
     });
@@ -3710,6 +5044,8 @@ function adminDeleteSentence() {
         admin_es_loadSections();
     }
 }
+// index.html, renderAllSentencesTable fonksiyonunu BUL ve DEĞİŞTİR
+
 function renderAllSentencesTable(){
   const container = document.getElementById('allSentencesTable');
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -3727,8 +5063,12 @@ function renderAllSentencesTable(){
     if(!m) return;
     const vid = m[1]; const sec = m[2];
     const info = groupMap[vid] || { groupName: '?', verbName: vid };
+    
+    // DÜZELTME: data.sections -> data.topicPool
+    const sectionName = (data.topicPool && data.topicPool[sec]) || sec;
+
     (arr||[]).forEach((s,i)=>{
-      html += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 4px;">${escapeHtml(info.groupName)}</td><td>${escapeHtml(info.verbName)}</td><td>${escapeHtml(data.sections[sec]||sec)}</td>
+      html += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 4px;">${escapeHtml(info.groupName)}</td><td>${escapeHtml(info.verbName)}</td><td>${escapeHtml(sectionName)}</td>
         <td>${i}</td><td>${escapeHtml(s.tr||'')}</td><td>${escapeHtml(s.de||'')}</td></tr>`;
     });
   });
@@ -3736,18 +5076,6 @@ function renderAllSentencesTable(){
   container.innerHTML = html;
 }
 // Seçicileri dolduran yardımcı fonksiyon
-function fillBulkEditSelectors() {
-    // 1. Grup Seçicisini doldur
-    fillSelect('bulk_edit_group', data.groups.map(g => ({ v: g.id, t: g.name })), true);
-    
-    // Olay Dinleyicileri
-    document.getElementById('bulk_edit_group').onchange = bulkEditLoadVerbs;
-    document.getElementById('bulk_edit_verb').onchange = bulkEditLoadSections;
-    document.getElementById('bulk_edit_section').onchange = loadBulkEditTable;
-    
-    // Başlangıç yüklemesi
-    bulkEditLoadVerbs();
-}
 
 // Seçilen Gruba göre Fiilleri doldurur
 function bulkEditLoadVerbs() {
@@ -3756,16 +5084,155 @@ function bulkEditLoadVerbs() {
     bulkEditLoadSections();
 }
 
-// Seçilen Fiile göre Bölümleri doldurur
+/* --- YENİLENMİŞ TOPLU CÜMLE DÜZENLEME (BULK EDIT) --- */
+
+// 1. Sayfa açılınca Fiil Listesini Doldurur
+function fillBulkEditSelectors() {
+    const verbSelect = document.getElementById('bulk_edit_verb');
+    if (!verbSelect) return;
+    
+    verbSelect.innerHTML = '';
+    
+    // Tüm gruplardaki fiilleri topla
+    let allVerbs = [];
+    if (data.groups) {
+        data.groups.forEach(g => {
+            if (data.verbs[g.id]) {
+                data.verbs[g.id].forEach(v => {
+                    allVerbs.push({ id: v.id, name: `${v.verbTR} (${v.verbDE})` });
+                });
+            }
+        });
+    }
+    
+    // Listeye ekle
+    allVerbs.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = `${v.id} - ${v.name}`;
+        verbSelect.appendChild(opt);
+    });
+    
+    // İlk fiil seçiliyse bölümleri yükle
+    bulkEditLoadSections();
+}
+
+// 2. Bölümleri Yükle (DÜZELTİLDİ: data.topicPool kullanıyor)
 function bulkEditLoadSections() {
     const verbId = document.getElementById('bulk_edit_verb').value;
-    const items = Object.entries(data.sections).map(([num, name]) => {
+    const sectionSelect = document.getElementById('bulk_edit_section');
+    if (!sectionSelect) return;
+    
+    sectionSelect.innerHTML = '';
+    
+    // KRİTİK DÜZELTME: Eski 'data.sections' yerine 'data.topicPool'
+    const source = data.topicPool || {}; 
+
+    // Seçenekleri oluştur
+    const items = Object.entries(source).map(([num, name]) => {
+        // O bölümdeki cümle sayısını bul
         const count = (data.content[`${verbId}_s${num}`] || []).length;
-        return { v: num, t: `${num}. ${name} (${count} c)` };
+        return { v: num, t: `${num}. ${name} (${count} cümle)` };
     });
-    fillSelect('bulk_edit_section', items, true);
-    // Seçim değiştiğinde tabloyu otomatik yüklemesin, kullanıcı butona bassın
+    
+    // "Hepsi" seçeneğini başa ekle
+    items.unshift({ v: 'all', t: '— Tüm Bölümler —' }); 
+    
+    // Select kutusunu doldur
+    items.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.v;
+        opt.textContent = item.t;
+        sectionSelect.appendChild(opt);
+    });
+    
+    // Cümleleri tabloya yükle
+    bulkEditLoadSentences();
 }
+
+// 3. Cümleleri Tabloya Dök
+// index.html, function bulkEditLoadSentences() fonksiyonunun YENİ HALİ
+
+function bulkEditLoadSentences() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    const container = document.getElementById('bulkEditTableContainer');
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    if (!verbId || !section) {
+        container.innerHTML = `<p class="small-muted">Lütfen Fiil ve Konu seçin.</p>`;
+        return;
+    }
+
+    let sectionsToLoad = [];
+    // TopicPool'u kullan
+    if (section === 'all') {
+        sectionsToLoad = Object.keys(data.topicPool || {}); 
+    } else {
+        sectionsToLoad.push(section); 
+    }
+
+    let allSentences = [];
+    let overallCount = 0;
+
+    // Tüm seçilen bölümlerdeki cümleleri topla
+    sectionsToLoad.forEach(secNum => {
+        const key = `${verbId}_s${secNum}`;
+        const sentences = data.content[key] || [];
+        
+        sentences.forEach((s, i) => {
+            allSentences.push({
+                tr: s.tr,
+                de: s.de,
+                srsKey: getSrsKey(verbId, secNum, i), // İpucu kaydı için gerekli anahtar
+                section: secNum, 
+                originalIndex: i 
+            });
+        });
+        overallCount += sentences.length;
+    });
+
+    if (overallCount === 0) {
+        container.innerHTML = `<div class="content-box"><p>${t.messages.noSentences}</p></div>`;
+        return;
+    }
+    
+    // Başlık (Bölüm Adı)
+    const sectionNameDisplay = section === 'all' ? 'TÜM BÖLÜMLER' : (data.topicPool[section] || 'Bilinmeyen Bölüm');
+
+    let html = `<p><b>Fiil:</b> ${verbId} | <b>Bölüm:</b> ${sectionNameDisplay} (${overallCount} cümle)</p>
+        <table id="bulkEditTable" class="admin-table" style="width:100%; border-collapse: collapse; margin-top: 10px;">
+        <thead><tr style="text-align:left; background: #eee; color: #0f1724;">
+            <th style="padding: 6px; width: 30px;">Bölüm.#</th>
+            <th style="width: 25%;">TR Cümle</th>
+            <th style="width: 25%;">DE Cümle</th>
+            <th style="width: 30%;">İpucu</th>
+            <th style="width: 10%;">Eylem</th>
+        </tr></thead><tbody>`;
+
+    allSentences.forEach((s) => {
+        const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[s.srsKey]) || '';
+        
+        // Satır verilerini data-* attribute'larında tutuyoruz
+        html += `<tr data-section="${s.section}" data-original-index="${s.originalIndex}" data-srs-key="${s.srsKey}" style="border-bottom: 1px solid #eee;">
+            <td style="padding: 6px; font-size: 0.9em;">${s.section}.${s.originalIndex}</td>
+            <td><textarea rows="2" class="textarea-field bulk-tr" style="min-height: 50px;">${escapeHtml(s.tr || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-de" style="min-height: 50px;">${escapeHtml(s.de || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-hint" style="min-height: 50px;">${escapeHtml(currentHint)}</textarea></td>
+            <td><button class="btn btn-danger btn-small" onclick="adminDeleteSentenceFromBulk('${verbId}_s${s.section}', ${s.originalIndex}, this)">🗑 Sil</button></td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    
+    // Altındaki Kaydetme Butonu (Geri bildirim vermesi için)
+    html += `<div style="margin-top:15px; text-align:right;">
+        <button class="btn btn-primary" onclick="adminSaveBulkEdit()">💾 TÜM DEĞİŞİKLİKLERİ KAYDET</button>
+    </div>`;
+
+    container.innerHTML = html;
+}
+
 function exportSentencesCsv(){
   console.log("TSV Dışa Aktarma Başlatılıyor...");
   const t = getMergedTranslations(data.settings.language || 'tr');
@@ -3799,79 +5266,45 @@ function exportSentencesCsv(){
   URL.revokeObjectURL(url);
   alert('TSV (Excel) formatında yedek indirildi. Bu dosyayı kopyalayıp Toplu Yüklemeye yapıştırabilirsiniz.');
 }
-function loadBulkEditTable() {
-    const verbId = document.getElementById('bulk_edit_verb').value;
-    const section = document.getElementById('bulk_edit_section').value;
-    const container = document.getElementById('bulkEditTableContainer');
-    const t = getMergedTranslations(data.settings.language || 'tr');
-    
-    if (!verbId || !section) {
-        container.innerHTML = `<p class="small-muted">${t.messages.allFieldsError}</p>`;
-        return;
-    }
 
-    const key = `${verbId}_s${section}`;
-    const sentences = data.content[key] || [];
-    const sectionName = data.sections[section] || section;
-    
-    if (sentences.length === 0) {
-        container.innerHTML = `<div class="content-box"><p>${t.messages.noSentences}</p></div>`;
-        return;
-    }
+// index.html, adminSaveBulkEdit fonksiyonunu BUL ve DEĞİŞTİR
 
-    let html = `<p><b>Bölüm:</b> ${sectionName} (${sentences.length} cümle)</p>
-        <table id="bulkEditTable" style="width:100%; border-collapse: collapse; margin-top: 10px;">
-        <thead><tr style="text-align:left; background: #eee; color: #0f1724;">
-            <th style="padding: 6px; width: 30px;">#</th>
-            <th style="width: 35%;">TR Cümle</th>
-            <th style="width: 35%;">DE Cümle</th>
-            <th style="width: 20%;">İpucu</th>
-            <th style="width: 10%;">Eylem</th>
-        </tr></thead><tbody>`;
+// index.html, function adminSaveBulkEdit() fonksiyonunu BUL ve DEĞİŞTİR
 
-    sentences.forEach((s, i) => {
-        const srsKey = getSrsKey(verbId, section, i);
-        const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[srsKey]) || '';
-        
-        html += `<tr data-index="${i}" data-key="${srsKey}" style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">${i}</td>
-            <td><textarea rows="2" class="textarea-field bulk-tr" style="min-height: 50px;">${escapeHtml(s.tr || '')}</textarea></td>
-            <td><textarea rows="2" class="textarea-field bulk-de" style="min-height: 50px;">${escapeHtml(s.de || '')}</textarea></td>
-            <td><textarea rows="2" class="textarea-field bulk-hint" style="min-height: 50px;">${escapeHtml(currentHint)}</textarea></td>
-            <td><button class="btn btn-danger btn-small" onclick="adminDeleteSentenceFromBulk('${key}', ${i}, this)">Sil</button></td>
-        </tr>`;
-    });
+// index.html -> adminSaveBulkEdit fonksiyonunu bununla değiştirin
 
-    html += '</tbody></table>';
-    container.innerHTML = html;
-}
-// Tüm Tablo Değişikliklerini Kaydetme
 function adminSaveBulkEdit() {
     const verbId = document.getElementById('bulk_edit_verb').value;
-    const section = document.getElementById('bulk_edit_section').value;
-    if (!verbId || !section) return;
-
-    const contentKey = `${verbId}_s${section}`;
+    const currentSectionSelection = document.getElementById('bulk_edit_section').value; // 'all' veya '1', '2' gibi
     const table = document.getElementById('bulkEditTable');
-    if (!table) return;
+    
+    if (!verbId || !table) return;
 
-    let updatedSentences = [];
+    let updatedContent = {};
     let hintsUpdated = 0;
     let sentencesUpdated = 0;
-    
-    // Tablonun her satırını döner
+
+    // 1. Tablodaki verileri hafızaya al
     table.querySelectorAll('tbody tr').forEach(row => {
-        const index = parseInt(row.dataset.index);
-        const srsKey = row.dataset.key;
+        const section = row.dataset.section;
+        const srsKey = row.dataset.srsKey;
+        
+        // Yeni eklenen satırlarda section attribute olmayabilir, select kutusundan al
+        const effectiveSection = section || currentSectionSelection;
+        
         const tr = row.querySelector('.bulk-tr').value.trim();
         const de = row.querySelector('.bulk-de').value.trim();
         const hint = row.querySelector('.bulk-hint').value.trim();
         
-        if (tr || de) { // İçerik varsa kaydet
-            updatedSentences.push({ tr, de });
+        const contentKey = `${verbId}_s${effectiveSection}`;
+        
+        if (tr || de) { 
+            if (!updatedContent[contentKey]) updatedContent[contentKey] = [];
+            
+            updatedContent[contentKey].push({ tr, de });
             sentencesUpdated++;
             
-            // İpucu kontrolü
+            // İpuçlarını kaydet
             if (srsKey) {
                 if (!data.hints.sentences) data.hints.sentences = {};
                 if (hint) {
@@ -3881,29 +5314,75 @@ function adminSaveBulkEdit() {
                     delete data.hints.sentences[srsKey];
                 }
             }
-        } else {
-            // TR ve DE boşsa bu satır atlanır (silinmek üzere işaretlenmediği sürece)
         }
     });
-
-    data.content[contentKey] = updatedSentences;
-    saveContentOverride();
-    alert(`✅ ${sentencesUpdated} cümle güncellendi/kaydedildi. ${hintsUpdated} ipucu işlendi.`);
-    loadBulkEditTable(); // Tabloyu yenile
+    
+    // 2. GÜVENLİ KAYDETME (Veri Silinmesini Önleyen Kısım)
+    if (currentSectionSelection === 'all') {
+        // Eğer "Tüm Bölümler" seçiliyse, topicPool'daki her şeyi güncelle (Ekranda olmayanlar silinmiş demektir)
+        Object.keys(data.topicPool || {}).forEach(secNum => {
+            const key = `${verbId}_s${secNum}`;
+            data.content[key] = updatedContent[key] || [];
+        });
+    } else {
+        // Eğer TEK BİR KONU seçiliyse (Örn: Sadece "1. Kişi Zamirleri"),
+        // SADECE O KONUYU güncelle. Diğerlerine (2, 3, 4...) ASLA DOKUNMA.
+        const key = `${verbId}_s${currentSectionSelection}`;
+        
+        // Eğer tablo boşaltıldıysa (hepsi silindiyse) boş dizi kaydet, yoksa dolu diziyi kaydet
+        data.content[key] = updatedContent[key] || [];
+    }
+    
+    saveContentOverride(); 
+    alert(`✅ Kayıt Başarılı!\nToplam ${sentencesUpdated} cümle ve ${hintsUpdated} ipucu güncellendi.\n(Diğer konulara dokunulmadı)`);
+    
+    // Tabloyu yenile (Yeni indexler otursun diye)
+    loadBulkEditTable(); 
 }
+// index.html, JS section
 
-// Tek Bir Cümleyi Silme (Tablo Üzerinden)
-function adminDeleteSentenceFromBulk(contentKey, index, buttonEl) {
-    if (!confirm(`${index + 1}. cümleyi silmek istediğinizden emin misiniz? Kaydetmeden önce silme işlemi tamamlanmaz.`)) return;
-
-    // UI'da satırı kaldır
-    const row = buttonEl.closest('tr');
-    if (row) {
-        row.remove();
-        alert('Cümle geçici olarak listeden kaldırıldı. Değişikliği kalıcı yapmak için "Kaydet"e basınız.');
+// KONUYA YILDIZ DEĞERLENDİRMESİ ATAR
+function setTopicStarRating(topicId, rating) {
+    // rating: 0 (değerlendirilmedi) ile 3 (çok önemli) arasında bir sayı
+    if (!data.settings.topicStars) {
+        data.settings.topicStars = {};
+    }
+    
+    const key = `${data.settings.currentClass || 'A1'}_${topicId}`;
+    
+    if (rating === 0) {
+        delete data.settings.topicStars[key];
+    } else {
+        data.settings.topicStars[key] = rating;
+    }
+    
+    saveSettings(); // Ayarları LocalStorage'a kaydet
+    
+    // Eğer şu an konu menüsündeysek, listeyi hemen güncelle
+    if (state.currentView === 'sectionMenu') {
+        selectVerb(state.verb); 
     }
 }
 
+// Konunun mevcut yıldızını çeker
+// index.html, JS section (Mevcut Fonksiyonlar - KONTROL EDİN)
+
+// Konunun mevcut yıldızını çeker
+function getTopicStarRating(topicId) {
+    if (!data.settings.topicStars) return 0;
+    // KRİTİK: Yıldızları Sınıf bağımsız, sadece TopicId'ye atayalım
+    // Sizin kodunuzdaki mevcut mantık: 
+    const key = `${data.settings.currentClass || 'A1'}_${topicId}`; // YENİ: Bu satırı
+    // const key = `${topicId}`; // ŞUNA DÖNÜŞTÜREBİLİRSİNİZ.
+    // Ancak mevcut kodunuzda bu gereksiz kısıt var:
+    const key = `${data.settings.currentClass || 'A1'}_${topicId}`; 
+    // Bu kısıt, K sınıfı (Karma Mod) konseptini bozar.
+
+    // 💡 EYLEM: data.settings.topicStars nesnesinde **her sınıftan ayrı ayrı** yıldız tutulmalıdır.
+    // Örn: { "A1_4": 3, "B2_33": 1 }
+    // Ancak sizin kodunuzda bu mantık `loadMixedModeSettings` içinde ele alınmaktadır. 
+    // Şimdilik, var olan `getMixedModeContentKeys` fonksiyonunun mantığını temel alarak devam ediyoruz.
+}
 // Yeni Boş Cümle Satırı Ekleme (Basitleştirilmiş)
 function adminAddNewSentencePrompt() {
     const verbId = document.getElementById('bulk_edit_verb').value;
@@ -3911,7 +5390,7 @@ function adminAddNewSentencePrompt() {
     const container = document.getElementById('bulkEditTableContainer');
 
     if (!verbId || !section) {
-         alert('Lütfen önce Grup, Fiil ve Bölüm seçin.');
+         alert('Lütfen önce Grup, Fiil ve Konu seçin.');
          return;
     }
     
@@ -3958,7 +5437,42 @@ function forceUpdateApp() {
         window.location.reload(true);
     }
 }
+// index.html, JS section (Bu fonksiyonları EKLEYİN veya güncelleyin)
 
+// KARIŞIK MOD BUTONU İÇİN YENİ GİRİŞ NOKTASI
+function openMixedModeSettings() {
+    loadMixedModeSettings(); // Ayarlar ekranını yükle
+    //updateMixedModeCount(); // Ana menü sayacını günceller (opsiyonel)
+    showView('mixedModeSettingsView');
+}
+
+// KARIŞIK MOD ÇALIŞMASINI BAŞLATIR (YENİ BUTON İŞLEVİ)
+function startMixedModeStudy() {
+    // startMixedMode() içinde tanımladığımız Karışık Mod mantığı buraya gelir
+    // Verileri topla ve Karışık Mod çalışmasını başlat
+    
+    const mixedKeys = getMixedModeContentKeys();
+
+    if (mixedKeys.length === 0) {
+        alert("Karışık Mod çalışması başlatılamadı. Lütfen en az bir konuya yıldız atayın.");
+        return;
+    }
+    
+    // 1. State'i Karışık Mod için ayarla
+    state.isMixedMode = true;
+    state.mixedStudyContentKeys = mixedKeys; 
+    state.mixedStudyIndex = 0; 
+    
+    // 2. Başlık ve Akış için gerekli değişkenleri ayarla
+    state.currentClass = 'MIXED'; // Başlıkta 'K' göstermek için bir işaret
+    state.group = 'MIXED';
+    state.verb = 'MIXED';
+    state.section = 'MIXED';
+    
+    // 3. Çalışmayı Başlat
+    loadMixedModeStudyCard(); 
+    showView('studyView');
+}
 /* ---------- Utils ---------- */
 // Yeni: Büyük/küçük harf ve noktalama işaretlerinden arındırır (YAMA 1)
 function normalizeString(str) {
@@ -4042,7 +5556,188 @@ function deepMerge(target, source) {
     }
     return output;
 }
+// index.html, function loadBulkEditTable() fonksiyonunu BUL ve DEĞİŞTİR
 
+function loadBulkEditTable() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    const container = document.getElementById('bulkEditTableContainer');
+    const t = getMergedTranslations(data.settings.language || 'tr');
+    
+    if (!verbId || !section) {
+        container.innerHTML = `<p class="small-muted">Lütfen Fiil ve Konu seçin.</p>`;
+        return;
+    }
+
+    let sectionsToLoad = [];
+    if (section === 'all') {
+        sectionsToLoad = Object.keys(data.topicPool || {}); 
+    } else {
+        sectionsToLoad.push(section);
+    }
+
+    let allSentences = [];
+    let overallCount = 0;
+
+    // Cümleleri toplama
+    sectionsToLoad.forEach(secNum => {
+        const key = `${verbId}_s${secNum}`;
+        const sentences = data.content[key] || [];
+        
+        sentences.forEach((s, i) => {
+            allSentences.push({
+                tr: s.tr,
+                de: s.de,
+                srsKey: getSrsKey(verbId, secNum, i), // İpucu kaydı için gerekli anahtar
+                section: secNum, 
+                originalIndex: i 
+            });
+        });
+        overallCount += sentences.length;
+    });
+
+    if (overallCount === 0) {
+        container.innerHTML = `<div class="content-box"><p>${t.messages.noSentences}</p></div>`;
+        return;
+    }
+    
+    // Başlık
+    const sectionNameDisplay = section === 'all' ? 'TÜM BÖLÜMLER' : (data.topicPool[section] || 'Bilinmeyen Bölüm');
+
+    let html = `<p><b>Fiil:</b> ${verbId} | <b>Bölüm:</b> ${sectionNameDisplay} (${overallCount} cümle)</p>
+        <table id="bulkEditTable" class="admin-table" style="width:100%; border-collapse: collapse; margin-top: 10px;">
+        <thead><tr style="text-align:left; background: #eee; color: #0f1724;">
+            <th style="padding: 6px; width: 30px;">Bölüm.#</th>
+            <th style="width: 25%;">TR Cümle</th>
+            <th style="width: 25%;">DE Cümle</th>
+            <th style="width: 30%;">İpucu</th>
+            <th style="width: 10%;">Eylem</th>
+        </tr></thead><tbody>`;
+
+    allSentences.forEach((s) => {
+        const currentHint = (data.hints && data.hints.sentences && data.hints.sentences[s.srsKey]) || '';
+        
+        // KRİTİK EKLENTİ: İpucu Kutusu (bulk-hint)
+        html += `<tr data-section="${s.section}" data-original-index="${s.originalIndex}" data-srs-key="${s.srsKey}" style="border-bottom: 1px solid #eee;">
+            <td style="padding: 6px; font-size: 0.9em;">${s.section}.${s.originalIndex}</td>
+            <td><textarea rows="2" class="textarea-field bulk-tr" style="min-height: 50px;">${escapeHtml(s.tr || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-de" style="min-height: 50px;">${escapeHtml(s.de || '')}</textarea></td>
+            <td><textarea rows="2" class="textarea-field bulk-hint" style="min-height: 50px;">${escapeHtml(currentHint)}</textarea></td>
+            <td><button class="btn btn-danger btn-small" onclick="adminDeleteSentenceFromBulk('${verbId}_s${s.section}', ${s.originalIndex}, this)">🗑 Sil</button></td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    
+    // KRİTİK EKLENTİ: TÜM DEĞİŞİKLİKLERİ KAYDET butonu
+    html += `<div style="margin-top:15px; text-align:right;">
+        <button class="btn btn-primary" onclick="adminSaveBulkEdit()">💾 TÜM DEĞİŞİKLİKLERİ KAYDET</button>
+    </div>`;
+
+    container.innerHTML = html;
+}
+
+
+// index.html -> Bu fonksiyonu eskisinin yerine yapıştırın
+
+// YARDIMCI: Bekleme Fonksiyonu
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function adminStartBatchAnalysis() {
+    const verbId = document.getElementById('bulk_edit_verb').value;
+    const section = document.getElementById('bulk_edit_section').value;
+    const table = document.getElementById('bulkEditTable');
+
+    if (!verbId || !section || !table) {
+        alert('Lütfen önce listeyi yükleyin.');
+        return;
+    }
+
+    // Tablodaki tüm satırları al
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const total = rows.length;
+
+    if (!confirm(`${total} cümle analiz edilecek. Bu işlem sırasında sonuçlar ekrana teker teker yazılacak.\n\nDurdurmak için sayfayı yenileyebilirsiniz.\n\nBaşlasın mı?`)) return;
+
+    // Her satır için tek tek işlem yap
+    for (let i = 0; i < total; i++) {
+        const row = rows[i];
+        
+        // O anki satırı görsel olarak vurgula (Sarı yap)
+        row.style.backgroundColor = '#fffbeb'; 
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Satırdaki verileri al
+        const tr = row.querySelector('.bulk-tr').value;
+        const de = row.querySelector('.bulk-de').value;
+        const sectionNum = row.dataset.section;
+        const originalIndex = parseInt(row.dataset.originalIndex);
+
+        // Zaten ipucu varsa ve boş değilse atlayabiliriz (İsteğe bağlı, şimdilik hepsini yapıyoruz)
+        
+        try {
+            // Sunucuya TEK CÜMLE gönderiyoruz (Böylece sunucu bekleme yapmaz, hemen cevap verir)
+            const response = await fetch('http://localhost:3000/api/batch-analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    verbId: verbId,
+                    section: sectionNum,
+                    sentences: [{ 
+                        tr, 
+                        de, 
+                        section: sectionNum, 
+                        originalIndex: originalIndex 
+                    }]
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success && data.results && data.results.length > 0) {
+                const result = data.results[0];
+                
+                // 1. Kutucukları Doldur
+                const hintBox = row.querySelector('.bulk-hint');
+                const deBox = row.querySelector('.bulk-de');
+                
+                // Animasyonlu bir efektle yazalım
+                hintBox.style.borderColor = '#48bb78'; // Yeşil çerçeve
+                hintBox.value = result.hint_text || '';
+                
+                // Eğer YZ Almanca cümleyi düzelttiyse onu da güncelle
+                if (result.corrected_de && result.corrected_de !== de) {
+                    deBox.value = result.corrected_de;
+                    deBox.style.color = '#2f855a'; // Değiştiğini belli et
+                }
+            } else {
+                console.error("Sunucu hatası:", data);
+                row.querySelector('.bulk-hint').placeholder = "Hata oluştu...";
+            }
+
+        } catch (err) {
+            console.error("Bağlantı hatası:", err);
+            row.querySelector('.bulk-hint').value = "Sunucuya bağlanılamadı!";
+        }
+
+        // İşlem biten satırın rengini normale döndür veya yeşil yap
+        row.style.backgroundColor = '#f0fff4'; 
+
+        // --- 10 SANİYE BEKLEME ---
+        // Beklemeyi BURADA (Tarayıcıda) yapıyoruz. Böylece her işlemi gözünüzle görürsünüz.
+        // Son cümle değilse bekle
+        if (i < total - 1) {
+            const btn = document.querySelector('button[onclick="adminStartBatchAnalysis()"]');
+            if(btn) btn.textContent = `⏳ Bekleniyor... (${i+1}/${total} Tamamlandı)`;
+            
+            await wait(10000); // 10 Saniye bekle
+        }
+    }
+
+    alert("✅ Tüm cümlelerin analizi tamamlandı!");
+    const btn = document.querySelector('button[onclick="adminStartBatchAnalysis()"]');
+    if(btn) btn.textContent = "🧠 YZ Toplu Analiz & İpucu Üret";
+}
 // YENİ: Universal Detail View Handler (HINT/GUIDE için temel fonksiyon)
 function showDetailView(title, content) {
     // Sizin dosyanızdaki #detailViewLayer'daki elemanları kullanıyoruz.
@@ -4051,7 +5746,84 @@ function showDetailView(title, content) {
     document.getElementById('detailViewContent').innerHTML = processGuideMarkdown(content); 
     showView('detailViewLayer');
 }
+// index.html, JS section (loadMixedModeSettings fonksiyonunu EKLEYİN)
 
+function loadMixedModeSettings(filterRating = 0) {
+    const container = document.getElementById('mixedModeTopicList');
+    container.innerHTML = '';
+    
+    // Filtreleri ayarla
+    state.starFilter = filterRating; 
+    let topicsInView = 0;
+
+    // Tüm sınıf ve konuları bir araya toplar (A1'den C1'e 50 konu)
+    const allTopics = {};
+    data.classes.forEach(classObj => {
+        const classId = classObj.id;
+        const topics = data.topics[classId];
+        
+        if (topics) {
+            Object.keys(topics).forEach(topicId => {
+                // Anahtarı benzersiz yapalım: "A1_1", "A2_1", vs.
+                const uniqueKey = `${classId}_${topicId}`;
+                // Eğer konu zaten eklenmemişse (yani birden fazla sınıfta değilse)
+                if (!allTopics[uniqueKey]) {
+                    allTopics[uniqueKey] = {
+                        id: topicId,
+                        name: topics[topicId],
+                        class: classId
+                    };
+                }
+            });
+        }
+    });
+
+    // 50 Konuyu Düğme Olarak Listele
+    Object.values(allTopics).forEach(topic => {
+        const rating = getTopicStarRating(topic.id); // Yıldız derecesini çek
+        
+        // Filtreleme kontrolü
+        if (filterRating > 0 && rating !== filterRating) {
+            return;
+        }
+        
+        topicsInView++;
+        
+        const b = document.createElement('button');
+        
+        // 1. Yıldız Butonlarını Oluştur
+        let starButtonsHtml = '<div class="star-rating-buttons">';
+        for (let j = 1; j <= 3; j++) {
+            const isActive = j <= rating ? 'star-active' : '';
+            const newRating = (rating === j) ? 0 : j; 
+            // setTopicStarRating fonksiyonunu çağırır
+            starButtonsHtml += `<button class="btn btn-small ${isActive}" onclick="event.stopPropagation(); setTopicStarRating('${topic.id}', ${newRating}); loadMixedModeSettings(${filterRating})">⭐</button>`;
+        }
+        starButtonsHtml += '</div>';
+
+        // Buton Metni: Konu Adı + Sınıf + Yıldız Butonları
+        b.innerHTML = `
+            <strong>${topic.class} - ${topic.name}</strong>
+            ${starButtonsHtml}
+        `;
+        
+        b.className = 'btn btn-secondary'; // Sadece ayarlama yapıldığı için hepsi gri (secondary) olabilir
+        b.disabled = true; // Sadece yıldız butonlarına tıklanmalı
+        container.appendChild(b);
+    });
+
+    // Filtre butonlarını aktif etme ve sayıları güncelleme (Burada updateFilterCounts mantığını kullanın)
+    // Bu mantık, hangi butonun aktif olduğunu ve kaç konu olduğunu gösterecektir.
+    
+    document.querySelector('#mixedModeSettingsView h4').textContent = `Filtrele ve Çalışmaya Başla: (${topicsInView} Konu Görünüyor)`;
+    
+    // Tüm butonları pasif yap
+    document.querySelectorAll('#starRatingFilterArea .btn-star-filter').forEach(btn => btn.classList.remove('active'));
+    // Seçili olanı aktif yap
+    document.querySelector(`.btn-star-filter:nth-child(${filterRating + 1})`).classList.add('active');
+
+    showView('mixedModeSettingsView');
+}
 // YENİ: Kılavuz Açma Fonksiyonu (⭐ butonu için)
 function showGuide() {
     const t = getMergedTranslations(data.settings.language || 'tr');
@@ -4060,31 +5832,254 @@ function showGuide() {
     showDetailView(guide.title, guide.content);
 }
 
+// index.html, JS section (Yeni Fonksiyonlar)
 
+// KARIŞIK MOD ÇALIŞMASINI BAŞLATIR
+function startMixedMode() {
+    const mixedKeys = getMixedModeContentKeys();
+
+    if (mixedKeys.length === 0) {
+        alert("Henüz yıldızladığınız (önem derecesi verdiğiniz) bir konu bulunmamaktadır. Lütfen 'Konu Seçimi' menülerinde konularınızı yıldızlayın.");
+        return;
+    }
+    
+    // state'i Karışık Mod için ayarla
+    state.isMixedMode = true;
+    state.mixedStudyContentKeys = mixedKeys; // Tüm içerik anahtarları (Örn: 'gehen_s1', 'sehen_s5', vs.)
+    state.mixedStudyIndex = 0; // Karışık modda hangi anahtar sırasındayız
+    
+    // Gerekli diğer state değişkenlerini sıfırla/MIXED olarak ayarla (başlıklar için)
+    state.currentClass = 'MIXED'; 
+    state.group = 'MIXED';
+    state.verb = 'MIXED';
+    state.section = 'MIXED';
+
+    // İlk konuyu yükle ve çalışma ekranına geç
+    loadMixedModeStudyCard(); 
+    showView('studyView');
+}
+
+// Karışık Mod için o anki fiil/konu setini yükler
+function loadMixedModeStudyCard() {
+    const key = state.mixedStudyContentKeys[state.mixedStudyIndex];
+    if (!key) {
+        // Tüm Karışık Mod konuları bitti
+        state.isMixedMode = false;
+        showView('mainMenu'); 
+        alert("Karışık Mod çalışması tamamlandı!");
+        return;
+    }
+
+    // key formatı: 'verbId_sTopicId'
+    const [verbId, topicPart] = key.split('_s');
+    const topicId = parseInt(topicPart.replace('s', '')); 
+
+    // Orijinal sınıf bilgisini bulmak için (Başlıkta göstermek için)
+    let originalClassId = 'Bilinmiyor';
+    for (const classObj of data.classes) {
+        if (data.topics[classObj.id] && data.topics[classObj.id][topicId]) {
+            originalClassId = classObj.id;
+            break;
+        }
+    }
+    
+    // studySections'ı o anki mixed key'in içeriğiyle doldur
+    state.studySections = data.content[key] || [];
+    state.currentCardIndex = 0; 
+    
+    // Başlık bilgisini güncelle (Örn: ⭐ KARIŞIK MOD: A1 - ALGI & İLETİŞİM)
+    const topicName = data.topics[originalClassId] ? data.topics[originalClassId][topicId] : `Konu ${topicId}`;
+    document.getElementById('studyHeader').textContent = `⭐ KARIŞIK MOD: ${originalClassId} - ${topicName}`;
+
+    // İlk kartı yükle
+    updateStudyCard();
+}
 /* ---------- Başlatma (Init v3.7) ---------- */
-async function init(){
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(reg => {
-      console.log('SW kaydı başarılı: ', reg.scope);
-    }, err => {
-      console.log('SW kaydı başarısız: ', err);
+
+/* --- GÜNCELLENMİŞ NAVİGASYON SİSTEMİ (Yerinde Güncelleme) --- */
+
+// 1. Splash Ekranını Yönetir (Aynı kalabilir)
+function handleSplashScreen() {
+    setTimeout(() => {
+        const splash = document.getElementById('splashScreen');
+        if(splash) {
+            splash.classList.add('splash-hidden'); 
+            setTimeout(() => { splash.style.display = 'none'; }, 1000); 
+            checkFirstLogin();
+        }
+    }, 2500);
+}
+
+// 2. İlk Giriş Kontrolü
+function checkFirstLogin() {
+    if (!data.settings.currentClass) {
+        openClassSelection();
+    } else {
+        updateClassNavButton();
+    }
+}
+
+// 3. Sınıf Seçim Ekranını Açar (NEREDE OLDUĞUMUZU KAYDEDER)
+function openClassSelection() {
+    const container = document.getElementById('classSelectionContainer');
+    if(!container) return;
+
+    // Eğer şu an 'welcomeView' değilsek, mevcut ekranı hafızaya al
+    // Böylece sınıf seçince buraya geri dönebiliriz.
+    if (state.currentView !== 'welcomeView') {
+        state.returnToView = state.currentView;
+    }
+    
+    container.innerHTML = '';
+    
+    data.classes.forEach(c => {
+        const btn = document.createElement('button');
+        const isSelected = data.settings.currentClass === c.id;
+        
+        // Tasarım: Beyaz ve temiz butonlar
+        const btnClass = isSelected ? 'btn btn-primary' : 'btn btn-secondary';
+        const bgStyle = isSelected ? '' : 'background: rgba(255,255,255,0.9); color: #333;'; 
+        const borderStyle = isSelected ? 'border: 3px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5);' : 'border: none;';
+        
+        btn.className = btnClass;
+        btn.style.cssText = `flex-direction: column; padding: 25px; min-width: 140px; ${bgStyle} ${borderStyle}`;
+        btn.innerHTML = `<span style="font-size: 2rem; font-weight:800;">${c.id}</span>
+                         <span style="font-size: 1rem; opacity: 0.9;">${c.name}</span>`;
+        
+        btn.onclick = () => selectUserClass(c.id);
+        container.appendChild(btn);
     });
+    
+    showView('welcomeView');
+}
+
+// 4. Kullanıcı Sınıf Seçtiğinde (KALDIĞI YERİ GÜNCELLER)
+function selectUserClass(classId) {
+    // Ayarı kaydet
+    data.settings.currentClass = classId;
+    saveSettings();
+    updateClassNavButton();
+    
+    // Nereye döneceğiz? (Kayıtlı bir yer yoksa Ana Menüye)
+    const targetView = state.returnToView || 'mainMenu';
+    
+    // --- KRİTİK NOKTA: DÖNÜLEN EKRANI YENİ SINIFA GÖRE YENİLE ---
+    
+    if (targetView === 'sectionMenu' && state.verb) {
+        // Eğer "Konu Seç" ekranındaysak, listeyi hemen yeni sınıfa göre tekrar çiz
+        selectVerb(state.verb); 
+    } 
+    else if (targetView === 'verbMenu' && state.group) {
+        // Eğer "Fiil Seç" ekranındaysak
+        selectGroup(state.group);
+    }
+    else if (targetView === 'groupMenu') {
+        // Eğer "Grup Seç" ekranındaysak
+        loadAndShowGroupMenu();
+    }
+    
+    // Şimdi o ekrana git (Zaten güncellendi)
+    showView(targetView);
+    
+    // Hafızayı temizle
+    state.returnToView = null;
+}
+
+// 5. Buton Metnini Güncelle
+function updateClassNavButton() {
+    const btn = document.getElementById('classNavBtn');
+    if(btn) {
+        btn.textContent = data.settings.currentClass || '?';
+    }
+}
+// index.html, JS section (Yeni Fonksiyonlar)
+
+// YILDIZLI KONULARIN TÜM İÇERİK ANAHTARLARINI TOPLAR
+function getMixedModeContentKeys() {
+    const mixedKeys = [];
+    
+    // data.classes dizisindeki tüm sınıfları dolaş (A1, A2, B1...)
+    data.classes.forEach(classObj => {
+        const classId = classObj.id;
+        const topics = data.topics[classId];
+
+        if (!topics) return;
+
+        // O sınıftaki tüm konuları dolaş
+        Object.keys(topics).forEach(topicId => {
+            // Konunun yıldız derecesini kontrol et (0'dan büyükse yıldızlıdır)
+            const rating = getTopicStarRating(topicId); 
+            
+            if (rating > 0) {
+                const topicKeyPrefix = `_s${topicId}`;
+                
+                // data.content içindeki tüm anahtarları kontrol ederek bu konuya ait tüm fiilleri bul
+                Object.keys(data.content).forEach(contentKey => {
+                    // contentKey formatı: verbId_sTopicId
+                    if (contentKey.endsWith(topicKeyPrefix)) {
+                        // Anahtarın içeriği doluysa listeye ekle
+                        if (data.content[contentKey] && data.content[contentKey].length > 0) {
+                             mixedKeys.push(contentKey);
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    // Tekrarları önle ve listeyi döndür
+    return Array.from(new Set(mixedKeys));
+}
+// index.html, JS section (Yeni Fonksiyon)
+
+// KARIŞIK MOD butonu üzerindeki yıldızlı konu sayısını günceller
+function updateMixedModeCount() {
+    const mixedKeys = getMixedModeContentKeys();
+    const countElement = document.getElementById('mixedModeCount');
+    if (countElement) {
+        countElement.textContent = `${mixedKeys.length} Farklı Konu Seçili`;
+        // Eğer hiç konu seçili değilse butonu devre dışı bırak
+        const mixedBtn = document.getElementById('mixedModeBtn');
+        if (mixedBtn) {
+            mixedBtn.disabled = mixedKeys.length === 0;
+            mixedBtn.style.opacity = mixedKeys.length === 0 ? "0.6" : "1";
+        }
+    }
+}
+/* ---------- BAŞLATMA (INIT) ---------- */
+async function init() {
+  // 1. Service Worker Kaydı
+  if ('serviceWorker' in navigator) {
+    try {
+      const reg = await navigator.serviceWorker.register('service-worker.js');
+      console.log('SW kaydı başarılı: ', reg.scope);
+    } catch (err) {
+      console.log('SW kaydı başarısız: ', err);
+    }
   }
+
+  // 2. TTS (Ses) Motoru Hazırlığı
   if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => console.log("TTS Sesleri yüklendi.");
     window.speechSynthesis.getVoices();
   }
-  document.getElementById('modeToggleBtn').addEventListener('click', toggleNightMode);
-  document.getElementById('nightModeToggle').addEventListener('change', toggleNightMode);
+
+  // 3. Event Listener'lar (Buton Bağlantıları)
+  const modeBtn = document.getElementById('modeToggleBtn');
+  if(modeBtn) modeBtn.addEventListener('click', toggleNightMode);
+  
+  const nightChk = document.getElementById('nightModeToggle');
+  if(nightChk) nightChk.addEventListener('change', toggleNightMode);
+  
   document.getElementById('fileInput').onchange = importDataFromFile;
   document.getElementById('progressFileInput').onchange = importSrsData;
   
-  // KRİTİK DÜZELTME: Yıldız butonu tıklama olayını burada tanımlıyoruz
   const floatingGuideBtn = document.getElementById('floatingGuideBtn');
   if (floatingGuideBtn) {
       floatingGuideBtn.onclick = showGuide;
   }
   
+  // 4. Müzik Çalar Başlatma
   musicPlayer = new MusicPlayer(
       './telifsiz-klasik.mp3',
       'musicVolumeSlider',
@@ -4092,18 +6087,30 @@ async function init(){
       'settingsMusicVolume',
       'settingsMusicToggle'
   );
+
+  // 5. Verileri Yükle
   loadSettings();
-  await loadDataFromServer();
+  
+  // --- DÜZELTME BURADA YAPILDI ---
+  console.log("⏳ Sunucu verisi bekleniyor...");
+  await loadDataFromServer(); // Önce varsayılan veriyi bekle
+  
+  console.log("📂 Yerel veriler (override) yükleniyor...");
+  loadContentOverride();      // 🔥 EKSİK OLAN SATIR BU: Sizin kaydettiklerinizi yükler.
+  // ------------------------------
+
   loadSrsData();
   updateConversionButtons();
   updateUITexts();
   updateProgressView();
-  console.log('Verb Matrix v4.0 (Güncellenmiş Kılavuz) hazır.');
+  updateMixedModeCount();
+  showView('mainMenu');
   
-  // Admin butonu ve Home/Back butonlarının görünürlüğünü ayarlamak için
-  showView('mainMenu'); 
+  console.log('Verb Matrix v4.0 Hazır.');
+  handleSplashScreen();
 }
-window.addEventListener('load', fillBulkEditSelectors);
+
+// Sayfa yüklendiğinde başlat
 window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
