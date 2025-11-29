@@ -951,17 +951,14 @@
     <div class="subtitle" id="appSubtitle" data-translate-key="app.subtitle">Fiiller İle Almanca Öğrenme Platformu</div>
   </header>
 
- <div id="mainMenu" class="view active">
-  <div class="button-grid">
-    <button class="btn btn-primary" id="btnCalis" data-translate-key="menu.calis" onclick="loadAndShowGroupMenu()">📚 Çalış</button>
-    <button class="btn btn-ai" id="mixedModeBtn" onclick="openMixedModeSettings()">
-        ⭐ Karma Mod / Düzenle
-    </button>
-    <button class="btn btn-info" id="btnTekrar" data-translate-key="menu.tekrar" onclick="showView('tekrarMenu')">🔄 Tekrar</button>
-    <button class="btn btn-warning" id="btnProgress" data-translate-key="menu.progress" onclick="showView('progress')">📊 İlerleme</button>
-    <button class="btn btn-secondary" id="btnSettings" data-translate-key="menu.settings" onclick="showView('settings')">⚙️ Ayarlar</button>
+  <div id="mainMenu" class="view active">
+    <div class="button-grid">
+      <button class="btn btn-primary" id="btnCalis" data-translate-key="menu.calis" onclick="loadAndShowGroupMenu()">📚 Çalış</button>
+      <button class="btn btn-info" id="btnTekrar" data-translate-key="menu.tekrar" onclick="showView('tekrarMenu')">🔄 Tekrar</button>
+      <button class="btn btn-warning" id="btnProgress" data-translate-key="menu.progress" onclick="showView('progress')">📊 İlerleme</button>
+      <button class="btn btn-secondary" id="btnSettings" data-translate-key="menu.settings" onclick="showView('settings')">⚙️ Ayarlar</button>
+    </div>
   </div>
-</div>
 
   <div id="tekrarMenu" class="view">
     <h2 class="large-centered-title" data-translate-key="titles.tekrar">🔄 TEKRAR</h2>
@@ -1333,24 +1330,6 @@
         <button class="btn btn-secondary" onclick="showView('adminContentView')">← Geri Dön</button>
     </div>
 </div>
-<div id="mixedModeSettingsView" class="view">
-    <h2 class="large-centered-title">⭐ YILDIZLI KONU LİSTESİ (KARMA MOD)</h2>
-    <div id="starRatingFilterArea" class="button-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
-        <button class="btn btn-secondary btn-star-filter active" onclick="loadMixedModeSettings(0)">TÜMÜ</button>
-        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(1)">⭐ 1</button>
-        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(2)">⭐⭐ 2</button>
-        <button class="btn btn-warning btn-star-filter" onclick="loadMixedModeSettings(3)">⭐⭐⭐ 3</button>
-    </div>
-    
-    <div class="primary-action-container" style="margin-top: 15px;">
-      <button class="btn btn-primary" id="startMixedModeBtn" onclick="startMixedMode()">
-        📚 Yıldızlı Konularla Çalışmaya Başla
-      </button>
-    </div>
-
-    <div id="mixedModeTopicList" class="button-grid" style="margin-top: 20px;">
-        </div>
-</div>
 <div id="adminDataManagementView" class="view">
     <h2 class="section-title">💾 Gelişmiş Veri Yönetimi</h2>
 
@@ -1631,8 +1610,12 @@ groups: [
         42: "PASİF ALTERNATİFLERİ",
         43: "PARTIZIPIALKONSTRUKTIONEN",
         44: "FUNKTIONSVERBGEFÜGE",
+        45: "NOMINALISIERTE İNFİNİTİVE",
         46: "MODALPARTIKELN",
-        49: "SUBJEKTIVE MODALVERBEN"
+        47: "KONZESSIVE KONNEKTOREN",
+        48: "ADVERSATIVE KONNEKTOREN",
+        49: "SUBJEKTIVE MODALVERBEN",
+        50: "KAUSAL/KONDITIONAL KOMPLEKS"
     }
   },
 
@@ -2116,8 +2099,6 @@ function resetSrsData() {
 }
 
 /* ---------- İçerik (Content) Veri Yönetimi ---------- */
-// index.html, yaklaşık 860. satır (loadDataFromServer)
-
 async function loadDataFromServer() {
     try {
         const response = await fetch('verbmatrix_data.json');
@@ -2127,61 +2108,49 @@ async function loadDataFromServer() {
         const serverData = await response.json();
         data = deepMerge(data, serverData);
         console.log('✅ Sunucudan içerik verisi yüklendi.');
-        // loadContentOverride(); <-- BU SATIR ARTIK BURADA YOK
+        loadContentOverride();
     } catch (e) {
         console.error("Sunucudan 'verbmatrix_data.json' yüklenemedi. Varsayılan veri kullanılacak.", e);
-        // loadContentOverride(); <-- BU SATIR DA ARTIK BURADA YOK
+        loadContentOverride();
     }
 }
-// index.html, yaklaşık 870. satır (loadContentOverride)
-
 function loadContentOverride() {
     try {
         const override = localStorage.getItem('verbmatrix_content_override');
         if (override) {
-            const contentOverride = JSON.parse(override);
-            
-            // 🔥 KRİTİK DEĞİŞİKLİK: LocalStorage'daki tüm anahtarları (classes, groups, topics, vb.)
-            // direkt olarak global 'data' nesnesinin üzerine yazıyoruz.
-            // Bu, yeni sınıfların eski varsayılan sınıfları tamamen geçersiz kılmasını sağlar.
-            Object.assign(data, deepMerge(data, contentOverride));
-            
+            contentOverride = JSON.parse(override);
+            data = deepMerge(data, contentOverride);
             console.log('✅ Yerel içerik düzenlemeleri (Override) yüklendi.');
+        } else {
+            contentOverride = {};
         }
     } catch (e) {
         console.error("Yerel içerik düzenlemeleri yüklenirken hata:", e);
-        // Hata durumunda bozuk veriyi temizleyebiliriz
-        localStorage.removeItem('verbmatrix_content_override'); 
+        localStorage.removeItem('verbmatrix_content_override');
+        contentOverride = {};
     }
 }
+// index.html, saveContentOverride fonksiyonunu bulun ve aşağıdaki ile değiştirin.
 function saveContentOverride() {
-    // BURADAKİ HATA DÜZELTİLDİ: 
-    // Eskiden sadece groups ve verbs kaydediliyordu. 
-    // Artık Classes (Sınıflar), Domains (Alanlar) ve Translations (Çeviriler) de ekleniyor.
-    
+    // 🚩 BURAYA data.classes EKLENMELİDİR
     const contentToSave = {
-        classes: data.classes,           // 🔥 EKLENDİ: Yeni eklenen sınıfları (C1 vb.) kaydeder
-        domains: data.domains,           // 🔥 EKLENDİ: Alan yönetimini kaydeder
-        topicPool: data.topicPool,       // 🔥 EKLENDİ: Konu başlıklarını kaydeder
-        translations: data.translations, // 🔥 EKLENDİ: Sınıf isim çevirilerini kaydeder
-        
-        // Zaten var olanlar:
+        classes: data.classes,  // <--- KRİTİK EKLENTİ
+        domains: data.domains,  // <--- BU DA EK BİR GÜNCELLEME
         groups: data.groups,
         verbs: data.verbs,
         content: data.content,
+        sections: data.sections,
+        topics: data.topics,    // <--- data.topics de eklendi
         hints: data.hints,
-        guideText: data.guideText
+        guideText: data.guideText // YENİ
     };
-
-    // Mevcut override verisiyle birleştir (eski veriyi kaybetmemek için)
+    
     contentOverride = deepMerge(contentOverride, contentToSave);
-
     try {
         localStorage.setItem('verbmatrix_content_override', JSON.stringify(contentOverride));
-        console.log('✅ TÜM Veriler (Sınıflar dahil) güncellendi ve kaydedildi.');
+        console.log('✅ İçerik güncellendi ve yerel olarak kaydedildi (Override).');
     } catch (e) {
-        console.error("İçerik depolanamadı (Quota Exceeded olabilir):", e);
-        alert("Hata: Veri çok büyüdü, kaydedilemiyor! (Local Storage Doldu)");
+        console.error("İçerik depolanamadı:", e);
     }
 }
 function exportData(){
@@ -2757,7 +2726,7 @@ function selectGroup(id){
   });
   showView('verbMenu');
 }
-// index.html, selectVerb fonksiyonunu bulun ve güncelleyin
+// index.html içinde selectVerb fonksiyonunu bulun ve bununla değiştirin:
 
 function selectVerb(verbId){
   state.verb = verbId;
@@ -2765,84 +2734,61 @@ function selectVerb(verbId){
   const container = document.getElementById('sectionButtons'); 
   container.innerHTML='';
 
+  // --- YENİ SİSTEM GÜNCELLEMESİ ---
+  
+  // 1. Hangi sınıfta olduğumuzu bul (Eğer seçili değilse varsayılan A1 olsun)
   const currentClassId = data.settings.currentClass || 'A1';
   
-  // 🔥 KRİTİK FİLTRELEME BAŞLANGICI
-  let topicsToRender = {};
+  // 2. O sınıfın konu listesini al (Eski data.sections yerine)
+  const classTopics = data.topics[currentClassId];
   
-  if (currentClassId === 'K') {
-      // 1. K SINIFI: Sadece yıldızlı konuları topla
-      const starredTopicIds = getMixedModeContentKeys()
-          .filter(key => key.startsWith(`${verbId}_s`)) // Sadece bu fiile ait olanları al
-          .map(key => key.split('_s')[1]); // Sadece Konu ID'lerini al ('1', '5' gibi)
-
-      // Tekrarları önlemek için Set kullan
-      Array.from(new Set(starredTopicIds)).forEach(topicId => {
-          // Konu adını ana havuzdan (topicPool) al
-          if (data.topicPool[topicId]) {
-              topicsToRender[topicId] = data.topicPool[topicId];
-          }
-      });
-      
-      // Eğer yıldızlı konu yoksa
-      if (Object.keys(topicsToRender).length === 0) {
-           container.innerHTML = `<div class="content-box">⚠️ Uyarı: Bu fiil için yıldızlı konu bulunamadı. Lütfen "⭐ Karma Mod" menüsünden konularınızı yıldızlayın.</div>`;
-           showView('sectionMenu');
-           return;
-      }
-      
-  } else {
-      // 2. STANDART SINIFLAR (A1, A2, B1): Normal akışı kullan
-      topicsToRender = data.topics[currentClassId];
-      if (!topicsToRender) {
-          container.innerHTML = `<div class="content-box">⚠️ Uyarı: "${currentClassId}" sınıfı için konu listesi bulunamadı. Lütfen Yönetici panelinden sınıf ayarlarını kontrol edin.</div>`;
-          showView('sectionMenu');
-          return;
-      }
+  if (!classTopics) {
+      container.innerHTML = `<div class="content-box">⚠️ Uyarı: "${currentClassId}" sınıfı için konu listesi bulunamadı. Lütfen Yönetici panelinden sınıf ayarlarını kontrol edin.</div>`;
+      showView('sectionMenu');
+      return;
   }
-  // 🔥 KRİTİK FİLTRELEME BİTİŞİ
-  
 
-  // 3. Bölüm Butonlarını Oluştur
-  Object.entries(topicsToRender).forEach(([num, name]) => {
-    // ... (Mevcut buton oluşturma mantığı)
+  // 3. Sadece bu sınıfın konularını döngüye al
+  Object.entries(classTopics).forEach(([num, name]) => {
     const b = document.createElement('button');
     const key = `${verbId}_s${num}`;
+    
+    // Cümle sayısını hesapla
     const contentArray = data.content[key] || [];
     const sentenceCount = contentArray.length;
     let newCount = 0;
 
-    // ... (Yeni kart sayısını hesaplama ve butonu ekleme mantığı) ...
-    for(let i=0; i < sentenceCount; i++) {
-        const srsKey = getSrsKey(verbId, num, i);
-        const cardData = getCardSrsData(srsKey);
-        if (cardData.status === 'new') {
-            newCount++;
+    // Yeni kart sayısını hesapla (İlerleme durumu)
+    if (sentenceCount > 0) {
+        for(let i=0; i < sentenceCount; i++) {
+            const srsKey = getSrsKey(verbId, num, i);
+            const cardData = getCardSrsData(srsKey);
+            if (cardData.status === 'new') {
+                newCount++;
+            }
         }
     }
 
     // Buton Metni: Konu Adı + İstatistik
-    // Sadece yıldızlı konuları işaretlemek için (Opsiyonel ama faydalı)
-    const starRating = getTopicStarRating(num); 
-    const stars = starRating > 0 ? '⭐'.repeat(starRating) : '';
+    b.innerHTML = `<strong>${num}. ${name}</strong><br><span style="font-size:0.8em">(${newCount} yeni / ${sentenceCount} toplam)</span>`;
     
-    b.innerHTML = `<strong>${num}. ${name} ${stars}</strong><br><span style="font-size:0.8em">(${newCount} yeni / ${sentenceCount} toplam)</span>`;
-    
+    // Eğer hiç cümle yoksa butonu pasif yap
     if (sentenceCount > 0) {
       b.className = (newCount > 0) ? 'btn btn-primary' : 'btn btn-secondary';
       b.onclick = ()=>selectSection(parseInt(num));
     } else {
-      b.className='btn btn-secondary disabled';
+      b.className='btn btn-secondary disabled'; // Tamamen kırmızı olmasın, sönük olsun
       b.disabled = true;
       b.style.opacity = "0.6";
     }
     
+    // Butonu ekle
     container.appendChild(b);
   });
 
-  // Başlığı güncelle
+  // Başlığı güncelle (Hangi sınıfta olduğumuzu hatırlatmak için)
   const t = getMergedTranslations(data.settings.language || 'tr');
-  document.querySelector('#sectionMenu h2').textContent = `${t.titles.sectionSelect} (${currentClassId === 'K' ? '⭐ Karma Mod' : currentClassId})`;
+  document.querySelector('#sectionMenu h2').textContent = `${t.titles.sectionSelect} (${currentClassId})`;
   
   showView('sectionMenu');
 }
@@ -4462,68 +4408,39 @@ function adminLoadClassListSimple() {
     html += '</table>';
     container.innerHTML = html;
 }
-// index.html, yaklaşık 1580. satır (adminDeleteClass)
 
-function adminDeleteClass(classId) {
-    if (!confirm(`'${classId}' sınıfını ve ona bağlı tüm Konu bağlantılarını silmek istediğinizden emin misiniz?`)) return;
-    
-    // Sınıfı sil
-    data.classes = data.classes.filter(c => c.id !== classId);
-    
-    // Konu bağlantılarını sil (data.topics[C1] silinir)
-    if (data.topics && data.topics[classId]) {
-        delete data.topics[classId];
-    }
-    
-    // 💡 KRİTİK DÜZELTME: Çeviri verisinden de sil
-    if (data.translations.tr[classId]) {
-        delete data.translations.tr[classId];
-    }
-    if (data.translations.de[classId]) {
-        delete data.translations.de[classId];
-    }
-
-    alert(`✅ Sınıf ${classId} silindi.`);
-    saveContentOverride();
-    adminLoadClassListSimple();
-}
-// index.html, yaklaşık 1550. satır (adminAddOrUpdateClass)
-
+// index.html, adminAddOrUpdateClass fonksiyonunu bulun ve aşağıdaki ile değiştirin.
 function adminAddOrUpdateClass() {
     const idInput = document.getElementById('newClassId');
     const nameInput = document.getElementById('newClassName');
     const id = idInput.value.trim().toUpperCase();
     const name = nameInput.value.trim();
-    // nameDE'yi Türkçe adıyla aynı kabul ediyoruz
-    const nameDE = nameInput.value.trim(); 
 
     if (!id || !name) { alert('Lütfen ID ve İsim girin.'); return; }
 
+    // Mevcut sınıf var mı kontrol et
     const existingClass = data.classes.find(c => c.id === id);
 
     if (existingClass) {
+        // VARSA GÜNCELLE
         existingClass.name = name;
-        existingClass.nameDE = nameDE; 
+        existingClass.nameDE = name; 
         alert(`Sınıf (${id}) ismi güncellendi.`);
     } else {
-        // YENİ EKLEME
-        data.classes.push({ id: id, name: name, nameDE: nameDE });
-        data.topics[id] = {}; // Yeni sınıf için boş konu listesi aç
+        // YOKSA EKLE
+        data.classes.push({ id: id, name: name, nameDE: name });
+        if (!data.topics[id]) data.topics[id] = {}; // Yeni sınıf için boş konu listesi aç
         alert(`Yeni Sınıf (${id}) eklendi.`);
     }
-
-    // 💡 EK KRİTİK DÜZELTME: Sınıf adlarını çeviri verisine de ekle (Sınıf Seçim Ekranı için)
-    // Bu, sınıf adının çevrilmesini sağlayarak stabiliteyi artırır.
-    data.translations.tr[id] = name;
-    data.translations.de[id] = nameDE;
     
-    // 🔥 KRİTİK DÜZELTME: TÜM DEĞİŞİKLİKLERİ KALICI HALE GETİR
+    // 🚩 KRİTİK DÜZELTME: Değişiklikleri kalıcı olarak kaydet.
     saveContentOverride(); 
     
     idInput.value = '';
     nameInput.value = '';
     adminLoadClassListSimple();
 }
+
 // Düzenle butonuna basınca inputları doldurur
 function adminPrepareClassEdit(id, name) {
     document.getElementById('newClassId').value = id;
@@ -4563,7 +4480,23 @@ function adminDeleteVerb() {
     saveContentOverride();
     showAdminForm('addVerb');
 }
+// index.html, adminDeleteClass fonksiyonunu bulun ve aşağıdaki ile değiştirin.
+function adminDeleteClass(classId) {
+    if (!confirm(`'${classId}' sınıfını silmek istediğinizden emin misiniz? Bu, o sınıfa bağlı TÜM Konu/Bölüm ayarlarını da siler.`)) return;
 
+    data.classes = data.classes.filter(c => c.id !== classId);
+    
+    // O sınıfa ait tüm konu (topic) ayarlarını sil
+    if (data.topics[classId]) {
+        delete data.topics[classId];
+    }
+
+    // 🚩 KRİTİK DÜZELTME: Değişiklikleri kalıcı olarak kaydet.
+    saveContentOverride(); 
+    
+    alert(`Sınıf ${classId} silindi.`);
+    adminLoadClassListSimple();
+}
 
 function adminShowTopicPoolForm(area) {
     const t = getMergedTranslations(data.settings.language || 'tr');
@@ -5365,23 +5298,10 @@ function setTopicStarRating(topicId, rating) {
 }
 
 // Konunun mevcut yıldızını çeker
-// index.html, JS section (Mevcut Fonksiyonlar - KONTROL EDİN)
-
-// Konunun mevcut yıldızını çeker
 function getTopicStarRating(topicId) {
     if (!data.settings.topicStars) return 0;
-    // KRİTİK: Yıldızları Sınıf bağımsız, sadece TopicId'ye atayalım
-    // Sizin kodunuzdaki mevcut mantık: 
-    const key = `${data.settings.currentClass || 'A1'}_${topicId}`; // YENİ: Bu satırı
-    // const key = `${topicId}`; // ŞUNA DÖNÜŞTÜREBİLİRSİNİZ.
-    // Ancak mevcut kodunuzda bu gereksiz kısıt var:
-    const key = `${data.settings.currentClass || 'A1'}_${topicId}`; 
-    // Bu kısıt, K sınıfı (Karma Mod) konseptini bozar.
-
-    // 💡 EYLEM: data.settings.topicStars nesnesinde **her sınıftan ayrı ayrı** yıldız tutulmalıdır.
-    // Örn: { "A1_4": 3, "B2_33": 1 }
-    // Ancak sizin kodunuzda bu mantık `loadMixedModeSettings` içinde ele alınmaktadır. 
-    // Şimdilik, var olan `getMixedModeContentKeys` fonksiyonunun mantığını temel alarak devam ediyoruz.
+    const key = `${data.settings.currentClass || 'A1'}_${topicId}`;
+    return data.settings.topicStars[key] || 0;
 }
 // Yeni Boş Cümle Satırı Ekleme (Basitleştirilmiş)
 function adminAddNewSentencePrompt() {
@@ -6047,15 +5967,14 @@ function updateMixedModeCount() {
     }
 }
 /* ---------- BAŞLATMA (INIT) ---------- */
-async function init() {
+async function init(){
   // 1. Service Worker Kaydı
   if ('serviceWorker' in navigator) {
-    try {
-      const reg = await navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('service-worker.js').then(reg => {
       console.log('SW kaydı başarılı: ', reg.scope);
-    } catch (err) {
+    }, err => {
       console.log('SW kaydı başarısız: ', err);
-    }
+    });
   }
 
   // 2. TTS (Ses) Motoru Hazırlığı
@@ -6090,24 +6009,15 @@ async function init() {
 
   // 5. Verileri Yükle
   loadSettings();
-  
-  // --- DÜZELTME BURADA YAPILDI ---
-  console.log("⏳ Sunucu verisi bekleniyor...");
-  await loadDataFromServer(); // Önce varsayılan veriyi bekle
-  
-  console.log("📂 Yerel veriler (override) yükleniyor...");
-  loadContentOverride();      // 🔥 EKSİK OLAN SATIR BU: Sizin kaydettiklerinizi yükler.
-  // ------------------------------
-
+  await loadDataFromServer(); // Sunucudan veya dosyadan veriyi çek
   loadSrsData();
   updateConversionButtons();
   updateUITexts();
   updateProgressView();
-  updateMixedModeCount();
+  updateMixedModeCount(); // BURADA ÇAĞIRILMALI
   showView('mainMenu');
-  
   console.log('Verb Matrix v4.0 Hazır.');
-  handleSplashScreen();
+  handleSplashScreen(); 
 }
 
 // Sayfa yüklendiğinde başlat
