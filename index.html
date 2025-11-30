@@ -416,23 +416,29 @@
   }
 
   /* --- YENİ: SABİT NAVİGASYON BUTONLARI (v4.0) --- */
-/* --- YENİ: SABİT NAVİGASYON BUTONLARI (v4.0) --- */
+  /* MEVCUT KODU SİLİP BUNU YAPIŞTIR */
   .floating-nav-btn {
     position: fixed;
     border-radius: 50%;
-    padding: 10px;
+    padding: 0; /* Padding 0 daha iyi ortalar */
     border: 0;
     background: #fff;
     color: #333;
     cursor: pointer;
     box-shadow: 0 10px 28px rgba(0,0,0,.12);
-    z-index: 2000; /* DÜZELTME: Kılavuz/İpucu (1500) dahil her şeyin üstünde olması için yükseltildi */
+    z-index: 9999 !important; /* !important ile kesinleştiriyoruz */
     font-size: 1.4rem;
     line-height: 1;
-    width: 48px;
-    height: 48px;
-    display: none; /* JS ile yönetilecek */
-  }
+    width: 50px; /* Tıklama alanı için biraz genişlettim */
+    height: 50px;
+    display: none; /* JS ile açılacak */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.floating-nav-btn:active {
+    transform: scale(0.9);
+}
   body.night-mode .floating-nav-btn {
     background: #1f2937;
     color: #e6eef8;
@@ -914,6 +920,24 @@
         grid-template-columns: 1fr 1fr !important; /* Mobilde yan yana 2 kutu olsun */
     }
 }
+
+
+/* --- KARIŞIK MOD LİSTESİ İÇİN ÖZEL STİL (UZUN BUTONLAR) --- */
+#mixedTopicList.button-grid {
+    /* Varsayılan çoklu sütunlu grid yapısını, tek sütun yapısıyla eziyoruz */
+    grid-template-columns: 1fr !important; 
+    gap: 8px; /* Butonlar arası boşluğu azaltalım */
+}
+
+/* Butonun içindeki metin ve yıldızları hizala */
+#mixedTopicList .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    height: auto;
+    padding: 12px 15px;
+}
 </style>
 </head>
 <body>
@@ -927,9 +951,35 @@
         <p style="color: #e2e8f0; font-size: 1.2rem; margin-bottom: 40px; max-width: 500px;">Lütfen çalışmak istediğiniz Almanca seviyesini seçin.</p>
         
         <div id="classSelectionContainer" class="button-grid" style="max-width: 600px; width: 100%; justify-content: center;">
-            </div>
+        
+       </div>
+<div style="margin-top: 35px; width: 100%; max-width: 600px; padding: 0 20px;">
+    <button class="btn btn-warning" style="width: 100%; justify-content: center; padding: 15px; font-size: 1.1rem; border-radius: 12px;" 
+            onclick="renderMixedModeList(); showView('mixedSettingsView');">
+        ⭐ Konuları Yıldızla (Karışık Mod Ayarları)
+    </button>
+</div>
     </div>
 </div>
+
+<div id="mixedView" class="view" style="display: none;">
+
+    <h2 class="section-title">⭐ Karışık Mod – Konu Seçimi</h2>
+
+    <div class="content-box small-muted" style="margin-bottom:10px;">
+        Bu ekranda çalışmak istediğin konuları seçip yıldızlayabilirsin.
+    </div>
+
+    <div id="mixedFilterArea" class="button-grid" style="margin-bottom:15px;">
+        <button class="btn btn-primary" onclick="filterMixed('all')">Tümü</button>
+        <button class="btn btn-secondary" onclick="filterMixed('star')">⭐ Yıldızlılar</button>
+    </div>
+
+    <div id="mixedList" class="button-grid"></div>
+
+</div>
+
+
 <div id="musicPlayerContainer" class="music-player-container">
     <button id="musicToggleBtn" class="music-toggle-btn" title="Müzik Çal/Durdur">🔊</button>
     <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="music-volume-slider" style="display: none;">
@@ -1134,7 +1184,6 @@
     <h2 class="section-title" data-translate-key="titles.storyQuestions">Hikaye Soruları</h2>
     <div class="content-box" id="storyQuestionsContent"></div>
     </div>
-
   <div id="settings" class="view">
     <h2 class="section-title" data-translate-key="titles.settings">⚙️ Ayarlar</h2>
     <div class="content-box">
@@ -1177,7 +1226,7 @@
       </div>
     </div>
     </div>
-
+ 
   <div id="progress" class="view">
     <h2 class="section-title" data-translate-key="titles.progress">📊 İlerleme</h2>
     <div class="content-box">
@@ -1187,6 +1236,7 @@
           <h4 data-translate-key="srs.zorlandiklarim">ZORLANDIKLARIM</h4>
           <div class="stat-value" id="progressStatZor">0</div>
         </div>
+           
         <div class="stat-card stat-card-normal">
           <h4 data-translate-key="srs.normal">NORMAL</h4>
           <div class="stat-value" id="progressStatNormal">0</div>
@@ -1213,8 +1263,24 @@
         </div>
         <button class="btn btn-danger" style="width:100%; margin-top: 10px;" onclick="resetSrsData()" data-translate-key="buttons.resetSrs">⚠️ Tüm İlerlemeyi Sıfırla</button>
     </div>
-    </div>
+   
+  </div>
+  <div id="mixedSettingsView" class="view">
+    <h2 class="large-centered-title">⭐ KONU SEÇİMİ</h2>
+    <div class="content-box">
+        <p style="text-align:center; color:#666;">
+            Karışık Mod'da çalışmak istediğiniz konulara yıldız verin.<br>
+            <small>(Sadece yıldızlı konular fiil menüsünde görünecektir)</small>
+        </p>
+        
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;">
+            <button class="btn btn-primary" onclick="renderMixedModeList('all')">Tümü</button>
+            <button class="btn btn-warning" onclick="renderMixedModeList('starred')">Sadece Yıldızlılar</button>
+        </div>
 
+        <div id="mixedTopicList" class="button-grid"></div>
+    </div>
+</div>
   <div id="adminView" class="view">
     <h2 class="section-title" data-translate-key="titles.adminPanel">🔧 Yönetici Paneli</h2>
     <div class="button-grid">
@@ -1224,7 +1290,22 @@
       <button class="btn btn-secondary" onclick="showView('adminSentenceListView')" data-translate-key="admin.listAllSentences">📋 Tüm Cümleleri Listele</button>
       <button class="btn btn-success" onclick="showView('adminDataManagementView')">💾 Gelişmiş Veri Yönetimi</button> 
     </div>
+    <div id="mixedSettingsView" class="view">
+    <h2 class="large-centered-title">⭐ KONU SEÇİMİ</h2>
+    <div class="content-box">
+        <p style="text-align:center; color:#666;">
+            Karışık Mod'da çalışmak istediğiniz konulara yıldız verin.<br>
+            <small>(Sadece yıldızlı konular fiil menüsünde görünecektir)</small>
+        </p>
+        
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;">
+            <button class="btn btn-primary" onclick="renderMixedModeList('all')">Tümü</button>
+            <button class="btn btn-warning" onclick="renderMixedModeList('starred')">Sadece Yıldızlılar</button>
+        </div>
 
+        <div id="mixedTopicList" class="button-grid"></div>
+    </div>
+</div>
     <div id="adminGroupVerbArea" class="content-box" style="display:none; margin-top: 15px; border-color: #fbd38d;">
         <h4 data-translate-key="admin.groupVerbTitle">🏗️ Toplu Grup & Fiil Yükleme</h4>
         <p class="small-muted" data-translate-key="admin.groupVerbDesc">
@@ -1424,7 +1505,8 @@ let data = {
     { id: 'B1', name: 'B1 (Orta)', nameDE: 'B1 (Mittelstufe)' },
     { id: 'B2', name: 'B2 (Orta İleri)', nameDE: 'B2 (Obere Mittelstufe)' },
     { id: 'C1', name: 'C1 (Uzman)', nameDE: 'C1 (Fortgeschrittenes Niveau)' },
-    { id: 'K', name: '⭐ Karma Mod', nameDE: '⭐ Mixed Mode' }
+    { id: 'K', name: '⭐ Karma Mod', nameDE: '⭐ Mixed Mode' },
+    { id: 'MIXED', name: '⭐ Karışık Mod (Özel)' }
   ],
 
   domains: [
@@ -1799,7 +1881,12 @@ groups: [
       }
     }
   },
-  settings:{ language:'tr', nightMode:false, conversionMode: 'tr-de' }
+  settings: {
+    currentClass: null,
+    nightMode: false,
+    language: 'tr',
+    starredTopics: {}
+  }
 };
 
 // İçerik ve İlerleme Verisi Ayrı Tutuluyor
@@ -2233,91 +2320,110 @@ function loadJsonFromTextarea(){
 /* ---------- Ayarlar ve Arayüz Fonksiyonları (v4.0) ---------- */
 
 /* --- GÜNCELLENMİŞ SHOWVIEW (Çeviri Yönü Ekranında Sınıf Butonu Gizleme) --- */
-function showView(id, isBack = false){
-  if (id === state.currentView && !isBack) return; 
-  
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  const el = document.getElementById(id);
-  if(el) el.classList.add('active');
-  state.currentView = id;
-  if(id === 'adminSentenceListView') renderAllSentencesTable();
-  if(id === 'progress' || id === 'tekrarMenu') updateProgressView();
+function showView(id, isBack = false) {
+    if (id === state.currentView && !isBack) return;
 
-  // 👇 BU SATIRI EKLEYİN 👇
-  if(id === 'adminBulkEditView') fillBulkEditSelectors();
-  // Geri Butonu Tarihçesi
-  if (!isBack) {
-      if (id === 'mainMenu') { state.viewHistory = ['mainMenu']; }
-      else if (id === 'detailViewLayer' || id === 'welcomeView') { /* Ekleme */ } 
-      else {
-          const menuViews = ['mainMenu', 'groupMenu', 'verbMenu', 'sectionMenu', 'modeMenu', 'tekrarMenu', 'tekrarModeMenu', 'adminView', 'adminContentView', 'adminSentenceListView', 'storyView', 'storyQuestionsView'];
-          let baseHistory = state.viewHistory.filter(v => menuViews.includes(v));
-          state.viewHistory = baseHistory;
-          state.viewHistory.push(id);
-      }
-  }
+    // 1. Ekran Değişimi
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) el.classList.add('active');
+    state.currentView = id;
 
-  // Header Logo Kontrolü
-  const headerEl = document.querySelector('.container > header');
-  const hideLogo = ['learningView', 'storyView', 'storyQuestionsView', 'detailViewLayer', 'welcomeView'].includes(id);
-  if (headerEl) headerEl.style.display = hideLogo ? 'none' : 'block';
+    // 2. Özel Görünüm Güncellemeleri
+    if (id === 'adminSentenceListView') renderAllSentencesTable();
+    if (id === 'progress' || id === 'tekrarMenu') updateProgressView();
+    if (id === 'adminBulkEditView') fillBulkEditSelectors();
 
-  resetSpeechButtons();
-  
-  // Çalışma Ekranı Ayarları
-  if (id === 'learningView') { 
-      updateSpeedButtonUI();
-      toggleLearningPanel(null);
-      document.getElementById('learningControlsAccordion').style.display = 'block';
-      document.getElementById('completionControls').style.display = 'none';
-      document.getElementById('actionBtn').style.display = 'flex';
-  }
-  
-  // --- YÜZEN BUTONLARI YÖNET ---
-  const homeBtn = document.getElementById('floatingHomeBtn');
-  const backBtn = document.getElementById('floatingBackBtn');
-  const adminBtn = document.getElementById('floatingAdminBtn');
-  const classBtn = document.getElementById('classNavBtn'); // Sınıf Butonu
-  
-  // 1. Ana Menüde butonlar
-  if (id === 'mainMenu') {
-      homeBtn.style.display = 'none';
-      backBtn.style.display = 'none';
-      adminBtn.style.display = 'block';
-  } else {
-      homeBtn.style.display = 'block';
-      backBtn.style.display = 'block';
-      adminBtn.style.display = 'none';
-  }
+    // 3. Tarihçe (History) Yönetimi
+    if (!isBack) {
+        const menuViews = ['mainMenu', 'groupMenu', 'verbMenu', 'sectionMenu', 'modeMenu', 'tekrarMenu', 'tekrarModeMenu', 'adminView', 'adminContentView', 'adminSentenceListView', 'storyView', 'storyQuestionsView'];
+        
+        if (id === 'mainMenu') {
+            state.viewHistory = ['mainMenu'];
+        } else if (id === 'detailViewLayer' || id === 'welcomeView' || id === 'splashScreen') {
+            // Bu ekranları geçmişe ekleme
+        } else {
+            // Sadece menü öğelerini geçmişte tut, diğerlerini temizle
+            let baseHistory = state.viewHistory.filter(v => menuViews.includes(v));
+            state.viewHistory = baseHistory;
+            state.viewHistory.push(id);
+        }
+    }
 
-  // 2. Sınıf Butonu Kuralı:
-  // Aşağıdaki ekranların hepsinde Sınıf Butonu GİZLENECEK (Pasif olacak)
-  const hiddenClassViews = [
-      'learningView',       // Ders Ekranı
-      'storyView',          // Hikaye
-      'storyQuestionsView', // Hikaye Soruları
-      'welcomeView',        // Sınıf Seçim Ekranı
-      'splashScreen',       // Açılış
-      'modeMenu',           // YENİ: Çeviri Yönü Ekranı (Konu seçildikten sonra)
-      'tekrarModeMenu'      // YENİ: Tekrar Modu Seçimi
-  ];
+   
 
-  if (hiddenClassViews.includes(id)) {
-      if(classBtn) classBtn.style.display = 'none';
-  } else {
-      // Sadece Ana Menü, Grup Seç, Fiil Seç ve Konu Seç ekranlarında görünür
-      if(classBtn) classBtn.style.display = 'block';
-      updateClassNavButton(); 
-  }
+    // 5. Header / Logo Gizleme
+    const headerEl = document.querySelector('.container > header');
+    const hideLogo = ['learningView', 'storyView', 'storyQuestionsView', 'detailViewLayer', 'welcomeView', 'splashScreen'].includes(id);
+    if (headerEl) headerEl.style.display = hideLogo ? 'none' : 'block';
 
-  // Diğer güncellemeler
-  if(id === 'modeMenu' || id === 'tekrarModeMenu') updateConversionButtons();
-  if(id === 'adminView'){
-    document.getElementById('adminTsvArea').style.display = 'none';
-    document.getElementById('adminGroupVerbArea').style.display = 'none';
-  }
-  if(id === 'adminSentenceListView') renderAllSentencesTable();
-  if(id === 'progress' || id === 'tekrarMenu') updateProgressView();
+    // 6. Konuşma Butonlarını Sıfırla
+    if (typeof resetSpeechButtons === 'function') resetSpeechButtons();
+
+    // 7. Çalışma Ekranı Özel Ayarları
+    if (id === 'learningView') {
+        if (typeof updateSpeedButtonUI === 'function') updateSpeedButtonUI();
+        if (typeof toggleLearningPanel === 'function') toggleLearningPanel(null);
+        
+        const acc = document.getElementById('learningControlsAccordion');
+        if (acc) acc.style.display = 'block';
+        
+        const comp = document.getElementById('completionControls');
+        if (comp) comp.style.display = 'none';
+        
+        const actBtn = document.getElementById('actionBtn');
+        if (actBtn) actBtn.style.display = 'flex';
+    }
+
+    // 8. YÜZEN BUTONLARI YÖNET
+    const homeBtn = document.getElementById('floatingHomeBtn');
+    const backBtn = document.getElementById('floatingBackBtn');
+    const adminBtn = document.getElementById('floatingAdminBtn');
+    const classBtn = document.getElementById('classNavBtn');
+
+    // Ana Menü Durumu
+    if (id === 'mainMenu') {
+        if (homeBtn) homeBtn.style.display = 'none';
+        if (backBtn) backBtn.style.display = 'none';
+        if (adminBtn) adminBtn.style.display = 'flex'; // Admin butonu flex olmalı
+    } else {
+        if (homeBtn) homeBtn.style.display = 'flex';
+        if (backBtn) backBtn.style.display = 'flex';
+        if (adminBtn) adminBtn.style.display = 'none';
+    }
+
+    // Sınıf Butonu Gizleme Kuralları
+    const hiddenClassViews = [
+        'learningView',
+        'storyView',
+        'storyQuestionsView',
+        'welcomeView',
+        'splashScreen',
+        'modeMenu',
+        'tekrarModeMenu',
+        'mixedSettingsView' // Karışık mod ayarlarında da gizleyelim
+    ];
+
+    if (hiddenClassViews.includes(id)) {
+        if (classBtn) classBtn.style.display = 'none';
+    } else {
+        if (classBtn) {
+            classBtn.style.display = 'block';
+            if (typeof updateClassNavButton === 'function') updateClassNavButton();
+        }
+    }
+
+    // 9. Diğer UI Güncellemeleri
+    if (id === 'modeMenu' || id === 'tekrarModeMenu') {
+        if (typeof updateConversionButtons === 'function') updateConversionButtons();
+    }
+    
+    if (id === 'adminView') {
+        const tsvArea = document.getElementById('adminTsvArea');
+        const grpArea = document.getElementById('adminGroupVerbArea');
+        if (tsvArea) tsvArea.style.display = 'none';
+        if (grpArea) grpArea.style.display = 'none';
+    }
 }
 // YENİ: Geri Butonu Fonksiyonu (v4.0)
 function goBackInHistory() {
@@ -2726,119 +2832,67 @@ function selectGroup(id){
   });
   showView('verbMenu');
 }
-// index.html içinde selectVerb fonksiyonunu bulun ve bununla değiştirin:
+function selectVerb(verbId) {
+    state.verb = verbId;
+    // Fiil verisini bul
+    let verbData = null;
+    if(data.verbs[state.group]) verbData = data.verbs[state.group].find(v => v.id === verbId);
+    state.verbData = verbData;
 
-function selectVerb(verbId){
-  state.verb = verbId;
-  state.verbData = (data.verbs[state.group] || []).find(v => v.id === verbId); 
-  const container = document.getElementById('sectionButtons'); 
-  container.innerHTML='';
+    const container = document.getElementById('sectionButtons');
+    container.innerHTML = '';
 
-  // --- YENİ SİSTEM GÜNCELLEMESİ ---
-  
-  // 1. Hangi sınıfta olduğumuzu bul (Eğer seçili değilse varsayılan A1 olsun)
-  const currentClassId = data.settings.currentClass || 'A1';
-  
-  // 2. O sınıfın konu listesini al (Eski data.sections yerine)
-  const classTopics = data.topics[currentClassId];
-  
-  if (!classTopics) {
-      container.innerHTML = `<div class="content-box">⚠️ Uyarı: "${currentClassId}" sınıfı için konu listesi bulunamadı. Lütfen Yönetici panelinden sınıf ayarlarını kontrol edin.</div>`;
-      showView('sectionMenu');
-      return;
-  }
+    // --- KARIŞIK MOD AYRIMI ---
+    let targetTopics = {};
+    const cls = data.settings.currentClass;
 
-  // 3. Sadece bu sınıfın konularını döngüye al
-  Object.entries(classTopics).forEach(([num, name]) => {
-    const b = document.createElement('button');
-    const key = `${verbId}_s${num}`;
-    
-    // Cümle sayısını hesapla
-    const contentArray = data.content[key] || [];
-    const sentenceCount = contentArray.length;
-    let newCount = 0;
-
-    // Yeni kart sayısını hesapla (İlerleme durumu)
-    if (sentenceCount > 0) {
-        for(let i=0; i < sentenceCount; i++) {
-            const srsKey = getSrsKey(verbId, num, i);
-            const cardData = getCardSrsData(srsKey);
-            if (cardData.status === 'new') {
-                newCount++;
-            }
+    if (cls === 'MIXED') {
+        // Sadece yıldızlı konuları çek
+        if (data.settings.starredTopics) {
+            Object.keys(data.settings.starredTopics).forEach(tid => {
+                // TopicPool'dan ismini al
+                if (data.topicPool[tid]) {
+                    targetTopics[tid] = data.topicPool[tid];
+                }
+            });
         }
-    }
-
-    // Buton Metni: Konu Adı + İstatistik
-    b.innerHTML = `<strong>${num}. ${name}</strong><br><span style="font-size:0.8em">(${newCount} yeni / ${sentenceCount} toplam)</span>`;
-    
-    // Eğer hiç cümle yoksa butonu pasif yap
-    if (sentenceCount > 0) {
-      b.className = (newCount > 0) ? 'btn btn-primary' : 'btn btn-secondary';
-      b.onclick = ()=>selectSection(parseInt(num));
+        // Hiç yıldız yoksa uyarı butonu
+        if (Object.keys(targetTopics).length === 0) {
+            container.innerHTML = `<button class="btn btn-warning" onclick="renderMixedModeList(); showView('mixedSettingsView')">⭐ Önce Konu Seçmelisin</button>`;
+            showView('sectionMenu');
+            return;
+        }
     } else {
-      b.className='btn btn-secondary disabled'; // Tamamen kırmızı olmasın, sönük olsun
-      b.disabled = true;
-      b.style.opacity = "0.6";
+        // Normal Mod (A1, A2...)
+        targetTopics = data.topics[cls] || {};
     }
-    
-    // Butonu ekle
-    container.appendChild(b);
-  });
 
-  // Başlığı güncelle (Hangi sınıfta olduğumuzu hatırlatmak için)
-  const t = getMergedTranslations(data.settings.language || 'tr');
-  document.querySelector('#sectionMenu h2').textContent = `${t.titles.sectionSelect} (${currentClassId})`;
-  
-  showView('sectionMenu');
-}
-function selectSection(sectionNum){
-  state.section = sectionNum;
-  showView('modeMenu');
-}
-// index.html, JS section
-
-// Filtreleme butonlarına tıklandığında çalışır
-function filterSections(rating) {
-    // state.starFilter'ı ayarla
-    state.starFilter = rating; 
-    
-    // Aktif butonu görsel olarak vurgula
-    document.querySelectorAll('.btn-star-filter').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.onclick.toString().includes(`filterSections(${rating})`)) {
-            btn.classList.add('active');
+    // --- BUTONLARI ÇİZ ---
+    Object.entries(targetTopics).forEach(([num, name]) => {
+        const key = `${verbId}_s${num}`;
+        const count = (data.content[key] || []).length;
+        
+        const btn = document.createElement('button');
+        // İçerik varsa mavi, yoksa gri
+        btn.className = count > 0 ? 'btn btn-primary' : 'btn btn-secondary';
+        
+        // Buton Metni
+        btn.innerHTML = `<strong>${num}. ${name}</strong><br><small>(${count} Cümle)</small>`;
+        
+        if (count > 0) {
+            btn.onclick = () => {
+                // Bölüm seçme fonksiyonunu çağır (senin kodunda selectSection veya benzeri olabilir)
+                if(typeof selectSection === 'function') selectSection(num);
+                else { state.section = num; showView('learningView'); startMode('study'); } // Yedek mantık
+            };
+        } else {
+            btn.disabled = true;
+            btn.style.opacity = "0.6";
         }
+        container.appendChild(btn);
     });
 
-    // Filtre uygulandıktan sonra listeyi yeniden yükle
-    selectVerb(state.verb); 
-}
-
-// Filtre butonlarının üzerindeki sayıları ve aktif filtre yazısını günceller
-function updateFilterCounts(classTopics, totalTopicsInView) {
-    const activeFilterSpan = document.getElementById('activeStarFilter');
-    
-    // Toplam konu sayısını güncelle
-    document.querySelector('.btn-star-filter:nth-child(1)').textContent = `Tümü (${Object.keys(classTopics).length} Konu)`;
-    
-    // Her bir yıldız seviyesinde kaç konu olduğunu say
-    for (let r = 1; r <= 3; r++) {
-        let count = 0;
-        Object.keys(classTopics).forEach(topicId => {
-            if (getTopicStarRating(topicId) === r) {
-                count++;
-            }
-        });
-        document.querySelector(`.btn-star-filter:nth-child(${r + 1})`).textContent = `⭐${r} (${count} Konu)`;
-    }
-
-    // Aktif filtre metnini güncelle
-    if (state.starFilter === 0) {
-        activeFilterSpan.textContent = `Tümü (${Object.keys(classTopics).length} Konu)`;
-    } else {
-        activeFilterSpan.textContent = `⭐${state.starFilter} İşaretliler (${totalTopicsInView} Konu)`;
-    }
+    showView('sectionMenu');
 }
 function startTekrar(status) {
     state.tekrarStatus = status;
@@ -5818,34 +5872,44 @@ function loadMixedModeStudyCard() {
 
 /* --- GÜNCELLENMİŞ NAVİGASYON SİSTEMİ (Yerinde Güncelleme) --- */
 
-// 1. Splash Ekranını Yönetir (Aynı kalabilir)
+// 1. Splash Ekranını Yönetir (DOĞRU ZAMANLAMA)
 function handleSplashScreen() {
+    const splash = document.getElementById('splashScreen');
+    if(!splash) { checkFirstLogin(); return; } 
+
+    // 1.5 saniye sonra solmaya başlar
     setTimeout(() => {
-        const splash = document.getElementById('splashScreen');
-        if(splash) {
-            splash.classList.add('splash-hidden'); 
-            setTimeout(() => { splash.style.display = 'none'; }, 1000); 
-            checkFirstLogin();
-        }
-    }, 2500);
+        splash.classList.add('splash-hidden'); 
+        
+        // Solma bittikten sonra (1000ms sonra) ana akışı başlat
+        setTimeout(() => { 
+            splash.style.display = 'none'; 
+            checkFirstLogin(); // <-- checkFirstLogin SADECE bu noktada çağrılmalı
+        }, 1000); 
+
+    }, 1500); 
 }
 
-// 2. İlk Giriş Kontrolü
+// 2. İlk Giriş Kontrolü (BUTON GÖRÜNÜRLÜĞÜ VE AKIŞ GARANTİSİ)
 function checkFirstLogin() {
-    if (!data.settings.currentClass) {
-        openClassSelection();
-    } else {
+    // 1. openClassSelection() her zaman çağrılır. Bu, welcomeView ekranını açar ve tüm butonları çizer.
+    openClassSelection(); 
+    
+    // 2. Eğer bir sınıf zaten seçiliyse (Geri Dönen Kullanıcı)
+    if (data.settings.currentClass) {
+        // Zaten çizilen welcomeView ekranını kapatıp Ana Menüye geçiyoruz.
         updateClassNavButton();
+        showView('mainMenu'); 
     }
+    // Eğer sınıf seçili değilse, welcomeView açık kalır ve kullanıcı seçim yapar.
 }
-
 // 3. Sınıf Seçim Ekranını Açar (NEREDE OLDUĞUMUZU KAYDEDER)
+// index.html, yaklaşık 1860. satırdaki openClassSelection fonksiyonunu bulun ve değiştirin.
 function openClassSelection() {
     const container = document.getElementById('classSelectionContainer');
     if(!container) return;
 
     // Eğer şu an 'welcomeView' değilsek, mevcut ekranı hafızaya al
-    // Böylece sınıf seçince buraya geri dönebiliriz.
     if (state.currentView !== 'welcomeView') {
         state.returnToView = state.currentView;
     }
@@ -5856,10 +5920,16 @@ function openClassSelection() {
         const btn = document.createElement('button');
         const isSelected = data.settings.currentClass === c.id;
         
-        // Tasarım: Beyaz ve temiz butonlar
-        const btnClass = isSelected ? 'btn btn-primary' : 'btn btn-secondary';
-        const bgStyle = isSelected ? '' : 'background: rgba(255,255,255,0.9); color: #333;'; 
-        const borderStyle = isSelected ? 'border: 3px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5);' : 'border: none;';
+        let btnClass = isSelected ? 'btn btn-primary' : 'btn btn-secondary';
+        let bgStyle = isSelected ? '' : 'background: rgba(255,255,255,0.9); color: #333;'; 
+        let borderStyle = isSelected ? 'border: 3px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.5);' : 'border: none;';
+        
+        // KRİTİK DÜZELTME: MIXED butonunu daha belirgin yap (Sarı renk kullanıyoruz)
+        if (c.id === 'MIXED') {
+            btnClass = isSelected ? 'btn btn-warning' : 'btn btn-warning';
+            bgStyle = isSelected ? '' : 'background: #fbd38d; color: #1e293b;';
+            borderStyle = isSelected ? 'border: 3px solid #fff;' : 'border: 1px solid #d69e2e;';
+        }
         
         btn.className = btnClass;
         btn.style.cssText = `flex-direction: column; padding: 25px; min-width: 140px; ${bgStyle} ${borderStyle}`;
@@ -5966,6 +6036,178 @@ function updateMixedModeCount() {
         }
     }
 }
+
+// Yıldız Durumunu Değiştirir ve Kaydeder
+function toggleMixedStar(topicId) {
+    if (data.settings.starredTopics[topicId]) {
+        delete data.settings.starredTopics[topicId];
+    } else {
+        data.settings.starredTopics[topicId] = true;
+    }
+    saveSettings(); // data.settings'i LocalStorage'a yazar
+    renderMixedModeList(); // Listeyi yenile
+}
+
+/**
+ * Karışık Mod ayar ekranını (konu listesini) çizer ve 1-2-3 yıldızı gösterir.
+ */
+function renderMixedModeList(filter = 'all') {
+    const container = document.getElementById('mixedTopicList');
+    if (!container) return; 
+
+    container.innerHTML = '';
+    
+    Object.entries(data.topicPool).forEach(([id, name]) => {
+        // Yıldız kademesini al (0, 1, 2 veya 3)
+        const rating = data.settings.starredTopics[id] || 0; 
+        
+        // Filtreleme (Yıldızlılar filtresi seçiliyse ve rating 0 ise atla)
+        if (filter === 'starred' && rating === 0) return;
+
+        const btn = document.createElement('button');
+        btn.className = 'btn ' + (rating > 0 ? 'btn-warning' : 'btn-secondary');
+        
+        // CSS kuralına göre iç yapıyı oluştur
+        let starIcons = '';
+        for (let i = 0; i < rating; i++) {
+            starIcons += '⭐'; // Yıldız sayısına göre ikon ekle
+        }
+        
+        btn.innerHTML = `
+            <span>${id}. ${name}</span>
+            <span style="font-size:1.5rem;">${starIcons || '☆'}</span>
+        `;
+        
+        // Yeni 3 kademeli mantığı çağır
+        btn.onclick = () => toggleMixedStar(id, filter); 
+        container.appendChild(btn);
+    });
+}
+/**
+ * Bir konunun yıldız (favori) durumunu 0, 1, 2 veya 3 olarak ayarlar.
+ * Tıklandıkça kademeli olarak artar, 3'ten sonra sıfırlanır.
+ */
+function toggleMixedStar(topicId, currentFilter = 'all') {
+    // Mevcut rating'i al (Yoksa 0 varsay)
+    let currentRating = data.settings.starredTopics[topicId] || 0;
+
+    // Döngü Mantığı: 0 -> 1 -> 2 -> 3 -> 0
+    if (currentRating < 3) {
+        currentRating++;
+        data.settings.starredTopics[topicId] = currentRating;
+    } else {
+        // 3'ten sonra sıfırla (listedden sil)
+        delete data.settings.starredTopics[topicId]; 
+    }
+    
+    // Verileri kaydet ve listeyi yenile
+    saveSettings(); 
+    saveContentOverride(); 
+    renderMixedModeList(currentFilter); 
+}
+/**
+ * Bu fonksiyon, karışık mod ayar ekranı açılırken çağrılmalıdır.
+ * (Sınıf seçimi altındaki butondan çağrılacaktır)
+ */
+function openMixedSettings() {
+    renderMixedModeList();
+    showView('mixedSettingsView');
+}
+
+/**
+ * Ana Menü'de Karışık Mod seçiliyken, o anki yıldızlı konu sayısını hesaplar
+ */
+function updateMixedModeCount() {
+    // Bu fonksiyon sadece MainMenu'de gösterilen sayıyı günceller
+    const count = data.settings.starredTopics ? Object.keys(data.settings.starredTopics).length : 0;
+    const btn = document.getElementById('btnMixed'); 
+    if(btn) {
+        btn.innerHTML = `⭐<small>Karışık Mod (${count})</small>`;
+    }
+}
+// --- KARIŞIK MOD FONKSİYONLARI (3 YILDIZ KADEMELİ - INIT'TEN ÖNCE TANIMLANIR) ---
+
+/**
+ * Bir konunun yıldız (favori) durumunu 0, 1, 2 veya 3 olarak ayarlar.
+ * Tıklandıkça kademeli olarak artar, 3'ten sonra sıfırlanır.
+ */
+function toggleMixedStar(topicId, currentFilter = 'all') {
+    // Mevcut rating'i al (Yoksa 0 varsay)
+    let currentRating = data.settings.starredTopics[topicId] || 0;
+
+    // Döngü Mantığı: 0 -> 1 -> 2 -> 3 -> 0
+    if (currentRating < 3) {
+        currentRating++;
+        data.settings.starredTopics[topicId] = currentRating;
+    } else {
+        // 3'ten sonra sıfırla (listedden sil)
+        delete data.settings.starredTopics[topicId]; 
+    }
+    
+    // Verileri kaydet ve listeyi yenile
+    saveSettings(); 
+    saveContentOverride(); 
+    renderMixedModeList(currentFilter); 
+}
+
+/**
+ * Karışık Mod ayar ekranını (konu listesini) çizer ve 1-2-3 yıldızı gösterir.
+ */
+function renderMixedModeList(filter = 'all') {
+    const container = document.getElementById('mixedTopicList');
+    if (!container) return; 
+
+    container.innerHTML = '';
+    
+    // Konular arasında sayısal sıra için array'e çevirip sort edelim
+    const sortedTopics = Object.entries(data.topicPool).sort(([idA], [idB]) => parseInt(idA) - parseInt(idB));
+
+    sortedTopics.forEach(([id, name]) => {
+        // Yıldız kademesini al (0, 1, 2 veya 3)
+        const rating = data.settings.starredTopics[id] || 0; 
+        
+        // Filtreleme (Yıldızlılar filtresi seçiliyse ve rating 0 ise atla)
+        if (filter === 'starred' && rating === 0) return;
+
+        const btn = document.createElement('button');
+        btn.className = 'btn ' + (rating > 0 ? 'btn-warning' : 'btn-secondary');
+        
+        // CSS kuralına göre iç yapıyı oluştur
+        let starIcons = '';
+        for (let i = 0; i < rating; i++) {
+            starIcons += '⭐'; // Yıldız sayısına göre ikon ekle
+        }
+        
+        btn.innerHTML = `
+            <span>${id}. ${name}</span>
+            <span style="font-size:1.5rem;">${starIcons || '☆'}</span>
+        `;
+        
+        // Yeni 3 kademeli mantığı çağır
+        btn.onclick = () => toggleMixedStar(id, filter); 
+        container.appendChild(btn);
+    });
+}
+
+
+/**
+ * Bu fonksiyon, karışık mod ayar ekranı açılırken çağrılmalıdır.
+ */
+function openMixedSettings() {
+    renderMixedModeList();
+    showView('mixedSettingsView');
+}
+
+/**
+ * Ana Menü'de Karışık Mod seçiliyken, o anki yıldızlı konu sayısını hesaplar
+ */
+function updateMixedModeCount() {
+    const count = data.settings.starredTopics ? Object.keys(data.settings.starredTopics).length : 0;
+    const btn = document.getElementById('btnMixed'); 
+    if(btn) {
+        btn.innerHTML = `⭐<small>Karışık Mod (${count})</small>`;
+    }
+}
 /* ---------- BAŞLATMA (INIT) ---------- */
 async function init(){
   // 1. Service Worker Kaydı
@@ -6015,13 +6257,15 @@ async function init(){
   updateUITexts();
   updateProgressView();
   updateMixedModeCount(); // BURADA ÇAĞIRILMALI
-  showView('mainMenu');
+ 
   console.log('Verb Matrix v4.0 Hazır.');
+  showView('mainMenu');
   handleSplashScreen(); 
 }
 
 // Sayfa yüklendiğinde başlat
 window.addEventListener('DOMContentLoaded', init);
+
 </script>
 </body>
 </html>
