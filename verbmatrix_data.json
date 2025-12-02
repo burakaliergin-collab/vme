@@ -31,7 +31,7 @@
       "nameDE": "⭐ Mixed Mode"
     },
     {
-      "id": "M",
+      "id": "MIXED",
       "name": "⭐ Karışık Mod (Özel)"
     }
   ],
@@ -27664,7 +27664,6 @@
       "30": "SUPERLATIV"
     },
     "B2": {
-      "31": "PLUSQUAMPERFEKT (Önceki Geçmiş Zaman - Tekrar)",
       "32": "FUTUR II",
       "33": "KONJUNKTIV II (Geçmiş)",
       "34": "PASSİV + MODAL",
@@ -27920,11 +27919,31 @@
     }
   },
   "settings": {
-    "currentClass": "A1",
+    "currentClass": "MIXED",
     "nightMode": false,
     "language": "tr",
-    "starredTopics": {},
-    "conversionMode": "tr-de"
+    "starredTopics": {
+      "4": 1,
+      "5": 1,
+      "7": 1,
+      "8": 1
+    }
+  },
+  "sections": {
+    "1": "Kişi Zamiri",
+    "2": "Objektpronomen",
+    "3": "Singular Objekte",
+    "4": "Plural Objekte",
+    "5": "Imperative",
+    "6": "Adjektive",
+    "7": "Possessive",
+    "8": "W-Fragen",
+    "9": "Negation",
+    "10": "Präpositionen",
+    "11": "Adverbien",
+    "12": "Tenses",
+    "13": "Modalverben",
+    "14": "Akkusativ + Dativ"
   },
   "hints": {
     "sentences": {
@@ -28831,21 +28850,5 @@
   "guideText": {
     "title": "Kullanım Kılavuzu",
     "content": "⭐ Verb Matrix Uygulama Kılavuzu\nVerb Matrix, Almanca fiilleri ve cümle yapılarını etkili bir şekilde öğrenmeniz için tasarlanmış kişisel çalışma asistanınızdır.\nI. BAŞLANGIÇ VE SEVİYE SEÇİMİ\nUygulamayı ilk açtığınızda veya sağ üstteki sınıf butonuna tıkladığınızda karşınıza gelen ekrandır.\n•\tSeviye Seçimi (A1/A2/B1): Çalışmak istediğiniz genel seviyeyi belirler. Seçtiğiniz seviyeye ait konular (Präsens, Perfekt vb.) aktifleşir.\n•\t⭐ Karışık Mod (Özel): Bu, ana menüde gördüğünüz bir sınıf değildir. Bu modu seçtiğinizde, sadece sizin yıldızladığınız konular aktif olur.\n•\tYıldız Ekle Butonu (Sınıf Seçim Ekranının Altında): Bu butona basarak mixedSettingsView ekranına geçebilir ve çalışmak istediğiniz konulara 1, 2 veya 3 yıldız verebilirsiniz.\n________________________________________\nII. ÇALIŞMA VE ÖĞRENME EKRANI (PLAYER)\n\"📚 Çalış\" butonuna tıkladıktan sonra gelen akıştır.\nA. Çalışma Akışı\n1.\tGrup Seç → Fiil Seç → Bölüm Seç: Öğrenmek istediğiniz fiil ve konuyu seçersiniz.\n2.\tÇeviri Yönü (ModeMenu): Çalışmaya başlamadan önce çeviri yönünü seçersiniz:\no\t🇹🇷 TR → DE 🇩🇪: Türkçe cümleyi görüp Almancasını tahmin etmeye çalışırsınız.\no\t🇩🇪 DE → TR 🇹🇷: Almanca cümleyi görüp Türkçesini tahmin etmeye çalışırsınız.\n3.\tGöster / Kontrol Et: Cümleyi okuduktan sonra bu butona basarak cevabı (çeviriyi) görürsünüz.\nB. SRS Puanlama Sistemi (Tekrar Hafızası)\nCevabı gösterdikten sonra çıkan 3 buton, beyninizin o kartı hatırlama durumunu kaydeder.\nButon\tPuan\tAnlamı\n🥵 ZOR\t1\tCevabı hemen hatırlayamadım veya yanlış yaptım. Bu kartlar sık tekrar edilecektir.\n🤔 NORMAL\t2\tDüşünerek hatırladım, zorlanmadım ama tamamen oturmadı.\n✅ ÖĞRENDİM\t3\tÇok kolaydı, anında hatırladım. Bu kartlar daha az tekrar edilecektir.\nC. Öğrenme Ekranı Araçları\n•\t🔊 Dinle: Almanca cümleyi sesli olarak dinlemenizi sağlar (TTS motoru).\n•\t💡 İpucu: Cümleye özel ipucunu açar/kapatır. (Bu özellik, oturum başladığında varsayılan olarak açıktır.)\n•\t✏️ Düzenle: Cümlenin Türkçe, Almanca veya ipucu metnini hızlıca düzenleyip kaydedebilirsiniz.\n•\t🧠 AI İpucu Al: Yapay zeka servisiniz açıksa, cümleye özel bağlam veya gramer ipucu üretmesini sağlar.\n________________________________________\nIII. ÖZEL MODLAR VE YÖNETİM\nA. 🔄 Tekrar (SRS) Menüsü\nBu menü, daha önce puanladığınız kartları filtreler:\n•\tZorlandıklarım: Daha önce \"ZOR\" dediğiniz kartları tekrar çalıştırır.\n•\tÖğrendiklerim: \"ÖĞRENDİM\" dediğiniz kartları kontrol etmenizi sağlar.\nB. ⭐ Karışık Mod (Yıldızlama)\nBu, kendi kişisel çalışma listenizi oluşturma sistemidir.\n1.\tGiriş: Sınıf Seçim ekranının altındaki Yıldızla butonuyla girilir.\n2.\tKademeli Yıldızlama: Bir konuya tıkladıkça yıldız sayısı artar ve önemini belirtir:\no\t1 ⭐: Hafif önem.\no\t2 ⭐⭐: Orta önem.\no\t3 ⭐⭐⭐: Çok kritik, en sık tekrar etmem gereken konular.\no\tDördüncü tıklama, yıldızı sıfırlar.\n3.\tÇalıştırma: Ana menüde \"Karışık Mod\" sınıfını seçtiğinizde, fiil seçimine geçtiğinizde sadece yıldız verdiğiniz konular listelenir.\nC. ⚙️ Ayarlar ve Yedekleme\n•\tGece Modu: Uygulamanın temasını değiştirir.\n•\tVeri Yönetimi (JSON):\no\tİndir: Tüm uygulama içeriğini (data), ayarları ve AI ipuçlarını içeren tam yedeği indirir.\no\tYükle: Daha önce indirdiğiniz yedeği geri yükler. (Bu, hem içeriğinizi hem de ipucu verilerinizi geri getirir.)\n•\t⚠️ İlerlemeyi Sıfırla: SRS puanlarınızın tamamını siler.\n\n"
-  },
-  "sections": {
-    "1": "Kişi Zamiri",
-    "2": "Objektpronomen",
-    "3": "Singular Objekte",
-    "4": "Plural Objekte",
-    "5": "Imperative",
-    "6": "Adjektive",
-    "7": "Possessive",
-    "8": "W-Fragen",
-    "9": "Negation",
-    "10": "Präpositionen",
-    "11": "Adverbien",
-    "12": "Tenses",
-    "13": "Modalverben",
-    "14": "Akkusativ + Dativ"
   }
 }
