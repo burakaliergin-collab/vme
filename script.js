@@ -999,3 +999,203 @@ window.loadServerData = async function() {
         }
     }
 };
+/* ==========================================================================
+   TAMİR PAKETİ: İPUÇLARI, GELİŞMİŞ EDİTÖR VE GECE MODU
+   ========================================================================== */
+
+/* --- 1. STANDART ÇALIŞMA MODU (İPUCU DESTEKLİ) --- */
+window.renderSentence = function() {
+    // Veri Kontrolü
+    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) { 
+        window.showCompletion(); 
+        return; 
+    }
+
+    const card = window.state.deck[window.state.deckPos];
+    window.state.currentCardData = card;
+    window.state.currentCardKey = card.id;
+
+    // UI Temizle ve Hazırla (Status Bar Varsa Güncelle)
+    const content = document.getElementById('learningContent');
+    content.innerHTML = ''; 
+    content.classList.remove('hidden');
+    content.style.textAlign = 'center';
+
+    // Navigasyon Çubuğunu Güncelle (Varsa)
+    if(window.updateHeaderStatus) window.updateHeaderStatus();
+
+    // Dil Ayarı
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    const question = isTrDe ? card.tr : card.de;
+    const answer = isTrDe ? card.de : card.tr;
+    const hintText = card.hint || "Bu kart için ipucu yok.";
+
+    // HTML Oluştur
+    let html = `
+        <div class="sentence" style="margin-bottom:20px;">
+            <span style="color:#888; font-size:0.9em;">Soru:</span><br>
+            <strong style="font-size:1.3em;">${question}</strong>
+        </div>
+
+        <div id="hintContainer" style="display:none; margin:15px auto; padding:10px; background:#fff9c4; color:#5f5a08; border-radius:8px; max-width:80%;">
+            💡 <b>İpucu:</b> ${hintText}
+        </div>
+
+        <div id="answerArea" class="sentence hidden" style="margin-top:20px; color:var(--primary);">
+            <span style="color:#888; font-size:0.9em;">Cevap:</span><br>
+            <strong style="font-size:1.4em;">${answer}</strong>
+        </div>
+    `;
+
+    content.innerHTML += html;
+
+    // Kontrol Paneli Butonlarını Ayarla
+    const controlsArea = document.getElementById('learningControlsArea');
+    if(controlsArea) controlsArea.classList.remove('hidden');
+
+    const actionBtn = document.getElementById('actionBtn');
+    actionBtn.style.display = 'block';
+    actionBtn.textContent = 'GÖSTER';
+    
+    // BUTON AKSİYONLARI
+    
+    // 1. İpucu Butonu (UI'da yoksa dinamik ekleyelim veya mevcut butonu kullanalım)
+    let hintBtn = document.getElementById('btnHint');
+    if(!hintBtn) {
+        // Eğer HTML'de yoksa action butonunun yanına ekleyelim (Geçici çözüm)
+        hintBtn = document.createElement('button');
+        hintBtn.id = 'btnHint';
+        hintBtn.className = 'btn btn-warning';
+        hintBtn.innerText = '💡';
+        hintBtn.style.marginRight = '5px';
+        actionBtn.parentNode.insertBefore(hintBtn, actionBtn);
+    }
+    // İpucu butonuna tıklayınca
+    hintBtn.onclick = function() {
+        const h = document.getElementById('hintContainer');
+        h.style.display = (h.style.display === 'none') ? 'block' : 'none';
+    };
+
+    // 2. Göster Butonu
+    actionBtn.onclick = function() {
+        document.getElementById('answerArea').classList.remove('hidden');
+        if (isTrDe) window.playCurrentSentence('de');
+        
+        // SRS (Tekrar) Modunda mıyız?
+        if (!window.state.tekrarStatus) {
+            actionBtn.style.display = 'none'; // Göster butonunu gizle
+            document.getElementById('srsControls').style.display = 'grid'; // Zor/Normal butonlarını aç
+            document.getElementById('srsControls').classList.remove('hidden');
+        } else {
+            // Tekrar modundaysak direkt geç
+            window.state.deckPos++;
+            setTimeout(window.renderSentence, 1500);
+        }
+    };
+
+    // İlerleme Çubuğu
+    const progressText = document.getElementById('learnProgressText');
+    const progressBar = document.getElementById('progressBar');
+    if(progressText) progressText.textContent = `${window.state.deckPos + 1} / ${window.state.deck.length}`;
+    if(progressBar) progressBar.style.width = ((window.state.deckPos + 1) / window.state.deck.length * 100) + '%';
+    
+    // Edit butonu görünürlüğü
+    const editBtn = document.getElementById('btnEditCard');
+    if(editBtn) {
+        editBtn.style.display = 'block';
+        // Tıklama olayını aşağıda tanımladığımız yeni editöre bağla
+        editBtn.onclick = window.openEditPanel; 
+    }
+};
+
+/* --- 2. GELİŞMİŞ EDİTÖR (İPUCU ALANI DAHİL) --- */
+window.openEditPanel = function() {
+    const card = window.state.currentCardData;
+    if(!card) return;
+
+    // Paneli aç
+    window.toggleLearningPanel('panelEdit');
+    const panel = document.getElementById('panelEdit');
+    
+    // HTML'i doldur (İpucu inputu eklendi)
+    panel.innerHTML = `
+        <h3 style="margin-top:0; color:#333;">Kartı Düzenle</h3>
+        
+        <label style="display:block; margin-top:10px;">🇩🇪 Almanca:</label>
+        <input id="editInputDE" class="input-field" value="${card.de || ''}">
+        
+        <label style="display:block; margin-top:10px;">🇹🇷 Türkçe:</label>
+        <input id="editInputTR" class="input-field" value="${card.tr || ''}">
+        
+        <label style="display:block; margin-top:10px;">💡 İpucu:</label>
+        <input id="editInputHint" class="input-field" value="${card.hint || ''}" placeholder="İpucu ekle...">
+        
+        <div style="margin-top:20px; display:flex; gap:10px;">
+            <button class="btn btn-success" style="flex:1" onclick="window.saveCurrentCardEdit()">💾 Kaydet</button>
+            <button class="btn btn-secondary" style="flex:1" onclick="window.toggleLearningPanel(null)">❌ İptal</button>
+        </div>
+    `;
+};
+
+window.saveCurrentCardEdit = function() {
+    const newDE = document.getElementById('editInputDE').value;
+    const newTR = document.getElementById('editInputTR').value;
+    const newHint = document.getElementById('editInputHint').value;
+    const cardId = window.state.currentCardKey;
+
+    if(!cardId) return;
+
+    // 1. Override Objesine Kaydet
+    if(!window.contentOverride) window.contentOverride = {};
+    window.contentOverride[cardId] = {
+        de: newDE,
+        tr: newTR,
+        hint: newHint
+    };
+
+    // 2. Kalıcı Hafızaya Yaz
+    localStorage.setItem('verbmatrix_content_override', JSON.stringify(window.contentOverride));
+
+    // 3. Mevcut Kartı RAM'de Güncelle
+    window.state.currentCardData.de = newDE;
+    window.state.currentCardData.tr = newTR;
+    window.state.currentCardData.hint = newHint; // İpucunu da güncelle
+
+    // 4. Arayüzü Yenile
+    alert("✅ Kart ve İpucu Güncellendi!");
+    window.toggleLearningPanel(null);
+    
+    // Hangi moddaysak orayı yenile
+    if(window.state.mode === 'quiz') window.renderQuizCard();
+    else if(window.state.mode === 'cloze') window.renderClozeCard();
+    else window.renderSentence();
+};
+
+/* --- 3. GECE MODU TAMİRİ --- */
+window.toggleTheme = function() {
+    const body = document.body;
+    
+    // Class'ı değiştir (Toggle)
+    body.classList.toggle('dark-mode');
+    
+    // Güncel durumu bul
+    const isDark = body.classList.contains('dark-mode');
+    
+    // Ayarlara kaydet
+    window.data.settings.theme = isDark ? 'dark' : 'light';
+    localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
+    
+    // İkonu veya buton metnini güncelle (Eğer ID varsa)
+    const btn = document.getElementById('themeToggleBtn'); 
+    if(btn) {
+        btn.innerText = isDark ? '☀️' : '🌙';
+    }
+    
+    console.log("Tema değişti:", window.data.settings.theme);
+};
+
+// Sayfa açılışında Tema Kontrolünü Garantile (Init fonksiyonunun sonunda çalışsın diye buraya da ekledim)
+if(window.data && window.data.settings && window.data.settings.theme === 'dark') {
+    document.body.classList.add('dark-mode');
+}
+
