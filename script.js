@@ -289,13 +289,37 @@ window.renderVerbs = function(groupId) {
 
 
 
+/* ==========================================================================
+   DÜZELTME: MODAL'I ATLA VE DİREKT ÇALIŞMAYA BAŞLA
+   Bu fonksiyon, aradaki "Paralel/Ayrıştır" sorusunu iptal eder.
+   Doğrudan kartları yükler ve SRS (Zor/Normal/Kolay) butonlarını açar.
+   ========================================================================== */
 window.startStudy = function(sentences, vId, tId) {
-  if (!sentences) { alert("Bu bölüm için içerik bulunamadı."); return; }
-  const allCards = sentences.map((s, i) => { const id = `${vId}_s${tId}_${i}`; const ovr = window.contentOverride[id] || {}; return { ...s, ...ovr, id: id }; });
-  const newCards = allCards.filter(card => !window.srsData[card.id]);
-  if (newCards.length === 0) { alert("🎉 Bu konudaki tüm cümleler tamamlandı."); return; }
-  window.state.deck = newCards; window.state.deckPos = 0; window.state.mode = 'study'; window.state.tekrarStatus = null;
-  window.showView('learningView'); window.renderSentence();
+    if (!sentences || sentences.length === 0) { 
+        alert("Bu bölüm için içerik bulunamadı."); 
+        return; 
+    }
+
+    // 1. Kartları Hazırla (SRS verilerini de kontrol ederek)
+    const allCards = sentences.map((s, i) => { 
+        const id = `${vId}_s${tId}_${i}`; 
+        const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {}; 
+        return { ...s, ...ovr, id: id }; 
+    });
+
+    // İsteğe Bağlı: Eğer sadece "öğrenilmemişleri" görmek isterseniz filtreyi açabilirsiniz.
+    // Şimdilik tüm listeyi yüklüyoruz ki akış kesilmesin.
+    window.state.deck = allCards;
+    
+    // 2. Modu Ayarla (SRS Butonlarının çıkması için 'study' ve 'null' olmalı)
+    window.state.deckPos = 0;
+    window.state.mode = 'study'; 
+    window.state.tekrarStatus = null; // Bu 'null' olmazsa butonlar çıkmaz!
+
+    // 3. Ekranı Aç
+    console.log("🚀 Direkt Çalışma Modu Başlatılıyor...");
+    window.showView('learningView');
+    window.renderSentence();
 };
 
 /* --------------------------------------------------------------------------
@@ -1239,7 +1263,7 @@ window.toggleMusic = function() {
     if (m) {
         // Eğer src yoksa veya hata verdiyse çalmaya çalışma
         if (!m.currentSrc || m.error) {
-            console.warn("🎵 Müzik dosyası (telifsiz-klasik.mp3) bulunamadı.");
+            console.warn("🎵 Müzik dosyası (bg-music.mp3) bulunamadı.");
             return;
         }
         if (m.paused) m.play().catch(e => console.log("Müzik çalma hatası:", e));
@@ -2792,9 +2816,142 @@ window.findNextLearningUnit = function() {
     window.showView('mainMenu');
 };
 
+/* ==========================================================================
+   FİNAL DÜZELTME: KART GEÇİŞ SİSTEMİ (RATE & RENDER)
+   Bu kod; Göster'e basınca butonları açar, Puan verince diğer karta geçer.
+   ========================================================================== */
 
+// 1. KART PUANLAMA VE GEÇİŞ FONKSİYONU
+window.rateCard = function(status) {
+    // A. Puanı Kaydet
+    if (window.state.currentCardKey) {
+        window.srsData = window.srsData || {};
+        window.srsData[window.state.currentCardKey] = { status: status, date: Date.now() };
+        localStorage.setItem('verbmatrix_srs_data_v3', JSON.stringify(window.srsData));
+    }
+
+    // B. İstatistikleri Güncelle (Varsa)
+    if (window.updateSRSCounts) window.updateSRSCounts();
+
+    // C. SIRADAKİ KARTA GEÇ
+    window.state.deckPos++; // İndeksi 1 artır
+
+    // D. Sayfayı Yeniden Çiz (Bu işlem butonları gizleyip yeni soruyu getirecek)
+    window.renderSentence();
+};
+
+// 2. KARTI ÇİZME VE BUTON YÖNETİMİ
+window.renderSentence = function() {
+    // --- ADIM 1: TEMİZLİK (Her yeni kartta burası çalışır) ---
+    
+    // SRS Butonlarını GİZLE (Yeni soru geldiğinde butonlar görünmemeli)
+    const srsControls = document.getElementById('srsControls');
+    if (srsControls) {
+        srsControls.style.display = 'none'; 
+        srsControls.classList.add('hidden'); // Garanti olsun diye hidden ekle
+    }
+
+    // Göster Butonunu GÖSTER (Yeni soruda bu lazım)
+    const actionBtn = document.getElementById('actionBtn');
+    if (actionBtn) {
+        actionBtn.style.display = 'block';
+        actionBtn.classList.remove('hidden');
+        actionBtn.textContent = 'GÖSTER';
+    }
+
+    // Öğrenme Alanını Temizle
+    const content = document.getElementById('learningContent');
+    if (!content) return;
+    content.innerHTML = '';
+    content.classList.remove('hidden');
+    content.style.height = 'auto';
+
+    // --- ADIM 2: KART BİTTİ Mİ KONTROLÜ ---
+    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) { 
+        window.showCompletion(); 
+        return; 
+    }
+
+    // --- ADIM 3: İÇERİĞİ HAZIRLA ---
+    const card = window.state.deck[window.state.deckPos];
+    window.state.currentCardData = card;
+    window.state.currentCardKey = card.id;
+
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    const question = isTrDe ? card.tr : card.de; 
+    const answer = isTrDe ? card.de : card.tr;
+    
+    // İpucu Metni
+    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "İpucu yok.");
+    hintText = hintText.replace(/\n/g, '<br>');
+
+    // HTML Bas
+    content.innerHTML = `
+        <div class="sentence" style="margin-bottom:15px; min-height:80px; display:flex; flex-direction:column; justify-content:center;">
+            <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:5px;">Soru:</span>
+            <strong style="font-size:1.4em; color:var(--text-main);">${question}</strong>
+        </div>
+        
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
+        </div>
+        
+        <div id="answerArea" class="sentence hidden" style="margin-top:20px; border-top:1px dashed #ccc; padding-top:20px;">
+            <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:5px;">Cevap:</span><br>
+            <strong style="font-size:1.5em; color:var(--primary);">${answer}</strong>
+        </div>
+    `;
+
+    // --- ADIM 4: BUTON TIKLAMA OLAYI (GÖSTER'e Basınca) ---
+    if (actionBtn) {
+        actionBtn.onclick = function() {
+            // 1. Cevabı Aç
+            const ansArea = document.getElementById('answerArea');
+            if (ansArea) ansArea.classList.remove('hidden');
+
+            // 2. Sesi Çal
+            if (isTrDe) window.playCurrentSentence('de');
+
+            // 3. Mod Kontrolü
+            if (!window.state.tekrarStatus) {
+                // EĞER ÇALIŞMA MODUNDAYSAK:
+                // "Göster" butonunu GİZLE
+                actionBtn.style.display = 'none';
+                
+                // SRS (Zor/Normal/Kolay) butonlarını AÇ
+                if (srsControls) {
+                    srsControls.classList.remove('hidden');
+                    srsControls.style.display = 'grid';
+                }
+            } else {
+                // EĞER TEKRAR MODUNDAYSAK (Otomatik geçiş):
+                window.state.deckPos++;
+                setTimeout(window.renderSentence, 1500);
+            }
+        };
+    }
+
+    // --- ADIM 5: Saniye Butonlarını Temizle (Panel Düzeltmesi) ---
+    const panelListen = document.getElementById('panelListen');
+    if (panelListen) {
+        // Saniye butonlarını kaldır, sadece Oku butonlarını koy
+        panelListen.innerHTML = `
+            <div class="button-grid-learning">
+                <button class="btn btn-secondary" onclick="window.toggleAutoPlay()">
+                    <span id="autoPlayLed" class="led-indicator ${window.state.autoPlayAudio?'active':''}"></span> Oto
+                </button>
+                <button class="btn btn-secondary" onclick="window.toggleSlowMode()">
+                    <span id="slowModeLed" class="led-indicator ${window.state.slowMode?'active':''}"></span> Yavaş
+                </button>
+                <button class="btn btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 Oku</button>
+                <button class="btn btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 Oku</button>
+            </div>
+        `;
+    }
+};
 setTimeout(window.updateLanguageToggleUI, 100);
 /* ========================================================================== */
 /* End of reorganized script */
 /* ========================================================================== */
-
