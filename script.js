@@ -1239,7 +1239,7 @@ window.toggleMusic = function() {
     if (m) {
         // Eğer src yoksa veya hata verdiyse çalmaya çalışma
         if (!m.currentSrc || m.error) {
-            console.warn("🎵 Müzik dosyası (bg-music.mp3) bulunamadı.");
+            console.warn("🎵 Müzik dosyası (telifsiz-klasik.mp3) bulunamadı.");
             return;
         }
         if (m.paused) m.play().catch(e => console.log("Müzik çalma hatası:", e));
@@ -2797,3 +2797,4 @@ setTimeout(window.updateLanguageToggleUI, 100);
 /* ========================================================================== */
 /* End of reorganized script */
 /* ========================================================================== */
+
