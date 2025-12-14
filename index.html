@@ -345,7 +345,26 @@
             display: flex; align-items: center; justify-content: center;
             transition: opacity 0.5s;
         }
-        
+/* Answer Frame Animation */
+@keyframes slideInAnswer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#answerArea {
+    animation: slideInAnswer 0.5s ease-out;
+}
+
+/* SRS Controls Fixed Height */
+#srsControls {
+    min-height: 110px;
+}        
     </style>
 </head>
 <body>
@@ -421,11 +440,98 @@
             <h3 class="subtitle">Bölümler</h3>
             <div id="sectionList" class="button-grid"></div>
         </section>
+<section id="studyView" class="view">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Menü</button>
+        <h4 id="headerTitle" style="margin:0; color:var(--primary-dark);">Çalışma Modu</h4>
+        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
+            <span id="ledAuto" class="led-indicator"></span> Oto
+        </button>
+    </div>
 
+    <div class="progress-container"><div id="progBar" class="progress-bar"><div id="progFill" class="progress-fill" style="width:0%"></div></div></div>
+
+    <div style="padding:10px; min-height:280px;">
+        <div id="boxQ" class="frame-box"><div id="txtQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div></div>
+        
+        <div id="boxA" class="frame-box answer-frame"><div id="txtA" style="font-size:1.3rem; color:var(--primary-dark); text-align:center;">...</div></div>
+        
+        <div id="areaGame" style="display:none;"></div>
+    </div>
+
+    <div style="max-width:500px; margin:0 auto;">
+        <button id="btnMainAction" class="btn btn-primary btn-lg btn-block" onclick="window.handleMainAction()">BAŞLAT</button>
+        
+        <div id="srsGrid" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
+            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
+            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
+            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
+        </div>
+    </div>
+
+    <div id="accordionArea" style="margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:10px;">
+            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlHint')">💡 İpucu</button>
+            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlListen')">🔊 Dinle</button>
+            <button class="btn btn-sm btn-warning" onclick="window.togglePanel('pnlEdit')">✏️ Düzenle</button>
+        </div>
+        
+        <div id="pnlHint" class="hidden" style="padding:15px; background:#fff3cd; color:#856404; text-align:center; border-radius:8px;">
+            <div id="hintText">İpucu...</div>
+            <button class="btn btn-sm btn-info" onclick="window.showHint()">Harf Göster</button>
+        </div>
+        <div id="pnlListen" class="hidden" style="padding:15px; text-align:center; background:#f0f4f8; border-radius:8px;">
+             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 DE</button>
+             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 TR</button>
+        </div>
+        <div id="pnlEdit" class="hidden" style="padding:15px; background:#f0f4f8; border-radius:8px;">
+             <input type="text" id="inpEditDe" placeholder="DE" style="width:100%; margin-bottom:5px;">
+             <input type="text" id="inpEditTr" placeholder="TR" style="width:100%; margin-bottom:5px;">
+             <button class="btn btn-success btn-sm btn-block" onclick="window.saveEdit()">Kaydet</button>
+        </div>
+    </div>
+</section>
+
+<section id="tekrarView" class="view">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Çıkış</button>
+        <h4 style="margin:0; color:#d35400;">🔄 Tekrar Modu</h4>
+        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
+            <span id="ledAutoTekrar" class="led-indicator"></span> Oto
+        </button>
+    </div>
+
+    <div class="progress-container"><div id="progTekrar" class="progress-bar"><div id="fillTekrar" class="progress-fill" style="width:0%; background:var(--warning);"></div></div></div>
+
+    <div style="padding:10px; min-height:300px;">
+        <div id="boxTekrarQ" class="frame-box" style="border-color:var(--warning);">
+            <div id="txtTekrarQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div>
+        </div>
+        <div id="boxTekrarA" class="frame-box answer-frame">
+            <div id="txtTekrarA" style="font-size:1.3rem; color:#d35400; text-align:center;">...</div>
+        </div>
+        <div id="areaTekrarGame" style="display:none;"></div>
+    </div>
+
+    <div style="max-width:500px; margin:0 auto;">
+        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:#fff; font-weight:bold;">CEVABI GÖSTER</button>
+        <div id="srsTekrar" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
+            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
+            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
+            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
+        </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:20px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('de')">🔊 DE</button>
+        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('tr')">🔊 TR</button>
+    </div>
+</section>
         <section id="learningView" class="view">
             <div class="progress-container">
                 <div id="progressBar" class="progress-bar"><div id="progressFill" class="progress-fill" style="width:0%"></div></div>
                 <div id="learnProgressText">0 / 0</div>
+                
             </div>
 
             <div class="content-box">
@@ -440,9 +546,7 @@
                 <div id="clozeResultArea" class="hidden"></div>
             </div>
 
-            <button id="actionBtn" class="btn btn-lg" onclick="window.handleAction()">
-                KONTROL ET
-            </button>
+            <<button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
 
             <div id="srsControls" class="hidden">
                 <button class="btn btn-danger" onclick="window.rateCard('zor')">
@@ -642,7 +746,28 @@
         <span style="font-size:1.5rem;">⚙️</span>
     </button>
 </nav>
+<div id="modalStudySelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; position:relative;">
+        <button onclick="document.getElementById('modalStudySelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:#333;">Çalışma Yöntemi</h3>
+        
+        <button onclick="window.startMode('flashcard')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">👁️ Göster Geç</button>
+        <button onclick="window.startMode('study')" class="btn btn-primary btn-block btn-lg" style="margin-bottom:10px;">🗳️ Kategorize Et</button>
+        <button onclick="window.startParallelPlayer(); document.getElementById('modalStudySelect').style.display='none'" class="btn btn-success btn-block btn-lg">🎧 Paralel Dinleme</button>
+    </div>
+</div>
 
+<div id="modalTekrarSelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; border: 2px solid #ed8936; position:relative;">
+        <button onclick="document.getElementById('modalTekrarSelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:#d35400;">Tekrar Yöntemi</h3>
+        
+        <button onclick="window.startParallelPlayer(); document.getElementById('modalTekrarSelect').style.display='none'" class="btn btn-success btn-block btn-lg" style="margin-bottom:10px;">🎧 Paralel Dinleme</button>
+        <button onclick="window.startMode('tekrar_wordorder')" class="btn btn-warning btn-block btn-lg" style="margin-bottom:10px;">🧩 Kelime Sıralama</button>
+        <button onclick="window.startMode('tekrar_cloze')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">🔤 Boşluk Doldurma</button>
+        <button onclick="window.startMode('tekrar_quiz')" class="btn btn-info btn-block btn-lg">📝 Quiz (Yazma)</button>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
