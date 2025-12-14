@@ -44,69 +44,6 @@ window.normalizeText = function(text) {
 /* --------------------------------------------------------------------------
    MODULE: CLOZE (BOŞLUK DOLDURMA) SISTEMI
    -------------------------------------------------------------------------- */
-window.renderClozeCard = function() {
-    try {
-        if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
-            window.showCompletion();
-            return;
-        }
-
-        const card = window.state.deck[window.state.deckPos];
-        window.state.currentCardKey = card.id;
-
-        // Dil ayarına göre hedef cümleyi belirle
-        const isTrDe = window.data.settings.conversionMode === 'tr-de';
-        const targetSentence = isTrDe ? card.de : card.tr;
-        const sourceSentence = isTrDe ? card.tr : card.de;
-
-        // Maskelenecek kelimeyi seç (En az 3 harfli rastgele bir kelime)
-        const words = targetSentence.split(' ');
-        let candidateIndices = words.map((w, i) => w.length > 2 ? i : -1).filter(i => i !== -1);
-        
-        // Eğer uzun kelime yoksa rastgele herhangi birini seç
-        if (candidateIndices.length === 0) candidateIndices = [0];
-        
-        const randomIndex = candidateIndices[Math.floor(Math.random() * candidateIndices.length)];
-        
-        // Temiz kelimeyi kaydet (noktalama hariç)
-        const secretWord = words[randomIndex].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-        window.state.clozeAnswer = secretWord;
-
-        // Cümleyi maskele
-        const maskedSentence = words.map((w, i) => i === randomIndex ? "______" : w).join(' ');
-
-        const content = document.getElementById('learningContent');
-        // UI Temizliği
-        if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
-        if(document.getElementById('srsControls')) document.getElementById('srsControls').style.display = 'none';
-
-        content.innerHTML = `
-            <div class="content-box" style="text-align:center; padding:20px;">
-                <h3 style="color:var(--text-muted); margin-bottom:10px;">✏️ Boşluk Doldurma</h3>
-                <p style="color:var(--text-muted); font-size:1rem; margin-bottom:20px;">${sourceSentence}</p>
-                
-                <h2 style="color:var(--text-main); margin-bottom:25px; line-height:1.4;">${maskedSentence}</h2>
-                
-                <input id="clozeInput" class="input-field" type="text" placeholder="Eksik kelimeyi yazın..." autocomplete="off" style="text-align:center; font-size:1.2rem;">
-                
-                <button class="btn btn-warning btn-block" style="margin-top:20px;" onclick="window.checkClozeAnswer()">KONTROL ET</button>
-                <div id="clozeFeedback" style="margin-top:15px; font-weight:bold; min-height:25px;"></div>
-            </div>
-        `;
-
-        // Enter tuşu desteği
-        const input = document.getElementById('clozeInput');
-        input.focus();
-        input.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") window.checkClozeAnswer();
-        });
-
-    } catch (e) {
-        console.error("Cloze Error:", e);
-        window.rateCard('zor'); // Hata olursa geç
-    }
-};
-
 window.checkClozeAnswer = function() {
     const input = document.getElementById('clozeInput');
     const feedback = document.getElementById('clozeFeedback');
@@ -114,79 +51,29 @@ window.checkClozeAnswer = function() {
     const userVal = window.normalizeText(input.value);
     const correctVal = window.normalizeText(window.state.clozeAnswer);
 
-    if (userVal === correctVal) {
+    if (userVal === correctVal && userVal !== "") {
         feedback.innerHTML = '<span style="color:green; font-size:1.2rem;">✅ DOĞRU!</span>';
-        if(window.playSoftBeep) window.playSoftBeep();
-        
-        // Doğruysa 1.2sn sonra ilerle
-        setTimeout(() => {
-            window.rateCard('ogrendim');
-        }, 1200);
+        window.state.pendingStatus = 'ogrendim';
     } else {
         feedback.innerHTML = `<span style="color:red;">❌ Yanlış. Doğrusu: <b>${window.state.clozeAnswer}</b></span>`;
-        input.classList.add('shake-anim'); // Varsa CSS animasyonu
-        
-        // Yanlışsa 2.5sn bekle ve 'zor' olarak işaretle
-        setTimeout(() => {
-            window.rateCard('zor');
-        }, 2500);
+        if(userVal === "") input.classList.add('shake-anim');
+        window.state.pendingStatus = 'zor';
     }
+
+    // SESLİ OKUMA (Doğru/Yanlış fark etmez, çalar)
+    if (window.state.autoPlayAudio) {
+        const isTrDe = window.data.settings.conversionMode === 'tr-de';
+        window.playCurrentSentence(isTrDe ? 'de' : 'tr');
+    }
+
+    return true;
 };
 
 
 /* --------------------------------------------------------------------------
    MODULE: WORD ORDER (KELİME SIRALAMA) SISTEMI
    -------------------------------------------------------------------------- */
-  window.renderWordOrderCard = function() {
-    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
-        window.showCompletion();
-        return;
-    }
 
-    const card = window.state.deck[window.state.deckPos];
-    window.state.currentCardKey = card.id;
-
-    const isTrDe = window.data.settings.conversionMode === 'tr-de';
-    const targetSentence = isTrDe ? card.de : card.tr;
-    const sourceSentence = isTrDe ? card.tr : card.de;
-
-    // Kelimeleri hazırla
-    const rawWords = targetSentence.split(' ').filter(w => w.trim() !== '');
-    window.state.wordOrderTarget = rawWords; // Doğru sıralama referansı
-    window.state.wordOrderCurrent = [];      // Kullanıcı seçimi
-
-    // Kelimeleri karıştır (Shuffle)
-    let shuffled = [...rawWords];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
-    const content = document.getElementById('learningContent');
-    // UI Temizliği
-    if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
-    if(document.getElementById('srsControls')) document.getElementById('srsControls').style.display = 'none';
-
-    content.innerHTML = `
-        <div class="content-box">
-            <h3 style="text-align:center; color:var(--primary);">🧩 Cümle Kur</h3>
-            <p style="text-align:center; color:var(--text-muted); margin-bottom:20px;">${sourceSentence}</p>
-            
-            <div id="woLine" style="min-height:50px; background:var(--bg-body); border:2px dashed var(--border); border-radius:8px; padding:10px; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
-            </div>
-
-            <div id="woPool" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px;">
-                ${shuffled.map((w, i) => `<button id="btn_pool_${i}" class="btn btn-secondary btn-sm" onclick="window.moveWordToLine(this, '${w.replace(/'/g, "\\'")}')">${w}</button>`).join('')}
-            </div>
-
-            <div style="display:flex; gap:10px;">
-                <button class="btn btn-danger" style="flex:1" onclick="window.renderWordOrderCard()">🔄 Sıfırla</button>
-                <button class="btn btn-success" style="flex:1" onclick="window.checkWordOrder()">✅ Kontrol Et</button>
-            </div>
-            <div id="woFeedback" style="text-align:center; margin-top:15px; font-weight:bold;"></div>
-        </div>
-    `;
-};
 
 window.moveWordToLine = function(btnElement, word) {
     const line = document.getElementById('woLine');
@@ -226,20 +113,7 @@ window.returnWordToPool = function(lineBtn, word, poolBtn) {
     poolBtn.style.margin = '';
 };
 
-window.checkWordOrder = function() {
-    const userSentence = window.normalizeText(window.state.wordOrderCurrent.join(' '));
-    const targetSentence = window.normalizeText(window.state.wordOrderTarget.join(' '));
-    const feedback = document.getElementById('woFeedback');
 
-    if (userSentence === targetSentence) {
-        feedback.innerHTML = '<span style="color:green">✅ MÜKEMMEL!</span>';
-        if(window.playSoftBeep) window.playSoftBeep();
-        setTimeout(() => window.rateCard('ogrendim'), 1500);
-    } else {
-        feedback.innerHTML = '<span style="color:red">❌ Hatalı sıralama. Tekrar deneyin.</span>';
-        setTimeout(() => { feedback.innerHTML = ''; }, 2000);
-    }
-}; 
 
 /* --------------------------------------------------------------------------
    MODULE: EDIT PANEL (İÇERİK DÜZENLEME & OVERRIDE)
@@ -529,16 +403,54 @@ window.resetProgress = function() {
 };
 
 /* --- AUDIO --- */
+/* ==========================================================================
+   SESLİ OKUMA (SMART AUDIO & MUSIC DUCKING)
+   ========================================================================== */
 window.speakText = function(text, lang, cb) {
-    if (!window.state.speechSynthesisAvailable) { if (cb) cb(); return; }
+    if (!window.state.speechSynthesisAvailable || !window.speechSynthesis) { 
+        if (typeof cb === 'function') cb(); 
+        return; 
+    }
+
+    // --- MÜZİK SESİNİ KIS (DUCKING START) ---
+    const audio = document.getElementById('bgMusic');
+    if (audio && !audio.paused) {
+        // Sesi yumuşakça kısmak yerine anında kısıyoruz (performans için)
+        // İsterseniz buraya fade-out animasyonu eklenebilir
+        audio.volume = window.musicState ? window.musicState.duckVolume : 0.1;
+    }
+    // -----------------------------------------
+
     try {
+        window.speechSynthesis.cancel(); // Çakışmayı önle
+
         const u = new SpeechSynthesisUtterance(text);
         u.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
         u.rate = window.state.slowMode ? 0.7 : 0.9;
-        u.onend = cb; u.onerror = cb;
+        
+        // Okuma BİTTİĞİNDE veya HATA verdiğinde
+        const onFinish = () => {
+            // --- MÜZİK SESİNİ AÇ (DUCKING END) ---
+            if (audio && !audio.paused) {
+                audio.volume = window.musicState ? window.musicState.baseVolume : 0.5;
+            }
+            // -------------------------------------
+            if (typeof cb === 'function') cb();
+        };
+
+        u.onend = onFinish; 
+        u.onerror = (e) => {
+            console.error("TTS Hatası:", e);
+            onFinish(); // Hata olsa bile sesi geri aç
+        };
+
         window.speechSynthesis.speak(u);
+
     } catch (e) {
-        console.error("Speech error:", e); if (cb) cb();
+        console.error("Speech error:", e); 
+        // Hata durumunda da sesi geri açmalıyız
+        if (audio && !audio.paused) audio.volume = 0.5;
+        if (typeof cb === 'function') cb();
     }
 };
 
@@ -563,18 +475,89 @@ window.playSoftBeep = function() {
     oscillator.stop(context.currentTime + 0.3);
 };
 
-window.toggleMusic = function() {
-    const m = document.getElementById('bgMusic');
-    if (!m) return;
+/* ==========================================================================
+   GELİŞMİŞ MÜZİK YÖNETİCİSİ (PLAYLIST & AUTO-SKIP)
+   ========================================================================== */
+window.musicState = {
+    playlist: ['bg-music.mp3', 'bg-music2.mp3', 'bg-music3.mp3', 'bg-music4.mp3'],
+    currentIndex: 0,
+    isPlaying: false,
+    baseVolume: 0.5, // Normal ses seviyesi (%50)
+    duckVolume: 0.1  // Okuma sırasındaki ses seviyesi (%10)
+};
+
+window.initMusicPlayer = function() {
+    const audio = document.getElementById('bgMusic');
+    if (!audio) return;
+
+    // Başlangıç sesi
+    audio.volume = window.musicState.baseVolume;
+
+    // 1. Şarkı bittiğinde sonrakine geç
+    audio.onended = function() {
+        window.playNextTrack();
+    };
+
+    // 2. Dosya bulunamazsa veya hata verirse sonrakine geç
+    audio.onerror = function() {
+        console.warn(`Müzik dosyası çalınamadı: ${window.musicState.playlist[window.musicState.currentIndex]}. Sıradakine geçiliyor...`);
+        window.playNextTrack();
+    };
+};
+
+window.playNextTrack = function() {
+    const audio = document.getElementById('bgMusic');
+    const ms = window.musicState;
+
+    // Sıradaki indekse geç (Liste sonundaysa başa dön)
+    ms.currentIndex++;
+    if (ms.currentIndex >= ms.playlist.length) {
+        ms.currentIndex = 0;
+    }
+
+    // Yeni kaynağı yükle ve çal
+    audio.src = ms.playlist[ms.currentIndex];
     
-    try {
-        if (m.paused) {
-            m.play().catch(e => console.log("Müzik çalması başarısız:", e));
-        } else {
-            m.pause();
+    // Eğer sistem zaten "çalıyor" modundaysa oynat
+    if (ms.isPlaying) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(e => {
+                console.warn("Otomatik geçişte oynatma hatası:", e);
+                // Hata olursa yine sonrakini dene (Recursive riskine karşı timeout)
+                setTimeout(() => window.playNextTrack(), 1000); 
+            });
         }
-    } catch (e) {
-        console.error("Müzik hatası:", e);
+    }
+};
+
+window.toggleMusic = function() {
+    const audio = document.getElementById('bgMusic');
+    if (!audio) return;
+
+    // İlk kez çalıştırılıyorsa eventleri bağla
+    if (!audio.onended) window.initMusicPlayer();
+
+    if (audio.paused) {
+        // --- BAŞLAT ---
+        window.musicState.isPlaying = true;
+        
+        // Eğer src boşsa (ilk açılış) ilk şarkıyı yükle
+        if (!audio.src || audio.src === window.location.href) {
+            audio.src = window.musicState.playlist[window.musicState.currentIndex];
+        }
+        
+        audio.play().then(() => {
+            console.log("Müzik başladı:", window.musicState.playlist[window.musicState.currentIndex]);
+        }).catch(e => {
+            console.error("Müzik başlatılamadı:", e);
+            alert("Müzik çalmak için sayfaya etkileşimde bulunun.");
+        });
+    } else {
+        // --- DURDUR ---
+        window.musicState.isPlaying = false;
+        audio.pause();
+        console.log("Müzik duraklatıldı.");
     }
 };
 window.toggleAutoPlay = function() { 
@@ -632,22 +615,46 @@ window.goBackInHistory = function() {
 };
 
 /* --------------------------------------------------------------------------
-   5. UI UPDATES (Class, Language, Stats)
+   SINIF SEÇİMİ (JSON SINIFLARI + YILDIZ AYARLARI)
    -------------------------------------------------------------------------- */
 window.renderClassSelection = function() {
-    const grid = document.getElementById('classGrid'); if (!grid) return;
+    const grid = document.getElementById('classGrid'); 
+    if (!grid) return;
+    
+    // Grid'i temizle
     grid.innerHTML = '';
+    
+    // 1. JSON'dan Gelen Sınıfları Listele 
+    // (Eğer JSON'da "Karma Mod" diye bir sınıf varsa o da burada otomatik listelenir)
     const classes = (window.data.classes && window.data.classes.length > 0) ? window.data.classes : [{ id: 'A1' }, { id: 'A2' }, { id: 'B1' }];
+    
     classes.forEach(cls => {
-        const btn = document.createElement('button'); btn.className = 'btn btn-secondary btn-lg';
-        btn.innerText = cls.name || cls.id; btn.onclick = () => window.changeClass(cls.id);
+        const btn = document.createElement('button'); 
+        btn.className = 'btn btn-secondary btn-lg';
+        btn.innerText = cls.name || cls.id; 
+        
+        // Bu butonlar o sınıfı seçer ve içeriğini açar
+        btn.onclick = () => window.changeClass(cls.id);
         grid.appendChild(btn);
     });
-    // Mixed Button
-    const mixBtn = document.createElement('button'); mixBtn.className = 'btn btn-info btn-lg';
-    mixBtn.innerText = '🔀 MIXED'; mixBtn.onclick = () => window.openMixedSelection();
-    grid.appendChild(mixBtn);
+
+    // 2. ÖZEL AYAR BUTONU: ⭐ Konuları Yıldızla
+    // Bu buton sınıfı değiştirmez, sadece "Yıldız Seçim Ekranını" açar.
+    const configBtn = document.createElement('button'); 
+    configBtn.className = 'btn btn-warning btn-lg'; // Dikkat çekici renk
+    configBtn.style.fontWeight = 'bold';
+    configBtn.style.color = '#5d4037'; // Koyu kahve yazı
+    configBtn.style.marginTop = '10px'; // Biraz boşluk
+    
+    // Buton Metni
+    configBtn.innerHTML = '⭐ Konuları Yıldızla<br><small style="font-size:0.7em; opacity:0.8">(Karışık Mod Ayarları)</small>'; 
+    
+    // Tıklayınca Seçim Ekranına Git
+    configBtn.onclick = () => window.openMixedSelection();
+    
+    grid.appendChild(configBtn);
 };
+
 
 window.changeClass = function(className) {
     window.data.settings.currentClass = className;
@@ -656,13 +663,45 @@ window.changeClass = function(className) {
     window.goBackInHistory();
 };
 
+/* --------------------------------------------------------------------------
+   SINIF GÖSTERGESİ GÜNCELLEME (GÖRÜNÜM AYARI)
+   -------------------------------------------------------------------------- */
 window.updateClassButtonUI = function() {
+    // Mevcut ayarı al
     const cls = window.data.settings.currentClass || 'A1';
-    const el1 = document.getElementById('classNavBtn'); if (el1) el1.textContent = cls;
-    const el2 = document.getElementById('currentClassDisplay'); if (el2) el2.textContent = cls;
-    const floatBadge = document.getElementById('floatClassBadge'); if(floatBadge) floatBadge.innerText = cls;
-};
+    
+    // Ekranda görünecek yazıyı belirle
+    let displayText = cls;
+    
+    // EĞER SINIF "MIXED" İSE EKRANA "K" YAZ
+    if (cls === 'MIXED') {
+        displayText = 'K'; 
+    }
 
+    // Navigasyon butonunu güncelle (Varsa)
+    const el1 = document.getElementById('classNavBtn'); 
+    if (el1) el1.textContent = displayText;
+    
+    // Metin göstergesini güncelle (Varsa)
+    const el2 = document.getElementById('currentClassDisplay'); 
+    if (el2) el2.textContent = displayText;
+    
+    // Yüzen Yuvarlak Rozeti Güncelle (Sağ alttaki)
+    const floatBadge = document.getElementById('floatClassBadge'); 
+    if(floatBadge) {
+        floatBadge.innerText = displayText;
+        
+        // İstersen "K" olduğunda rengini de değiştirebilirsin
+        if (displayText === 'K') {
+            floatBadge.style.background = 'var(--warning)'; // Turuncu/Sarı
+            floatBadge.style.color = '#5d4037'; // Koyu yazı
+        } else {
+            // Diğer sınıflar (A1, A2) için standart renk
+            floatBadge.style.background = ''; 
+            floatBadge.style.color = '';
+        }
+    }
+};
 window.toggleLanguageMode = function() {
     const current = window.data.settings.conversionMode;
     window.data.settings.conversionMode = (current === 'tr-de') ? 'de-tr' : 'tr-de';
@@ -774,27 +813,45 @@ window.renderVerbs = function(groupId) {
     });
     window.showView('verbMenu');
 };
-
+/* --------------------------------------------------------------------------
+   GÜNCELLENMİŞ RENDER SECTIONS (MIXED ve K Desteği)
+   -------------------------------------------------------------------------- */
 window.renderSections = function(verbId) {
-    const list = document.getElementById('sectionList'); if (!list) return; list.innerHTML = '';
+    const list = document.getElementById('sectionList'); 
+    if (!list) return; 
+    list.innerHTML = '';
+    
     window.state.currentVerbId = verbId;
     const currentClass = window.data.settings.currentClass || 'A1';
+    
+    // --- DÜZELTME BURADA BAŞLIYOR ---
+    // Sınıfın Karma Mod olup olmadığını kontrol et (Hem 'MIXED' hem 'K' kabul edilir)
+    const isMixedMode = (currentClass === 'MIXED' || currentClass === 'K');
 
+    // Kaynak Belirleme
     let topicSource = {};
-    if (window.data.topics && window.data.topics[currentClass]) {
+    if (window.data.topics && window.data.topics[currentClass] && !isMixedMode) {
+        // Normal Sınıf (A1, A2 vb.)
         topicSource = window.data.topics[currentClass];
-    } else if (currentClass === 'MIXED' && window.data.topicPool) {
+    } else if (isMixedMode && window.data.topicPool) {
+        // Karma Mod (MIXED veya K)
         topicSource = window.data.topicPool;
     }
+    // --------------------------------
 
     if (!topicSource || Object.keys(topicSource).length === 0) {
-        list.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">Konu bulunamadı.</div>';
+        console.warn(`⚠️ '${currentClass}' sınıfı için konu bulunamadı.`);
+        list.innerHTML = '<div style="text-align:center; padding:20px;">Bu seviyede konu bulunamadı.</div>';
         return;
     }
 
     Object.keys(topicSource).sort((a, b) => parseInt(a) - parseInt(b)).forEach(tId => {
-        const tName = (typeof topicSource[tId] === 'object') ? topicSource[tId].name : topicSource[tId];
-        if (currentClass === 'MIXED' && (!window.starsData[tId] || window.starsData[tId] === 0)) return;
+        const tName = typeof topicSource[tId] === 'object' ? topicSource[tId].name : topicSource[tId];
+        
+        // --- YILDIZ KONTROLÜ ---
+        // Eğer Karma Mod ise ve yıldızı yoksa LİSTELEME
+        if (isMixedMode && (!window.starsData[tId] || window.starsData[tId] === 0)) return;
+        // -----------------------
 
         const key = `${verbId}_s${tId}`; 
         const sentences = window.data.content ? window.data.content[key] : null;
@@ -802,24 +859,32 @@ window.renderSections = function(verbId) {
         if (sentences && sentences.length > 0) {
             let completedCount = 0; 
             sentences.forEach((s, idx) => { if (window.srsData[`${key}_${idx}`]) completedCount++; });
-            const isFinished = completedCount === sentences.length;
+            const total = sentences.length; 
+            const isFinished = completedCount === total;
             
-            const btn = document.createElement('button'); 
-            btn.className = isFinished ? 'btn btn-success btn-block' : 'btn btn-secondary btn-block';
-            btn.style.textAlign = 'left'; 
-            btn.style.justifyContent = 'space-between';
-            btn.style.marginBottom = '10px';
-            btn.innerHTML = `
-                <div><small style="opacity:0.7">Konu ${tId}</small><br><b style="font-size:1rem;">${tName}</b></div>
-                <div style="font-weight:bold;">${isFinished ? '✅' : `${completedCount}/${sentences.length}`}</div>
-            `;
-            // Modal Aç
-            btn.onclick = () => window.openTopicActionModal(sentences, verbId, tId);
-            list.appendChild(btn);
+            // Buton Tasarımı
+            let btnClass = isFinished ? 'btn-success' : (completedCount > 0 ? 'btn-info' : 'btn-secondary');
+            const row = document.createElement('button'); 
+            row.className = `btn ${btnClass} btn-block`;
+            row.style.justifyContent = 'space-between'; 
+            row.style.textAlign = 'left';
+            
+            row.innerHTML = `
+                <div>
+                    <div style="font-size:0.8rem; opacity:0.8">Konu ${tId}</div>
+                    <div style="font-size:1.1rem; font-weight:bold;">${tName}</div>
+                </div>
+                <div style="font-size:0.85rem; font-weight:700; min-width:80px; text-align:right;">
+                    ${isFinished ? '✅ TAMAM' : `⏳ ${completedCount} / ${total}`}
+                </div>`;
+            
+            row.onclick = () => window.startStudy(sentences, verbId, tId);
+            list.appendChild(row);
         }
     });
     window.showView('sectionMenu');
 };
+
 /* ==========================================================================
    ANA MENÜ -> GRUP SEÇİMİ GEÇİŞ FONKSİYONU
    ========================================================================== */
@@ -968,12 +1033,9 @@ window.openTopicActionModal = function(sentences, vId, tId) {
    7. STUDY MODE (RENDER SENTENCE & RATE)
    -------------------------------------------------------------------------- */
 window.renderSentence = function() {
-    // A. Temizlik
+    // ... (Önceki tanımlamalar aynı kalıyor) ...
     const srsControls = document.getElementById('srsControls');
-    if (srsControls) { 
-        srsControls.style.display = 'none'; 
-        srsControls.classList.add('hidden'); 
-    }
+    if (srsControls) { srsControls.style.display = 'none'; srsControls.classList.add('hidden'); }
     
     const actionBtn = document.getElementById('actionBtn');
     if (actionBtn) { 
@@ -987,13 +1049,11 @@ window.renderSentence = function() {
     content.innerHTML = ''; 
     content.classList.remove('hidden');
 
-    // B. Kontrol
     if (!window.state.deck || window.state.deckPos >= window.state.deck.length) { 
         window.showCompletion(); 
         return; 
     }
 
-    // C. İçerik
     const card = window.state.deck[window.state.deckPos];
     window.state.currentCardData = card;
     window.state.currentCardKey = card.id;
@@ -1004,6 +1064,7 @@ window.renderSentence = function() {
     const question = isTrDe ? card.tr : card.de; 
     const answer = isTrDe ? card.de : card.tr;
     
+    // Hint text preparation
     let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "İpucu yok.");
     hintText = (hintText || "İpucu yok.").replace(/\n/g, '<br>');
 
@@ -1012,75 +1073,68 @@ window.renderSentence = function() {
             <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:5px;">Soru:</span>
             <strong style="font-size:1.4em; color:var(--text-main);">${question}</strong>
         </div>
+        
         <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
             💡 ${hintText}
         </div>
-<div id="answerArea" class="answer-frame" style="
-    margin-top:20px; 
-    border-top:2px solid var(--primary); 
-    padding:20px;
-    min-height:100px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:var(--bg-card);
-    border-radius:12px;
-    box-shadow:var(--shadow-soft);
-">
-    <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:10px;">Cevap:</span>
-    <strong style="font-size:1.5em; color:var(--primary);" id="answerText"></strong>
 
-
-    </div>
-
+        <div id="answerArea" class="answer-frame" style="margin-top:20px; border-top:2px solid var(--primary); padding:20px; min-height:100px; display:flex; flex-direction:column; justify-content:center; align-items:center; background:var(--bg-card); border-radius:12px; box-shadow:var(--shadow-soft);">
+            <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:10px;">Cevap:</span>
+            <strong style="font-size:1.5em; color:var(--primary);" id="answerText"></strong>
+        </div>
     `;
 
-if (actionBtn) {
-    actionBtn.onclick = function() {
-        // Cevap yazısını animasyonla göster
-        const answerText = document.getElementById('answerText');
-        if (answerText) {
-            answerText.textContent = answer;
-            // Animasyonu trigger etmek için opacity'yi sıfırla sonra restore et
-            answerText.style.opacity = '0';
-            answerText.style.animation = 'none';
-            setTimeout(() => {
-                answerText.style.animation = 'slideInAnswer 0.5s ease-out forwards';
-                answerText.style.opacity = '1';
-            }, 10);
-        }
-        
-        if (isTrDe && window.state.autoPlayAudio) window.playCurrentSentence('de');
-        
-        if (!window.state.tekrarStatus) {
-            // Study Mode: SRS butonlarını göster
-            actionBtn.style.display = 'none';
-            actionBtn.classList.add('hidden');
-            if (srsControls) { 
-                srsControls.classList.remove('hidden'); 
-                srsControls.style.display = 'grid'; 
+    if (actionBtn) {
+        actionBtn.onclick = function() {
+            const answerText = document.getElementById('answerText');
+            if (answerText) {
+                answerText.textContent = answer;
+                answerText.style.opacity = '0';
+                answerText.style.animation = 'none';
+                setTimeout(() => {
+                    answerText.style.animation = 'slideInAnswer 0.5s ease-out forwards';
+                    answerText.style.opacity = '1';
+                }, 10);
             }
-        } else {
-            // Tekrar Mode: Otomatik ilerle
-            window.state.deckPos++; 
-            setTimeout(window.renderSentence, 1500);
-        }
-    };
-}
+            
+            if (isTrDe && window.state.autoPlayAudio) window.playCurrentSentence('de');
+            
+            if (!window.state.tekrarStatus) {
+                actionBtn.style.display = 'none';
+                if (srsControls) { srsControls.classList.remove('hidden'); srsControls.style.display = 'grid'; }
+            } else {
+                window.state.deckPos++; 
+                setTimeout(window.renderSentence, 1500);
+            }
+        };
+    }
     
-    // E. Paneller
+    // --- GÜNCELLENEN PANEL KISMI ---
     const hintPanel = document.getElementById('panelHint');
     if (hintPanel) {
+        // Burada 3 butonu yan yana koyuyoruz
         hintPanel.innerHTML = `
-            <div style="background:var(--bg-body); padding:15px; border-radius:8px; border:1px solid var(--border);">
-                <div class="button-grid" style="grid-template-columns: 1fr 1fr; gap:10px;">
-                    <button class="btn btn-sm btn-info" onclick="window.openContextHint('verb')">⚡ Fiil Notu</button>
-                    <button class="btn btn-sm btn-warning" onclick="window.openContextHint('topic')">📘 Konu Özeti</button>
+            <div style="background:var(--bg-body); padding:10px; border-radius:8px; border:1px solid var(--border);">
+                <div class="button-grid" style="grid-template-columns: 1fr 1fr 1fr; gap:5px;">
+                    <button class="btn btn-sm btn-info" onclick="window.openContextHint('verb')">⚡ Fiil</button>
+                    <button class="btn btn-sm btn-warning" onclick="window.openContextHint('topic')">📘 Konu</button>
+                    <button class="btn btn-sm btn-success" onclick="window.showSpecificHint('sentence')">💡 Cümle</button>
                 </div>
             </div>`;
     }
     window.toggleLearningPanel(null);
+};
+
+// Bu yardımcı fonksiyonun olduğundan emin olun
+window.showSpecificHint = function(kind) {
+    if (kind === 'sentence') {
+        const hb = document.getElementById('hintContainer');
+        if (hb) {
+            hb.style.display = (hb.style.display === 'none' ? 'block' : 'none');
+        } else {
+            alert("İpucu bulunamadı.");
+        }
+    }
 };
 window.rateCard = function(status) {
   if (!window.state.currentCardKey) return;
@@ -1102,6 +1156,210 @@ window.rateCard = function(status) {
     // default study
     window.renderSentence();
   }
+};
+/* --------------------------------------------------------------------------
+   TEKRAR MODU YARDIMCISI: İLERLE BUTONU
+   -------------------------------------------------------------------------- */
+window.advanceToNextCard = function() {
+    // 1. Varsa sesi durdur
+    window.speechSynthesis.cancel();
+    
+    // 2. Bekleyen statüyü al (Check fonksiyonlarında atanır, yoksa 'zor' sayar)
+    const statusToSave = window.state.pendingStatus || 'zor';
+    
+    // 3. Statüyü sıfırla
+    window.state.pendingStatus = null;
+    
+    // 4. RateCard ile kaydet ve ilerle
+    window.rateCard(statusToSave);
+};
+
+/* --------------------------------------------------------------------------
+   MODULE: CLOZE (BOŞLUK DOLDURMA) - GÜNCELLENDİ
+   -------------------------------------------------------------------------- */
+window.renderClozeCard = function() {
+    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
+        window.showCompletion(); return;
+    }
+    
+    window.state.waitingForNext = false; 
+    window.state.pendingStatus = 'zor';
+
+    const card = window.state.deck[window.state.deckPos];
+    
+    // --- DÜZELTME BURADA ---
+    window.state.currentCardKey = card.id;
+    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
+    // -----------------------
+
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    const targetSentence = isTrDe ? card.de : card.tr;
+    const sourceSentence = isTrDe ? card.tr : card.de;
+
+    const words = targetSentence.split(' ');
+    let candidateIndices = words.map((w, i) => w.length > 2 ? i : -1).filter(i => i !== -1);
+    if (candidateIndices.length === 0) candidateIndices = [0];
+    const randomIndex = candidateIndices[Math.floor(Math.random() * candidateIndices.length)];
+    window.state.clozeAnswer = words[randomIndex].replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    const maskedSentence = words.map((w, i) => i === randomIndex ? "______" : w).join(' ');
+
+    const content = document.getElementById('learningContent');
+    if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
+    
+    content.innerHTML = `
+        <div class="content-box" style="text-align:center; padding:20px;">
+            <h3 style="color:var(--text-muted); margin-bottom:10px;">✏️ Boşluk Doldurma</h3>
+            <p style="color:var(--text-muted); font-size:1rem; margin-bottom:20px;">${sourceSentence}</p>
+            <h2 style="color:var(--text-main); margin-bottom:25px; line-height:1.4;">${maskedSentence}</h2>
+            <input id="clozeInput" class="input-field" type="text" placeholder="Eksik kelime..." autocomplete="off" style="text-align:center; font-size:1.2rem;">
+            <button id="reviewActionBtn" class="btn btn-warning btn-block" style="margin-top:20px;" onclick="window.handleReviewAction()">KONTROL ET</button>
+            <div id="clozeFeedback" style="margin-top:15px; font-weight:bold; min-height:25px;"></div>
+        </div>
+    `;
+    const input = document.getElementById('clozeInput');
+    input.focus();
+    input.addEventListener("keydown", function(event) { if (event.key === "Enter") window.handleReviewAction(); });
+};
+
+window.checkQuizAnswer = function() {
+    const input = document.getElementById('quizInput');
+    const fb = document.getElementById('quizFeedback');
+    
+    // Değerleri al
+    const val = input.value.trim().toLowerCase().replace(/[.,!?]/g, '');
+    const corr = window.state.correctAnswer.toLowerCase().replace(/[.,!?]/g, '');
+    
+    // KONTROL MANTIĞI
+    if (val === corr && val !== "") {
+        // Doğru
+        fb.innerHTML = '<span style="color:green">✅ DOĞRU!</span>';
+        window.state.pendingStatus = 'normal';
+    } else {
+        // Yanlış (veya Boş)
+        fb.innerHTML = `<span style="color:red">❌ YANLIŞ! <br>Doğru: ${window.state.correctAnswer}</span>`;
+        if(val === "") input.classList.add('shake-anim'); // Boşsa salla ama devam et
+        window.state.pendingStatus = 'zor';
+    }
+
+    // SESLİ OKUMA (İsteğinize göre: Kontrol tuşuna basar basmaz çalar)
+    if (window.state.autoPlayAudio) {
+        // Hedef dili belirle (Genelde cevap dilidir)
+        const isTrDe = window.data.settings.conversionMode === 'tr-de';
+        window.playCurrentSentence(isTrDe ? 'de' : 'tr');
+    }
+
+    return true; // İşlem tamamlandı
+};
+/* --------------------------------------------------------------------------
+   MODULE: WORD ORDER (KELİME SIRALAMA) - GÜNCELLENDİ
+   -------------------------------------------------------------------------- */
+window.renderWordOrderCard = function() {
+    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
+        window.showCompletion(); return;
+    }
+    
+    window.state.waitingForNext = false;
+    window.state.pendingStatus = 'zor';
+
+    const card = window.state.deck[window.state.deckPos];
+    
+    // --- DÜZELTME BURADA ---
+    window.state.currentCardKey = card.id;
+    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
+    // -----------------------
+
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    const targetSentence = isTrDe ? card.de : card.tr;
+    const sourceSentence = isTrDe ? card.tr : card.de;
+
+    const rawWords = targetSentence.split(' ').filter(w => w.trim() !== '');
+    window.state.wordOrderTarget = rawWords;
+    window.state.wordOrderCurrent = [];
+
+    let shuffled = [...rawWords];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    const content = document.getElementById('learningContent');
+    if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
+
+    content.innerHTML = `
+        <div class="content-box">
+            <h3 style="text-align:center; color:var(--primary);">🧩 Cümle Kur</h3>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom:20px;">${sourceSentence}</p>
+            <div id="woLine" style="min-height:50px; background:var(--bg-body); border:2px dashed var(--border); border-radius:8px; padding:10px; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;"></div>
+            <div id="woPool" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px;">
+                ${shuffled.map((w, i) => `<button id="btn_pool_${i}" class="btn btn-secondary btn-sm" onclick="window.moveWordToLine(this, '${w.replace(/'/g, "\\'")}')">${w}</button>`).join('')}
+            </div>
+            <div style="display:flex; gap:10px; flex-direction:column;">
+                <button id="reviewActionBtn" class="btn btn-success btn-block" onclick="window.handleReviewAction()">KONTROL ET</button>
+                <button class="btn btn-danger btn-sm" onclick="window.renderWordOrderCard()" style="margin-top:5px;">🔄 Sıfırla</button>
+            </div>
+            <div id="woFeedback" style="text-align:center; margin-top:15px; font-weight:bold;"></div>
+        </div>
+    `;
+};
+
+window.checkWordOrder = function() {
+    const feedback = document.getElementById('woFeedback');
+    
+    // Cümleyi oluştur (Boşsa boş string gelir)
+    const userSentence = window.normalizeText(window.state.wordOrderCurrent.join(' '));
+    const targetSentence = window.normalizeText(window.state.wordOrderTarget.join(' '));
+
+    if (userSentence === targetSentence && userSentence !== "") {
+        feedback.innerHTML = '<span style="color:green">✅ MÜKEMMEL!</span>';
+        window.state.pendingStatus = 'ogrendim';
+    } else {
+        feedback.innerHTML = '<span style="color:red">❌ Hatalı / Eksik.</span>';
+        window.state.pendingStatus = 'zor';
+    }
+
+    // SESLİ OKUMA
+    if (window.state.autoPlayAudio) {
+        const isTrDe = window.data.settings.conversionMode === 'tr-de';
+        window.playCurrentSentence(isTrDe ? 'de' : 'tr');
+    }
+
+    return true;
+};
+
+/* --------------------------------------------------------------------------
+   MODULE: QUIZ (YAZMA TESTİ) - GÜNCELLENDİ
+   -------------------------------------------------------------------------- */
+window.renderQuizCard = function() {
+    if (window.state.deckPos >= window.state.deck.length) { window.showCompletion(); return; }
+    
+    window.state.waitingForNext = false;
+    window.state.pendingStatus = 'zor';
+
+    const card = window.state.deck[window.state.deckPos]; 
+    
+    // --- DÜZELTME BURADA ---
+    window.state.currentCardKey = card.id;
+    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
+    // -----------------------
+
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    window.state.correctAnswer = isTrDe ? card.de : card.tr;
+    
+    const content = document.getElementById('learningContent'); content.innerHTML = '';
+    if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
+    
+    content.innerHTML = `
+        <div class="content-box" style="text-align:center;">
+            <h3>📝 Quiz</h3>
+            <div style="font-size:1.2rem; margin:15px 0;">${isTrDe ? card.tr : card.de}</div>
+            <input id="quizInput" class="input-field" placeholder="Cevabı yaz..." autocomplete="off">
+            <button id="reviewActionBtn" class="btn btn-success btn-block" style="margin-top:15px;" onclick="window.handleReviewAction()">KONTROL ET</button>
+            <div id="quizFeedback" style="margin-top:15px; font-weight:bold;"></div>
+        </div>
+    `;
+    const input = document.getElementById('quizInput');
+    input.focus();
+    input.addEventListener('keydown', function(e) { if(e.key==='Enter') window.handleReviewAction(); });
 };
 
 
@@ -1235,32 +1493,9 @@ window.startQuizMode = function(mode) {
 };
 
 /* --- QUIZ RENDERERS (Simplied for brevity, logic preserved) --- */
-window.renderQuizCard = function() {
-    if (window.state.deckPos >= window.state.deck.length) { window.showCompletion(); return; }
-    const card = window.state.deck[window.state.deckPos]; window.state.currentCardKey = card.id;
-    const isTrDe = window.data.settings.conversionMode === 'tr-de';
-    window.state.correctAnswer = isTrDe ? card.de : card.tr;
-    
-    const content = document.getElementById('learningContent'); content.innerHTML = '';
-    content.innerHTML = `<h3>📝 Quiz</h3><div style="font-size:1.2rem; margin:15px 0;">${isTrDe ? card.tr : card.de}</div>
-    <input id="quizInput" class="input-field" placeholder="Cevabı yaz..." autocomplete="off">
-    <button class="btn btn-success btn-block" style="margin-top:10px" onclick="window.checkQuizAnswer()">KONTROL ET</button>
-    <div id="quizFeedback"></div>`;
-};
 
-window.checkQuizAnswer = function() {
-    const val = document.getElementById('quizInput').value.trim().toLowerCase().replace(/[.,!?]/g, '');
-    const corr = window.state.correctAnswer.toLowerCase().replace(/[.,!?]/g, '');
-    const fb = document.getElementById('quizFeedback');
-    if (val === corr) {
-        fb.innerHTML = '<span style="color:green">✅ DOĞRU!</span>';
-        if (window.state.autoPlayAudio) window.playCurrentSentence('de');
-        setTimeout(() => window.rateCard('normal'), 1500);
-    } else {
-        fb.innerHTML = `<span style="color:red">❌ YANLIŞ! <br>Doğru: ${window.state.correctAnswer}</span>`;
-        setTimeout(() => { window.state.deckPos++; window.renderQuizCard(); }, 3000);
-    }
-};
+
+
 // (Cloze ve WordOrder fonksiyonları benzer şekilde tekilleştirildi varsayılıyor, yer darlığından kısalttım)
 
 /* --------------------------------------------------------------------------
@@ -1274,6 +1509,11 @@ window.startParallelPlayer = function() {
     window.renderParallelPlayerUI();
 };
 
+/* --------------------------------------------------------------------------
+   PARALLEL PLAYER UI (SADELEŞTİRİLMİŞ)
+   - Sadece Yavaş Mod ve Çıkış butonları kaldı.
+   - Akordyon butonlar temizlendi.
+   -------------------------------------------------------------------------- */
 window.renderParallelPlayerUI = function() {
     window.showView('learningView');
     const content = document.getElementById('learningContent');
@@ -1290,16 +1530,19 @@ window.renderParallelPlayerUI = function() {
                     <div id="parallelTextDisplay" style="font-size:1.4rem; font-weight:600; text-align:center;">Başlatılıyor...</div>
                 </div>
             </div>
-            <div style="height: 200px; flex-shrink:0; padding:10px; display:flex; flex-direction:column; justify-content:flex-end;">
+            
+            <div style="height: auto; flex-shrink:0; padding:10px; display:flex; flex-direction:column; justify-content:flex-end;">
                 <div id="parallelDelayControls" style="margin-bottom:15px; display:flex; gap:5px; justify-content:center;"></div>
+                
                 <div style="display:flex; justify-content:center; gap:20px; margin-bottom:20px;">
                     <button class="btn btn-secondary" onclick="window.previousParallelSentence()" style="width:60px; height:50px; font-size:1.8rem;">«</button>
                     <button id="parallelPlayPause" class="btn btn-primary" onclick="window.toggleParallelPlay()" style="width:70px; height:70px; font-size:2.2rem; border-radius:50%;">⏸</button>
                     <button class="btn btn-secondary" onclick="window.skipParallelSentence()" style="width:60px; height:50px; font-size:1.8rem;">»</button>
                 </div>
+                
                 <div style="display:flex; justify-content:space-between;">
                     <button class="btn btn-sm btn-secondary" onclick="window.toggleSlowMode()" style="width:48%;">
-                        <span id="slowModeLed" class="led-indicator ${window.state.slowMode?'active':''}"></span> Yavaş
+                        <span id="slowModeLed" class="led-indicator ${window.state.slowMode?'active':''}"></span> 🐢 Yavaş
                     </button>
                     <button class="btn btn-sm btn-danger" onclick="window.stopParallelPlayer()" style="width:48%;">🔴 Çıkış</button>
                 </div>
@@ -1327,7 +1570,62 @@ window.setParallelDelay = function(ms) {
     localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
     window.injectDelayControls();
 };
+/* ==========================================================================
+   AKILLI TEK BUTON YÖNETİCİSİ
+   - Hem "Kontrol Et" hem "İlerle" işlevini tek butonda toplar.
+   ========================================================================== */
+/* ==========================================================================
+   AKILLI BUTON YÖNETİCİSİ (GÜNCELLENMİŞ)
+   - Boş olsa bile kontrolü yapar ve İLERLE moduna geçer.
+   ========================================================================== */
+window.handleReviewAction = function() {
+    const btn = document.getElementById('reviewActionBtn');
+    if (!btn) return;
 
+    // A. Eğer İLERLEME modundaysak (Buton "İLERLE" ise)
+    if (window.state.waitingForNext) {
+        // 1. Sesi ANINDA sustur
+        window.speechSynthesis.cancel();
+        
+        // 2. Sonraki karta geç
+        window.advanceToNextCard();
+        return;
+    }
+
+    // B. Eğer KONTROL modundaysak (Buton "KONTROL ET" ise)
+    
+    // 1. İlgili kontrol fonksiyonunu çalıştır
+    // Not: Artık bu fonksiyonlar boş olsa bile işlemi yapıp 'true' dönecek.
+    if (window.state.mode === 'cloze') {
+        window.checkClozeAnswer();
+    } else if (window.state.mode === 'wordorder') {
+        window.checkWordOrder();
+    } else if (window.state.mode === 'quiz') {
+        window.checkQuizAnswer();
+    }
+
+    // 2. Butonu "İLERLE" moduna çevir (Her durumda)
+    window.state.waitingForNext = true;
+    btn.innerHTML = 'İLERLE ⏩';
+    btn.className = 'btn btn-primary btn-block'; 
+    btn.style.marginTop = '15px';
+};
+
+// İlerlerken Buton Durumunu Sıfırlayan Yardımcı
+window.advanceToNextCard = function() {
+    // 1. Sesi KESİN olarak sustur (İlerle'ye basıldığı an)
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+    
+    // 2. Puanı kaydet
+    const statusToSave = window.state.pendingStatus || 'zor';
+    window.rateCard(statusToSave);
+
+    // 3. Durumu Sıfırla
+    window.state.waitingForNext = false;
+    window.state.pendingStatus = null;
+};
 window.processParallelCard = function() {
     clearTimeout(window.state.parallelTimer);
     window.speechSynthesis.cancel();
@@ -1580,7 +1878,7 @@ window.findNextLearningUnit = function() {
     let topicSource = {};
     if (window.data.topics && window.data.topics[currentClass]) {
         topicSource = window.data.topics[currentClass];
-    } else if (currentClass === 'MIXED' && window.data.topicPool) {
+    } else if (currentClass === 'K' && window.data.topicPool) {
         topicSource = window.data.topicPool;
     }
     
@@ -1665,7 +1963,7 @@ window.toggleTheme = function() {
 
 // Karışık Konu Seçimini Aç
 window.openMixedSelection = function() {
-    window.data.settings.currentClass = 'MIXED';
+    window.data.settings.currentClass = 'K';
     localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
     window.updateClassButtonUI();
     
@@ -1713,15 +2011,25 @@ window.openMixedSelection = function() {
     
     window.showView('mixedTopicSelectionView');
 };
-// Karışık Seçimi Kaydet ve Başla
+
+/* --------------------------------------------------------------------------
+   KARIŞIK MOD SEÇİMİNİ KAYDET
+   -------------------------------------------------------------------------- */
 window.saveMixedSelection = function() {
+    // 1. Kontrol: Hiç yıldız seçili mi?
     if (!window.starsData || Object.keys(window.starsData).length === 0) {
-        alert("Lütfen en az bir konu seçiniz.");
+        alert("Lütfen listenin en az bir konusunu yıldızlayın.");
         return;
     }
+
+    // 2. Kaydetme İşlemi (Gerek yoksa zaten openMixedSelection anlık kaydediyor ama garanti olsun)
+    localStorage.setItem('verbmatrix_stars', JSON.stringify(window.starsData));
     
-    window.data.settings.currentClass = 'MIXED';
-    localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
-    window.updateClassButtonUI();
-    window.selectStudyMode('study');
+    // 3. Bilgi Ver
+    const count = Object.keys(window.starsData).length;
+    alert(`✅ ${count} adet konu yıldızlandı.\nŞimdi listeden 'Karma Mod' (veya ilgili sınıfı) seçerek çalışabilirsiniz.`);
+    
+    // 4. Ana Menüye Geri Dön (Başlatma yapmıyoruz)
+    window.showView('mainMenu');
 };
+
