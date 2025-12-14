@@ -70,3 +70,75 @@ body.dark-mode .btn-success-light { background: #1a2d1a; color: #68d391; border-
 .word-item.top { background: var(--primary); color: white; }
 .input-field { width: 100%; padding: 12px; font-size: 1rem; border: 2px solid var(--secondary); border-radius: 12px; margin-top: 10px; background: var(--card-bg); color: var(--text-color); }
 .learning-controls-panel { background: var(--bg-color); border-radius: 12px; margin-top: 10px; border: 1px solid var(--secondary); padding: 15px;}
+/* --- ÇERÇEVE VE ANİMASYON TASARIMI --- */
+
+/* Soru ve Cevap Kutuları İçin Ortak Çerçeve */
+.frame-box {
+    border: 2px solid var(--primary); /* Ana renk çerçeve */
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Cevap Çerçevesi (Başlangıçta Gizli Olacak) */
+.answer-frame {
+    border-color: var(--success); /* Cevap yeşil çerçeve olsun */
+    background: #fdfdfd;
+    display: none; /* JS ile açacağız */
+    opacity: 0;   /* Animasyon için başlangıç */
+}
+
+/* Yavaşça Belirme Animasyonu (Fade In) */
+@keyframes slowFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.visible-animated {
+    display: block !important;
+    animation: slowFadeIn 0.8s ease-out forwards; /* 0.8 saniye sürer */
+}
+
+/* Modlara Göre Renk Ayrımı */
+#tekrarView .frame-box { border-color: var(--warning); } /* Tekrar modu sarı/turuncu olsun */
+/* Çerçeve Tasarımı */
+.frame-box {
+    background: #fff;
+    border: 2px solid #ccc; /* Varsayılan gri */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.answer-frame {
+    border-color: #4caf50 !important; /* Cevap her zaman yeşil çerçeveli */
+    background: #f1f8e9;
+    display: none; /* Başlangıçta gizli */
+}
+
+/* Yavaşça Belirme (Fade In) */
+@keyframes fadeInSlow {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.visible-animated {
+    display: block !important;
+    animation: fadeInSlow 0.6s ease-out forwards;
+}
+
+/* LED Işıklar */
+.led-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc; /* Kapalı renk */
+    margin-right: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+/* JS ile style.background rengi değişecek */
