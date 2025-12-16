@@ -6,7 +6,7 @@
   - Veri bütünlüğü ve hata yakalama mekanizmaları birleştirildi.
   ========================================================================== */
 
-/* --------------------------------------------------------------------------
+/* -------------------------------------------------------------------------- 
    1. BASE DATA & STATE
    -------------------------------------------------------------------------- */
 window.data = {
@@ -28,6 +28,44 @@ window.state = {
     // Story State
     storyPlaying: false, storyPaused: false, storyLang: null,
     speechSynthesisAvailable: ('speechSynthesis' in window)
+};
+/* ==========================================================================
+   DİL YÖNETİMİ FONKSİYONLARI
+   ========================================================================== */
+/**
+ * UI dilini ayarlar ve arayüzü günceller.
+ * @param {string} lang 'tr' veya 'de' gibi bir dil kodu.
+ */
+window.setLanguage = function(lang) {
+    if (!['tr', 'de'].includes(lang)) {
+        console.warn(`Geçersiz dil: ${lang}. 'tr' kullanılıyor.`);
+        lang = 'tr';
+    }
+    window.data.settings.language = lang;
+    localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
+    window.updateUIText();
+};
+
+/**
+ * Arayüzdeki tüm metinleri mevcut dile göre günceller.
+ */
+window.updateUIText = function() {
+    const lang = window.data.settings.language || 'tr';
+    const strings = window.data.ui_strings ? window.data.ui_strings[lang] : null;
+
+    if (!strings) {
+        console.warn(`'${lang}' için UI metinleri bulunamadı.`);
+        return;
+    }
+
+    document.querySelectorAll('[data-translate-key]').forEach(element => {
+        const key = element.getAttribute('data-translate-key');
+        if (strings[key]) {
+            const textNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 1);
+            if (textNode) textNode.textContent = ` ${strings[key]} `;
+            else element.textContent = strings[key];
+        }
+    });
 };
 /* ==========================================================================
    EKSİK MODÜLLER TAMAMLAMASI (ADD-ON)
@@ -356,6 +394,12 @@ window.init = async function() {
         if (window.data.settings.theme === 'dark') document.body.classList.add('dark-mode');
         if(window.checkPWAStatus) window.checkPWAStatus();
 
+        // Arayüz dilini ayarla
+        window.updateUIText();
+
+        // iOS için ses motorunu uyandır
+        window.forceSpeechSynthesis();
+
     } catch (error) {
         // Hata durumunda bile ana menüyü göstermeyi dene
         window.showView('mainMenu', false);
@@ -454,6 +498,16 @@ window.speakText = function(text, lang, cb) {
         const u = new SpeechSynthesisUtterance(text);
         u.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
         u.rate = window.state.slowMode ? 0.7 : 0.9;
+
+        // YENİ: Apple cihazlarda "Anna" sesini zorla
+        const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
+        if (lang === 'de' && isApple) {
+            const voices = window.speechSynthesis.getVoices();
+            const annaVoice = voices.find(voice => voice.name === 'Anna' && voice.lang === 'de-DE');
+            if (annaVoice) {
+                u.voice = annaVoice;
+            }
+        }
         
         // Okuma BİTTİĞİNDE veya HATA verdiğinde
         const onFinish = () => {
@@ -698,7 +752,7 @@ window.renderClassSelection = function() {
     configBtn.style.marginTop = '10px'; // Biraz boşluk
     
     // Buton Metni
-    configBtn.innerHTML = '⭐ Konuları Yıldızla<br><small style="font-size:0.7em; opacity:0.8">(Karışık Mod Ayarları)</small>'; 
+    configBtn.innerHTML = '<span data-translate-key="star_topics">⭐ Konuları Yıldızla</span><br><small style="font-size:0.7em; opacity:0.8" data-translate-key="mixed_mode_settings">(Karışık Mod Ayarları)</small>'; 
     
     // Tıklayınca Seçim Ekranına Git
     configBtn.onclick = () => window.openMixedSelection();
@@ -1218,7 +1272,7 @@ function populateAccordionPanels() {
     const hintPanel = document.getElementById('panelHint');
     if (hintPanel) {
         hintPanel.innerHTML = `
-            <div class="button-grid-learning" id="hint-buttons">
+            <div class="button-grid-learning" id="hint-buttons" style="display: flex; justify-content: center; gap: 10px;">
                 <button class="btn btn-sm btn-info" onclick="window.openContextHint('verb')">⚡ Fiil Notu</button>
                 <button class="btn btn-sm btn-warning" onclick="window.openContextHint('topic')">📘 Konu Notu</button>
                 <button class="btn btn-sm btn-success" onclick="window.showSpecificHint('sentence')">💡 Cümle İpucu</button>
@@ -1699,12 +1753,12 @@ window.startTekrar = function(status) {
     const container = document.getElementById('tekrarModeMenu');
     if (container) {
         container.innerHTML = `
-            <h2 class="large-centered-title">🔁 Tekrar - Uygulama Seç</h2>
+            <h2 class="large-centered-title" data-translate-key="review_select_app">🔁 Tekrar - Uygulama Seç</h2>
             <div class="button-grid" style="margin-top:18px;">
-            <button class="btn btn-info" onclick="window.startQuizMode('parallel')">🎧 Paralel Dinleme</button>
-            <button class="btn btn-warning" onclick="window.startQuizMode('cloze')">✏️ Boşluk Doldurma</button>
-            <button class="btn btn-primary" onclick="window.startQuizMode('wordorder')">🧩 Kelime Sıralama</button>
-            <button class="btn btn-danger" onclick="window.startQuizMode('quiz')">📝 Quiz (Yazma)</button>
+            <button class="btn btn-info" onclick="window.startQuizMode('parallel')" data-translate-key="parallel_listening">🎧 Paralel Dinleme</button>
+            <button class="btn btn-warning" onclick="window.startQuizMode('cloze')" data-translate-key="cloze_test">✏️ Boşluk Doldurma</button>
+            <button class="btn btn-primary" onclick="window.startQuizMode('wordorder')" data-translate-key="word_order">🧩 Kelime Sıralama</button>
+            <button class="btn btn-danger" onclick="window.startQuizMode('quiz')" data-translate-key="quiz_writing">📝 Quiz (Yazma)</button>
             </div>
         `;
         window.showView('tekrarModeMenu');
@@ -2495,3 +2549,4 @@ window.closeGuideModal = function() {
         setTimeout(() => modal.classList.add('hidden'), 300);
     }
 };
+
