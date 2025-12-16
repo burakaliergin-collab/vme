@@ -4,374 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Verb Matrix - Minimalist</title>
-    <link rel="icon" hr<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Verb Matrix - Minimalist</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
 
-    <style>
-        /* ==========================================================================
-           1. TEMEL DEĞİŞKENLER (PASTEL & MINIMALIST)
-           ========================================================================== */
-        :root {
-            /* Zemin ve Metin */
-            --bg-body: #fdfbf7; /* Çok açık krem */
-            --bg-card: #ffffff;
-            --text-main: #2c3e50;
-            --text-muted: #95a5a6;
-            
-            /* Pastel Vurgu Renkleri */
-            --primary: #90a4ae;       /* Soğuk Gri-Mavi */
-            --primary-dark: #607d8b;
-            --accent: #b0bec5;        
-            
-            /* Durum Renkleri (Pastel) */
-            --success: #a5d6a7;       /* Yumuşak Yeşil */
-            --warning: #ffe082;       /* Yumuşak Sarı/Amber */
-            --danger: #ef9a9a;        /* Yumuşak Kırmızı */
-            --info: #81d4fa;          /* Yumuşak Mavi */
-            
-            /* Efektler */
-            --radius: 12px;
-            --shadow-soft: 0 4px 6px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
-            --shadow-metal: 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
-            --border-light: 1px solid #eceff1;
-        }
-
-        /* GECE MODU (Muted Slate) */
-        body.dark-mode {
-            --bg-body: #1f2937; /* Koyu Slate */
-            --bg-card: #111827;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --primary: #546e7a;
-            --border-light: 1px solid #374151;
-            --shadow-soft: 0 4px 6px rgba(0,0,0,0.3);
-            --shadow-metal: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* ==========================================================================
-           2. GENEL YAPI
-           ========================================================================== */
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .site-container {
-            width: 100%;
-            max-width: 800px; /* Daha dar, odaklanmış okuma alanı */
-            margin: 0 auto;
-            padding-bottom: 80px; /* Alt navigasyon için boşluk */
-        }
-
-        /* AKILLI BAŞLIK ALANI */
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--accent);
-        }
-
-        #pageTitle {
-            font-family: 'Lora', serif;
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        /* VIEW SİSTEMİ */
-        .view { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
-        .view.active { display: block; opacity: 1; animation: fadeIn 0.3s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hidden { display: none !important; }
-
-        /* ==========================================================================
-           3. BUTONLAR (METALİK & MİNİMALİST)
-           ========================================================================== */
-        .btn {
-            background: var(--bg-card);
-            border: 1px solid #cfd8dc;
-            color: var(--text-main);
-            padding: 12px 16px;
-            border-radius: var(--radius);
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: var(--shadow-metal);
-            transition: all 0.15s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Buton Varyasyonları (Pastel) */
-        .btn-primary { background: var(--primary); color: white; border-color: transparent; }
-        .btn-success { background: var(--success); color: #1b5e20; border-color: transparent; }
-        .btn-warning { background: var(--warning); color: #5d4037; border-color: transparent; }
-        .btn-danger { background: var(--danger); color: #b71c1c; border-color: transparent; }
-        .btn-info { background: var(--info); color: #01579b; border-color: transparent; }
-        
-        .btn-secondary { 
-            background: #eceff1; 
-            color: #455a64; 
-            border: 1px solid #cfd8dc; 
-        }
-        body.dark-mode .btn-secondary { background: #374151; color: #cfd8dc; border-color: #4b5563; }
-
-        .btn-lg { padding: 16px 20px; font-size: 1.1rem; }
-        .btn-sm { padding: 6px 10px; font-size: 0.85rem; }
-        .btn-block { width: 100%; display: flex; }
-
-        /* ==========================================================================
-           4. GRİD YAPILARI
-           ========================================================================== */
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .content-box {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-            border: var(--border-light);
-            margin-bottom: 20px;
-        }
-
-        /* ==========================================================================
-           5. ÖĞRENME EKRANI (METİN ODAKLI)
-           ========================================================================== */
-        #learningView .content-box {
-            text-align: center;
-            padding: 30px 20px; /* Daha fazla iç boşluk */
-        }
-
-        /* Dinamik Status Bar (Script tarafından inject edilen) için Stil Override */
-        #dynamicStatusBar {
-            background: #f0f4c3 !important;
-            color: #555 !important;
-            border-radius: 8px;
-            font-size: 0.8rem !important;
-            font-family: 'Inter', sans-serif;
-            border: none !important;
-            border-left: 4px solid #c0ca33 !important;
-            text-align: left;
-            margin-bottom: 20px !important;
-        }
-
-        #learningContent {
-            min-height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Sorular ve Cevaplar - METİN ÖNCELİKLİ */
-        .sentence {
-            font-family: 'Lora', serif; /* Serif font ile kitap hissi */
-            font-size: 2rem; /* Büyük font */
-            line-height: 1.4;
-            color: var(--text-main);
-            margin: 10px 0;
-        }
-        .sentence strong { font-weight: 500; }
-        .sentence small { font-size: 1rem; color: var(--text-muted); font-family: 'Inter', sans-serif; display: block; margin-bottom: 5px; }
-
-        #answerArea { color: var(--primary-dark); }
-
-        /* Kelime Sıralama */
-        #wordOrderArea {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        #woSelected, #woPool {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            min-height: 50px;
-        }
-        #woSelected {
-            border-bottom: 2px dashed var(--accent);
-            padding-bottom: 15px;
-            width: 100%;
-        }
-
-        /* Ana Aksiyon Butonu (Ortada, Kompakt) */
-        #actionBtn {
-            margin: 20px auto;
-            min-width: 180px;
-            background: var(--primary-dark);
-            color: white;
-            border-radius: 30px; /* Pill shape */
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* SRS Kontrolleri (Küçük ve Eşit) */
-        #srsControls {
-            display: none; /* JS açacak */
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        #srsControls .btn {
-            font-size: 0.9rem;
-            padding: 10px 5px;
-            flex-direction: column;
-        }
-
-        /* Kontrol Paneli (İpucu, Dinle, Edit) - Kompakt Akordeon */
-        .learning-controls-main {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-            margin-top: 30px;
-            border-top: 1px solid var(--accent);
-            padding-top: 15px;
-        }
-        .learning-controls-main .btn {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid transparent;
-            font-size: 0.8rem;
-            box-shadow: none;
-        }
-        .learning-controls-main .btn:hover {
-            color: var(--primary-dark);
-            background: #f5f5f5;
-        }
-
-        /* Açılan Paneller */
-        .learning-controls-panel {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: var(--radius);
-            padding: 10px;
-            margin-top: 10px;
-            animation: fadeIn 0.2s;
-        }
-        body.dark-mode .learning-controls-panel { background: #1a202c; border-color: #2d3748; }
-
-        .button-grid-learning {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Küçük butonlar */
-            gap: 8px;
-        }
-
-        /* ==========================================================================
-           6. DİĞER MODÜLLER
-           ========================================================================== */
-        /* İlerleme Barları */
-        .progress-container { width: 100%; margin: 10px 0; }
-        .progress-bar { height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--success); transition: width 0.3s; }
-        #progressText { font-size: 0.8rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
-
-        /* LED Göstergeler */
-        .led-indicator {
-            width: 8px; height: 8px; border-radius: 50%; background: #ccc; display: inline-block;
-        }
-        .led-indicator.active { background: #4caf50; box-shadow: 0 0 5px #4caf50; }
-
-        /* Sabit Navigasyon (Floating) */
-        .floating-nav {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-        .float-btn {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--accent);
-            box-shadow: var(--shadow-soft);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        /* Inputlar */
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            background: var(--bg-card);
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        /* Splash Screen (Logo) */
-        #splashScreen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-body); z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
-            transition: opacity 0.5s;
-        }
-/* Answer Frame Animation */
-@keyframes slideInAnswer {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#answerArea {
-    animation: slideInAnswer 0.5s ease-out;
-}
-
-/* SRS Controls Fixed Height */
-#srsControls {
-    min-height: 110px;
-}        
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -379,31 +16,27 @@
 
     <div id="splashScreen">
         <div style="text-align: center;">
-            <div style="font-size: 4rem;">🌀</div>
-            <h1 style="color:var(--primary-dark); margin-top: 10px;">Verb Matrix</h1>
+            <!-- YENİ: Logo için resim etiketi -->
+            <img src="logo.png" alt="Verb Matrix Logo" style="width: 120px; height: auto; margin-bottom: 15px;">
         </div>
     </div>
 
     <div class="site-container">
         
-        <header style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--accent); margin-bottom:20px;">
-    <button class="btn btn-sm btn-secondary" onclick="window.toggleMusic()" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
-        🎵
-    </button>
-
-    <h1 style="font-size:1.5rem; color:var(--primary-dark); margin:0;">Verb Matrix</h1>
-
-    <button id="themeToggleBtn" class="btn btn-sm btn-secondary" onclick="window.toggleTheme()" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
-        🌙
-    </button>
-</header>
+        <header>
+            <h1 id="pageTitle">Verb Matrix</h1>
+        </header>
 
         <section id="mainMenu" class="view active">
+            <!-- Ana Menü Logosu -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="logo.png" alt="Verb Matrix Logo" class="main-menu-logo">
+            </div>
     
-    <div class="content-box" style="text-align:center; padding:15px; margin-bottom:25px; border-bottom: 2px solid var(--primary-dark);">
+    <div class="content-box" style="text-align:center; padding:15px; margin-bottom:25px;">
         <h4 style="margin-bottom:10px; color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">Çeviri Yönü</h4>
         
-        <button class="btn btn-block" style="background:var(--bg-body); border:1px solid var(--primary); justify-content:center; padding:15px;" onclick="window.toggleLanguageMode()">
+        <button class="btn btn-block" onclick="window.toggleLanguageMode()">
             <span id="led_tr_de" class="led-indicator active"></span> 
             <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">TR ➡ DE</span>
             <span style="color:#ccc;">|</span>
@@ -412,7 +45,7 @@
         </button>
     </div>
 
-    <div class="button-grid" style="grid-template-columns: 1fr;">
+    <div class="button-grid">
         <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')">
             📚 Çalışmaya Başla
         </button>
@@ -425,14 +58,49 @@
     </div>
 </section>
 
+        <section id="progress" class="view">
+            <div class="content-box">
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 25px;">📊 Genel İlerleme</h3>
+
+                <div class="progress-card">
+                    <div class="progress-card-header">
+                        <h4>Toplam Öğrenilen Kart</h4>
+                        <span id="totalProgressText" class="progress-value">0 / 0 (%0)</span>
+                    </div>
+                    <div class="progress-container" style="height: 12px;">
+                        <div id="totalProgressBar" class="progress-fill" style="width: 0%; background: var(--gold-main);"></div>
+                    </div>
+                </div>
+
+                <div id="classProgressContainer" class="class-progress-grid">
+                    <!-- Seviye ilerlemeleri JavaScript ile buraya eklenecek -->
+                    <!-- Örnek:
+                    <div class="progress-card">
+                        <div class="progress-card-header"><h5>A1 Seviyesi</h5><span class="progress-value">50 / 100</span></div>
+                        <div class="progress-container"><div class="progress-fill" style="width: 50%;"></div></div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
         <section id="classSelectionView" class="view">
             <h3 class="subtitle" style="margin-bottom:20px;">Sınıfını Seç</h3>
             <div id="classGrid" class="button-grid"></div>
         </section>
 
         <section id="groupMenu" class="view">
-            <h3 class="subtitle">Ünite Grupları</h3>
-            <div id="groupList" class="button-grid" style="grid-template-columns: 1fr;"></div>
+            <div class="content-box">
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 20px;">Ünite Grupları</h3>
+                <!-- Domain Seçim Butonları -->
+                <div id="domainContainer" class="domain-buttons-container">
+                    <!-- Domain butonları JavaScript ile buraya eklenecek -->
+                </div>
+        
+                <!-- Akordiyon Konteyneri -->
+                <div id="accordionContainer" class="accordion-container">
+                    <!-- Kategori akordiyonları JavaScript ile buraya eklenecek -->
+                </div>
+            </div>
         </section>
 
         <section id="verbMenu" class="view">
@@ -444,7 +112,7 @@
             <h3 class="subtitle">Bölümler</h3>
             <div id="sectionList" class="button-grid"></div>
         </section>
-<section id="studyView" class="view">
+<section id="studyView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
         <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Menü</button>
         <h4 id="headerTitle" style="margin:0; color:var(--primary-dark);">Çalışma Modu</h4>
@@ -474,13 +142,13 @@
     </div>
 
     <div id="accordionArea" style="margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
-        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:10px;">
-            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlHint')">💡 İpucu</button>
-            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlListen')">🔊 Dinle</button>
-            <button class="btn btn-sm btn-warning" onclick="window.togglePanel('pnlEdit')">✏️ Düzenle</button>
-        </div>
+        <div class="learning-controls-main">
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)">✏️ Düzenle</button>
+                </div>
         
-        <div id="pnlHint" class="hidden" style="padding:15px; background:#fff3cd; color:#856404; text-align:center; border-radius:8px;">
+        <div id="pnlHint" class="learning-controls-panel hidden">
             <div id="hintText">İpucu...</div>
             <button class="btn btn-sm btn-info" onclick="window.showHint()">Harf Göster</button>
         </div>
@@ -496,7 +164,7 @@
     </div>
 </section>
 
-<section id="tekrarView" class="view">
+<section id="tekrarView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
         <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Çıkış</button>
         <h4 style="margin:0; color:#d35400;">🔄 Tekrar Modu</h4>
@@ -550,10 +218,10 @@
                 <div id="clozeResultArea" class="hidden"></div>
             </div>
 
-            <<button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
+            <button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
 
             <div id="srsControls" class="hidden">
-                <button class="btn btn-danger" onclick="window.rateCard('zor')">
+                <button class="btn btn-danger" onclick="window.rateCard('zor')"> 
                     🥵<br>ZOR
                 </button>
                 <button class="btn btn-warning" onclick="window.rateCard('normal')">
@@ -569,21 +237,21 @@
 
             <div id="learningControlsAccordion">
                 <div class="learning-controls-main">
-                    <button class="btn" onclick="window.toggleLearningPanel('panelHint')">💡 İpucu</button>
-                    <button class="btn" onclick="window.toggleLearningPanel('panelListen')">🔊 Dinle</button>
-                    <button class="btn" onclick="window.toggleLearningPanel('panelEdit')">✏️ Düzenle</button>
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)">✏️ Düzenle</button>
                 </div>
 
                 <div id="panelHint" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
+                    <div class="button-grid">
                         <button class="btn btn-info" onclick="window.showSpecificHint('sentence')">Cümle</button>
                         <button class="btn btn-warning" onclick="window.showSpecificHint('verb')">Fiil</button>
                         <button class="btn btn-secondary" onclick="window.showSpecificHint('topic')">Konu</button>
                     </div>
                 </div>
 
-                <div id="panelListen" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
+                <div id="panelListen" class="learning-controls-panel hidden" style="text-align: center;">
+                    <div class="button-grid" style="grid-template-columns: repeat(4, 1fr);">
                         <button class="btn btn-secondary" onclick="window.toggleAutoPlay()">
                             <span id="autoPlayLed" class="led-indicator active"></span> Oto
                         </button>
@@ -595,8 +263,8 @@
                     </div>
                 </div>
 
-                <div id="panelEdit" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
+                <div id="panelEdit" class="learning-controls-panel hidden" style="text-align: center;">
+                    <div class="button-grid">
                         <button id="btnEditCard" class="btn btn-warning" onclick="window.openEditPanel()">✏️ Düzenle</button>
                     </div>
                 </div>
@@ -681,7 +349,7 @@
         
         <section id="mixedTopicSelectionView" class="view">
              <h3 class="subtitle">Karışık Konu Seçimi</h3>
-             <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
+             <div class="button-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px; text-align: center;">
                  <button class="btn btn-success" onclick="window.saveMixedSelection()">Kaydet & Başla</button>
                  <button class="btn btn-secondary" onclick="window.goBackInHistory()">İptal</button>
              </div>
@@ -692,7 +360,7 @@
             <h3 class="subtitle">Ayarlar</h3>
             
             <div class="content-box">
-                <h4 style="margin-bottom:10px;">Görünüm</h4>
+                <h4 style="margin-bottom:10px; text-align: center;">Görünüm</h4>
                 <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
                     <button id="themeToggleBtn" class="btn btn-secondary" onclick="window.toggleTheme()">🌙 Tema</button>
                     <button id="musicToggleBtn" class="btn btn-secondary" onclick="window.toggleMusic()">🎵 Müzik</button>
@@ -701,7 +369,7 @@
             </div>
 
             <div class="content-box">
-                <h4 style="margin-bottom:10px;">Çeviri Yönü</h4>
+                <h4 style="margin-bottom:10px; text-align: center;">Çeviri Yönü</h4>
                 <button class="btn btn-block btn-info" onclick="window.toggleLanguageMode()">
                     <span id="led_tr_de" class="led-indicator active"></span> TR → DE &nbsp;|&nbsp; 
                     <span id="led_de_tr" class="led-indicator"></span> DE → TR
@@ -709,7 +377,7 @@
             </div>
 
             <div class="content-box">
-                <h4 style="margin-bottom:10px;">Veri Yönetimi</h4>
+                <h4 style="margin-bottom:10px; text-align: center;">Veri Yönetimi</h4>
                 <label class="btn btn-warning btn-block" style="margin-bottom:10px;">
                     📥 Yükle <input type="file" hidden onchange="window.handleImport(event)">
                 </label>
@@ -726,6 +394,29 @@
             <button id="installAppBtn" class="hidden btn btn-success btn-block" onclick="window.installPWA()">📲 Uygulamayı Yükle</button>
         </section>
 
+    </div>    <!-- Yüzen Butonlar -->
+    <div class="floating-top-left">
+        <button id="floatingMusicBtn" class="btn floating-btn" onclick="window.toggleMusic()">
+            <span class="icon">🎵</span>
+        </button>
+    </div>
+
+    <div class="floating-top-right">
+        <button id="floatingGuideBtn" class="btn floating-btn" onclick="window.openGuideModal()">
+            <span class="icon">🧭</span>
+        </button>
+        <button id="themeToggleBtn" class="btn floating-btn" onclick="window.toggleTheme()">
+            <span class="icon">🌙</span>
+        </button>
+    </div>
+
+    <!-- Kılavuz Modalı -->
+    <div id="guideModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="window.closeGuideModal()">&times;</button>
+            <h3 id="guideModalTitle" class="modal-title"></h3>
+            <div id="guideModalContent" class="modal-body"></div>
+        </div>
     </div>
 <nav id="bottomNav" style="
     position: fixed; bottom: 0; left: 0; width: 100%; 
@@ -772,771 +463,14 @@
         <button onclick="window.startMode('tekrar_quiz')" class="btn btn-info btn-block btn-lg">📝 Quiz (Yazma)</button>
     </div>
 </div>
-    <script src="script.js"></script>
-</body>
-</html>
-ef="favicon.ico" type="image/x-icon">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
 
-    <style>
-        /* ==========================================================================
-           1. TEMEL DEĞİŞKENLER (PASTEL & MINIMALIST)
-           ========================================================================== */
-        :root {
-            /* Zemin ve Metin */
-            --bg-body: #fdfbf7; /* Çok açık krem */
-            --bg-card: #ffffff;
-            --text-main: #2c3e50;
-            --text-muted: #95a5a6;
-            
-            /* Pastel Vurgu Renkleri */
-            --primary: #90a4ae;       /* Soğuk Gri-Mavi */
-            --primary-dark: #607d8b;
-            --accent: #b0bec5;        
-            
-            /* Durum Renkleri (Pastel) */
-            --success: #a5d6a7;       /* Yumuşak Yeşil */
-            --warning: #ffe082;       /* Yumuşak Sarı/Amber */
-            --danger: #ef9a9a;        /* Yumuşak Kırmızı */
-            --info: #81d4fa;          /* Yumuşak Mavi */
-            
-            /* Efektler */
-            --radius: 12px;
-            --shadow-soft: 0 4px 6px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
-            --shadow-metal: 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
-            --border-light: 1px solid #eceff1;
-        }
-
-        /* GECE MODU (Muted Slate) */
-        body.dark-mode {
-            --bg-body: #1f2937; /* Koyu Slate */
-            --bg-card: #111827;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --primary: #546e7a;
-            --border-light: 1px solid #374151;
-            --shadow-soft: 0 4px 6px rgba(0,0,0,0.3);
-            --shadow-metal: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* ==========================================================================
-           2. GENEL YAPI
-           ========================================================================== */
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; -webkit-tap-highlight-color: transparent; }
+<div id="modalParallelModeSelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; align-items:center; justify-content:center;">
+    <div style="background:var(--bg-card); padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; border: 2px solid var(--info); position:relative;">
+        <button onclick="document.getElementById('modalParallelModeSelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:var(--info);">🎧 Paralel Dinleme Modu</h3>
         
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .site-container {
-            width: 100%;
-            max-width: 800px; /* Daha dar, odaklanmış okuma alanı */
-            margin: 0 auto;
-            padding-bottom: 80px; /* Alt navigasyon için boşluk */
-        }
-
-        /* AKILLI BAŞLIK ALANI */
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--accent);
-        }
-
-        #pageTitle {
-            font-family: 'Lora', serif;
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        /* VIEW SİSTEMİ */
-        .view { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
-        .view.active { display: block; opacity: 1; animation: fadeIn 0.3s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hidden { display: none !important; }
-
-        /* ==========================================================================
-           3. BUTONLAR (METALİK & MİNİMALİST)
-           ========================================================================== */
-        .btn {
-            background: var(--bg-card);
-            border: 1px solid #cfd8dc;
-            color: var(--text-main);
-            padding: 12px 16px;
-            border-radius: var(--radius);
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: var(--shadow-metal);
-            transition: all 0.15s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Buton Varyasyonları (Pastel) */
-        .btn-primary { background: var(--primary); color: white; border-color: transparent; }
-        .btn-success { background: var(--success); color: #1b5e20; border-color: transparent; }
-        .btn-warning { background: var(--warning); color: #5d4037; border-color: transparent; }
-        .btn-danger { background: var(--danger); color: #b71c1c; border-color: transparent; }
-        .btn-info { background: var(--info); color: #01579b; border-color: transparent; }
-        
-        .btn-secondary { 
-            background: #eceff1; 
-            color: #455a64; 
-            border: 1px solid #cfd8dc; 
-        }
-        body.dark-mode .btn-secondary { background: #374151; color: #cfd8dc; border-color: #4b5563; }
-
-        .btn-lg { padding: 16px 20px; font-size: 1.1rem; }
-        .btn-sm { padding: 6px 10px; font-size: 0.85rem; }
-        .btn-block { width: 100%; display: flex; }
-
-        /* ==========================================================================
-           4. GRİD YAPILARI
-           ========================================================================== */
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .content-box {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-            border: var(--border-light);
-            margin-bottom: 20px;
-        }
-
-        /* ==========================================================================
-           5. ÖĞRENME EKRANI (METİN ODAKLI)
-           ========================================================================== */
-        #learningView .content-box {
-            text-align: center;
-            padding: 30px 20px; /* Daha fazla iç boşluk */
-        }
-
-        /* Dinamik Status Bar (Script tarafından inject edilen) için Stil Override */
-        #dynamicStatusBar {
-            background: #f0f4c3 !important;
-            color: #555 !important;
-            border-radius: 8px;
-            font-size: 0.8rem !important;
-            font-family: 'Inter', sans-serif;
-            border: none !important;
-            border-left: 4px solid #c0ca33 !important;
-            text-align: left;
-            margin-bottom: 20px !important;
-        }
-
-        #learningContent {
-            min-height: 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Sorular ve Cevaplar - METİN ÖNCELİKLİ */
-        .sentence {
-            font-family: 'Lora', serif; /* Serif font ile kitap hissi */
-            font-size: 2rem; /* Büyük font */
-            line-height: 1.4;
-            color: var(--text-main);
-            margin: 10px 0;
-        }
-        .sentence strong { font-weight: 500; }
-        .sentence small { font-size: 1rem; color: var(--text-muted); font-family: 'Inter', sans-serif; display: block; margin-bottom: 5px; }
-
-        #answerArea { color: var(--primary-dark); }
-
-        /* Kelime Sıralama */
-        #wordOrderArea {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        #woSelected, #woPool {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            min-height: 50px;
-        }
-        #woSelected {
-            border-bottom: 2px dashed var(--accent);
-            padding-bottom: 15px;
-            width: 100%;
-        }
-
-        /* Ana Aksiyon Butonu (Ortada, Kompakt) */
-        #actionBtn {
-            margin: 20px auto;
-            min-width: 180px;
-            background: var(--primary-dark);
-            color: white;
-            border-radius: 30px; /* Pill shape */
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* SRS Kontrolleri (Küçük ve Eşit) */
-        #srsControls {
-            display: none; /* JS açacak */
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        #srsControls .btn {
-            font-size: 0.9rem;
-            padding: 10px 5px;
-            flex-direction: column;
-        }
-
-        /* Kontrol Paneli (İpucu, Dinle, Edit) - Kompakt Akordeon */
-        .learning-controls-main {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-            margin-top: 30px;
-            border-top: 1px solid var(--accent);
-            padding-top: 15px;
-        }
-        .learning-controls-main .btn {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid transparent;
-            font-size: 0.8rem;
-            box-shadow: none;
-        }
-        .learning-controls-main .btn:hover {
-            color: var(--primary-dark);
-            background: #f5f5f5;
-        }
-
-        /* Açılan Paneller */
-        .learning-controls-panel {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: var(--radius);
-            padding: 10px;
-            margin-top: 10px;
-            animation: fadeIn 0.2s;
-        }
-        body.dark-mode .learning-controls-panel { background: #1a202c; border-color: #2d3748; }
-
-        .button-grid-learning {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Küçük butonlar */
-            gap: 8px;
-        }
-
-        /* ==========================================================================
-           6. DİĞER MODÜLLER
-           ========================================================================== */
-        /* İlerleme Barları */
-        .progress-container { width: 100%; margin: 10px 0; }
-        .progress-bar { height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--success); transition: width 0.3s; }
-        #progressText { font-size: 0.8rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
-
-        /* LED Göstergeler */
-        .led-indicator {
-            width: 8px; height: 8px; border-radius: 50%; background: #ccc; display: inline-block;
-        }
-        .led-indicator.active { background: #4caf50; box-shadow: 0 0 5px #4caf50; }
-
-        /* Sabit Navigasyon (Floating) */
-        .floating-nav {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-        .float-btn {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--accent);
-            box-shadow: var(--shadow-soft);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        /* Inputlar */
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            background: var(--bg-card);
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        /* Splash Screen (Logo) */
-        #splashScreen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-body); z-index: 9999;
-            display: flex; align-items: center; justify-content: center;
-            transition: opacity 0.5s;
-        }
-/* Answer Frame Animation */
-@keyframes slideInAnswer {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#answerArea {
-    animation: slideInAnswer 0.5s ease-out;
-}
-
-/* SRS Controls Fixed Height */
-#srsControls {
-    min-height: 110px;
-}        
-    </style>
-</head>
-<body>
-
-    <audio id="bgMusic" loop>
-        <source src="bg-music.mp3" type="audio/mp3">
-    </audio>
-
-    <div id="splashScreen">
-        <div style="text-align: center;">
-            <div style="font-size: 4rem;">🌀</div>
-            <h1 style="color:var(--primary-dark); margin-top: 10px;">Verb Matrix</h1>
-        </div>
-    </div>
-
-    <div class="site-container">
-        
-        <header style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--accent); margin-bottom:20px;">
-    <button class="btn btn-sm btn-secondary" onclick="window.toggleMusic()" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
-        🎵
-    </button>
-
-    <h1 style="font-size:1.5rem; color:var(--primary-dark); margin:0;">Verb Matrix</h1>
-
-    <button id="themeToggleBtn" class="btn btn-sm btn-secondary" onclick="window.toggleTheme()" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
-        🌙
-    </button>
-</header>
-
-        <section id="mainMenu" class="view active">
-    
-    <div class="content-box" style="text-align:center; padding:15px; margin-bottom:25px; border-bottom: 2px solid var(--primary-dark);">
-        <h4 style="margin-bottom:10px; color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">Çeviri Yönü</h4>
-        
-        <button class="btn btn-block" style="background:var(--bg-body); border:1px solid var(--primary); justify-content:center; padding:15px;" onclick="window.toggleLanguageMode()">
-            <span id="led_tr_de" class="led-indicator active"></span> 
-            <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">TR ➡ DE</span>
-            <span style="color:#ccc;">|</span>
-            <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">DE ➡ TR</span>
-            <span id="led_de_tr" class="led-indicator"></span>
-        </button>
-    </div>
-
-    <div class="button-grid" style="grid-template-columns: 1fr;">
-        <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')">
-            📚 Çalışmaya Başla
-        </button>
-        <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')">
-            🔄 Tekrar Modu
-        </button>
-        <button class="btn btn-warning btn-lg" onclick="window.showView('progress')">
-            📊 İlerleme
-        </button>
-    </div>
-</section>
-
-        <section id="classSelectionView" class="view">
-            <h3 class="subtitle" style="margin-bottom:20px;">Sınıfını Seç</h3>
-            <div id="classGrid" class="button-grid"></div>
-        </section>
-
-        <section id="groupMenu" class="view">
-            <h3 class="subtitle">Ünite Grupları</h3>
-            <div id="groupList" class="button-grid" style="grid-template-columns: 1fr;"></div>
-        </section>
-
-        <section id="verbMenu" class="view">
-            <h3 class="subtitle">Fiiller</h3>
-            <div id="verbList" class="button-grid"></div>
-        </section>
-
-        <section id="sectionMenu" class="view">
-            <h3 class="subtitle">Bölümler</h3>
-            <div id="sectionList" class="button-grid"></div>
-        </section>
-<section id="studyView" class="view">
-    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
-        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Menü</button>
-        <h4 id="headerTitle" style="margin:0; color:var(--primary-dark);">Çalışma Modu</h4>
-        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
-            <span id="ledAuto" class="led-indicator"></span> Oto
-        </button>
-    </div>
-
-    <div class="progress-container"><div id="progBar" class="progress-bar"><div id="progFill" class="progress-fill" style="width:0%"></div></div></div>
-
-    <div style="padding:10px; min-height:280px;">
-        <div id="boxQ" class="frame-box"><div id="txtQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div></div>
-        
-        <div id="boxA" class="frame-box answer-frame"><div id="txtA" style="font-size:1.3rem; color:var(--primary-dark); text-align:center;">...</div></div>
-        
-        <div id="areaGame" style="display:none;"></div>
-    </div>
-
-    <div style="max-width:500px; margin:0 auto;">
-        <button id="btnMainAction" class="btn btn-primary btn-lg btn-block" onclick="window.handleMainAction()">BAŞLAT</button>
-        
-        <div id="srsGrid" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
-            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
-            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
-            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
-        </div>
-    </div>
-
-    <div id="accordionArea" style="margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
-        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:10px;">
-            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlHint')">💡 İpucu</button>
-            <button class="btn btn-sm btn-secondary" onclick="window.togglePanel('pnlListen')">🔊 Dinle</button>
-            <button class="btn btn-sm btn-warning" onclick="window.togglePanel('pnlEdit')">✏️ Düzenle</button>
-        </div>
-        
-        <div id="pnlHint" class="hidden" style="padding:15px; background:#fff3cd; color:#856404; text-align:center; border-radius:8px;">
-            <div id="hintText">İpucu...</div>
-            <button class="btn btn-sm btn-info" onclick="window.showHint()">Harf Göster</button>
-        </div>
-        <div id="pnlListen" class="hidden" style="padding:15px; text-align:center; background:#f0f4f8; border-radius:8px;">
-             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 DE</button>
-             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 TR</button>
-        </div>
-        <div id="pnlEdit" class="hidden" style="padding:15px; background:#f0f4f8; border-radius:8px;">
-             <input type="text" id="inpEditDe" placeholder="DE" style="width:100%; margin-bottom:5px;">
-             <input type="text" id="inpEditTr" placeholder="TR" style="width:100%; margin-bottom:5px;">
-             <button class="btn btn-success btn-sm btn-block" onclick="window.saveEdit()">Kaydet</button>
-        </div>
-    </div>
-</section>
-
-<section id="tekrarView" class="view">
-    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
-        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Çıkış</button>
-        <h4 style="margin:0; color:#d35400;">🔄 Tekrar Modu</h4>
-        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
-            <span id="ledAutoTekrar" class="led-indicator"></span> Oto
-        </button>
-    </div>
-
-    <div class="progress-container"><div id="progTekrar" class="progress-bar"><div id="fillTekrar" class="progress-fill" style="width:0%; background:var(--warning);"></div></div></div>
-
-    <div style="padding:10px; min-height:300px;">
-        <div id="boxTekrarQ" class="frame-box" style="border-color:var(--warning);">
-            <div id="txtTekrarQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div>
-        </div>
-        <div id="boxTekrarA" class="frame-box answer-frame">
-            <div id="txtTekrarA" style="font-size:1.3rem; color:#d35400; text-align:center;">...</div>
-        </div>
-        <div id="areaTekrarGame" style="display:none;"></div>
-    </div>
-
-    <div style="max-width:500px; margin:0 auto;">
-        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:#fff; font-weight:bold;">CEVABI GÖSTER</button>
-        <div id="srsTekrar" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
-            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
-            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
-            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
-        </div>
-    </div>
-    
-    <div style="text-align:center; margin-top:20px;">
-        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('de')">🔊 DE</button>
-        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('tr')">🔊 TR</button>
-    </div>
-</section>
-        <section id="learningView" class="view">
-            <div class="progress-container">
-                <div id="progressBar" class="progress-bar"><div id="progressFill" class="progress-fill" style="width:0%"></div></div>
-                <div id="learnProgressText">0 / 0</div>
-                
-            </div>
-
-            <div class="content-box">
-                <div id="learningContent">
-                    </div>
-
-                <div id="wordOrderArea" class="hidden"></div>
-                
-                <div id="hintPanel" class="hidden"></div>
-
-                <div id="quizResultArea" class="hidden"></div>
-                <div id="clozeResultArea" class="hidden"></div>
-            </div>
-
-            <<button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
-
-            <div id="srsControls" class="hidden">
-                <button class="btn btn-danger" onclick="window.rateCard('zor')">
-                    🥵<br>ZOR
-                </button>
-                <button class="btn btn-warning" onclick="window.rateCard('normal')">
-                    😐<br>NORMAL
-                </button>
-                <button class="btn btn-success" onclick="window.rateCard('ogrendim')">
-                    ✅<br>KOLAY
-                </button>
-            </div>
-
-            <div id="quickEditPanel" class="hidden content-box">
-                </div>
-
-            <div id="learningControlsAccordion">
-                <div class="learning-controls-main">
-                    <button class="btn" onclick="window.toggleLearningPanel('panelHint')">💡 İpucu</button>
-                    <button class="btn" onclick="window.toggleLearningPanel('panelListen')">🔊 Dinle</button>
-                    <button class="btn" onclick="window.toggleLearningPanel('panelEdit')">✏️ Düzenle</button>
-                </div>
-
-                <div id="panelHint" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
-                        <button class="btn btn-info" onclick="window.showSpecificHint('sentence')">Cümle</button>
-                        <button class="btn btn-warning" onclick="window.showSpecificHint('verb')">Fiil</button>
-                        <button class="btn btn-secondary" onclick="window.showSpecificHint('topic')">Konu</button>
-                    </div>
-                </div>
-
-                <div id="panelListen" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
-                        <button class="btn btn-secondary" onclick="window.toggleAutoPlay()">
-                            <span id="autoPlayLed" class="led-indicator active"></span> Oto
-                        </button>
-                        <button class="btn btn-secondary" onclick="window.toggleSlowMode()">
-                            <span id="slowModeLed" class="led-indicator"></span> Yavaş
-                        </button>
-                        <button class="btn btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 Oku</button>
-                        <button class="btn btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 Oku</button>
-                    </div>
-                </div>
-
-                <div id="panelEdit" class="learning-controls-panel hidden">
-                    <div class="button-grid-learning">
-                        <button id="btnEditCard" class="btn btn-warning" onclick="window.openEditPanel()">✏️ Düzenle</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="tekrarMenu" class="view">
-            <h3 class="subtitle" style="text-align:center;">Tekrar Havuzu</h3>
-            <div class="button-grid" style="grid-template-columns: 1fr;">
-                <button class="btn btn-danger btn-lg" style="justify-content:space-between" onclick="window.startTekrar('zor')">
-                    <span>🥵 ZOR KARTLAR</span>
-                    <span id="tekrarCountZor" class="badge">0</span>
-                </button>
-                <button class="btn btn-warning btn-lg" style="justify-content:space-between" onclick="window.startTekrar('normal')">
-                    <span>🤔 NORMAL KARTLAR</span>
-                    <span id="tekrarCountNormal" class="badge">0</span>
-                </button>
-                <button class="btn btn-success btn-lg" style="justify-content:space-between" onclick="window.startTekrar('ogrendim')">
-                    <span>✅ ÖĞRENDİKLERİM</span>
-                    <span id="tekrarCountOgrendim" class="badge">0</span>
-                </button>
-            </div>
-        </section>
-
-        <section id="tekrarModeMenu" class="view"></section>
-
-        <section id="parallelPlayerView" class="view"></section>
-
-       <section id="storyView" class="view">
-    
-    <div class="content-box" style="padding:10px; margin-bottom:15px; display:flex; justify-content:space-between; align-items:center;">
-        <h3 id="storyTitle" style="color:var(--primary-dark); margin:0; font-size:1.1rem;">Hikaye</h3>
-        <div>
-            <button class="btn btn-secondary btn-sm" onclick="window.toggleSlowMode()">
-                <span id="storySlowLed" class="led-indicator"></span> 🐢 Yavaş
-            </button>
-            <button id="btnStartStoryTest" class="btn btn-warning btn-sm" style="margin-left:5px;">
-                📝 Test
-            </button>
-        </div>
-    </div>
-
-    <div style="margin-bottom:10px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);">🇩🇪 ALMANCA</span>
-            <button id="btnStoryDE" class="btn btn-primary btn-sm" onclick="window.toggleStoryAudio('de')">🇩🇪 Dinle</button>
-        </div>
-        <div id="storyContentDE" class="content-box" style="
-            font-family: 'Lora', serif; 
-            line-height: 1.6; 
-            font-size:1.1rem; 
-            height: 180px; 
-            overflow-y: auto; 
-            background-color: #fdfbf7; 
-            border-left: 4px solid var(--primary);
-        ">
-            </div>
-    </div>
-
-    <div style="margin-bottom:20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);">🇹🇷 TÜRKÇE</span>
-            <button id="btnStoryTR" class="btn btn-info btn-sm" onclick="window.toggleStoryAudio('tr')">🇹🇷 Dinle</button>
-        </div>
-        <div id="storyContentTR" class="content-box" style="
-            font-family: 'Lora', serif; 
-            line-height: 1.6; 
-            font-size:1rem; 
-            height: 120px; 
-            overflow-y: auto; 
-            background-color: #f8f9fa; 
-            border-left: 4px solid var(--secondary);
-            color: #555;
-        ">
-            </div>
-    </div>
-
-    <button class="btn btn-secondary btn-block" onclick="window.goBackInHistory()">
-        Geri Dön
-    </button>
-</section>
-        
-        <section id="mixedTopicSelectionView" class="view">
-             <h3 class="subtitle">Karışık Konu Seçimi</h3>
-             <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
-                 <button class="btn btn-success" onclick="window.saveMixedSelection()">Kaydet & Başla</button>
-                 <button class="btn btn-secondary" onclick="window.goBackInHistory()">İptal</button>
-             </div>
-             <div id="mixedTopicList" class="button-grid" style="grid-template-columns: 1fr;"></div>
-        </section>
-
-        <section id="settingsView" class="view">
-            <h3 class="subtitle">Ayarlar</h3>
-            
-            <div class="content-box">
-                <h4 style="margin-bottom:10px;">Görünüm</h4>
-                <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
-                    <button id="themeToggleBtn" class="btn btn-secondary" onclick="window.toggleTheme()">🌙 Tema</button>
-                    <button id="musicToggleBtn" class="btn btn-secondary" onclick="window.toggleMusic()">🎵 Müzik</button>
-                 
-                </div>
-            </div>
-
-            <div class="content-box">
-                <h4 style="margin-bottom:10px;">Çeviri Yönü</h4>
-                <button class="btn btn-block btn-info" onclick="window.toggleLanguageMode()">
-                    <span id="led_tr_de" class="led-indicator active"></span> TR → DE &nbsp;|&nbsp; 
-                    <span id="led_de_tr" class="led-indicator"></span> DE → TR
-                </button>
-            </div>
-
-            <div class="content-box">
-                <h4 style="margin-bottom:10px;">Veri Yönetimi</h4>
-                <label class="btn btn-warning btn-block" style="margin-bottom:10px;">
-                    📥 Yükle <input type="file" hidden onchange="window.handleImport(event)">
-                </label>
-                <button class="btn btn-secondary btn-block" onclick="window.exportData()">📤 Yedekle</button>
-                <button class="btn btn-secondary btn-block" onclick="window.forceUpdateApp()" style="margin-top:10px;">
-    🔄 Uygulamayı Güncelle (Önbelleği Boşalt)
-</button>
-                <button class="btn btn-danger btn-block" style="margin-top:10px;" onclick="window.resetProgress()">🗑️ Sıfırla</button>
-            </div>
-            
-            <div id="iosInstallInfo" class="hidden content-box">
-                iOS Kurulumu: Paylaş > Ana Ekrana Ekle
-            </div>
-            <button id="installAppBtn" class="hidden btn btn-success btn-block" onclick="window.installPWA()">📲 Uygulamayı Yükle</button>
-        </section>
-
-    </div>
-<nav id="bottomNav" style="
-    position: fixed; bottom: 0; left: 0; width: 100%; 
-    background: var(--bg-card); 
-    border-top: 1px solid var(--border-light);
-    display: flex; justify-content: space-around; align-items: center;
-    padding: 10px 0; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-">
-    <button onclick="window.goBackInHistory()" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
-        <span style="font-size:1.5rem;">⬅️</span>
-    </button>
-
-    <button onclick="window.showView('mainMenu')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
-        <span style="font-size:1.5rem;">🏠</span>
-    </button>
-
-    <button onclick="window.renderClassSelection(); window.showView('classSelectionView')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--primary-dark);">
-        <span style="font-size:1.1rem; font-weight:bold; border:2px solid var(--primary); padding:2px 8px; border-radius:12px;" id="floatClassBadge">A1</span>
-    </button>
-
-    <button onclick="window.showView('settingsView')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
-        <span style="font-size:1.5rem;">⚙️</span>
-    </button>
-</nav>
-<div id="modalStudySelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; position:relative;">
-        <button onclick="document.getElementById('modalStudySelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
-        <h3 style="margin-bottom:20px; color:#333;">Çalışma Yöntemi</h3>
-        
-        <button onclick="window.startMode('flashcard')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">👁️ Göster Geç</button>
-        <button onclick="window.startMode('study')" class="btn btn-primary btn-block btn-lg" style="margin-bottom:10px;">🗳️ Kategorize Et</button>
-        <button onclick="window.startParallelPlayer(); document.getElementById('modalStudySelect').style.display='none'" class="btn btn-success btn-block btn-lg">🎧 Paralel Dinleme</button>
-    </div>
-</div>
-
-<div id="modalTekrarSelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; border: 2px solid #ed8936; position:relative;">
-        <button onclick="document.getElementById('modalTekrarSelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
-        <h3 style="margin-bottom:20px; color:#d35400;">Tekrar Yöntemi</h3>
-        
-        <button onclick="window.startParallelPlayer(); document.getElementById('modalTekrarSelect').style.display='none'" class="btn btn-success btn-block btn-lg" style="margin-bottom:10px;">🎧 Paralel Dinleme</button>
-        <button onclick="window.startMode('tekrar_wordorder')" class="btn btn-warning btn-block btn-lg" style="margin-bottom:10px;">🧩 Kelime Sıralama</button>
-        <button onclick="window.startMode('tekrar_cloze')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">🔤 Boşluk Doldurma</button>
-        <button onclick="window.startMode('tekrar_quiz')" class="btn btn-info btn-block btn-lg">📝 Quiz (Yazma)</button>
+        <button onclick="window.buildAndStartParallelPlayer('fixed_verb')" class="btn btn-info btn-block btn-lg" style="margin-bottom:10px;">Fiil Sabit, Konular Sırayla</button>
+        <button onclick="window.buildAndStartParallelPlayer('fixed_topic')" class="btn btn-info btn-block btn-lg">Konu Sabit, Fiiller Sırayla</button>
     </div>
 </div>
     <script src="script.js"></script>
