@@ -90,7 +90,7 @@ body {
 
 .site-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -118,9 +118,27 @@ header {
 
 /* Ana Menü Logosu */
 .main-menu-logo {
-    max-width: 180px; /* Logonun boyutunu ayarla */
+    max-width: 120px; /* Logoyu daha da küçülttük */
     height: auto;
 }
+/* YENİ: Bağlam Başlık Paneli Stilleri */
+.context-title-container {
+    text-align: center;
+    margin: -10px 0 25px 0;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-height: 40px; /* İçerik boşken bile yer kaplasın */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.context-title-container b {
+    color: var(--gold-dark);
+    font-weight: 600;
+}
+
 /* ==========================================================================
    3. BUTON SİSTEMİ (ALTIN & GÜMÜŞ)
    ========================================================================== */
@@ -396,12 +414,18 @@ body.dark-mode .accordion-header:hover {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
     animation: fadeIn 0.5s ease-out;
 }
-
 #answerArea strong {
     font-size: 2rem;
     font-weight: 700;
     color: var(--gold-text);
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* YENİ: Cevap için efekt */
+}
+
+/* YENİ: Cevap metni için animasyon */
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 body.dark-mode #answerArea strong {
