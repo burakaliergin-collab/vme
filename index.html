@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Verb Matrix - Minimalist</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- PWA & Mobil Uygulama Ayarları -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Verb Matrix">
+    <link rel="apple-touch-icon" href="logo.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
 
@@ -107,7 +115,7 @@
         </section>
 
         <section id="sectionMenu" class="view">
-            <h3 class="subtitle" style="text-align: center;" data-translate-key="topics">Konular</h3>
+            <h3 class="subtitle" style="text-align: center; margin-top: 80px;" data-translate-key="topics">Konular</h3>
             <div id="sectionList" class="button-grid" style="grid-template-columns: 1fr;"></div>
         </section>
 <section id="studyView" class="view hidden">
@@ -477,5 +485,14 @@
        
 
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => console.log('✅ Service Worker başarıyla kaydedildi:', registration.scope))
+                    .catch(error => console.log('❌ Service Worker kaydı başarısız:', error));
+            });
+        }
+    </script>
 </body>
 </html>
