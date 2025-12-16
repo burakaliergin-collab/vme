@@ -1,5 +1,4 @@
 
-
 /* ==========================================================================
   VERB MATRIX — CLEANED & OPTIMIZED (FINAL)
   - Tüm mükerrer fonksiyonlar temizlendi.
@@ -497,7 +496,7 @@ window.playSoftBeep = function() {
     gain.connect(context.destination);
     oscillator.type = 'sine';
     oscillator.frequency.setValueAtTime(440, context.currentTime); 
-    gain.gain.setValueAtTime(0.1, context.currentTime); 
+    gain.gain.setValueAtTime(0.6, context.currentTime); 
     oscillator.start();
     gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.3); 
     oscillator.stop(context.currentTime + 0.3);
@@ -1601,36 +1600,49 @@ window.renderQuizCard = function() {
 
 
 window.updateHeaderStatus = function() {
+    const card = window.state.currentCardData;
+    if (!card || !card.id) return;
+
+    const headerInfo = document.getElementById('learningHeaderInfo');
+    const progressContainer = document.querySelector('#learningView .progress-container');
+
+    // Gerekli elementler yoksa işlemi durdur
+    if (!headerInfo || !progressContainer) return;
+
+    // --- 1. Fiil ve Konu Bilgisini Al ve Göster ---
+    const parts = card.id.split('_');
+    const verbId = parts[0];
+    const topicId = parts[1].replace('s', '');
+
+    // Tüm gruplardaki fiilleri düz bir diziye çevir ve ilgili fiili bul
+    const verb = Object.values(window.data.verbs || {}).flat().find(v => v.id === verbId);
+    
+    // Konu adını topicPool'dan al (en güvenilir kaynak)
+    const topicName = window.data.topicPool ? window.data.topicPool[topicId] : `Konu ${topicId}`;
+
+    if (verb && topicName) {
+        headerInfo.innerHTML = `Fiil: <span class="verb-part">${verb.verbTR}</span><span class="separator">|</span>Konu: <span class="topic-part">${topicName}</span>`;
+        headerInfo.style.display = 'block';
+    } else {
+        headerInfo.style.display = 'none';
+    }
+
     // --- PROGRESS BAR UPDATE ---
     const progressFill = document.getElementById('progressFill');
     const progressText = document.getElementById('learnProgressText');
     const deck = window.state.deck || [];
     const total = deck.length;
-    const current = window.state.deckPos;
+    // Paralel modda deckPos yerine parallelIndex kullanılır
+    const current = (window.state.mode === 'parallel') ? window.state.parallelIndex + 1 : window.state.deckPos + 1;
 
-    if (progressFill && progressText && total > 0) {
+    if (total > 0) {
         const percent = Math.min(100, Math.round((current / total) * 100));
         progressFill.style.width = `${percent}%`;
         progressText.textContent = `${current} / ${total}`;
+        progressContainer.style.display = 'flex';
+    } else {
+        progressContainer.style.display = 'none';
     }
-
-    // --- DYNAMIC STATUS BAR (Optional, can be removed if not needed) ---
-    // let statusBar = document.getElementById('dynamicStatusBar');
-    // const container = document.getElementById('learningContent');
-    // if (!container) return;
-    // if (!statusBar) {
-    //     statusBar = document.createElement('div');
-    //     statusBar.id = 'dynamicStatusBar';
-    //     statusBar.style.cssText = "background:#f0f4c3; padding:8px; margin-bottom:15px; border-left:4px solid #afb42b; font-size:0.9rem; color:#333;";
-    //     container.insertBefore(statusBar, container.firstChild);
-    // }
-    // let infoText = "Çalışma";
-    // if (window.state.currentVerbId) {
-    //     infoText = `📝 Fiil: ${window.state.currentVerbId} | Kart: ${window.state.deckPos+1}/${window.state.deck.length}`;
-    // } else if (window.state.tekrarStatus) {
-    //     infoText = `🔄 TEKRAR MODU: ${window.state.tekrarStatus.toUpperCase()}`;
-    // }
-    // statusBar.innerHTML = infoText;
 };
 /* ==========================================================================
    GÜNCELLENMİŞ STARTSTUDY FONKSİYONU
@@ -1759,6 +1771,9 @@ window.startParallelPlayer = function() {
     window.state.parallelIndex = 0;
     window.renderParallelPlayerUI();
 };
+window.processParallelCard = function() {
+    // ... (mevcut kod)
+};
 
 /* --------------------------------------------------------------------------
    PARALLEL PLAYER UI (SADELEŞTİRİLMİŞ)
@@ -1767,6 +1782,9 @@ window.startParallelPlayer = function() {
    -------------------------------------------------------------------------- */
 window.renderParallelPlayerUI = function() {
     const accordion = document.getElementById('learningControlsAccordion');
+    const headerInfo = document.getElementById('learningHeaderInfo');
+    if(headerInfo) headerInfo.style.display = 'none'; // Başlangıçta gizle
+
     if (accordion) accordion.style.display = 'none';
 
     window.showView('learningView');
@@ -1831,9 +1849,10 @@ window.setParallelDelay = function(ms) {
 window.buildAndStartParallelPlayer = function(parallelMode) {
     document.getElementById('modalParallelModeSelect').style.display = 'none';
     let finalDeck = [];
-    const vId = window.state.tempVerbId;
-    const tId = window.state.tempTopicId;
-    const groupId = window.state.currentGroupId;
+    // DÜZELTME: tempVerbId yerine daha güvenilir olan currentVerbId'yi kullan.
+    const vId = window.state.currentVerbId; 
+    const tId = window.state.tempTopicId; // Bu doğru, çünkü konu seçiminden geliyor.
+    const groupId = window.state.currentGroupId; // Bu da doğru, fiil menüsünden geliyor.
 
     if (parallelMode === 'fixed_verb') {
         // FİİL SABİT, KONULAR SIRAYLA
@@ -1936,12 +1955,14 @@ window.advanceToNextCard = function() {
     window.state.waitingForNext = false;
     window.state.pendingStatus = null;
 };
-window.processParallelCard = function() {
+window.processParallelCard = function() { // Bu fonksiyonu tekrar tanımlıyoruz, çünkü yukarıda boş bir tanım ekledik.
     clearTimeout(window.state.parallelTimer);
     window.speechSynthesis.cancel();
     if (!window.state.parallelPlaying) return;
 
     if (window.state.parallelIndex >= window.state.deck.length) {
+        const headerInfo = document.getElementById('learningHeaderInfo');
+        if(headerInfo) headerInfo.style.display = 'none';
         window.stopParallelPlayer(true); return;
     }
 
@@ -1950,6 +1971,9 @@ window.processParallelCard = function() {
     const status = document.getElementById('parallelStatus');
     const delayMs = window.data.settings.parallelDelay || 3000;
     
+    window.state.currentCardData = card; // Header'ı güncellemek için state'i ayarla
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
     const L1 = isTrDe ? card.tr : card.de; const L1_Code = isTrDe ? 'tr' : 'de';
     const L2 = isTrDe ? card.de : card.tr; const L2_Code = isTrDe ? 'de' : 'tr';
@@ -1999,6 +2023,8 @@ window.toggleParallelPlay = function() {
 window.stopParallelPlayer = function(finished = false) {
     window.state.parallelPlaying = false;
     clearTimeout(window.state.parallelTimer);
+    const headerInfo = document.getElementById('learningHeaderInfo');
+    if(headerInfo) headerInfo.style.display = 'none';
     try { window.speechSynthesis.cancel(); } catch(e) {}
 
     // Yönlendirme mantığı
@@ -2469,3 +2495,4 @@ window.closeGuideModal = function() {
         setTimeout(() => modal.classList.add('hidden'), 300);
     }
 };
+
