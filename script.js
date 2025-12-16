@@ -2495,4 +2495,3 @@ window.closeGuideModal = function() {
         setTimeout(() => modal.classList.add('hidden'), 300);
     }
 };
-
