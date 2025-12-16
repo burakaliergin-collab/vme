@@ -72,6 +72,19 @@
       "appearance": "Erscheinungsbild",
       "theme": "Design",
       "music": "Musik"
+      ,
+      "parallel_listening": "🎧 Parallelhören",
+      "cloze_test": "✏️ Lückentext",
+      "word_order": "🧩 Wortstellung",
+      "quiz_writing": "📝 Quiz (Schreiben)",
+      "review_select_app": "🔁 Wiederholung - App wählen",
+      "star_topics": "⭐ Themen markieren",
+      "mixed_mode_settings": "(Mischmodus-Einstellungen)",
+      "data_management": "Datenverwaltung",
+      "upload": "📥 Hochladen",
+      "backup": "📤 Sichern",
+      "update_app": "🔄 App aktualisieren (Cache leeren)",
+      "reset_progress": "🗑️ Fortschritt zurücksetzen"
     }
   },
   "classes": [
