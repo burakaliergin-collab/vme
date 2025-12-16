@@ -23,9 +23,8 @@
 
     <div class="site-container">
         
-        <header>
-            <h1 id="pageTitle">Verb Matrix</h1>
-        </header>
+        <!-- YENİ: Bağlam Başlık Paneli -->
+        <div id="contextTitle"></div>
 
         <section id="mainMenu" class="view active">
             <!-- Ana Menü Logosu -->
@@ -44,7 +43,7 @@
             <span id="led_de_tr" class="led-indicator"></span>
         </button>
     </div>
-
+ <div class="site-container"></div>
     <div class="button-grid">
         <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')">
             📚 Çalışmaya Başla
@@ -56,6 +55,7 @@
             📊 İlerleme
         </button>
     </div>
+</div>
 </section>
 
         <section id="progress" class="view">
@@ -109,7 +109,7 @@
         </section>
 
         <section id="sectionMenu" class="view">
-            <h3 class="subtitle">Bölümler</h3>
+            <h3 class="subtitle">Konular</h3>
             <div id="sectionList" class="button-grid"></div>
         </section>
 <section id="studyView" class="view hidden">
@@ -167,7 +167,7 @@
 <section id="tekrarView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
         <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Çıkış</button>
-        <h4 style="margin:0; color:#d35400;">🔄 Tekrar Modu</h4>
+        <h4 style="margin:0; color:var(--warning);">🔄 Tekrar Modu</h4>
         <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
             <span id="ledAutoTekrar" class="led-indicator"></span> Oto
         </button>
@@ -186,7 +186,7 @@
     </div>
 
     <div style="max-width:500px; margin:0 auto;">
-        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:#fff; font-weight:bold;">CEVABI GÖSTER</button>
+        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:var(--gold-text); font-weight:bold;">CEVABI GÖSTER</button>
         <div id="srsTekrar" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
             <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
             <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
@@ -203,7 +203,10 @@
             <div class="progress-container">
                 <div id="progressBar" class="progress-bar"><div id="progressFill" class="progress-fill" style="width:0%"></div></div>
                 <div id="learnProgressText">0 / 0</div>
-                
+            </div>
+            <!-- YENİ: Aktif Konu Başlığı -->
+            <div id="learningHeaderInfo" class="learning-header-info" style="display: none;">
+                <!-- Bilgiler JS ile dolacak -->
             </div>
 
             <div class="content-box">
@@ -473,6 +476,9 @@
         <button onclick="window.buildAndStartParallelPlayer('fixed_topic')" class="btn btn-info btn-block btn-lg">Konu Sabit, Fiiller Sırayla</button>
     </div>
 </div>
+
+       
+
     <script src="script.js"></script>
 </body>
 </html>
