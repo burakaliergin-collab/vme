@@ -1,4 +1,5 @@
 
+
 /* ==========================================================================
   VERB MATRIX — CLEANED & OPTIMIZED (FINAL)
   - Tüm mükerrer fonksiyonlar temizlendi.
@@ -219,33 +220,47 @@ window.resetCardOverride = function() {
 /* --------------------------------------------------------------------------
    DÜZELTMELER: UI & EVENT LISTENERS
    -------------------------------------------------------------------------- */
-// 1. PanelEdit Butonunun UI'da Görünmesi İçin Yardımcı
-// Bu fonksiyon, renderSentence içinde çağrılan toggleLearningPanel ile uyumlu çalışır
-window.toggleLearningPanel = function(panelId) {
-    // Tüm panelleri gizle
-    ['panelHint','panelListen','panelEdit'].forEach(p => {
-        const el = document.getElementById(p); 
-        if(el) el.classList.add('hidden');
-    });
-    
-    const hb = document.getElementById('hintContainer'); 
-    if(hb) hb.style.display='none';
-    
-    if (panelId) {
-        const t = document.getElementById(panelId); 
-        if(t) {
-            t.classList.remove('hidden');
-            // Eğer edit paneli açıldıysa içeriğini dinamik doldur
-            if(panelId === 'panelEdit') {
-                t.innerHTML = `
-                    <div style="background:var(--bg-body); padding:15px; border-radius:8px; border:1px solid var(--border); text-align:center;">
-                        <p style="font-size:0.9rem; color:var(--text-muted);">Bu kartta hata mı var?</p>
-                        <button class="btn btn-warning btn-block" onclick="window.openEditPanel()">🛠 Kartı Düzenle</button>
-                    </div>
-                `;
-            }
-        }
-        if (panelId === 'panelHint' && hb) hb.style.display = 'block';
+
+/* DÜZELTİLMİŞ VE TEMİZLENMİŞ GENEL AKORDİYON FONKSİYONU */
+window.togglePanel = function(panelId, buttonElement, containerSelector = null) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+
+    // Kapsayıcıyı bul: Belirtilmişse onu, değilse butonun en yakın '.accordion-container'ını, o da yoksa butonun ebeveynini kullan.
+    const container = containerSelector 
+        ? document.querySelector(containerSelector) 
+        : (buttonElement ? buttonElement.closest('.accordion-container') || buttonElement.parentElement : document.body);
+
+    if (!container) return;
+
+    const isOpening = panel.classList.contains('hidden');
+
+    // Kapsayıcı içindeki TÜM panelleri (genellikle 'div'ler) ve butonları bul ve kapat/sıfırla.
+    // Bu yaklaşım, panellerin özel bir sınıfa sahip olmasını gerektirmez.
+    const allPanels = container.querySelectorAll('.panel, .accordion-panel, [id^="pnl"]'); // Birden fazla olasılığı hedefler
+    const allButtons = container.querySelectorAll('.btn, .accordion-btn');
+
+    allPanels.forEach(p => p.classList.add('hidden'));
+    allButtons.forEach(b => b.classList.remove('active-control'));
+
+    // Eğer tıklanan panel zaten açıksa, amacımız sadece onu kapatmaktı. İşlem tamam.
+    if (!isOpening) {
+        // Özel durum: Cümle ipucunu gizle
+        const hintContainer = document.getElementById('hintContainer');
+        if (hintContainer) hintContainer.style.display = 'none';
+        return;
+    }
+
+    // Yeni paneli aç ve ilgili butonu aktif et
+    panel.classList.remove('hidden');
+    if (buttonElement) {
+        buttonElement.classList.add('active-control');
+    }
+
+    // Özel durum: Eğer ipucu paneli açılıyorsa, ilgili ipucu kutusunu da göster.
+    if (panelId === 'panelHint') {
+        const hintContainer = document.getElementById('hintContainer');
+        if (hintContainer) hintContainer.style.display = 'block';
     }
 };
 
@@ -334,6 +349,7 @@ window.init = async function() {
         if(window.updateSRSCounts) window.updateSRSCounts();
         if(window.updateTotalProgress) window.updateTotalProgress();
         if(window.renderClassSelection) window.renderClassSelection();
+        if(window.updateFloatingMusicButtonUI) window.updateFloatingMusicButtonUI(); // Yeni eklenen fonksiyon
         if(window.updateClassButtonUI) window.updateClassButtonUI();
         if(window.updateLanguageToggleUI) window.updateLanguageToggleUI();
         
@@ -342,14 +358,26 @@ window.init = async function() {
         if(window.checkPWAStatus) window.checkPWAStatus();
 
     } catch (error) {
+        // Hata durumunda bile ana menüyü göstermeyi dene
+        window.showView('mainMenu', false);
         console.error("❌ Kritik Başlatma Hatası:", error);
     } finally {
+        // G. Tema butonunun metnini başlangıçta ayarla
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        if (themeToggleBtn) {
+            themeToggleBtn.innerHTML = window.data.settings.theme === 'dark' ? '☀️ Tema' : '🌙 Tema';
+        }
+        // H. Yüzen müzik butonunun başlangıç durumunu ayarla
+        window.updateFloatingMusicButtonUI();
         // E. Splash Ekranını Kaldır
         if (splash) {
             splash.style.transition = "opacity 0.5s ease";
-            splash.style.opacity = "0";
-            setTimeout(() => { splash.style.display = 'none'; }, 500);
+            splash.style.opacity = "0"; // Logo 3 saniye sonra kaybolsun
+            setTimeout(() => { splash.style.display = 'none'; }, 3000);
         }
+        // F. Her şey bittiğinde ana menünün aktif olduğundan emin ol
+        console.log("▶️ Ana menü gösteriliyor...");
+        window.showView('mainMenu', false);
     }
 };
 
@@ -529,11 +557,18 @@ window.playNextTrack = function() {
             });
         }
     }
+    // Yüzen müzik butonunun başlangıç durumunu ayarla
+    const floatingMusicBtn = document.getElementById('floatingMusicBtn');
+    if (floatingMusicBtn) {
+        floatingMusicBtn.classList.toggle('active', window.musicState.isPlaying);
+    }
 };
 
 window.toggleMusic = function() {
     const audio = document.getElementById('bgMusic');
     if (!audio) return;
+
+    const floatingMusicBtn = document.getElementById('floatingMusicBtn');
 
     // İlk kez çalıştırılıyorsa eventleri bağla
     if (!audio.onended) window.initMusicPlayer();
@@ -541,6 +576,9 @@ window.toggleMusic = function() {
     if (audio.paused) {
         // --- BAŞLAT ---
         window.musicState.isPlaying = true;
+        if (floatingMusicBtn) {
+            floatingMusicBtn.classList.add('active');
+        }
         
         // Eğer src boşsa (ilk açılış) ilk şarkıyı yükle
         if (!audio.src || audio.src === window.location.href) {
@@ -556,6 +594,9 @@ window.toggleMusic = function() {
     } else {
         // --- DURDUR ---
         window.musicState.isPlaying = false;
+        if (floatingMusicBtn) {
+            floatingMusicBtn.classList.remove('active');
+        }
         audio.pause();
         console.log("Müzik duraklatıldı.");
     }
@@ -577,7 +618,10 @@ window.toggleSlowMode = function() {
 /* --------------------------------------------------------------------------
    4. NAVIGATION & VIEW MANAGER
    -------------------------------------------------------------------------- */
-window.showView = function(viewId, pushToHistory = true) {
+window.showView = function(viewId = 'mainMenu', pushToHistory = true) {
+    // SES ÇAKIŞMASINI ÖNLEME: Her görünüm değişiminde aktif sesi sustur.
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+
     document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
     const target = document.getElementById(viewId);
     if (target) {
@@ -587,6 +631,10 @@ window.showView = function(viewId, pushToHistory = true) {
                 window.state.history.push(viewId);
             }
         }
+    } else {
+        // Eğer hedef view bulunamazsa, her zaman ana menüye dön.
+        console.warn(`'${viewId}' ID'li view bulunamadı. Ana menüye yönlendiriliyor.`);
+        document.getElementById('mainMenu').classList.add('active');
     }
     if (viewId === 'settingsView') window.updateTotalProgress();
     window.scrollTo(0, 0);
@@ -606,7 +654,11 @@ window.goBackInHistory = function() {
         if (prev === 'sectionMenu' && window.state.currentVerbId) window.renderSections(window.state.currentVerbId);
         if (prev === 'tekrarMenu') window.updateSRSCounts();
         if (prev === 'settingsView') window.updateTotalProgress();
-        if (window.state.activeLearningPanel) window.toggleLearningPanel(null);
+        
+        // Geri dönerken öğrenme ekranındaki açık panelleri kapat
+        ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
+        document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
+        window.state.activeLearningPanel = null;
         
         window.showView(prev, false);
     } else {
@@ -709,6 +761,14 @@ window.toggleLanguageMode = function() {
     window.updateLanguageToggleUI();
 };
 
+// Yüzen müzik butonunun UI'ını güncelleyen fonksiyon
+window.updateFloatingMusicButtonUI = function() {
+    const floatingMusicBtn = document.getElementById('floatingMusicBtn');
+    if (floatingMusicBtn) {
+        floatingMusicBtn.classList.toggle('active', window.musicState.isPlaying);
+    }
+};
+
 window.updateLanguageToggleUI = function() {
     let mode = window.data.settings.conversionMode;
     if (!mode) { mode = 'tr-de'; window.data.settings.conversionMode = 'tr-de'; }
@@ -751,52 +811,181 @@ window.updateTotalProgress = function() {
     const percent = Math.round((learned / total) * 100);
     const bar = document.getElementById('totalProgressBar'); if (bar) bar.style.width = percent + "%";
     const txt = document.getElementById('totalProgressText'); if (txt) txt.textContent = `${learned} / ${total} (%${percent})`;
+    const srs = window.srsData || {};
+    const content = window.data.content || {};
+    const classes = window.data.classes || [];
+    const topics = window.data.topics || {};
+
+    let totalLearned = 0;
+    let totalCards = 0;
+
+    const classProgressContainer = document.getElementById('classProgressContainer');
+    if (classProgressContainer) classProgressContainer.innerHTML = '';
+
+    // Her sınıf için ilerlemeyi hesapla
+    classes.forEach(cls => {
+        if (cls.id === 'K') return; // Karma Modu atla
+
+        let classLearned = 0;
+        let classTotal = 0;
+        const classTopics = topics[cls.id] || {};
+
+        Object.keys(content).forEach(key => {
+            const topicId = key.split('_s')[1]?.split('_')[0];
+            if (classTopics[topicId]) {
+                const sentences = content[key];
+                classTotal += sentences.length;
+                sentences.forEach((s, i) => {
+                    const cardId = `${key}_${i}`;
+                    if (srs[cardId] && srs[cardId].status === 'ogrendim') {
+                        classLearned++;
+                    }
+                });
+            }
+        });
+
+        totalLearned += classLearned;
+        totalCards += classTotal;
+
+        const percent = classTotal > 0 ? Math.round((classLearned / classTotal) * 100) : 0;
+        if (classProgressContainer && classTotal > 0) {
+            classProgressContainer.innerHTML += `
+                <div class="progress-card">
+                    <div class="progress-card-header"><h5>${cls.name || cls.id}</h5><span class="progress-value">${classLearned} / ${classTotal}</span></div>
+                    <div class="progress-container"><div class="progress-fill" style="width: ${percent}%;"></div></div>
+                </div>
+            `;
+        }
+    });
+
+    // Toplam ilerlemeyi güncelle
+    const totalPercent = totalCards > 0 ? Math.round((totalLearned / totalCards) * 100) : 0;
+    const totalBar = document.getElementById('totalProgressBar');
+    const totalText = document.getElementById('totalProgressText');
+    if (totalBar) totalBar.style.width = `${totalPercent}%`;
+    if (totalText) totalText.textContent = `${totalLearned} / ${totalCards} (%${totalPercent})`;
 };
 
 /* --------------------------------------------------------------------------
    6. CORE RENDERING: GROUPS & TOPICS
    -------------------------------------------------------------------------- */
+/* ==========================================================================
+   YENİ: AKORDİYONLU GRUP MENÜSÜ OLUŞTURUCU
+   ========================================================================== */
 window.renderGroups = function() {
-    const list = document.getElementById('groupList'); if (!list) return;
-    list.innerHTML = '';
+    const domainContainer = document.getElementById('domainContainer');
+    const accordionContainer = document.getElementById('accordionContainer');
+
+    if (!domainContainer || !accordionContainer) {
+        console.error("Grup menüsü için gerekli HTML konteynerları bulunamadı.");
+        return;
+    }
+
+    // Konteynerları temizle
+    domainContainer.innerHTML = '';
+    accordionContainer.innerHTML = '';
+
+    const domains = window.data.domains || [];
+    const categories = window.data.categories || [];
     const groups = window.data.groups || [];
 
-    groups.forEach(g => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'button-grid'; 
-        wrapper.style.gridTemplateColumns = '2fr 1fr';
-        wrapper.style.gap = '10px';
-        wrapper.style.marginBottom = '10px';
-
-        // 1. Grup Butonu
-        const btn = document.createElement('button'); 
-        btn.className = 'btn btn-secondary'; 
-        btn.style.textAlign = 'left';
-        btn.innerHTML = `<span><b>${g.name}</b><br><small>${g.nameDE || ''}</small></span>`;
-        btn.onclick = () => window.renderVerbs(g.id); 
-        wrapper.appendChild(btn);
-
-        // 2. Hikaye Butonu (Varsa)
-        if (g.story) {
-            const storyBtn = document.createElement('button');
-            storyBtn.className = 'btn btn-info';
-            storyBtn.style.fontSize = '0.85rem';
-            storyBtn.style.display = 'flex';
-            storyBtn.style.flexDirection = 'column';
-            storyBtn.style.alignItems = 'center';
-            storyBtn.style.justifyContent = 'center';
-            
-            let shortTitle = g.story.title || "Hikaye";
-            if(shortTitle.length > 15) shortTitle = shortTitle.substring(0, 12) + "...";
-
-            storyBtn.innerHTML = `<span style="font-size:1.2rem;">📖</span><span>${shortTitle}</span>`;
-            storyBtn.onclick = () => window.openStoryMode(g.id);
-            wrapper.appendChild(storyBtn);
-        } else {
-            const empty = document.createElement('div'); wrapper.appendChild(empty);
-        }
-        list.appendChild(wrapper);
+    // 1. Domain Butonlarını Oluştur
+    domains.forEach(domain => {
+        const btn = document.createElement('button');
+        btn.className = 'btn domain-button';
+        btn.textContent = domain.name;
+        btn.dataset.domainId = domain.id;
+        btn.onclick = () => {
+            // Aktif butonu ayarla
+            document.querySelectorAll('.domain-button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // İlgili akordiyonu göster, diğerlerini gizle
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.style.display = (item.id === `accordion-${domain.id}`) ? 'block' : 'none';
+            });
+        };
+        domainContainer.appendChild(btn);
     });
+
+    // 2. Her Domain için Akordiyon Öğesi Oluştur
+    domains.forEach(domain => {
+        const accordionItem = document.createElement('div');
+        accordionItem.className = 'accordion-item';
+        accordionItem.id = `accordion-${domain.id}`;
+        accordionItem.style.display = 'none'; // Başlangıçta gizli
+
+        // Bu domaine ait kategorileri bul
+        const domainCategories = categories.filter(cat => cat.domain_id === domain.id);
+
+        domainCategories.forEach(category => {
+            // Akordiyon Başlığı
+            const header = document.createElement('button');
+            header.className = 'accordion-header';
+            header.innerHTML = `<span>${category.name}</span><span class="icon">▶</span>`;
+
+            // Akordiyon İçeriği
+            const content = document.createElement('div');
+            content.className = 'accordion-content';
+
+            const categoryGrid = document.createElement('div');
+            categoryGrid.className = 'category-buttons-grid';
+
+            // Kategoriye ait grupları (fiil grupları) bul ve butonlarını oluştur
+            const groupsInCategory = groups.filter(g => category.group_ids.includes(g.id));
+            groupsInCategory.forEach(group => {
+                // Her grup için bir sarmalayıcı oluştur
+                const wrapper = document.createElement('div');
+                wrapper.className = 'group-button-wrapper';
+
+                // 1. Ana Grup Butonu
+                const groupBtn = document.createElement('button');
+                groupBtn.className = 'btn btn-secondary group-main-btn';
+                groupBtn.innerHTML = `<b>${group.name}</b><br><small>${group.nameDE || ''}</small>`;
+                groupBtn.onclick = () => window.renderVerbs(group.id);
+                wrapper.appendChild(groupBtn);
+
+                // 2. Hikaye Butonu (Eğer varsa)
+                if (group.story) {
+                    const storyBtn = document.createElement('button');
+                    storyBtn.className = 'btn btn-primary group-story-btn';
+                    storyBtn.innerHTML = '📖';
+                    storyBtn.title = group.story.title || 'Hikayeyi Oku';
+                    storyBtn.onclick = () => window.openStoryMode(group.id);
+                    wrapper.appendChild(storyBtn);
+                    wrapper.style.gridTemplateColumns = '3fr 1fr'; // İki buton varsa grid'i ayarla
+                } else {
+                    // Hikaye yoksa, ana buton tam genişlikte olsun
+                    groupBtn.style.gridColumn = '1 / -1';
+                }
+
+                categoryGrid.appendChild(wrapper);
+            });
+
+            content.appendChild(categoryGrid);
+            accordionItem.appendChild(header);
+            accordionItem.appendChild(content);
+
+            // Akordiyon açma/kapama işlevselliği
+            header.onclick = () => {
+                header.classList.toggle('active');
+                content.classList.toggle('open');
+            };
+        });
+
+        accordionContainer.appendChild(accordionItem);
+    });
+
+    // 3. Başlangıç Durumunu Ayarla
+    // İlk domain butonunu aktif yap
+    const firstDomainBtn = domainContainer.querySelector('.domain-button');
+    if (firstDomainBtn) {
+        firstDomainBtn.classList.add('active');
+        // İlk akordiyonu görünür yap
+        const firstAccordion = document.getElementById(`accordion-${firstDomainBtn.dataset.domainId}`);
+        if (firstAccordion) {
+            firstAccordion.style.display = 'block';
+        }
+    }
 };
 
 window.renderVerbs = function(groupId) {
@@ -922,19 +1111,14 @@ window.confirmStudyMode = function(mode) {
     
     // Veriyi Yükle
     window.state.deck = window.state.tempDeck;
-    window.state.deckPos = 0;
     window.state.mode = mode; // 'parallel' veya 'study'
 
     if (mode === 'parallel') {
-        // Paralel Dinleme Modu
-        if(window.startParallelPlayer) window.startParallelPlayer();
-        else {
-             alert("Paralel Oynatıcı başlatılıyor...");
-             // Buraya senin paralel oynatıcı fonksiyonun gelecek
-        }
+        // YENİ: Paralel dinleme için mod seçimini göster
+        document.getElementById('modalParallelModeSelect').style.display = 'flex';
     } else {
         // 'study' modu seçildi (Cümle Ayrıştır)
-        // Kartları gösterir, Zor/Kolay/Öğrendim butonları çıkar.
+        window.state.deckPos = 0;
         window.showView('learningView');
         window.renderSentence();
     }
@@ -967,6 +1151,8 @@ window.openTopicActionModal = function(sentences, vId, tId) {
     const contentOverride = window.contentOverride || {};
     window.state.tempDeck = sentences.map((s, i) => {
         const id = `${vId}_s${tId}_${i}`;
+        window.state.tempVerbId = vId; // YENİ: ID'leri state'e kaydet
+        window.state.tempTopicId = tId;
         const ovr = contentOverride[id] || {};
         return { ...s, ...ovr, id: id };
     });
@@ -1029,10 +1215,54 @@ window.openTopicActionModal = function(sentences, vId, tId) {
 };
 
 
+function populateAccordionPanels() {
+    const hintPanel = document.getElementById('panelHint');
+    if (hintPanel) {
+        hintPanel.innerHTML = `
+            <div class="button-grid-learning" id="hint-buttons">
+                <button class="btn btn-sm btn-info" onclick="window.openContextHint('verb')">⚡ Fiil Notu</button>
+                <button class="btn btn-sm btn-warning" onclick="window.openContextHint('topic')">📘 Konu Notu</button>
+                <button class="btn btn-sm btn-success" onclick="window.showSpecificHint('sentence')">💡 Cümle İpucu</button>
+            </div>`;
+    }
+
+    const listenPanel = document.getElementById('panelListen');
+    if (listenPanel) {
+        listenPanel.innerHTML = `
+            <div class="button-grid-learning" id="listen-buttons">
+                <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay(this)">
+                    <span id="autoPlayLed" class="led-indicator"></span> Oto
+                </button>
+                <button class="btn btn-sm btn-secondary" onclick="window.toggleSlowMode(this)">
+                    <span id="slowModeLed" class="led-indicator"></span> Yavaş
+                </button>
+                <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 Oku</button>
+                <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 Oku</button>
+            </div>`;
+        // Ensure LEDs are in the correct state
+        // LED'lerin durumunu başlangıçta ayarla
+        if(document.getElementById('autoPlayLed')) document.getElementById('autoPlayLed').classList.toggle('active', window.state.autoPlayAudio);
+        if(document.getElementById('slowModeLed')) document.getElementById('slowModeLed').classList.toggle('active', window.state.slowMode);
+    }
+
+    const editPanel = document.getElementById('panelEdit');
+    if (editPanel) {
+        editPanel.innerHTML = `
+             <div id="edit-content" style="background:var(--bg-body); padding:15px; border-radius:8px; border:1px solid var(--border); text-align:center;">
+                <p style="font-size:0.9rem; color:var(--text-muted);">Bu kartta hata mı var?</p>
+                <button class="btn btn-warning btn-block" onclick="window.openEditPanel()">🛠 Kartı Düzenle</button>
+            </div>`;
+    }
+}
+
+
 /* --------------------------------------------------------------------------
    7. STUDY MODE (RENDER SENTENCE & RATE)
    -------------------------------------------------------------------------- */
 window.renderSentence = function() {
+    // accordion.style.display = 'none' SATIRINI SIFIRLAMAK İÇİN EKLENDİ
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = '';
     // ... (Önceki tanımlamalar aynı kalıyor) ...
     const srsControls = document.getElementById('srsControls');
     if (srsControls) { srsControls.style.display = 'none'; srsControls.classList.add('hidden'); }
@@ -1074,13 +1304,13 @@ window.renderSentence = function() {
             <strong style="font-size:1.4em; color:var(--text-main);">${question}</strong>
         </div>
         
-        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
-            💡 ${hintText}
-        </div>
-
         <div id="answerArea" class="answer-frame" style="margin-top:20px; border-top:2px solid var(--primary); padding:20px; min-height:100px; display:flex; flex-direction:column; justify-content:center; align-items:center; background:var(--bg-card); border-radius:12px; box-shadow:var(--shadow-soft);">
             <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:10px;">Cevap:</span>
             <strong style="font-size:1.5em; color:var(--primary);" id="answerText"></strong>
+        </div>
+
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
         </div>
     `;
 
@@ -1109,20 +1339,10 @@ window.renderSentence = function() {
         };
     }
     
-    // --- GÜNCELLENEN PANEL KISMI ---
-    const hintPanel = document.getElementById('panelHint');
-    if (hintPanel) {
-        // Burada 3 butonu yan yana koyuyoruz
-        hintPanel.innerHTML = `
-            <div style="background:var(--bg-body); padding:10px; border-radius:8px; border:1px solid var(--border);">
-                <div class="button-grid" style="grid-template-columns: 1fr 1fr 1fr; gap:5px;">
-                    <button class="btn btn-sm btn-info" onclick="window.openContextHint('verb')">⚡ Fiil</button>
-                    <button class="btn btn-sm btn-warning" onclick="window.openContextHint('topic')">📘 Konu</button>
-                    <button class="btn btn-sm btn-success" onclick="window.showSpecificHint('sentence')">💡 Cümle</button>
-                </div>
-            </div>`;
-    }
-    window.toggleLearningPanel(null);
+    populateAccordionPanels();
+    // Tüm panelleri kapatarak başla
+    ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
+    document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
 };
 
 // Bu yardımcı fonksiyonun olduğundan emin olun
@@ -1160,37 +1380,19 @@ window.rateCard = function(status) {
 /* --------------------------------------------------------------------------
    TEKRAR MODU YARDIMCISI: İLERLE BUTONU
    -------------------------------------------------------------------------- */
-window.advanceToNextCard = function() {
-    // 1. Varsa sesi durdur
-    window.speechSynthesis.cancel();
-    
-    // 2. Bekleyen statüyü al (Check fonksiyonlarında atanır, yoksa 'zor' sayar)
-    const statusToSave = window.state.pendingStatus || 'zor';
-    
-    // 3. Statüyü sıfırla
-    window.state.pendingStatus = null;
-    
-    // 4. RateCard ile kaydet ve ilerle
-    window.rateCard(statusToSave);
-};
-
-/* --------------------------------------------------------------------------
-   MODULE: CLOZE (BOŞLUK DOLDURMA) - GÜNCELLENDİ
-   -------------------------------------------------------------------------- */
 window.renderClozeCard = function() {
     if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
         window.showCompletion(); return;
     }
     
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+    
     window.state.waitingForNext = false; 
     window.state.pendingStatus = 'zor';
 
     const card = window.state.deck[window.state.deckPos];
-    
-    // --- DÜZELTME BURADA ---
     window.state.currentCardKey = card.id;
-    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
-    // -----------------------
+    window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
     const targetSentence = isTrDe ? card.de : card.tr;
@@ -1206,6 +1408,15 @@ window.renderClozeCard = function() {
     const content = document.getElementById('learningContent');
     if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
     
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = 'block';
+    populateAccordionPanels();
+    ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
+    document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
+
+    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "");
+    hintText = (hintText || "").replace(/\n/g, '<br>');
+
     content.innerHTML = `
         <div class="content-box" style="text-align:center; padding:20px;">
             <h3 style="color:var(--text-muted); margin-bottom:10px;">✏️ Boşluk Doldurma</h3>
@@ -1214,6 +1425,9 @@ window.renderClozeCard = function() {
             <input id="clozeInput" class="input-field" type="text" placeholder="Eksik kelime..." autocomplete="off" style="text-align:center; font-size:1.2rem;">
             <button id="reviewActionBtn" class="btn btn-warning btn-block" style="margin-top:20px;" onclick="window.handleReviewAction()">KONTROL ET</button>
             <div id="clozeFeedback" style="margin-top:15px; font-weight:bold; min-height:25px;"></div>
+        </div>
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
         </div>
     `;
     const input = document.getElementById('clozeInput');
@@ -1258,15 +1472,14 @@ window.renderWordOrderCard = function() {
         window.showCompletion(); return;
     }
     
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+
     window.state.waitingForNext = false;
     window.state.pendingStatus = 'zor';
 
     const card = window.state.deck[window.state.deckPos];
-    
-    // --- DÜZELTME BURADA ---
     window.state.currentCardKey = card.id;
-    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
-    // -----------------------
+    window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
     const targetSentence = isTrDe ? card.de : card.tr;
@@ -1285,6 +1498,15 @@ window.renderWordOrderCard = function() {
     const content = document.getElementById('learningContent');
     if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
 
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = 'block';
+    populateAccordionPanels();
+    ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
+    document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
+
+    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "");
+    hintText = (hintText || "").replace(/\n/g, '<br>');
+
     content.innerHTML = `
         <div class="content-box">
             <h3 style="text-align:center; color:var(--primary);">🧩 Cümle Kur</h3>
@@ -1298,6 +1520,9 @@ window.renderWordOrderCard = function() {
                 <button class="btn btn-danger btn-sm" onclick="window.renderWordOrderCard()" style="margin-top:5px;">🔄 Sıfırla</button>
             </div>
             <div id="woFeedback" style="text-align:center; margin-top:15px; font-weight:bold;"></div>
+        </div>
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
         </div>
     `;
 };
@@ -1332,22 +1557,30 @@ window.checkWordOrder = function() {
 window.renderQuizCard = function() {
     if (window.state.deckPos >= window.state.deck.length) { window.showCompletion(); return; }
     
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+
     window.state.waitingForNext = false;
     window.state.pendingStatus = 'zor';
 
     const card = window.state.deck[window.state.deckPos]; 
-    
-    // --- DÜZELTME BURADA ---
     window.state.currentCardKey = card.id;
-    window.state.currentCardData = card; // <--- BU SATIR EKSİKTİ, EKLENDİ!
-    // -----------------------
+    window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
     window.state.correctAnswer = isTrDe ? card.de : card.tr;
     
     const content = document.getElementById('learningContent'); content.innerHTML = '';
     if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
+
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = 'block';
+    populateAccordionPanels();
+    ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
+    document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
     
+    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "");
+    hintText = (hintText || "").replace(/\n/g, '<br>');
+
     content.innerHTML = `
         <div class="content-box" style="text-align:center;">
             <h3>📝 Quiz</h3>
@@ -1356,6 +1589,9 @@ window.renderQuizCard = function() {
             <button id="reviewActionBtn" class="btn btn-success btn-block" style="margin-top:15px;" onclick="window.handleReviewAction()">KONTROL ET</button>
             <div id="quizFeedback" style="margin-top:15px; font-weight:bold;"></div>
         </div>
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
+        </div>
     `;
     const input = document.getElementById('quizInput');
     input.focus();
@@ -1363,23 +1599,38 @@ window.renderQuizCard = function() {
 };
 
 
+
 window.updateHeaderStatus = function() {
-    let statusBar = document.getElementById('dynamicStatusBar');
-    const container = document.getElementById('learningContent');
-    if (!container) return;
-    if (!statusBar) {
-        statusBar = document.createElement('div');
-        statusBar.id = 'dynamicStatusBar';
-        statusBar.style.cssText = "background:#f0f4c3; padding:8px; margin-bottom:15px; border-left:4px solid #afb42b; font-size:0.9rem; color:#333;";
-        container.insertBefore(statusBar, container.firstChild);
+    // --- PROGRESS BAR UPDATE ---
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('learnProgressText');
+    const deck = window.state.deck || [];
+    const total = deck.length;
+    const current = window.state.deckPos;
+
+    if (progressFill && progressText && total > 0) {
+        const percent = Math.min(100, Math.round((current / total) * 100));
+        progressFill.style.width = `${percent}%`;
+        progressText.textContent = `${current} / ${total}`;
     }
-    let infoText = "Çalışma";
-    if (window.state.currentVerbId) {
-        infoText = `📝 Fiil: ${window.state.currentVerbId} | Kart: ${window.state.deckPos+1}/${window.state.deck.length}`;
-    } else if (window.state.tekrarStatus) {
-        infoText = `🔄 TEKRAR MODU: ${window.state.tekrarStatus.toUpperCase()}`;
-    }
-    statusBar.innerHTML = infoText;
+
+    // --- DYNAMIC STATUS BAR (Optional, can be removed if not needed) ---
+    // let statusBar = document.getElementById('dynamicStatusBar');
+    // const container = document.getElementById('learningContent');
+    // if (!container) return;
+    // if (!statusBar) {
+    //     statusBar = document.createElement('div');
+    //     statusBar.id = 'dynamicStatusBar';
+    //     statusBar.style.cssText = "background:#f0f4c3; padding:8px; margin-bottom:15px; border-left:4px solid #afb42b; font-size:0.9rem; color:#333;";
+    //     container.insertBefore(statusBar, container.firstChild);
+    // }
+    // let infoText = "Çalışma";
+    // if (window.state.currentVerbId) {
+    //     infoText = `📝 Fiil: ${window.state.currentVerbId} | Kart: ${window.state.deckPos+1}/${window.state.deck.length}`;
+    // } else if (window.state.tekrarStatus) {
+    //     infoText = `🔄 TEKRAR MODU: ${window.state.tekrarStatus.toUpperCase()}`;
+    // }
+    // statusBar.innerHTML = infoText;
 };
 /* ==========================================================================
    GÜNCELLENMİŞ STARTSTUDY FONKSİYONU
@@ -1515,6 +1766,9 @@ window.startParallelPlayer = function() {
    - Akordyon butonlar temizlendi.
    -------------------------------------------------------------------------- */
 window.renderParallelPlayerUI = function() {
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = 'none';
+
     window.showView('learningView');
     const content = document.getElementById('learningContent');
     // Hide standard controls
@@ -1570,6 +1824,62 @@ window.setParallelDelay = function(ms) {
     localStorage.setItem('verbmatrix_settings', JSON.stringify(window.data.settings));
     window.injectDelayControls();
 };
+
+/* ==========================================================================
+   PARALEL OYNATICI DESTE OLUŞTURUCU
+   ========================================================================== */
+window.buildAndStartParallelPlayer = function(parallelMode) {
+    document.getElementById('modalParallelModeSelect').style.display = 'none';
+    let finalDeck = [];
+    const vId = window.state.tempVerbId;
+    const tId = window.state.tempTopicId;
+    const groupId = window.state.currentGroupId;
+
+    if (parallelMode === 'fixed_verb') {
+        // FİİL SABİT, KONULAR SIRAYLA
+        const topics = window.data.topics[window.data.settings.currentClass] || {};
+        const topicIds = Object.keys(topics).sort((a, b) => parseInt(a) - parseInt(b));
+
+        topicIds.forEach(currentTId => {
+            const key = `${vId}_s${currentTId}`;
+            const sentences = window.data.content[key];
+            if (sentences) {
+                sentences.forEach((s, i) => {
+                    const id = `${key}_${i}`;
+                    const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {};
+                    finalDeck.push({ ...s, ...ovr, id: id });
+                });
+            }
+        });
+
+    } else if (parallelMode === 'fixed_topic') {
+        // KONU SABİT, FİİLLER SIRAYLA
+        const verbsInGroup = window.data.verbs[groupId] || [];
+        verbsInGroup.forEach(verb => {
+            const key = `${verb.id}_s${tId}`;
+            const sentences = window.data.content[key];
+            if (sentences) {
+                sentences.forEach((s, i) => {
+                    const id = `${key}_${i}`;
+                    const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {};
+                    finalDeck.push({ ...s, ...ovr, id: id });
+                });
+            }
+        });
+    }
+
+    if (finalDeck.length === 0) {
+        alert("Bu mod için dinlenecek cümle bulunamadı.");
+        return;
+    }
+
+    // Hazırlanan desteyi yükle ve oynatıcıyı başlat
+    window.state.deck = finalDeck;
+    window.state.deckPos = 0;
+    window.startParallelPlayer();
+};
+
+
 /* ==========================================================================
    AKILLI TEK BUTON YÖNETİCİSİ
    - Hem "Kontrol Et" hem "İlerle" işlevini tek butonda toplar.
@@ -1819,18 +2129,6 @@ window.startStoryTest = function(groupId) {
 /* --------------------------------------------------------------------------
    11. MISC & FINAL
    -------------------------------------------------------------------------- */
-window.toggleLearningPanel = function(panelId) {
-    ['panelHint','panelListen','panelEdit'].forEach(p => {
-        const el = document.getElementById(p); if(el) el.classList.add('hidden');
-    });
-    const hb = document.getElementById('hintContainer'); if(hb) hb.style.display='none';
-    
-    if (panelId) {
-        const t = document.getElementById(panelId); if(t) t.classList.remove('hidden');
-        if (panelId === 'panelHint' && hb) hb.style.display = 'block';
-    }
-};
-
 window.openContextHint = function(type) {
     const key = window.state.currentCardKey;
     if (!key || !window.data.hints) return;
@@ -1845,17 +2143,25 @@ window.openContextHint = function(type) {
         if (window.data.hints.verbs && window.data.hints.verbs[vId]) content = window.data.hints.verbs[vId];
     } else {
         title = "Konu Özeti";
-        if (window.data.hints.sections && window.data.hints.sections[tId]) content = window.data.hints.sections[tId];
+        // JSON'daki 'B6', 'B7' gibi anahtarlarla kodun kullandığı sayısal ID'leri eşleştirmek için geçici bir harita.
+        // İdeal olan, JSON dosyasındaki anahtarları sayısal ID'ler (6, 16 vb.) ile değiştirmektir.
+        const topicIdMapping = {
+            '6': 'B7',  // İyelik Sıfatları (Possessivpronomen)
+            '16': 'B6' // Sıfat Çekimleri (Adjektivdeklination)
+        };
+        const hintKey = topicIdMapping[tId];
+        if (window.data.hints.sections && hintKey && window.data.hints.sections[hintKey]) {
+            content = window.data.hints.sections[hintKey];
+        }
     }
-    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "İpucu yok.");
-    hintText = hintText.replace(/\n/g, '<br>');    
+    
     let modal = document.createElement('div');
     modal.id = 'hintModal';
     modal.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:12000;display:flex;align-items:center;justify-content:center;";
     modal.innerHTML = `
         <div class="content-box" style="width:90%;max-width:600px;max-height:80vh;background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:var(--primary);color:#fff;padding:15px;font-weight:bold;">💡 ${title}</div>
-            <div style="padding:20px;overflow-y:auto;">${content.replace(/\n/g,'<br>')}</div>
+            <div id="richHintContent" style="padding:20px;overflow-y:auto;">${content.replace(/\n/g,'<br>')}</div>
             <button class="btn btn-secondary btn-block" onclick="document.getElementById('hintModal').remove()" style="margin:10px;">Kapat</button>
         </div>
     `;
@@ -1936,6 +2242,107 @@ window.showCompletion = function() {
         </div>
     `;
 };
+/* --- BÖLÜM SONU AKIŞI İÇİN YARDIMCI FONKSİYON --- */
+function findFirstUnconsumedSentenceInGroup(groupId) {
+    if (!groupId || !window.data.verbs[groupId]) return null;
+
+    const verbsInGroup = window.data.verbs[groupId];
+    for (const verb of verbsInGroup) {
+        const topics = window.data.topics[window.data.settings.currentClass] || {};
+        const topicIds = Object.keys(topics).sort((a, b) => parseInt(a) - parseInt(b));
+
+        for (const tId of topicIds) {
+            const contentKey = `${verb.id}_s${tId}`;
+            const sentences = window.data.content[contentKey];
+            if (sentences) {
+                for (let i = 0; i < sentences.length; i++) {
+                    const sentenceId = `${contentKey}_${i}`;
+                    if (!window.srsData[sentenceId]) {
+                        return { vId: verb.id, tId: tId }; // İlk tamamlanmamış konuyu bulduk
+                    }
+                }
+            }
+        }
+    }
+    return null; // Grupta tamamlanmamış cümle kalmadı
+}
+
+/* --- 7. BİTİŞ EKRANI (TAM AKIŞ KONTROLÜ) --- */
+window.showCompletion = function() {
+    const area = document.getElementById('learningContent');
+    if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
+    if(document.getElementById('srsControls')) document.getElementById('srsControls').style.display = 'none';
+
+    if(window.state.tekrarStatus) {
+        area.innerHTML = `<div style="text-align:center; padding:30px;"><h2>🏁 Tekrar Tamamlandı</h2><button class="btn btn-secondary" onclick="window.goBackInHistory()">Geri Dön</button></div>`;
+        return;
+    }
+    
+    let htmlButtons = "";
+    
+    var lastCardId = window.state.currentCardKey || "";
+    var parts = lastCardId.split('_'); 
+    var vId = parts[0]; 
+    var tId = parseInt(parts[1]?.replace('s', '') || 1);
+    var currentGroupId = window.data.groups.find(g => window.data.verbs[g.id] && window.data.verbs[g.id].some(v => v.id === vId))?.id;
+    
+    // 1. Önce Tüketilmeyenleri Öner
+    var remainingInfo = findFirstUnconsumedSentenceInGroup(currentGroupId);
+    if (remainingInfo && (remainingInfo.vId !== vId || remainingInfo.tId !== tId)) {
+        var startKey = remainingInfo.vId + '_s' + remainingInfo.tId;
+        var verbName = window.data.verbs[currentGroupId].find(v => v.id === remainingInfo.vId)?.verbTR || 'Grup İçi';
+        htmlButtons += `
+            <button class="btn btn-warning btn-block" style="margin-bottom:10px;" onclick="window.startStudy(window.data.content['${startKey}'], '${remainingInfo.vId}', '${remainingInfo.tId}')">
+                ⬇️ Grubun Kalanını Tamamla: <b>${verbName}</b>
+            </button>`;
+    } 
+    
+    // 2. Sonraki Konu
+    var nextTId = tId + 1;
+    var nextContentKey = vId + '_s' + nextTId;
+    if (window.data.content && window.data.content[nextContentKey]) {
+        var topicName = (window.data.topics[window.data.settings.currentClass] && window.data.topics[window.data.settings.currentClass][nextTId]) ? (window.data.topics[window.data.settings.currentClass][nextTId].name || `${nextTId}. Bölüm`) : `${nextTId}. Bölüm`;
+        htmlButtons += `
+            <button class="btn btn-info btn-block" style="margin-bottom:10px;" onclick="window.startStudy(window.data.content['${nextContentKey}'], '${vId}', '${nextTId}')">
+                ⬇️ Sonraki Konu: <b>${topicName}</b>
+            </button>`;
+    }
+
+    // 3. Sonraki Fiil
+    if(currentGroupId) {
+        var verbs = window.data.verbs[currentGroupId];
+        var vIdx = verbs.findIndex(v => v.id === vId);
+        if(vIdx !== -1 && verbs[vIdx+1]) {
+            var nextV = verbs[vIdx+1];
+            var nextKey = nextV.id + '_s1';
+            htmlButtons += `
+                <button class="btn btn-warning btn-block" style="margin-bottom:10px;" onclick="window.state.verbData=window.data.verbs['${currentGroupId}'][${vIdx+1}]; window.renderSections('${nextV.id}')">
+                    ⏩ Sonraki Fiil: <b>${nextV.verbTR}</b>
+                </button>`;
+        }
+    }
+    
+    // 4. SONRAKİ GRUP
+    if (currentGroupId) {
+        var groupIds = window.data.groups.map(g => g.id);
+        var gIdx = groupIds.indexOf(currentGroupId);
+        if (gIdx !== -1 && groupIds[gIdx + 1]) {
+            var nextGroup = window.data.groups[gIdx + 1];
+            htmlButtons += `
+                <button class="btn btn-primary btn-block" style="margin-bottom:10px;" onclick="window.renderGroups(); window.showView('groupMenu');">
+                    ⏭️ Sonraki Grup: <b>${nextGroup.name}</b>
+                </button>`;
+        }
+    }
+
+    area.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+            <h2 style="color:var(--success); margin-bottom:20px;">🎉 BÖLÜM TAMAMLANDI!</h2>
+            ${htmlButtons}
+            <button class="btn btn-secondary btn-block" style="margin-top:10px;" onclick="window.goBackInHistory()">↩️ Listeye Dön</button>
+        </div>`;
+};
+
 /* --------------------------------------------------------------------------
    MISSING FUNCTIONS (Eksik Fonksiyonlar)
    -------------------------------------------------------------------------- */
@@ -1956,8 +2363,8 @@ window.toggleTheme = function() {
     
     // Buton simgesini güncelle
     const btn = document.getElementById('themeToggleBtn');
-    if (btn) {
-        btn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+    if (btn && btn.querySelector('.icon')) {
+        btn.querySelector('.icon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
     }
 };
 
@@ -2033,3 +2440,32 @@ window.saveMixedSelection = function() {
     window.showView('mainMenu');
 };
 
+/* ==========================================================================
+   YENİ: KILAVUZ MODALI YÖNETİCİSİ
+   ========================================================================== */
+window.openGuideModal = function() {
+    const modal = document.getElementById('guideModal');
+    const titleEl = document.getElementById('guideModalTitle');
+    const contentEl = document.getElementById('guideModalContent');
+
+    if (!modal || !titleEl || !contentEl || !window.data.guideText) {
+        console.error("Kılavuz modalı elemanları veya veri bulunamadı.");
+        return;
+    }
+
+    titleEl.textContent = window.data.guideText.title || "Kullanım Kılavuzu";
+    // İçeriği HTML olarak ekle, böylece JSON'daki etiketler işlenir
+    contentEl.innerHTML = window.data.guideText.content || "Kılavuz içeriği yüklenemedi.";
+
+    modal.classList.remove('hidden');
+    modal.classList.add('active');
+};
+
+window.closeGuideModal = function() {
+    const modal = document.getElementById('guideModal');
+    if (modal) {
+        modal.classList.remove('active');
+        // Animasyon bittikten sonra gizle
+        setTimeout(() => modal.classList.add('hidden'), 300);
+    }
+};
