@@ -11,8 +11,8 @@
     --font-serif: 'Lora', serif;
 
     /* Zemin ve Metin Renkleri (Nötr Palet) */
-    --bg-body: #f8f9fa;       /* Çok hafif kırık beyaz */
-    --bg-card: #ffffff;
+    --bg-body: #e9ecef;       /* Parlak Gümüş Zemin */
+    --bg-card: #ffffff;       /* Kartlar için temiz beyaz */
     --text-main: #212529;     /* Neredeyse siyah, tok bir metin rengi */
     --text-muted: #6c757d;    /* Daha yumuşak, ikincil metin rengi */
     --border-color: #dee2e6;  /* İnce ve açık kenarlıklar */
@@ -41,8 +41,8 @@
 
 /* GECE MODU (Koyu Metalik) */
 body.dark-mode {
-    --bg-body: #121212;
-    --bg-card: #1e1e1e;
+    --bg-body: #212529; /* Koyu Gümüş Zemin */
+    --bg-card: #2c3034; /* Daha açık kart zemini */
     --text-main: #e0e0e0;
     --text-muted: #8a8a8a;
     --border-color: #333;
@@ -75,7 +75,7 @@ html {
 
 body {
     font-family: var(--font-main);
-    background-color: var(--bg-body);
+    background: var(--bg-body); /* Gradient desteği için background-color yerine background */
     color: var(--text-main);
     min-height: 100vh;
     display: flex;
