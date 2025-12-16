@@ -28,43 +28,41 @@
 
         <section id="mainMenu" class="view active">
             <!-- Ana Menü Logosu -->
-            <div style="text-align: center; margin-bottom: 30px;">
-                <img src="logo.png" alt="Verb Matrix Logo" class="main-menu-logo">
+            <div style="text-align: center; margin-bottom: 50px; margin-top:80px;">
+                <img src="logo.png" alt="Verb Matrix Logo" class="main-menu-logo" style="width: 300px;">
             </div>
-    
+
     <div class="content-box" style="text-align:center; padding:15px; margin-bottom:25px;">
-        <h4 style="margin-bottom:10px; color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">Çeviri Yönü</h4>
+        <h4 style="margin-bottom:10px; color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;" data-translate-key="translation_direction">Çeviri Yönü</h4>
         
         <button class="btn btn-block" onclick="window.toggleLanguageMode()">
             <span id="led_tr_de" class="led-indicator active"></span> 
             <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">TR ➡ DE</span>
-            <span style="color:#ccc;">|</span>
+            <span style="color:#74d1df70;">|</span>
             <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">DE ➡ TR</span>
             <span id="led_de_tr" class="led-indicator"></span>
         </button>
     </div>
- <div class="site-container"></div>
-    <div class="button-grid">
-        <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')">
+ <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 0 auto;">
+        <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')" data-translate-key="start_learning">
             📚 Çalışmaya Başla
         </button>
-        <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')">
+        <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')" data-translate-key="review_mode">
             🔄 Tekrar Modu
         </button>
-        <button class="btn btn-warning btn-lg" onclick="window.showView('progress')">
+        <button class="btn btn-warning btn-lg" onclick="window.showView('progress')" data-translate-key="progress">
             📊 İlerleme
         </button>
     </div>
-</div>
 </section>
 
         <section id="progress" class="view">
             <div class="content-box">
-                <h3 class="subtitle" style="text-align: center; margin-bottom: 25px;">📊 Genel İlerleme</h3>
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 25px;" data-translate-key="overall_progress">📊 Genel İlerleme</h3>
 
                 <div class="progress-card">
                     <div class="progress-card-header">
-                        <h4>Toplam Öğrenilen Kart</h4>
+                        <h4 data-translate-key="total_learned_cards">Toplam Öğrenilen Kart</h4>
                         <span id="totalProgressText" class="progress-value">0 / 0 (%0)</span>
                     </div>
                     <div class="progress-container" style="height: 12px;">
@@ -84,13 +82,13 @@
         </section>
 
         <section id="classSelectionView" class="view">
-            <h3 class="subtitle" style="margin-bottom:20px;">Sınıfını Seç</h3>
+            <h3 class="subtitle" style="margin-bottom:20px;" data-translate-key="select_your_class">Sınıfını Seç</h3>
             <div id="classGrid" class="button-grid"></div>
         </section>
 
         <section id="groupMenu" class="view">
-            <div class="content-box">
-                <h3 class="subtitle" style="text-align: center; margin-bottom: 20px;">Ünite Grupları</h3>
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 20px;" data-translate-key="unit_groups">Ünite Grupları</h3>
                 <!-- Domain Seçim Butonları -->
                 <div id="domainContainer" class="domain-buttons-container">
                     <!-- Domain butonları JavaScript ile buraya eklenecek -->
@@ -104,17 +102,17 @@
         </section>
 
         <section id="verbMenu" class="view">
-            <h3 class="subtitle">Fiiller</h3>
-            <div id="verbList" class="button-grid"></div>
+            <h3 class="subtitle" style="text-align: center; margin-top: 80px;" data-translate-key="verbs">Fiiller</h3>
+            <div id="verbList" class="button-grid" style="grid-template-columns: 1fr;"></div>
         </section>
 
         <section id="sectionMenu" class="view">
-            <h3 class="subtitle">Konular</h3>
-            <div id="sectionList" class="button-grid"></div>
+            <h3 class="subtitle" style="text-align: center;" data-translate-key="topics">Konular</h3>
+            <div id="sectionList" class="button-grid" style="grid-template-columns: 1fr;"></div>
         </section>
 <section id="studyView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
-        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Menü</button>
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()" data-translate-key="menu">⬅️ Menü</button>
         <h4 id="headerTitle" style="margin:0; color:var(--primary-dark);">Çalışma Modu</h4>
         <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
             <span id="ledAuto" class="led-indicator"></span> Oto
@@ -132,7 +130,7 @@
     </div>
 
     <div style="max-width:500px; margin:0 auto;">
-        <button id="btnMainAction" class="btn btn-primary btn-lg btn-block" onclick="window.handleMainAction()">BAŞLAT</button>
+        <button id="btnMainAction" class="btn btn-primary btn-lg btn-block" onclick="window.handleMainAction()" data-translate-key="start_button">BAŞLAT</button>
         
         <div id="srsGrid" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
             <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
@@ -143,9 +141,9 @@
 
     <div id="accordionArea" style="margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
         <div class="learning-controls-main">
-                    <button class="btn" onclick="window.togglePanel('panelHint', this)">💡 İpucu</button>
-                    <button class="btn" onclick="window.togglePanel('panelListen', this)">🔊 Dinle</button>
-                    <button class="btn" onclick="window.togglePanel('panelEdit', this)">✏️ Düzenle</button>
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)" data-translate-key="hint">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)" data-translate-key="listen">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)" data-translate-key="edit">✏️ Düzenle</button>
                 </div>
         
         <div id="pnlHint" class="learning-controls-panel hidden">
@@ -166,9 +164,9 @@
 
 <section id="tekrarView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
-        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()">⬅️ Çıkış</button>
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()" data-translate-key="go_back">⬅️ Çıkış</button>
         <h4 style="margin:0; color:var(--warning);">🔄 Tekrar Modu</h4>
-        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
+        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()" data-translate-key="auto">
             <span id="ledAutoTekrar" class="led-indicator"></span> Oto
         </button>
     </div>
@@ -186,7 +184,7 @@
     </div>
 
     <div style="max-width:500px; margin:0 auto;">
-        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:var(--gold-text); font-weight:bold;">CEVABI GÖSTER</button>
+        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:var(--gold-text); font-weight:bold;" data-translate-key="show_answer">CEVABI GÖSTER</button>
         <div id="srsTekrar" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
             <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
             <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
@@ -224,13 +222,13 @@
             <button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
 
             <div id="srsControls" class="hidden">
-                <button class="btn btn-danger" onclick="window.rateCard('zor')"> 
+                <button class="btn btn-danger" onclick="window.rateCard('zor')" data-translate-key="srs_hard"> 
                     🥵<br>ZOR
                 </button>
-                <button class="btn btn-warning" onclick="window.rateCard('normal')">
+                <button class="btn btn-warning" onclick="window.rateCard('normal')" data-translate-key="srs_normal">
                     😐<br>NORMAL
                 </button>
-                <button class="btn btn-success" onclick="window.rateCard('ogrendim')">
+                <button class="btn btn-success" onclick="window.rateCard('ogrendim')" data-translate-key="srs_easy">
                     ✅<br>KOLAY
                 </button>
             </div>
@@ -240,16 +238,16 @@
 
             <div id="learningControlsAccordion">
                 <div class="learning-controls-main">
-                    <button class="btn" onclick="window.togglePanel('panelHint', this)">💡 İpucu</button>
-                    <button class="btn" onclick="window.togglePanel('panelListen', this)">🔊 Dinle</button>
-                    <button class="btn" onclick="window.togglePanel('panelEdit', this)">✏️ Düzenle</button>
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)" data-translate-key="hint">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)" data-translate-key="listen">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)" data-translate-key="edit">✏️ Düzenle</button>
                 </div>
 
                 <div id="panelHint" class="learning-controls-panel hidden">
                     <div class="button-grid">
-                        <button class="btn btn-info" onclick="window.showSpecificHint('sentence')">Cümle</button>
-                        <button class="btn btn-warning" onclick="window.showSpecificHint('verb')">Fiil</button>
-                        <button class="btn btn-secondary" onclick="window.showSpecificHint('topic')">Konu</button>
+                        <button class="btn btn-info" onclick="window.showSpecificHint('sentence')" data-translate-key="sentence">Cümle</button>
+                        <button class="btn btn-warning" onclick="window.showSpecificHint('verb')" data-translate-key="verb">Fiil</button>
+                        <button class="btn btn-secondary" onclick="window.showSpecificHint('topic')" data-translate-key="topic">Konu</button>
                     </div>
                 </div>
 
@@ -258,11 +256,11 @@
                         <button class="btn btn-secondary" onclick="window.toggleAutoPlay()">
                             <span id="autoPlayLed" class="led-indicator active"></span> Oto
                         </button>
-                        <button class="btn btn-secondary" onclick="window.toggleSlowMode()">
+                        <button class="btn btn-secondary" onclick="window.toggleSlowMode()" data-translate-key="slow">
                             <span id="slowModeLed" class="led-indicator"></span> Yavaş
                         </button>
-                        <button class="btn btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 Oku</button>
-                        <button class="btn btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 Oku</button>
+                        <button class="btn btn-primary" onclick="window.playCurrentSentence('de')" data-translate-key="read">🇩🇪 Oku</button>
+                        <button class="btn btn-primary" onclick="window.playCurrentSentence('tr')" data-translate-key="read">🇹🇷 Oku</button>
                     </div>
                 </div>
 
@@ -275,18 +273,18 @@
         </section>
 
         <section id="tekrarMenu" class="view">
-            <h3 class="subtitle" style="text-align:center;">Tekrar Havuzu</h3>
+            <h3 class="subtitle" style="text-align:center;" data-translate-key="review_pool">Tekrar Havuzu</h3>
             <div class="button-grid" style="grid-template-columns: 1fr;">
                 <button class="btn btn-danger btn-lg" style="justify-content:space-between" onclick="window.startTekrar('zor')">
-                    <span>🥵 ZOR KARTLAR</span>
+                    <span data-translate-key="hard_cards">🥵 ZOR KARTLAR</span>
                     <span id="tekrarCountZor" class="badge">0</span>
                 </button>
                 <button class="btn btn-warning btn-lg" style="justify-content:space-between" onclick="window.startTekrar('normal')">
-                    <span>🤔 NORMAL KARTLAR</span>
+                    <span data-translate-key="normal_cards">🤔 NORMAL KARTLAR</span>
                     <span id="tekrarCountNormal" class="badge">0</span>
                 </button>
                 <button class="btn btn-success btn-lg" style="justify-content:space-between" onclick="window.startTekrar('ogrendim')">
-                    <span>✅ ÖĞRENDİKLERİM</span>
+                    <span data-translate-key="learned_cards">✅ ÖĞRENDİKLERİM</span>
                     <span id="tekrarCountOgrendim" class="badge">0</span>
                 </button>
             </div>
@@ -299,12 +297,12 @@
        <section id="storyView" class="view">
     
     <div class="content-box" style="padding:10px; margin-bottom:15px; display:flex; justify-content:space-between; align-items:center;">
-        <h3 id="storyTitle" style="color:var(--primary-dark); margin:0; font-size:1.1rem;">Hikaye</h3>
+        <h3 id="storyTitle" style="color:var(--primary-dark); margin:0; font-size:1.1rem;" data-translate-key="story">Hikaye</h3>
         <div>
-            <button class="btn btn-secondary btn-sm" onclick="window.toggleSlowMode()">
+            <button class="btn btn-secondary btn-sm" onclick="window.toggleSlowMode()" data-translate-key="slow">
                 <span id="storySlowLed" class="led-indicator"></span> 🐢 Yavaş
             </button>
-            <button id="btnStartStoryTest" class="btn btn-warning btn-sm" style="margin-left:5px;">
+            <button id="btnStartStoryTest" class="btn btn-warning btn-sm" style="margin-left:5px;" data-translate-key="test">
                 📝 Test
             </button>
         </div>
@@ -312,8 +310,8 @@
 
     <div style="margin-bottom:10px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);">🇩🇪 ALMANCA</span>
-            <button id="btnStoryDE" class="btn btn-primary btn-sm" onclick="window.toggleStoryAudio('de')">🇩🇪 Dinle</button>
+            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);" data-translate-key="german">🇩🇪 ALMANCA</span>
+            <button id="btnStoryDE" class="btn btn-primary btn-sm" onclick="window.toggleStoryAudio('de')"><span data-translate-key="listen">🇩🇪 Dinle</span></button>
         </div>
         <div id="storyContentDE" class="content-box" style="
             font-family: 'Lora', serif; 
@@ -329,8 +327,8 @@
 
     <div style="margin-bottom:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
-            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);">🇹🇷 TÜRKÇE</span>
-            <button id="btnStoryTR" class="btn btn-info btn-sm" onclick="window.toggleStoryAudio('tr')">🇹🇷 Dinle</button>
+            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);" data-translate-key="turkish">🇹🇷 TÜRKÇE</span>
+            <button id="btnStoryTR" class="btn btn-info btn-sm" onclick="window.toggleStoryAudio('tr')"><span data-translate-key="listen">🇹🇷 Dinle</span></button>
         </div>
         <div id="storyContentTR" class="content-box" style="
             font-family: 'Lora', serif; 
@@ -338,14 +336,13 @@
             font-size:1rem; 
             height: 120px; 
             overflow-y: auto; 
-            background-color: #f8f9fa; 
-            border-left: 4px solid var(--secondary);
-            color: #555;
+            background-color: var(--silver-light); 
+            border-left: 4px solid var(--silver-main);
         ">
             </div>
     </div>
 
-    <button class="btn btn-secondary btn-block" onclick="window.goBackInHistory()">
+    <button class="btn btn-secondary btn-block" onclick="window.goBackInHistory()" data-translate-key="go_back">
         Geri Dön
     </button>
 </section>
@@ -360,35 +357,35 @@
         </section>
 
         <section id="settingsView" class="view">
-            <h3 class="subtitle">Ayarlar</h3>
+            <h3 class="subtitle" data-translate-key="settings">Ayarlar</h3>
             
             <div class="content-box">
-                <h4 style="margin-bottom:10px; text-align: center;">Görünüm</h4>
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="language">Dil</h4>
                 <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
-                    <button id="themeToggleBtn" class="btn btn-secondary" onclick="window.toggleTheme()">🌙 Tema</button>
-                    <button id="musicToggleBtn" class="btn btn-secondary" onclick="window.toggleMusic()">🎵 Müzik</button>
+                    <button class="btn btn-secondary" onclick="window.setLanguage('tr')">🇹🇷 Türkçe</button>
+                    <button class="btn btn-secondary" onclick="window.setLanguage('de')">🇩🇪 Deutsch</button>
+                </div>
+            </div>
+            
+            <div class="content-box">
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="appearance">Görünüm</h4>
+                <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
+                    <button id="themeToggleBtn" class="btn btn-secondary" onclick="window.toggleTheme()" data-translate-key="theme">🌙 Tema</button>
+                    <button id="musicToggleBtn" class="btn btn-secondary" onclick="window.toggleMusic()" data-translate-key="music">🎵 Müzik</button>
                  
                 </div>
             </div>
 
             <div class="content-box">
-                <h4 style="margin-bottom:10px; text-align: center;">Çeviri Yönü</h4>
-                <button class="btn btn-block btn-info" onclick="window.toggleLanguageMode()">
-                    <span id="led_tr_de" class="led-indicator active"></span> TR → DE &nbsp;|&nbsp; 
-                    <span id="led_de_tr" class="led-indicator"></span> DE → TR
-                </button>
-            </div>
-
-            <div class="content-box">
-                <h4 style="margin-bottom:10px; text-align: center;">Veri Yönetimi</h4>
-                <label class="btn btn-warning btn-block" style="margin-bottom:10px;">
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="data_management">Veri Yönetimi</h4>
+                <label class="btn btn-warning btn-block" style="margin-bottom:10px;" data-translate-key="upload">
                     📥 Yükle <input type="file" hidden onchange="window.handleImport(event)">
                 </label>
-                <button class="btn btn-secondary btn-block" onclick="window.exportData()">📤 Yedekle</button>
-                <button class="btn btn-secondary btn-block" onclick="window.forceUpdateApp()" style="margin-top:10px;">
+                <button class="btn btn-secondary btn-block" onclick="window.exportData()" data-translate-key="backup">📤 Yedekle</button>
+                <button class="btn btn-secondary btn-block" onclick="window.forceUpdateApp()" style="margin-top:10px;" data-translate-key="update_app">
     🔄 Uygulamayı Güncelle (Önbelleği Boşalt)
 </button>
-                <button class="btn btn-danger btn-block" style="margin-top:10px;" onclick="window.resetProgress()">🗑️ Sıfırla</button>
+                <button class="btn btn-danger btn-block" style="margin-top:10px;" onclick="window.resetProgress()" data-translate-key="reset_progress">🗑️ Sıfırla</button>
             </div>
             
             <div id="iosInstallInfo" class="hidden content-box">
