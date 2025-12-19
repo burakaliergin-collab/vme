@@ -52,13 +52,14 @@
         </button>
     </div>
  <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 0 auto;">
-        <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')" data-translate-key="start_learning">
-            📚 Çalışmaya Başla
+       
+        <button class="btn btn-secondary btn-lg" onclick="window.showView('calismaModuView')">
+            Çalışma Modu
         </button>
-        <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')" data-translate-key="review_mode">
-            🔄 Tekrar Modu
+        <button class="btn btn-dark btn-lg" onclick="window.showView('cumleAyristirView')">
+            Cümle Ayrıştır
         </button>
-        <button class="btn btn-warning btn-lg" onclick="window.showView('progress')" data-translate-key="progress">
+         <button class="btn btn-warning btn-lg" onclick="window.showView('progress')" data-translate-key="progress">
             📊 İlerleme
         </button>
     </div>
@@ -117,6 +118,42 @@
         <section id="sectionMenu" class="view">
             <h3 class="subtitle" style="text-align: center; margin-top: 80px;" data-translate-key="topics">Konular</h3>
             <div id="sectionList" class="button-grid" style="grid-template-columns: 1fr;"></div>
+        </section>
+
+        <!-- YENİ: Çalışma Modu için boş sayfa -->
+        <section id="calismaModuView" class="view">
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center;">Çalışma Modu</h3>
+                <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 20px auto;">
+                    <button class="btn btn-info btn-lg" onclick="window.startParallelListeningSelection()">
+                        🎧 Paralel Dinleme
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('flashcard')">
+                        👁️ Göster Geç
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('cloze')">
+                        🔤 Boşluk Doldurma
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('wordorder')">
+                        🧩 Kelime Sıralama
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- YENİ: Cümle Ayrıştır için boş sayfa -->
+        <section id="cumleAyristirView" class="view">
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center;">Cümle Ayrıştır</h3>
+                <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 20px auto;">
+                    <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')" data-translate-key="parse">
+                        📚 AYRIŞTIR
+                    </button>
+                    <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')" data-translate-key="review_mode">
+                        🔄 Tekrar Modu
+                    </button>
+                </div>
+            </div>
         </section>
 <section id="studyView" class="view hidden">
     <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
