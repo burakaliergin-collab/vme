@@ -273,6 +273,7 @@ window.togglePanel = function(panelId, buttonElement, containerSelector = null) 
     const isOpening = panel.classList.contains('hidden');
 
     // Kapsayıcı içindeki TÜM panelleri (genellikle 'div'ler) ve butonları bul ve kapat/sıfırla.
+    window.state.activeLearningPanel = null; // Önce sıfırla
     // Bu yaklaşım, panellerin özel bir sınıfa sahip olmasını gerektirmez.
     const allPanels = container.querySelectorAll('.panel, .accordion-panel, [id^="pnl"]'); // Birden fazla olasılığı hedefler
     const allButtons = container.querySelectorAll('.btn, .accordion-btn');
@@ -291,6 +292,7 @@ window.togglePanel = function(panelId, buttonElement, containerSelector = null) 
     // Yeni paneli aç ve ilgili butonu aktif et
     panel.classList.remove('hidden');
     if (buttonElement) {
+        window.state.activeLearningPanel = panelId; // Yeni durumu kaydet
         buttonElement.classList.add('active-control');
     }
 
@@ -314,20 +316,33 @@ if (typeof window.checkPWAStatus === 'undefined') {
     };
 }
 /* --------------------------------------------------------------------------
-   2. BOOT / DATA LOAD / INIT
+   2. PWA & OFFLINE DESTEĞİ
+   -------------------------------------------------------------------------- */
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    window.state.deferredPrompt = e;
+    const installBtn = document.getElementById('installAppBtn');
+    if(installBtn) installBtn.classList.remove('hidden');
+});
+
+window.installPWA = async function() {
+    if (window.state.deferredPrompt) {
+        window.state.deferredPrompt.prompt();
+        const { outcome } = await window.state.deferredPrompt.userChoice;
+        console.log(`PWA kurulum sonucu: ${outcome}`);
+        window.state.deferredPrompt = null;
+        const installBtn = document.getElementById('installAppBtn');
+        if(installBtn) installBtn.classList.add('hidden');
+    }
+};
+
+/* --------------------------------------------------------------------------
+   3. BOOT / DATA LOAD / INIT
    -------------------------------------------------------------------------- */
 window.loadServerData = async function() {
     const jsonFileName = 'verbmatrix_data.json';
     const url = `./${jsonFileName}?v=${new Date().getTime()}`;
     try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        const jsonData = await response.json();
-        window.data = { ...window.data, ...jsonData };
-        localStorage.setItem('verbmatrix_full_data', JSON.stringify(window.data));
-        console.log("✅ Veri sunucudan alındı.");
-    } catch (err) {
-        console.warn("Sunucu verisi alınamadı:", err);
         const localBackup = localStorage.getItem('verbmatrix_full_data');
         if (localBackup) {
             window.data = { ...window.data, ...JSON.parse(localBackup) };
@@ -335,6 +350,16 @@ window.loadServerData = async function() {
         } else {
             console.error("HATA: Veri dosyası yüklenemedi ve yerel yedek yok.");
         }
+
+        // Arka planda veriyi güncellemeye çalış
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const jsonData = await response.json();
+        window.data = { ...window.data, ...jsonData };
+        localStorage.setItem('verbmatrix_full_data', JSON.stringify(window.data));
+        console.log("✅ Veri sunucudan alındı ve güncellendi.");
+    } catch (err) {
+        console.warn("Sunucu verisi alınamadı, yerel yedek kullanılıyor:", err);
     }
 };
 
@@ -425,11 +450,9 @@ window.init = async function() {
 };
 
 // Auto-init logic
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.init);
-} else {
+document.addEventListener('DOMContentLoaded', () => {
     window.init();
-}
+});
 
 /* --------------------------------------------------------------------------
    3. HELPERS: AUDIO, STORAGE, UI UTILS
@@ -1156,6 +1179,51 @@ window.selectStudyMode = function(mode) {
         alert("Menü yüklenemedi. Lütfen sayfayı yenileyin.");
     }
 };
+
+/**
+ * YENİ: Göster Geç, Boşluk Doldurma, Kelime Sıralama gibi yeni modları başlatır.
+ * @param {string} mode 'flashcard', 'cloze', 'wordorder' gibi mod adı.
+ */
+window.startNewStudyMode = function(mode) {
+    console.log(`🆕 Yeni Çalışma Modu Başlatılıyor: ${mode}`);
+
+    // 1. Durumu (State) Sıfırla ve Hazırla
+    window.state.mode = mode;
+    window.state.tekrarStatus = null; 
+    window.state.deck = [];
+    window.state.deckPos = 0;
+    
+    // 2. Görünümü Değiştir (Grup Menüsünü Aç)
+    window.showView('groupMenu'); 
+    
+    // 3. Listeyi Çiz
+    if (typeof window.renderGroups === 'function') {
+        window.renderGroups(); 
+    } else {
+        console.error("❌ Hata: renderGroups fonksiyonu bulunamadı!");
+    }
+};
+
+/**
+ * YENİ: Paralel Dinleme için seçim akışını başlatır.
+ * Kullanıcıyı Alan -> Grup -> Fiil -> Konu seçimi yapması için yönlendirir.
+ */
+window.startParallelListeningSelection = function() {
+    console.log("🎧 Paralel Dinleme Seçim Modu Başlatıldı");
+
+    // 1. Durumu (State) Sıfırla ve Hazırla
+    // Bu özel mod, kullanıcıya konu seçtirdikten sonra dinleme türü modalını göstermemizi sağlar.
+    window.state.mode = 'parallel_select'; 
+    window.state.tekrarStatus = null;
+    window.state.deck = [];
+    window.state.deckPos = 0;
+
+    // 2. Görünümü Değiştir (Grup Menüsünü Aç)
+    window.showView('groupMenu');
+
+    // 3. Grup Listesini Çiz
+    if (typeof window.renderGroups === 'function') window.renderGroups();
+};
 /* 4. confirmStudyMode (Seçime Göre Başlat) */
 window.confirmStudyMode = function(mode) {
     document.getElementById('topicActionModal').remove(); // Modalı kapat
@@ -1166,8 +1234,7 @@ window.confirmStudyMode = function(mode) {
     window.state.deck = window.state.tempDeck;
     window.state.mode = mode; // 'parallel' veya 'study'
 
-    if (mode === 'parallel') {
-        // YENİ: Paralel dinleme için mod seçimini göster
+    if (mode === 'parallel' || window.state.mode === 'parallel_select') {
         document.getElementById('modalParallelModeSelect').style.display = 'flex';
     } else {
         // 'study' modu seçildi (Cümle Ayrıştır)
@@ -1312,6 +1379,105 @@ function populateAccordionPanels() {
 /* --------------------------------------------------------------------------
    7. STUDY MODE (RENDER SENTENCE & RATE)
    -------------------------------------------------------------------------- */
+
+/**
+ * YENİ: Sadece "Göster Geç" (Flashcard) modu için arayüzü ve işlevselliği yönetir.
+ * SRS butonları yerine tek bir "Göster / Geç" butonu kullanır.
+ */
+window.renderFlashcard = function() {
+    // Gerekli UI elementlerini gizle/göster
+    const srsControls = document.getElementById('srsControls');
+    if (srsControls) srsControls.classList.add('hidden');
+
+    const actionBtn = document.getElementById('actionBtn');
+    if (actionBtn) actionBtn.style.display = 'block';
+
+    const content = document.getElementById('learningContent');
+    if (!content) return;
+    content.classList.remove('hidden');
+
+    // Deste bittiyse tamamlama ekranını göster
+    if (!window.state.deck || window.state.deckPos >= window.state.deck.length) {
+        window.showCompletion();
+        return;
+    }
+
+    const card = window.state.deck[window.state.deckPos];
+    window.state.currentCardData = card;
+    window.state.currentCardKey = card.id;
+
+    if (window.updateHeaderStatus) window.updateHeaderStatus();
+
+    const isTrDe = window.data.settings.conversionMode === 'tr-de';
+    const question = isTrDe ? card.tr : card.de;
+    const answer = isTrDe ? card.de : card.tr;
+
+    // DÜZENLEME: İpucu metnini hazırla
+    let hintText = card.hint || (window.data.hints && window.data.hints.sentences ? window.data.hints.sentences[card.id] : "İpucu yok.");
+    hintText = (hintText || "İpucu yok.").replace(/\n/g, '<br>');
+
+    // Arayüzü oluştur
+    content.innerHTML = `
+        <div class="sentence" style="margin-bottom:15px; min-height:80px; display:flex; flex-direction:column; justify-content:center;">
+            <span style="color:var(--text-muted); font-size:0.9em; margin-bottom:5px;">Soru:</span>
+            <strong style="font-size:1.4em; color:var(--text-main);">${question}</strong>
+        </div>
+        <div id="answerArea" class="answer-frame" style="margin-top:20px; border-top:2px solid var(--primary); padding:20px; min-height:100px; display:flex; justify-content:center; align-items:center; background:var(--bg-card); border-radius:12px; box-shadow:var(--shadow-soft);">
+            <strong style="font-size:1.5em; color:var(--primary);" id="answerText"></strong>
+        </div>
+        <div id="hintContainer" style="display:none; margin:10px auto; padding:15px; background:#fff9c4; color:#5f5a08; border-radius:8px; width:95%; border:1px solid #fff59d; text-align:left; font-size:0.95rem;">
+            💡 ${hintText}
+        </div>
+    `;
+
+    // Butonun "GÖSTER" eylemi
+    actionBtn.textContent = 'GÖSTER';
+    actionBtn.onclick = function() {
+        const answerText = document.getElementById('answerText');
+        if (answerText) {
+            answerText.textContent = answer;
+            answerText.style.opacity = '0';
+            answerText.style.animation = 'none';
+            setTimeout(() => {
+                answerText.style.animation = 'slideInAnswer 0.5s ease-out forwards';
+                answerText.style.opacity = '1';
+            }, 10);
+        }
+
+        if (isTrDe && window.state.autoPlayAudio) window.playCurrentSentence('de');
+
+        // Butonu "GEÇ" moduna al
+        actionBtn.textContent = 'GEÇ ⏩';
+        actionBtn.onclick = function() {
+            window.state.deckPos++;
+            window.renderFlashcard(); // Tekrar bu fonksiyonu çağır
+        };
+    };
+
+    // YENİ: Akordiyon menüsünü doldur ve göster
+    const accordion = document.getElementById('learningControlsAccordion');
+    if (accordion) accordion.style.display = 'block';
+
+    // DÜZENLEME: Panelleri sıfırlamak yerine, mevcut durumu koru.
+    populateAccordionPanels();
+    if (window.state.activeLearningPanel) {
+        document.getElementById(window.state.activeLearningPanel)?.classList.remove('hidden');
+        document.querySelector(`[onclick*="'${window.state.activeLearningPanel}'"]`)?.classList.add('active-control');
+        if (window.state.activeLearningPanel === 'panelHint' && document.getElementById('hintContainer')) document.getElementById('hintContainer').style.display = 'block';
+    }
+};
+
+/**
+ * YENİ: Boşluk tuşuna basıldığında "Göster/Geç" eylemini tetikler.
+ * Sadece `flashcard` modunda aktiftir.
+ */
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Space' && window.state.mode === 'flashcard' && document.getElementById('actionBtn')) {
+        event.preventDefault(); // Sayfanın kaymasını engelle
+        document.getElementById('actionBtn').click();
+    }
+});
+
 window.renderSentence = function() {
     // accordion.style.display = 'none' SATIRINI SIFIRLAMAK İÇİN EKLENDİ
     const accordion = document.getElementById('learningControlsAccordion');
@@ -1382,20 +1548,27 @@ window.renderSentence = function() {
             
             if (isTrDe && window.state.autoPlayAudio) window.playCurrentSentence('de');
             
+            // DÜZENLEME: SRS butonlarını sadece 'tekrar' modu dışındayken göster.
             if (!window.state.tekrarStatus) {
+                // Normal "Cümle Ayrıştır" modundaysak, SRS butonlarını göster.
                 actionBtn.style.display = 'none';
                 if (srsControls) { srsControls.classList.remove('hidden'); srsControls.style.display = 'grid'; }
             } else {
-                window.state.deckPos++; 
-                setTimeout(window.renderSentence, 1500);
+                // Tekrar modunda ise otomatik ilerle
+                window.state.deckPos++; setTimeout(window.renderSentence, 1500);
             }
         };
     }
     
+    // DÜZENLEME: Panelleri sıfırlamak yerine, mevcut durumu koru.
     populateAccordionPanels();
-    // Tüm panelleri kapatarak başla
-    ['panelHint', 'panelListen', 'panelEdit'].forEach(pId => document.getElementById(pId)?.classList.add('hidden'));
-    document.querySelectorAll('#learningControlsAccordion .btn').forEach(b => b.classList.remove('active-control'));
+    if (window.state.activeLearningPanel) {
+        document.getElementById(window.state.activeLearningPanel)?.classList.remove('hidden');
+        document.querySelector(`[onclick*="'${window.state.activeLearningPanel}'"]`)?.classList.add('active-control');
+        // Eğer ipucu paneli açıksa ve cümle ipucu gösteriliyorsa, onu da görünür yap.
+        const hintContainer = document.getElementById('hintContainer');
+        if (window.state.activeLearningPanel === 'panelHint' && hintContainer && hintContainer.style.display === 'block') hintContainer.style.display = 'block';
+    }
 };
 
 // Bu yardımcı fonksiyonun olduğundan emin olun
@@ -1722,12 +1895,26 @@ window.startStudy = function(sentences, vId, tId) {
     window.state.tempDeck = allCards;
 
     // 3. Seçim Modalını Aç (Paralel mi, Çalışma mı?)
-    if (window.openTopicActionModal) {
-        window.openTopicActionModal(allCards, vId, tId);
-    } else {
-        // Eğer modal fonksiyonu yoksa mecburen direkt başlat (Fallback)
-        console.warn("Modal bulunamadı, direkt başlatılıyor.");
-        window.confirmStudyMode('study');
+    // DÜZENLEME: Seçilen moda göre doğru başlatma fonksiyonunu çağır.
+    const mode = window.state.mode;
+    console.log(`▶️ Konu seçildi, mod başlatılıyor: ${mode}`);
+
+    // Veriyi ana desteye yükle
+    window.state.deck = window.state.tempDeck;
+    window.state.deckPos = 0;
+
+    if (mode === 'parallel_select') {
+        document.getElementById('modalParallelModeSelect').style.display = 'flex';
+    } else if (mode === 'cloze') {
+        window.startQuizMode('cloze');
+    } else if (mode === 'wordorder') {
+        window.startQuizMode('wordorder');
+    } else if (mode === 'study') { // Varsayılan 'study' modu (Cümle Ayrıştır)
+        window.showView('learningView');
+        window.renderSentence();
+    } else if (mode === 'flashcard') { // YENİ: Göster-Geç modu için özel fonksiyon
+        window.showView('learningView');
+        window.renderFlashcard();
     }
 };
 /* --------------------------------------------------------------------------
@@ -1808,9 +1995,6 @@ window.startQuizMode = function(mode) {
         window.renderSentence();
     }
 };
-
-/* --- QUIZ RENDERERS (Simplied for brevity, logic preserved) --- */
-
 
 
 // (Cloze ve WordOrder fonksiyonları benzer şekilde tekilleştirildi varsayılıyor, yer darlığından kısalttım)
@@ -2079,6 +2263,11 @@ window.stopParallelPlayer = function(finished = false) {
     clearTimeout(window.state.parallelTimer);
     const headerInfo = document.getElementById('learningHeaderInfo');
     if(headerInfo) headerInfo.style.display = 'none';
+
+    // DÜZELTME: Moddan çıkarken uygulama durumunu sıfırla.
+    // Bu, bir sonraki konu seçildiğinde uygulamanın kilitlenmesini önler.
+    window.state.mode = 'study'; // Varsayılan moda dön
+
     try { window.speechSynthesis.cancel(); } catch(e) {}
 
     // Yönlendirme mantığı
@@ -2549,4 +2738,3 @@ window.closeGuideModal = function() {
         setTimeout(() => modal.classList.add('hidden'), 300);
     }
 };
-
