@@ -273,33 +273,30 @@ window.togglePanel = function(panelId, buttonElement, containerSelector = null) 
     const isOpening = panel.classList.contains('hidden');
 
     // Kapsayıcı içindeki TÜM panelleri (genellikle 'div'ler) ve butonları bul ve kapat/sıfırla.
-    window.state.activeLearningPanel = null; // Önce sıfırla
-    // Bu yaklaşım, panellerin özel bir sınıfa sahip olmasını gerektirmez.
-    const allPanels = container.querySelectorAll('.panel, .accordion-panel, [id^="pnl"]'); // Birden fazla olasılığı hedefler
-    const allButtons = container.querySelectorAll('.btn, .accordion-btn');
-
-    allPanels.forEach(p => p.classList.add('hidden'));
-    allButtons.forEach(b => b.classList.remove('active-control'));
-
-    // Eğer tıklanan panel zaten açıksa, amacımız sadece onu kapatmaktı. İşlem tamam.
-    if (!isOpening) {
-        // Özel durum: Cümle ipucunu gizle
-        const hintContainer = document.getElementById('hintContainer');
-        if (hintContainer) hintContainer.style.display = 'none';
+    // Eğer tıklanan panel zaten açıksa (yani gizli değilse), sadece onu ve ilgili her şeyi kapat.
+    if (!panel.classList.contains('hidden')) {
+        panel.classList.add('hidden');
+        if (buttonElement) buttonElement.classList.remove('active-control');
+        window.state.activeLearningPanel = null;
+        // İpucu paneli kapanıyorsa, cümle ipucunu da gizle
+        if (panelId === 'panelHint') {
+            const hintContainer = document.getElementById('hintContainer');
+            if (hintContainer) hintContainer.style.display = 'none';
+        }
         return;
     }
 
-    // Yeni paneli aç ve ilgili butonu aktif et
+    // Eğer tıklanan panel kapalıysa, önce diğer tüm panelleri kapat.
+    const allPanels = container.querySelectorAll('.panel, .accordion-panel, [id^="pnl"]');
+    const allButtons = container.querySelectorAll('.btn, .accordion-btn');
+    allPanels.forEach(p => p.classList.add('hidden'));
+    allButtons.forEach(b => b.classList.remove('active-control'));
+
+    // Şimdi tıklanan paneli aç ve durumunu kaydet.
     panel.classList.remove('hidden');
     if (buttonElement) {
-        window.state.activeLearningPanel = panelId; // Yeni durumu kaydet
         buttonElement.classList.add('active-control');
-    }
-
-    // Özel durum: Eğer ipucu paneli açılıyorsa, ilgili ipucu kutusunu da göster.
-    if (panelId === 'panelHint') {
-        const hintContainer = document.getElementById('hintContainer');
-        if (hintContainer) hintContainer.style.display = 'block';
+        window.state.activeLearningPanel = panelId; // Yeni durumu kaydet
     }
 };
 
