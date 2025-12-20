@@ -337,7 +337,7 @@ window.installPWA = async function() {
    3. BOOT / DATA LOAD / INIT
    -------------------------------------------------------------------------- */
 window.loadServerData = async function() {
-    const jsonFileName = 'verbmatrix_data.json';
+    const jsonFileName = 'verbmatrix_data.json'; 
     const url = `./${jsonFileName}?v=${new Date().getTime()}`;
     try {
         const localBackup = localStorage.getItem('verbmatrix_full_data');
@@ -515,7 +515,10 @@ window.speakText = function(text, lang, cb) {
     try {
         window.speechSynthesis.cancel(); // Çakışmayı önle
 
-        const u = new SpeechSynthesisUtterance(text);
+        // YENİ: Metindeki parantez içlerini ve parantezleri kaldır.
+        const cleanedText = text.replace(/\(.*?\)/g, '').trim();
+
+        const u = new SpeechSynthesisUtterance(cleanedText);
         u.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
         u.rate = window.state.slowMode ? 0.7 : 0.9;
 
@@ -552,6 +555,49 @@ window.speakText = function(text, lang, cb) {
         // Hata durumunda da sesi geri açmalıyız
         if (audio && !audio.paused) audio.volume = 0.5;
         if (typeof cb === 'function') cb();
+    }
+};
+
+/**
+ * YENİ: Sadece Paralel Dinleme modu için özel sesli okuma fonksiyonu.
+ * Bu fonksiyon, normal speakText'ten bağımsız çalışarak olası çakışmaları önler.
+ * @param {string} text Okunacak metin.
+ * @param {string} lang 'tr' veya 'de' dil kodu.
+ * @param {function} onEnd Okuma bittiğinde çalışacak callback fonksiyonu.
+ */
+window.speakParallel = function(text, lang, onEnd) {
+    if (!window.state.speechSynthesisAvailable || !window.speechSynthesis) {
+        if (typeof onEnd === 'function') onEnd();
+        return;
+    }
+
+    // Müzik sesini kıs
+    const audio = document.getElementById('bgMusic');
+    if (audio && !audio.paused) {
+        audio.volume = window.musicState ? window.musicState.duckVolume : 0.1;
+    }
+
+    try {
+        const cleanedText = text.replace(/\(.*?\)/g, '').trim();
+        const utterance = new SpeechSynthesisUtterance(cleanedText);
+        utterance.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
+        utterance.rate = window.state.slowMode ? 0.7 : 0.9;
+
+        utterance.onend = () => {
+            if (audio && !audio.paused) {
+                audio.volume = window.musicState ? window.musicState.baseVolume : 0.5;
+            }
+            if (typeof onEnd === 'function') onEnd();
+        };
+
+        utterance.onerror = (e) => {
+            console.error("Paralel TTS Hatası:", e);
+            utterance.onend(); // Hata durumunda bile callback'i çalıştır.
+        };
+
+        window.speechSynthesis.speak(utterance);
+    } catch (e) {
+        console.error("Paralel TTS başlatma hatası:", e);
     }
 };
 
@@ -1880,6 +1926,10 @@ window.startStudy = function(sentences, vId, tId) {
         return; 
     }
 
+    // YENİ: Seçilen konu ve fiil ID'lerini kaydet (Paralel oynatıcı için kritik!)
+    window.state.tempVerbId = vId;
+    window.state.tempTopicId = tId;
+
     // 1. Kartları Hazırla (SRS ve Override verilerini birleştirerek)
     const allCards = sentences.map((s, i) => { 
         const id = `${vId}_s${tId}_${i}`; 
@@ -2086,15 +2136,34 @@ window.buildAndStartParallelPlayer = function(parallelMode) {
     let finalDeck = [];
     // DÜZELTME: tempVerbId yerine daha güvenilir olan currentVerbId'yi kullan.
     const vId = window.state.currentVerbId; 
-    const tId = window.state.tempTopicId; // Bu doğru, çünkü konu seçiminden geliyor.
+    const tId = window.state.tempTopicId; 
+
+    if (!tId) {
+        alert("Hata: Konu seçimi algılanamadı. Lütfen tekrar deneyin.");
+        return;
+    }
+
     const groupId = window.state.currentGroupId; // Bu da doğru, fiil menüsünden geliyor.
+    const currentClassId = window.data.settings.currentClass || 'A1';
+    const isMixedMode = (currentClassId === 'K' || currentClassId === 'MIXED');
 
     if (parallelMode === 'fixed_verb') {
         // FİİL SABİT, KONULAR SIRAYLA
-        const topics = window.data.topics[window.data.settings.currentClass] || {};
-        const topicIds = Object.keys(topics).sort((a, b) => parseInt(a) - parseInt(b));
+        const topicSource = isMixedMode ? window.data.topicPool : window.data.topics[currentClassId];
+        if (!topicSource) {
+            alert("Hata: Konu listesi bulunamadı.");
+            return;
+        }
 
-        topicIds.forEach(currentTId => {
+        let allTopicIds = Object.keys(topicSource).map(Number).sort((a, b) => a - b);
+        if (isMixedMode) {
+            allTopicIds = allTopicIds.filter(id => window.starsData && window.starsData[id]);
+        }
+
+        const startIndex = allTopicIds.indexOf(Number(tId));
+        const topicsToPlay = (startIndex !== -1) ? allTopicIds.slice(startIndex) : allTopicIds;
+
+        topicsToPlay.forEach(currentTId => {
             const key = `${vId}_s${currentTId}`;
             const sentences = window.data.content[key];
             if (sentences) {
@@ -2108,18 +2177,20 @@ window.buildAndStartParallelPlayer = function(parallelMode) {
 
     } else if (parallelMode === 'fixed_topic') {
         // KONU SABİT, FİİLLER SIRAYLA
-        const verbsInGroup = window.data.verbs[groupId] || [];
-        verbsInGroup.forEach(verb => {
-            const key = `${verb.id}_s${tId}`;
-            const sentences = window.data.content[key];
-            if (sentences) {
-                sentences.forEach((s, i) => {
-                    const id = `${key}_${i}`;
-                    const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {};
-                    finalDeck.push({ ...s, ...ovr, id: id });
-                });
-            }
-        });
+        // DÜZELTME: Fiil listesini tüm gruplardan al, sadece mevcut gruptan değil. Bu, karma modda da çalışmasını sağlar.
+        const allVerbs = Object.values(window.data.verbs).flat();
+        const verbsInGroup = allVerbs.filter(v => window.data.groups.find(g => g.id === groupId)?.verb_ids?.includes(v.id));
+
+        // Eğer grup bazlı fiil bulamazsa, tüm fiilleri kullan (fallback)
+        const verbList = verbsInGroup.length > 0 ? verbsInGroup : allVerbs;
+
+        verbList.forEach(verb => {
+             const key = `${verb.id}_s${tId}`;
+             const sentences = window.data.content[key];
+             if (sentences) {
+                 finalDeck.push(...sentences.map((s, i) => ({ ...s, id: `${key}_${i}` })));
+             }
+         });
     }
 
     if (finalDeck.length === 0) {
@@ -2213,20 +2284,20 @@ window.processParallelCard = function() { // Bu fonksiyonu tekrar tanımlıyoruz
     const L1 = isTrDe ? card.tr : card.de; const L1_Code = isTrDe ? 'tr' : 'de';
     const L2 = isTrDe ? card.de : card.tr; const L2_Code = isTrDe ? 'de' : 'tr';
 
-    // 1. L1 Göster ve Oku
+    // 1. L1'i Göster ve Oku (YENİ TTS FONKSİYONU İLE)
     status.innerText = (L1_Code === 'tr' ? "🇹🇷 TÜRKÇE" : "🇩🇪 ALMANCA"); status.style.color = "var(--primary)";
     display.innerHTML = L1;
     
-    window.speakText(L1, L1_Code, () => {
+    window.speakParallel(L1, L1_Code, () => {
         if(!window.state.parallelPlaying) return;
         // 2. Bekle
         window.state.parallelTimer = setTimeout(() => {
             if(!window.state.parallelPlaying) return;
-            // 3. L2 Göster ve Oku
+            // 3. L2'yi Göster ve Oku (YENİ TTS FONKSİYONU İLE)
             status.innerText = (L2_Code === 'tr' ? "🇹🇷 TÜRKÇE" : "🇩🇪 ALMANCA"); status.style.color = "var(--success)";
             display.innerHTML = L2;
             
-            window.speakText(L2, L2_Code, () => {
+            window.speakParallel(L2, L2_Code, () => {
                 if(!window.state.parallelPlaying) return;
                 // 4. Kısa bekle ve geç
                 window.state.parallelTimer = setTimeout(() => {
@@ -2261,9 +2332,11 @@ window.stopParallelPlayer = function(finished = false) {
     const headerInfo = document.getElementById('learningHeaderInfo');
     if(headerInfo) headerInfo.style.display = 'none';
 
-    // DÜZELTME: Moddan çıkarken uygulama durumunu sıfırla.
-    // Bu, bir sonraki konu seçildiğinde uygulamanın kilitlenmesini önler.
-    window.state.mode = 'study'; // Varsayılan moda dön
+    // DÜZELTME: Çıkış yapıldığında modu 'parallel_select' yap.
+    // Böylece kullanıcı başka bir konuya tıkladığında yine paralel dinleme modalı açılır.
+    if (!window.state.tekrarStatus) {
+        window.state.mode = 'parallel_select';
+    }
 
     try { window.speechSynthesis.cancel(); } catch(e) {}
 
@@ -2272,17 +2345,13 @@ window.stopParallelPlayer = function(finished = false) {
         // Otomatik bitiş
         if (window.state.tekrarStatus) {
             try { alert("Tekrar tamamlandı!"); } catch(e) {}
-            window.showView('tekrarModeMenu');
+            window.goBackInHistory(); // Bir önceki menüye dön
         } else {
             window.findNextLearningUnit();
         }
     } else {
         // Kullanıcı manuel çıkış yaptı
-        if (window.state.tekrarStatus) {
-            window.showView('tekrarModeMenu');
-        } else {
-            window.showView('sectionMenu');
-        }
+        window.goBackInHistory();
     }
 };
 
