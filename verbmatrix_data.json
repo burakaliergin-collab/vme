@@ -14188,8 +14188,8 @@
       {
         "tr": "Ben bilekliği kaybediyorum",
         "de": "Ich verliere das Armband"
-      },
-        ],
+      }
+     ],
      "v40_s4": [
       {
         "tr": "Biz telefonları kaybediyoruz",
@@ -20322,6 +20322,3134 @@
       {
         "tr": "Nasıl kişiyi affediyorsun?",
         "de": "Wie verzeihst du der Person?"
+      }
+      ],
+      "v61_s1": [
+      {
+        "tr": "Ben alıyorum.",
+        "de": "Ich hole ab."
+      },
+      {
+        "tr": "Sen alıyorsun.",
+        "de": "Du holst ab."
+      },
+      {
+        "tr": "O (erkek) alıyor.",
+        "de": "Er holt ab."
+      },
+      {
+        "tr": "Biz alıyoruz.",
+        "de": "Wir holen ab."
+      },
+      {
+        "tr": "Siz (çoğul) alıyorsunuz.",
+        "de": "Ihr holt ab."
+      },
+      {
+        "tr": "Onlar alıyorlar.",
+        "de": "Sie holen ab."
+      }
+    ],
+    "v61_s2": [
+      {
+        "tr": "Ben onu (zarfı) alıyorum.",
+        "de": "Ich hole ihn ab."
+      },
+      {
+        "tr": "Sen onu (paleti) alıyorsun.",
+        "de": "Du holst sie ab."
+      },
+      {
+        "tr": "O (kadın) onu (bagajı) alıyor.",
+        "de": "Sie holt es ab."
+      },
+      {
+        "tr": "Biz onları (zarfı) alıyoruz.",
+        "de": "Wir holen ihn ab."
+      },
+      {
+        "tr": "Siz (çoğul) onu (zarfı) alıyorsunuz.",
+        "de": "Ihr holt ihn ab."
+      }
+    ],
+    "v61_s3": [
+      {
+        "tr": "Biz zarfı alıyoruz.",
+        "de": "Wir holen den Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) paleti alıyorsunuz.",
+        "de": "Ihr holt die Palette ab."
+      },
+      {
+        "tr": "Onlar bagajı alıyorlar.",
+        "de": "Sie holen das Gepäck ab."
+      },
+      {
+        "tr": "Ben zarfı alıyorum.",
+        "de": "Ich hole den Umschlag ab."
+      },
+      {
+        "tr": "Sen paleti alıyor musun?",
+        "de": "Holst du die Palette ab?"
+      },
+      {
+        "tr": "O (erkek) bagajı alıyor.",
+        "de": "Er holt das Gepäck ab."
+      }
+    ],
+    "v61_s4": [
+      {
+        "tr": "Biz zarfları alıyoruz.",
+        "de": "Wir holen die Umschläge ab."
+      },
+      {
+        "tr": "Siz (çoğul) paletleri alıyorsunuz.",
+        "de": "Ihr holt die Paletten ab."
+      },
+      {
+        "tr": "Onlar bagajları alıyorlar.",
+        "de": "Sie holen die Gepäckstücke ab."
+      },
+      {
+        "tr": "Ben paketleri alıyorum.",
+        "de": "Ich hole die Pakete ab."
+      },
+      {
+        "tr": "Sen kutuları alıyor musun?",
+        "de": "Holst du die Kartons ab?"
+      }
+    ],
+    "v61_s5": [
+      {
+        "tr": "(Sen) Onu (zarfı) al!",
+        "de": "Hol ihn ab!"
+      },
+      {
+        "tr": "(Siz çoğul) Onu (paleti) alın!",
+        "de": "Holt sie ab!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen onu (bagajı) alın!",
+        "de": "Holen Sie es bitte ab!"
+      },
+      {
+        "tr": "(Sen) Zarfı alma!",
+        "de": "Hol den Umschlag nicht ab!"
+      }
+    ],
+    "v61_s6": [
+      {
+        "tr": "Biz büyük zarfı alıyoruz.",
+        "de": "Wir holen den großen Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) küçük paleti alıyorsunuz.",
+        "de": "Ihr holt die kleine Palette ab."
+      },
+      {
+        "tr": "Onlar ağır bagajı alıyorlar.",
+        "de": "Sie holen das schwere Gepäck ab."
+      },
+      {
+        "tr": "Ben hafif zarfı alıyorum.",
+        "de": "Ich hole den leichten Umschlag ab."
+      },
+      {
+        "tr": "Sen büyük paletleri alıyor musun?",
+        "de": "Holst du die großen Paletten ab?"
+      },
+      {
+        "tr": "O (erkek) küçük bagajları alıyor.",
+        "de": "Er holt die kleinen Gepäckstücke ab."
+      }
+    ],
+    "v61_s7": [
+      {
+        "tr": "Ben zarfımı alıyorum.",
+        "de": "Ich hole meinen Umschlag ab."
+      },
+      {
+        "tr": "Sen paletini alıyor musun?",
+        "de": "Holst du deine Palette ab?"
+      },
+      {
+        "tr": "O (kadın) bagajını alıyor.",
+        "de": "Sie holt ihr Gepäck ab."
+      },
+      {
+        "tr": "Biz zarfımızı alıyoruz.",
+        "de": "Wir holen unseren Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) paletlerinizi alıyorsunuz.",
+        "de": "Ihr holt eure Paletten ab."
+      },
+      {
+        "tr": "Onlar (resmi) bagajınızı alıyorlar.",
+        "de": "Sie holen Ihr Gepäck ab."
+      }
+    ],
+    "v61_s8": [
+      {
+        "tr": "Zarfı kim alıyor?",
+        "de": "Wer holt den Umschlag ab?"
+      },
+      {
+        "tr": "Neyi alıyorsun?",
+        "de": "Was holst du ab?"
+      },
+      {
+        "tr": "Bagajı ne zaman alıyor?",
+        "de": "Wann holt er das Gepäck ab?"
+      },
+      {
+        "tr": "Paleti nereden alıyoruz?",
+        "de": "Wo holen wir die Palette ab?"
+      },
+      {
+        "tr": "Neden onu (zarfı) alıyorsunuz?",
+        "de": "Warum holt ihr ihn ab?"
+      },
+      {
+        "tr": "Onu (paleti) nasıl alıyorlar?",
+        "de": "Wie holen sie sie ab?"
+      }
+    ],
+    "v61_s9": [
+      {
+        "tr": "Ben bir zarf almıyorum.",
+        "de": "Ich hole keinen Umschlag ab."
+      },
+      {
+        "tr": "Sen bir palet almıyorsun.",
+        "de": "Du holst keine Palette ab."
+      },
+      {
+        "tr": "O (erkek) bir bagaj almıyor.",
+        "de": "Er holt kein Gepäck ab."
+      },
+      {
+        "tr": "Biz zarfları almıyoruz. (Hiç zarf)",
+        "de": "Wir holen die Umschläge nicht ab."
+      },
+      {
+        "tr": "Siz (çoğul) paleti almıyorsunuz.",
+        "de": "Ihr holt die Palette nicht ab."
+      },
+      {
+        "tr": "Onlar bagajı bugün almıyorlar.",
+        "de": "Sie holen das Gepäck nicht heute ab."
+      },
+      {
+        "tr": "Ben almıyorum.",
+        "de": "Ich hole nicht ab."
+      },
+      {
+        "tr": "Sen onu (zarfı) almıyorsun.",
+        "de": "Du holst ihn nicht ab."
+      }
+    ],
+    "v61_s10": [
+      {
+        "tr": "Ben paketi postaneden alıyorum.",
+        "de": "Ich hole das Paket von der Post ab."
+      },
+      {
+        "tr": "Sen zarfı ofisten alıyorsun.",
+        "de": "Du holst den Umschlag aus dem Büro ab."
+      },
+      {
+        "tr": "O (erkek) paleti istasyondan alıyor.",
+        "de": "Er holt die Palette vom Bahnhof ab."
+      },
+      {
+        "tr": "Biz bagajı havaalanından alıyoruz.",
+        "de": "Wir holen das Gepäck vom Flughafen ab."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriyi girişten alıyorsunuz.",
+        "de": "Ihr holt den Kunden am Eingang ab."
+      },
+      {
+        "tr": "Onlar (resmi) malları resepsiyondan alıyorlar.",
+        "de": "Sie holen die Waren an der Rezeption ab."
+      }
+    ],
+    "v61_s11": [
+      {
+        "tr": "Ben onu (zarfı) bugün alıyorum.",
+        "de": "Ich hole ihn heute ab."
+      },
+      {
+        "tr": "Sen onu (paleti) şimdi alıyorsun.",
+        "de": "Du holst sie jetzt ab."
+      },
+      {
+        "tr": "O (erkek) onu (bagajı) hemen alıyor.",
+        "de": "Er holt es sofort ab."
+      },
+      {
+        "tr": "Biz onu (zarfı) yarın alıyoruz.",
+        "de": "Wir holen ihn morgen ab."
+      },
+      {
+        "tr": "Siz (çoğul) onu (paleti) daha sonra alıyorsunuz.",
+        "de": "Ihr holt sie später ab."
+      },
+      {
+        "tr": "Onlar onu (bagajı) hızlıca alıyorlar.",
+        "de": "Sie holen es schnell ab."
+      }
+    ],
+    "v61_s12": [
+      {
+        "tr": "Ben zarfı aldım.",
+        "de": "Ich habe den Umschlag abgeholt."
+      },
+      {
+        "tr": "Paleti aldın mı?",
+        "de": "Hast du die Palette abgeholt?"
+      },
+      {
+        "tr": "Biz bagajı aldık.",
+        "de": "Wir haben das Gepäck abgeholt."
+      },
+      {
+        "tr": "Siz (çoğul) onları (paketleri) aldınız.",
+        "de": "Ihr habt sie abgeholt."
+      },
+      {
+        "tr": "Ben zarfı aldım (preteritum).",
+        "de": "Ich holte den Umschlag ab."
+      },
+      {
+        "tr": "O (kadın) paleti aldı (geçmiş).",
+        "de": "Sie holte die Palette ab."
+      },
+      {
+        "tr": "Biz bagajı aldık (geçmiş).",
+        "de": "Wir holten das Gepäck ab."
+      },
+      {
+        "tr": "Onlar onu (zarfı) aldılar (geçmiş).",
+        "de": "Sie holten ihn ab."
+      }
+    ],
+    "v61_s13": [
+      {
+        "tr": "Ben zarfı almalıyım.",
+        "de": "Ich muss den Umschlag abholen."
+      },
+      {
+        "tr": "Paleti alabilir misin?",
+        "de": "Kannst du die Palette abholen?"
+      },
+      {
+        "tr": "O (erkek) bagajı almak istiyor.",
+        "de": "Er will das Gepäck abholen."
+      },
+      {
+        "tr": "Biz onu (zarfı) almalıyız.",
+        "de": "Wir sollen ihn abholen."
+      },
+      {
+        "tr": "Siz (çoğul) paleti alabilirsiniz (izniniz var).",
+        "de": "Ihr dürft die Palette abholen."
+      },
+      {
+        "tr": "Onlar (resmi) bagajı almak istiyorlar (nazik).",
+        "de": "Sie möchten das Gepäck abholen."
+      }
+    ],
+    "v62_s1": [
+      {
+        "tr": "Ben yardım ediyorum.",
+        "de": "Ich helfe."
+      },
+      {
+        "tr": "Sen yardım ediyorsun.",
+        "de": "Du hilfst."
+      },
+      {
+        "tr": "O (erkek) yardım ediyor.",
+        "de": "Er hilft."
+      },
+      {
+        "tr": "Biz yardım ediyoruz.",
+        "de": "Wir helfen."
+      },
+      {
+        "tr": "Siz (çoğul) yardım ediyorsunuz.",
+        "de": "Ihr helft."
+      },
+      {
+        "tr": "Onlar yardım ediyorlar.",
+        "de": "Sie helfen."
+      }
+    ],
+    "v62_s2": [
+      {
+        "tr": "Ben ona (erkeğe/müşteriye) yardım ediyorum.",
+        "de": "Ich helfe ihm."
+      },
+      {
+        "tr": "Sen ona (kadına/kişiye) yardım ediyorsun.",
+        "de": "Du hilfst ihr."
+      },
+      {
+        "tr": "O (kadın) ona (çocuğa) yardım ediyor.",
+        "de": "Sie hilft ihm."
+      },
+      {
+        "tr": "Biz onlara (müşterilere) yardım ediyoruz.",
+        "de": "Wir helfen ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) bize yardım ediyorsunuz.",
+        "de": "Ihr helft uns."
+      }
+    ],
+    "v62_s3": [
+      {
+        "tr": "Ben müşteriye yardım ediyorum.",
+        "de": "Ich helfe dem Kunden."
+      },
+      {
+        "tr": "Sen kişiye yardım ediyorsun.",
+        "de": "Du hilfst der Person."
+      },
+      {
+        "tr": "O (erkek) çocuğa yardım ediyor.",
+        "de": "Er hilft dem Kind."
+      },
+      {
+        "tr": "Biz müşteriye yardım ediyoruz.",
+        "de": "Wir helfen dem Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) kişiye yardım ediyor musunuz?",
+        "de": "Helft ihr der Person?"
+      },
+      {
+        "tr": "Onlar (resmi) çocuğa yardım ediyorlar.",
+        "de": "Sie helfen dem Kind."
+      }
+    ],
+    "v62_s4": [
+      {
+        "tr": "Biz müşterilere yardım ediyoruz.",
+        "de": "Wir helfen den Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) kişilere yardım ediyorsunuz.",
+        "de": "Ihr helft den Personen."
+      },
+      {
+        "tr": "Onlar çocuklara yardım ediyorlar.",
+        "de": "Sie helfen den Kindern."
+      },
+      {
+        "tr": "Ben meslektaşlara yardım ediyorum.",
+        "de": "Ich helfe den Kollegen."
+      },
+      {
+        "tr": "Sen kadınlara yardım ediyorsun.",
+        "de": "Du hilfst den Frauen."
+      },
+      {
+        "tr": "O (erkek) adamlara yardım ediyor.",
+        "de": "Er hilft den Männern."
+      }
+    ],
+    "v62_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) yardım et!",
+        "de": "Hilf ihm!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) yardım edin!",
+        "de": "Helft ihr!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen çocuğa yardım edin!",
+        "de": "Helfen Sie bitte dem Kind!"
+      },
+      {
+        "tr": "(Sen) Müşteriye yardım etme!",
+        "de": "Hilf dem Kunden nicht!"
+      }
+    ],
+    "v62_s6": [
+      {
+        "tr": "Ben yaşlı müşteriye yardım ediyorum.",
+        "de": "Ich helfe dem alten Kunden."
+      },
+      {
+        "tr": "Sen genç kişiye yardım ediyorsun.",
+        "de": "Du hilfst der jungen Person."
+      },
+      {
+        "tr": "O (erkek) hasta çocuğa yardım ediyor.",
+        "de": "Er hilft dem kranken Kind."
+      },
+      {
+        "tr": "Biz sağlıklı müşteriye yardım ediyoruz.",
+        "de": "Wir helfen dem gesunden Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) yaşlı kişilere yardım ediyorsunuz.",
+        "de": "Ihr helft den alten Personen."
+      },
+      {
+        "tr": "Onlar genç çocuklara yardım ediyorlar.",
+        "de": "Sie helfen den jungen Kindern."
+      }
+    ],
+    "v62_s7": [
+      {
+        "tr": "Ben müşterime yardım ediyorum.",
+        "de": "Ich helfe meinem Kunden."
+      },
+      {
+        "tr": "Sen kişine yardım ediyor musun? (arkadaşına)",
+        "de": "Hilfst du deinem Freund?"
+      },
+      {
+        "tr": "O (kadın) çocuğuna yardım ediyor.",
+        "de": "Sie hilft ihrem Kind."
+      },
+      {
+        "tr": "Biz müşterimize yardım ediyoruz.",
+        "de": "Wir helfen unserem Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) çocuklarınıza yardım ediyorsunuz.",
+        "de": "Ihr helft euren Kindern."
+      },
+      {
+        "tr": "Onlar (resmi) kişinize (çalışanınıza) yardım ediyorlar.",
+        "de": "Sie helfen Ihrer Person."
+      }
+    ],
+    "v62_s8": [
+      {
+        "tr": "Kime yardım ediyorsun?",
+        "de": "Wem hilfst du?"
+      },
+      {
+        "tr": "Müşteriye kim yardım ediyor?",
+        "de": "Wer hilft dem Kunden?"
+      },
+      {
+        "tr": "Çocuğa neden yardım ediyor?",
+        "de": "Warum hilft er dem Kind?"
+      },
+      {
+        "tr": "Onlara (çoğul) nerede yardım ediyoruz?",
+        "de": "Wo helfen wir ihnen?"
+      },
+      {
+        "tr": "Ona (kadına) ne zaman yardım ediyorsunuz (çoğul)?",
+        "de": "Wann helft ihr ihr?"
+      },
+      {
+        "tr": "Ona (erkeğe) nasıl yardım ediyorlar?",
+        "de": "Wie helfen sie ihm?"
+      }
+    ],
+    "v62_s9": [
+      {
+        "tr": "Ben bir müşteriye yardım etmiyorum.",
+        "de": "Ich helfe keinem Kunden."
+      },
+      {
+        "tr": "Sen bir kişiye yardım etmiyorsun.",
+        "de": "Du hilfst keiner Person."
+      },
+      {
+        "tr": "O (erkek) bir çocuğa yardım etmiyor.",
+        "de": "Er hilft keinem Kind."
+      },
+      {
+        "tr": "Biz çocuklara yardım etmiyoruz. (Hiç çocuğa)",
+        "de": "Wir helfen keinen Kindern."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriye yardım etmiyorsunuz.",
+        "de": "Ihr helft dem Kunden nicht."
+      },
+      {
+        "tr": "Onlar ona (kadına) yardım etmiyorlar.",
+        "de": "Sie helfen ihr nicht."
+      },
+      {
+        "tr": "Biz yardım etmiyoruz.",
+        "de": "Wir helfen nicht."
+      },
+      {
+        "tr": "Sen bugün yardım etmiyorsun.",
+        "de": "Du hilfst heute nicht."
+      }
+    ],
+    "v62_s10": [
+      {
+        "tr": "Ben ona (erkeğe) yüklemede yardım ediyorum.",
+        "de": "Ich helfe ihm beim Beladen."
+      },
+      {
+        "tr": "Bana paketlemede yardım eder misin?",
+        "de": "Hilfst du mir beim Packen?"
+      },
+      {
+        "tr": "O (kadın) ona (erkeğe) bavulla yardım ediyor.",
+        "de": "Sie hilft ihm mit dem Koffer."
+      },
+      {
+        "tr": "Biz onlara (çoğul) taşımada yardım ediyoruz.",
+        "de": "Wir helfen ihnen beim Tragen."
+      },
+      {
+        "tr": "Siz (çoğul) ona (kadına) arabada yardım ediyorsunuz.",
+        "de": "Ihr helft ihr im Auto."
+      },
+      {
+        "tr": "Onlar (resmi) bana sorunda yardım ediyorlar.",
+        "de": "Sie helfen mir mit dem Problem."
+      }
+    ],
+    "v62_s11": [
+      {
+        "tr": "Ben müşteriye hemen yardım ediyorum.",
+        "de": "Ich helfe dem Kunden sofort."
+      },
+      {
+        "tr": "Sen ona (kadına) daima yardım edersin.",
+        "de": "Du hilfst ihr immer."
+      },
+      {
+        "tr": "O (erkek) ona (çocuğa) memnuniyetle yardım ediyor.",
+        "de": "Er hilft dem Kind gerne."
+      },
+      {
+        "tr": "Biz orada yardım ediyoruz.",
+        "de": "Wir helfen dort."
+      },
+      {
+        "tr": "Siz (çoğul) sık sık yardım ediyor musunuz?",
+        "de": "Helft ihr oft?"
+      },
+      {
+        "tr": "Onlar yarın yardım ediyorlar.",
+        "de": "Sie helfen morgen."
+      }
+    ],
+    "v62_s12": [
+      {
+        "tr": "Ben müşteriye yardım ettim.",
+        "de": "Ich habe dem Kunden geholfen."
+      },
+      {
+        "tr": "Ona (kadına) yardım ettin mi?",
+        "de": "Hast du ihr geholfen?"
+      },
+      {
+        "tr": "Biz çocuğa yardım ettik.",
+        "de": "Wir haben dem Kind geholfen."
+      },
+      {
+        "tr": "Siz (çoğul) onlara (çoğul) yardım ettiniz.",
+        "de": "Ihr habt ihnen geholfen."
+      },
+      {
+        "tr": "Ben müşteriye yardım ettim (geçmiş).",
+        "de": "Ich half dem Kunden."
+      },
+      {
+        "tr": "O (kadın) çocuğa yardım etti (geçmiş).",
+        "de": "Sie half dem Kind."
+      },
+      {
+        "tr": "Biz kişiye yardım ettik (geçmiş).",
+        "de": "Wir halfen der Person."
+      },
+      {
+        "tr": "Onlar (resmi) bana yardım ettiler (geçmiş).",
+        "de": "Sie halfen mir."
+      }
+    ],
+    "v62_s13": [
+      {
+        "tr": "Ben müşteriye yardım etmeliyim.",
+        "de": "Ich muss dem Kunden helfen."
+      },
+      {
+        "tr": "Ona (kadına) yardım edebilir misin?",
+        "de": "Kannst du ihr helfen?"
+      },
+      {
+        "tr": "O (erkek) çocuğa yardım etmek istiyor.",
+        "de": "Er will dem Kind helfen."
+      },
+      {
+        "tr": "Biz onlara (çoğul) yardım etmeliyiz.",
+        "de": "Wir sollen ihnen helfen."
+      },
+      {
+        "tr": "Siz (çoğul) burada yardım edebilirsiniz (izniniz var).",
+        "de": "Ihr dürft hier helfen."
+      },
+      {
+        "tr": "Onlar (resmi) bana yardım etmek istiyorlar (nazik).",
+        "de": "Sie möchten mir helfen."
+      }
+    ],
+    "v63_s1": [
+      {
+        "tr": "Ben teslim ediyorum.",
+        "de": "Ich übergebe."
+      },
+      {
+        "tr": "Sen teslim ediyorsun.",
+        "de": "Du übergibst."
+      },
+      {
+        "tr": "O (erkek) teslim ediyor.",
+        "de": "Er übergibt."
+      },
+      {
+        "tr": "Biz teslim ediyoruz.",
+        "de": "Wir übergeben."
+      },
+      {
+        "tr": "Siz (çoğul) teslim ediyorsunuz.",
+        "de": "Ihr übergebt."
+      },
+      {
+        "tr": "Onlar teslim ediyorlar.",
+        "de": "Sie übergeben."
+      }
+    ],
+    "v63_s2": [
+      {
+        "tr": "Ben onu (kartonu) ona (erkeğe) teslim ediyorum.",
+        "de": "Ich übergebe ihn ihm."
+      },
+      {
+        "tr": "Sen onu (malı) ona (kadına) teslim ediyorsun.",
+        "de": "Du übergibst sie ihr."
+      },
+      {
+        "tr": "O (kadın) onu (paketi) bize teslim ediyor.",
+        "de": "Sie übergibt es uns."
+      },
+      {
+        "tr": "Biz onları (paketleri) onlara (çoğul) teslim ediyoruz.",
+        "de": "Wir übergeben sie ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) onu (kartonu) bana teslim ediyorsunuz.",
+        "de": "Ihr übergebt ihn mir."
+      }
+    ],
+    "v63_s3": [
+      {
+        "tr": "Ben müşteriye kartonu teslim ediyorum.",
+        "de": "Ich übergebe dem Kunden den Karton."
+      },
+      {
+        "tr": "Sen kadına malı teslim ediyorsun.",
+        "de": "Du übergibst der Frau die Ware."
+      },
+      {
+        "tr": "O (erkek) adama paketi teslim ediyor.",
+        "de": "Er übergibt dem Mann das Paket."
+      },
+      {
+        "tr": "Biz müşteriye malı teslim ediyoruz.",
+        "de": "Wir übergeben dem Kunden die Ware."
+      },
+      {
+        "tr": "Siz (çoğul) kadına paketi teslim ediyorsunuz.",
+        "de": "Ihr übergebt der Frau das Paket."
+      },
+      {
+        "tr": "Onlar (resmi) adama kartonu teslim ediyorlar.",
+        "de": "Sie übergeben dem Mann den Karton."
+      }
+    ],
+    "v63_s4": [
+      {
+        "tr": "Biz müşteriye kartonları teslim ediyoruz.",
+        "de": "Wir übergeben dem Kunden die Kartons."
+      },
+      {
+        "tr": "Siz (çoğul) kadına malları teslim ediyorsunuz.",
+        "de": "Ihr übergebt der Frau die Waren."
+      },
+      {
+        "tr": "Onlar adama paketleri teslim ediyorlar.",
+        "de": "Sie übergeben dem Mann die Pakete."
+      },
+      {
+        "tr": "Ben müşterilere kartonları teslim ediyorum.",
+        "de": "Ich übergebe den Kunden die Kartons."
+      },
+      {
+        "tr": "Sen kadınlara malları teslim ediyor musun?",
+        "de": "Übergibst du den Frauen die Waren?"
+      },
+      {
+        "tr": "O (erkek) adamlara paketleri teslim ediyor.",
+        "de": "Er übergibt den Männern die Pakete."
+      }
+    ],
+    "v63_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) kartonu teslim et!",
+        "de": "Übergib ihm den Karton!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) malı teslim edin!",
+        "de": "Übergebt ihr die Ware!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen bana paketi teslim edin!",
+        "de": "Übergeben Sie mir bitte das Paket!"
+      },
+      {
+        "tr": "(Sen) Müşteriye kartonu teslim etme!",
+        "de": "Übergib dem Kunden den Karton nicht!"
+      }
+    ],
+    "v63_s6": [
+      {
+        "tr": "Ben müşteriye büyük kartonu teslim ediyorum.",
+        "de": "Ich übergebe dem Kunden den großen Karton."
+      },
+      {
+        "tr": "Sen kadına küçük malı teslim ediyorsun.",
+        "de": "Du übergibst der Frau die kleine Ware."
+      },
+      {
+        "tr": "O (erkek) adama ağır paketi teslim ediyor.",
+        "de": "Er übergibt dem Mann das schwere Paket."
+      },
+      {
+        "tr": "Biz müşteriye hafif paketi teslim ediyoruz.",
+        "de": "Wir übergeben dem Kunden das leichte Paket."
+      },
+      {
+        "tr": "Siz (çoğul) yaşlı adama (Dat.) paketleri (Akk.) teslim ediyorsunuz.",
+        "de": "Ihr übergebt dem alten Mann die Pakete."
+      },
+      {
+        "tr": "Onlar (resmi) genç kadına (Dat.) büyük malları (Akk.) teslim ediyorlar.",
+        "de": "Sie übergeben der jungen Frau die großen Waren."
+      }
+    ],
+    "v63_s7": [
+      {
+        "tr": "Ben müşterime kartonu teslim ediyorum.",
+        "de": "Ich übergebe meinem Kunden den Karton."
+      },
+      {
+        "tr": "Sen kadına onun (kadının) malını teslim ediyorsun.",
+        "de": "Du übergibst der Frau ihre Ware."
+      },
+      {
+        "tr": "O (erkek) bana senin paketini teslim ediyor.",
+        "de": "Er übergibt mir dein Paket."
+      },
+      {
+        "tr": "Biz müşterimize (Dat.) bizim kartonumuzu (Akk.) teslim ediyoruz.",
+        "de": "Wir übergeben unserem Kunden unseren Karton."
+      },
+      {
+        "tr": "Siz (çoğul) ona (erkeğe) sizin (çoğul) malınızı teslim ediyorsunuz.",
+        "de": "Ihr übergebt ihm eure Ware."
+      },
+      {
+        "tr": "Onlar (resmi) bana sizin (resmi) paketinizi mi teslim ediyorlar?",
+        "de": "Übergeben sie mir Ihr Paket?"
+      }
+    ],
+    "v63_s8": [
+      {
+        "tr": "Müşteriye kartonu kim teslim ediyor?",
+        "de": "Wer übergibt dem Kunden den Karton?"
+      },
+      {
+        "tr": "Kime malı teslim ediyorsun?",
+        "de": "Wem übergibst du die Ware?"
+      },
+      {
+        "tr": "Adama ne teslim ediyor?",
+        "de": "Was übergibt er dem Mann?"
+      },
+      {
+        "tr": "Paketi ne zaman teslim ediyoruz?",
+        "de": "Wann übergeben wir das Paket?"
+      },
+      {
+        "tr": "Kartonu nerede teslim ediyorsunuz (çoğul)?",
+        "de": "Wo übergebt ihr den Karton?"
+      },
+      {
+        "tr": "Neden ona (erkeğe) malı teslim ediyorlar?",
+        "de": "Warum übergeben sie ihm die Ware?"
+      }
+    ],
+    "v63_s9": [
+      {
+        "tr": "Ben müşteriye bir karton teslim etmiyorum.",
+        "de": "Ich übergebe dem Kunden keinen Karton."
+      },
+      {
+        "tr": "Sen kadına bir mal teslim etmiyorsun.",
+        "de": "Du übergibst der Frau keine Ware."
+      },
+      {
+        "tr": "O (erkek) adama bir paket teslim etmiyor.",
+        "de": "Er übergibt dem Mann kein Paket."
+      },
+      {
+        "tr": "Biz hiçbir müşteriye (Dat.) karton teslim etmiyoruz.",
+        "de": "Wir übergeben keinem Kunden Kartons."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriye kartonu teslim etmiyorsunuz.",
+        "de": "Ihr übergebt dem Kunden den Karton nicht."
+      },
+      {
+        "tr": "Onlar (resmi) malı bugün teslim etmiyorlar.",
+        "de": "Sie übergeben die Ware nicht heute."
+      },
+      {
+        "tr": "Biz paketi teslim etmiyoruz.",
+        "de": "Wir übergeben das Paket nicht."
+      },
+      {
+        "tr": "Sen teslim etmiyorsun.",
+        "de": "Du übergibst nicht."
+      }
+    ],
+    "v63_s10": [
+      {
+        "tr": "Ben paketi kapıda teslim ediyorum.",
+        "de": "Ich übergebe das Paket an der Tür."
+      },
+      {
+        "tr": "Sen kartonu ofiste teslim ediyorsun.",
+        "de": "Du übergibst den Karton im Büro."
+      },
+      {
+        "tr": "O (erkek) malı evin önünde teslim ediyor.",
+        "de": "Er übergibt die Ware vor dem Haus."
+      },
+      {
+        "tr": "Biz paketi imza karşılığında teslim ediyoruz.",
+        "de": "Wir übergeben das Paket gegen Unterschrift."
+      },
+      {
+        "tr": "Siz (çoğul) onu (paketi) saat 10'da teslim ediyorsunuz.",
+        "de": "Ihr übergebt es um 10 Uhr."
+      },
+      {
+        "tr": "Onlar (resmi) malı onay olmadan teslim ediyorlar.",
+        "de": "Sie übergeben die Ware ohne Bestätigung."
+      }
+    ],
+    "v63_s11": [
+      {
+        "tr": "Ben kartonu hemen teslim ediyorum.",
+        "de": "Ich übergebe den Karton sofort."
+      },
+      {
+        "tr": "Sen malı şimdi mi teslim ediyorsun?",
+        "de": "Übergibst du die Ware jetzt?"
+      },
+      {
+        "tr": "O (erkek) paketi şahsen teslim ediyor.",
+        "de": "Er übergibt das Paket persönlich."
+      },
+      {
+        "tr": "Biz kartonu yarın teslim ediyoruz.",
+        "de": "Wir übergeben den Karton morgen."
+      },
+      {
+        "tr": "Siz (çoğul) malı dikkatlice teslim ediyorsunuz.",
+        "de": "Ihr übergebt die Ware vorsichtig."
+      },
+      {
+        "tr": "Onlar (resmi) paketi orada teslim ediyorlar.",
+        "de": "Sie übergeben das Paket dort."
+      }
+    ],
+    "v63_s12": [
+      {
+        "tr": "Ben müşteriye kartonu teslim ettim.",
+        "de": "Ich habe dem Kunden den Karton übergeben."
+      },
+      {
+        "tr": "Ona (kadına) malı teslim ettin mi?",
+        "de": "Hast du ihr die Ware übergeben?"
+      },
+      {
+        "tr": "Biz ona (erkeğe) paketi teslim ettik.",
+        "de": "Wir haben ihm das Paket übergeben."
+      },
+      {
+        "tr": "Siz (çoğul) bana kartonu teslim ettiniz.",
+        "de": "Ihr habt mir den Karton übergeben."
+      },
+      {
+        "tr": "Ben müşteriye kartonu teslim ettim (geçmiş).",
+        "de": "Ich übergab dem Kunden den Karton."
+      },
+      {
+        "tr": "O (kadın) ona (erkeğe) malı teslim etti (geçmiş).",
+        "de": "Sie übergab ihm die Ware."
+      },
+      {
+        "tr": "Biz adama paketi teslim ettik (geçmiş).",
+        "de": "Wir übergaben dem Mann das Paket."
+      },
+      {
+        "tr": "Onlar (resmi) bize kartonu teslim ettiler (geçmiş).",
+        "de": "Sie übergaben uns den Karton."
+      }
+    ],
+    "v63_s13": [
+      {
+        "tr": "Ben müşteriye kartonu teslim etmeliyim.",
+        "de": "Ich muss dem Kunden den Karton übergeben."
+      },
+      {
+        "tr": "Ona (kadına) malı teslim edebilir misin?",
+        "de": "Kannst du ihr die Ware übergeben?"
+      },
+      {
+        "tr": "O (erkek) adama paketi teslim etmek istiyor.",
+        "de": "Er will dem Mann das Paket übergeben."
+      },
+      {
+        "tr": "Biz onu (paketi) ona (erkeğe) teslim etmeliyiz.",
+        "de": "Wir sollen es ihm übergeben."
+      },
+      {
+        "tr": "Siz (çoğul) kartonu burada teslim edemezsiniz (izin yok).",
+        "de": "Ihr dürft den Karton hier nicht übergeben."
+      },
+      {
+        "tr": "Onlar (resmi) bana malı teslim etmek istiyorlar (nazik).",
+        "de": "Sie möchten mir die Ware übergeben."
+      }
+    ],
+    "v63_s14": [
+      {
+        "tr": "Biz müşteriye paketi teslim ediyoruz.",
+        "de": "Wir übergeben dem Kunden das Paket."
+      },
+      {
+        "tr": "Biz onu (paketi) ona (erkeğe) teslim ediyoruz.",
+        "de": "Wir übergeben es ihm."
+      },
+      {
+        "tr": "Biz ona (erkeğe) paketi teslim ediyoruz.",
+        "de": "Wir übergeben ihm das Paket."
+      },
+      {
+        "tr": "Biz onu (paketi) müşteriye teslim ediyoruz.",
+        "de": "Wir übergeben es dem Kunden."
+      }
+    ],
+    "v64_s1": [
+      {
+        "tr": "Ben arıyorum.",
+        "de": "Ich suche."
+      },
+      {
+        "tr": "Sen arıyorsun.",
+        "de": "Du suchst."
+      },
+      {
+        "tr": "O (erkek) arıyor.",
+        "de": "Er sucht."
+      },
+      {
+        "tr": "Biz arıyoruz.",
+        "de": "Wir suchen."
+      },
+      {
+        "tr": "Siz (çoğul) arıyorsunuz.",
+        "de": "Ihr sucht."
+      },
+      {
+        "tr": "Onlar arıyorlar.",
+        "de": "Sie suchen."
+      }
+    ],
+    "v64_s2": [
+      {
+        "tr": "Ben onu (alıcıyı) arıyorum.",
+        "de": "Ich suche ihn."
+      },
+      {
+        "tr": "Sen onu (adresi) arıyorsun.",
+        "de": "Du suchst sie."
+      },
+      {
+        "tr": "O (kadın) onu (binayı) arıyor.",
+        "de": "Sie sucht es."
+      },
+      {
+        "tr": "Biz onları (adresleri) arıyoruz.",
+        "de": "Wir suchen sie."
+      },
+      {
+        "tr": "Siz (çoğul) onu (alıcıyı) arıyorsunuz.",
+        "de": "Ihr sucht ihn."
+      }
+    ],
+    "v64_s3": [
+      {
+        "tr": "Biz alıcıyı arıyoruz.",
+        "de": "Wir suchen den Empfänger."
+      },
+      {
+        "tr": "Siz (çoğul) adresi arıyorsunuz.",
+        "de": "Ihr sucht die Adresse."
+      },
+      {
+        "tr": "Onlar binayı arıyorlar.",
+        "de": "Sie suchen das Gebäude."
+      },
+      {
+        "tr": "Ben alıcıyı arıyorum.",
+        "de": "Ich suche den Empfänger."
+      },
+      {
+        "tr": "Sen adresi arıyor musun?",
+        "de": "Suchst du die Adresse?"
+      },
+      {
+        "tr": "O (erkek) binayı arıyor.",
+        "de": "Er sucht das Gebäude."
+      }
+    ],
+    "v64_s4": [
+      {
+        "tr": "Biz alıcıları arıyoruz.",
+        "de": "Wir suchen die Empfänger."
+      },
+      {
+        "tr": "Siz (çoğul) adresleri arıyorsunuz.",
+        "de": "Ihr sucht die Adressen."
+      },
+      {
+        "tr": "Onlar binaları arıyorlar.",
+        "de": "Sie suchen die Gebäude."
+      },
+      {
+        "tr": "Ben sokakları arıyorum.",
+        "de": "Ich suche die Straßen."
+      },
+      {
+        "tr": "Sen yolları arıyor musun?",
+        "de": "Suchst du die Wege?"
+      },
+      {
+        "tr": "O (kadın) anahtarları arıyor.",
+        "de": "Sie sucht die Schlüssel."
+      }
+    ],
+    "v64_s5": [
+      {
+        "tr": "(Sen) Onu (adresi) ara!",
+        "de": "Such sie!"
+      },
+      {
+        "tr": "(Siz çoğul) Onu (alıcıyı) arayın!",
+        "de": "Sucht ihn!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen binayı arayın!",
+        "de": "Suchen Sie bitte das Gebäude!"
+      },
+      {
+        "tr": "(Sen) Adresi arama!",
+        "de": "Such die Adresse nicht!"
+      }
+    ],
+    "v64_s6": [
+      {
+        "tr": "Biz doğru alıcıyı arıyoruz.",
+        "de": "Wir suchen den richtigen Empfänger."
+      },
+      {
+        "tr": "Siz (çoğul) yanlış adresi arıyorsunuz.",
+        "de": "Ihr sucht die falsche Adresse."
+      },
+      {
+        "tr": "Onlar doğru binayı arıyorlar.",
+        "de": "Sie suchen das richtige Gebäude."
+      },
+      {
+        "tr": "Ben uzun yolu (caddenin) arıyorum.",
+        "de": "Ich suche die lange Straße."
+      },
+      {
+        "tr": "Sen kısa yolu arıyor musun?",
+        "de": "Suchst du den kurzen Weg?"
+      },
+      {
+        "tr": "O (erkek) yanlış binaları arıyor.",
+        "de": "Er sucht die falschen Gebäude."
+      }
+    ],
+    "v64_s7": [
+      {
+        "tr": "Ben alıcımı arıyorum.",
+        "de": "Ich suche meinen Empfänger."
+      },
+      {
+        "tr": "Sen adresini mi arıyorsun?",
+        "de": "Suchst du deine Adresse?"
+      },
+      {
+        "tr": "O (kadın) binasını (onun) arıyor.",
+        "de": "Sie sucht ihr Gebäude."
+      },
+      {
+        "tr": "Biz alıcımızı arıyoruz.",
+        "de": "Wir suchen unseren Empfänger."
+      },
+      {
+        "tr": "Siz (çoğul) adresinizi arıyorsunuz.",
+        "de": "Ihr sucht eure Adresse."
+      },
+      {
+        "tr": "Onlar (resmi) binalarını mı arıyorlar?",
+        "de": "Suchen Sie Ihre Gebäude?"
+      }
+    ],
+    "v64_s8": [
+      {
+        "tr": "Kimi arıyorsun? (Akk.)",
+        "de": "Wen suchst du?"
+      },
+      {
+        "tr": "Ne arıyorsunuz? (resmi)",
+        "de": "Was suchen Sie?"
+      },
+      {
+        "tr": "Alıcıyı kim arıyor?",
+        "de": "Wer sucht den Empfänger?"
+      },
+      {
+        "tr": "Adresi nerede arıyoruz?",
+        "de": "Wo suchen wir die Adresse?"
+      },
+      {
+        "tr": "Neden binayı arıyorsunuz (çoğul)?",
+        "de": "Warum sucht ihr das Gebäude?"
+      },
+      {
+        "tr": "Onu (adresi) ne kadar (süre) arıyorlar?",
+        "de": "Wie lange suchen sie sie?"
+      }
+    ],
+    "v64_s9": [
+      {
+        "tr": "Ben bir alıcı aramıyorum.",
+        "de": "Ich suche keinen Empfänger."
+      },
+      {
+        "tr": "Sen bir adres aramıyorsun.",
+        "de": "Du suchst keine Adresse."
+      },
+      {
+        "tr": "O (erkek) bir bina aramıyor.",
+        "de": "Er sucht kein Gebäude."
+      },
+      {
+        "tr": "Biz adresleri aramıyoruz. (Hiç adres)",
+        "de": "Wir suchen keine Adressen."
+      },
+      {
+        "tr": "Siz (çoğul) alıcıyı aramıyorsunuz.",
+        "de": "Ihr sucht den Empfänger nicht."
+      },
+      {
+        "tr": "Onlar adresi aramıyorlar.",
+        "de": "Sie suchen die Adresse nicht."
+      },
+      {
+        "tr": "Biz aramıyoruz.",
+        "de": "Wir suchen nicht."
+      },
+      {
+        "tr": "Sen binayı bugün aramıyorsun.",
+        "de": "Du suchst das Gebäude nicht heute."
+      }
+    ],
+    "v64_s10": [
+      {
+        "tr": "Ben adresi haritada arıyorum.",
+        "de": "Ich suche die Adresse auf der Karte."
+      },
+      {
+        "tr": "Sen alıcıyı caddede arıyorsun.",
+        "de": "Du suchst den Empfänger in der Straße."
+      },
+      {
+        "tr": "O (erkek) binayı listenin içinde arıyor.",
+        "de": "Er sucht das Gebäude in der Liste."
+      },
+      {
+        "tr": "Biz adresi sistemde arıyoruz.",
+        "de": "Wir suchen die Adresse im System."
+      },
+      {
+        "tr": "Siz (çoğul) alıcıyı evin önünde arıyorsunuz.",
+        "de": "Ihr sucht den Empfänger vor dem Haus."
+      },
+      {
+        "tr": "Onlar (resmi) binayı parkın arkasında arıyorlar.",
+        "de": "Sie suchen das Gebäude hinter dem Park."
+      }
+    ],
+    "v64_s11": [
+      {
+        "tr": "Ben alıcıyı her yerde arıyorum.",
+        "de": "Ich suche den Empfänger überall."
+      },
+      {
+        "tr": "Sen adresi şimdi mi arıyorsun?",
+        "de": "Suchst du die Adresse jetzt?"
+      },
+      {
+        "tr": "O (erkek) binayı boşuna arıyor.",
+        "de": "Er sucht das Gebäude vergeblich."
+      },
+      {
+        "tr": "Biz onu (alıcıyı) uzun zamandır arıyoruz.",
+        "de": "Wir suchen ihn schon lange."
+      },
+      {
+        "tr": "Siz (çoğul) onu (adresi) tekrar arıyorsunuz.",
+        "de": "Ihr sucht sie wieder."
+      },
+      {
+        "tr": "Onlar (resmi) onu (binayı) hala arıyorlar.",
+        "de": "Sie suchen es immer noch."
+      }
+    ],
+    "v64_s12": [
+      {
+        "tr": "Ben alıcıyı aradım.",
+        "de": "Ich habe den Empfänger gesucht."
+      },
+      {
+        "tr": "Adresi aradın mı?",
+        "de": "Hast du die Adresse gesucht?"
+      },
+      {
+        "tr": "Biz binayı aradık.",
+        "de": "Wir haben das Gebäude gesucht."
+      },
+      {
+        "tr": "Siz (çoğul) onları (adresleri) aradınız.",
+        "de": "Ihr habt sie gesucht."
+      },
+      {
+        "tr": "Ben alıcıyı aradım (geçmiş).",
+        "de": "Ich suchte den Empfänger."
+      },
+      {
+        "tr": "O (kadın) adresi aradı (geçmiş).",
+        "de": "Sie suchte die Adresse."
+      },
+      {
+        "tr": "Biz binayı aradık (geçmiş).",
+        "de": "Wir suchten das Gebäude."
+      },
+      {
+        "tr": "Onlar onu (alıcıyı) aradılar (geçmiş).",
+        "de": "Sie suchten ihn."
+      }
+    ],
+    "v64_s13": [
+      {
+        "tr": "Ben alıcıyı aramalıyım.",
+        "de": "Ich muss den Empfänger suchen."
+      },
+      {
+        "tr": "Adresi arayabilir misin?",
+        "de": "Kannst du die Adresse suchen?"
+      },
+      {
+        "tr": "O (erkek) binayı aramak istiyor.",
+        "de": "Er will das Gebäude suchen."
+      },
+      {
+        "tr": "Biz onu (alıcıyı) aramalıyız. (Görev)",
+        "de": "Wir sollen ihn suchen."
+      },
+      {
+        "tr": "Siz (çoğul) burada arayabilirsiniz (izniniz var).",
+        "de": "Ihr dürft hier suchen."
+      },
+      {
+        "tr": "Onlar (resmi) adresi aramak istiyorlar (nazik).",
+        "de": "Sie möchten die Adresse suchen."
+      }
+    ],
+    "v65_s1": [
+      {
+        "tr": "Ben takip ediyorum.",
+        "de": "Ich folge."
+      },
+      {
+        "tr": "Sen takip ediyorsun.",
+        "de": "Du folgst."
+      },
+      {
+        "tr": "O (erkek) takip ediyor.",
+        "de": "Er folgt."
+      },
+      {
+        "tr": "Biz takip ediyoruz.",
+        "de": "Wir folgen."
+      },
+      {
+        "tr": "Siz (çoğul) takip ediyorsunuz.",
+        "de": "Ihr folgt."
+      },
+      {
+        "tr": "Onlar takip ediyorlar.",
+        "de": "Sie folgen."
+      }
+    ],
+    "v65_s2": [
+      {
+        "tr": "Ben ona (tabelaya) takip ediyorum.",
+        "de": "Ich folge ihm."
+      },
+      {
+        "tr": "Sen ona (talimata) uyuyorsun.",
+        "de": "Du folgst ihr."
+      },
+      {
+        "tr": "O (kadın) ona (navigasyona) takip ediyor.",
+        "de": "Sie folgt ihm."
+      },
+      {
+        "tr": "Biz onlara (talimatlara) uyuyoruz.",
+        "de": "Wir folgen ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) bize mi (bizi mi) takip ediyorsunuz?",
+        "de": "Folgt ihr uns?"
+      }
+    ],
+    "v65_s3": [
+      {
+        "tr": "Ben tabelayı takip ediyorum.",
+        "de": "Ich folge dem Wegweiser."
+      },
+      {
+        "tr": "Sen talimata uyuyorsun.",
+        "de": "Du folgst der Anweisung."
+      },
+      {
+        "tr": "O (erkek) navigasyonu takip ediyor.",
+        "de": "Er folgt dem Navi."
+      },
+      {
+        "tr": "Biz tabelayı takip ediyoruz.",
+        "de": "Wir folgen dem Wegweiser."
+      },
+      {
+        "tr": "Siz (çoğul) talimata uyuyor musunuz?",
+        "de": "Folgt ihr der Anweisung?"
+      },
+      {
+        "tr": "Onlar (resmi) navigasyonu takip ediyorlar.",
+        "de": "Sie folgen dem Navi."
+      }
+    ],
+    "v65_s4": [
+      {
+        "tr": "Biz tabelaları takip ediyoruz.",
+        "de": "Wir folgen den Wegweisern."
+      },
+      {
+        "tr": "Siz (çoğul) talimatlara uyuyorsunuz.",
+        "de": "Ihr folgt den Anweisungen."
+      },
+      {
+        "tr": "Onlar navigasyonları (cihazları) takip ediyorlar.",
+        "de": "Sie folgen den Navis."
+      },
+      {
+        "tr": "Ben arabaları takip ediyorum.",
+        "de": "Ich folge den Autos."
+      },
+      {
+        "tr": "Sen yolları takip ediyorsun.",
+        "de": "Du folgst den Straßen."
+      },
+      {
+        "tr": "O (erkek) insanları takip ediyor.",
+        "de": "Er folgt den Leuten."
+      }
+    ],
+    "v65_s5": [
+      {
+        "tr": "(Sen) Onu (navigasyonu) takip et!",
+        "de": "Folge ihm!"
+      },
+      {
+        "tr": "(Siz çoğul) Onu (talimatı) takip edin!",
+        "de": "Folgt ihr!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen tabelayı takip edin!",
+        "de": "Folgen Sie bitte dem Wegweiser!"
+      },
+      {
+        "tr": "(Sen) Talimatlara uyma!",
+        "de": "Folge den Anweisungen nicht!"
+      }
+    ],
+    "v65_s6": [
+      {
+        "tr": "Ben doğru tabelayı takip ediyorum.",
+        "de": "Ich folge dem richtigen Wegweiser."
+      },
+      {
+        "tr": "Sen yanlış talimata uyuyorsun.",
+        "de": "Du folgst der falschen Anweisung."
+      },
+      {
+        "tr": "O (erkek) eski navigasyonu takip ediyor.",
+        "de": "Er folgt dem alten Navi."
+      },
+      {
+        "tr": "Biz uzun yolu (cadd.) takip ediyoruz.",
+        "de": "Wir folgen der langen Straße."
+      },
+      {
+        "tr": "Siz (çoğul) kısa yolu takip ediyorsunuz.",
+        "de": "Ihr folgt dem kurzen Weg."
+      },
+      {
+        "tr": "Onlar yanlış talimatlara uyuyorlar.",
+        "de": "Sie folgen den falschen Anweisungen."
+      }
+    ],
+    "v65_s7": [
+      {
+        "tr": "Ben tabelama (kendi tabelama) takip ediyorum.",
+        "de": "Ich folge meinem Wegweiser."
+      },
+      {
+        "tr": "Sen talimatına mı uyuyorsun?",
+        "de": "Folgst du deiner Anweisung?"
+      },
+      {
+        "tr": "O (kadın) navigasyonunu (onun) takip ediyor.",
+        "de": "Sie folgt ihrem Navi."
+      },
+      {
+        "tr": "Biz tabelamızı takip ediyoruz.",
+        "de": "Wir folgen unserem Wegweiser."
+      },
+      {
+        "tr": "Siz (çoğul) talimatlarınıza uyuyorsunuz.",
+        "de": "Ihr folgt euren Anweisungen."
+      },
+      {
+        "tr": "Onlar (resmi) navigasyonunuzu mu takip ediyorlar?",
+        "de": "Folgen Sie Ihrem Navi?"
+      }
+    ],
+    "v65_s8": [
+      {
+        "tr": "Kimi (Neyi) takip ediyorsun? (Dat.)",
+        "de": "Wem folgst du?"
+      },
+      {
+        "tr": "Tabelayı kim takip ediyor?",
+        "de": "Wer folgt dem Wegweiser?"
+      },
+      {
+        "tr": "Talimata neden uyuyor?",
+        "de": "Warum folgt er der Anweisung?"
+      },
+      {
+        "tr": "Navigasyonu nerede takip ediyoruz?",
+        "de": "Wo folgen wir dem Navi?"
+      },
+      {
+        "tr": "Onlara (talimatlara) nasıl uyuyorsunuz (çoğul)?",
+        "de": "Wie folgt ihr ihnen?"
+      },
+      {
+        "tr": "Ne zamandan beri onu (navigasyonu) takip ediyorlar?",
+        "de": "Seit wann folgen sie ihm?"
+      }
+    ],
+    "v65_s9": [
+      {
+        "tr": "Ben bir tabelayı takip etmiyorum.",
+        "de": "Ich folge keinem Wegweiser."
+      },
+      {
+        "tr": "Sen bir talimata uymuyorsun.",
+        "de": "Du folgst keiner Anweisung."
+      },
+      {
+        "tr": "O (erkek) bir navigasyonu takip etmiyor.",
+        "de": "Er folgt keinem Navi."
+      },
+      {
+        "tr": "Biz talimatlara uymuyoruz. (Hiç talimata)",
+        "de": "Wir folgen keinen Anweisungen."
+      },
+      {
+        "tr": "Siz (çoğul) tabelayı takip etmiyorsunuz.",
+        "de": "Ihr folgt dem Wegweiser nicht."
+      },
+      {
+        "tr": "Onlar talimata uymuyorlar.",
+        "de": "Sie folgen der Anweisung nicht."
+      },
+      {
+        "tr": "Biz takip etmiyoruz.",
+        "de": "Wir folgen nicht."
+      },
+      {
+        "tr": "Sen ona (navigasyona) uymuyorsun.",
+        "de": "Du folgst ihm nicht."
+      }
+    ],
+    "v65_s10": [
+      {
+        "tr": "Ben arabayı kavşağa kadar takip ediyorum.",
+        "de": "Ich folge dem Auto bis zur Kreuzung."
+      },
+      {
+        "tr": "Sen beni parkın içinden (boyunca) takip ediyorsun.",
+        "de": "Du folgst mir durch den Park."
+      },
+      {
+        "tr": "O (erkek) tabelayı (saat) 3'ten beri takip ediyor.",
+        "de": "Er folgt dem Wegweiser seit 3 Uhr."
+      },
+      {
+        "tr": "Biz talimata göre hareket ediyoruz.",
+        "de": "Wir folgen der Anweisung."
+      },
+      {
+        "tr": "Siz (çoğul) nehri (boyunca) takip ediyorsunuz.",
+        "de": "Ihr folgt dem Fluss entlang."
+      },
+      {
+        "tr": "Onlar (resmi) bizi eve (kadar) takip ediyorlar.",
+        "de": "Sie folgen uns nach Hause."
+      }
+    ],
+    "v65_s11": [
+      {
+        "tr": "Ben tabelayı dikkatlice takip ediyorum.",
+        "de": "Ich folge dem Wegweiser genau."
+      },
+      {
+        "tr": "Sen talimata körü körüne uyuyorsun.",
+        "de": "Du folgst der Anweisung blind."
+      },
+      {
+        "tr": "O (erkek) navigasyonu yavaşça takip ediyor.",
+        "de": "Er folgt dem Navi langsam."
+      },
+      {
+        "tr": "Biz sadece (sadece) talimatlara uyuyoruz.",
+        "de": "Wir folgen nur den Anweisungen."
+      },
+      {
+        "tr": "Siz (çoğul) daima (her zaman) tabelaları takip ediyorsunuz.",
+        "de": "Ihr folgt immer den Wegweisern."
+      },
+      {
+        "tr": "Onlar (resmi) şimdi bizi takip ediyorlar.",
+        "de": "Sie folgen uns jetzt."
+      }
+    ],
+    "v65_s12": [
+      {
+        "tr": "Ben tabelayı takip ettim.",
+        "de": "Ich bin dem Wegweiser gefolgt."
+      },
+      {
+        "tr": "Talimata uydun mu?",
+        "de": "Bist du der Anweisung gefolgt?"
+      },
+      {
+        "tr": "Biz navigasyonu takip ettik.",
+        "de": "Wir sind dem Navi gefolgt."
+      },
+      {
+        "tr": "Siz (çoğul) onlara (talimatlara) uydunuz.",
+        "de": "Ihr seid ihnen gefolgt."
+      },
+      {
+        "tr": "Ben tabelayı takip ettim (geçmiş).",
+        "de": "Ich folgte dem Wegweiser."
+      },
+      {
+        "tr": "O (kadın) talimata uydu (geçmiş).",
+        "de": "Sie folgte der Anweisung."
+      },
+      {
+        "tr": "Biz navigasyonu takip ettik (geçmiş).",
+        "de": "Wir folgten dem Navi."
+      },
+      {
+        "tr": "Onlar (resmi) bize uydular (geçmiş).",
+        "de": "Sie folgten uns."
+      }
+    ],
+    "v65_s13": [
+      {
+        "tr": "Ben tabelayı takip etmeliyim.",
+        "de": "Ich muss dem Wegweiser folgen."
+      },
+      {
+        "tr": "Talimata uyabilir misin?",
+        "de": "Kannst du der Anweisung folgen?"
+      },
+      {
+        "tr": "O (erkek) navigasyonu takip etmek istiyor.",
+        "de": "Er will dem Navi folgen."
+      },
+      {
+        "tr": "Biz onlara (talimatlara) uymalıyız. (Görev)",
+        "de": "Wir sollen ihnen folgen."
+      },
+      {
+        "tr": "Siz (çoğul) bu arabayı takip edemezsiniz (izin yok).",
+        "de": "Ihr dürft diesem Auto nicht folgen."
+      },
+      {
+        "tr": "Onlar (resmi) beni takip etmek istiyorlar (nazik).",
+        "de": "Sie möchten mir folgen."
+      }
+    ],
+    "v66_s1": [
+      {
+        "tr": "Ben gösteriyorum.",
+        "de": "Ich zeige."
+      },
+      {
+        "tr": "Sen gösteriyorsun.",
+        "de": "Du zeigst."
+      },
+      {
+        "tr": "O (erkek) gösteriyor.",
+        "de": "Er zeigt."
+      },
+      {
+        "tr": "Biz gösteriyoruz.",
+        "de": "Wir zeigen."
+      },
+      {
+        "tr": "Siz (çoğul) gösteriyorsunuz.",
+        "de": "Ihr zeigt."
+      },
+      {
+        "tr": "Onlar gösteriyorlar.",
+        "de": "Sie zeigen."
+      }
+    ],
+    "v66_s2": [
+      {
+        "tr": "Ben onu (kimliği) ona (erkeğe) gösteriyorum.",
+        "de": "Ich zeige ihn ihm."
+      },
+      {
+        "tr": "Sen onu (rotayı) ona (kadına) gösteriyorsun.",
+        "de": "Du zeigst sie ihr."
+      },
+      {
+        "tr": "O (kadın) onu (telefonu) bize gösteriyor.",
+        "de": "Sie zeigt es uns."
+      },
+      {
+        "tr": "Biz onları (rotaları) onlara (çoğul) gösteriyoruz.",
+        "de": "Wir zeigen sie ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) onu (kimliği) bana gösteriyorsunuz.",
+        "de": "Ihr zeigt ihn mir."
+      }
+    ],
+    "v66_s3": [
+      {
+        "tr": "Ben polise kimliği gösteriyorum.",
+        "de": "Ich zeige dem Polizisten den Ausweis."
+      },
+      {
+        "tr": "Sen kadına rotayı gösteriyorsun.",
+        "de": "Du zeigst der Frau die Route."
+      },
+      {
+        "tr": "O (erkek) müşteriye telefonu gösteriyor.",
+        "de": "Er zeigt dem Kunden das Handy."
+      },
+      {
+        "tr": "Biz polise rotayı gösteriyoruz.",
+        "de": "Wir zeigen dem Polizisten die Route."
+      },
+      {
+        "tr": "Siz (çoğul) kadına telefonu gösteriyorsunuz.",
+        "de": "Ihr zeigt der Frau das Handy."
+      },
+      {
+        "tr": "Onlar (resmi) müşteriye kimliği gösteriyorlar.",
+        "de": "Sie zeigen dem Kunden den Ausweis."
+      }
+    ],
+    "v66_s4": [
+      {
+        "tr": "Biz polise kimlikleri gösteriyoruz.",
+        "de": "Wir zeigen dem Polizisten die Ausweise."
+      },
+      {
+        "tr": "Siz (çoğul) kadına rotaları gösteriyorsunuz.",
+        "de": "Ihr zeigt der Frau die Routen."
+      },
+      {
+        "tr": "Onlar müşteriye telefonları gösteriyorlar.",
+        "de": "Sie zeigen dem Kunden die Handys."
+      },
+      {
+        "tr": "Ben polislere (Dat.) kimlikleri (Akk.) gösteriyorum.",
+        "de": "Ich zeige den Polizisten die Ausweise."
+      },
+      {
+        "tr": "Sen kadınlara rotaları gösteriyor musun?",
+        "de": "Zeigst du den Frauen die Routen?"
+      },
+      {
+        "tr": "O (erkek) müşterilere telefonları gösteriyor.",
+        "de": "Er zeigt den Kunden die Handys."
+      }
+    ],
+    "v66_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) kimliği göster!",
+        "de": "Zeig ihm den Ausweis!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) rotayı gösterin!",
+        "de": "Zeigt ihr die Route!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen bana telefonu gösterin!",
+        "de": "Zeigen Sie mir bitte das Handy!"
+      },
+      {
+        "tr": "(Sen) Müşteriye kimliği gösterme!",
+        "de": "Zeig dem Kunden den Ausweis nicht!"
+      }
+    ],
+    "v66_s6": [
+      {
+        "tr": "Ben polise (Dat.) eski kimliği (Akk.) gösteriyorum.",
+        "de": "Ich zeige dem Polizisten den alten Ausweis."
+      },
+      {
+        "tr": "Sen kadına (Dat.) kısa rotayı (Akk.) gösteriyorsun.",
+        "de": "Du zeigst der Frau die kurze Route."
+      },
+      {
+        "tr": "O (erkek) müşteriye (Dat.) yeni telefonu (Akk.) gösteriyor.",
+        "de": "Er zeigt dem Kunden das neue Handy."
+      },
+      {
+        "tr": "Biz polise (Dat.) uzun rotayı (Akk.) gösteriyoruz.",
+        "de": "Wir zeigen dem Polizisten die lange Route."
+      },
+      {
+        "tr": "Siz (çoğul) yaşlı kadına (Dat.) doğru rotayı (Akk.) gösteriyorsunuz.",
+        "de": "Ihr zeigt der alten Frau die richtige Route."
+      },
+      {
+        "tr": "Onlar (resmi) genç adama (Dat.) yanlış telefonları (Akk.) gösteriyorlar.",
+        "de": "Sie zeigen dem jungen Mann die falschen Handys."
+      }
+    ],
+    "v66_s7": [
+      {
+        "tr": "Ben polis memuruma (Dat.) kimliğimi (Akk.) gösteriyorum.",
+        "de": "Ich zeige meinem Polizisten meinen Ausweis."
+      },
+      {
+        "tr": "Sen kadına (Dat.) rotanı (Akk.) mı gösteriyorsun?",
+        "de": "Zeigst du der Frau deine Route?"
+      },
+      {
+        "tr": "O (erkek) müşterisine (Dat.) telefonunu (Akk.) gösteriyor.",
+        "de": "Er zeigt seinem Kunden sein Handy."
+      },
+      {
+        "tr": "Biz kadına (Dat.) bizim kimliğimizi (Akk.) gösteriyoruz.",
+        "de": "Wir zeigen der Frau unseren Ausweis."
+      },
+      {
+        "tr": "Siz (çoğul) ona (erkeğe) sizin (çoğul) rotanızı mı gösteriyorsunuz?",
+        "de": "Zeigt ihr ihm eure Route?"
+      },
+      {
+        "tr": "Onlar (resmi) bana sizin (resmi) telefonunuzu gösteriyorlar.",
+        "de": "Sie zeigen mir Ihr Handy."
+      }
+    ],
+    "v66_s8": [
+      {
+        "tr": "Müşteriye rotayı kim gösteriyor?",
+        "de": "Wer zeigt dem Kunden die Route?"
+      },
+      {
+        "tr": "Kime kimliğini gösteriyorsun?",
+        "de": "Wem zeigst du den Ausweis?"
+      },
+      {
+        "tr": "Polise ne gösteriyor?",
+        "de": "Was zeigt er dem Polizisten?"
+      },
+      {
+        "tr": "Rotayı ne zaman gösteriyoruz?",
+        "de": "Wann zeigen wir die Route?"
+      },
+      {
+        "tr": "Telefonu nerede gösteriyorsunuz (çoğul)?",
+        "de": "Wo zeigt ihr das Handy?"
+      },
+      {
+        "tr": "Neden ona (erkeğe) kimliği gösteriyorlar?",
+        "de": "Warum zeigen sie ihm den Ausweis?"
+      }
+    ],
+    "v66_s9": [
+      {
+        "tr": "Ben müşteriye bir kimlik göstermiyorum.",
+        "de": "Ich zeige dem Kunden keinen Ausweis."
+      },
+      {
+        "tr": "Sen kadına bir rota göstermiyorsun.",
+        "de": "Du zeigst der Frau keine Route."
+      },
+      {
+        "tr": "O (erkek) polise bir telefon göstermiyor.",
+        "de": "Er zeigt dem Polizisten kein Handy."
+      },
+      {
+        "tr": "Biz hiçbir müşteriye (Dat.) rota göstermiyoruz.",
+        "de": "Wir zeigen keinem Kunden Routen."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriye kimliği göstermiyorsunuz.",
+        "de": "Ihr zeigt dem Kunden den Ausweis nicht."
+      },
+      {
+        "tr": "Onlar (resmi) rotayı telefonda göstermiyorlar.",
+        "de": "Sie zeigen die Route nicht auf dem Handy."
+      },
+      {
+        "tr": "Biz rotayı göstermiyoruz.",
+        "de": "Wir zeigen die Route nicht."
+      },
+      {
+        "tr": "Sen göstermiyorsun.",
+        "de": "Du zeigst nicht."
+      }
+    ],
+    "v66_s10": [
+      {
+        "tr": "Ben sana telefonda (üzerinde) rotayı gösteriyorum.",
+        "de": "Ich zeige dir die Route auf dem Handy."
+      },
+      {
+        "tr": "Sen ona (erkeğe) haritada yolu gösteriyorsun.",
+        "de": "Du zeigst ihm den Weg auf der Karte."
+      },
+      {
+        "tr": "O (erkek) bize ekranda adresi gösteriyor.",
+        "de": "Er zeigt uns die Adresse auf dem Bildschirm."
+      },
+      {
+        "tr": "Biz müşteriye bilgisayarda (üzerinde) binayı gösteriyoruz.",
+        "de": "Wir zeigen dem Kunden das Gebäude am Computer."
+      },
+      {
+        "tr": "Siz (çoğul) parmakla (ile) kimliği gösteriyorsunuz.",
+        "de": "Ihr zeigt den Ausweis mit dem Finger."
+      },
+      {
+        "tr": "Onlar (resmi) bize tabelaya (doğru) gösteriyorlar.",
+        "de": "Sie zeigen uns auf den Wegweiser."
+      }
+    ],
+    "v66_s11": [
+      {
+        "tr": "Ben ona (erkeğe) rotayı hızlıca gösteriyorum.",
+        "de": "Ich zeige ihm die Route schnell."
+      },
+      {
+        "tr": "Sen ona (kadına) kimliği şimdi mi gösteriyorsun?",
+        "de": "Zeigst du ihr den Ausweis jetzt?"
+      },
+      {
+        "tr": "O (erkek) müşteriye telefonu kısaca gösteriyor.",
+        "de": "Er zeigt dem Kunden das Handy kurz."
+      },
+      {
+        "tr": "Biz polise rotayı hemen gösteriyoruz.",
+        "de": "Wir zeigen dem Polizisten die Route sofort."
+      },
+      {
+        "tr": "Siz (çoğul) bize yolu memnuniyetle gösteriyorsunuz.",
+        "de": "Ihr zeigt uns den Weg gerne."
+      },
+      {
+        "tr": "Onlar (resmi) sadece kimliği gösteriyorlar.",
+        "de": "Sie zeigen nur den Ausweis."
+      }
+    ],
+    "v66_s12": [
+      {
+        "tr": "Ben müşteriye rotayı gösterdim.",
+        "de": "Ich habe dem Kunden die Route gezeigt."
+      },
+      {
+        "tr": "Ona (kadına) kimliği gösterdin mi?",
+        "de": "Hast du ihr den Ausweis gezeigt?"
+      },
+      {
+        "tr": "Biz ona (erkeğe) telefonu gösterdik.",
+        "de": "Wir haben ihm das Handy gezeigt."
+      },
+      {
+        "tr": "Siz (çoğul) bana rotayı gösterdiniz.",
+        "de": "Ihr habt mir die Route gezeigt."
+      },
+      {
+        "tr": "Ben müşteriye rotayı gösterdim (geçmiş).",
+        "de": "Ich zeigte dem Kunden die Route."
+      },
+      {
+        "tr": "O (kadın) ona (erkeğe) kimliği gösterdi (geçmiş).",
+        "de": "Sie zeigte ihm den Ausweis."
+      },
+      {
+        "tr": "Biz polise telefonu gösterdik (geçmiş).",
+        "de": "Wir zeigten dem Polizisten das Handy."
+      },
+      {
+        "tr": "Onlar (resmi) bize rotayı gösterdiler (geçmiş).",
+        "de": "Sie zeigten uns die Route."
+      }
+    ],
+    "v66_s13": [
+      {
+        "tr": "Ben müşteriye rotayı göstermeliyim.",
+        "de": "Ich muss dem Kunden die Route zeigen."
+      },
+      {
+        "tr": "Ona (kadına) kimliği gösterebilir misin?",
+        "de": "Kannst du ihr den Ausweis zeigen?"
+      },
+      {
+        "tr": "O (erkek) polise telefonu göstermek istiyor.",
+        "de": "Er will dem Polizisten das Handy zeigen."
+      },
+      {
+        "tr": "Biz ona (erkeğe) rotayı göstermeliyiz. (Görev)",
+        "de": "Wir sollen ihm die Route zeigen."
+      },
+      {
+        "tr": "Siz (çoğul) kimliği gösteremezsiniz (izin yok).",
+        "de": "Ihr dürft den Ausweis nicht zeigen."
+      },
+      {
+        "tr": "Onlar (resmi) bana telefonu göstermek istiyorlar (nazik).",
+        "de": "Sie möchten mir das Handy zeigen."
+      }
+    ],
+    "v66_s14": [
+      {
+        "tr": "Biz müşteriye rotayı gösteriyoruz.",
+        "de": "Wir zeigen dem Kunden die Route."
+      },
+      {
+        "tr": "Biz onu (rotayı) ona (erkeğe) gösteriyoruz.",
+        "de": "Wir zeigen sie ihm."
+      },
+      {
+        "tr": "Biz ona (erkeğe) rotayı gösteriyoruz.",
+        "de": "Wir zeigen ihm die Route."
+      },
+      {
+        "tr": "Biz onu (rotayı) müşteriye gösteriyoruz.",
+        "de": "Wir zeigen sie dem Kunden."
+      }
+    ],
+    "v67_s1": [
+      {
+        "tr": "Ben imzalıyorum.",
+        "de": "Ich unterschreibe."
+      },
+      {
+        "tr": "Sen imzalıyorsun.",
+        "de": "Du unterschreibst."
+      },
+      {
+        "tr": "O (erkek) imzalıyor.",
+        "de": "Er unterschreibt."
+      },
+      {
+        "tr": "Biz imzalıyoruz.",
+        "de": "Wir unterschreiben."
+      },
+      {
+        "tr": "Siz (çoğul) imzalıyorsunuz.",
+        "de": "Ihr unterschreibt."
+      },
+      {
+        "tr": "Onlar imzalıyorlar.",
+        "de": "Sie unterschreiben."
+      }
+    ],
+    "v67_s2": [
+      {
+        "tr": "Ben onu (sözleşmeyi) imzalıyorum.",
+        "de": "Ich unterschreibe ihn."
+      },
+      {
+        "tr": "Sen onu (onayı) imzalıyorsun.",
+        "de": "Du unterschreibst sie."
+      },
+      {
+        "tr": "O (kadın) onu (kağıdı) imzalıyor.",
+        "de": "Sie unterschreibt es."
+      },
+      {
+        "tr": "Biz onları (belgeleri) imzalıyoruz.",
+        "de": "Wir unterschreiben sie."
+      },
+      {
+        "tr": "Siz (çoğul) onu (sözleşmeyi) imzalıyorsunuz.",
+        "de": "Ihr unterschreibt ihn."
+      }
+    ],
+    "v67_s3": [
+      {
+        "tr": "Biz sözleşmeyi imzalıyoruz.",
+        "de": "Wir unterschreiben den Vertrag."
+      },
+      {
+        "tr": "Siz (çoğul) onayı imzalıyorsunuz.",
+        "de": "Ihr unterschreibt die Bestätigung."
+      },
+      {
+        "tr": "Onlar kağıdı imzalıyorlar.",
+        "de": "Sie unterschreiben das Papier."
+      },
+      {
+        "tr": "Ben sözleşmeyi imzalıyorum.",
+        "de": "Ich unterschreibe den Vertrag."
+      },
+      {
+        "tr": "Sen onayı imzalıyor musun?",
+        "de": "Unterschreibst du die Bestätigung?"
+      },
+      {
+        "tr": "O (erkek) kağıdı imzalıyor.",
+        "de": "Er unterschreibt das Papier."
+      }
+    ],
+    "v67_s4": [
+      {
+        "tr": "Biz sözleşmeleri imzalıyoruz.",
+        "de": "Wir unterschreiben die Verträge."
+      },
+      {
+        "tr": "Siz (çoğul) onayları imzalıyorsunuz.",
+        "de": "Ihr unterschreibt die Bestätigungen."
+      },
+      {
+        "tr": "Onlar kağıtları imzalıyorlar.",
+        "de": "Sie unterschreiben die Papiere."
+      },
+      {
+        "tr": "Ben belgeleri imzalıyorum.",
+        "de": "Ich unterschreibe die Dokumente."
+      },
+      {
+        "tr": "Sen formları imzalıyor musun?",
+        "de": "Unterschreibst du die Formulare?"
+      },
+      {
+        "tr": "O (kadın) listeleri imzalıyor.",
+        "de": "Sie unterschreibt die Listen."
+      }
+    ],
+    "v67_s5": [
+      {
+        "tr": "(Sen) Onu (sözleşmeyi) imzala!",
+        "de": "Unterschreib ihn!"
+      },
+      {
+        "tr": "(Siz çoğul) Onu (onayı) imzalayın!",
+        "de": "Unterschreibt sie!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen kağıdı imzalayın!",
+        "de": "Unterschreiben Sie bitte das Papier!"
+      },
+      {
+        "tr": "(Sen) Sözleşmeyi imzalama!",
+        "de": "Unterschreib den Vertrag nicht!"
+      }
+    ],
+    "v67_s6": [
+      {
+        "tr": "Biz yeni sözleşmeyi imzalıyoruz.",
+        "de": "Wir unterschreiben den neuen Vertrag."
+      },
+      {
+        "tr": "Siz (çoğul) eski onayı imzalıyorsunuz.",
+        "de": "Ihr unterschreibt die alte Bestätigung."
+      },
+      {
+        "tr": "Onlar önemli kağıdı imzalıyorlar.",
+        "de": "Sie unterschreiben das wichtige Papier."
+      },
+      {
+        "tr": "Ben önemsiz sözleşmeyi imzalıyorum.",
+        "de": "Ich unterschreibe den unwichtigen Vertrag."
+      },
+      {
+        "tr": "Sen önemli onayları imzalıyor musun?",
+        "de": "Unterschreibst du die wichtigen Bestätigungen?"
+      },
+      {
+        "tr": "O (erkek) yeni kağıtları imzalıyor.",
+        "de": "Er unterschreibt die neuen Papiere."
+      }
+    ],
+    "v67_s7": [
+      {
+        "tr": "Ben sözleşmemi imzalıyorum.",
+        "de": "Ich unterschreibe meinen Vertrag."
+      },
+      {
+        "tr": "Sen onayını mı imzalıyorsun?",
+        "de": "Unterschreibst du deine Bestätigung?"
+      },
+      {
+        "tr": "O (kadın) kağıdını (onun) imzalıyor.",
+        "de": "Sie unterschreibt ihr Papier."
+      },
+      {
+        "tr": "Biz sözleşmemizi imzalıyoruz.",
+        "de": "Wir unterschreiben unseren Vertrag."
+      },
+      {
+        "tr": "Siz (çoğul) onayınızı imzalıyorsunuz.",
+        "de": "Ihr unterschreibt eure Bestätigung."
+      },
+      {
+        "tr": "Onlar (resmi) kağıtlarınızı mı imzalıyorlar?",
+        "de": "Unterschreiben Sie Ihre Papiere?"
+      }
+    ],
+    "v67_s8": [
+      {
+        "tr": "Kimi (Neyi) imzalıyorsun? (Akk.)",
+        "de": "Wen (Was) unterschreibst du?"
+      },
+      {
+        "tr": "Sözleşmeyi kim imzalıyor?",
+        "de": "Wer unterschreibt den Vertrag?"
+      },
+      {
+        "tr": "Onayı nerede imzalıyoruz?",
+        "de": "Wo unterschreiben wir die Bestätigung?"
+      },
+      {
+        "tr": "Kağıdı ne zaman imzalıyorsunuz (çoğul)?",
+        "de": "Wann unterschreibt ihr das Papier?"
+      },
+      {
+        "tr": "Neden onu (sözleşmeyi) imzalıyorlar?",
+        "de": "Warum unterschreiben sie ihn?"
+      },
+      {
+        "tr": "Onu (onayı) nasıl imzalıyor?",
+        "de": "Wie unterschreibt er sie?"
+      }
+    ],
+    "v67_s9": [
+      {
+        "tr": "Ben bir sözleşme imzalamıyorum.",
+        "de": "Ich unterschreibe keinen Vertrag."
+      },
+      {
+        "tr": "Sen bir onay imzalamıyorsun.",
+        "de": "Du unterschreibst keine Bestätigung."
+      },
+      {
+        "tr": "O (erkek) bir kağıt imzalamıyor.",
+        "de": "Er unterschreibt kein Papier."
+      },
+      {
+        "tr": "Biz sözleşmeleri imzalamıyoruz. (Hiç sözleşme)",
+        "de": "Wir unterschreiben keine Verträge."
+      },
+      {
+        "tr": "Siz (çoğul) sözleşmeyi imzalamıyorsunuz.",
+        "de": "Ihr unterschreibt den Vertrag nicht."
+      },
+      {
+        "tr": "Onlar onayı imzalamıyorlar.",
+        "de": "Sie unterschreiben die Bestätigung nicht."
+      },
+      {
+        "tr": "Biz imzalamıyoruz.",
+        "de": "Wir unterschreiben nicht."
+      },
+      {
+        "tr": "Sen kağıdı bugün imzalamıyorsun.",
+        "de": "Du unterschreibst das Papier nicht heute."
+      }
+    ],
+    "v67_s10": [
+      {
+        "tr": "Ben sözleşmeyi ofiste imzalıyorum.",
+        "de": "Ich unterschreibe den Vertrag im Büro."
+      },
+      {
+        "tr": "Sen onayı kalemle (ile) imzalıyorsun.",
+        "de": "Du unterschreibst die Bestätigung mit dem Stift."
+      },
+      {
+        "tr": "O (erkek) kağıdı müdürün önünde imzalıyor.",
+        "de": "Er unterschreibt das Papier vor dem Chef."
+      },
+      {
+        "tr": "Biz sözleşmeyi toplantıdan sonra imzalıyoruz.",
+        "de": "Wir unterschreiben den Vertrag nach dem Meeting."
+      },
+      {
+        "tr": "Siz (çoğul) onayı tarih olmadan mı imzalıyorsunuz?",
+        "de": "Unterschreibt ihr die Bestätigung ohne Datum?"
+      },
+      {
+        "tr": "Onlar (resmi) sözleşmeyi (saat) 3'te imzalıyorlar.",
+        "de": "Sie unterschreiben den Vertrag um 3 Uhr."
+      }
+    ],
+    "v67_s11": [
+      {
+        "tr": "Ben sözleşmeyi hemen imzalıyorum.",
+        "de": "Ich unterschreibe den Vertrag sofort."
+      },
+      {
+        "tr": "Sen onayı şimdi mi imzalıyorsun?",
+        "de": "Unterschreibst du die Bestätigung jetzt?"
+      },
+      {
+        "tr": "O (erkek) kağıdı memnuniyetle imzalıyor.",
+        "de": "Er unterschreibt das Papier gerne."
+      },
+      {
+        "tr": "Biz sözleşmeyi yarın imzalıyoruz.",
+        "de": "Wir unterschreiben den Vertrag morgen."
+      },
+      {
+        "tr": "Siz (çoğul) onayı şahsen imzalıyorsunuz.",
+        "de": "Ihr unterschreibt die Bestätigung persönlich."
+      },
+      {
+        "tr": "Onlar (resmi) onu (kağıdı) henüz imzalamadılar.",
+        "de": "Sie unterschreiben es noch nicht."
+      }
+    ],
+    "v67_s12": [
+      {
+        "tr": "Ben sözleşmeyi imzaladım.",
+        "de": "Ich habe den Vertrag unterschrieben."
+      },
+      {
+        "tr": "Onayı imzaladın mı?",
+        "de": "Hast du die Bestätigung unterschrieben?"
+      },
+      {
+        "tr": "Biz kağıdı imzaladık.",
+        "de": "Wir haben das Papier unterschrieben."
+      },
+      {
+        "tr": "Siz (çoğul) onları (belgeleri) imzaladınız.",
+        "de": "Ihr habt sie unterschrieben."
+      },
+      {
+        "tr": "Ben sözleşmeyi imzaladım (geçmiş).",
+        "de": "Ich unterschrieb den Vertrag."
+      },
+      {
+        "tr": "O (kadın) onayı imzaladı (geçmiş).",
+        "de": "Sie unterschrieb die Bestätigung."
+      },
+      {
+        "tr": "Biz kağıdı imzaladık (geçmiş).",
+        "de": "Wir unterschrieben das Papier."
+      },
+      {
+        "tr": "Onlar onu (sözleşmeyi) imzaladılar (geçmiş).",
+        "de": "Sie unterschrieben ihn."
+      }
+    ],
+    "v67_s13": [
+      {
+        "tr": "Ben sözleşmeyi imzalamalıyım.",
+        "de": "Ich muss den Vertrag unterschreiben."
+      },
+      {
+        "tr": "Onayı imzalayabilir misin?",
+        "de": "Kannst du die Bestätigung unterschreiben?"
+      },
+      {
+        "tr": "O (erkek) kağıdı imzalamak istiyor.",
+        "de": "Er will das Papier unterschreiben."
+      },
+      {
+        "tr": "Biz onu (sözleşmeyi) imzalamalıyız. (Görev)",
+        "de": "Wir sollen ihn unterschreiben."
+      },
+      {
+        "tr": "Siz (çoğul) burada imzalayabilirsiniz (izniniz var).",
+        "de": "Ihr dürft hier unterschreiben."
+      },
+      {
+        "tr": "Onlar (resmi) onayı imzalamak istiyorlar (nazik).",
+        "de": "Sie möchten die Bestätigung unterschreiben."
+      }
+    ],
+    "v68_s1": [
+      {
+        "tr": "Ben teşekkür ediyorum.",
+        "de": "Ich danke."
+      },
+      {
+        "tr": "Sen teşekkür ediyorsun.",
+        "de": "Du dankst."
+      },
+      {
+        "tr": "O (erkek) teşekkür ediyor.",
+        "de": "Er dankt."
+      },
+      {
+        "tr": "Biz teşekkür ediyoruz.",
+        "de": "Wir danken."
+      },
+      {
+        "tr": "Siz (çoğul) teşekkür ediyorsunuz.",
+        "de": "Ihr dankt."
+      },
+      {
+        "tr": "Onlar teşekkür ediyorlar.",
+        "de": "Sie danken."
+      }
+    ],
+    "v68_s2": [
+      {
+        "tr": "Ben ona (erkeğe/çalışana) teşekkür ediyorum.",
+        "de": "Ich danke ihm."
+      },
+      {
+        "tr": "Sen ona (kadına/meslektaşa) teşekkür ediyorsun.",
+        "de": "Du dankst ihr."
+      },
+      {
+        "tr": "O (kadın) ona (takıma) teşekkür ediyor.",
+        "de": "Sie dankt ihm."
+      },
+      {
+        "tr": "Biz onlara (çalışanlara) teşekkür ediyoruz.",
+        "de": "Wir danken ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) bize mi teşekkür ediyorsunuz?",
+        "de": "Dankt ihr uns?"
+      }
+    ],
+    "v68_s3": [
+      {
+        "tr": "Ben çalışana teşekkür ediyorum.",
+        "de": "Ich danke dem Mitarbeiter."
+      },
+      {
+        "tr": "Sen kadın meslektaşına teşekkür ediyorsun.",
+        "de": "Du dankst der Kollegin."
+      },
+      {
+        "tr": "O (erkek) takıma teşekkür ediyor.",
+        "de": "Er dankt dem Team."
+      },
+      {
+        "tr": "Biz çalışana teşekkür ediyoruz.",
+        "de": "Wir danken dem Mitarbeiter."
+      },
+      {
+        "tr": "Siz (çoğul) kadın meslektaşa teşekkür ediyor musunuz?",
+        "de": "Dankt ihr der Kollegin?"
+      },
+      {
+        "tr": "Onlar (resmi) takıma teşekkür ediyorlar.",
+        "de": "Sie danken dem Team."
+      }
+    ],
+    "v68_s4": [
+      {
+        "tr": "Biz çalışanlara teşekkür ediyoruz.",
+        "de": "Wir danken den Mitarbeitern."
+      },
+      {
+        "tr": "Siz (çoğul) kadın meslektaşlara teşekkür ediyorsunuz.",
+        "de": "Ihr dankt den Kolleginnen."
+      },
+      {
+        "tr": "Onlar takımlara teşekkür ediyorlar.",
+        "de": "Sie danken den Teams."
+      },
+      {
+        "tr": "Ben müşterilere teşekkür ediyorum.",
+        "de": "Ich danke den Kunden."
+      },
+      {
+        "tr": "Sen şeflere teşekkür ediyorsun.",
+        "de": "Du dankst den Chefs."
+      },
+      {
+        "tr": "O (erkek) insanlara teşekkür ediyor.",
+        "de": "Er dankt den Leuten."
+      }
+    ],
+    "v68_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) teşekkür et!",
+        "de": "Danke ihm!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) teşekkür edin!",
+        "de": "Dankt ihr!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen takıma teşekkür edin!",
+        "de": "Danken Sie bitte dem Team!"
+      },
+      {
+        "tr": "(Sen) Çalışana teşekkür etme!",
+        "de": "Danke dem Mitarbeiter nicht!"
+      }
+    ],
+    "v68_s6": [
+      {
+        "tr": "Ben yeni çalışana teşekkür ediyorum.",
+        "de": "Ich danke dem neuen Mitarbeiter."
+      },
+      {
+        "tr": "Sen eski kadın meslektaşına teşekkür ediyorsun.",
+        "de": "Du dankst der alten Kollegin."
+      },
+      {
+        "tr": "O (erkek) önemli takıma teşekkür ediyor.",
+        "de": "Er dankt dem wichtigen Team."
+      },
+      {
+        "tr": "Biz önemsiz bir çalışana teşekkür etmiyoruz.",
+        "de": "Wir danken einem unwichtigen Mitarbeiter (nicht)."
+      },
+      {
+        "tr": "Siz (çoğul) yeni kadın meslektaşlara teşekkür ediyorsunuz.",
+        "de": "Ihr dankt den neuen Kolleginnen."
+      },
+      {
+        "tr": "Onlar önemli takımlara teşekkür ediyorlar.",
+        "de": "Sie danken den wichtigen Teams."
+      }
+    ],
+    "v68_s7": [
+      {
+        "tr": "Ben çalışanımateşekkür ediyorum.",
+        "de": "Ich danke meinem Mitarbeiter."
+      },
+      {
+        "tr": "Sen kadın meslektaşına mı teşekkür ediyorsun?",
+        "de": "Dankst du deiner Kollegin?"
+      },
+      {
+        "tr": "O (kadın) takımına teşekkür ediyor.",
+        "de": "Sie dankt ihrem Team."
+      },
+      {
+        "tr": "Biz çalışanımıza teşekkür ediyoruz.",
+        "de": "Wir danken unserem Mitarbeiter."
+      },
+      {
+        "tr": "Siz (çoğul) takımınıza teşekkür ediyorsunuz.",
+        "de": "Ihr dankt eurem Team."
+      },
+      {
+        "tr": "Onlar (resmi) kadın meslektaşınıza mı teşekkür ediyorlar?",
+        "de": "Danken Sie Ihrer Kollegin?"
+      }
+    ],
+    "v68_s8": [
+      {
+        "tr": "Kime teşekkür ediyorsun? (Dat.)",
+        "de": "Wem dankst du?"
+      },
+      {
+        "tr": "Çalışana kim teşekkür ediyor?",
+        "de": "Wer dankt dem Mitarbeiter?"
+      },
+      {
+        "tr": "Takıma neden teşekkür ediyor?",
+        "de": "Warum dankt er dem Team?"
+      },
+      {
+        "tr": "Ona (kadına) nerede teşekkür ediyoruz?",
+        "de": "Wo danken wir ihr?"
+      },
+      {
+        "tr": "Ne için ona (erkeğe) teşekkür ediyorsunuz (çoğul)?",
+        "de": "Wofür dankt ihr ihm?"
+      },
+      {
+        "tr": "Onlara (çoğul) nasıl teşekkür ediyorlar?",
+        "de": "Wie danken sie ihnen?"
+      }
+    ],
+    "v68_s9": [
+      {
+        "tr": "Ben bir çalışana teşekkür etmiyorum.",
+        "de": "Ich danke keinem Mitarbeiter."
+      },
+      {
+        "tr": "Sen bir kadın meslektaşa teşekkür etmiyorsun.",
+        "de": "Du dankst keiner Kollegin."
+      },
+      {
+        "tr": "O (erkek) bir takıma teşekkür etmiyor.",
+        "de": "Er dankt keinem Team."
+      },
+      {
+        "tr": "Biz çalışanlara teşekkür etmiyoruz. (Hiç çalışana)",
+        "de": "Wir danken keinen Mitarbeitern."
+      },
+      {
+        "tr": "Siz (çoğul) çalışana teşekkür etmiyorsunuz.",
+        "de": "Ihr dankt dem Mitarbeiter nicht."
+      },
+      {
+        "tr": "Onlar ona (kadına) teşekkür etmiyorlar.",
+        "de": "Sie danken ihr nicht."
+      },
+      {
+        "tr": "Biz teşekkür etmiyoruz.",
+        "de": "Wir danken nicht."
+      },
+      {
+        "tr": "Sen bugün teşekkür etmiyorsun.",
+        "de": "Du dankst heute nicht."
+      }
+    ],
+    "v68_s10": [
+      {
+        "tr": "Ben sana yardım için teşekkür ediyorum.",
+        "de": "Ich danke dir für die Hilfe."
+      },
+      {
+        "tr": "Sen ona (erkeğe) e-posta için teşekkür ediyorsun.",
+        "de": "Du dankst ihm für die E-Mail."
+      },
+      {
+        "tr": "O (erkek) ona (kadına) kahve için teşekkür ediyor.",
+        "de": "Er dankt ihr für den Kaffee."
+      },
+      {
+        "tr": "Biz takıma iş (çalışma) için teşekkür ediyoruz.",
+        "de": "Wir danken dem Team für die Arbeit."
+      },
+      {
+        "tr": "Siz (çoğul) bize sabır için teşekkür ediyorsunuz.",
+        "de": "Ihr dankt uns für die Geduld."
+      },
+      {
+        "tr": "Onlar (resmi) bana bilgi için teşekkür ediyorlar.",
+        "de": "Sie danken mir für die Information."
+      }
+    ],
+    "v68_s11": [
+      {
+        "tr": "Ben çalışana içtenlikle teşekkür ediyorum.",
+        "de": "Ich danke dem Mitarbeiter herzlich."
+      },
+      {
+        "tr": "Sen ona (kadına) şimdi teşekkür ediyorsun.",
+        "de": "Du dankst ihr jetzt."
+      },
+      {
+        "tr": "O (erkek) takıma ayrıca teşekkür ediyor.",
+        "de": "Er dankt dem Team besonders."
+      },
+      {
+        "tr": "Biz ona (erkeğe) daha sonra teşekkür ediyoruz.",
+        "de": "Wir danken ihm später."
+      },
+      {
+        "tr": "Siz (çoğul) ona (kadına) sık sık teşekkür ediyor musunuz?",
+        "de": "Dankt ihr ihr oft?"
+      },
+      {
+        "tr": "Onlar (resmi) bize çok teşekkür ediyorlar.",
+        "de": "Sie danken uns sehr."
+      }
+    ],
+    "v68_s12": [
+      {
+        "tr": "Ben çalışana teşekkür ettim.",
+        "de": "Ich habe dem Mitarbeiter gedankt."
+      },
+      {
+        "tr": "Ona (kadına) teşekkür ettin mi?",
+        "de": "Hast du ihr gedankt?"
+      },
+      {
+        "tr": "Biz takıma teşekkür ettik.",
+        "de": "Wir haben dem Team gedankt."
+      },
+      {
+        "tr": "Siz (çoğul) onlara (çoğul) teşekkür ettiniz.",
+        "de": "Ihr habt ihnen gedankt."
+      },
+      {
+        "tr": "Ben çalışana teşekkür ettim (geçmiş).",
+        "de": "Ich dankte dem Mitarbeiter."
+      },
+      {
+        "tr": "O (kadın) takıma teşekkür etti (geçmiş).",
+        "de": "Sie dankte dem Team."
+      },
+      {
+        "tr": "Biz kadın meslektaşa teşekkür ettik (geçmiş).",
+        "de": "Wir dankten der Kollegin."
+      },
+      {
+        "tr": "Onlar (resmi) bana teşekkür ettiler (geçmiş).",
+        "de": "Sie dankten mir."
+      }
+    ],
+    "v68_s13": [
+      {
+        "tr": "Ben çalışana teşekkür etmeliyim.",
+        "de": "Ich muss dem Mitarbeiter danken."
+      },
+      {
+        "tr": "Ona (kadına) teşekkür edebilir misin?",
+        "de": "Kannst du ihr danken?"
+      },
+      {
+        "tr": "O (erkek) takıma teşekkür etmek istiyor.",
+        "de": "Er will dem Team danken."
+      },
+      {
+        "tr": "Biz onlara (çoğul) teşekkür etmeliyiz. (Görev)",
+        "de": "Wir sollen ihnen danken."
+      },
+      {
+        "tr": "Siz (çoğul) ona (erkeğe) teşekkür edebilirsiniz (izniniz var).",
+        "de": "Ihr dürft ihm danken."
+      },
+      {
+        "tr": "Onlar (resmi) bana teşekkür etmek istiyorlar (nazik).",
+        "de": "Sie möchten mir danken."
+      }
+    ],
+    "v69_s1": [
+      {
+        "tr": "Ben uzatıyorum.",
+        "de": "Ich reiche."
+      },
+      {
+        "tr": "Sen uzatıyorsun.",
+        "de": "Du reichst."
+      },
+      {
+        "tr": "O (erkek) uzatıyor.",
+        "de": "Er reicht."
+      },
+      {
+        "tr": "Biz uzatıyoruz.",
+        "de": "Wir reichen."
+      },
+      {
+        "tr": "Siz (çoğul) uzatıyorsunuz.",
+        "de": "Ihr reicht."
+      },
+      {
+        "tr": "Onlar uzatıyorlar.",
+        "de": "Sie reichen."
+      }
+    ],
+    "v69_s2": [
+      {
+        "tr": "Ben onu (kalemi) ona (erkeğe) uzatıyorum.",
+        "de": "Ich reiche ihn ihm."
+      },
+      {
+        "tr": "Sen onu (belgeyi) ona (kadına) uzatıyorsun.",
+        "de": "Du reichst es ihr."
+      },
+      {
+        "tr": "O (kadın) onu (formu) bize uzatıyor.",
+        "de": "Sie reicht es uns."
+      },
+      {
+        "tr": "Biz onları (formları) onlara (çoğul) uzatıyoruz.",
+        "de": "Wir reichen sie ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) onu (kalemi) bana uzatıyorsunuz.",
+        "de": "Ihr reicht ihn mir."
+      }
+    ],
+    "v69_s3": [
+      {
+        "tr": "Ben müşteriye kalemi uzatıyorum.",
+        "de": "Ich reiche dem Kunden den Kugelschreiber."
+      },
+      {
+        "tr": "Sen meslektaşa formu uzatıyorsun.",
+        "de": "Du reichst dem Kollegen das Formular."
+      },
+      {
+        "tr": "O (erkek) kadına belgeyi (das Dokument) uzatıyor.",
+        "de": "Er reicht der Frau das Dokument."
+      },
+      {
+        "tr": "Biz müşteriye formu uzatıyoruz.",
+        "de": "Wir reichen dem Kunden das Formular."
+      },
+      {
+        "tr": "Siz (çoğul) meslektaşa kalemi uzatıyorsunuz.",
+        "de": "Ihr reicht dem Kollegen den Kugelschreiber."
+      },
+      {
+        "tr": "Onlar (resmi) kadına formu uzatıyorlar.",
+        "de": "Sie reichen der Frau das Formular."
+      }
+    ],
+    "v69_s4": [
+      {
+        "tr": "Biz müşteriye kalemleri uzatıyoruz.",
+        "de": "Wir reichen dem Kunden die Kugelschreiber."
+      },
+      {
+        "tr": "Siz (çoğul) meslektaşa formları uzatıyorsunuz.",
+        "de": "Ihr reicht dem Kollegen die Formulare."
+      },
+      {
+        "tr": "Onlar kadına belgeleri uzatıyorlar.",
+        "de": "Sie reichen der Frau die Dokumente."
+      },
+      {
+        "tr": "Ben müşterilere (Dat.) kalemleri (Akk.) uzatıyorum.",
+        "de": "Ich reiche den Kunden die Kugelschreiber."
+      },
+      {
+        "tr": "Sen meslektaşlara formları uzatıyor musun?",
+        "de": "Reichst du den Kollegen die Formulare?"
+      },
+      {
+        "tr": "O (erkek) kadınlara belgeleri uzatıyor.",
+        "de": "Er reicht den Frauen die Dokumente."
+      }
+    ],
+    "v69_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) kalemi uzat!",
+        "de": "Reich ihm den Kugelschreiber!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) formu uzatın!",
+        "de": "Reicht ihr das Formular!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen bana belgeyi uzatın!",
+        "de": "Reichen Sie mir bitte das Dokument!"
+      },
+      {
+        "tr": "(Sen) Müşteriye kalemi uzatma!",
+        "de": "Reich dem Kunden den Kugelschreiber nicht!"
+      }
+    ],
+    "v69_s6": [
+      {
+        "tr": "Ben müşteriye (Dat.) yeni kalemi (Akk.) uzatıyorum.",
+        "de": "Ich reiche dem Kunden den neuen Kugelschreiber."
+      },
+      {
+        "tr": "Sen meslektaşa (Dat.) eski formu (Akk.) uzatıyorsun.",
+        "de": "Du reichst dem Kollegen das alte Formular."
+      },
+      {
+        "tr": "O (erkek) kadına (Dat.) önemli belgeyi (Akk.) uzatıyor.",
+        "de": "Er reicht der Frau das wichtige Dokument."
+      },
+      {
+        "tr": "Biz müşteriye (Dat.) önemsiz formu (Akk.) uzatıyoruz.",
+        "de": "Wir reichen dem Kunden das unwichtige Formular."
+      },
+      {
+        "tr": "Siz (çoğul) yeni meslektaşa (Dat.) kalemi (Akk.) uzatıyorsunuz.",
+        "de": "Ihr reicht dem neuen Kollegen den Kugelschreiber."
+      },
+      {
+        "tr": "Onlar (resmi) eski müşteriye (Dat.) önemli formları (Akk.) uzatıyorlar.",
+        "de": "Sie reichen dem alten Kunden die wichtigen Formulare."
+      }
+    ],
+    "v69_s7": [
+      {
+        "tr": "Ben müşterime (Dat.) kalemimi (Akk.) uzatıyorum.",
+        "de": "Ich reiche meinem Kunden meinen Kugelschreiber."
+      },
+      {
+        "tr": "Sen meslektaşına (Dat.) formunu (Akk.) mu uzatıyorsun?",
+        "de": "Reichst du deinem Kollegen dein Formular?"
+      },
+      {
+        "tr": "O (erkek) müşterisine (Dat.) kalemini (Akk.) uzatıyor.",
+        "de": "Er reicht seinem Kunden seinen Kugelschreiber."
+      },
+      {
+        "tr": "Biz kadına (Dat.) bizim formumuzu (Akk.) uzatıyoruz.",
+        "de": "Wir reichen der Frau unser Formular."
+      },
+      {
+        "tr": "Siz (çoğul) ona (erkeğe) sizin (çoğul) kaleminizi mi uzatıyorsunuz?",
+        "de": "Reicht ihr ihm euren Kugelschreiber?"
+      },
+      {
+        "tr": "Onlar (resmi) bana sizin (resmi) formunuzu uzatıyorlar.",
+        "de": "Sie reichen mir Ihr Formular."
+      }
+    ],
+    "v69_s8": [
+      {
+        "tr": "Müşteriye kalemi kim uzatıyor?",
+        "de": "Wer reicht dem Kunden den Kugelschreiber?"
+      },
+      {
+        "tr": "Kime formu uzatıyorsun?",
+        "de": "Wem reichst du das Formular?"
+      },
+      {
+        "tr": "Meslektaşına ne uzatıyor?",
+        "de": "Was reicht er dem Kollegen?"
+      },
+      {
+        "tr": "Kalemi ne zaman uzatıyoruz?",
+        "de": "Wann reichen wir den Kugelschreiber?"
+      },
+      {
+        "tr": "Formu nerede uzatıyorsunuz (çoğul)?",
+        "de": "Wo reicht ihr das Formular?"
+      },
+      {
+        "tr": "Neden ona (erkeğe) kalemi uzatıyorlar?",
+        "de": "Warum reichen sie ihm den Kugelschreiber?"
+      }
+    ],
+    "v69_s9": [
+      {
+        "tr": "Ben müşteriye bir kalem uzatmıyorum.",
+        "de": "Ich reiche dem Kunden keinen Kugelschreiber."
+      },
+      {
+        "tr": "Sen meslektaşa bir form uzatmıyorsun.",
+        "de": "Du reichst dem Kollegen kein Formular."
+      },
+      {
+        "tr": "O (erkek) kadına bir belge uzatmıyor.",
+        "de": "Er reicht der Frau kein Dokument."
+      },
+      {
+        "tr": "Biz hiçbir müşteriye (Dat.) kalem uzatmıyoruz.",
+        "de": "Wir reichen keinem Kunden Kugelschreiber."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriye kalemi uzatmıyorsunuz.",
+        "de": "Ihr reicht dem Kunden den Kugelschreiber nicht."
+      },
+      {
+        "tr": "Onlar (resmi) formu ona (erkeğe) uzatmıyorlar.",
+        "de": "Sie reichen ihm das Formular nicht."
+      },
+      {
+        "tr": "Biz formu uzatmıyoruz.",
+        "de": "Wir reichen das Formular nicht."
+      },
+      {
+        "tr": "Sen uzatmıyorsun.",
+        "de": "Du reichst nicht."
+      }
+    ],
+    "v69_s10": [
+      {
+        "tr": "Ben sana kalemi masanın üzerinden uzatıyorum.",
+        "de": "Ich reiche dir den Stift über den Tisch."
+      },
+      {
+        "tr": "Sen ona (erkeğe) formu kapının (aralığından) uzatıyorsun.",
+        "de": "Du reichst ihm das Formular durch die Tür."
+      },
+      {
+        "tr": "O (erkek) bana kağıdı pencereden uzatıyor.",
+        "de": "Er reicht mir das Papier aus dem Fenster."
+      },
+      {
+        "tr": "Biz kalemi imza için uzatıyoruz.",
+        "de": "Wir reichen den Stift zur Unterschrift."
+      },
+      {
+        "tr": "Siz (çoğul) formu kontrol için (kontrol amacıyla) uzatıyorsunuz.",
+        "de": "Ihr reicht das Formular zur Kontrolle."
+      },
+      {
+        "tr": "Onlar (resmi) bana belgeleri veriyorlar (uzatıyorlar).",
+        "de": "Sie reichen mir die Dokumente."
+      }
+    ],
+    "v69_s11": [
+      {
+        "tr": "Ben ona (erkeğe) kalemi hızlıca uzatıyorum.",
+        "de": "Ich reiche ihm den Stift schnell."
+      },
+      {
+        "tr": "Sen ona (kadına) formu şimdi mi uzatıyorsun?",
+        "de": "Reichst du ihr das Formular jetzt?"
+      },
+      {
+        "tr": "O (erkek) müşteriye kalemi hemen uzatıyor.",
+        "de": "Er reicht dem Kunden den Stift sofort."
+      },
+      {
+        "tr": "Biz formu tekrar uzatıyoruz.",
+        "de": "Wir reichen das Formular nochmal."
+      },
+      {
+        "tr": "Siz (çoğul) kalemi dikkatlice uzatıyorsunuz.",
+        "de": "Ihr reicht den Stift vorsichtig."
+      },
+      {
+        "tr": "Onlar (resmi) sadece formu uzatıyorlar.",
+        "de": "Sie reichen nur das Formular."
+      }
+    ],
+    "v69_s12": [
+      {
+        "tr": "Ben müşteriye kalemi uzattım.",
+        "de": "Ich habe dem Kunden den Stift gereicht."
+      },
+      {
+        "tr": "Ona (kadına) formu uzattın mı?",
+        "de": "Hast du ihr das Formular gereicht?"
+      },
+      {
+        "tr": "Biz ona (erkeğe) belgeyi uzattık.",
+        "de": "Wir haben ihm das Dokument gereicht."
+      },
+      {
+        "tr": "Siz (çoğul) bana kalemi uzattınız.",
+        "de": "Ihr habt mir den Stift gereicht."
+      },
+      {
+        "tr": "Ben müşteriye kalemi uzattım (geçmiş).",
+        "de": "Ich reichte dem Kunden den Stift."
+      },
+      {
+        "tr": "O (kadın) ona (erkeğe) formu uzattı (geçmiş).",
+        "de": "Sie reichte ihm das Formular."
+      },
+      {
+        "tr": "Biz meslektaşa belgeyi uzattık (geçmiş).",
+        "de": "Wir reichten dem Kollegen das Dokument."
+      },
+      {
+        "tr": "Onlar (resmi) bize formu uzattılar (geçmiş).",
+        "de": "Sie reichten uns das Formular."
+      }
+    ],
+    "v69_s13": [
+      {
+        "tr": "Ben müşteriye kalemi uzatmalıyım.",
+        "de": "Ich muss dem Kunden den Stift reichen."
+      },
+      {
+        "tr": "Ona (kadına) formu uzatabilir misin?",
+        "de": "Kannst du ihr das Formular reichen?"
+      },
+      {
+        "tr": "O (erkek) meslektaşına belgeyi uzatmak istiyor.",
+        "de": "Er will dem Kollegen das Dokument reichen."
+      },
+      {
+        "tr": "Biz ona (erkeğe) kalemi uzatmalıyız. (Görev)",
+        "de": "Wir sollen ihm den Stift reichen."
+      },
+      {
+        "tr": "Siz (çoğul) formu uzatabilirsiniz (izniniz var).",
+        "de": "Ihr dürft das Formular reichen."
+      },
+      {
+        "tr": "Onlar (resmi) bana kalemi uzatmak istiyorlar (nazik).",
+        "de": "Sie möchten mir den Stift reichen."
+      }
+    ],
+    "v69_s14": [
+      {
+        "tr": "Biz müşteriye kalemi uzatıyoruz.",
+        "de": "Wir reichen dem Kunden den Stift."
+      },
+      {
+        "tr": "Biz onu (kalemi) ona (erkeğe) uzatıyoruz.",
+        "de": "Wir reichen ihn ihm."
+      },
+      {
+        "tr": "Biz ona (erkeğe) kalemi uzatıyoruz.",
+        "de": "Wir reichen ihm den Stift."
+      },
+      {
+        "tr": "Biz onu (kalemi) müşteriye uzatıyoruz.",
+        "de": "Wir reichen ihn dem Kunden."
       }
     ]
   },
