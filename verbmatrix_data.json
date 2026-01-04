@@ -1,90 +1,4 @@
 {
-  "ui_strings": {
-    "tr": {
-      "translation_direction": "Çeviri Yönü",
-      "start_learning": "📚 Çalışmaya Başla",
-      "review_mode": "🔄 Tekrar Modu",
-      "progress": "📊 İlerleme",
-      "overall_progress": "Genel İlerleme",
-      "total_learned_cards": "Toplam Öğrenilen Kart",
-      "select_your_class": "Sınıfını Seç",
-      "unit_groups": "Ünite Grupları",
-      "verbs": "Fiiller",
-      "topics": "Konular",
-      "menu": "Menü",
-      "show_answer": "GÖSTER",
-      "srs_hard": "ZOR",
-      "srs_normal": "NORMAL",
-      "srs_easy": "KOLAY",
-      "hint": "İpucu",
-      "listen": "Dinle",
-      "edit": "Düzenle",
-      "auto": "Oto",
-      "slow": "Yavaş",
-      "read": "Oku",
-      "review_pool": "Tekrar Havuzu",
-      "hard_cards": "🥵 ZOR KARTLAR",
-      "normal_cards": "🤔 NORMAL KARTLAR",
-      "learned_cards": "✅ ÖĞRENDİKLERİM",
-      "story": "Hikaye",
-      "test": "Test",
-      "german": "ALMANCA",
-      "turkish": "TÜRKÇE",
-      "go_back": "Geri Dön",
-      "settings": "Ayarlar",
-      "appearance": "Görünüm",
-      "theme": "Tema",
-      "music": "Müzik"
-    },
-    "de": {
-      "translation_direction": "Übersetzungsrichtung",
-      "start_learning": "📚 Lernen starten",
-      "review_mode": "🔄 Wiederholungsmodus",
-      "progress": "📊 Fortschritt",
-      "overall_progress": "Gesamtfortschritt",
-      "total_learned_cards": "Gesamt gelernte Karten",
-      "select_your_class": "Klasse wählen",
-      "unit_groups": "Einheitengruppen",
-      "verbs": "Verben",
-      "topics": "Themen",
-      "menu": "Menü",
-      "show_answer": "ZEIGEN",
-      "srs_hard": "SCHWER",
-      "srs_normal": "NORMAL",
-      "srs_easy": "LEICHT",
-      "hint": "Hinweis",
-      "listen": "Anhören",
-      "edit": "Bearbeiten",
-      "auto": "Auto",
-      "slow": "Langsam",
-      "read": "Lesen",
-      "review_pool": "Wiederholungspool",
-      "hard_cards": "🥵 SCHWERE KARTEN",
-      "normal_cards": "🤔 NORMALE KARTEN",
-      "learned_cards": "✅ GELERNT",
-      "story": "Geschichte",
-      "test": "Test",
-      "german": "DEUTSCH",
-      "turkish": "TÜRKISCH",
-      "go_back": "Zurück",
-      "settings": "Einstellungen",
-      "appearance": "Erscheinungsbild",
-      "theme": "Design",
-      "music": "Musik",
-      "parallel_listening": "🎧 Parallelhören",
-      "cloze_test": "✏️ Lückentext",
-      "word_order": "🧩 Wortstellung",
-      "quiz_writing": "📝 Quiz (Schreiben)",
-      "review_select_app": "🔁 Wiederholung - App wählen",
-      "star_topics": "⭐ Themen markieren",
-      "mixed_mode_settings": "(Mischmodus-Einstellungen)",
-      "data_management": "Datenverwaltung",
-      "upload": "📥 Hochladen",
-      "backup": "📤 Sichern",
-      "update_app": "🔄 App aktualisieren (Cache leeren)",
-      "reset_progress": "🗑️ Fortschritt zurücksetzen"
-    }
-  },
   "classes": [
     {
       "id": "A1",
@@ -115,6 +29,10 @@
       "id": "K",
       "name": "⭐ Karma Mod",
       "nameDE": "⭐ Mixed Mode"
+    },
+    {
+      "id": "MIXED",
+      "name": "⭐ Karışık Mod (Özel)"
     }
   ],
   "domains": [
@@ -129,9 +47,9 @@
       "nameDE": "Beruf"
     },
     {
-      "id": "diger",
-      "name": "DİĞER",
-      "domain_id": "Andere"
+      "id": "gramer",
+      "name": "Gramer",
+      "nameDE": "Grammatik"
     }
   ],
   "categories": [
@@ -149,14 +67,6 @@
         "g7",
         "g8",
         "g9",
-        "g10"
-      ]
-    },
-    {
-      "id": "c_diger",
-      "name": "DİĞER",
-      "domain_id": "diger",
-      "group_ids": [
         "g10",
         "g11",
         "g12",
@@ -195,25 +105,25 @@
       ]
     }
   ],
-  "verbs": {
+"verbs": {
     "g1": [
       {
         "id": "v1",
         "verbTR": "görmek",
         "verbDE": "sehen",
-        "objects": "das Bild, die Nachricht, der Film"
+        "objects": "das Bild/Bilder/Resim, die Nachricht/Nachrichten/Haber, der Film/Filme/Film"
       },
       {
         "id": "v2",
         "verbTR": "dinlemek",
         "verbDE": "zuhören",
-        "objects": "das Kind, die Mutter, der Lehrer"
+        "objects": "das Kind/Kinder/Çocuk, die Mutter/Mütter/Anne, der Lehrer/Lehrer/Öğretmen"
       },
       {
         "id": "v3",
         "verbTR": "göstermek",
         "verbDE": "zeigen",
-        "objects": "das Foto, die Straße, der Weg"
+        "objects": "das Foto/Fotos/Foto, die Straße/Straßen/Cadde, der Weg/Wege/Yol"
       }
     ],
     "g2": [
@@ -221,19 +131,19 @@
         "id": "v6",
         "verbTR": "getirmek",
         "verbDE": "bringen",
-        "objects": "das Wasser, die Zeitung, der Kaffee"
+        "objects": "das Wasser/Wässer/Su, die Zeitung/Zeitungen/Gazete, der Kaffee/Kaffees/Kahve"
       },
       {
         "id": "v5",
         "verbTR": "tadı gelmek",
         "verbDE": "schmecken",
-        "objects": "das Essen, die Torte, der Kuchen"
+        "objects": "das Essen/Essen/Yemek, die Torte/Torten/Turta, der Kuchen/Kuchen/Kek"
       },
       {
         "id": "v4",
         "verbTR": "yemek",
         "verbDE": "essen",
-        "objects": "das Brot, die Suppe, der Apfel"
+        "objects": "das Brot/Brote/Ekmek, die Suppe/Suppen/Çorba, der Apfel/Äpfel/Elma"
       }
     ],
     "g3": [
@@ -241,19 +151,19 @@
         "id": "v8",
         "verbTR": "cevap vermek",
         "verbDE": "antworten",
-        "objects": "das Kind, die Lehrerin, der Freund"
+        "objects": "das Kind/Kinder/Çocuk, die Lehrerin/Lehrerinnen/Öğretmen (Kadın), der Freund/Freunde/Arkadaş"
       },
       {
         "id": "v7",
         "verbTR": "okumak",
         "verbDE": "lesen",
-        "objects": "das Buch, die Zeitung, der Brief"
+        "objects": "das Buch/Bücher/Kitap, die Zeitung/Zeitungen/Gazete, der Brief/Briefe/Mektup"
       },
       {
         "id": "v9",
         "verbTR": "yazmak",
         "verbDE": "schreiben",
-        "objects": "das E-Mail, die Nachricht, der Text"
+        "objects": "das E-Mail/E-Mails/E-posta, die Nachricht/Nachrichten/Mesaj, der Text/Texte/Metin"
       }
     ],
     "g4": [
@@ -261,19 +171,19 @@
         "id": "v12",
         "verbTR": "açıklamak",
         "verbDE": "erklären",
-        "objects": "das Problem, die Regel, der Plan"
+        "objects": "das Problem/Probleme/Sorun, die Regel/Regeln/Kural, der Plan/Pläne/Plan"
       },
       {
         "id": "v10",
         "verbTR": "öğrenmek",
         "verbDE": "lernen",
-        "objects": "das Wort, die Sprache, der Beruf"
+        "objects": "das Wort/Wörter/Kelime, die Sprache/Sprachen/Dil, der Beruf/Berufe/Meslek"
       },
       {
         "id": "v11",
         "verbTR": "seyretmek",
         "verbDE": "zuschauen",
-        "objects": "das Spiel, die Show, der Sport"
+        "objects": "das Spiel/Spiele/Oyun, die Show/Shows/Gösteri, der Sport/Sportarten/Spor"
       }
     ],
     "g5": [
@@ -281,19 +191,19 @@
         "id": "v15",
         "verbTR": "vermek",
         "verbDE": "geben",
-        "objects": "das Geschenk, die Blume, der Schlüssel"
+        "objects": "das Geschenk/Geschenke/Hediye, die Blume/Blumen/Çiçek, der Schlüssel/Schlüssel/Anahtar"
       },
       {
         "id": "v13",
         "verbTR": "yapmak",
         "verbDE": "machen",
-        "objects": "das Projekt, die Hausaufgabe, der Fehler"
+        "objects": "das Projekt/Projekte/Proje, die Hausaufgabe/Hausaufgaben/Ödev, der Fehler/Fehler/Hata"
       },
       {
         "id": "v14",
         "verbTR": "yardım etmek",
         "verbDE": "helfen",
-        "objects": "das Kind, die Familie, der Nachbar"
+        "objects": "das Kind/Kinder/Çocuk, die Familie/Familien/Aile, der Nachbar/Nachbarn/Komşu"
       }
     ],
     "g6": [
@@ -301,19 +211,19 @@
         "id": "v18",
         "verbTR": "alıp getirmek",
         "verbDE": "holen",
-        "objects": "das Paket, die Post, der Koffer"
+        "objects": "das Paket/Pakete/Paket, die Post/Posts/Posta, der Koffer/Koffer/Bavul"
       },
       {
         "id": "v16",
         "verbTR": "almak",
         "verbDE": "nehmen",
-        "objects": "das Geld, die Tasche, der Bus"
+        "objects": "das Geld/Gelder/Para, die Tasche/Taschen/Çanta, der Bus/Busse/Otobüs"
       },
       {
         "id": "v17",
         "verbTR": "takip etmek",
         "verbDE": "folgen",
-        "objects": "das Auto, die Straße, der Mann"
+        "objects": "das Auto/Autos/Araba, die Straße/Straßen/Cadde, der Mann/Männer/Adam"
       }
     ],
     "g7": [
@@ -321,19 +231,19 @@
         "id": "v20",
         "verbTR": "eksik olmak",
         "verbDE": "fehlen",
-        "objects": "das Buch, die Information, der Schlüssel"
+        "objects": "das Buch/Bücher/Kitap, die Information/Informationen/Bilgi, der Schlüssel/Schlüssel/Anahtar"
       },
       {
         "id": "v21",
         "verbTR": "göndermek",
         "verbDE": "schicken",
-        "objects": "das Paket, die Rechnung, der Brief"
+        "objects": "das Paket/Pakete/Paket, die Rechnung/Rechnungen/Fatura, der Brief/Briefe/Mektup"
       },
       {
         "id": "v19",
         "verbTR": "ihtiyaç duymak",
         "verbDE": "brauchen",
-        "objects": "das Geld, die Zeit, der Computer"
+        "objects": "das Geld/Gelder/Para, die Zeit/Zeiten/Zaman, der Computer/Computer/Bilgisayar"
       }
     ],
     "g8": [
@@ -341,19 +251,19 @@
         "id": "v23",
         "verbTR": "ait olmak",
         "verbDE": "gehören",
-        "objects": "das Haus, die Familie, der Vater"
+        "objects": "das Haus/Häuser/Ev, die Familie/Familien/Aile, der Vater/Väter/Baba"
       },
       {
         "id": "v22",
         "verbTR": "satın almak",
         "verbDE": "kaufen",
-        "objects": "das Auto, die Wohnung, der Computer"
+        "objects": "das Auto/Autos/Araba, die Wohnung/Wohnungen/Daire, der Computer/Computer/Bilgisayar"
       },
       {
         "id": "v24",
         "verbTR": "satmak",
         "verbDE": "verkaufen",
-        "objects": "das Handy, die Wohnung, der Wagen"
+        "objects": "das Handy/Handys/Cep Telefonu, die Wohnung/Wohnungen/Daire, der Wagen/Wagen/Araba"
       }
     ],
     "g9": [
@@ -361,19 +271,19 @@
         "id": "v25",
         "verbTR": "bulmak",
         "verbDE": "finden",
-        "objects": "das Hotel, die Adresse, der Parkplatz"
+        "objects": "das Hotel/Hotels/Otel, die Adresse/Adressen/Adres, der Parkplatz/Parkplätze/Otopark"
       },
       {
         "id": "v26",
         "verbTR": "karşılaşmak",
         "verbDE": "begegnen",
-        "objects": "das Problem, die Person, der Freund"
+        "objects": "das Problem/Probleme/Sorun, die Person/Personen/Kişi, der Freund/Freunde/Arkadaş"
       },
       {
         "id": "v27",
         "verbTR": "tavsiye etmek",
         "verbDE": "empfehlen",
-        "objects": "das Restaurant, die Serie, der Film"
+        "objects": "das Restaurant/Restaurants/Restoran, die Serie/Serien/Dizi, der Film/Filme/Film"
       }
     ],
     "g10": [
@@ -381,19 +291,19 @@
         "id": "v28",
         "verbTR": "aramak",
         "verbDE": "suchen",
-        "objects": "das Hotel, die Arbeit, der Parkplatz"
+        "objects": "das Hotel/Hotels/Otel, die Arbeit/Arbeiten/İş, der Parkplatz/Parkplätze/Otopark"
       },
       {
         "id": "v30",
         "verbTR": "söz vermek",
         "verbDE": "versprechen",
-        "objects": "das Geschenk, die Hilfe, der Besuch"
+        "objects": "das Geschenk/Geschenke/Hediye, die Hilfe/Hilfen/Yardım, der Besuch/Besuche/Ziyaret"
       },
       {
         "id": "v29",
         "verbTR": "uymak",
         "verbDE": "passen",
-        "objects": "das Kleid, die Hose, der Schuh"
+        "objects": "das Kleid/Kleider/Elbise, die Hose/Hosen/Pantolon, der Schuh/Schuhe/Ayakkabı"
       }
     ],
     "g11": [
@@ -401,19 +311,19 @@
         "id": "v33",
         "verbTR": "hediye etmek",
         "verbDE": "schenken",
-        "objects": "das Buch, die Blume, der Ring"
+        "objects": "das Buch/Bücher/Kitap, die Blume/Blumen/Çiçek, der Ring/Ringe/Yüzük"
       },
       {
         "id": "v32",
         "verbTR": "hoşuna gitmek",
         "verbDE": "gefallen",
-        "objects": "das Bild, die Idee, der Plan"
+        "objects": "das Bild/Bilder/Resim, die Idee/Ideen/Fikir, der Plan/Pläne/Plan"
       },
       {
         "id": "v31",
         "verbTR": "sevmek",
         "verbDE": "lieben",
-        "objects": "das Leben, die Musik, der Sport"
+        "objects": "das Leben/-/Hayat, die Musik/-/Müzik, der Sport/-/Spor"
       }
     ],
     "g12": [
@@ -421,19 +331,19 @@
         "id": "v36",
         "verbTR": "dilemek",
         "verbDE": "wünschen",
-        "objects": "das Glück, die Gesundheit, der Erfolg"
+        "objects": "das Glück/-/Şans, die Gesundheit/-/Sağlık, der Erfolg/Erfolge/Başarı"
       },
       {
         "id": "v35",
         "verbTR": "güvenmek",
         "verbDE": "vertrauen",
-        "objects": "das System, die Person, der Arzt"
+        "objects": "das System/Systeme/Sistem, die Person/Personen/Kişi, der Arzt/Ärzte/Doktor"
       },
       {
         "id": "v34",
         "verbTR": "hoşlanmak",
         "verbDE": "mögen",
-        "objects": "das Wetter, die Stadt, der Winter"
+        "objects": "das Wetter/-/Hava, die Stadt/Städte/Şehir, der Winter/Winter/Kış"
       }
     ],
     "g13": [
@@ -441,19 +351,19 @@
         "id": "v38",
         "verbTR": "acımak, ağrımak",
         "verbDE": "wehtun",
-        "objects": "das Bein, die Hand, der Kopf"
+        "objects": "das Bein/Beine/Bacak, die Hand/Hände/El, der Kopf/Köpfe/Baş"
       },
       {
         "id": "v39",
         "verbTR": "ödünç vermek",
         "verbDE": "leihen",
-        "objects": "das Buch, die DVD, der Stift"
+        "objects": "das Buch/Bücher/Kitap, die DVD/DVDs/DVD, der Stift/Stifte/Kalem"
       },
       {
         "id": "v37",
         "verbTR": "unutmak",
         "verbDE": "vergessen",
-        "objects": "das Passwort, die Adresse, der Termin"
+        "objects": "das Passwort/Passwörter/Şifre, die Adresse/Adressen/Adres, der Termin/Termine/Randevu"
       }
     ],
     "g14": [
@@ -461,19 +371,19 @@
         "id": "v41",
         "verbTR": "faydalı olmak",
         "verbDE": "nützen",
-        "objects": "das Studium, die Erfahrung, der Rat"
+        "objects": "das Studium/Studien/Eğitim, die Erfahrung/Erfahrungen/Deneyim, der Rat/Ratschläge/Tavsiye"
       },
       {
         "id": "v40",
         "verbTR": "kaybetmek",
         "verbDE": "verlieren",
-        "objects": "das Handy, die Brille, der Schlüssel"
+        "objects": "das Handy/Handys/Cep Telefonu, die Brille/Brillen/Gözlük, der Schlüssel/Schlüssel/Anahtar"
       },
       {
         "id": "v42",
         "verbTR": "ödünç almak/vermek",
         "verbDE": "borgen",
-        "objects": "das Auto, die Zeitschrift, der Laptop"
+        "objects": "das Auto/Autos/Araba, die Zeitschrift/Zeitschriften/Dergi, der Laptop/Laptops/Dizüstü Bilgisayar"
       }
     ],
     "g15": [
@@ -481,19 +391,19 @@
         "id": "v43",
         "verbTR": "almak, elde etmek",
         "verbDE": "bekommen",
-        "objects": "das Geschenk, die Nachricht, der Job"
+        "objects": "das Geschenk/Geschenke/Hediye, die Nachricht/Nachrichten/Haber, der Job/Jobs/İş"
       },
       {
         "id": "v45",
         "verbTR": "teklif/ikram etmek",
         "verbDE": "anbieten",
-        "objects": "das Getränk, die Hilfe, der Platz"
+        "objects": "das Getränk/Getränke/İçecek, die Hilfe/Hilfen/Yardım, der Platz/Plätze/Yer"
       },
       {
         "id": "v44",
         "verbTR": "teşekkür etmek",
         "verbDE": "danken",
-        "objects": "das Team, die Familie, der Chef"
+        "objects": "das Team/Teams/Takım, die Familie/Familien/Aile, der Chef/Chefs/Patron"
       }
     ],
     "g16": [
@@ -501,19 +411,19 @@
         "id": "v46",
         "verbTR": "açmak",
         "verbDE": "öffnen",
-        "objects": "das Fenster, die Tür, der Brief"
+        "objects": "das Fenster/Fenster/Pencere, die Tür/Türen/Kapı, der Brief/Briefe/Mektup"
       },
       {
         "id": "v48",
         "verbTR": "anlatmak",
         "verbDE": "erzählen",
-        "objects": "das Märchen, die Geschichte, der Witz"
+        "objects": "das Märchen/Märchen/Masal, die Geschichte/Geschichten/Hikaye, der Witz/Witze/Şaka"
       },
       {
         "id": "v47",
         "verbTR": "tebrik etmek",
         "verbDE": "gratulieren",
-        "objects": "das Kind, die Braut, der Gewinner"
+        "objects": "das Kind/Kinder/Çocuk, die Braut/Bräute/Gelin, der Gewinner/Gewinner/Kazanan"
       }
     ],
     "g17": [
@@ -521,19 +431,19 @@
         "id": "v49",
         "verbTR": "kapatmak",
         "verbDE": "schließen",
-        "objects": "das Geschäft, die Bank, der Laden"
+        "objects": "das Geschäft/Geschäfte/Dükkan, die Bank/Banken/Banka, der Laden/Läden/Mağaza"
       },
       {
         "id": "v51",
         "verbTR": "tedarik etmek",
         "verbDE": "besorgen",
-        "objects": "das Medikament, die Eintrittskarte, der Proviant"
+        "objects": "das Medikament/Medikamente/İlaç, die Eintrittskarte/Eintrittskarten/Bilet, der Proviant/-/Erzak"
       },
       {
         "id": "v50",
         "verbTR": "zarar vermek",
         "verbDE": "schaden",
-        "objects": "das Auto, die Gesundheit, der Computer"
+        "objects": "das Auto/Autos/Araba, die Gesundheit/-/Sağlık, der Computer/Computer/Bilgisayar"
       }
     ],
     "g18": [
@@ -541,19 +451,19 @@
         "id": "v52",
         "verbTR": "duymak",
         "verbDE": "hören",
-        "objects": "das Lied, die Musik, der Lärm"
+        "objects": "das Lied/Lieder/Şarkı, die Musik/-/Müzik, der Lärm/-/Gürültü"
       },
       {
         "id": "v54",
         "verbTR": "göndermek",
         "verbDE": "senden",
-        "objects": "das Signal, die Botschaft, der Code"
+        "objects": "das Signal/Signale/Sinyal, die Botschaft/Botschaften/Mesaj, der Code/Codes/Kod"
       },
       {
         "id": "v53",
         "verbTR": "tehdit etmek",
         "verbDE": "drohen",
-        "objects": "das Kind, die Person, der Nachbar"
+        "objects": "das Kind/Kinder/Çocuk, die Person/Personen/Kişi, der Nachbar/Nachbarn/Komşu"
       }
     ],
     "g19": [
@@ -561,19 +471,19 @@
         "id": "v55",
         "verbTR": "içmek",
         "verbDE": "trinken",
-        "objects": "das Wasser, die Milch, der Tee"
+        "objects": "das Wasser/Wässer/Su, die Milch/-/Süt, der Tee/Tees/Çay"
       },
       {
         "id": "v56",
         "verbTR": "önce davranmak",
         "verbDE": "zuvorkommen",
-        "objects": "das Problem, die Konkurrenz, der Gegner"
+        "objects": "das Problem/Probleme/Sorun, die Konkurrenz/-/Rekabet, der Gegner/Gegner/Rakip"
       },
       {
         "id": "v57",
         "verbTR": "yanında getirmek",
         "verbDE": "mitbringen",
-        "objects": "das Geschenk, der Wein, die gute Laune"
+        "objects": "das Geschenk/Geschenke/Hediye, der Wein/Weine/Şarap, die gute Laune/-/İyi Keyif"
       }
     ],
     "g20": [
@@ -581,311 +491,362 @@
         "id": "v59",
         "verbTR": "affetmek",
         "verbDE": "verzeihen",
-        "objects": "das Kind, die Person, der Freund"
+        "objects": "das Kind/Kinder/Çocuk, die Person/Personen/Kişi, der Freund/Freunde/Arkadaş"
       },
       {
         "id": "v58",
         "verbTR": "çalmak",
         "verbDE": "stehlen",
-        "objects": "das Handy, die Tasche, der Laptop"
+        "objects": "das Handy/Handys/Cep Telefonu, die Tasche/Taschen/Çanta, der Laptop/Laptops/Dizüstü Bilgisayar"
       },
       {
         "id": "v60",
         "verbTR": "soymak",
         "verbDE": "berauben",
-        "objects": "der Reisende, die Bank, das Opfer"
+        "objects": "der Reisende/Reisenden/Yolcu, die Bank/Banken/Banka, das Opfer/Opfer/Kurban"
       }
     ],
     "g21": [
       {
         "id": "v61",
         "verbTR": "almak, toplamak",
-        "verbDE": "abholen"
+        "verbDE": "abholen",
+        "objects": "der Umschlag/Umschläge/Zarf, die Palette/Paletten/Palet, das Gepäck/-/Bagaj"
       },
       {
         "id": "v62",
         "verbTR": "yardım etmek",
-        "verbDE": "helfen"
+        "verbDE": "helfen",
+        "objects": "der Kunde/Kunden/Müşteri, die Person/Personen/Kişi, das Kind/Kinder/Çocuk"
       },
       {
         "id": "v63",
         "verbTR": "teslim etmek",
-        "verbDE": "übergeben"
+        "verbDE": "übergeben",
+        "objects": "der Karton/Kartons/Koli, die Ware/Waren/Mal, das Paket/Pakete/Paket"
       }
     ],
     "g22": [
       {
         "id": "v64",
         "verbTR": "aramak",
-        "verbDE": "suchen"
+        "verbDE": "suchen",
+        "objects": "der Empfänger/Empfänger/Alıcı, die Adresse/Adressen/Adres, das Gebäude/Gebäude/Bina"
       },
       {
         "id": "v65",
         "verbTR": "takip etmek",
-        "verbDE": "folgen"
+        "verbDE": "folgen",
+        "objects": "der Wegweiser/Wegweiser/Tabela, die Anweisung/Anweisungen/Talimat, das Navi/Navis/Navigasyon"
       },
       {
         "id": "v66",
         "verbTR": "göstermek",
-        "verbDE": "zeigen"
+        "verbDE": "zeigen",
+        "objects": "der Ausweis/Ausweise/Kimlik, die Route/Routen/Rota, das Handy/Handys/Cep Telefonu"
       }
     ],
     "g23": [
       {
         "id": "v67",
         "verbTR": "imzalamak",
-        "verbDE": "unterschreiben"
+        "verbDE": "unterschreiben",
+        "objects": "der Vertrag/Verträge/Sözleşme, die Bestätigung/Bestätigungen/Onay, das Papier/Papiere/Kağıt"
       },
       {
         "id": "v68",
         "verbTR": "teşekkür etmek",
-        "verbDE": "danken"
+        "verbDE": "danken",
+        "objects": "der Mitarbeiter/Mitarbeiter/Çalışan, die Kollegin/Kolleginnen/Kadın Meslektaş, das Team/Teams/Takım"
       },
       {
         "id": "v69",
         "verbTR": "uzatmak",
-        "verbDE": "reichen"
+        "verbDE": "reichen",
+        "objects": "der Kugelschreiber/Kugelschreiber/Tükenmez Kalem, die Unterschrift/Unterschriften/İmza, das Formular/Formulare/Form"
       }
     ],
     "g24": [
       {
         "id": "v70",
         "verbTR": "taramak",
-        "verbDE": "scannen"
+        "verbDE": "scannen",
+        "objects": "der Barcode/Barcodes/Barkod, die Etikette/Etiketten/Etiket, das Label/Labels/Etiket"
       },
       {
         "id": "v71",
         "verbTR": "cevap vermek",
-        "verbDE": "antworten"
+        "verbDE": "antworten",
+        "objects": "der Chef/Chefs/Patron, die Zentrale/Zentralen/Merkez, das Management/Managements/Yönetim"
       },
       {
         "id": "v72",
         "verbTR": "göndermek",
-        "verbDE": "schicken"
+        "verbDE": "schicken",
+        "objects": "der Bericht/Berichte/Rapor, die E-Mail/E-Mails/E-posta, das Foto/Fotos/Fotoğraf"
       }
     ],
     "g25": [
       {
         "id": "v73",
         "verbTR": "yüklemek",
-        "verbDE": "beladen"
+        "verbDE": "beladen",
+        "objects": "der Lkw/Lkws/Kamyon, die Ladefläche/Ladeflächen/Yükleme Alanı, das Fahrzeug/Fahrzeuge/Araç"
       },
       {
         "id": "v74",
         "verbTR": "güvenmek",
-        "verbDE": "vertrauen"
+        "verbDE": "vertrauen",
+        "objects": "der Kollege/Kollegen/Meslektaş, die Technik/Techniken/Teknik, das System/Systeme/Sistem"
       },
       {
         "id": "v75",
         "verbTR": "vermek",
-        "verbDE": "geben"
+        "verbDE": "geben",
+        "objects": "der Schlüssel/Schlüssel/Anahtar, die Quittung/Quittungen/Makbuz, das Dokument/Dokumente/Belge"
       }
     ],
     "g26": [
       {
         "id": "v76",
         "verbTR": "taşımak",
-        "verbDE": "tragen"
+        "verbDE": "tragen",
+        "objects": "der Koffer/Koffer/Bavul, die Box/Boxen/Kutu, das Gerät/Geräte/Cihaz"
       },
       {
         "id": "v77",
         "verbTR": "rastlamak",
-        "verbDE": "begegnen"
+        "verbDE": "begegnen",
+        "objects": "der Nachbar/Nachbarn/Komşu, die Frau/Frauen/Kadın, das Tier/Tiere/Hayvan"
       },
       {
         "id": "v78",
         "verbTR": "götürmek",
-        "verbDE": "bringen"
+        "verbDE": "bringen",
+        "objects": "der Brief/Briefe/Mektup, die Bestellung/Bestellungen/Sipariş, das Geschenk/Geschenke/Hediye"
       }
     ],
     "g27": [
       {
         "id": "v79",
         "verbTR": "sınıflandırmak",
-        "verbDE": "sortieren"
+        "verbDE": "sortieren",
+        "objects": "der Stapel/Stapel/Yığın, die Post/Posts/Posta, das Päckchen/Päckchen/Küçük Paket"
       },
       {
         "id": "v80",
         "verbTR": "dinlemek",
-        "verbDE": "zuhören"
+        "verbDE": "zuhören",
+        "objects": "der Disponent/Disponenten/Planlamacı, die Beschwerde/Beschwerden/Şikayet, das Anliegen/Anliegen/İstek"
       },
       {
         "id": "v81",
         "verbTR": "açıklamak",
-        "verbDE": "erklären"
+        "verbDE": "erklären",
+        "objects": "der Fehler/Fehler/Hata, die Verspätung/Verspätungen/Gecikme, das Verfahren/Verfahren/Yöntem"
       }
     ],
     "g28": [
       {
         "id": "v82",
         "verbTR": "kontrol etmek",
-        "verbDE": "kontrollieren"
+        "verbDE": "kontrollieren",
+        "objects": "der Zustand/Zustände/Durum, die Liste/Listen/Liste, das Gewicht/Gewichte/Ağırlık"
       },
       {
         "id": "v83",
         "verbTR": "yardım etmek",
-        "verbDE": "helfen"
+        "verbDE": "helfen",
+        "objects": "der Kunde/Kunden/Müşteri, die Person/Personen/Kişi, das Kind/Kinder/Çocuk"
       },
       {
         "id": "v84",
         "verbTR": "göstermek",
-        "verbDE": "zeigen"
+        "verbDE": "zeigen",
+        "objects": "der Ausweis/Ausweise/Kimlik, die Route/Routen/Rota, das Handy/Handys/Cep Telefonu"
       }
     ],
     "g29": [
       {
         "id": "v85",
         "verbTR": "bulmak",
-        "verbDE": "finden"
+        "verbDE": "finden",
+        "objects": "der Eingang/Eingänge/Giriş, die Hausnummer/Hausnummern/Kapı Numarası, das Haus/Häuser/Ev"
       },
       {
         "id": "v86",
         "verbTR": "takip etmek",
-        "verbDE": "folgen"
+        "verbDE": "folgen",
+        "objects": "der Wegweiser/Wegweiser/Tabela, die Anweisung/Anweisungen/Talimat, das Navi/Navis/Navigasyon"
       },
       {
         "id": "v87",
         "verbTR": "söylemek",
-        "verbDE": "sagen"
+        "verbDE": "sagen",
+        "objects": "der Name/Namen/İsim, die Uhrzeit/Uhrzeiten/Saat, das Datum/Daten/Tarih"
       }
     ],
     "g30": [
       {
         "id": "v88",
         "verbTR": "kontrol etmek",
-        "verbDE": "prüfen"
+        "verbDE": "prüfen",
+        "objects": "der Reifen/Reifen/Lastik, die Bremse/Bremsen/Fren, das Öl/Öle/Yağ"
       },
       {
         "id": "v89",
         "verbTR": "güvenmek",
-        "verbDE": "vertrauen"
+        "verbDE": "vertrauen",
+        "objects": "der Kollege/Kollegen/Meslektaş, die Technik/Techniken/Teknik, das System/Systeme/Sistem"
       },
       {
         "id": "v90",
         "verbTR": "vermek",
-        "verbDE": "geben"
+        "verbDE": "geben",
+        "objects": "der Schlüssel/Schlüssel/Anahtar, die Quittung/Quittungen/Makbuz, das Dokument/Dokumente/Belge"
       }
     ],
     "g31": [
       {
         "id": "v91",
         "verbTR": "park etmek",
-        "verbDE": "parken"
+        "verbDE": "parken",
+        "objects": "der Transporter/Transporter/Nakliye Aracı, die Maschine/Maschinen/Makine, das Auto/Autos/Araba"
       },
       {
         "id": "v92",
         "verbTR": "teşekkür etmek",
-        "verbDE": "danken"
+        "verbDE": "danken",
+        "objects": "der Mitarbeiter/Mitarbeiter/Çalışan, die Kollegin/Kolleginnen/Kadın Meslektaş, das Team/Teams/Takım"
       },
       {
         "id": "v93",
         "verbTR": "teslim etmek",
-        "verbDE": "übergeben"
+        "verbDE": "übergeben",
+        "objects": "der Karton/Kartons/Koli, die Ware/Waren/Mal, das Paket/Pakete/Paket"
       }
     ],
     "g32": [
       {
         "id": "v94",
         "verbTR": "yakıt almak",
-        "verbDE": "tanken"
+        "verbDE": "tanken",
+        "objects": "der Diesel/-/Dizel, die Tankstelle/Tankstellen/Benzin İstasyonu, das Benzin/-/Benzin"
       },
       {
         "id": "v95",
         "verbTR": "yardım etmek",
-        "verbDE": "helfen"
+        "verbDE": "helfen",
+        "objects": "der Kunde/Kunden/Müşteri, die Person/Personen/Kişi, das Kind/Kinder/Çocuk"
       },
       {
         "id": "v96",
         "verbTR": "götürmek",
-        "verbDE": "bringen"
+        "verbDE": "bringen",
+        "objects": "der Brief/Briefe/Mektup, die Bestellung/Bestellungen/Sipariş, das Geschenk/Geschenke/Hediye"
       }
     ],
     "g33": [
       {
         "id": "v97",
         "verbTR": "yüklemek, şarj etmek",
-        "verbDE": "laden"
+        "verbDE": "laden",
+        "objects": "der Akku/Akkus/Batarya, die Batterie/Batterien/Pil, das Gerät/Geräte/Cihaz"
       },
       {
         "id": "v98",
         "verbTR": "güvenmek",
-        "verbDE": "vertrauen"
+        "verbDE": "vertrauen",
+        "objects": "der Kollege/Kollegen/Meslektaş, die Technik/Techniken/Teknik, das System/Systeme/Sistem"
       },
       {
         "id": "v99",
         "verbTR": "uzatmak",
-        "verbDE": "reichen"
+        "verbDE": "reichen",
+        "objects": "der Kugelschreiber/Kugelschreiber/Tükenmez Kalem, die Unterschrift/Unterschriften/İmza, das Formular/Formulare/Form"
       }
     ],
     "g34": [
       {
         "id": "v100",
         "verbTR": "paketlemek",
-        "verbDE": "packen"
+        "verbDE": "packen",
+        "objects": "der Inhalt/Inhalte/İçerik, die Kiste/Kisten/Sandık, das Paket/Pakete/Paket"
       },
       {
         "id": "v101",
         "verbTR": "dinlemek",
-        "verbDE": "zuhören"
+        "verbDE": "zuhören",
+        "objects": "der Disponent/Disponenten/Planlamacı, die Beschwerde/Beschwerden/Şikayet, das Anliegen/Anliegen/İstek"
       },
       {
         "id": "v102",
         "verbTR": "göndermek",
-        "verbDE": "schicken"
+        "verbDE": "schicken",
+        "objects": "der Bericht/Berichte/Rapor, die E-Mail/E-Mails/E-posta, das Foto/Fotos/Fotoğraf"
       }
     ],
     "g35": [
       {
         "id": "v103",
         "verbTR": "yüklemek",
-        "verbDE": "verladen"
+        "verbDE": "verladen",
+        "objects": "der Container/Container/Konteyner, die Fracht/Frachten/Yük, das Material/Materialien/Malzeme"
       },
       {
         "id": "v104",
         "verbTR": "cevap vermek",
-        "verbDE": "antworten"
+        "verbDE": "antworten",
+        "objects": "der Chef/Chefs/Patron, die Zentrale/Zentralen/Merkez, das Management/Managements/Yönetim"
       },
       {
         "id": "v105",
         "verbTR": "teslim etmek",
-        "verbDE": "liefern"
+        "verbDE": "liefern",
+        "objects": "der Sack/Säcke/Çuval, die Sendung/Sendungen/Gönderi, das Möbelstück/Möbelstücke/Mobilya"
       }
     ],
     "g36": [
       {
         "id": "v106",
         "verbTR": "açmak",
-        "verbDE": "öffnen"
+        "verbDE": "öffnen",
+        "objects": "der Deckel/Deckel/Kapak, die Tür/Türen/Kapı, das Tor/Tore/Kapı (Büyük)"
       },
       {
         "id": "v107",
         "verbTR": "rastlamak",
-        "verbDE": "begegnen"
+        "verbDE": "begegnen",
+        "objects": "der Nachbar/Nachbarn/Komşu, die Frau/Frauen/Kadın, das Tier/Tiere/Hayvan"
       },
       {
         "id": "v108",
         "verbTR": "göstermek",
-        "verbDE": "zeigen"
+        "verbDE": "zeigen",
+        "objects": "der Ausweis/Ausweise/Kimlik, die Route/Routen/Rota, das Handy/Handys/Cep Telefonu"
       }
     ],
     "g37": [
       {
         "id": "v109",
         "verbTR": "kapatmak",
-        "verbDE": "schließen"
+        "verbDE": "schließen",
+        "objects": "der Kofferraum/Kofferräume/Bagaj, die Luke/Luken/Kapak (Lumbuz), das Fenster/Fenster/Pencere"
       },
       {
         "id": "v110",
         "verbTR": "teşekkür etmek",
-        "verbDE": "danken"
+        "verbDE": "danken",
+        "objects": "der Mitarbeiter/Mitarbeiter/Çalışan, die Kollegin/Kolleginnen/Kadın Meslektaş, das Team/Teams/Takım"
       },
       {
         "id": "v111",
         "verbTR": "rapor etmek",
-        "verbDE": "melden"
+        "verbDE": "melden",
+        "objects": "der Unfall/Unfälle/Kaza, die Beschwerde/Beschwerden/Şikayet, das Problem/Probleme/Sorun"
       }
     ]
-  },
+},
   "content": {
     "v3_s1": [
       {
@@ -14189,8 +14150,8 @@
         "tr": "Ben bilekliği kaybediyorum",
         "de": "Ich verliere das Armband"
       }
-     ],
-     "v40_s4": [
+    ],
+    "v40_s4": [
       {
         "tr": "Biz telefonları kaybediyoruz",
         "de": "Wir verlieren die Handys"
@@ -20323,31 +20284,31 @@
         "tr": "Nasıl kişiyi affediyorsun?",
         "de": "Wie verzeihst du der Person?"
       }
-      ],
-      "v61_s1": [
+    ],
+    "v61_s1": [
       {
         "tr": "Ben alıyorum.",
-        "de": "Ich hole ab."
+        "de": "Ich hole ab"
       },
       {
         "tr": "Sen alıyorsun.",
-        "de": "Du holst ab."
+        "de": "Du holst ab"
       },
       {
-        "tr": "O (erkek) alıyor.",
-        "de": "Er holt ab."
+        "tr": "O alıyor.",
+        "de": "Er holt ab"
       },
       {
         "tr": "Biz alıyoruz.",
-        "de": "Wir holen ab."
+        "de": "Wir holen ab"
       },
       {
-        "tr": "Siz (çoğul) alıyorsunuz.",
-        "de": "Ihr holt ab."
+        "tr": "Siz alıyorsunuz.",
+        "de": "Ihr holt ab"
       },
       {
         "tr": "Onlar alıyorlar.",
-        "de": "Sie holen ab."
+        "de": "Sie holen ab"
       }
     ],
     "v61_s2": [
@@ -20672,7 +20633,7 @@
         "de": "Du hilfst."
       },
       {
-        "tr": "O (erkek) yardım ediyor.",
+        "tr": "O yardım ediyor.",
         "de": "Er hilft."
       },
       {
@@ -20680,7 +20641,7 @@
         "de": "Wir helfen."
       },
       {
-        "tr": "Siz (çoğul) yardım ediyorsunuz.",
+        "tr": "Siz yardım ediyorsunuz.",
         "de": "Ihr helft."
       },
       {
@@ -21014,7 +20975,7 @@
         "de": "Du übergibst."
       },
       {
-        "tr": "O (erkek) teslim ediyor.",
+        "tr": "O teslim ediyor.",
         "de": "Er übergibt."
       },
       {
@@ -21022,7 +20983,7 @@
         "de": "Wir übergeben."
       },
       {
-        "tr": "Siz (çoğul) teslim ediyorsunuz.",
+        "tr": "Siz teslim ediyorsunuz.",
         "de": "Ihr übergebt."
       },
       {
@@ -21374,7 +21335,7 @@
         "de": "Du suchst."
       },
       {
-        "tr": "O (erkek) arıyor.",
+        "tr": "O arıyor.",
         "de": "Er sucht."
       },
       {
@@ -21382,7 +21343,7 @@
         "de": "Wir suchen."
       },
       {
-        "tr": "Siz (çoğul) arıyorsunuz.",
+        "tr": "Siz arıyorsunuz.",
         "de": "Ihr sucht."
       },
       {
@@ -21716,7 +21677,7 @@
         "de": "Du folgst."
       },
       {
-        "tr": "O (erkek) takip ediyor.",
+        "tr": "O takip ediyor.",
         "de": "Er folgt."
       },
       {
@@ -21724,7 +21685,7 @@
         "de": "Wir folgen."
       },
       {
-        "tr": "Siz (çoğul) takip ediyorsunuz.",
+        "tr": "Siz takip ediyorsunuz.",
         "de": "Ihr folgt."
       },
       {
@@ -22058,7 +22019,7 @@
         "de": "Du zeigst."
       },
       {
-        "tr": "O (erkek) gösteriyor.",
+        "tr": "O gösteriyor.",
         "de": "Er zeigt."
       },
       {
@@ -22066,7 +22027,7 @@
         "de": "Wir zeigen."
       },
       {
-        "tr": "Siz (çoğul) gösteriyorsunuz.",
+        "tr": "Siz gösteriyorsunuz.",
         "de": "Ihr zeigt."
       },
       {
@@ -22418,7 +22379,7 @@
         "de": "Du unterschreibst."
       },
       {
-        "tr": "O (erkek) imzalıyor.",
+        "tr": "O imzalıyor.",
         "de": "Er unterschreibt."
       },
       {
@@ -22426,7 +22387,7 @@
         "de": "Wir unterschreiben."
       },
       {
-        "tr": "Siz (çoğul) imzalıyorsunuz.",
+        "tr": "Siz imzalıyorsunuz.",
         "de": "Ihr unterschreibt."
       },
       {
@@ -22760,7 +22721,7 @@
         "de": "Du dankst."
       },
       {
-        "tr": "O (erkek) teşekkür ediyor.",
+        "tr": "O teşekkür ediyor.",
         "de": "Er dankt."
       },
       {
@@ -22768,7 +22729,7 @@
         "de": "Wir danken."
       },
       {
-        "tr": "Siz (çoğul) teşekkür ediyorsunuz.",
+        "tr": "Siz teşekkür ediyorsunuz.",
         "de": "Ihr dankt."
       },
       {
@@ -23102,7 +23063,7 @@
         "de": "Du reichst."
       },
       {
-        "tr": "O (erkek) uzatıyor.",
+        "tr": "O uzatıyor.",
         "de": "Er reicht."
       },
       {
@@ -23110,7 +23071,7 @@
         "de": "Wir reichen."
       },
       {
-        "tr": "Siz (çoğul) uzatıyorsunuz.",
+        "tr": "Siz uzatıyorsunuz.",
         "de": "Ihr reicht."
       },
       {
@@ -25879,12 +25840,12 @@
     },
     "A2": {
       "2": "KİŞİ ZAMİRİ NESNELERİ (Objektpronomen)",
+      "6": "SIFAT ÇEKİMLERİ (Adjektivdeklination)",
       "10": "EDATLAR",
       "12": "PERFEKT (haben/sein + Partizip II)",
       "13": "MODAL VERBEN (können, müssen, wollen...)",
-      "15": "PRÄTERITUM (war, hatte, ging...)",
       "14": "AKK+DAT KULLANIMI (Çift Nesne)",
-      "6": "SIFAT ÇEKİMLERİ (Adjektivdeklination)",
+      "15": "PRÄTERITUM (war, hatte, ging...)",
       "16": "WEIL-CÜMLELERİ (Neden)",
       "17": "WENN-CÜMLELERİ (Şart - Realis)",
       "18": "DASS-CÜMLELERİ (ki - Nebensatz)"
