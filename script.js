@@ -1,4 +1,5 @@
 
+
 /* ==========================================================================
   VERB MATRIX — CLEANED & OPTIMIZED (FINAL)
   - Tüm mükerrer fonksiyonlar temizlendi.
@@ -10,7 +11,93 @@
    1. BASE DATA & STATE
    -------------------------------------------------------------------------- */
 window.data = {
-    settings: { theme: 'light', conversionMode: 'tr-de', currentClass: 'A1', parallelDelay: 3000 },
+        settings: { theme: 'light', conversionMode: 'tr-de', currentClass: 'A1', parallelDelay: 3000 },
+    ui_strings: {
+        "tr": {
+            "translation_direction": "Çeviri Yönü",
+            "start_learning": "📚 Çalışmaya Başla",
+            "review_mode": "🔄 Tekrar Modu",
+            "progress": "📊 İlerleme",
+            "overall_progress": "Genel İlerleme",
+            "total_learned_cards": "Toplam Öğrenilen Kart",
+            "select_your_class": "Sınıfını Seç",
+            "unit_groups": "Ünite Grupları",
+            "verbs": "Fiiller",
+            "topics": "Konular",
+            "menu": "Menü",
+            "show_answer": "GÖSTER",
+            "srs_hard": "ZOR",
+            "srs_normal": "NORMAL",
+            "srs_easy": "KOLAY",
+            "hint": "İpucu",
+            "listen": "Dinle",
+            "edit": "Düzenle",
+            "auto": "Oto",
+            "slow": "Yavaş",
+            "read": "Oku",
+            "review_pool": "Tekrar Havuzu",
+            "hard_cards": "🥵 ZOR KARTLAR",
+            "normal_cards": "🤔 NORMAL KARTLAR",
+            "learned_cards": "✅ ÖĞRENDİKLERİM",
+            "story": "Hikaye",
+            "test": "Test",
+            "german": "ALMANCA",
+            "turkish": "TÜRKÇE",
+            "go_back": "Geri Dön",
+            "settings": "Ayarlar",
+            "appearance": "Görünüm",
+            "theme": "Tema",
+            "music": "Müzik"
+        },
+        "de": {
+            "translation_direction": "Übersetzungsrichtung",
+            "start_learning": "📚 Lernen starten",
+            "review_mode": "🔄 Wiederholungsmodus",
+            "progress": "📊 Fortschritt",
+            "overall_progress": "Gesamtfortschritt",
+            "total_learned_cards": "Gesamt gelernte Karten",
+            "select_your_class": "Klasse wählen",
+            "unit_groups": "Einheitengruppen",
+            "verbs": "Verben",
+            "topics": "Themen",
+            "menu": "Menü",
+            "show_answer": "ZEIGEN",
+            "srs_hard": "SCHWER",
+            "srs_normal": "NORMAL",
+            "srs_easy": "LEICHT",
+            "hint": "Hinweis",
+            "listen": "Anhören",
+            "edit": "Bearbeiten",
+            "auto": "Auto",
+            "slow": "Langsam",
+            "read": "Lesen",
+            "review_pool": "Wiederholungspool",
+            "hard_cards": "🥵 SCHWERE KARTEN",
+            "normal_cards": "🤔 NORMALE KARTEN",
+            "learned_cards": "✅ GELERNT",
+            "story": "Geschichte",
+            "test": "Test",
+            "german": "DEUTSCH",
+            "turkish": "TÜRKISCH",
+            "go_back": "Zurück",
+            "settings": "Einstellungen",
+            "appearance": "Erscheinungsbild",
+            "theme": "Design",
+            "music": "Musik",
+            "parallel_listening": "🎧 Parallelhören",
+            "cloze_test": "✏️ Lückentext",
+            "word_order": "🧩 Wortstellung",
+            "quiz_writing": "📝 Quiz (Schreiben)",
+            "review_select_app": "🔁 Wiederholung - App wählen",
+            "star_topics": "⭐ Themen markieren",
+            "mixed_mode_settings": "(Mischmodus-Einstellungen)",
+            "data_management": "Datenverwaltung",
+            "upload": "📥 Hochladen",
+            "backup": "📤 Sichern",
+            "update_app": "🔄 App aktualisieren (Cache leeren)",
+            "reset_progress": "🗑️ Fortschritt zurücksetzen"
+        }
+    },
     content: {}, classes: [], groups: [], topics: {}, verbs: {}, stories: {}
 };
 
@@ -78,6 +165,14 @@ window.normalizeText = function(text) {
         .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") // Noktalamaları sil
         .replace(/\s{2,}/g, " ") // Çift boşlukları teke indir
         .trim();
+};
+
+// YENİ: Cevap metninden parantezli kısmı (örn: "(der) > ") temizler
+window.getEffectiveAnswer = function(text) {
+    if (text && text.includes(') > ')) {
+        return text.split(') > ')[1].trim();
+    }
+    return text;
 };
 /* --------------------------------------------------------------------------
    MODULE: CLOZE (BOŞLUK DOLDURMA) SISTEMI
@@ -436,9 +531,13 @@ window.init = async function() {
         window.updateFloatingMusicButtonUI();
         // E. Splash Ekranını Kaldır
         if (splash) {
-            splash.style.transition = "opacity 0.5s ease";
-            splash.style.opacity = "0"; // Logo 3 saniye sonra kaybolsun
-            setTimeout(() => { splash.style.display = 'none'; }, 3000);
+            // YENİ: 2.5 saniye bekle, sonra nazikçe yok ol (Toplam ~3.3sn)
+            setTimeout(() => {
+                splash.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+                splash.style.opacity = "0"; 
+                splash.style.transform = "scale(1.1)"; // Hafifçe büyüyerek kaybolma efekti
+                setTimeout(() => { splash.style.display = 'none'; }, 800);
+            }, 2500);
         }
         // F. Her şey bittiğinde ana menünün aktif olduğundan emin ol
         console.log("▶️ Ana menü gösteriliyor...");
@@ -515,8 +614,8 @@ window.speakText = function(text, lang, cb) {
     try {
         window.speechSynthesis.cancel(); // Çakışmayı önle
 
-        // YENİ: Metindeki parantez içlerini ve parantezleri kaldır.
-        const cleanedText = text.replace(/\(.*?\)/g, '').trim();
+        // YENİ: Metindeki parantezleri ve '>' işaretini kaldır.
+        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').trim();
 
         const u = new SpeechSynthesisUtterance(cleanedText);
         u.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
@@ -578,7 +677,7 @@ window.speakParallel = function(text, lang, onEnd) {
     }
 
     try {
-        const cleanedText = text.replace(/\(.*?\)/g, '').trim();
+        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').trim();
         const utterance = new SpeechSynthesisUtterance(cleanedText);
         utterance.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
         utterance.rate = window.state.slowMode ? 0.7 : 0.9;
@@ -755,6 +854,21 @@ window.showView = function(viewId = 'mainMenu', pushToHistory = true) {
         console.warn(`'${viewId}' ID'li view bulunamadı. Ana menüye yönlendiriliyor.`);
         document.getElementById('mainMenu').classList.add('active');
     }
+
+    // YENİ: Yüzen butonların altında kalmaması için learningView'e CSS sınıfı ekle/kaldır
+    const learningViewEl = document.getElementById('learningView');
+    if (learningViewEl) {
+        if (viewId === 'learningView') learningViewEl.classList.add('with-floating-controls');
+        else learningViewEl.classList.remove('with-floating-controls');
+    }
+
+    // YENİ: Header/Logo Görünürlüğü Kontrolü
+    const headerEl = document.querySelector('header');
+    if (headerEl) {
+        const hideHeader = ['learningView', 'storyView', 'storyQuestionsView', 'welcomeView', 'splashScreen'].includes(viewId);
+        headerEl.style.display = hideHeader ? 'none' : 'block';
+    }
+
     if (viewId === 'settingsView') window.updateTotalProgress();
     window.scrollTo(0, 0);
 };
@@ -1151,6 +1265,41 @@ window.renderSections = function(verbId) {
         console.warn(`⚠️ '${currentClass}' sınıfı için konu bulunamadı.`);
         list.innerHTML = '<div style="text-align:center; padding:20px;">Bu seviyede konu bulunamadı.</div>';
         return;
+    }
+
+    // YENİ: Bölüm 0 (İsim Çekimleri) Kontrolü
+    if (window.state.verbData && window.state.verbData.objects) {
+        const tId = 0;
+        const tName = "İSİM ÇEKİMLERİ & ARTIKELLER";
+        const key = `${verbId}_s0`;
+        
+        // Kartları oluştur
+        const dynamicCards = window.generateDeclensionCards(window.state.verbData);
+        const total = dynamicCards.length;
+        
+        // İlerleme durumunu kontrol et
+        let completedCount = 0;
+        dynamicCards.forEach((s, idx) => { if (window.srsData[`${key}_${idx}`]) completedCount++; });
+        const isFinished = total > 0 && completedCount === total;
+
+        let btnClass = isFinished ? 'btn-success' : (completedCount > 0 ? 'btn-info' : 'btn-secondary');
+        const row = document.createElement('button'); 
+        row.className = `btn ${btnClass} btn-block`;
+        row.style.justifyContent = 'space-between'; 
+        row.style.textAlign = 'left';
+        
+        row.innerHTML = `
+            <div>
+                <div style="font-size:0.8rem; opacity:0.8">Konu 0</div>
+                <div style="font-size:1.1rem; font-weight:bold;">${tName}</div>
+            </div>
+            <div style="font-size:0.85rem; font-weight:700; min-width:80px; text-align:right;">
+                ${isFinished ? '✅ TAMAM' : `⏳ ${completedCount} / ${total}`}
+            </div>`;
+        
+        row.onclick = () => window.startStudy(dynamicCards, verbId, tId);
+        // En başa ekle
+        list.appendChild(row);
     }
 
     Object.keys(topicSource).sort((a, b) => parseInt(a) - parseInt(b)).forEach(tId => {
@@ -1664,7 +1813,8 @@ window.renderClozeCard = function() {
     window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
-    const targetSentence = isTrDe ? card.de : card.tr;
+    const rawTarget = isTrDe ? card.de : card.tr;
+    const targetSentence = window.getEffectiveAnswer(rawTarget); // YENİ: Temizlenmiş cevap
     const sourceSentence = isTrDe ? card.tr : card.de;
 
     const words = targetSentence.split(' ');
@@ -1751,7 +1901,8 @@ window.renderWordOrderCard = function() {
     window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
-    const targetSentence = isTrDe ? card.de : card.tr;
+    const rawTarget = isTrDe ? card.de : card.tr;
+    const targetSentence = window.getEffectiveAnswer(rawTarget); // YENİ: Temizlenmiş cevap
     const sourceSentence = isTrDe ? card.tr : card.de;
 
     const rawWords = targetSentence.split(' ').filter(w => w.trim() !== '');
@@ -1836,7 +1987,8 @@ window.renderQuizCard = function() {
     window.state.currentCardData = card;
 
     const isTrDe = window.data.settings.conversionMode === 'tr-de';
-    window.state.correctAnswer = isTrDe ? card.de : card.tr;
+    const rawAnswer = isTrDe ? card.de : card.tr;
+    window.state.correctAnswer = window.getEffectiveAnswer(rawAnswer); // YENİ: Temizlenmiş cevap
     
     const content = document.getElementById('learningContent'); content.innerHTML = '';
     if(document.getElementById('actionBtn')) document.getElementById('actionBtn').style.display = 'none';
@@ -2138,7 +2290,7 @@ window.buildAndStartParallelPlayer = function(parallelMode) {
     const vId = window.state.currentVerbId; 
     const tId = window.state.tempTopicId; 
 
-    if (!tId) {
+    if (tId === undefined || tId === null) {
         alert("Hata: Konu seçimi algılanamadı. Lütfen tekrar deneyin.");
         return;
     }
@@ -2164,14 +2316,23 @@ window.buildAndStartParallelPlayer = function(parallelMode) {
         const topicsToPlay = (startIndex !== -1) ? allTopicIds.slice(startIndex) : allTopicIds;
 
         topicsToPlay.forEach(currentTId => {
-            const key = `${vId}_s${currentTId}`;
-            const sentences = window.data.content[key];
-            if (sentences) {
-                sentences.forEach((s, i) => {
-                    const id = `${key}_${i}`;
-                    const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {};
-                    finalDeck.push({ ...s, ...ovr, id: id });
+            if (currentTId === 0) {
+                // Bölüm 0: Dinamik Kartlar
+                const dynamicCards = window.generateDeclensionCards(window.state.verbData);
+                dynamicCards.forEach((s, i) => {
+                    const id = `${vId}_s0_${i}`;
+                    finalDeck.push({ ...s, id: id });
                 });
+            } else {
+                const key = `${vId}_s${currentTId}`;
+                const sentences = window.data.content[key];
+                if (sentences) {
+                    sentences.forEach((s, i) => {
+                        const id = `${key}_${i}`;
+                        const ovr = window.contentOverride ? (window.contentOverride[id] || {}) : {};
+                        finalDeck.push({ ...s, ...ovr, id: id });
+                    });
+                }
             }
         });
 
@@ -2324,6 +2485,91 @@ window.toggleParallelPlay = function() {
         if(btn) btn.innerHTML = '▶';
         const st = document.getElementById('parallelStatus'); if(st) { st.innerText="DURAKLATILDI"; st.style.color="red"; }
     }
+};
+
+/* ==========================================================================
+   YENİ: İSİM ÇEKİMLERİ (DECLENSION) KART ÜRETİCİSİ
+   ========================================================================== */
+window.generateDeclensionCards = function(verbData) {
+    if (!verbData || !verbData.objects) return [];
+    
+    const cards = [];
+    const objectList = verbData.objects.split(',').map(s => s.trim());
+
+    objectList.forEach(objStr => {
+        const parts = objStr.split('/');
+        if (parts.length < 3) return;
+
+        const fullSingular = parts[0].trim(); // "das Bild"
+        const pluralNoun = parts[1].trim();   // "Bilder"
+        const meaningTR = parts[2].trim();    // "Resim"
+
+        const spaceIdx = fullSingular.indexOf(' ');
+        if (spaceIdx === -1) return;
+        
+        const article = fullSingular.substring(0, spaceIdx).toLowerCase(); // "das"
+        const singularNoun = fullSingular.substring(spaceIdx + 1); // "Bild"
+
+        let gender = 'neutral';
+        if (article === 'der') gender = 'masculine';
+        else if (article === 'die') gender = 'feminine';
+
+        const cases = ['Nom', 'Akk', 'Dat', 'Gen'];
+        const types = ['Definite', 'Indefinite', 'Negative'];
+
+        // 1. TEKİL KARTLARI
+        types.forEach(type => {
+            cases.forEach(cas => {
+                const deArticle = window.getDeclinedArticle(type, cas, gender);
+                let deNoun = singularNoun;
+                if (cas === 'Gen' && (gender === 'masculine' || gender === 'neutral')) deNoun += 'es';
+
+                const trLabel = `${meaningTR} (${window.getCaseTR(cas)} - ${window.getTypeTR(type)})`;
+                const deText = `(${article}) > ${deArticle} ${deNoun}`;
+                cards.push({ tr: trLabel, de: deText });
+            });
+        });
+
+        // 2. ÇOĞUL KARTLARI
+        ['Definite', 'Negative'].forEach(type => {
+            cases.forEach(cas => {
+                const deArticle = window.getDeclinedArticle(type, cas, 'plural');
+                let deNoun = pluralNoun;
+                if (cas === 'Dat' && !deNoun.endsWith('n') && !deNoun.endsWith('s')) deNoun += 'n';
+
+                const trLabel = `${meaningTR} (Çoğul - ${window.getCaseTR(cas)} - ${window.getTypeTR(type)})`;
+                const deText = `(${article}) > ${deArticle} ${deNoun}`;
+                cards.push({ tr: trLabel, de: deText });
+            });
+        });
+    });
+    return cards;
+};
+
+window.getCaseTR = function(c) { const map = { 'Nom': 'Yalın', 'Akk': '-i Hali', 'Dat': '-e Hali', 'Gen': '-in Hali' }; return map[c] || c; };
+window.getTypeTR = function(t) { const map = { 'Definite': 'Belirli', 'Indefinite': 'Belirsiz', 'Negative': 'Olumsuz' }; return map[t] || t; };
+window.getDeclinedArticle = function(type, cas, gender) {
+    const table = {
+        'Definite': {
+            'masculine': { 'Nom': 'der', 'Akk': 'den', 'Dat': 'dem', 'Gen': 'des' },
+            'feminine':  { 'Nom': 'die', 'Akk': 'die', 'Dat': 'der', 'Gen': 'der' },
+            'neutral':   { 'Nom': 'das', 'Akk': 'das', 'Dat': 'dem', 'Gen': 'des' },
+            'plural':    { 'Nom': 'die', 'Akk': 'die', 'Dat': 'den', 'Gen': 'der' }
+        },
+        'Indefinite': {
+            'masculine': { 'Nom': 'ein', 'Akk': 'einen', 'Dat': 'einem', 'Gen': 'eines' },
+            'feminine':  { 'Nom': 'eine', 'Akk': 'eine', 'Dat': 'einer', 'Gen': 'einer' },
+            'neutral':   { 'Nom': 'ein', 'Akk': 'ein', 'Dat': 'einem', 'Gen': 'eines' },
+            'plural':    { 'Nom': '', 'Akk': '', 'Dat': '', 'Gen': '' }
+        },
+        'Negative': {
+            'masculine': { 'Nom': 'kein', 'Akk': 'keinen', 'Dat': 'keinem', 'Gen': 'keines' },
+            'feminine':  { 'Nom': 'keine', 'Akk': 'keine', 'Dat': 'keiner', 'Gen': 'keiner' },
+            'neutral':   { 'Nom': 'kein', 'Akk': 'kein', 'Dat': 'keinem', 'Gen': 'keines' },
+            'plural':    { 'Nom': 'keine', 'Akk': 'keine', 'Dat': 'keinen', 'Gen': 'keiner' }
+        }
+    };
+    return table[type][gender][cas];
 };
 
 window.stopParallelPlayer = function(finished = false) {
