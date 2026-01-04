@@ -2,7 +2,7 @@
    VME - ALTIN & GÜMÜŞ TEMA
    ========================================================================== */
 
-/* 1. RENK VE STİL DEĞİŞKENLERİ
+/* 1. RENK VE STİL DExĞİŞKENLERİ
    Sadece altın, gümüş ve nötr tonlar kullanılarak minimalist bir palet oluşturulmuştur.
    ========================================================================== */
 :root {
@@ -11,7 +11,542 @@
     --font-serif: 'Lora', serif;
 
     /* Zemin ve Metin Renkleri (Nötr Palet) */
-    --bg-body: #e9ecef;       /* Parlak Gümüş Zemin */
+    --<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verb Matrix - Minimalist</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- PWA & Mobil Uygulama Ayarları -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Verb Matrix">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic"></audio>
+
+    <div id="splashScreen">
+        <div style="text-align: center;">
+            <!-- YENİ: Logo için resim etiketi -->
+            <img src="logo.png" alt="Verb Matrix Logo" style="width: 120px; height: auto; margin-bottom: 15px;">
+        </div>
+    </div>
+
+    <div class="site-container">
+        
+        <!-- YENİ: Bağlam Başlık Paneli -->
+        <div id="contextTitle"></div>
+
+        <section id="mainMenu" class="view active">
+            <!-- Ana Menü Logosu -->
+            <div style="text-align: center; margin-bottom: 50px; margin-top:80px;">
+                <img src="logo.png" alt="Verb Matrix Logo" class="main-menu-logo" style="width: 300px;">
+            </div>
+
+    <div class="content-box" style="text-align:center; padding:15px; margin-bottom:25px;">
+        <h4 style="margin-bottom:10px; color:var(--text-muted); font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;" data-translate-key="translation_direction">Çeviri Yönü</h4>
+        
+        <button class="btn btn-block" onclick="window.toggleLanguageMode()">
+            <span id="led_tr_de" class="led-indicator active"></span> 
+            <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">TR ➡ DE</span>
+            <span style="color:#74d1df70;">|</span>
+            <span style="margin:0 10px; font-weight:bold; color:var(--text-main);">DE ➡ TR</span>
+            <span id="led_de_tr" class="led-indicator"></span>
+        </button>
+    </div>
+ <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 0 auto;">
+       
+        <button class="btn btn-secondary btn-lg" onclick="window.showView('calismaModuView')">
+            Çalışma Modu
+        </button>
+        <button class="btn btn-dark btn-lg" onclick="window.showView('cumleAyristirView')">
+            Cümle Ayrıştır
+        </button>
+         <button class="btn btn-warning btn-lg" onclick="window.showView('progress')" data-translate-key="progress">
+            📊 İlerleme
+        </button>
+    </div>
+</section>
+
+        <section id="progress" class="view">
+            <div class="content-box">
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 25px;" data-translate-key="overall_progress">📊 Genel İlerleme</h3>
+
+                <div class="progress-card">
+                    <div class="progress-card-header">
+                        <h4 data-translate-key="total_learned_cards">Toplam Öğrenilen Kart</h4>
+                        <span id="totalProgressText" class="progress-value">0 / 0 (%0)</span>
+                    </div>
+                    <div class="progress-container" style="height: 12px;">
+                        <div id="totalProgressBar" class="progress-fill" style="width: 0%; background: var(--gold-main);"></div>
+                    </div>
+                </div>
+
+                <div id="classProgressContainer" class="class-progress-grid">
+                    <!-- Seviye ilerlemeleri JavaScript ile buraya eklenecek -->
+                    <!-- Örnek:
+                    <div class="progress-card">
+                        <div class="progress-card-header"><h5>A1 Seviyesi</h5><span class="progress-value">50 / 100</span></div>
+                        <div class="progress-container"><div class="progress-fill" style="width: 50%;"></div></div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="classSelectionView" class="view">
+            <h3 class="subtitle" style="margin-bottom:20px;" data-translate-key="select_your_class">Sınıfını Seç</h3>
+            <div id="classGrid" class="button-grid"></div>
+        </section>
+
+        <section id="groupMenu" class="view">
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center; margin-bottom: 20px;" data-translate-key="unit_groups">Ünite Grupları</h3>
+                <!-- Domain Seçim Butonları -->
+                <div id="domainContainer" class="domain-buttons-container">
+                    <!-- Domain butonları JavaScript ile buraya eklenecek -->
+                </div>
+        
+                <!-- Akordiyon Konteyneri -->
+                <div id="accordionContainer" class="accordion-container">
+                    <!-- Kategori akordiyonları JavaScript ile buraya eklenecek -->
+                </div>
+            </div>
+        </section>
+
+        <section id="verbMenu" class="view">
+            <h3 class="subtitle" style="text-align: center; margin-top: 80px;" data-translate-key="verbs">Fiiller</h3>
+            <div id="verbList" class="button-grid" style="grid-template-columns: 1fr;"></div>
+        </section>
+
+        <section id="sectionMenu" class="view">
+            <h3 class="subtitle" style="text-align: center; margin-top: 80px;" data-translate-key="topics">Konular</h3>
+            <div id="sectionList" class="button-grid" style="grid-template-columns: 1fr;"></div>
+        </section>
+
+        <!-- YENİ: Çalışma Modu için boş sayfa -->
+        <section id="calismaModuView" class="view">
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center;">Çalışma Modu</h3>
+                <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 20px auto;">
+                    <button class="btn btn-info btn-lg" onclick="window.startParallelListeningSelection()">
+                        🎧 Paralel Dinleme
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('flashcard')">
+                        👁️ Göster Geç
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('cloze')">
+                        🔤 Boşluk Doldurma
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="window.startNewStudyMode('wordorder')">
+                        🧩 Kelime Sıralama
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- YENİ: Cümle Ayrıştır için boş sayfa -->
+        <section id="cumleAyristirView" class="view">
+            <div class="content-box" style="margin-top: 80px;">
+                <h3 class="subtitle" style="text-align: center;">Cümle Ayrıştır</h3>
+                <div class="button-grid" style="grid-template-columns: 1fr; max-width: 400px; margin: 20px auto;">
+                    <button class="btn btn-primary btn-lg" onclick="window.selectStudyMode('study')" data-translate-key="parse">
+                        📚 AYRIŞTIR
+                    </button>
+                    <button class="btn btn-info btn-lg" onclick="window.showView('tekrarMenu')" data-translate-key="review_mode">
+                        🔄 Tekrar Modu
+                    </button>
+                </div>
+            </div>
+        </section>
+<section id="studyView" class="view hidden">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px solid #e0e0e0; margin-bottom:15px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()" data-translate-key="menu">⬅️ Menü</button>
+        <h4 id="headerTitle" style="margin:0; color:var(--primary-dark);">Çalışma Modu</h4>
+        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()">
+            <span id="ledAuto" class="led-indicator"></span> Oto
+        </button>
+    </div>
+
+    <div class="progress-container"><div id="progBar" class="progress-bar"><div id="progFill" class="progress-fill" style="width:0%"></div></div></div>
+
+    <div style="padding:10px; min-height:280px;">
+        <div id="boxQ" class="frame-box"><div id="txtQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div></div>
+        
+        <div id="boxA" class="frame-box answer-frame"><div id="txtA" style="font-size:1.3rem; color:var(--primary-dark); text-align:center;">...</div></div>
+        
+        <div id="areaGame" style="display:none;"></div>
+    </div>
+
+    <div style="max-width:500px; margin:0 auto;">
+        <button id="btnMainAction" class="btn btn-primary btn-lg btn-block" onclick="window.handleMainAction()" data-translate-key="start_button">BAŞLAT</button>
+        
+        <div id="srsGrid" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
+            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
+            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
+            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
+        </div>
+    </div>
+
+    <div id="accordionArea" style="margin-top:30px; border-top:1px solid #eee; padding-top:10px;">
+        <div class="learning-controls-main">
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)" data-translate-key="hint">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)" data-translate-key="listen">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)" data-translate-key="edit">✏️ Düzenle</button>
+                </div>
+        
+        <div id="pnlHint" class="learning-controls-panel hidden">
+            <div id="hintText">İpucu...</div>
+            <button class="btn btn-sm btn-info" onclick="window.showHint()">Harf Göster</button>
+        </div>
+        <div id="pnlListen" class="hidden" style="padding:15px; text-align:center; background:#f0f4f8; border-radius:8px;">
+             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('de')">🇩🇪 DE</button>
+             <button class="btn btn-sm btn-primary" onclick="window.playCurrentSentence('tr')">🇹🇷 TR</button>
+        </div>
+        <div id="pnlEdit" class="hidden" style="padding:15px; background:#f0f4f8; border-radius:8px;">
+             <input type="text" id="inpEditDe" placeholder="DE" style="width:100%; margin-bottom:5px;">
+             <input type="text" id="inpEditTr" placeholder="TR" style="width:100%; margin-bottom:5px;">
+             <button class="btn btn-success btn-sm btn-block" onclick="window.saveEdit()">Kaydet</button>
+        </div>
+    </div>
+</section>
+
+<section id="tekrarView" class="view hidden">
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:2px solid var(--warning); margin-bottom:15px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.goBackInHistory()" data-translate-key="go_back">⬅️ Çıkış</button>
+        <h4 style="margin:0; color:var(--warning);">🔄 Tekrar Modu</h4>
+        <button class="btn btn-sm btn-secondary" onclick="window.toggleAutoPlay()" data-translate-key="auto">
+            <span id="ledAutoTekrar" class="led-indicator"></span> Oto
+        </button>
+    </div>
+
+    <div class="progress-container"><div id="progTekrar" class="progress-bar"><div id="fillTekrar" class="progress-fill" style="width:0%; background:var(--warning);"></div></div></div>
+
+    <div style="padding:10px; min-height:300px;">
+        <div id="boxTekrarQ" class="frame-box" style="border-color:var(--warning);">
+            <div id="txtTekrarQ" style="font-size:1.5rem; font-weight:bold; text-align:center;">...</div>
+        </div>
+        <div id="boxTekrarA" class="frame-box answer-frame">
+            <div id="txtTekrarA" style="font-size:1.3rem; color:#d35400; text-align:center;">...</div>
+        </div>
+        <div id="areaTekrarGame" style="display:none;"></div>
+    </div>
+
+    <div style="max-width:500px; margin:0 auto;">
+        <button id="btnTekrarAction" class="btn btn-warning btn-lg btn-block" onclick="window.handleTekrarAction()" style="color:var(--gold-text); font-weight:bold;" data-translate-key="show_answer">CEVABI GÖSTER</button>
+        <div id="srsTekrar" style="display:none; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:15px;">
+            <button class="btn btn-danger" onclick="window.rateCard('zor')">ZOR</button>
+            <button class="btn btn-warning" onclick="window.rateCard('normal')">NORMAL</button>
+            <button class="btn btn-success" onclick="window.rateCard('ogrendim')">KOLAY</button>
+        </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:20px;">
+        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('de')">🔊 DE</button>
+        <button class="btn btn-sm btn-secondary" onclick="window.playCurrentSentence('tr')">🔊 TR</button>
+    </div>
+</section>
+        <section id="learningView" class="view">
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"><div id="progressFill" class="progress-fill" style="width:0%"></div></div>
+                <div id="learnProgressText">0 / 0</div>
+            </div>
+            <!-- YENİ: Aktif Konu Başlığı -->
+            <div id="learningHeaderInfo" class="learning-header-info" style="display: none;">
+                <!-- Bilgiler JS ile dolacak -->
+            </div>
+
+            <div class="content-box">
+                <div id="learningContent">
+                    </div>
+
+                <div id="wordOrderArea" class="hidden"></div>
+                
+                <div id="hintPanel" class="hidden"></div>
+
+                <div id="quizResultArea" class="hidden"></div>
+                <div id="clozeResultArea" class="hidden"></div>
+            </div>
+
+            <button id="actionBtn" class="btn btn-lg">BAŞLAT</button>
+
+            <div id="srsControls" class="hidden">
+                <button class="btn btn-danger" onclick="window.rateCard('zor')" data-translate-key="srs_hard"> 
+                    🥵<br>ZOR
+                </button>
+                <button class="btn btn-warning" onclick="window.rateCard('normal')" data-translate-key="srs_normal">
+                    😐<br>NORMAL
+                </button>
+                <button class="btn btn-success" onclick="window.rateCard('ogrendim')" data-translate-key="srs_easy">
+                    ✅<br>KOLAY
+                </button>
+            </div>
+
+            <div id="quickEditPanel" class="hidden content-box">
+                </div>
+
+            <div id="learningControlsAccordion">
+                <div class="learning-controls-main">
+                    <button class="btn" onclick="window.togglePanel('panelHint', this)" data-translate-key="hint">💡 İpucu</button>
+                    <button class="btn" onclick="window.togglePanel('panelListen', this)" data-translate-key="listen">🔊 Dinle</button>
+                    <button class="btn" onclick="window.togglePanel('panelEdit', this)" data-translate-key="edit">✏️ Düzenle</button>
+                </div>
+
+                <div id="panelHint" class="learning-controls-panel hidden">
+                    <div class="button-grid">
+                        <button class="btn btn-info" onclick="window.showSpecificHint('sentence')" data-translate-key="sentence">Cümle</button>
+                        <button class="btn btn-warning" onclick="window.showSpecificHint('verb')" data-translate-key="verb">Fiil</button>
+                        <button class="btn btn-secondary" onclick="window.showSpecificHint('topic')" data-translate-key="topic">Konu</button>
+                    </div>
+                </div>
+
+                <div id="panelListen" class="learning-controls-panel hidden" style="text-align: center;">
+                    <div class="button-grid" style="grid-template-columns: repeat(4, 1fr);">
+                        <button class="btn btn-secondary" onclick="window.toggleAutoPlay()">
+                            <span id="autoPlayLed" class="led-indicator active"></span> Oto
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.toggleSlowMode()" data-translate-key="slow">
+                            <span id="slowModeLed" class="led-indicator"></span> Yavaş
+                        </button>
+                        <button class="btn btn-primary" onclick="window.playCurrentSentence('de')" data-translate-key="read">🇩🇪 Oku</button>
+                        <button class="btn btn-primary" onclick="window.playCurrentSentence('tr')" data-translate-key="read">🇹🇷 Oku</button>
+                    </div>
+                </div>
+
+                <div id="panelEdit" class="learning-controls-panel hidden" style="text-align: center;">
+                    <div class="button-grid">
+                        <button id="btnEditCard" class="btn btn-warning" onclick="window.openEditPanel()">✏️ Düzenle</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tekrarMenu" class="view">
+            <h3 class="subtitle" style="text-align:center;" data-translate-key="review_pool">Tekrar Havuzu</h3>
+            <div class="button-grid" style="grid-template-columns: 1fr;">
+                <button class="btn btn-danger btn-lg" style="justify-content:space-between" onclick="window.startTekrar('zor')">
+                    <span data-translate-key="hard_cards">🥵 ZOR KARTLAR</span>
+                    <span id="tekrarCountZor" class="badge">0</span>
+                </button>
+                <button class="btn btn-warning btn-lg" style="justify-content:space-between" onclick="window.startTekrar('normal')">
+                    <span data-translate-key="normal_cards">🤔 NORMAL KARTLAR</span>
+                    <span id="tekrarCountNormal" class="badge">0</span>
+                </button>
+                <button class="btn btn-success btn-lg" style="justify-content:space-between" onclick="window.startTekrar('ogrendim')">
+                    <span data-translate-key="learned_cards">✅ ÖĞRENDİKLERİM</span>
+                    <span id="tekrarCountOgrendim" class="badge">0</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="tekrarModeMenu" class="view"></section>
+
+        <section id="parallelPlayerView" class="view"></section>
+
+       <section id="storyView" class="view">
+    
+    <div class="content-box" style="padding:10px; margin-bottom:15px; display:flex; justify-content:space-between; align-items:center;">
+        <h3 id="storyTitle" style="color:var(--primary-dark); margin:0; font-size:1.1rem;" data-translate-key="story">Hikaye</h3>
+        <div>
+            <button class="btn btn-secondary btn-sm" onclick="window.toggleSlowMode()" data-translate-key="slow">
+                <span id="storySlowLed" class="led-indicator"></span> 🐢 Yavaş
+            </button>
+            <button id="btnStartStoryTest" class="btn btn-warning btn-sm" style="margin-left:5px;" data-translate-key="test">
+                📝 Test
+            </button>
+        </div>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);" data-translate-key="german">🇩🇪 ALMANCA</span>
+            <button id="btnStoryDE" class="btn btn-primary btn-sm" onclick="window.toggleStoryAudio('de')"><span data-translate-key="listen">🇩🇪 Dinle</span></button>
+        </div>
+        <div id="storyContentDE" class="content-box" style="
+            font-family: 'Lora', serif; 
+            line-height: 1.6; 
+            font-size:1.1rem; 
+            height: 180px; 
+            overflow-y: auto; 
+            background-color: #fdfbf7; 
+            border-left: 4px solid var(--primary);
+        ">
+            </div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+            <span style="font-size:0.8rem; font-weight:bold; color:var(--text-muted);" data-translate-key="turkish">🇹🇷 TÜRKÇE</span>
+            <button id="btnStoryTR" class="btn btn-info btn-sm" onclick="window.toggleStoryAudio('tr')"><span data-translate-key="listen">🇹🇷 Dinle</span></button>
+        </div>
+        <div id="storyContentTR" class="content-box" style="
+            font-family: 'Lora', serif; 
+            line-height: 1.6; 
+            font-size:1rem; 
+            height: 120px; 
+            overflow-y: auto; 
+            background-color: var(--silver-light); 
+            border-left: 4px solid var(--silver-main);
+        ">
+            </div>
+    </div>
+
+    <button class="btn btn-secondary btn-block" onclick="window.goBackInHistory()" data-translate-key="go_back">
+        Geri Dön
+    </button>
+</section>
+        
+        <section id="mixedTopicSelectionView" class="view">
+             <h3 class="subtitle">Karışık Konu Seçimi</h3>
+             <div class="button-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px; text-align: center;">
+                 <button class="btn btn-success" onclick="window.saveMixedSelection()">Kaydet & Başla</button>
+                 <button class="btn btn-secondary" onclick="window.goBackInHistory()">İptal</button>
+             </div>
+             <div id="mixedTopicList" class="button-grid" style="grid-template-columns: 1fr;"></div>
+        </section>
+
+        <section id="settingsView" class="view">
+            <h3 class="subtitle" data-translate-key="settings">Ayarlar</h3>
+            
+            <div class="content-box">
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="language">Dil</h4>
+                <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
+                    <button class="btn btn-secondary" onclick="window.setLanguage('tr')">🇹🇷 Türkçe</button>
+                    <button class="btn btn-secondary" onclick="window.setLanguage('de')">🇩🇪 Deutsch</button>
+                </div>
+            </div>
+            
+            <div class="content-box">
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="appearance">Görünüm</h4>
+                <div class="button-grid" style="grid-template-columns: 1fr 1fr;">
+                    <button id="themeToggleBtn" class="btn btn-secondary" onclick="window.toggleTheme()" data-translate-key="theme">🌙 Tema</button>
+                    <button id="musicToggleBtn" class="btn btn-secondary" onclick="window.toggleMusic()" data-translate-key="music">🎵 Müzik</button>
+                 
+                </div>
+            </div>
+
+            <div class="content-box">
+                <h4 style="margin-bottom:10px; text-align: center;" data-translate-key="data_management">Veri Yönetimi</h4>
+                <label class="btn btn-warning btn-block" style="margin-bottom:10px;" data-translate-key="upload">
+                    📥 Yükle <input type="file" hidden onchange="window.handleImport(event)">
+                </label>
+                <button class="btn btn-secondary btn-block" onclick="window.exportData()" data-translate-key="backup">📤 Yedekle</button>
+                <button class="btn btn-secondary btn-block" onclick="window.forceUpdateApp()" style="margin-top:10px;" data-translate-key="update_app">
+    🔄 Uygulamayı Güncelle (Önbelleği Boşalt)
+</button>
+                <button class="btn btn-danger btn-block" style="margin-top:10px;" onclick="window.resetProgress()" data-translate-key="reset_progress">🗑️ Sıfırla</button>
+            </div>
+            
+            <div id="iosInstallInfo" class="hidden content-box">
+                iOS Kurulumu: Paylaş > Ana Ekrana Ekle
+            </div>
+            <button id="installAppBtn" class="hidden btn btn-success btn-block" onclick="window.installPWA()">📲 Uygulamayı Yükle</button>
+        </section>
+
+    </div>    <!-- Yüzen Butonlar -->
+    <div class="floating-top-left">
+        <button id="floatingMusicBtn" class="btn floating-btn" onclick="window.toggleMusic()">
+            <span class="icon">🎵</span>
+        </button>
+    </div>
+
+    <div class="floating-top-right">
+        <button id="floatingGuideBtn" class="btn floating-btn" onclick="window.openGuideModal()">
+            <span class="icon">🧭</span>
+        </button>
+        <button id="themeToggleBtn" class="btn floating-btn" onclick="window.toggleTheme()">
+            <span class="icon">🌙</span>
+        </button>
+    </div>
+
+    <!-- Kılavuz Modalı -->
+    <div id="guideModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="window.closeGuideModal()">&times;</button>
+            <h3 id="guideModalTitle" class="modal-title"></h3>
+            <div id="guideModalContent" class="modal-body"></div>
+        </div>
+    </div>
+<nav id="bottomNav" style="
+    position: fixed; bottom: 0; left: 0; width: 100%; 
+    background: var(--bg-card); 
+    border-top: 1px solid var(--border-light);
+    display: flex; justify-content: space-around; align-items: center;
+    padding: 10px 0; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+">
+    <button onclick="window.goBackInHistory()" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
+        <span style="font-size:1.5rem;">⬅️</span>
+    </button>
+
+    <button onclick="window.showView('mainMenu')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
+        <span style="font-size:1.5rem;">🏠</span>
+    </button>
+
+    <button onclick="window.renderClassSelection(); window.showView('classSelectionView')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--primary-dark);">
+        <span style="font-size:1.1rem; font-weight:bold; border:2px solid var(--primary); padding:2px 8px; border-radius:12px;" id="floatClassBadge">A1</span>
+    </button>
+
+    <button onclick="window.showView('settingsView')" style="background:none; border:none; display:flex; flex-direction:column; align-items:center; color:var(--text-muted);">
+        <span style="font-size:1.5rem;">⚙️</span>
+    </button>
+</nav>
+<div id="modalStudySelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; position:relative;">
+        <button onclick="document.getElementById('modalStudySelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:#333;">Çalışma Yöntemi</h3>
+        
+        <button onclick="window.startMode('flashcard')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">👁️ Göster Geç</button>
+        <button onclick="window.startMode('study')" class="btn btn-primary btn-block btn-lg" style="margin-bottom:10px;">🗳️ Kategorize Et</button>
+        <button onclick="window.startParallelPlayer(); document.getElementById('modalStudySelect').style.display='none'" class="btn btn-success btn-block btn-lg">🎧 Paralel Dinleme</button>
+    </div>
+</div>
+
+<div id="modalTekrarSelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; border: 2px solid #ed8936; position:relative;">
+        <button onclick="document.getElementById('modalTekrarSelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:#d35400;">Tekrar Yöntemi</h3>
+        
+        <button onclick="window.startParallelPlayer(); document.getElementById('modalTekrarSelect').style.display='none'" class="btn btn-success btn-block btn-lg" style="margin-bottom:10px;">🎧 Paralel Dinleme</button>
+        <button onclick="window.startMode('tekrar_wordorder')" class="btn btn-warning btn-block btn-lg" style="margin-bottom:10px;">🧩 Kelime Sıralama</button>
+        <button onclick="window.startMode('tekrar_cloze')" class="btn btn-secondary btn-block btn-lg" style="margin-bottom:10px;">🔤 Boşluk Doldurma</button>
+        <button onclick="window.startMode('tekrar_quiz')" class="btn btn-info btn-block btn-lg">📝 Quiz (Yazma)</button>
+    </div>
+</div>
+
+<div id="modalParallelModeSelect" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; align-items:center; justify-content:center;">
+    <div style="background:var(--bg-card); padding:25px; border-radius:15px; width:90%; max-width:350px; text-align:center; border: 2px solid var(--info); position:relative;">
+        <button onclick="document.getElementById('modalParallelModeSelect').style.display='none'" style="position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.5rem;">&times;</button>
+        <h3 style="margin-bottom:20px; color:var(--info);">🎧 Paralel Dinleme Modu</h3>
+        
+        <button onclick="window.buildAndStartParallelPlayer('fixed_verb')" class="btn btn-info btn-block btn-lg" style="margin-bottom:10px;">Fiil Sabit, Konular Sırayla</button>
+        <button onclick="window.buildAndStartParallelPlayer('fixed_topic')" class="btn btn-info btn-block btn-lg">Konu Sabit, Fiiller Sırayla</button>
+    </div>
+</div>
+
+       
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => console.log('✅ Service Worker başarıyla kaydedildi:', registration.scope))
+                    .catch(error => console.log('❌ Service Worker kaydı başarısız:', error));
+            });
+        }
+    </script>
+</body>
+</html>
+bg-body: #e9ecef;       /* Parlak Gümüş Zemin */
     --bg-card: #ffffff;       /* Kartlar için temiz beyaz */
     --text-main: #212529;     /* Neredeyse siyah, tok bir metin rengi */
     --text-muted: #6c757d;    /* Daha yumuşak, ikincil metin rengi */
