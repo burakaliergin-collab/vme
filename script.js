@@ -1,5 +1,4 @@
 
-
 /* ==========================================================================
   VERB MATRIX — CLEANED & OPTIMIZED (FINAL)
   - Tüm mükerrer fonksiyonlar temizlendi.
@@ -161,7 +160,8 @@ window.updateUIText = function() {
 // Büyük/küçük harf ve noktalama işaretlerini yok sayan temizleme fonksiyonu
 window.normalizeText = function(text) {
     if (!text) return "";
-    return text.toString().toLowerCase()
+    // HTML etiketlerini temizle (<span...> vb.) ve normalize et
+    return text.toString().replace(/<[^>]*>/g, '').toLowerCase()
         .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") // Noktalamaları sil
         .replace(/\s{2,}/g, " ") // Çift boşlukları teke indir
         .trim();
@@ -615,7 +615,8 @@ window.speakText = function(text, lang, cb) {
         window.speechSynthesis.cancel(); // Çakışmayı önle
 
         // YENİ: Metindeki parantezleri ve '>' işaretini kaldır.
-        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').trim();
+        // HTML etiketlerini de temizle (renk kodlarını okumasın diye)
+        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').replace(/<[^>]*>/g, '').trim();
 
         const u = new SpeechSynthesisUtterance(cleanedText);
         u.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
@@ -677,7 +678,8 @@ window.speakParallel = function(text, lang, onEnd) {
     }
 
     try {
-        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').trim();
+        // HTML etiketlerini temizle
+        const cleanedText = text.replace(/\(.*\)\s*>\s*/, '').replace(/<[^>]*>/g, '').trim();
         const utterance = new SpeechSynthesisUtterance(cleanedText);
         utterance.lang = (lang === 'de') ? 'de-DE' : 'tr-TR';
         utterance.rate = window.state.slowMode ? 0.7 : 0.9;
@@ -1627,7 +1629,7 @@ window.renderFlashcard = function() {
     actionBtn.onclick = function() {
         const answerText = document.getElementById('answerText');
         if (answerText) {
-            answerText.textContent = answer;
+            answerText.innerHTML = answer; // textContent yerine innerHTML kullanıldı (renkler için)
             answerText.style.opacity = '0';
             answerText.style.animation = 'none';
             setTimeout(() => {
@@ -1729,7 +1731,7 @@ window.renderSentence = function() {
         actionBtn.onclick = function() {
             const answerText = document.getElementById('answerText');
             if (answerText) {
-                answerText.textContent = answer;
+                answerText.innerHTML = answer; // textContent yerine innerHTML kullanıldı (renkler için)
                 answerText.style.opacity = '0';
                 answerText.style.animation = 'none';
                 setTimeout(() => {
@@ -1859,8 +1861,8 @@ window.checkQuizAnswer = function() {
     const fb = document.getElementById('quizFeedback');
     
     // Değerleri al
-    const val = input.value.trim().toLowerCase().replace(/[.,!?]/g, '');
-    const corr = window.state.correctAnswer.toLowerCase().replace(/[.,!?]/g, '');
+    const val = window.normalizeText(input.value);
+    const corr = window.normalizeText(window.state.correctAnswer);
     
     // KONTROL MANTIĞI
     if (val === corr && val !== "") {
@@ -2495,6 +2497,15 @@ window.generateDeclensionCards = function(verbData) {
     
     const cards = [];
     const objectList = verbData.objects.split(',').map(s => s.trim());
+    
+    // Renk Yardımcı Fonksiyonu
+    const getColor = (g) => {
+        if (g === 'masculine') return '#2980b9'; // Mavi
+        if (g === 'feminine') return '#c0392b';  // Kırmızı
+        if (g === 'neutral') return '#27ae60';   // Yeşil
+        if (g === 'plural') return '#f39c12';    // Turuncu
+        return 'inherit';
+    };
 
     objectList.forEach(objStr => {
         const parts = objStr.split('/');
@@ -2525,7 +2536,8 @@ window.generateDeclensionCards = function(verbData) {
                 if (cas === 'Gen' && (gender === 'masculine' || gender === 'neutral')) deNoun += 'es';
 
                 const trLabel = `${meaningTR} (${window.getCaseTR(cas)} - ${window.getTypeTR(type)})`;
-                const deText = `(${article}) > ${deArticle} ${deNoun}`;
+                const color = getColor(gender);
+                const deText = `(${article}) > <span style="color:${color}; font-weight:bold;">${deArticle}</span> ${deNoun}`;
                 cards.push({ tr: trLabel, de: deText });
             });
         });
@@ -2538,7 +2550,8 @@ window.generateDeclensionCards = function(verbData) {
                 if (cas === 'Dat' && !deNoun.endsWith('n') && !deNoun.endsWith('s')) deNoun += 'n';
 
                 const trLabel = `${meaningTR} (Çoğul - ${window.getCaseTR(cas)} - ${window.getTypeTR(type)})`;
-                const deText = `(${article}) > ${deArticle} ${deNoun}`;
+                const color = getColor('plural');
+                const deText = `(${article}) > <span style="color:${color}; font-weight:bold;">${deArticle}</span> ${deNoun}`;
                 cards.push({ tr: trLabel, de: deText });
             });
         });
@@ -2546,7 +2559,7 @@ window.generateDeclensionCards = function(verbData) {
     return cards;
 };
 
-window.getCaseTR = function(c) { const map = { 'Nom': 'Yalın', 'Akk': '-i Hali', 'Dat': '-e Hali', 'Gen': '-in Hali' }; return map[c] || c; };
+window.getCaseTR = function(c) { const map = { 'Nom': 'Yalın', 'Akk': 'Akk -i Hali', 'Dat': 'Dativ -e Hali', 'Gen': 'Gen -in Hali' }; return map[c] || c; };
 window.getTypeTR = function(t) { const map = { 'Definite': 'Belirli', 'Indefinite': 'Belirsiz', 'Negative': 'Olumsuz' }; return map[t] || t; };
 window.getDeclinedArticle = function(type, cas, gender) {
     const table = {
