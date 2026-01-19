@@ -105,7 +105,7 @@
       ]
     }
   ],
-"verbs": {
+  "verbs": {
     "g1": [
       {
         "id": "v1",
@@ -846,316 +846,8 @@
         "objects": "der Unfall/Unfälle/Kaza, die Beschwerde/Beschwerden/Şikayet, das Problem/Probleme/Sorun"
       }
     ]
-},
+  },
   "content": {
-    "v3_s1": [
-      {
-        "tr": "Ben gösteriyorum",
-        "de": "Ich zeige"
-      },
-      {
-        "tr": "Sen gösteriyorsun",
-        "de": "Du zeigst weg"
-      },
-      {
-        "tr": "O gösteriyor",
-        "de": "Er zeigt"
-      },
-      {
-        "tr": "O gösteriyor",
-        "de": "Sie zeigt"
-      },
-      {
-        "tr": "Biz gösteriyoruz",
-        "de": "Wir zeigen weg"
-      },
-      {
-        "tr": "Onlar gösteriyorlar",
-        "de": "Sie zeigen"
-      }
-    ],
-    "v3_s2": [
-      {
-        "tr": "Ben sana gösteriyorum",
-        "de": "Ich zeige dir"
-      },
-      {
-        "tr": "Sen bana gösteriyorsun",
-        "de": "Du zeigst mir"
-      },
-      {
-        "tr": "O ona gösteriyor",
-        "de": "Er zeigt ihm"
-      },
-      {
-        "tr": "O ona gösteriyor",
-        "de": "Sie zeigt ihr"
-      },
-      {
-        "tr": "Biz size gösteriyoruz",
-        "de": "Wir zeigen euch"
-      },
-      {
-        "tr": "Onlar bize gösteriyorlar",
-        "de": "Sie zeigen uns"
-      },
-      {
-        "tr": "Sen onlara gösteriyorsun",
-        "de": "Du zeigst ihnen"
-      }
-    ],
-    "v3_s5": [
-      {
-        "tr": "Fotoğrafı göster!",
-        "de": "Zeige das Foto!"
-      },
-      {
-        "tr": "Yolu gösterin!",
-        "de": "Zeigt den Weg!"
-      },
-      {
-        "tr": "Sokağı gösterin!",
-        "de": "Zeigen Sie die Straße!"
-      },
-      {
-        "tr": "Fotoğrafları göster!",
-        "de": "Zeige die Fotos!"
-      }
-    ],
-    "v3_s6": [
-      {
-        "tr": "Biz net fotoğrafı gösteriyoruz",
-        "de": "Wir zeigen das deutliche Foto"
-      },
-      {
-        "tr": "Sen belirsiz yolu gösteriyorsun",
-        "de": "Du zeigst den undeutlichen Weg"
-      },
-      {
-        "tr": "Onlar önemli sokağı gösteriyorlar",
-        "de": "Sie zeigen die wichtige Straße"
-      },
-      {
-        "tr": "O önemsiz fotoğrafı gösteriyor",
-        "de": "Sie zeigt das unwichtige Foto"
-      },
-      {
-        "tr": "Ben net yolu gösteriyorum",
-        "de": "Ich zeige den deutlichen Weg"
-      }
-    ],
-    "v3_s7": [
-      {
-        "tr": "Biz sizin fotoğrafınızı gösteriyoruz",
-        "de": "Wir zeigen Ihr Foto"
-      },
-      {
-        "tr": "Sen benim yolumu gösteriyorsun",
-        "de": "Du zeigst meinen Weg"
-      },
-      {
-        "tr": "Onlar onun sokağını gösteriyorlar",
-        "de": "Sie zeigen seine Straße"
-      },
-      {
-        "tr": "O onların fotoğrafını gösteriyor",
-        "de": "Sie zeigt ihr Foto"
-      },
-      {
-        "tr": "Ben senin yolunu gösteriyorum",
-        "de": "Ich zeige deinen Weg"
-      }
-    ],
-    "v3_s8": [
-      {
-        "tr": "Neyi gösteriyorsunuz?",
-        "de": "Was zeigen Sie?"
-      },
-      {
-        "tr": "Hangi fotoğrafı gösteriyorsun?",
-        "de": "Welches Foto zeigst du?"
-      },
-      {
-        "tr": "Kim yolu gösteriyor?",
-        "de": "Wer zeigt den Weg?"
-      },
-      {
-        "tr": "Nerede sokağı gösteriyorlar?",
-        "de": "Wo zeigen sie die Straße?"
-      },
-      {
-        "tr": "Ne zaman fotoğrafı gösteriyoruz?",
-        "de": "Wann zeigen wir das Foto?"
-      }
-    ],
-    "v3_s9": [
-      {
-        "tr": "Neyi gösteriyorsunuz?",
-        "de": "Was zeigen Sie?"
-      },
-      {
-        "tr": "Hangi fotoğrafı gösteriyorsun?",
-        "de": "Welches Foto zeigst du?"
-      },
-      {
-        "tr": "Kim yolu gösteriyor?",
-        "de": "Wer zeigt den Weg?"
-      },
-      {
-        "tr": "Nerede sokağı gösteriyorlar?",
-        "de": "Wo zeigen sie die Straße?"
-      },
-      {
-        "tr": "Ne zaman fotoğrafı gösteriyoruz?",
-        "de": "Wann zeigen wir das Foto?"
-      }
-    ],
-    "v3_s10": [
-      {
-        "tr": "Biz haritada yolu gösteriyoruz",
-        "de": "Wir zeigen den Weg auf der Karte"
-      },
-      {
-        "tr": "Sen parmakla fotoğrafı gösteriyorsun",
-        "de": "Du zeigst das Foto mit dem Finger"
-      },
-      {
-        "tr": "Onlar internette sokağı gösteriyorlar",
-        "de": "Sie zeigen die Straße im Internet"
-      },
-      {
-        "tr": "O tahtada yolu gösteriyor",
-        "de": "Sie zeigt den Weg an der Tafel"
-      },
-      {
-        "tr": "Ben telefonda fotoğrafı gösteriyorum",
-        "de": "Ich zeige das Foto auf dem Handy"
-      }
-    ],
-    "v3_s11": [
-      {
-        "tr": "Biz fotoğrafı açıkça gösteriyoruz",
-        "de": "Wir zeigen das Foto deutlich"
-      },
-      {
-        "tr": "Sen yolu hemen gösteriyorsun",
-        "de": "Du zeigst den Weg sofort"
-      },
-      {
-        "tr": "Onlar sokağı yavaşça gösteriyorlar",
-        "de": "Sie zeigen die Straße langsam"
-      },
-      {
-        "tr": "O fotoğrafı gururla gösteriyor",
-        "de": "Sie zeigt das Foto stolz"
-      },
-      {
-        "tr": "Ben yolu sabırla gösteriyorum",
-        "de": "Ich zeige den Weg geduldig"
-      }
-    ],
-    "v3_s12": [
-      {
-        "tr": "Biz fotoğrafı gösterdik",
-        "de": "Wir haben das Foto gezeigt"
-      },
-      {
-        "tr": "Sen yolu gösterdin",
-        "de": "Du hast den Weg gezeigt"
-      },
-      {
-        "tr": "Onlar sokağı gösterdiler",
-        "de": "Sie haben die Straße gezeigt"
-      },
-      {
-        "tr": "Ben yolu gösterdim(Präteritum)",
-        "de": "Ich zeigte den Weg"
-      },
-      {
-        "tr": "O sokağı gösterdi(Präteritum)",
-        "de": "Er zeigte die Straße"
-      }
-    ],
-    "v3_s13": [
-      {
-        "tr": "Biz fotoğrafı göstermek istiyoruz",
-        "de": "Wir wollen das Foto zeigen"
-      },
-      {
-        "tr": "Sen yolu gösterebiliyorsun",
-        "de": "Du kannst den Weg zeigen"
-      },
-      {
-        "tr": "Onlar sokağı göstermeli",
-        "de": "Sie sollen die Straße zeigen"
-      },
-      {
-        "tr": "O fotoğrafı göstermek zorunda",
-        "de": "Sie muss das Foto zeigen"
-      }
-    ],
-    "v3_s14": [
-      {
-        "tr": "Biz sana fotoğrafı gösteriyoruz",
-        "de": "Wir zeigen dir das Foto"
-      },
-      {
-        "tr": "Sen bana yolu gösteriyorsun",
-        "de": "Du zeigst mir den Weg"
-      },
-      {
-        "tr": "Onlar ona sokağı gösteriyorlar",
-        "de": "Sie zeigen ihm die Straße"
-      },
-      {
-        "tr": "O bize fotoğrafı gösteriyor",
-        "de": "Sie zeigt uns das Foto"
-      }
-    ],
-    "v3_s4": [
-      {
-        "tr": "Biz fotoğrafları gösteriyoruz",
-        "de": "Wir zeigen die Fotos"
-      },
-      {
-        "tr": "Sen yolları gösteriyorsun",
-        "de": "Du zeigst die Wege"
-      },
-      {
-        "tr": "Onlar sokakları gösteriyorlar",
-        "de": "Sie zeigen die Straßen"
-      },
-      {
-        "tr": "O fotoğrafları gösteriyor",
-        "de": "Sie zeigt die Fotos"
-      },
-      {
-        "tr": "Ben yolları gösteriyorum",
-        "de": "Ich zeige die Wege"
-      }
-    ],
-    "v3_s3": [
-      {
-        "tr": "Biz haritayı gösteriyoruz",
-        "de": "Wir zeigen die Karte"
-      },
-      {
-        "tr": "Sen resmi gösteriyorsun",
-        "de": "Du zeigst das Bild"
-      },
-      {
-        "tr": "Onlar adresi gösteriyorlar",
-        "de": "Sie zeigen die Adresse"
-      },
-      {
-        "tr": "O belgeyi gösteriyor",
-        "de": "Sie zeigt das Dokument"
-      },
-      {
-        "tr": "Ben yönü gösteriyorum",
-        "de": "Ich zeige die Richtung"
-      }
-    ],
     "v1_s1": [
       {
         "tr": "Ben görüyorum",
@@ -20285,686 +19977,6 @@
         "de": "Wie verzeihst du der Person?"
       }
     ],
-    "v61_s1": [
-      {
-        "tr": "Ben alıyorum.",
-        "de": "Ich hole ab"
-      },
-      {
-        "tr": "Sen alıyorsun.",
-        "de": "Du holst ab"
-      },
-      {
-        "tr": "O alıyor.",
-        "de": "Er holt ab"
-      },
-      {
-        "tr": "Biz alıyoruz.",
-        "de": "Wir holen ab"
-      },
-      {
-        "tr": "Siz alıyorsunuz.",
-        "de": "Ihr holt ab"
-      },
-      {
-        "tr": "Onlar alıyorlar.",
-        "de": "Sie holen ab"
-      }
-    ],
-    "v61_s2": [
-      {
-        "tr": "Ben onu (zarfı) alıyorum.",
-        "de": "Ich hole ihn ab."
-      },
-      {
-        "tr": "Sen onu (paleti) alıyorsun.",
-        "de": "Du holst sie ab."
-      },
-      {
-        "tr": "O (kadın) onu (bagajı) alıyor.",
-        "de": "Sie holt es ab."
-      },
-      {
-        "tr": "Biz onları (zarfı) alıyoruz.",
-        "de": "Wir holen ihn ab."
-      },
-      {
-        "tr": "Siz (çoğul) onu (zarfı) alıyorsunuz.",
-        "de": "Ihr holt ihn ab."
-      }
-    ],
-    "v61_s3": [
-      {
-        "tr": "Biz zarfı alıyoruz.",
-        "de": "Wir holen den Umschlag ab."
-      },
-      {
-        "tr": "Siz (çoğul) paleti alıyorsunuz.",
-        "de": "Ihr holt die Palette ab."
-      },
-      {
-        "tr": "Onlar bagajı alıyorlar.",
-        "de": "Sie holen das Gepäck ab."
-      },
-      {
-        "tr": "Ben zarfı alıyorum.",
-        "de": "Ich hole den Umschlag ab."
-      },
-      {
-        "tr": "Sen paleti alıyor musun?",
-        "de": "Holst du die Palette ab?"
-      },
-      {
-        "tr": "O (erkek) bagajı alıyor.",
-        "de": "Er holt das Gepäck ab."
-      }
-    ],
-    "v61_s4": [
-      {
-        "tr": "Biz zarfları alıyoruz.",
-        "de": "Wir holen die Umschläge ab."
-      },
-      {
-        "tr": "Siz (çoğul) paletleri alıyorsunuz.",
-        "de": "Ihr holt die Paletten ab."
-      },
-      {
-        "tr": "Onlar bagajları alıyorlar.",
-        "de": "Sie holen die Gepäckstücke ab."
-      },
-      {
-        "tr": "Ben paketleri alıyorum.",
-        "de": "Ich hole die Pakete ab."
-      },
-      {
-        "tr": "Sen kutuları alıyor musun?",
-        "de": "Holst du die Kartons ab?"
-      }
-    ],
-    "v61_s5": [
-      {
-        "tr": "(Sen) Onu (zarfı) al!",
-        "de": "Hol ihn ab!"
-      },
-      {
-        "tr": "(Siz çoğul) Onu (paleti) alın!",
-        "de": "Holt sie ab!"
-      },
-      {
-        "tr": "(Siz resmi) Lütfen onu (bagajı) alın!",
-        "de": "Holen Sie es bitte ab!"
-      },
-      {
-        "tr": "(Sen) Zarfı alma!",
-        "de": "Hol den Umschlag nicht ab!"
-      }
-    ],
-    "v61_s6": [
-      {
-        "tr": "Biz büyük zarfı alıyoruz.",
-        "de": "Wir holen den großen Umschlag ab."
-      },
-      {
-        "tr": "Siz (çoğul) küçük paleti alıyorsunuz.",
-        "de": "Ihr holt die kleine Palette ab."
-      },
-      {
-        "tr": "Onlar ağır bagajı alıyorlar.",
-        "de": "Sie holen das schwere Gepäck ab."
-      },
-      {
-        "tr": "Ben hafif zarfı alıyorum.",
-        "de": "Ich hole den leichten Umschlag ab."
-      },
-      {
-        "tr": "Sen büyük paletleri alıyor musun?",
-        "de": "Holst du die großen Paletten ab?"
-      },
-      {
-        "tr": "O (erkek) küçük bagajları alıyor.",
-        "de": "Er holt die kleinen Gepäckstücke ab."
-      }
-    ],
-    "v61_s7": [
-      {
-        "tr": "Ben zarfımı alıyorum.",
-        "de": "Ich hole meinen Umschlag ab."
-      },
-      {
-        "tr": "Sen paletini alıyor musun?",
-        "de": "Holst du deine Palette ab?"
-      },
-      {
-        "tr": "O (kadın) bagajını alıyor.",
-        "de": "Sie holt ihr Gepäck ab."
-      },
-      {
-        "tr": "Biz zarfımızı alıyoruz.",
-        "de": "Wir holen unseren Umschlag ab."
-      },
-      {
-        "tr": "Siz (çoğul) paletlerinizi alıyorsunuz.",
-        "de": "Ihr holt eure Paletten ab."
-      },
-      {
-        "tr": "Onlar (resmi) bagajınızı alıyorlar.",
-        "de": "Sie holen Ihr Gepäck ab."
-      }
-    ],
-    "v61_s8": [
-      {
-        "tr": "Zarfı kim alıyor?",
-        "de": "Wer holt den Umschlag ab?"
-      },
-      {
-        "tr": "Neyi alıyorsun?",
-        "de": "Was holst du ab?"
-      },
-      {
-        "tr": "Bagajı ne zaman alıyor?",
-        "de": "Wann holt er das Gepäck ab?"
-      },
-      {
-        "tr": "Paleti nereden alıyoruz?",
-        "de": "Wo holen wir die Palette ab?"
-      },
-      {
-        "tr": "Neden onu (zarfı) alıyorsunuz?",
-        "de": "Warum holt ihr ihn ab?"
-      },
-      {
-        "tr": "Onu (paleti) nasıl alıyorlar?",
-        "de": "Wie holen sie sie ab?"
-      }
-    ],
-    "v61_s9": [
-      {
-        "tr": "Ben bir zarf almıyorum.",
-        "de": "Ich hole keinen Umschlag ab."
-      },
-      {
-        "tr": "Sen bir palet almıyorsun.",
-        "de": "Du holst keine Palette ab."
-      },
-      {
-        "tr": "O (erkek) bir bagaj almıyor.",
-        "de": "Er holt kein Gepäck ab."
-      },
-      {
-        "tr": "Biz zarfları almıyoruz. (Hiç zarf)",
-        "de": "Wir holen die Umschläge nicht ab."
-      },
-      {
-        "tr": "Siz (çoğul) paleti almıyorsunuz.",
-        "de": "Ihr holt die Palette nicht ab."
-      },
-      {
-        "tr": "Onlar bagajı bugün almıyorlar.",
-        "de": "Sie holen das Gepäck nicht heute ab."
-      },
-      {
-        "tr": "Ben almıyorum.",
-        "de": "Ich hole nicht ab."
-      },
-      {
-        "tr": "Sen onu (zarfı) almıyorsun.",
-        "de": "Du holst ihn nicht ab."
-      }
-    ],
-    "v61_s10": [
-      {
-        "tr": "Ben paketi postaneden alıyorum.",
-        "de": "Ich hole das Paket von der Post ab."
-      },
-      {
-        "tr": "Sen zarfı ofisten alıyorsun.",
-        "de": "Du holst den Umschlag aus dem Büro ab."
-      },
-      {
-        "tr": "O (erkek) paleti istasyondan alıyor.",
-        "de": "Er holt die Palette vom Bahnhof ab."
-      },
-      {
-        "tr": "Biz bagajı havaalanından alıyoruz.",
-        "de": "Wir holen das Gepäck vom Flughafen ab."
-      },
-      {
-        "tr": "Siz (çoğul) müşteriyi girişten alıyorsunuz.",
-        "de": "Ihr holt den Kunden am Eingang ab."
-      },
-      {
-        "tr": "Onlar (resmi) malları resepsiyondan alıyorlar.",
-        "de": "Sie holen die Waren an der Rezeption ab."
-      }
-    ],
-    "v61_s11": [
-      {
-        "tr": "Ben onu (zarfı) bugün alıyorum.",
-        "de": "Ich hole ihn heute ab."
-      },
-      {
-        "tr": "Sen onu (paleti) şimdi alıyorsun.",
-        "de": "Du holst sie jetzt ab."
-      },
-      {
-        "tr": "O (erkek) onu (bagajı) hemen alıyor.",
-        "de": "Er holt es sofort ab."
-      },
-      {
-        "tr": "Biz onu (zarfı) yarın alıyoruz.",
-        "de": "Wir holen ihn morgen ab."
-      },
-      {
-        "tr": "Siz (çoğul) onu (paleti) daha sonra alıyorsunuz.",
-        "de": "Ihr holt sie später ab."
-      },
-      {
-        "tr": "Onlar onu (bagajı) hızlıca alıyorlar.",
-        "de": "Sie holen es schnell ab."
-      }
-    ],
-    "v61_s12": [
-      {
-        "tr": "Ben zarfı aldım.",
-        "de": "Ich habe den Umschlag abgeholt."
-      },
-      {
-        "tr": "Paleti aldın mı?",
-        "de": "Hast du die Palette abgeholt?"
-      },
-      {
-        "tr": "Biz bagajı aldık.",
-        "de": "Wir haben das Gepäck abgeholt."
-      },
-      {
-        "tr": "Siz (çoğul) onları (paketleri) aldınız.",
-        "de": "Ihr habt sie abgeholt."
-      },
-      {
-        "tr": "Ben zarfı aldım (preteritum).",
-        "de": "Ich holte den Umschlag ab."
-      },
-      {
-        "tr": "O (kadın) paleti aldı (geçmiş).",
-        "de": "Sie holte die Palette ab."
-      },
-      {
-        "tr": "Biz bagajı aldık (geçmiş).",
-        "de": "Wir holten das Gepäck ab."
-      },
-      {
-        "tr": "Onlar onu (zarfı) aldılar (geçmiş).",
-        "de": "Sie holten ihn ab."
-      }
-    ],
-    "v61_s13": [
-      {
-        "tr": "Ben zarfı almalıyım.",
-        "de": "Ich muss den Umschlag abholen."
-      },
-      {
-        "tr": "Paleti alabilir misin?",
-        "de": "Kannst du die Palette abholen?"
-      },
-      {
-        "tr": "O (erkek) bagajı almak istiyor.",
-        "de": "Er will das Gepäck abholen."
-      },
-      {
-        "tr": "Biz onu (zarfı) almalıyız.",
-        "de": "Wir sollen ihn abholen."
-      },
-      {
-        "tr": "Siz (çoğul) paleti alabilirsiniz (izniniz var).",
-        "de": "Ihr dürft die Palette abholen."
-      },
-      {
-        "tr": "Onlar (resmi) bagajı almak istiyorlar (nazik).",
-        "de": "Sie möchten das Gepäck abholen."
-      }
-    ],
-    "v62_s1": [
-      {
-        "tr": "Ben yardım ediyorum.",
-        "de": "Ich helfe."
-      },
-      {
-        "tr": "Sen yardım ediyorsun.",
-        "de": "Du hilfst."
-      },
-      {
-        "tr": "O yardım ediyor.",
-        "de": "Er hilft."
-      },
-      {
-        "tr": "Biz yardım ediyoruz.",
-        "de": "Wir helfen."
-      },
-      {
-        "tr": "Siz yardım ediyorsunuz.",
-        "de": "Ihr helft."
-      },
-      {
-        "tr": "Onlar yardım ediyorlar.",
-        "de": "Sie helfen."
-      }
-    ],
-    "v62_s2": [
-      {
-        "tr": "Ben ona (erkeğe/müşteriye) yardım ediyorum.",
-        "de": "Ich helfe ihm."
-      },
-      {
-        "tr": "Sen ona (kadına/kişiye) yardım ediyorsun.",
-        "de": "Du hilfst ihr."
-      },
-      {
-        "tr": "O (kadın) ona (çocuğa) yardım ediyor.",
-        "de": "Sie hilft ihm."
-      },
-      {
-        "tr": "Biz onlara (müşterilere) yardım ediyoruz.",
-        "de": "Wir helfen ihnen."
-      },
-      {
-        "tr": "Siz (çoğul) bize yardım ediyorsunuz.",
-        "de": "Ihr helft uns."
-      }
-    ],
-    "v62_s3": [
-      {
-        "tr": "Ben müşteriye yardım ediyorum.",
-        "de": "Ich helfe dem Kunden."
-      },
-      {
-        "tr": "Sen kişiye yardım ediyorsun.",
-        "de": "Du hilfst der Person."
-      },
-      {
-        "tr": "O (erkek) çocuğa yardım ediyor.",
-        "de": "Er hilft dem Kind."
-      },
-      {
-        "tr": "Biz müşteriye yardım ediyoruz.",
-        "de": "Wir helfen dem Kunden."
-      },
-      {
-        "tr": "Siz (çoğul) kişiye yardım ediyor musunuz?",
-        "de": "Helft ihr der Person?"
-      },
-      {
-        "tr": "Onlar (resmi) çocuğa yardım ediyorlar.",
-        "de": "Sie helfen dem Kind."
-      }
-    ],
-    "v62_s4": [
-      {
-        "tr": "Biz müşterilere yardım ediyoruz.",
-        "de": "Wir helfen den Kunden."
-      },
-      {
-        "tr": "Siz (çoğul) kişilere yardım ediyorsunuz.",
-        "de": "Ihr helft den Personen."
-      },
-      {
-        "tr": "Onlar çocuklara yardım ediyorlar.",
-        "de": "Sie helfen den Kindern."
-      },
-      {
-        "tr": "Ben meslektaşlara yardım ediyorum.",
-        "de": "Ich helfe den Kollegen."
-      },
-      {
-        "tr": "Sen kadınlara yardım ediyorsun.",
-        "de": "Du hilfst den Frauen."
-      },
-      {
-        "tr": "O (erkek) adamlara yardım ediyor.",
-        "de": "Er hilft den Männern."
-      }
-    ],
-    "v62_s5": [
-      {
-        "tr": "(Sen) Ona (erkeğe) yardım et!",
-        "de": "Hilf ihm!"
-      },
-      {
-        "tr": "(Siz çoğul) Ona (kadına) yardım edin!",
-        "de": "Helft ihr!"
-      },
-      {
-        "tr": "(Siz resmi) Lütfen çocuğa yardım edin!",
-        "de": "Helfen Sie bitte dem Kind!"
-      },
-      {
-        "tr": "(Sen) Müşteriye yardım etme!",
-        "de": "Hilf dem Kunden nicht!"
-      }
-    ],
-    "v62_s6": [
-      {
-        "tr": "Ben yaşlı müşteriye yardım ediyorum.",
-        "de": "Ich helfe dem alten Kunden."
-      },
-      {
-        "tr": "Sen genç kişiye yardım ediyorsun.",
-        "de": "Du hilfst der jungen Person."
-      },
-      {
-        "tr": "O (erkek) hasta çocuğa yardım ediyor.",
-        "de": "Er hilft dem kranken Kind."
-      },
-      {
-        "tr": "Biz sağlıklı müşteriye yardım ediyoruz.",
-        "de": "Wir helfen dem gesunden Kunden."
-      },
-      {
-        "tr": "Siz (çoğul) yaşlı kişilere yardım ediyorsunuz.",
-        "de": "Ihr helft den alten Personen."
-      },
-      {
-        "tr": "Onlar genç çocuklara yardım ediyorlar.",
-        "de": "Sie helfen den jungen Kindern."
-      }
-    ],
-    "v62_s7": [
-      {
-        "tr": "Ben müşterime yardım ediyorum.",
-        "de": "Ich helfe meinem Kunden."
-      },
-      {
-        "tr": "Sen kişine yardım ediyor musun? (arkadaşına)",
-        "de": "Hilfst du deinem Freund?"
-      },
-      {
-        "tr": "O (kadın) çocuğuna yardım ediyor.",
-        "de": "Sie hilft ihrem Kind."
-      },
-      {
-        "tr": "Biz müşterimize yardım ediyoruz.",
-        "de": "Wir helfen unserem Kunden."
-      },
-      {
-        "tr": "Siz (çoğul) çocuklarınıza yardım ediyorsunuz.",
-        "de": "Ihr helft euren Kindern."
-      },
-      {
-        "tr": "Onlar (resmi) kişinize (çalışanınıza) yardım ediyorlar.",
-        "de": "Sie helfen Ihrer Person."
-      }
-    ],
-    "v62_s8": [
-      {
-        "tr": "Kime yardım ediyorsun?",
-        "de": "Wem hilfst du?"
-      },
-      {
-        "tr": "Müşteriye kim yardım ediyor?",
-        "de": "Wer hilft dem Kunden?"
-      },
-      {
-        "tr": "Çocuğa neden yardım ediyor?",
-        "de": "Warum hilft er dem Kind?"
-      },
-      {
-        "tr": "Onlara (çoğul) nerede yardım ediyoruz?",
-        "de": "Wo helfen wir ihnen?"
-      },
-      {
-        "tr": "Ona (kadına) ne zaman yardım ediyorsunuz (çoğul)?",
-        "de": "Wann helft ihr ihr?"
-      },
-      {
-        "tr": "Ona (erkeğe) nasıl yardım ediyorlar?",
-        "de": "Wie helfen sie ihm?"
-      }
-    ],
-    "v62_s9": [
-      {
-        "tr": "Ben bir müşteriye yardım etmiyorum.",
-        "de": "Ich helfe keinem Kunden."
-      },
-      {
-        "tr": "Sen bir kişiye yardım etmiyorsun.",
-        "de": "Du hilfst keiner Person."
-      },
-      {
-        "tr": "O (erkek) bir çocuğa yardım etmiyor.",
-        "de": "Er hilft keinem Kind."
-      },
-      {
-        "tr": "Biz çocuklara yardım etmiyoruz. (Hiç çocuğa)",
-        "de": "Wir helfen keinen Kindern."
-      },
-      {
-        "tr": "Siz (çoğul) müşteriye yardım etmiyorsunuz.",
-        "de": "Ihr helft dem Kunden nicht."
-      },
-      {
-        "tr": "Onlar ona (kadına) yardım etmiyorlar.",
-        "de": "Sie helfen ihr nicht."
-      },
-      {
-        "tr": "Biz yardım etmiyoruz.",
-        "de": "Wir helfen nicht."
-      },
-      {
-        "tr": "Sen bugün yardım etmiyorsun.",
-        "de": "Du hilfst heute nicht."
-      }
-    ],
-    "v62_s10": [
-      {
-        "tr": "Ben ona (erkeğe) yüklemede yardım ediyorum.",
-        "de": "Ich helfe ihm beim Beladen."
-      },
-      {
-        "tr": "Bana paketlemede yardım eder misin?",
-        "de": "Hilfst du mir beim Packen?"
-      },
-      {
-        "tr": "O (kadın) ona (erkeğe) bavulla yardım ediyor.",
-        "de": "Sie hilft ihm mit dem Koffer."
-      },
-      {
-        "tr": "Biz onlara (çoğul) taşımada yardım ediyoruz.",
-        "de": "Wir helfen ihnen beim Tragen."
-      },
-      {
-        "tr": "Siz (çoğul) ona (kadına) arabada yardım ediyorsunuz.",
-        "de": "Ihr helft ihr im Auto."
-      },
-      {
-        "tr": "Onlar (resmi) bana sorunda yardım ediyorlar.",
-        "de": "Sie helfen mir mit dem Problem."
-      }
-    ],
-    "v62_s11": [
-      {
-        "tr": "Ben müşteriye hemen yardım ediyorum.",
-        "de": "Ich helfe dem Kunden sofort."
-      },
-      {
-        "tr": "Sen ona (kadına) daima yardım edersin.",
-        "de": "Du hilfst ihr immer."
-      },
-      {
-        "tr": "O (erkek) ona (çocuğa) memnuniyetle yardım ediyor.",
-        "de": "Er hilft dem Kind gerne."
-      },
-      {
-        "tr": "Biz orada yardım ediyoruz.",
-        "de": "Wir helfen dort."
-      },
-      {
-        "tr": "Siz (çoğul) sık sık yardım ediyor musunuz?",
-        "de": "Helft ihr oft?"
-      },
-      {
-        "tr": "Onlar yarın yardım ediyorlar.",
-        "de": "Sie helfen morgen."
-      }
-    ],
-    "v62_s12": [
-      {
-        "tr": "Ben müşteriye yardım ettim.",
-        "de": "Ich habe dem Kunden geholfen."
-      },
-      {
-        "tr": "Ona (kadına) yardım ettin mi?",
-        "de": "Hast du ihr geholfen?"
-      },
-      {
-        "tr": "Biz çocuğa yardım ettik.",
-        "de": "Wir haben dem Kind geholfen."
-      },
-      {
-        "tr": "Siz (çoğul) onlara (çoğul) yardım ettiniz.",
-        "de": "Ihr habt ihnen geholfen."
-      },
-      {
-        "tr": "Ben müşteriye yardım ettim (geçmiş).",
-        "de": "Ich half dem Kunden."
-      },
-      {
-        "tr": "O (kadın) çocuğa yardım etti (geçmiş).",
-        "de": "Sie half dem Kind."
-      },
-      {
-        "tr": "Biz kişiye yardım ettik (geçmiş).",
-        "de": "Wir halfen der Person."
-      },
-      {
-        "tr": "Onlar (resmi) bana yardım ettiler (geçmiş).",
-        "de": "Sie halfen mir."
-      }
-    ],
-    "v62_s13": [
-      {
-        "tr": "Ben müşteriye yardım etmeliyim.",
-        "de": "Ich muss dem Kunden helfen."
-      },
-      {
-        "tr": "Ona (kadına) yardım edebilir misin?",
-        "de": "Kannst du ihr helfen?"
-      },
-      {
-        "tr": "O (erkek) çocuğa yardım etmek istiyor.",
-        "de": "Er will dem Kind helfen."
-      },
-      {
-        "tr": "Biz onlara (çoğul) yardım etmeliyiz.",
-        "de": "Wir sollen ihnen helfen."
-      },
-      {
-        "tr": "Siz (çoğul) burada yardım edebilirsiniz (izniniz var).",
-        "de": "Ihr dürft hier helfen."
-      },
-      {
-        "tr": "Onlar (resmi) bana yardım etmek istiyorlar (nazik).",
-        "de": "Sie möchten mir helfen."
-      }
-    ],
     "v63_s1": [
       {
         "tr": "Ben teslim ediyorum.",
@@ -23412,14 +22424,1002 @@
         "tr": "Biz onu (kalemi) müşteriye uzatıyoruz.",
         "de": "Wir reichen ihn dem Kunden."
       }
+    ],
+    "v3_s1": [
+      {
+        "tr": "Ben gösteriyorum",
+        "de": "Ich zeige"
+      },
+      {
+        "tr": "Sen gösteriyorsun",
+        "de": "Du zeigst weg"
+      },
+      {
+        "tr": "O gösteriyor",
+        "de": "Er zeigt"
+      },
+      {
+        "tr": "O gösteriyor",
+        "de": "Sie zeigt"
+      },
+      {
+        "tr": "Biz gösteriyoruz",
+        "de": "Wir zeigen weg"
+      },
+      {
+        "tr": "Onlar gösteriyorlar",
+        "de": "Sie zeigen"
+      }
+    ],
+    "v3_s2": [
+      {
+        "tr": "Ben sana gösteriyorum",
+        "de": "Ich zeige dir"
+      },
+      {
+        "tr": "Sen bana gösteriyorsun",
+        "de": "Du zeigst mir"
+      },
+      {
+        "tr": "O ona gösteriyor",
+        "de": "Er zeigt ihm"
+      },
+      {
+        "tr": "O ona gösteriyor",
+        "de": "Sie zeigt ihr"
+      },
+      {
+        "tr": "Biz size gösteriyoruz",
+        "de": "Wir zeigen euch"
+      },
+      {
+        "tr": "Onlar bize gösteriyorlar",
+        "de": "Sie zeigen uns"
+      },
+      {
+        "tr": "Sen onlara gösteriyorsun",
+        "de": "Du zeigst ihnen"
+      }
+    ],
+    "v3_s3": [
+      {
+        "tr": "Biz haritayı gösteriyoruz",
+        "de": "Wir zeigen die Karte"
+      },
+      {
+        "tr": "Sen resmi gösteriyorsun",
+        "de": "Du zeigst das Bild"
+      },
+      {
+        "tr": "Onlar adresi gösteriyorlar",
+        "de": "Sie zeigen die Adresse"
+      },
+      {
+        "tr": "O belgeyi gösteriyor",
+        "de": "Sie zeigt das Dokument"
+      },
+      {
+        "tr": "Ben yönü gösteriyorum",
+        "de": "Ich zeige die Richtung"
+      }
+    ],
+    "v3_s4": [
+      {
+        "tr": "Biz fotoğrafları gösteriyoruz",
+        "de": "Wir zeigen die Fotos"
+      },
+      {
+        "tr": "Sen yolları gösteriyorsun",
+        "de": "Du zeigst die Wege"
+      },
+      {
+        "tr": "Onlar sokakları gösteriyorlar",
+        "de": "Sie zeigen die Straßen"
+      },
+      {
+        "tr": "O fotoğrafları gösteriyor",
+        "de": "Sie zeigt die Fotos"
+      },
+      {
+        "tr": "Ben yolları gösteriyorum",
+        "de": "Ich zeige die Wege"
+      }
+    ],
+    "v3_s5": [
+      {
+        "tr": "Fotoğrafı göster!",
+        "de": "Zeige das Foto!"
+      },
+      {
+        "tr": "Yolu gösterin!",
+        "de": "Zeigt den Weg!"
+      },
+      {
+        "tr": "Sokağı gösterin!",
+        "de": "Zeigen Sie die Straße!"
+      },
+      {
+        "tr": "Fotoğrafları göster!",
+        "de": "Zeige die Fotos!"
+      }
+    ],
+    "v3_s6": [
+      {
+        "tr": "Biz net fotoğrafı gösteriyoruz",
+        "de": "Wir zeigen das deutliche Foto"
+      },
+      {
+        "tr": "Sen belirsiz yolu gösteriyorsun",
+        "de": "Du zeigst den undeutlichen Weg"
+      },
+      {
+        "tr": "Onlar önemli sokağı gösteriyorlar",
+        "de": "Sie zeigen die wichtige Straße"
+      },
+      {
+        "tr": "O önemsiz fotoğrafı gösteriyor",
+        "de": "Sie zeigt das unwichtige Foto"
+      },
+      {
+        "tr": "Ben net yolu gösteriyorum",
+        "de": "Ich zeige den deutlichen Weg"
+      }
+    ],
+    "v3_s7": [
+      {
+        "tr": "Biz sizin fotoğrafınızı gösteriyoruz",
+        "de": "Wir zeigen Ihr Foto"
+      },
+      {
+        "tr": "Sen benim yolumu gösteriyorsun",
+        "de": "Du zeigst meinen Weg"
+      },
+      {
+        "tr": "Onlar onun sokağını gösteriyorlar",
+        "de": "Sie zeigen seine Straße"
+      },
+      {
+        "tr": "O onların fotoğrafını gösteriyor",
+        "de": "Sie zeigt ihr Foto"
+      },
+      {
+        "tr": "Ben senin yolunu gösteriyorum",
+        "de": "Ich zeige deinen Weg"
+      }
+    ],
+    "v3_s8": [
+      {
+        "tr": "Neyi gösteriyorsunuz?",
+        "de": "Was zeigen Sie?"
+      },
+      {
+        "tr": "Hangi fotoğrafı gösteriyorsun?",
+        "de": "Welches Foto zeigst du?"
+      },
+      {
+        "tr": "Kim yolu gösteriyor?",
+        "de": "Wer zeigt den Weg?"
+      },
+      {
+        "tr": "Nerede sokağı gösteriyorlar?",
+        "de": "Wo zeigen sie die Straße?"
+      },
+      {
+        "tr": "Ne zaman fotoğrafı gösteriyoruz?",
+        "de": "Wann zeigen wir das Foto?"
+      }
+    ],
+    "v3_s9": [
+      {
+        "tr": "Neyi gösteriyorsunuz?",
+        "de": "Was zeigen Sie?"
+      },
+      {
+        "tr": "Hangi fotoğrafı gösteriyorsun?",
+        "de": "Welches Foto zeigst du?"
+      },
+      {
+        "tr": "Kim yolu gösteriyor?",
+        "de": "Wer zeigt den Weg?"
+      },
+      {
+        "tr": "Nerede sokağı gösteriyorlar?",
+        "de": "Wo zeigen sie die Straße?"
+      },
+      {
+        "tr": "Ne zaman fotoğrafı gösteriyoruz?",
+        "de": "Wann zeigen wir das Foto?"
+      }
+    ],
+    "v3_s10": [
+      {
+        "tr": "Biz haritada yolu gösteriyoruz",
+        "de": "Wir zeigen den Weg auf der Karte"
+      },
+      {
+        "tr": "Sen parmakla fotoğrafı gösteriyorsun",
+        "de": "Du zeigst das Foto mit dem Finger"
+      },
+      {
+        "tr": "Onlar internette sokağı gösteriyorlar",
+        "de": "Sie zeigen die Straße im Internet"
+      },
+      {
+        "tr": "O tahtada yolu gösteriyor",
+        "de": "Sie zeigt den Weg an der Tafel"
+      },
+      {
+        "tr": "Ben telefonda fotoğrafı gösteriyorum",
+        "de": "Ich zeige das Foto auf dem Handy"
+      }
+    ],
+    "v3_s11": [
+      {
+        "tr": "Biz fotoğrafı açıkça gösteriyoruz",
+        "de": "Wir zeigen das Foto deutlich"
+      },
+      {
+        "tr": "Sen yolu hemen gösteriyorsun",
+        "de": "Du zeigst den Weg sofort"
+      },
+      {
+        "tr": "Onlar sokağı yavaşça gösteriyorlar",
+        "de": "Sie zeigen die Straße langsam"
+      },
+      {
+        "tr": "O fotoğrafı gururla gösteriyor",
+        "de": "Sie zeigt das Foto stolz"
+      },
+      {
+        "tr": "Ben yolu sabırla gösteriyorum",
+        "de": "Ich zeige den Weg geduldig"
+      }
+    ],
+    "v3_s12": [
+      {
+        "tr": "Biz fotoğrafı gösterdik",
+        "de": "Wir haben das Foto gezeigt"
+      },
+      {
+        "tr": "Sen yolu gösterdin",
+        "de": "Du hast den Weg gezeigt"
+      },
+      {
+        "tr": "Onlar sokağı gösterdiler",
+        "de": "Sie haben die Straße gezeigt"
+      },
+      {
+        "tr": "Ben yolu gösterdim(Präteritum)",
+        "de": "Ich zeigte den Weg"
+      },
+      {
+        "tr": "O sokağı gösterdi(Präteritum)",
+        "de": "Er zeigte die Straße"
+      }
+    ],
+    "v3_s13": [
+      {
+        "tr": "Biz fotoğrafı göstermek istiyoruz",
+        "de": "Wir wollen das Foto zeigen"
+      },
+      {
+        "tr": "Sen yolu gösterebiliyorsun",
+        "de": "Du kannst den Weg zeigen"
+      },
+      {
+        "tr": "Onlar sokağı göstermeli",
+        "de": "Sie sollen die Straße zeigen"
+      },
+      {
+        "tr": "O fotoğrafı göstermek zorunda",
+        "de": "Sie muss das Foto zeigen"
+      }
+    ],
+    "v3_s14": [
+      {
+        "tr": "Biz sana fotoğrafı gösteriyoruz",
+        "de": "Wir zeigen dir das Foto"
+      },
+      {
+        "tr": "Sen bana yolu gösteriyorsun",
+        "de": "Du zeigst mir den Weg"
+      },
+      {
+        "tr": "Onlar ona sokağı gösteriyorlar",
+        "de": "Sie zeigen ihm die Straße"
+      },
+      {
+        "tr": "O bize fotoğrafı gösteriyor",
+        "de": "Sie zeigt uns das Foto"
+      }
+    ],
+    "v61_s1": [
+      {
+        "tr": "Ben alıyorum.",
+        "de": "Ich hole ab"
+      },
+      {
+        "tr": "Sen alıyorsun.",
+        "de": "Du holst ab"
+      },
+      {
+        "tr": "O alıyor.",
+        "de": "Er holt ab"
+      },
+      {
+        "tr": "Biz alıyoruz.",
+        "de": "Wir holen ab"
+      },
+      {
+        "tr": "Siz alıyorsunuz.",
+        "de": "Ihr holt ab"
+      },
+      {
+        "tr": "Onlar alıyorlar.",
+        "de": "Sie holen ab"
+      }
+    ],
+    "v61_s2": [
+      {
+        "tr": "Ben onu (zarfı) alıyorum.",
+        "de": "Ich hole ihn ab."
+      },
+      {
+        "tr": "Sen onu (paleti) alıyorsun.",
+        "de": "Du holst sie ab."
+      },
+      {
+        "tr": "O (kadın) onu (bagajı) alıyor.",
+        "de": "Sie holt es ab."
+      },
+      {
+        "tr": "Biz onları (zarfı) alıyoruz.",
+        "de": "Wir holen ihn ab."
+      },
+      {
+        "tr": "Siz (çoğul) onu (zarfı) alıyorsunuz.",
+        "de": "Ihr holt ihn ab."
+      }
+    ],
+    "v61_s3": [
+      {
+        "tr": "Biz zarfı alıyoruz.",
+        "de": "Wir holen den Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) paleti alıyorsunuz.",
+        "de": "Ihr holt die Palette ab."
+      },
+      {
+        "tr": "Onlar bagajı alıyorlar.",
+        "de": "Sie holen das Gepäck ab."
+      },
+      {
+        "tr": "Ben zarfı alıyorum.",
+        "de": "Ich hole den Umschlag ab."
+      },
+      {
+        "tr": "Sen paleti alıyor musun?",
+        "de": "Holst du die Palette ab?"
+      },
+      {
+        "tr": "O (erkek) bagajı alıyor.",
+        "de": "Er holt das Gepäck ab."
+      }
+    ],
+    "v61_s4": [
+      {
+        "tr": "Biz zarfları alıyoruz.",
+        "de": "Wir holen die Umschläge ab."
+      },
+      {
+        "tr": "Siz (çoğul) paletleri alıyorsunuz.",
+        "de": "Ihr holt die Paletten ab."
+      },
+      {
+        "tr": "Onlar bagajları alıyorlar.",
+        "de": "Sie holen die Gepäckstücke ab."
+      },
+      {
+        "tr": "Ben paketleri alıyorum.",
+        "de": "Ich hole die Pakete ab."
+      },
+      {
+        "tr": "Sen kutuları alıyor musun?",
+        "de": "Holst du die Kartons ab?"
+      }
+    ],
+    "v61_s5": [
+      {
+        "tr": "(Sen) Onu (zarfı) al!",
+        "de": "Hol ihn ab!"
+      },
+      {
+        "tr": "(Siz çoğul) Onu (paleti) alın!",
+        "de": "Holt sie ab!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen onu (bagajı) alın!",
+        "de": "Holen Sie es bitte ab!"
+      },
+      {
+        "tr": "(Sen) Zarfı alma!",
+        "de": "Hol den Umschlag nicht ab!"
+      }
+    ],
+    "v61_s6": [
+      {
+        "tr": "Biz büyük zarfı alıyoruz.",
+        "de": "Wir holen den großen Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) küçük paleti alıyorsunuz.",
+        "de": "Ihr holt die kleine Palette ab."
+      },
+      {
+        "tr": "Onlar ağır bagajı alıyorlar.",
+        "de": "Sie holen das schwere Gepäck ab."
+      },
+      {
+        "tr": "Ben hafif zarfı alıyorum.",
+        "de": "Ich hole den leichten Umschlag ab."
+      },
+      {
+        "tr": "Sen büyük paletleri alıyor musun?",
+        "de": "Holst du die großen Paletten ab?"
+      },
+      {
+        "tr": "O (erkek) küçük bagajları alıyor.",
+        "de": "Er holt die kleinen Gepäckstücke ab."
+      }
+    ],
+    "v61_s7": [
+      {
+        "tr": "Ben zarfımı alıyorum.",
+        "de": "Ich hole meinen Umschlag ab."
+      },
+      {
+        "tr": "Sen paletini alıyor musun?",
+        "de": "Holst du deine Palette ab?"
+      },
+      {
+        "tr": "O (kadın) bagajını alıyor.",
+        "de": "Sie holt ihr Gepäck ab."
+      },
+      {
+        "tr": "Biz zarfımızı alıyoruz.",
+        "de": "Wir holen unseren Umschlag ab."
+      },
+      {
+        "tr": "Siz (çoğul) paletlerinizi alıyorsunuz.",
+        "de": "Ihr holt eure Paletten ab."
+      },
+      {
+        "tr": "Onlar (resmi) bagajınızı alıyorlar.",
+        "de": "Sie holen Ihr Gepäck ab."
+      }
+    ],
+    "v61_s8": [
+      {
+        "tr": "Zarfı kim alıyor?",
+        "de": "Wer holt den Umschlag ab?"
+      },
+      {
+        "tr": "Neyi alıyorsun?",
+        "de": "Was holst du ab?"
+      },
+      {
+        "tr": "Bagajı ne zaman alıyor?",
+        "de": "Wann holt er das Gepäck ab?"
+      },
+      {
+        "tr": "Paleti nereden alıyoruz?",
+        "de": "Wo holen wir die Palette ab?"
+      },
+      {
+        "tr": "Neden onu (zarfı) alıyorsunuz?",
+        "de": "Warum holt ihr ihn ab?"
+      },
+      {
+        "tr": "Onu (paleti) nasıl alıyorlar?",
+        "de": "Wie holen sie sie ab?"
+      }
+    ],
+    "v61_s9": [
+      {
+        "tr": "Ben bir zarf almıyorum.",
+        "de": "Ich hole keinen Umschlag ab."
+      },
+      {
+        "tr": "Sen bir palet almıyorsun.",
+        "de": "Du holst keine Palette ab."
+      },
+      {
+        "tr": "O (erkek) bir bagaj almıyor.",
+        "de": "Er holt kein Gepäck ab."
+      },
+      {
+        "tr": "Biz zarfları almıyoruz. (Hiç zarf)",
+        "de": "Wir holen die Umschläge nicht ab."
+      },
+      {
+        "tr": "Siz (çoğul) paleti almıyorsunuz.",
+        "de": "Ihr holt die Palette nicht ab."
+      },
+      {
+        "tr": "Onlar bagajı bugün almıyorlar.",
+        "de": "Sie holen das Gepäck nicht heute ab."
+      },
+      {
+        "tr": "Ben almıyorum.",
+        "de": "Ich hole nicht ab."
+      },
+      {
+        "tr": "Sen onu (zarfı) almıyorsun.",
+        "de": "Du holst ihn nicht ab."
+      }
+    ],
+    "v61_s10": [
+      {
+        "tr": "Ben paketi postaneden alıyorum.",
+        "de": "Ich hole das Paket von der Post ab."
+      },
+      {
+        "tr": "Sen zarfı ofisten alıyorsun.",
+        "de": "Du holst den Umschlag aus dem Büro ab."
+      },
+      {
+        "tr": "O (erkek) paleti istasyondan alıyor.",
+        "de": "Er holt die Palette vom Bahnhof ab."
+      },
+      {
+        "tr": "Biz bagajı havaalanından alıyoruz.",
+        "de": "Wir holen das Gepäck vom Flughafen ab."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriyi girişten alıyorsunuz.",
+        "de": "Ihr holt den Kunden am Eingang ab."
+      },
+      {
+        "tr": "Onlar (resmi) malları resepsiyondan alıyorlar.",
+        "de": "Sie holen die Waren an der Rezeption ab."
+      }
+    ],
+    "v61_s11": [
+      {
+        "tr": "Ben onu (zarfı) bugün alıyorum.",
+        "de": "Ich hole ihn heute ab."
+      },
+      {
+        "tr": "Sen onu (paleti) şimdi alıyorsun.",
+        "de": "Du holst sie jetzt ab."
+      },
+      {
+        "tr": "O (erkek) onu (bagajı) hemen alıyor.",
+        "de": "Er holt es sofort ab."
+      },
+      {
+        "tr": "Biz onu (zarfı) yarın alıyoruz.",
+        "de": "Wir holen ihn morgen ab."
+      },
+      {
+        "tr": "Siz (çoğul) onu (paleti) daha sonra alıyorsunuz.",
+        "de": "Ihr holt sie später ab."
+      },
+      {
+        "tr": "Onlar onu (bagajı) hızlıca alıyorlar.",
+        "de": "Sie holen es schnell ab."
+      }
+    ],
+    "v61_s12": [
+      {
+        "tr": "Ben zarfı aldım.",
+        "de": "Ich habe den Umschlag abgeholt."
+      },
+      {
+        "tr": "Paleti aldın mı?",
+        "de": "Hast du die Palette abgeholt?"
+      },
+      {
+        "tr": "Biz bagajı aldık.",
+        "de": "Wir haben das Gepäck abgeholt."
+      },
+      {
+        "tr": "Siz (çoğul) onları (paketleri) aldınız.",
+        "de": "Ihr habt sie abgeholt."
+      },
+      {
+        "tr": "Ben zarfı aldım (preteritum).",
+        "de": "Ich holte den Umschlag ab."
+      },
+      {
+        "tr": "O (kadın) paleti aldı (geçmiş).",
+        "de": "Sie holte die Palette ab."
+      },
+      {
+        "tr": "Biz bagajı aldık (geçmiş).",
+        "de": "Wir holten das Gepäck ab."
+      },
+      {
+        "tr": "Onlar onu (zarfı) aldılar (geçmiş).",
+        "de": "Sie holten ihn ab."
+      }
+    ],
+    "v61_s13": [
+      {
+        "tr": "Ben zarfı almalıyım.",
+        "de": "Ich muss den Umschlag abholen."
+      },
+      {
+        "tr": "Paleti alabilir misin?",
+        "de": "Kannst du die Palette abholen?"
+      },
+      {
+        "tr": "O (erkek) bagajı almak istiyor.",
+        "de": "Er will das Gepäck abholen."
+      },
+      {
+        "tr": "Biz onu (zarfı) almalıyız.",
+        "de": "Wir sollen ihn abholen."
+      },
+      {
+        "tr": "Siz (çoğul) paleti alabilirsiniz (izniniz var).",
+        "de": "Ihr dürft die Palette abholen."
+      },
+      {
+        "tr": "Onlar (resmi) bagajı almak istiyorlar (nazik).",
+        "de": "Sie möchten das Gepäck abholen."
+      }
+    ],
+    "v62_s1": [
+      {
+        "tr": "Ben yardım ediyorum.",
+        "de": "Ich helfe."
+      },
+      {
+        "tr": "Sen yardım ediyorsun.",
+        "de": "Du hilfst."
+      },
+      {
+        "tr": "O yardım ediyor.",
+        "de": "Er hilft."
+      },
+      {
+        "tr": "Biz yardım ediyoruz.",
+        "de": "Wir helfen."
+      },
+      {
+        "tr": "Siz yardım ediyorsunuz.",
+        "de": "Ihr helft."
+      },
+      {
+        "tr": "Onlar yardım ediyorlar.",
+        "de": "Sie helfen."
+      }
+    ],
+    "v62_s2": [
+      {
+        "tr": "Ben ona (erkeğe/müşteriye) yardım ediyorum.",
+        "de": "Ich helfe ihm."
+      },
+      {
+        "tr": "Sen ona (kadına/kişiye) yardım ediyorsun.",
+        "de": "Du hilfst ihr."
+      },
+      {
+        "tr": "O (kadın) ona (çocuğa) yardım ediyor.",
+        "de": "Sie hilft ihm."
+      },
+      {
+        "tr": "Biz onlara (müşterilere) yardım ediyoruz.",
+        "de": "Wir helfen ihnen."
+      },
+      {
+        "tr": "Siz (çoğul) bize yardım ediyorsunuz.",
+        "de": "Ihr helft uns."
+      }
+    ],
+    "v62_s3": [
+      {
+        "tr": "Ben müşteriye yardım ediyorum.",
+        "de": "Ich helfe dem Kunden."
+      },
+      {
+        "tr": "Sen kişiye yardım ediyorsun.",
+        "de": "Du hilfst der Person."
+      },
+      {
+        "tr": "O (erkek) çocuğa yardım ediyor.",
+        "de": "Er hilft dem Kind."
+      },
+      {
+        "tr": "Biz müşteriye yardım ediyoruz.",
+        "de": "Wir helfen dem Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) kişiye yardım ediyor musunuz?",
+        "de": "Helft ihr der Person?"
+      },
+      {
+        "tr": "Onlar (resmi) çocuğa yardım ediyorlar.",
+        "de": "Sie helfen dem Kind."
+      }
+    ],
+    "v62_s4": [
+      {
+        "tr": "Biz müşterilere yardım ediyoruz.",
+        "de": "Wir helfen den Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) kişilere yardım ediyorsunuz.",
+        "de": "Ihr helft den Personen."
+      },
+      {
+        "tr": "Onlar çocuklara yardım ediyorlar.",
+        "de": "Sie helfen den Kindern."
+      },
+      {
+        "tr": "Ben meslektaşlara yardım ediyorum.",
+        "de": "Ich helfe den Kollegen."
+      },
+      {
+        "tr": "Sen kadınlara yardım ediyorsun.",
+        "de": "Du hilfst den Frauen."
+      },
+      {
+        "tr": "O (erkek) adamlara yardım ediyor.",
+        "de": "Er hilft den Männern."
+      }
+    ],
+    "v62_s5": [
+      {
+        "tr": "(Sen) Ona (erkeğe) yardım et!",
+        "de": "Hilf ihm!"
+      },
+      {
+        "tr": "(Siz çoğul) Ona (kadına) yardım edin!",
+        "de": "Helft ihr!"
+      },
+      {
+        "tr": "(Siz resmi) Lütfen çocuğa yardım edin!",
+        "de": "Helfen Sie bitte dem Kind!"
+      },
+      {
+        "tr": "(Sen) Müşteriye yardım etme!",
+        "de": "Hilf dem Kunden nicht!"
+      }
+    ],
+    "v62_s6": [
+      {
+        "tr": "Ben yaşlı müşteriye yardım ediyorum.",
+        "de": "Ich helfe dem alten Kunden."
+      },
+      {
+        "tr": "Sen genç kişiye yardım ediyorsun.",
+        "de": "Du hilfst der jungen Person."
+      },
+      {
+        "tr": "O (erkek) hasta çocuğa yardım ediyor.",
+        "de": "Er hilft dem kranken Kind."
+      },
+      {
+        "tr": "Biz sağlıklı müşteriye yardım ediyoruz.",
+        "de": "Wir helfen dem gesunden Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) yaşlı kişilere yardım ediyorsunuz.",
+        "de": "Ihr helft den alten Personen."
+      },
+      {
+        "tr": "Onlar genç çocuklara yardım ediyorlar.",
+        "de": "Sie helfen den jungen Kindern."
+      }
+    ],
+    "v62_s7": [
+      {
+        "tr": "Ben müşterime yardım ediyorum.",
+        "de": "Ich helfe meinem Kunden."
+      },
+      {
+        "tr": "Sen kişine yardım ediyor musun? (arkadaşına)",
+        "de": "Hilfst du deinem Freund?"
+      },
+      {
+        "tr": "O (kadın) çocuğuna yardım ediyor.",
+        "de": "Sie hilft ihrem Kind."
+      },
+      {
+        "tr": "Biz müşterimize yardım ediyoruz.",
+        "de": "Wir helfen unserem Kunden."
+      },
+      {
+        "tr": "Siz (çoğul) çocuklarınıza yardım ediyorsunuz.",
+        "de": "Ihr helft euren Kindern."
+      },
+      {
+        "tr": "Onlar (resmi) kişinize (çalışanınıza) yardım ediyorlar.",
+        "de": "Sie helfen Ihrer Person."
+      }
+    ],
+    "v62_s8": [
+      {
+        "tr": "Kime yardım ediyorsun?",
+        "de": "Wem hilfst du?"
+      },
+      {
+        "tr": "Müşteriye kim yardım ediyor?",
+        "de": "Wer hilft dem Kunden?"
+      },
+      {
+        "tr": "Çocuğa neden yardım ediyor?",
+        "de": "Warum hilft er dem Kind?"
+      },
+      {
+        "tr": "Onlara (çoğul) nerede yardım ediyoruz?",
+        "de": "Wo helfen wir ihnen?"
+      },
+      {
+        "tr": "Ona (kadına) ne zaman yardım ediyorsunuz (çoğul)?",
+        "de": "Wann helft ihr ihr?"
+      },
+      {
+        "tr": "Ona (erkeğe) nasıl yardım ediyorlar?",
+        "de": "Wie helfen sie ihm?"
+      }
+    ],
+    "v62_s9": [
+      {
+        "tr": "Ben bir müşteriye yardım etmiyorum.",
+        "de": "Ich helfe keinem Kunden."
+      },
+      {
+        "tr": "Sen bir kişiye yardım etmiyorsun.",
+        "de": "Du hilfst keiner Person."
+      },
+      {
+        "tr": "O (erkek) bir çocuğa yardım etmiyor.",
+        "de": "Er hilft keinem Kind."
+      },
+      {
+        "tr": "Biz çocuklara yardım etmiyoruz. (Hiç çocuğa)",
+        "de": "Wir helfen keinen Kindern."
+      },
+      {
+        "tr": "Siz (çoğul) müşteriye yardım etmiyorsunuz.",
+        "de": "Ihr helft dem Kunden nicht."
+      },
+      {
+        "tr": "Onlar ona (kadına) yardım etmiyorlar.",
+        "de": "Sie helfen ihr nicht."
+      },
+      {
+        "tr": "Biz yardım etmiyoruz.",
+        "de": "Wir helfen nicht."
+      },
+      {
+        "tr": "Sen bugün yardım etmiyorsun.",
+        "de": "Du hilfst heute nicht."
+      }
+    ],
+    "v62_s10": [
+      {
+        "tr": "Ben ona (erkeğe) yüklemede yardım ediyorum.",
+        "de": "Ich helfe ihm beim Beladen."
+      },
+      {
+        "tr": "Bana paketlemede yardım eder misin?",
+        "de": "Hilfst du mir beim Packen?"
+      },
+      {
+        "tr": "O (kadın) ona (erkeğe) bavulla yardım ediyor.",
+        "de": "Sie hilft ihm mit dem Koffer."
+      },
+      {
+        "tr": "Biz onlara (çoğul) taşımada yardım ediyoruz.",
+        "de": "Wir helfen ihnen beim Tragen."
+      },
+      {
+        "tr": "Siz (çoğul) ona (kadına) arabada yardım ediyorsunuz.",
+        "de": "Ihr helft ihr im Auto."
+      },
+      {
+        "tr": "Onlar (resmi) bana sorunda yardım ediyorlar.",
+        "de": "Sie helfen mir mit dem Problem."
+      }
+    ],
+    "v62_s11": [
+      {
+        "tr": "Ben müşteriye hemen yardım ediyorum.",
+        "de": "Ich helfe dem Kunden sofort."
+      },
+      {
+        "tr": "Sen ona (kadına) daima yardım edersin.",
+        "de": "Du hilfst ihr immer."
+      },
+      {
+        "tr": "O (erkek) ona (çocuğa) memnuniyetle yardım ediyor.",
+        "de": "Er hilft dem Kind gerne."
+      },
+      {
+        "tr": "Biz orada yardım ediyoruz.",
+        "de": "Wir helfen dort."
+      },
+      {
+        "tr": "Siz (çoğul) sık sık yardım ediyor musunuz?",
+        "de": "Helft ihr oft?"
+      },
+      {
+        "tr": "Onlar yarın yardım ediyorlar.",
+        "de": "Sie helfen morgen."
+      }
+    ],
+    "v62_s12": [
+      {
+        "tr": "Ben müşteriye yardım ettim.",
+        "de": "Ich habe dem Kunden geholfen."
+      },
+      {
+        "tr": "Ona (kadına) yardım ettin mi?",
+        "de": "Hast du ihr geholfen?"
+      },
+      {
+        "tr": "Biz çocuğa yardım ettik.",
+        "de": "Wir haben dem Kind geholfen."
+      },
+      {
+        "tr": "Siz (çoğul) onlara (çoğul) yardım ettiniz.",
+        "de": "Ihr habt ihnen geholfen."
+      },
+      {
+        "tr": "Ben müşteriye yardım ettim (geçmiş).",
+        "de": "Ich half dem Kunden."
+      },
+      {
+        "tr": "O (kadın) çocuğa yardım etti (geçmiş).",
+        "de": "Sie half dem Kind."
+      },
+      {
+        "tr": "Biz kişiye yardım ettik (geçmiş).",
+        "de": "Wir halfen der Person."
+      },
+      {
+        "tr": "Onlar (resmi) bana yardım ettiler (geçmiş).",
+        "de": "Sie halfen mir."
+      }
+    ],
+    "v62_s13": [
+      {
+        "tr": "Ben müşteriye yardım etmeliyim.",
+        "de": "Ich muss dem Kunden helfen."
+      },
+      {
+        "tr": "Ona (kadına) yardım edebilir misin?",
+        "de": "Kannst du ihr helfen?"
+      },
+      {
+        "tr": "O (erkek) çocuğa yardım etmek istiyor.",
+        "de": "Er will dem Kind helfen."
+      },
+      {
+        "tr": "Biz onlara (çoğul) yardım etmeliyiz.",
+        "de": "Wir sollen ihnen helfen."
+      },
+      {
+        "tr": "Siz (çoğul) burada yardım edebilirsiniz (izniniz var).",
+        "de": "Ihr dürft hier helfen."
+      },
+      {
+        "tr": "Onlar (resmi) bana yardım etmek istiyorlar (nazik).",
+        "de": "Sie möchten mir helfen."
+      }
     ]
   },
   "groups": [
     {
       "id": "g1",
       "name": "ALGI & İLETİŞİM",
-      "description": "görmek, dinlemek, göstermek",
       "nameDE": "Wahrnehmung & Kommunikation",
+      "description": "görmek, dinlemek, göstermek",
       "story": {
         "title": "Maria und der Film",
         "de": "Maria sieht einen interessanten Film im Fernsehen. Sie zeigt ihrem Bruder das neue Bild auf dem Bildschirm. Der Bruder hört aufmerksam zu und lächelt. Am Ende sagen beide: 'Der Film war sehr spannend!'",
@@ -25889,143 +25889,13 @@
       "50": "KOMPLEXE SATZGEFÜGE (Mehrfache Nebensätze)"
     }
   },
+  "sections": {
+    "1": "Bölüm 1"
+  },
   "hints": {
     "sentences": {
       "v1_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **sehe** ➔ görmek (Esas Fiil)\n✅ **den Film** ➔ filmi (Akkusativ Nesne)",
-      "v2_s1_0": "'zuhören' fiili Dativ alır. Bu cümlede 'dem Lehrer' Dativ haldedir.",
-      "v3_s1_0": "'zeigen' fiili hem Dativ hem Akkusativ alabilir. Bu cümlede sadece Akkusativ nesne kullanılmış.",
-      "v61_s1_0": "Ayrılabilen fiil (ab-), 'ab' cümlenin sonuna gider.",
-      "v61_s2_0": "Akk. Zamir 'ihn' = der Umschlag (maskulin).",
-      "v61_s2_1": "Akk. Zamir 'sie' = die Palette (feminin).",
-      "v61_s2_2": "Akk. Zamir 'es' = das Gepäck (nötr).",
-      "v61_s2_3": "Akk. Zamir 'sie' = çoğul nesneler.",
-      "v61_s3_0": "Akk. Nesne 'der Umschlag' (maskulin) -> 'den'.",
-      "v61_s3_1": "Akk. Nesne 'die Palette' (feminin) -> 'die'.",
-      "v61_s3_2": "Akk. Nesne 'das Gepäck' (nötr) -> 'das'.",
-      "v61_s3_4": "Soru cümlesi.",
-      "v61_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak değerlendirilmelidir)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değerlendirilmemeli, \"abholen\" fiilinin bir parçası olarak görülmelidir. Dolayısıyla, \"ab\" ile \"holen\" birlikte \"abholen\" fiilini oluşturur ve bu cümlede tek bir fiil olarak değerlendirilmelidir. Bu nedenle, önceki çıktı yanlış olup, aşağıdaki gibi düzeltilmelidir.)\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen den Umschlag ab** ➔ zarfı almak (Esas Fiil ve Nesne, \"abholen\" fiili)\nAncak, bu çıktı da doğru değildir çünkü \"ab\" ayrı bir edat olarak değerlendirilmemelidir. Doğru çıktı:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Bu durumda \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, ancak bu cümlede \"ab\" ayrı bir öbek olarak değerlendirilmemelidir.)\nDoğru çıktı:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **den Umschlag abholen** ➔ zarfı almak (Esas Fiil ve Nesne,",
-      "v61_s4_1": "✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil şahıs)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ayrı bir öbek olarak değil, \"abholen\" fiilinin parçası olarak düşünülür, ancak burada ayrı olarak verilmiştir)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak düşünülmemeli, \"abholen\" fiilinin bir parçası olarak \"die Palette ab\" şeklinde bir öbek olarak ele alınmalıdır. Dolayısıyla, daha doğru bir analiz için \"ab\" yerine \"die Palette ab\" ifadesinin bir bütün olarak ele alınması gerekir.)\n \nDüzeltme:\n✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil şahıs)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil, 2. tekil şahıs)\n✅ **die Palette ab** ➔ paleti (Akkusativ Nesne + Edat Grubu, \"abholen\" fiilinin nesnesi)",
-      "v61_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak bu durumda \"abholen\" fiilinin bir parçası olarak görülürse, \"ab\" ayrı bir öbek olarak yazılmamalıdır. Bu nedenle, \"abholen\" fiilinin bir parçası olarak \"holen\" ile birlikte ele alınmalıdır.)\n \nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen das Gepäck ab** ➔ bagajı almak (Esas Fiil ve Nesne ile Edat Grubu birlikte)\nAncak bu, kurallara tam olarak uymuyor. \"ab\" ayrı bir öbek olarak yazılmamalı, \"abholen\" fiilinin bir parçası olarak görülüyor. \nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil, ancak \"ab\" ile birlikte \"abholen\" anlamını taşıyor)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak yazılmamalı, \"abholen\" fiilinin bir parçası olarak görülüyor)\n\nSonuç:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil, \"abholen\" fiilinin bir parçası)\n✅ **das Gepäck** ➔ bagajı (Akkusativ",
-      "v61_s4_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Belirli Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"hole\" ile birlikte \"abholen\" fiilinin bir parçası olarak kullanıldığından) ➔ almak (Esas Fiil ile birlikte \"abholen\" fiilinin bir parçası)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülür. Dolayısıyla, \"ab\" için ayrı bir gramatik analiz yapılmaz. Doğru yaklaşım, \"abholen\" fiilinin bir parçası olarak \"Ich hole den Umschlag ab\" cümlesini analiz etmektir.)\n✅ **Ich hole den Umschlag ab** ➔ (Bu cümlede \"ab\" fiil \"hole\" ile birlikte \"abholen\" fiilinin bir parçası olarak kullanıldığından) ➔ \n✅ **Ich hole den Umschlag ab** ➔ (Doğru analiz) \n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole den Umschlag ab** ➔ zarfı almak (Esas Fiil \"abholen\" ve Belirli Akkusativ Nesne)\nAncak, bu analizde \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülmelidir. \n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole den Umschlag ab** ➔ zarfı almak (Esas Fiil \"abholen\" ve Belirli Akkusativ Nesne)\n✅ **ab** ➔ (Bu durumda \"ab\" için ayrı bir analiz yapılmaz, \"abholen\" fiilinin bir parçası olarak",
-      "v61_s4_4": "✅ **Holst** ➔ Tutuyor musun? (Esas Fiil, 2. tekil şahıs, soru)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **ab** ➔ aşağı (Yönelme Edat)\n✅ **?** ➔ (Soru işareti, cümlenin soru olduğunu gösterir)",
-      "v61_s4_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak\" fiilinin tamamlayıcısı olarak \"indirmek\" veya \"almak\")",
-      "v61_s5_0": "Emir kipi (du).",
-      "v61_s5_1": "Emir kipi (ihr).",
-      "v61_s5_2": "Emir kipi (Sie, resmi).",
-      "v61_s5_3": "Emir kipi (du) olumsuz.",
-      "v61_s7_0": "Sahiplik 'mein' (benim) Akkusativ maskulin.",
-      "v61_s7_1": "Sahiplik 'dein' (senin) Akkusativ feminin.",
-      "v61_s7_2": "Sahiplik 'ihr' (onun - kadının) Akkusativ nötr.",
-      "v61_s7_3": "Sahiplik 'unser' (bizim) Akkusativ maskulin.",
-      "v61_s7_4": "Sahiplik 'euer' (sizin - çoğul) Akkusativ çoğul.",
-      "v61_s7_5": "Sahiplik 'Ihr' (sizin - resmi) Akkusativ nötr.",
-      "v61_s8_0": "Soru 'Wer?' (Kim?) özneyi sorar.",
-      "v61_s8_1": "Soru 'Was?' (Ne?) Akkusativ nesneyi sorar.",
-      "v61_s8_2": "Soru 'Wann?' (Ne zaman?).",
-      "v61_s8_3": "Soru 'Wo?' (Nerede?).",
-      "v61_s8_4": "Soru 'Warum?' (Neden?).",
-      "v61_s8_5": "Soru 'Wie?' (Nasıl?).",
-      "v61_s9_0": "Olumsuzluk 'kein' Akkusativ maskulin.",
-      "v61_s9_1": "Olumsuzluk 'kein' Akkusativ feminin.",
-      "v61_s9_2": "Olumsuzluk 'kein' Akkusativ nötr.",
-      "v61_s9_3": "Olumsuzluk 'nicht' Akkusativ çoğul.",
-      "v61_s9_4": "Olumsuzluk 'nicht' belirli nesneyi (die Palette) olumsuzlar.",
-      "v61_s9_5": "Olumsuzluk 'nicht' zamanı ('heute') olumsuzlar.",
-      "v61_s9_6": "Olumsuzluk 'nicht' direkt fiili olumsuzlar.",
-      "v61_s9_7": "Olumsuzluk 'nicht' zamirden sonra.",
-      "v61_s10_0": "Edat 'von' (Dat.) -den/dan.",
-      "v61_s10_1": "Edat 'aus' (Dat.) -den/dan (içinden).",
-      "v61_s10_2": "Edat 'vom' (von dem) (Dat.) -den/dan.",
-      "v61_s10_3": "Edat 'vom' (von dem) (Dat.).",
-      "v61_s10_4": "Edat 'an' (Dat.) -de/da (konum).",
-      "v61_s10_5": "Edat 'an' (Dat.).",
-      "v61_s11_0": "Zarf 'heute' (bugün).",
-      "v61_s11_1": "Zarf 'jetzt' (şimdi).",
-      "v61_s11_2": "Zarf 'sofort' (hemen).",
-      "v61_s11_3": "Zarf 'morgen' (yarın).",
-      "v61_s11_4": "Zarf 'später' (daha sonra).",
-      "v61_s11_5": "Zarf 'schnell' (hızlı).",
-      "v61_s12_0": "Perfekt: 'haben' + Partizip II 'abgeholt'.",
-      "v61_s12_1": "Perfekt: Soru cümlesi.",
-      "v61_s12_2": "Perfekt.",
-      "v61_s12_3": "Perfekt.",
-      "v61_s12_4": "Präteritum: 'holte ab' (düzenli fiil).",
-      "v61_s12_5": "Präteritum.",
-      "v61_s12_6": "Präteritum.",
-      "v61_s12_7": "Präteritum.",
-      "v61_s13_0": "Modal: 'müssen' (zorunluluk). 'abholen' sonda mastar.",
-      "v61_s13_1": "Modal: 'können' (yetenek/rica).",
-      "v61_s13_2": "Modal: 'wollen' (istemek).",
-      "v61_s13_3": "Modal: 'sollen' (gereklilik, görev).",
-      "v61_s13_4": "Modal: 'dürfen' (izin).",
-      "v61_s13_5": "Modal: 'möchten' (istemek - nazik).",
-      "v62_s1_1": "Düzensiz çekim: Kök değişimi (e -> i).",
-      "v62_s1_2": "Düzensiz çekim: Kök değişimi (e -> i).",
-      "v62_s2_0": "Dat. Zamir 'ihm' = der Kunde (maskulin).",
-      "v62_s2_1": "Dat. Zamir 'ihr' = die Person (feminin).",
-      "v62_s2_2": "Dat. Zamir 'ihm' = das Kind (nötr).",
-      "v62_s2_3": "Dat. Zamir 'ihnen' = çoğul nesneler.",
-      "v62_s2_4": "Dat. Zamir 'uns' (bize).",
-      "v62_s3_0": "Dat. Nesne 'der Kunde' (maskulin, N-Deklination) -> 'dem Kunden'.",
-      "v62_s3_1": "Dat. Nesne 'die Person' (feminin) -> 'der'.",
-      "v62_s3_2": "Dat. Nesne 'das Kind' (nötr) -> 'dem'.",
-      "v62_s3_4": "Soru cümlesi.",
-      "v62_s4_0": "Dat. Çoğul 'die Kunden' -> 'den Kunden' (+n).",
-      "v62_s4_1": "Dat. Çoğul 'die Personen' -> 'den Personen' (+n).",
-      "v62_s4_2": "Dat. Çoğul 'die Kinder' -> 'den Kindern' (+n).",
-      "v62_s4_3": "(Ek kelime) Dat. Çoğul 'die Kollegen' -> 'den Kollegen' (+n).",
-      "v62_s4_4": "(Ek kelime) Dat. Çoğul 'die Frauen' -> 'den Frauen' (+n).",
-      "v62_s4_5": "(Ek kelime) Dat. Çoğul 'die Männer' -> 'den Männern' (+n).",
-      "v62_s5_0": "Emir kipi (du) düzensiz: 'Hilf!'.",
-      "v62_s5_1": "Emir kipi (ihr).",
-      "v62_s5_2": "Emir kipi (Sie, resmi).",
-      "v62_s5_3": "Emir kipi (du) olumsuz.",
-      "v62_s7_0": "Sahiplik 'mein' (benim) Dativ maskulin.",
-      "v62_s7_1": "Sahiplik 'dein' (senin) Dativ feminin.",
-      "v62_s7_2": "Sahiplik 'ihr' (onun - kadının) Dativ nötr.",
-      "v62_s7_3": "Sahiplik 'unser' (bizim) Dativ maskulin.",
-      "v62_s7_4": "Sahiplik 'euer' (sizin - çoğul) Dativ çoğul.",
-      "v62_s7_5": "Sahiplik 'Ihr' (sizin - resmi) Dativ feminin.",
-      "v62_s8_0": "Soru 'Wem?' (Kime?) Dativ nesneyi sorar.",
-      "v62_s8_1": "Soru 'Wer?' (Kim?) özneyi sorar.",
-      "v62_s8_2": "Soru 'Warum?' (Neden?).",
-      "v62_s8_3": "Soru 'Wo?' (Nerede?).",
-      "v62_s8_4": "Soru 'Wann?' (Ne zaman?).",
-      "v62_s8_5": "Soru 'Wie?' (Nasıl?).",
-      "v62_s9_0": "Olumsuzluk 'kein' Dativ maskulin.",
-      "v62_s9_1": "Olumsuzluk 'kein' Dativ feminin.",
-      "v62_s9_2": "Olumsuzluk 'kein' Dativ nötr.",
-      "v62_s9_3": "Olumsuzluk 'kein' Dativ çoğul.",
-      "v62_s9_4": "Olumsuzluk 'nicht' belirli nesneyi (dem Kunden) olumsuzlar.",
-      "v62_s9_5": "Olumsuzluk 'nicht' zamirden sonra.",
-      "v62_s9_6": "Olumsuzluk 'nicht' direkt fiili olumsuzlar.",
-      "v62_s9_7": "Olumsuzluk 'nicht' zamanı ('heute') olumsuzlar.",
-      "v62_s10_0": "Edat 'bei' (Dat.) -de/da, esnasında. 'beim' = bei dem.",
-      "v62_s10_1": "Edat 'bei' (Dat.).",
-      "v62_s10_2": "Edat 'mit' (Dat.) ile.",
-      "v62_s10_3": "Edat 'bei' (Dat.).",
-      "v62_s10_4": "Edat 'in' (Dat.) -de/da. 'im' = in dem.",
-      "v62_s10_5": "Edat 'mit' (Dat.).",
-      "v62_s11_0": "Zarf 'sofort' (hemen).",
-      "v62_s11_1": "Zarf 'immer' (daima).",
-      "v62_s11_2": "Zarf 'gerne' (memnuniyetle).",
-      "v62_s11_3": "Zarf 'dort' (orada).",
-      "v62_s11_4": "Zarf 'oft' (sık sık).",
-      "v62_s11_5": "Zarf 'morgen' (yarın).",
-      "v62_s12_0": "Perfekt: 'haben' + Partizip II 'geholfen'.",
-      "v62_s12_1": "Perfekt: Soru cümlesi.",
-      "v62_s12_2": "Perfekt.",
-      "v62_s12_3": "Perfekt.",
-      "v62_s12_4": "Präteritum: 'half' (düzensiz).",
-      "v62_s12_5": "Präteritum.",
-      "v62_s12_6": "Präteritum.",
-      "v62_s12_7": "Präteritum.",
-      "v62_s13_0": "Modal: 'müssen' (zorunluluk). 'helfen' sonda mastar.",
-      "v62_s13_1": "Modal: 'können' (yetenek/rica).",
-      "v62_s13_2": "Modal: 'wollen' (istemek).",
-      "v62_s13_3": "Modal: 'sollen' (gereklilik, görev).",
-      "v62_s13_4": "Modal: 'dürfen' (izin).",
-      "v62_s13_5": "Modal: 'möchten' (istemek - nazik).",
+      "v2_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil / 1. Tekil Şahıs, Şimdiki Zaman)\n✅ **zu** ➔ (Yönelme Edat Grubu)",
       "v63_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **übergebe** ➔ geçiyorum/iletiyorum (Esas Fiil)",
       "v63_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **übergibst** ➔ teslim ediyorsun (Esas Fiil / 2. Tekil Şahıs Şimdiki Zaman)",
       "v63_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **übergibt** ➔ teslim eder (Esas Fiil / Şimdiki Zaman 3. Tekil)",
@@ -26488,19 +26358,6 @@
       "v63_s1_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **übergeben** ➔ teslim etmek (Esas Fiil)",
       "v63_s1_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **übergebt** ➔ devrediyorsunuz (Esas Fiil / 2. tekil şahıs çoğul)",
       "v63_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **übergeben** ➔ teslim etmek (Esas Fiil)",
-      "v62_s3_5": "\"helfen\" fiili Almancada her zaman Dativ (yönelme hâli) alır. Yardım edilen kişi veya şey bu sebeple Dativ'de olmalıdır. Bu yüzden \"die Männer\" (yalın hâl) \"den Männern\" (Dativ çoğul) olur.",
-      "v61_s16_0": "Sıfat 'groß' (büyük) Akkusativ maskulin çekimi.",
-      "v61_s16_1": "Sıfat 'klein' (küçük) Akkusativ feminin çekimi.",
-      "v61_s16_2": "Sıfat 'schwer' (ağır) Akkusativ nötr çekimi.",
-      "v61_s16_3": "Sıfat 'leicht' (hafif) Akkusativ maskulin çekimi.",
-      "v61_s16_4": "Sıfat 'groß' (büyük) Akkusativ çoğul çekimi.",
-      "v61_s16_5": "Sıfat 'klein' (küçük) Akkusativ çoğul çekimi.",
-      "v62_s16_0": "Sıfat çekimi (Dativ).",
-      "v62_s16_1": "Sıfat çekimi (Dativ).",
-      "v62_s16_2": "Sıfat çekimi (Dativ).",
-      "v62_s16_3": "\"Helfen\" fiili Almanca'da her zaman Dativ nesne alır. Bu yüzden \"dem gesunden Kunden\" (sağlıklı müşteriye) Dativ halindedir ve sıfat da buna göre \"-en\" ekiyle çekimlenir. Bu kuralı benzer fiiller için de aklında tut.",
-      "v62_s16_4": "Sıfat çekimi (Dativ).",
-      "v62_s16_5": "\"Helfen\" fiili Almanca'da daima dativ nesne alır. Bu nedenle, kime yardım edildiğini belirten \"genç çocuklara\" (den jungen Kindern) ifadesi dativ halindedir. Bu durum, \"die\" artikeli ve \"jung\" sıfatının \"-en\" eklerini almasına neden olur.",
       "v63_s16_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **übergebe** ➔ geçirmek/vermek (Esas Fiil)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **den großen Karton** ➔ büyük kartonu (Akkusativ Nesne + Sıfat Çekimi -en)",
       "v63_s16_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **übergibst** ➔ teslim ediyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der Frau** ➔ kadına (Belirli Dativ Nesne)\n✅ **die kleine Ware** ➔ küçük malı (Akkusativ Nesne + Sıfat Çekimi)",
       "v63_s16_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **übergibt** ➔ teslim ediyor (Esas Fiil)\n✅ **dem Mann** ➔ adama (Belirli Dativ Nesne)\n✅ **das schwere Paket** ➔ ağır paketi (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
@@ -26543,13 +26400,9 @@
       "v69_s16_3": "Sıfat 'unwichtig' (önemsiz) Akkusativ nötr çekimi.",
       "v69_s16_4": "Sıfat 'neu' (yeni) Dativ maskulin çekimi.",
       "v69_s16_5": "Sıfat 'alt' (eski) Dat. maskulin + Sıfat 'wichtig' (önemli) Akk. çoğul.",
-      "v61_s2_4": "Soru cümlesi.",
       "v64_s2_4": "Soru cümlesi.",
       "v67_s2_4": "Soru cümlesi.",
       "v63_s2_5": "\"übergeben\" fiili ayrılmaz bir fiildir; 'über-' öneki asla fiilden ayrılmaz. Bu fiil, kime (Dativ) ve neyi (Akkusativ) sorularına cevap veren iki nesne alır. Her iki nesne de isim olduğunda, Dativ nesnesi Akkusativ nesnesinden önce gelir.",
-      "v62_s2_5": "Dat. Zamir (Dativ).",
-      "v61_s3_3": "(Ek kelime)",
-      "v61_s3_5": "(Ek kelime)",
       "v64_s3_3": "(Ek kelime)",
       "v64_s3_5": "(Ek kelime)",
       "v65_s3_3": "(Ek kelime) Dat. Çoğul 'die Autos' -> 'den Autos'.",
@@ -26564,18 +26417,6 @@
       "v69_s3_3": "Dat. Çoğul 'den Kunden' + Akk. Çoğul 'die Kugelschreiber'.",
       "v69_s3_4": "Dat. Çoğul 'den Kollegen'.",
       "v69_s3_5": "Dat. Çoğul 'den Frauen'.",
-      "v61_s6_0": "Sıfat 'groß' (büyük) Akkusativ maskulin çekimi.",
-      "v61_s6_1": "Sıfat 'klein' (küçük) Akkusativ feminin çekimi.",
-      "v61_s6_2": "Sıfat 'schwer' (ağır) Akkusativ nötr çekimi.",
-      "v61_s6_3": "Sıfat 'leicht' (hafif) Akkusativ maskulin çekimi.",
-      "v61_s6_4": "Sıfat 'groß' (büyük) Akkusativ çoğul çekimi.",
-      "v61_s6_5": "Sıfat 'klein' (küçük) Akkusativ çoğul çekimi.",
-      "v62_s6_0": "Sıfat 'alt' (yaşlı) Dativ maskulin çekimi.",
-      "v62_s6_1": "Sıfat 'jung' (genç) Dativ feminin çekimi.",
-      "v62_s6_2": "Sıfat 'krank' (hasta) Dativ nötr çekimi.",
-      "v62_s6_3": "Sıfat 'gesund' (sağlıklı) Dativ maskulin çekimi.",
-      "v62_s6_4": "Sıfat 'alt' (yaşlı) Dativ çoğul çekimi.",
-      "v62_s6_5": "Sıfat 'jung' (genç) Dativ çoğul çekimi.",
       "v63_s6_0": "✅ **Wer** ➔ Kim (Soru Zamiri / Özne)\n✅ **übergibt** ➔ teslim ediyor (Esas Fiil / 2. Tekil Şahıs, Şimdiki Zaman)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **den Karton** ➔ kartonu (Akkusativ Nesne)",
       "v63_s6_1": "✅ **Wem** ➔ kime (Soru Zamiri / Dativ)\n✅ **übergibst** ➔ devrediyorsun (Şimdiki Zaman Fiili / 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / 2. Tekil Şahıs)\n✅ **die Ware** ➔ malı (Akkusativ Nesne)\n⚠️ **İstisna:** Cümle bir soru cümlesidir, bu nedenle soru zamiri \"Wem\" ile başlar ve fiil \"übergibst\" 2. sıradadır.",
       "v63_s6_2": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **übergibt** ➔ teslim ediyor (Esas Fiil)\n✅ **er** ➔ o (Özne / Nominativ, 3. tekil şahıs)\n✅ **dem Mann** ➔ adama (Belirli Dativ Nesne)",
@@ -26707,7 +26548,318 @@
       "v1_s16_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **sehe** ➔ görüyorum (Esas Fiil)\n✅ **die neuen Nachrichten** ➔ yeni haberleri (Akkusativ Nesne + Sıfat Çekimi)",
       "v1_s16_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **sieht** ➔ görüyor (Esas Fiil)\n✅ **die alten Bilder** ➔ eski resimleri (Akkusativ Nesne + Sıfat Çekimi)",
       "v63_s10_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **übergaben** ➔ teslim ettik (Esas Fiil / Geçmiş Zaman)\n✅ **dem Mann** ➔ adama (Belirli Dativ Nesne)\n✅ **das Paket** ➔ paketi (Akkusativ Nesne)",
-      "v63_s10_7": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **übergaben** ➔ teslim ettiler (Esas Fiil / Geçmiş Zaman)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)\n✅ **den Karton** ➔ kartonu (Akkusativ Nesne)"
+      "v63_s10_7": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **übergaben** ➔ teslim ettiler (Esas Fiil / Geçmiş Zaman)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)\n✅ **den Karton** ➔ kartonu (Akkusativ Nesne)",
+      "v1_s2_6": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **siehst** ➔ görüyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **es** ➔ onu/onu (Akkusativ Nesne / Belirsiz Artikel)",
+      "v1_s2_7": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **sehe** ➔ görüyorum (Esas Fiil)\n✅ **sie** ➔ onu/onu/onları (Akkusativ Nesne)",
+      "v1_s2_8": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **sieht** ➔ görüyor (Esas Fiil)\n✅ **euch** ➔ sizi (Akkusativ Nesne / Sen-plural)",
+      "v1_s2_9": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **sehen** ➔ görmek (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne / Eril)",
+      "v1_s6_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **sieht** ➔ görüyor (Esas Fiil)\n✅ **die alten Bilder** ➔ eski resimleri (Akkusativ Nesne + Sıfat Çekimi)",
+      "v1_s9_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sehen** ➔ görürler (Esas Fiil)\n✅ **das Bild** ➔ resmi (Akkusativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **nicht** ➔ Bu cümledeki \"nicht\" fiili \"sehen\" fiilini olumsuz hale getirmektedir. \n✅ **das Bild nicht** ➔ resmi görmezler (Akkusativ Nesne + Olumsuzluk) ➔ Bu şekilde bir analiz doğru değildir. \n✅ **Sie sehen das Bild nicht** ➔ Onlar resmi görmezler (Tam Cümle) ➔ Bu şekilde bir analiz doğru değildir. \n\nDoğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sehen** ➔ görürler (Esas Fiil)\n✅ **das Bild** ➔ resmi (Akkusativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)\n\nBu cümledeki \"nicht\" fiili \"sehen\" fiilini olumsuz hale getirmektedir.",
+      "v1_s9_7": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **sehen** ➔ görmek (Esas Fiil)\n✅ **die Filme** ➔ filmleri (Akkusativ Nesne)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) \nYOK. Cümlede \"liefern\" fiili yok. \n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri) \nYOK. Zaten var. \n✅ **Wir sehen die Filme nicht** cümlesinde \"nicht\" zaten var. \n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **sehen** ➔ görmek (Esas Fiil)\n✅ **die Filme** ➔ filmleri (Akkusativ Nesne)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)",
+      "v1_s12_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sahen** ➔ görüyor (Esas Fiil)\n✅ **den Film** ➔ filmi (Akkusativ Nesne)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) \nYok, bu cümlede \"liefern\" yok. \n✅ **sahen** ➔ görüyor (Esas Fiil) \n✅ **den Film** ➔ filmi (Akkusativ Nesne)\nCevap:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sahen** ➔ görüyor (Esas Fiil)\n✅ **den Film** ➔ filmi (Akkusativ Nesne)",
+      "v1_s12_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **sahst** ➔ gördün (Esas Fiil / 2. Tekil Şahıs Geçmiş Zaman)\n✅ **die Nachricht** ➔ haberi (Akkusativ Nesne)",
+      "v2_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **zu** ➔ (bitiş, son) (İsim veya Fiile bağlı bitiş edatı)",
+      "v2_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **zu** ➔ (İsim veya fiile bağlı edat, bu durumda fiile bağlı olarak \"dinlemeye\" anlamı veriyor)",
+      "v2_s1_3": "✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **zu** ➔ (İki yönlü edat, bu cümlede \"dinlemeye\" eyleminin yönünü belirtir, ancak bu cümlede \"zu\" tek başına bir edat grubu olarak kabul edilebilir) \n✅ **zu** ➔ (Ancak \"hört zu\" ifadesi birleşik bir fiil olarak kabul edilebilir, bu nedenle \"zu\"yu ayrı bir öbek olarak analiz etmek doğru olmaz. Doğru analiz: ✅ **hört zu** ➔ dinliyor (Esas Fiil + Edat))\n \nDüzeltme:\n✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **hört zu** ➔ dinliyor (Esas Fiil + Edat)",
+      "v2_s1_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **zu** ➔ (İki harfli edat, cümlenin anlamını tamamlamak için gerekli)",
+      "v2_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **zu** ➔ (İki harfli bir edat grubu değil, fiile bağlı bir edat) (İlgi Edatı)",
+      "v2_s2_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil / 1. Tekil Şahıs)\n✅ **dir** ➔ sana (Dativ Nesne / 2. Tekil Şahıs)\n✅ **zu** ➔ (İsim veya Fiile bağlı olarak değişen anlam, burada \"dinlemeye\" eklendiğinde \"dinliyorum sana\" anlamında) (Yönelme Edat)",
+      "v2_s2_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **mir** ➔ bana (Dativ Nesne / Kişiye göre değişen Dativ Zamir)\n✅ **zu** ➔ (İsim veya Fiile bağlı olarak değişen anlam, burada \"dinlemeye\" anlamında)",
+      "v2_s2_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)\n✅ **zu** ➔ (İsim veya Fiile bağlı olarak değişen anlam, burada: dinlemeye) (İlgi Edat Grubu)",
+      "v2_s2_3": "✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihr zu** ➔ ona (Dativ Nesne + İyelik Zamiri)",
+      "v2_s2_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **euch** ➔ sizi (Akkusativ Nesne / İyelik Zamiri)\n✅ **zu** ➔ (İyelik eki veya edat olarak) (İsim veya Zamirle birlikte kullanılır, burada ayrı yazıldı ancak genellikle \"euch zu\" olarak bir öbek olarak düşünülür)\n✅ **euch zu** ➔ size (Akkusativ Nesne + İyelik Eki / İyelik Zamiri + Edat) \nAncak daha doğru bir analiz:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **euch zu** ➔ sizi (Akkusativ Nesne + Edat Grubu / İyelik Zamiri + Edat)\n✅ **euch zu** ifadesi daha öncekinin yerine geçer ve daha doğru bir analiz sağlar. \n✅ **euch zu** ➔ size (Akkusativ Nesne + İyelik Eki / İyelik Zamiri + Edat) \nAncak bu analizde \"euch zu\" ifadesi tek bir öbek olarak düşünülürse daha doğru olur. \n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **euch zu** ➔ sizi (Akkusativ Nesne + Edat Grubu / İyelik Zamiri + Edat)\nBu analizde \"euch zu\" ifadesi tek bir öbek olarak düşünülür ve daha doğru bir analiz sağlar.",
+      "v2_s2_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **uns** ➔ bize (Dativ Nesne)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat \"zu\" (İsim veya Zamirle birlikte kullanılır, ancak bu cümlede \"zuhören\" fiilinin bir parçası olarak kullanılıyor) \n✅ **zuhören** ifadesi birleşik bir fiil olarak kabul edildiğinde:\n✅ **zuhören** ➔ dinlemek (Esas Fiil, \"hören\" ve \"zu\" birlikte)\nAncak, daha doğru bir analiz için:\n✅ **uns zu** ➔ bize (Dativ Nesne + \"zuhören\" fiilinin edatını içeren grup)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n\nAncak, daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **uns zu** ➔ bize (Dativ Nesne + \"zuhören\" fiilinin edatını içeren grup)\n\nDaha doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören uns zu** ➔ bize dinliyorlar (Esas Fiil ve Nesne ile birlikte) \nAncak bu analizde \"hören\" ve \"uns zu\" ayrılmamış, \"zuhören\" fiilinin birleşik hali olarak kabul edilmiştir.\n\nEn doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **uns zu** ➔ bize (Dativ Nesne + \"zuhören\" fiilinin edatını içeren grup)\n\nAncak, \"zuhören\" fiilinin birleşik bir fiil olarak kabul edildiğinde:\n✅ **",
+      "v2_s2_6": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **zu** ➔ (İsim veya Fiile bağlı Edat, burada \"hören\" fiilinin edatı olarak kullanılıyor) onlara (Edat Grubu) \n✅ **zuhören** fiilinin bir parçası olarak \"zu\" kullanılıyor, bu nedenle ayrı bir öbek olarak değil, \"ihnen zu\" birlikte ele alınmalıdır.\n✅ **ihnen zu** ➔ onlara (Belirli Dativ Nesne + Edat Grubu)\n\nDüzeltme:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihnen zu** ➔ onlara (Belirli Dativ Nesne + Edat Grubu)",
+      "v2_s2_7": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **Ihnen** ➔ size (Belirli Dativ Nesne)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan edat, burada \"Ihnen zu\" birlikte ele alınmalıdır) \n✅ **Ihnen zu** ➔ size (Belirli Dativ Nesne + Edat Grubu)\n✅ **hört Ihnen zu** ifadesi birlikte ele alındığında: \n✅ **Er hört Ihnen zu** ➔ O size dinliyor (Tam cümle)\n\nDüzeltme:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **Ihnen zu** ➔ size (Belirli Dativ Nesne + Edat Grubu)",
+      "v2_s3_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **dem Arzt** ➔ doktora (Belirli Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edat Grubu)",
+      "v2_s3_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **dem Direktor** ➔ direktöre (Belirli Dativ Nesne)\n✅ **zu** ➔ (İsimden önce gelip direktöre ait bir sıfat veya artikel ile birlikte kullanıldığında \"dem Direktor zu\" şeklinde bir bütün olarak ele alınır, ancak burada \"zu\" ayrı olarak edat görevi görüyor gibi görünse de, cümledeki kullanımına göre direktöre ait bir sıfat veya artikel ile birlikte değil, ayrı olarak edat görevi gördüğü için) -e, -a (Yönelme Edat Grubu / Dativ Nesne ile birlikte)\nAncak daha doğru bir analiz:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **dem Direktor zu** ➔ direktöre (Belirli Dativ Nesne + Yönelme Edat Grubu)\nBu şekilde daha doğru bir analiz yapılmış olur.",
+      "v2_s3_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Führer** ➔ lidere (Dativ Nesne + Sıfat Çekimi -e)\n✅ **zu** ➔ -e (İlgi Edatı, Dativ'i gösterir)\n✅ **zum Führer** ➔ lidere (Dativ Nesne + Sıfat Çekimi -e) \n✅ **zum** ➔ -e (İlgi Edatı, Dativ'i gösterir)\n✅ **Führer** ➔ lider (Dativ Nesne)\n✅ **Sie hören dem Führer zu** ➔ Onlar lidere dinliyorlar (Cümle Anlamı)\n✅ **dem Führer zu** ➔ lidere (Dativ Nesne + İlgi Edatı)\n✅ **Sie hören** ➔ Onlar dinliyor (Özne + Fiil)\n✅ **dem Führer** ➔ lidere (Dativ Nesne)\n✅ **zu** ➔ -e (İlgi Edatı, Dativ'i gösterir)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören dem Führer zu** ➔ lidere dinliyorlar (Cümle Anlamı)\n✅ **dem Führer** ➔ lidere (Dativ Nesne + Sıfat Çekimi -e)\n✅ **zum Führer** ➔ lidere (Dativ Nesne + Sıfat Çekimi -e)\n✅ **zum** ➔ -e (İlgi Edatı, Dativ'i gösterir)\n✅ **Führer** ➔ lider (Dativ Nesne)\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅",
+      "v2_s3_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Experten** ➔ uzmana (Belirli Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edat Grubu)",
+      "v2_s3_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **dem Berater** ➔ danışmana (Belirli Dativ Nesne)\n✅ **zu** ➔ (İyelik veya yönelme edatı, burada \"dinlemeye\" yönelme anlamında)\n✅ **zu** ➔ e (yönelme edatı, \"dinlemeye\" yönelme anlamında, \"höre zu\" birlikte ele alınmalıdır) \n✅ **höre zu** ➔ dinliyorum (Esas Fiil + yönelme edatı birlikte)\nAncak daha doğru bir analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre zu** ➔ dinliyorum (Esas Fiil + yönelme edatı)\n✅ **dem Berater** ➔ danışmana (Belirli Dativ Nesne)",
+      "v2_s3_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Redner** ➔ konuşmacıyı (Dativ Nesne)\n✅ **zu** ➔ (Dinleme eylemi için gerekli olan) (İlgi Edatları)\n \n⚠️ **İstisna:** Bu cümlede \"zu\" normalde bir edattır, ancak burada \"hören zu\" ifadesinin bir parçası olarak dinleme eylemini tamamlıyor.",
+      "v2_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)\n✅ **zu** ➔ (İyelik veya yönelme eki, burada \"dinlemeye\" anlamı katıyor, Dativ'in işareti)\n✅ **zuhören** ➔ (Burada \"zuhören\" fiilinin bir parçası olarak \"zu\" kullanılıyor, ancak \"zuhören\" fiili \"hören\" ve \"zu\"dan oluşuyor. Bu nedenle \"zuhören\" fiilinin bir parçası olarak \"zu\"yu ayrı bir öbek olarak göstermeyip, \"hören\" ile birlikte \"zuhören\" fiilinin anlamını veriyoruz.)\n✅ **zuhören** ➔ dinlemek (Esas Fiil, ancak \"hören\" ve \"zu\"dan oluşuyor)\n\nDüzeltme:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil, \"zuhören\" fiilinin bir parçası)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)\n✅ **zu** ➔ (İyelik veya yönelme eki, burada \"dinlemeye\" anlamı katıyor, Dativ'in işareti)\nAncak bu şekilde \"zuhören\" fiilinin anlamını tam olarak veremiyoruz. \n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören zu** ➔ dinliyoruz (Esas Fiil, \"zuhören\" fiili)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)\n\nSonuç:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören zu** ➔ dinliyoruz (Esas Fiil, \"zuhören",
+      "v2_s4_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Müttern** ➔ annelere (Belirli Dativ Nesne)\n✅ **zu** ➔ (İsim veya Fiile bağlı Edat) \n✅ **zu** ➔ (İsim veya Fiile bağlı Edat) ➔ Bu durumda \"zu\" ayrı bir öbek olarak değil, \"den Müttern zu\" şeklinde \"den Müttern\" öbeğinin bir parçası olarak düşünülür. Ancak bu durumda \"zu\" nun ayrı bir öbek olarak düşünülmesi daha doğru olur. \n✅ **zu** ➔ (İsim veya Fiile bağlı Edat) ➔ Bu durumda \"den Müttern zu\" şeklinde düşünülür. \n✅ **den Müttern zu** ➔ annelere (Belirli Dativ Nesne + Edat) \n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **Du hörst** ➔ Sen dinliyorsun (Özne + Fiil)\n✅ **den Müttern zu** ➔ annelere (Belirli Dativ Nesne + Edat)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Müttern zu** ➔ annelere (Belirli Dativ Nesne + Edat)\n✅ **Du hörst den Müttern zu** ➔ Sen annelere dinliyorsun (Tam Cümle)\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ din",
+      "v2_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **den Lehrern** ➔ öğretmenlere (Belirli Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edat Grubu) \n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar Sonda, ancak burada hören fiili already var, zuhören fiilinin bir parçası olarak \"zu\"yu ekledik)",
+      "v2_s4_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edat Grubu) \n✅ **hört zu** ➔ dinlemek (İfade olarak \"hört zu\" birlikte kullanılıyor, ancak \"hört\" zaten ayrı olarak analiz edildiği için buradaki \"zu\"nun ayrı bir anlamı yok, ancak birlikte \"dinlemeye\" anlamını veriyor. Bu nedenle buradaki \"zu\"nun ayrı bir gramer analizi yapılmayacaktır.)",
+      "v2_s4_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **den Müttern** ➔ annelere (Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ -e (Yönelme Edatı)\n✅ **höre zu** ➔ dinliyorum (Esas Fiil + Yönelme Edatı) ➔ Bu öbek **höre zu** olarak birleştirilebilir.\n \nDüzeltme:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre zu** ➔ dinliyorum (Esas Fiil + Yönelme Edatı)\n✅ **den Müttern** ➔ annelere (Dativ Nesne + Sıfat Çekimi)",
+      "v2_s4_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **den Lehrern** ➔ öğretmenlere (Belirsiz Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ -e (Yönelme Edat Grubu)",
+      "v2_s6_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **dem aufmerksamen Kind** ➔ dikkatli çocuğa (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan \"zu\" edatı, burada \"dem aufmerksamen Kind\" ile birlikte kullanıldığından ayrı bir öbek olarak ele alınmamıştır. Ancak buradaki \"zu\"nun ayrı bir öbek olarak ele alınması daha doğru olur.)\n✅ **zu** ➔ (Bu edat, \"dem aufmerksamen Kind\" ile birlikte \"dem aufmerksamen Kind zu\" şeklinde bir öbek oluşturur ve \"dikkatli çocuğa\" anlamını verir. Bu nedenle, daha doğru bir analiz için \"dem aufmerksamen Kind zu\" tek bir öbek olarak ele alınmalıdır.)\n \nDüzeltme:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **dem aufmerksamen Kind zu** ➔ dikkatli çocuğa (Belirli Dativ Nesne + Sıfat Çekimi + Edat)",
+      "v2_s6_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der unaufmerksamen Mutter** ➔ dikkatsiz anneye (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat (Yönelme Edat Grubu)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) \n⚠️ **İstisna:** Cümledeki \"liefern\" fiili bulunmamaktadır.",
+      "v2_s6_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinliyorlar (Esas Fiil)\n✅ **dem geduldigen Lehrer** ➔ sabırlı öğretmene (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ -e (Yönelme Edat Grubu) \n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) -> Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **zuhören** ifadesi \"hören zu\" şeklinde bir edat grubu ile fiil olarak kullanılabilir. Dolayısıyla, \n✅ **zuhören** ➔ -e dinlemek (Esas Fiil / Mastar Sonda) -> Bu cümlede \"zuhören\" ifadesi \"hören zu\" şeklinde kullanılmıştır. \n✅ **hören zu** ➔ -e dinliyorlar (Esas Fiil + Yönelme Edat Grubu) -> Bu cümlede \"hören zu\" ifadesi \"zuhören\" fiilinin bir parçası olarak kullanılmıştır. \n\nGramer Analizi:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören zu** ➔ -e dinliyorlar (Esas Fiil + Yönelme Edat Grubu)\n✅ **dem geduldigen Lehrer** ➔ sabırlı öğretmene (Belirli Dativ Nesne + Sıfat Çekimi)\n\nSonuç:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören zu** ➔ -e dinliyorlar (Esas Fiil + Yönelme Edat Grubu)\n✅ **dem geduldigen Lehrer** ➔ sabırlı öğretmene (Belirli Dativ Nesne + Sıfat Çekimi)",
+      "v2_s6_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem ungeduldigen Kind** ➔ sabırsız çocuğa (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat (İsim veya Zamirle birlikte kullanılan edat)\n✅ **zum Kind** ➔ çocuğa (Dativ Nesne) \n✅ **hört zu** ➔ dinliyor (Esas Fiil + Edat) \nAncak \"hört zu\" ifadesi tek bir öbek olarak ele alınmalıdır. \n✅ **Sie hört dem ungeduldigen Kind zu** cümlesinde \"hört\" ve \"zu\" ayrı ayrı ele alınmamalıdır. \n✅ **hört zu** ➔ dinliyor (Esas Fiil + Edat) \nAncak bu durumda \"hört\" ve \"zu\" ayrı ayrı ele alınmaktadır. \n✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem ungeduldigen Kind** ➔ sabırsız çocuğa (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat \nAncak bu analiz doğru değildir. \n✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört dem ungeduldigen Kind zu** ➔ sabırsız çocuğa dinliyor (Esas Fiil + Belirli Dativ Nesne + Sıfat Çekimi + Edat) \nBu analizde \"hört\" ve \"zu\" ayrı ayrı ele alınmamıştır. \n✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Es",
+      "v2_s6_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **der aufmerksamen Mutter** ➔ dikkatli anneye (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim gruba bağlı olarak \"e\" ile biten ismin Dativ hali için kullanılır, burada \"Mutter\" ismine bağlı olarak \"zu\" kullanılması gerekmez, ancak cümledeki \"aufmerksamen Mutter\" ifadesi Dativ halde olduğu için \"zu\" edatının kullanılması doğru değildir. Doğru kullanım \"der aufmerksamen Mutter zu\" şeklinde olmalıdır, ancak bu cümlede \"zu\" ayrı bir öbek olarak ele alınmalıdır.)\n✅ **zu** ➔ (Cümledeki kullanım hatası nedeniyle) \n✅ **zu** ➔ (Cümledeki \"Mutter\" ismine bağlı olarak \"zu\" edatının kullanılması gerekmez, ancak \"aufmerksamen Mutter\" ifadesi Dativ halde olduğu için \"zu\" edatının kullanılması doğru değildir. Doğru kullanım \"der aufmerksamen Mutter\" ifadesini takip eden bir fiil veya edatla olmalıdır.)\n✅ **zu** ➔ (Cümledeki \"Mutter\" ismine bağlı olarak \"zu\" edatının kullanılması gerekmez, ancak cümledeki kullanım \"Ich höre der aufmerksamen Mutter zu\" şeklinde olmalıdır, burada \"zu\" edatının kullanılması \"dinliyorum\" fiilinin ardından \"ona\" anlamına gelmektedir.)\n✅ **zu** ➔ ona (Edat \"höre\" fiilinin ardından \"ona\" anlamına gelmektedir.)\n✅ **der aufmerksamen Mutter** ➔ dikkatli anneye (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (Cümledeki kullanım hatası nedeniyle",
+      "v2_s6_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem unaufmerksamen Lehrer** ➔ dikkatsiz öğretmene (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsimle birlikte kullanılan edat, burada \"zuhören\" fiilinin edatı olarak kabul ediliyor, ancak ayrı bir öbek olarak ele alınmıyor, çünkü \"zuhören\" fiili \"hören\" ile \"zu\" dan oluşuyor)\n✅ **zu** ➔ (Bu durumda \"zuhören\" fiilinin bir parçası olarak kabul ediliyor, ancak ayrı bir öbek olarak yazılmamalıdır. Doğru yaklaşım, \"zuhören\" fiilinin bir bütün olarak ele alınmasıdır. Bu nedenle, \"zuhören\" fiilinin \"hören\" kısmı zaten \"hört\" olarak yazıldı. \"Zu\" nun burada ayrıca yazılmaması gerekir.)\n✅ **(zuhören)** ➔ (Bu fiil \"hört\" ve \"zu\" dan oluşuyor, ancak \"zuhören\" fiilinin bir bütün olarak ele alınması daha doğru olur. Bu nedenle, \"zuhören\" fiilinin \"hört\" kısmı zaten yazıldı.)\n\nDüzeltme:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil, \"zuhören\" fiilinin bir parçası)\n✅ **dem unaufmerksamen Lehrer** ➔ dikkatsiz öğretmene (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (Bu, \"zuhören\" fiilinin bir parçasıdır ve ayrı bir öbek olarak yazılmamalıdır.)\n\nSonuç olarak, \"zuhören\" fiili \"hört\" ve \"zu\" dan oluşuyor, ancak bu fiilin bir bütün olarak ele alınması daha doğru olur. Bu nedenle",
+      "v2_s7_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **Ihrem Kind** ➔ çocuğunuza (Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edata (Yönelme Edat Grubu)",
+      "v2_s7_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **meiner Mutter** ➔ anneme (Dativ Nesne + Sahiplik Sıfatı)\n✅ **zu** ➔ (İyelik eki veya edat değil, \"dinlemeye\" eki olarak) (İyelik eki veya edat)",
+      "v2_s7_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinliyor (Esas Fiil)\n✅ **seinem Lehrer** ➔ öğretmensine (Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ -e (Yönelme Edat Grubu)",
+      "v2_s7_3": "✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihrem Kind** ➔ çocuğuna (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Fiile bağlı Edat) \n✅ **zum Kind** ➔ çocuğa (Dativ Nesne + Edat Grubu) \n✅ **zum Kind zuhören** ➔ çocuğa kulak vermek (Dativ Nesne + Edat Grubu + Fiil) \nAncak bu cümlede \"zuhören\" fiili \"ihrem Kind zu\" şeklinde ayrılmış ve \"ihrem Kind\" tek başına Dativ Nesne + Sıfat Çekimi olarak kalırken \"zu\" fiile bağlı edat olarak kalmıştır. \n✅ **ihrem Kind zu** ➔ çocuğuna (Belirli Dativ Nesne + Edat Grubu + Fiile Bağlı Edat) \nYukarıdaki açıklamaya göre cümledeki \"ihrem Kind zu\" ifadesi \"zuhören\" fiilinin bir parçası olarak kabul edilebilir. \nAncak bu açıklama cümledeki \"zuhören\" fiilinin doğru analizini vermemektedir. \nDoğru analiz:\n✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihrem Kind** ➔ çocuğuna (Belirli Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim veya Fiile bağlı Edat) \nAncak bu açıklama doğru değildir. \nDoğru açıklama:\n✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihrem Kind zu** ➔ çocuğuna (Belirli Dativ Nesne + Edat Grubu +",
+      "v2_s7_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **deiner Mutter** ➔ annene (Dativ Nesne + Sahiplik Sıfatı)\n✅ **zu** ➔ (İstisna: Bu öbek, \"zuhören\" fiilinin bir parçası olarak kabul edilir ve ayrı bir öbek olarak ele alınır, ancak bu durumda ayrı bir öbek olarak yazılmıştır.)\n✅ **zu** ➔ (Bu öbeğin doğru analizi: **deiner Mutter zu** ➔ annene (Dativ Nesne + Sahiplik Sıfatı + \"zuhören\" fiilinin edat bölümü) şeklinde olmalıdır.)\n \nDüzeltme:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **deiner Mutter zu** ➔ annene (Dativ Nesne + Sahiplik Sıfatı + \"zuhören\" fiilinin edat bölümü)",
+      "v2_s7_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihrer Lehrerin** ➔ öğretmenine (Belirli Dativ Nesne)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat (İsim veya Zamirle birlikte kullanılan edatlar ayrı yazılmaz, örnekteki gibi \"ihrer Lehrerin zu\" tek öbek olmalı)\n✅ **ihrer Lehrerin zu** ➔ öğretmenine (Belirli Dativ Nesne + Edat) \nYukarıdaki cümleyi düzeltelim:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **ihrer Lehrerin zu** ➔ öğretmenine (Belirli Dativ Nesne + Edat)",
+      "v2_s8_0": "✅ **Wem** ➔ kime (Soru Zamiri / Dativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **Sie** ➔ siz (Özne / Nominativ, 2. tekil şahıs çoğul saygı şekli)\n✅ **zu** ➔ (İsim veya Zamirin ardından gelen) -e/-a (Dativ Edat)\n \n⚠️ **İstisna:** Cümle bir soru cümlesidir ve \"Wem\" soru zamiri \"kime\" anlamına gelir, \"hören\" fiili \"dinlemek\" anlamına gelir, \"Sie\" özne olarak \"siz\" anlamına gelir ve \"zu\" edatı burada \"e\" veya \"a\" şeklinde kullanılmaz, ancak cümledeki \"zu\" edatının kullanımı \"kime\" sorusunu destekler.",
+      "v2_s8_1": "✅ **Welchem Kind** ➔ hangi çocuğa (Soru Zamirli İsim Grubu, Dativ)\n✅ **hörst** ➔ dinliyorsun (Şahsi Fiil, 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. Tekil Şahıs)\n✅ **zu** ➔ (İsim Grubuna ait değil, fiile ait: hörst zu) ➔ (hörst zu: dinlemeye) (Fiil Ekleri / Edat)",
+      "v2_s8_2": "✅ **Wer** ➔ Kim (Soru Zamiri / Özne)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İyelik Eki veya Edat, ancak bu cümlede \"zuhören\" fiilinin bir parçası olarak \"dinlemeye\" anlamı katıyor)",
+      "v2_s8_3": "✅ **Wo** ➔ nerede (Zarf)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **sie** ➔ onlar (Özne / Nominativ)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zu** ➔ (edat, cümlenin anlamını tamamlıyor, ancak ayrı bir öbek olarak ele alınmıyor, \"zuhören\" fiilinin bir parçası olarak görülüyor)\n✅ **zuhören** ➔ dinlemek (Esas Fiil, \"hören\" ve \"zu\" birlikte \"zuhören\" fiilini oluşturuyor)\n\nDüzeltme:\n✅ **Wo** ➔ nerede (Zarf)\n✅ **hören sie** ➔ onlar dinliyor (Özne ve Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zu** ➔ (edat, \"zuhören\" fiilinin bir parçası)\n✅ **zuhören** ➔ dinlemek (Esas Fiil, ancak \"hören\" ve \"zu\" ayrı yazıldığı için bu şekilde ayrılmamalıdır)\n\nSon hali:\n✅ **Wo** ➔ nerede (Zarf)\n✅ **hören sie** ➔ onlar dinliyor (Özne ve Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zu** ➔ (edat, \"zuhören\" fiilinin bir parçası, ancak ayrı yazılmamalıdır)\n✅ **zuhören** ➔ dinlemek (Esas Fiil, ancak \"hören\" ve \"zu\" ayrı yazıldığı için bu şekilde ayrılmamalıdır)\n\nSonuç:\n✅ **Wo** ➔ nerede (Zarf)\n✅ **hören sie** ➔ onlar dinliyor (Özne ve Fiil)\n✅ **dem Lehrer** ➔ öğretmene",
+      "v2_s8_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **hören** ➔ dinliyorum (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zu** ➔ (Dinleme eylemini tamamlama için gereken edat)\n✅ **hören** ve **zu** birlikte ➔ çocuğa dinliyoruz (Esas Fiil ve edat birlikte) \nAncak bu cümlede \"hören\" ve \"zu\" ayrı ayrı ele alınmalıdır. \n✅ **zu** ➔ (Dinleme eylemini tamamlama için gereken edat) \nAncak bu cümlede \"hören\" fiili ve \"zu\" edatı ayrı ayrı ele alınmalıdır. \n✅ **Wann hören wir dem Kind zu?** cümlesinde \"hören\" fiili ve \"zu\" edatı ayrı ayrı ele alınmalıdır. \n✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **hören** ➔ dinliyorum (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zu** ➔ (Dinleme eylemini tamamlama için gereken edat)\nAncak bu cümlede \"hören\" fiili ve \"zu\" edatı ayrı ayrı ele alınmalıdır. \n✅ **Wann hören wir dem Kind zu?** cümlesinde \"hören\" fiili ve \"zu\" edatı ayrı ayrı ele alınmalıdır. \n✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **hören** ➔ dinliyorum (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **dem Kind** ➔ çocuğa (Belir",
+      "v2_s9_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyorum (Esas Fiil)\n✅ **keinem Kind** ➔ hiçbir çocuğa (Belirsiz Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edatı)\n \n⚠️ **İstisna:** Cümledeki \"kein\" negatif bir belirteç olarak kullanılmıştır ve \"keinem\" şeklinde \"Kind\" ismine eklenmiştir.",
+      "v2_s9_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **keiner Mutter** ➔ hiçbir anneye (Belirsiz Dativ Nesne)\n✅ **zu** ➔ (İsim veya Zamirle birlikte kullanılan) edat (İsim veya Zamirle birlikte kullanılır, ancak bu cümlede \"Mutter\" ile birlikte \"keiner Mutter zu\" şeklinde bir bütün olarak ele alınabilir)\n✅ **zu** ➔ (Ancak bu durumda \"keiner Mutter zu\" şeklinde bir bütün olarak ele alındığında) \n✅ **keiner Mutter zu** ➔ hiçbir anneye (Belirsiz Dativ Nesne + Edat)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs) \nAncak bu analizde \"hörst\" ve \"keiner Mutter zu\" ayrı ayrı ele alınmıştır. \nDaha doğru bir analiz:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **keiner Mutter zu** ➔ hiçbir anneye (Belirsiz Dativ Nesne + Edat)\nBu şekilde daha doğru ve tutarlı bir analiz elde edilir.",
+      "v2_s9_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **keinem Lehrer** ➔ hiçbir öğretmene (Belirsiz Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edatı, fiile bağlı olarak anlam değişir, burada \"dinlemeye\" anlamında) \n✅ **zum Lehrer** ➔ öğretmene (Dativ Nesne, \"keinem Lehrer\" ile birlikte \"hiçbir öğretmene\" anlamını tamamlar, ancak \"zum\" burada kullanılmamıştır, \"keinem\" ile birlikte \"keinem\" şeklinde birleştirilmiştir)\n✅ **zum** ifadesi cümlede yer almadığı için, \"zum\" ifadesini eklemiyoruz. \n✅ **keinem Lehrer zu** ifadesi \"hiçbir öğretmene\" anlamını verir ve \"zum\" ifadesini içermez. \n✅ **hören zu** ifadesi \"dinlemeye\" anlamını verir. \n✅ **keinem Lehrer** ifadesi \"hiçbir öğretmene\" anlamını verir. \n✅ **Sie hören keinem Lehrer zu** ifadesi \"Onlar hiçbir öğretmene dinlemez\" anlamını verir. \n✅ **keinem Lehrer zu** ifadesini **keinem Lehrer** ve **zu** olarak ayırmak daha doğru olur. \n✅ **keinem Lehrer** ➔ hiçbir öğretmene (Belirsiz Dativ Nesne)\n✅ **zu** ➔ -e (Yönelme Edatı, fiile bağlı olarak anlam değişir, burada \"dinlemeye\" anlamında)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **keinem Lehrer",
+      "v2_s9_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **nicht** ➔ değil / hayır (Negatif Edat)\n✅ **zu** ➔ (Edat, cümledeki konumuna göre \"dinlemeye\" eklendiği anlamında)\n✅ **höre** ➔ dinliyorum (Esas Fiil, cümledeki konumuna göre \"dinlemeye\" anlamında, ancak bu tekrarın necessity olmadığına dikkat çekmek için):\n⚠️ **İstisna:** Cümledeki \"nicht zu\" ifadesi \"dinlemiyorum\" anlamına gelir ve \"höre\" fiilinin negatif hali olarak yorumlanır.",
+      "v2_s9_4": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinlemez (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Dativ Nesne)\n✅ **nicht zu** ➔ dikkat (Olumsuzluk Ekleri ve Edat Grubu)\n✅ **hören** ➔ dinleme (Fiil, ancak bu cümlede \"hören\" fiili \"hört\" şeklinde kullanıldığı için esas fiil olarak \"hört\" already analiz edildi) \n\nBu cümlede esas fiil \"hört\" olarak zaten analiz edildi. Dolayısıyla \"hören\" fiilini tekrar analiz etmemize gerek yok. \n\n✅ **nicht zu** ifadesi \"dinlemiyor\" anlamına gelir ve \"nicht\" olumsuzu ile \"zu\" edatının birleşmesinden oluşur. Bu nedenle ayrı bir öbek olarak analiz edilmiştir. \n\n⚠️ **İstisna:** Bu cümlede \"nicht zu\" ifadesi \"dinlemiyor\" anlamına gelir ve \"nicht\" olumsuzu ile \"zu\" edatının birleşmesinden oluşur. Bu nedenle ayrı bir öbek olarak analiz edilmiştir.",
+      "v2_s9_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Dativ Nesne)\n✅ **nicht zu** ➔ -e kadar değil, burada \"nicht\" bir olumsuzlama zarfı, \"zu\" ise bir edattır, birlikte kullanıldığında \"zuhören\" fiilinin olumsuzlanması için \"nicht zu\" şeklinde birleşik olarak kullanılır, ancak burada \"nicht\" ve \"zu\" ayrı ayrı ele alınmalıdır, \"nicht\" ➔ değil, \"zu\" ➔ -e, birlikte ➔ dinlemeye (Edat Grubu ve Olumsuzlama)\n✅ **nicht** ➔ değil (Olumsuzlama)\n✅ **zu** ➔ -e (Edat)\nAncak daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Dativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzlama)\n✅ **zu** ➔ -e (Edat)\nYani daha doğru bir şekilde:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Dativ Nesne)\n✅ **nicht zu** ➔ dinlemeye değil (Olumsuz Edat Grubu)\nAncak bu analizde \"nicht zu\" birlikte ele alınmıştır, daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Dativ Nesne)\n✅ **nicht zu** ➔ dinlemeye değil (Olumsuz Edat Grubu)",
+      "v2_s9_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)\n✅ **nicht zu** ➔ -e kadar değil, burada \"nicht\" ve \"zu\" birlikte kullanılmış, \"zuhören\" fiilinin negatif hali (Edat + Negatif)\n✅ **nicht** ➔ değil, burada \"nicht\" fiili negatif hali için kullanılmış (Negatif Particle)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar Sonda, ancak cümledeki \"hören\" fiili \"zuhören\" yerine kullanılmış)\n\n⚠️ **İstisna:** Cümledeki \"hören\" ve \"zuhören\" arasındaki fark: \"hören\" genel olarak sesleri duymak anlamına gelirken, \"zuhören\" daha çok dikkat ederek dinlemek anlamına gelir. Bu cümlede \"hören\" kullanılmış, ancak \"nicht zu\" ifadesi \"zuhören\" fiilinin negatif halini oluşturuyor.",
+      "v2_s10_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **im Unterricht** ➔ derste (Zaman veya Yer Belirtme)\n✅ **zu** ➔ (İsim cümlesine veya fiile bağlama)\n \n⚠️ **İstisna:** Cümledeki \"im Unterricht\" ifadesi, \"im\" edatının \"Unterricht\" ismiyle birleşerek yer veya zaman belirtmek için kullanıldığı bir örnektir.",
+      "v2_s10_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **zu Hause** ➔ evde (Yer Edat Grubu)\n✅ **zu** ➔ -e (İlgi Edat Fiilini Tamamlayıcı)",
+      "v2_s10_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **in der Schule** ➔ okulda (Yer Edat Grubu)\n✅ **zu** ➔ -e (Yönelme Edatlarından \"zu\" ile birlikte \"zuhören\" fiilinin bir parçası) \n✅ **zuhören** fiilinin bir parçası olarak \"zu\" nun ayrı yazılması daha doğru olur. \n✅ **zuhören** ➔ dinlemek (Esas Fiil / \"zuhören\" olarak birlikte düşünülür) \nAncak daha doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinlemek (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **in der Schule** ➔ okulda (Yer Edat Grubu)\n✅ **zu** ➔ -e (Yönelme Edatlarından \"zu\" ile birlikte \"zuhören\" fiilinin bir parçası)\nAncak daha doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **in der Schule** ➔ okulda (Yer Edat Grubu)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / \"zuhören\" olarak birlikte düşünülür)\nDaha doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **in der Schule** ➔ okulda (Yer Edat Grubu)\n✅ **zuhören** ➔ dinlemek (",
+      "v2_s10_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **mit Interesse** ➔ ilgiyle (Durum Zarfı + Edat Grubu)\n✅ **zu** ➔ (Bu durumda \"zu\" ayrı bir öbek olarak ele alınabilir, ancak cümledeki kullanımı \"mit Interesse zu\" şeklinde bir bütün olarak düşünülürse, \"zu\"nun ayrı bir anlamı yoktur. Bu nedenle, \"mit Interesse zu\" ifadesi tek bir öbek olarak kabul edilebilir. Ancak, daha doğru bir analiz için \"zu\"nun ayrı bir öbek olarak gösterilmesi tercih edilebilir.)\n✅ **zu** ➔ (yönelme, ilgi) (Edat)\n\nAncak daha doğru bir analiz için:\n✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **mit Interesse zu** ➔ ilgiyle (Durum Zarfı + Edat Grubu)",
+      "v2_s10_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **in Ruhe** ➔ sessizce (Durum Zarfı / Edat Grubu)\n✅ **zu** ➔ (İsim cümlesine bağlı fiil eki / İltisaki Edat)",
+      "v2_s10_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **am Telefon** ➔ telefonda (Yer Edat Grubu)\n✅ **zu** ➔ (İsim cümlesine bağlı olarak \"dinlemeye\" anlamında) (İsim cümlesine bağlı edat)",
+      "v2_s11_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **hören** ➔ dinliyoruz (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **aufmerksam** ➔ dikkatlice (Durum Zarfı)\n✅ **zu** ➔ (İki yönlü edat, burada \"dinlemeye\" eki olarak kullanılmış)",
+      "v2_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der Mutter** ➔ anneye (Dativ Nesne)\n✅ **geduldig** ➔ sabırla (Durum Zarfı)\n✅ **zu** ➔ (İçin / Edat) \n✅ **zu** ➔ (Bu durumda \"zu\" ayrı bir öbek olarak ele alınmamalıdır, \"geduldig zu\" ifadesi birlikte \"sabırla\" anlamını tamamlar, ancak bu örnekte \"zu\" ayrı olarak verilmiştir. Doğru analizde \"geduldig zu\" birlikte ele alınmalıdır.)\n✅ **geduldig zu** ➔ sabırla (Durum Zarfı + Edat)\n\nDüzeltme:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörst** ➔ dinliyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der Mutter** ➔ anneye (Dativ Nesne)\n✅ **geduldig zu** ➔ sabırla (Durum Zarfı + Edat)",
+      "v2_s11_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinliyorlar (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **ruhig** ➔ sessizce (Durum Zarfı)\n✅ **zu** ➔ (İki yönlü edat, burada \"ruhig zu\" birlikte kullanıldığından \"ruhig zu\" tek öbek olarak ele alınabilir, ancak \"zu\" tek başına bir edat olarak kabul edildiğinde, \"ruhig\" ile birlikte \"ruhig zu\" şeklinde bir öbek oluşturabilir. Bu durumda \"zu\" ayrı bir öbek olarak ele alınmamalıdır.)\n✅ **ruhig zu** ➔ sessizce (Durum Zarfı + Edat, birlikte kullanıldığında tek öbek olarak ele alınabilir)\nAncak daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinliyorlar (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **ruhig zu** ➔ sessizce (Durum Zarfı + Edat)\n✅ **hören** ➔ dinlemek (Esas Fiil, ancak bu durumda \"hören\" fiili zaten analiz edildiğinden, bu satır gereksizdir. Doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hören** ➔ dinliyorlar (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **ruhig zu** ➔ sessizce (Durum Zarfı + Edat) \nAncak \"ruhig zu\" birlikte kullanıldığında tek öbek olarak ele alınabilir, bu nedenle daha doğru bir analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ",
+      "v2_s11_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirtili Dativ Nesne)\n✅ **aufrichtig** ➔ samimi bir şekilde (Durum Zarfı)\n✅ **zu** ➔ (İsim veya Fiile bağlı Edat)",
+      "v2_s11_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Dativ Nesne + Sıfat Çekimi)\n✅ **immer** ➔ her zaman (Zarf)\n✅ **zu** ➔ (İsim veya Fiile bağlı olarak değişen anlam, burada \"dinlemeye\" eklendiğinde \"dinliyorum\" anlamını tamamlar, ancak bu durumda ayrı bir öbek olarak ele alınabilir) \n✅ **zu** ➔ (Edat, ancak cümledeki kullanımı \"höre zu\" olarak birleşik bir fiil olarak düşünülebilir, bu nedenle ayrı bir öbek olarak ele alınmamıştır)\n✅ **immer zu** ➔ her zaman (Zarf + Edat Grubu, ancak \"immer\" zaten zarf olarak ele alındı, \"zu\" ise fiile bağlı olarak ele alınmıştır)\n✅ **immer zu** ifadesi yerine, daha doğru bir analiz:\n✅ **immer zu** ➔ her zaman (Zarf + Edat Grubu, ancak daha önce \"immer\" already zarf olarak ele alındı)\nDaha doğru analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Dativ Nesne + Sıfat Çekimi)\n✅ **immer** ➔ her zaman (Zarf)\n✅ **zu** ➔ (Edat, ancak cümledeki kullanımı \"höre zu\" olarak birleşik bir fiil olarak düşünülebilir)\nAncak, daha doğru bir analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **höre** ➔ dinliyorum (Esas Fiil)\n✅ **der Mutter** ➔ anneye (Dativ Nesne + Sıfat Çekimi)\n✅ **",
+      "v2_s11_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hört** ➔ dinliyor (Esas Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **selten** ➔ nadiren (Durum Zarfı)\n✅ **zu** ➔ (İsim cümlesine bağlı değil, fiile bağlı olarak) (İlgi Edatları)",
+      "v2_s12_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zugehört** ➔ dinledik (Esas Fiil / Mastar Sonda)",
+      "v2_s12_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hast** ➔ -miş (Yardımcı Fiil 2. sırada)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **zugehört** ➔ dinlemiş (Esas Fiil / Mastar Sonda)",
+      "v2_s12_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **haben** ➔ -mış/-muş (Yardımcı Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zugehört** ➔ dinlemiş (Esas Fiil / Geçmiş Zaman)",
+      "v2_s12_3": "✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hat** ➔ -miştir (Esas Fiil / Geçmiş Zaman)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zugehört** ➔ dinlemiştir (Esas Fiil / Geçmiş Zaman)",
+      "v2_s12_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hörte** ➔ dinledim (Esas Fiil / Geçmiş Zaman)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **zu** ➔ (İstisna: Bu durumda \"zu\" ayrı bir öbek olarak ele alınır, ancak \"zuhören\" fiilinin bir parçası olarak da düşünülebilir. Bu analizde \"zuhören\" fiilinin bir parçası olarak ele alınacaktır, ancak cümledeki kullanımı \"zu\" olarak ayrı gösterilecektir.)\n✅ **zu** ➔ (Yönelme / \"zuhören\" fiilinin bir parçası) \nAncak daha doğru bir analiz:\n✅ **der Mutter zu** ➔ anneye (Belirli Dativ Nesne + \"zuhören\" fiilinin yönelme edatı)\n✅ **hörte** ➔ dinledim (Esas Fiil / Geçmiş Zaman)\n\nDaha doğru analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hörte** ➔ dinledim (Esas Fiil / Geçmiş Zaman)\n✅ **der Mutter zu** ➔ anneye (Belirli Dativ Nesne + \"zuhören\" fiilinin yönelme edatı)",
+      "v2_s12_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hörte** ➔ dinledi (Esas Fiil / Geçmiş Zaman)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zu** ➔ (İyelik veya yönelme edatı, burada dinleme eylemine odaklanma)\n✅ **zu** ➔ -e (Dativ edatı, öğretmene yönelme)",
+      "v2_s12_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **hörten** ➔ dinlediler (Esas Fiil / Geçmiş Zaman)\n✅ **dem Kind** ➔ çocuğa (Belirtili Dativ Nesne)\n✅ **zu** ➔ (İlgi Edat Grubu, cümledeki \"hören\" fiilinin anlamını tamamlar)\n \n⚠️ **İstisna:** \"hören\" fiili \"zu\" edatını gerektirir ve bu edat cümledeki anlamı tamamlar.",
+      "v2_s12_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hörtest** ➔ dinledin (Esas Fiil / 2. şahıs tekil geçmiş zaman)\n✅ **der Mutter** ➔ annesine (Dativ Nesne + Sıfat Çekimi)\n✅ **zu** ➔ (İsim grameri değil, edat olarak) (Yönelme Edatı)",
+      "v2_s13_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **wollen** ➔ istiyoruz (Modal Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil)",
+      "v2_s13_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **kannst** ➔ -abilir/-ebilir (Modal Fiil 2. sırada)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar Sonda)",
+      "v2_s13_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sollen** ➔ -malı/-melidir (Modal Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil)",
+      "v2_s13_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil 2. sırada)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar Sonda)",
+      "v2_s13_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **darf** ➔ -ebilir/-ebilir (Modal Fiil 2. sırada)\n✅ **der Mutter** ➔ anneye (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar Sonda)",
+      "v2_s13_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **möchte** ➔ istiyor (Modal Fiil)\n✅ **dem Lehrer** ➔ öğretmene (Belirli Dativ Nesne)\n✅ **zuhören** ➔ dinlemek (Esas Fiil / Mastar)",
+      "v3_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ göstermek (Esas Fiil)",
+      "v3_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **weg** ➔ uzak (Yönelme / İsim)",
+      "v3_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **zeigt** ➔ gösterir (Esas Fiil)",
+      "v3_s1_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösterir (Esas Fiil)",
+      "v3_s1_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **weg** ➔ uzak (Yönelme / İsim)",
+      "v3_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)",
+      "v3_s2_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ göstermek (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne / İyelik Zamiri)",
+      "v3_s2_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **mir** ➔ bana (Belirsiz Dativ Nesne)",
+      "v3_s2_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)",
+      "v3_s2_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **ihr** ➔ ona/kendine (Belirsiz Dativ Nesne)",
+      "v3_s2_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **euch** ➔ size (Belirsiz Dativ Nesne)",
+      "v3_s2_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)",
+      "v3_s2_6": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihnen** ➔ onlara (Belirsiz Dativ Nesne)",
+      "v3_s3_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Karte** ➔ kartayı (Akkusativ Nesne)",
+      "v3_s3_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **das Bild** ➔ resmi (Akkusativ Nesne)",
+      "v3_s3_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Adresse** ➔ adresi (Akkusativ Nesne)",
+      "v3_s3_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **das Dokument** ➔ belgeyi (Akkusativ Nesne)",
+      "v3_s3_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ gösteriyorum (Esas Fiil)\n✅ **die Richtung** ➔ yönü (Akkusativ Nesne)",
+      "v3_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Fotos** ➔ fotoğrafları (Akkusativ Nesne)",
+      "v3_s4_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Wege** ➔ yolları (Akkusativ Nesne)",
+      "v3_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Straßen** ➔ sokakları (Akkusativ Nesne)",
+      "v3_s4_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ göstermek (Esas Fiil)\n✅ **die Fotos** ➔ fotoğrafları (Akkusativ Nesne)",
+      "v3_s4_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ göstermek (Esas Fiil)\n✅ **die Wege** ➔ yolları (Akkusativ Nesne)",
+      "v3_s5_0": "✅ **Zeige** ➔ göster (Emir Kipi Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne + Belirtisiz Artikel)\n \n(İstisna notu yok)",
+      "v3_s5_1": "✅ **Zeigt** ➔ göster (Emir Kipi Fiil)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtisiz Artikel)\n \n(Not: Bu cümlede \"den Weg\" ifadesi bir bütün olarak ele alınmıştır. \"den\" artikel, \"Weg\" ise isimdir ve birlikte \"yolu\" anlamına gelir.)",
+      "v3_s5_2": "✅ **Zeigen** ➔ göstermek (Esas Fiil / Emir Kipi)\n✅ **Sie** ➔ siz (Özne / Nominativ, Emir Kipi için)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne)",
+      "v3_s5_3": "✅ **Zeige** ➔ göster (Emir Kipi Fiil)\n✅ **die Fotos** ➔ fotoğrafları (Akkusativ Nesne + Belirtme Sıfatı)\n⚠️ **İstisna:** Bu cümle emir kipi kullanılarak oluştuğundan, özne genellikle belirtilmez.",
+      "v3_s6_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **das deutliche Foto** ➔ net fotoğrafı (Akkusativ Nesne + Sıfat Çekimi)",
+      "v3_s6_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den undeutlichen Weg** ➔ belirsiz yolu (Akkusativ Nesne + Sıfat Çekimi -en)",
+      "v3_s6_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die wichtige Straße** ➔ önemli yolu (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v3_s6_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ göstermek (Esas Fiil)\n✅ **das unwichtige Foto** ➔ önemsiz fotoğrafı (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v3_s6_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ göstermek (Esas Fiil)\n✅ **den deutlichen Weg** ➔ açık yolu (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v3_s7_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **Ihr Foto** ➔ Fotoğrafınızı (Akkusativ Nesne + Sahiplik Sıfatı)",
+      "v3_s7_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **meinen Weg** ➔ benim yolumu (Akkusativ Nesne + Sahiplik Sıfatı)",
+      "v3_s7_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **seine Straße** ➔ onun sokağı (İsim Grubu - Sahiplik Sıfatı ile İsim)\n \n(İstisna notu yok)",
+      "v3_s7_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **ihr Foto** ➔ onun fotoğrafını (Akkusativ Nesne + Sahip Sıfat)",
+      "v3_s7_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ gösteriyorum (Esas Fiil)\n✅ **deinen Weg** ➔ senin yolunu (Akkusativ Nesne + Sahip Sıfat)",
+      "v3_s8_0": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **Sie** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v3_s8_1": "✅ **Welches Foto** ➔ hangi fotoğraf (Soru Sıfatı + İsim, Akkusativ Nesne)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil, 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v3_s8_2": "✅ **Wer** ➔ Kim (Özne / Nominativ)\n✅ **zeigt** ➔ gösterir (Esas Fiil)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtisiz Artikel)\n \n(İstisna notu yok)",
+      "v3_s8_3": "✅ **Wo** ➔ nerede (Zarf)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **sie** ➔ onlar (Özne / Nominativ)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne)\n✅ **?** ➔ soru işareti (Soru işareti)",
+      "v3_s8_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)",
+      "v3_s9_0": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **Sie** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v3_s9_1": "✅ **Welches Foto** ➔ hangi fotoğraf (Soru Sıfatı + İsim, Akkusativ Nesne)\n✅ **zeigst** ➔ gösteriyorsun (Şahıs Zamirinin Fiil Çekimi, 2. Tekil Şahıs)\n✅ **du** ➔ sen (2. Tekil Şahıs Özne)",
+      "v3_s9_2": "✅ **Wer** ➔ Kim (Özne / Nominativ, Soru Zamiri)\n✅ **zeigt** ➔ gösterir (Esas Fiil, 2. tekil şahıs)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtisiz Artikel)\n⚠️ **İstisna:** Bu cümle bir soru cümlesidir ve \"Wer\" soru zamiri olarak kullanılmıştır.",
+      "v3_s9_3": "✅ **Wo** ➔ nerede (Zarf)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **sie** ➔ onlar (Özne / Nominativ)\n✅ **die Straße** ➔ sokağı (Akkusativ Nesne)\n⚠️ **İstisna:** Bu cümle bir soru cümlesidir, bu nedenle fiil (zeigen) cümlenin başındadır.",
+      "v3_s9_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)",
+      "v3_s10_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Sıfat Çekimi)\n✅ **auf der Karte** ➔ haritada (Yer Edat Grubu)",
+      "v3_s10_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **mit dem Finger** ➔ parmakla (Alet Edat Grubu)\n✅ **(Yok, cümle bu şekilde tamamlanıyor.)**",
+      "v3_s10_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Straße** ➔ sokak (Akkusativ Nesne + Belirtme)\n✅ **im Internet** ➔ internette (Yer Edat Grubu)",
+      "v3_s10_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **an der Tafel** ➔ tahtada (Yer Edat Grubu)",
+      "v3_s10_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ gösteriyorum (Esas Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **auf dem Handy** ➔ telefonda (Yer Edat Grubu)\n \n(İstisna notu yok)",
+      "v3_s11_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **deutlich** ➔ açıkça (Durum Zarfı)",
+      "v3_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtme Artikel)\n✅ **sofort** ➔ hemen (Zaman Zarfı)\n✅ **zeigst den Weg sofort** cümlesinde \"sofort\" bir zaman zarfı olarak kullanılmıştır ve cümledeki fiil \"zeigst\" 2. tekil şahıs için kullanılmıştır.",
+      "v3_s11_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne + Belirtme Artikel)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **langsam** ➔ yavaşça (Durum Zarfı) yerine ✅ **die Straße langsam** ➔ yolu yavaşça (Akkusativ Nesne + Belirtme Artikel + Durum Zarfı) şeklinde olması daha doğru olur. \n✅ **die Straße langsam** ➔ yolu yavaşça (Akkusativ Nesne + Belirtme Artikel + Durum Zarfı) \nAncak bu cümlede \"langsam\" fiile bağlı bir zarf olarak kullanıldığı için ayrı bir öbek olarak kalabilir. \n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne + Belirtme Artikel)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)",
+      "v3_s11_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **stolz** ➔ gururla (Durum Zarfı)",
+      "v3_s11_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeige** ➔ göstermek (Esas Fiil)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne)\n✅ **geduldig** ➔ sabırla (Durum Zarfı)",
+      "v3_s12_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **gezeigt** ➔ göstermek (Esas Fiil / Geçmiş Zaman)",
+      "v3_s12_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hast** ➔ -sın/-sın (Yardımcı Fiil 2. sırada)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne + Belirtme Sıfatı)\n✅ **gezeigt** ➔ göstermiş (Esas Fiil / Geçmiş Zaman)",
+      "v3_s12_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **haben** ➔ -mış/-miş (Yardımcı Fiil)\n✅ **die Straße** ➔ sokağı (Akkusativ Nesne)\n✅ **gezeigt** ➔ göstermek (Esas Fiil / Geçmiş Zaman)",
+      "v3_s12_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeigte** ➔ gösterdim (Esas Fiil / 1. Tekil Şahıs Geçmiş Zaman)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **nach Hause** ➔ Bu cümlede \"nach Hause\" ifadesi bulunmamaktadır. \n\nDüzeltme:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **zeigte** ➔ gösterdim (Esas Fiil / 1. Tekil Şahıs Geçmiş Zaman)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne)",
+      "v3_s12_4": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **zeigte** ➔ gösterdi (Esas Fiil / Geçmiş Zaman)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne)",
+      "v3_s13_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **wollen** ➔ -lemek istiyoruz (Modal Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **zeigen** ➔ göstermek (Esas Fiil)",
+      "v3_s13_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **kannst** ➔ -abilir/-ebilir (Modal Fiil 2. sırada)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne)\n✅ **zeigen** ➔ göstermek (Esas Fiil / Mastar Sonda)",
+      "v3_s13_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sollen** ➔ -meliler/-malılar (Modal Fiil)\n✅ **die Straße** ➔ sokağı (Akkusativ Nesne)\n✅ **zeigen** ➔ göstermek (Esas Fiil / Mastar Sonda)",
+      "v3_s13_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)\n✅ **zeigen** ➔ göstermek (Esas Fiil)",
+      "v3_s14_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **dir** ➔ sana (İyelik Ekleri ile Belirtilen Dativ Nesne)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)",
+      "v3_s14_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **zeigst** ➔ gösteriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **mir** ➔ bana (İndirgenmiş Dativ Nesne)\n✅ **den Weg** ➔ yolu (Akkusativ Nesne)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ❌ Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **zeigst** fiilini takiben **mir** ve **den Weg** öbekleri bulunmaktadır.",
+      "v3_s14_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **zeigen** ➔ göstermek (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)\n✅ **die Straße** ➔ yolu (Akkusativ Nesne)",
+      "v3_s14_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **zeigt** ➔ gösteriyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)\n✅ **das Foto** ➔ fotoğrafı (Akkusativ Nesne)",
+      "v61_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ab** ➔ (Edat Grubu, ancak bu durumda \"ab\" bir edat olarak kullanılmış ve \"hole ab\" birlikte \"alıyorum\" anlamına geliyor, ancak \"ab\" tek başına bir edat grubu olarak kabul ediliyor)\n✅ **ab** ➔ (Ancak bu durumda \"ab\" ayrı bir öbek olarak kabul ediliyor ve \"hole ab\" birlikte bir fiil olarak kabul ediliyor, bu nedenle ayrı ayrı analiz ediliyor)\n✅ **hole ab** ➔ alıyorum (Esas Fiil + Edat Grubu, birlikte bir fiil olarak kabul ediliyor)\n\nAncak daha doğru bir analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole ab** ➔ alıyorum (Esas Fiil + Edat Grubu, birlikte bir fiil olarak kabul ediliyor)\n\nBu analizde \"hole ab\" birlikte bir fiil olarak kabul ediliyor, çünkü \"ab\" edatı \"hole\" fiilini tamamlıyor ve birlikte \"alıyorum\" anlamına geliyor.",
+      "v61_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ kaldırıyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ab** ➔ aşağı (Yönelme Edat)",
+      "v61_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ab** ➔ (Edat, ancak bu durumda \"ab\" bir yön bildiren edattır ve \"holt ab\" birlikte \"alır\" anlamına gelmez, \"holt\" fiilini tamamlar, ancak bu cümlede \"ab\" tek başına bir anlam ifade etmez, muhtemelen cümlenin tamamlanmamış olması veya bağlamın eksikliğinden dolayı analizde zorluk yaşanmaktadır. Genellikle \"ab\" ile başlayan bir cümle veya ifade, bir şeyin alınacağı yeri veya zamanı belirtir.)",
+      "v61_s1_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **ab** ➔ (Edat Grubu, ancak bu durumda \"ab\" bir edat olarak kullanılmış ve ayrı bir öbek oluşturuyor)",
+      "v61_s1_4": "✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil/çoğul kişi)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil, 2. tekil/çoğul kişi, şimdiki zaman)\n✅ **ab** ➔ (Yok, cümle eksik gibi görünüyor, ancak \"ab\" kelimesi genellikle \"abholen\" fiilinin bir parçası olarak kullanılır ve \"almak\" anlamına gelir. Bu cümle muhtemelen \"Ihr holt ab\" şeklinde bir emir veya bir fiilin 2. tekil/çoğul kişi şimdiki zaman hali olabilir.)",
+      "v61_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **ab** ➔ (Edat, ancak bu durumda \"abholen\" fiilinin bir parçası olarak kabul edilebilir, ancak ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak \"ab\" tek başına bir edat grubu olarak kabul edilemez, \"abholen\" fiilinin bir parçası olarak \"holen ab\" şeklinde bir öbek olarak düşünülebilir, ancak bu durumda \"ab\" ayrı bir öbek olarak ele alınmıştır.)\n\nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen ab** ➔ almak (Esas Fiil + Edat, \"abholen\" fiilinin bir parçası olarak)",
+      "v61_s2_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak burada \"abholen\" fiilinin parçası olarak kabul edilebilir, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak \"ab\" tek başına bir edat grubu olarak kabul edilemez, \"ihn ab\" ifadesi \"onu almak\" anlamına gelir, bu nedenle \"ihn ab\" birlikte ele alınmalıdır)\n✅ **ihn ab** ➔ onu (Akkusativ Nesne + Edat \"ab\" ile birlikte, \"onu almak\" anlamına gelir)\n\nDüzeltme:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ihn ab** ➔ onu almak (Akkusativ Nesne + Edat \"ab\" ile birlikte)\n\nAncak, daha doğru bir analiz için:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ihn ab** ➔ onu (Akkusativ Nesne, \"ab\" ile birlikte \"abholen\" fiilinin nesnesi olarak)\n\nSon hali:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ihn ab** ➔ onu (Akkusativ Nesne, \"ab\" ile birlikte \"abholen\" fiilinin nesnesi olarak)",
+      "v61_s2_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ kaldırıyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **ab** ➔ aşağı (Yönelme Edat)",
+      "v61_s2_2": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **ab** ➔ (Yönelme Edat)",
+      "v61_s2_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **ab** ➔ (Yönelme Edat)",
+      "v61_s2_4": "✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"abholen\" fiilinin bir parçası olarak kabul edilebilir, bu nedenle ayrı bir öbek olarak ele alınmayabilir. Ancak cümlenin anlam bütünlüğü için \"ab\" ile \"holt\" birlikte \"abholen\" fiilini oluşturur, bu nedenle birlikte ele alınabilir.)\n✅ **ihn ab** ➔ onu (Akkusativ Nesne + Edat, birlikte \"abholen\" fiilinin nesnesi olarak kabul edilebilir, ancak bu durumda \"ab\" ayrı bir öbek olarak ele alınmamalıdır.)\n\nDaha doğru bir analiz:\n✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ihn ab** ➔ onu alır (Akkusativ Nesne + Edat, birlikte \"abholen\" fiilinin nesnesi olarak kabul edilebilir)\n\nAncak, \"ab\" ayrı bir öbek olarak ele alınmamalıdır, çünkü \"abholen\" fiilinin bir parçası olarak kabul edilir. Bu nedenle, daha doğru bir analiz:\n✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt ihn ab** ➔ onu alır (Esas Fiil + Akkusativ Nesne + Edat, birlikte \"abholen\" fiilinin tümleşik hali olarak kabul edilebilir)\n\nSonuç olarak:\n✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt ihn ab** ➔ onu alır (Esas Fiil + Akkusativ Nesne + Edat, birlikte \"abholen\" fiilinin tümleşik hali olarak kabul edilebilir)",
+      "v61_s3_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak değil, fiil öbeğinin parçası olarak düşünülebilir. Ancak, talimatları takip etmek adına):\n✅ **ab** ➔ (edat, ancak bu durumda \"abholen\" fiilinin bir parçası olarak düşünülür)\nAncak, daha doğru bir analiz için:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen ab** ➔ almak (Esas Fiil, \"abholen\" olarak düşünülür)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\nBu şekilde, \"ab\"nin \"holen\" ile birlikte \"abholen\" fiilini oluşturduğu daha net bir şekilde gösterilir.",
+      "v61_s3_1": "✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Yönelme Edat)\n⚠️ **İstisna:** \"ab\" kelimesi, \"abholen\" fiilinin bir parçası olarak kullanılmaktadır ve bu durumda \"ab\" edatının ayrı bir anlamı yoktur.",
+      "v61_s3_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak değil, fiil öbeğinin parçası olarak düşünülebilir. Ancak, talimatları takip etmek adına):\n✅ **ab** ➔ (edat, ancak bu durumda \"abholen\" fiilinin bir parçası olarak düşünülür)\nDaha doğru bir analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen ab** ➔ almak (Esas Fiil ve edat birlikte, \"abholen\" fiili)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\nAncak, daha uygun bir analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen ab** ➔ almak (Esas Fiil, \"abholen\" fiili)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\nBu analizde, \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturduğu için birlikte ele alındı.",
+      "v61_s3_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Belirli Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak cümledeki kullanımı \"almak\" fiilinin anlamını \"getirmek, almak\" şeklinde değiştiriyor, bu nedenle ayrı bir öbek olarak ele alınabilir) \n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak ele alınıyor ve \"almak\" fiilinin anlamını değiştiriyor, ancak daha doğru bir analiz için \"abholen\" fiilinin bir parçası olarak düşünülebilir, bu nedenle bu analizde \"ab\" tek başına bir öbek olarak ele alınacaktır, ancak \"abholen\" mastar fiilinin bir parçası olarak düşünülmesi daha doğru olur)\n✅ **ab** ➔ (Yukarıdaki açıklamaya göre, \"ab\" ayrı bir öbek olarak ele alınacaktır, ancak daha doğru bir analiz için cümlenin anlamı \"Ich hole den Umschlag ab\" = \"Ich hole den Umschlag\" ve \"ab\" ayrı bir öbek olarak ele alınacaktır, ancak bu durumda \"ab\"ün anlamı \"getirmek, almak\" şeklinde yorumlanacaktır)\n✅ **ab** ➔ (Bu durumda \"ab\"ün anlamı \"getirmek, almak\" şeklinde yorumlanacaktır, ancak daha doğru bir analiz için \"abholen\" mastar fiilinin bir parçası olarak düşünülmesi daha doğru olur)\n✅ **ab** ➔ (Yukarıdaki açıklamaya göre, \"ab\" ayrı bir öbek olarak ele alınacaktır, ancak daha doğru bir analiz için cümlenin anlamı \"Ich hole den Umschlag ab\" = \"Ich hole den Umschlag\" ve \"ab\" ayrı bir öbek olarak ele alınacaktır, ancak bu durumda \"ab\"ün anlamı \"getirmek",
+      "v61_s3_4": "✅ **Holst** ➔ Tutuyor musun? (Esas Fiil, 2. tekil şahıs, soru)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ aşağı (Yönelme Edat Grubu)",
+      "v61_s3_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu durumda \"ab\" fiil \"holt\" ile birlikte \"abholen\" fiilinin kısaltılmış hali olarak kabul edilebilir, ancak burada ayrı bir öbek olarak ele alınmıştır)\n✅ **ab** ➔ (Ancak daha doğru bir analiz için) ✅ **das Gepäck ab** ➔ bagajı (Akkusativ Nesne + Edat Grubu) olarak birleştirilebilir.\nAncak daha doğru bir analiz için:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **das Gepäck ab** ➔ bagajı (Akkusativ Nesne + Edat Grubu)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değil, \"das Gepäck ab\" ile birlikte ele alınmıştır)\nDaha doğru analiz:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **das Gepäck ab** ➔ bagajı (Akkusativ Nesne + Edat Grubu)\nAncak bu analizde \"ab\" fiil \"holt\" ile birlikte \"abholen\" fiilinin kısaltılmış hali olarak kabul edilebilir. \nDolayısıyla en doğru analiz:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt das Gepäck ab** ➔ bagajı alır (Esas Fiil + Akkusativ Nesne + Edat Grubu) olarak birleştirilebilir.\nAncak bu durumda \"holt das Gepäck ab\" ifadesi \"abholen",
+      "v61_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak değerlendirilmelidir)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değerlendirilmemeli, \"abholen\" fiilinin bir parçası olarak görülmelidir. Dolayısıyla, \"ab\" ile \"holen\" birlikte \"abholen\" fiilini oluşturur ve bu cümlede tek bir fiil olarak değerlendirilmelidir. Bu nedenle, önceki çıktı yanlış olup, aşağıdaki gibi düzeltilmelidir.)\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen den Umschlag ab** ➔ zarfı almak (Esas Fiil ve Nesne, \"abholen\" fiili)\nAncak, bu çıktı da doğru değildir çünkü \"ab\" ayrı bir edat olarak değerlendirilmemelidir. Doğru çıktı:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Bu durumda \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, ancak bu cümlede \"ab\" ayrı bir öbek olarak değerlendirilmemelidir.)\nDoğru çıktı:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **den Umschlag abholen** ➔ zarfı almak (Esas Fiil ve Nesne,",
+      "v61_s4_1": "✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil şahıs)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ayrı bir öbek olarak değil, \"abholen\" fiilinin parçası olarak düşünülür, ancak burada ayrı olarak verilmiştir)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak düşünülmemeli, \"abholen\" fiilinin bir parçası olarak \"die Palette ab\" şeklinde bir öbek olarak ele alınmalıdır. Dolayısıyla, daha doğru bir analiz için \"ab\" yerine \"die Palette ab\" ifadesinin bir bütün olarak ele alınması gerekir.)\n \nDüzeltme:\n✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil şahıs)\n✅ **holt** ➔ alırsın/alırsınız (Esas Fiil, 2. tekil şahıs)\n✅ **die Palette ab** ➔ paleti (Akkusativ Nesne + Edat Grubu, \"abholen\" fiilinin nesnesi)",
+      "v61_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holen\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak bu durumda \"abholen\" fiilinin bir parçası olarak görülürse, \"ab\" ayrı bir öbek olarak yazılmamalıdır. Bu nedenle, \"abholen\" fiilinin bir parçası olarak \"holen\" ile birlikte ele alınmalıdır.)\n \nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen das Gepäck ab** ➔ bagajı almak (Esas Fiil ve Nesne ile Edat Grubu birlikte)\nAncak bu, kurallara tam olarak uymuyor. \"ab\" ayrı bir öbek olarak yazılmamalı, \"abholen\" fiilinin bir parçası olarak görülüyor. \nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil, ancak \"ab\" ile birlikte \"abholen\" anlamını taşıyor)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak yazılmamalı, \"abholen\" fiilinin bir parçası olarak görülüyor)\n\nSonuç:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil, \"abholen\" fiilinin bir parçası)\n✅ **das Gepäck** ➔ bagajı (Akkusativ",
+      "v61_s4_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Belirli Akkusativ Nesne)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"hole\" ile birlikte \"abholen\" fiilinin bir parçası olarak kullanıldığından) ➔ almak (Esas Fiil ile birlikte \"abholen\" fiilinin bir parçası)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülür. Dolayısıyla, \"ab\" için ayrı bir gramatik analiz yapılmaz. Doğru yaklaşım, \"abholen\" fiilinin bir parçası olarak \"Ich hole den Umschlag ab\" cümlesini analiz etmektir.)\n✅ **Ich hole den Umschlag ab** ➔ (Bu cümlede \"ab\" fiil \"hole\" ile birlikte \"abholen\" fiilinin bir parçası olarak kullanıldığından) ➔ \n✅ **Ich hole den Umschlag ab** ➔ (Doğru analiz) \n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole den Umschlag ab** ➔ zarfı almak (Esas Fiil \"abholen\" ve Belirli Akkusativ Nesne)\nAncak, bu analizde \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülmelidir. \n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole den Umschlag ab** ➔ zarfı almak (Esas Fiil \"abholen\" ve Belirli Akkusativ Nesne)\n✅ **ab** ➔ (Bu durumda \"ab\" için ayrı bir analiz yapılmaz, \"abholen\" fiilinin bir parçası olarak",
+      "v61_s4_4": "✅ **Holst** ➔ Tutuyor musun? (Esas Fiil, 2. tekil şahıs, soru)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **ab** ➔ aşağı (Yönelme Edat)\n✅ **?** ➔ (Soru işareti, cümlenin soru olduğunu gösterir)",
+      "v61_s5_0": "✅ **Hol** ➔ Al (Esas Fiil / Emir Kipi)\n✅ **ihn** ➔ onu (Akkusativ Nesne / Şahıs Zamirinin Objektif Hali)\n✅ **ab** ➔ (Edat, ancak bu durumda \"Hol ihn ab\" ifadesi bir bütün olarak \"al\" anlamına gelir, \"ab\" ayrı bir edat olarak değil, emir kipinin bir parçası olarak kabul edilir. Bu nedenle, \"ab\" ayrı bir öbek olarak yazılmaz.) \n\nDolayısıyla, daha doğru bir analiz:\n✅ **Hol ihn ab** ➔ Onu al (Emir Cümlesi)",
+      "v61_s5_1": "✅ **Holt** ➔ Al (Esas Fiil / Emir Kipi)\n✅ **sie** ➔ onu/onu (Akkusativ Nesne / Şey)\n✅ **ab** ➔ aşağı (Yönelme Edat)",
+      "v61_s5_2": "✅ **Holen** ➔ getirin (Emir Kipi Fiil)\n✅ **Sie** ➔ siz (Özne / Nominativ, 2. tekil şahıs)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **bitte** ➔ lütfen (Dilek Zarfı)\n✅ **ab** ➔ (Edat, buradaki kullanımında \"alın\" anlamına gelmektedir)",
+      "v61_s5_3": "✅ **Hol** ➔ Hey (Seslenme / Hitap)\n✅ **den Umschlag** ➔ zarfı (Belirli Akkusativ Nesne + Sıfat Çekimi)\n✅ **nicht** ➔ değil / değilse (Olumsuzlama)\n✅ **ab** ➔ açma (Esas Fiil / Emir Kipi)",
+      "v61_s6_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **den großen Umschlag** ➔ büyük zarfı (Akkusativ Nesne + Sıfat Çekimi -en)\n✅ **ab** ➔ alma (Edat Grubu)",
+      "v61_s6_1": "✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **die kleine Palette** ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Yönelme Edat)\n✅ **ab** ➔ (Yönelme Edat) ➔ buradan **ab** ➔ (Yönelme Edat) ➔  **ab** ➔ (Yönelme Edat) ➔  ✅ **die kleine Palette ab** ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Edat Grubu) ➔ küçük paleti (Akkusativ Nesne + Sıfat Çekimi + Yönelme Ed",
+      "v61_s6_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das schwere Gepäck** ➔ ağır bagajı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Edat, ancak cümledeki kullanımı \"abholen\" fiilinin bir parçası olarak görülür, bu nedenle ayrı bir öbek olarak ele alınmaz. Doğru analiz: ✅ **ab** ➔ alıntı/teslim alma eylemi için edat)\n✅ **ab** ➔ Bu edat, \"abholen\" fiilinin bir parçası olarak görülür. Ancak cümledeki kullanımını doğru şekilde analiz etmek için: \n✅ **ab** ➔ (edat) ➔ alıntı/teslim alma eylemi için edat (doğru analiz)\nAncak, daha doğru bir analiz için:\n✅ **holen ab** ➔ almak/alıntı yapmak (Esas Fiil + Edat) \n✅ **das schwere Gepäck** ➔ ağır bagajı (Akkusativ Nesne + Sıfat Çekimi)\nBu nedenle, daha doğru analiz:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen ab** ➔ alıntı/teslim alma eylemini yapmak (Esas Fiil + Edat)\n✅ **das schwere Gepäck** ➔ ağır bagajı (Akkusativ Nesne + Sıfat Çekimi)",
+      "v61_s6_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **den leichten Umschlag** ➔ hafif zarfı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Edat, cümledeki yeri: ayrı bir öbek)\n✅ **ab** ➔ (Edat, cümledeki yeri: ayrı bir öbek) ➔ Yanlış, \"ab\" tek başına bir edattır ve ayrı bir öbek oluşturur. \n✅ **ab** ➔ (Edat) ➔ alandan (Yönelme Edatı)\n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ Yanlış, \"ab\" tek başına bir edattır. \n✅ **ab** ➔ alandan (Edat) ➔ alandan (Yönelme Edatı) ➔ Yanlış, \"ab\" tek başına bir edattır. \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ (Edat) ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ alandan (Yönelme Edatı) ➔ alandan \n✅ **ab** ➔ (Edat) ➔ alandan \n✅ **ab**",
+      "v61_s6_4": "✅ **Holst** ➔ Kaldırıyorsun (Özne / Nominativ, 2. tekil şahıs)\n✅ **du** ➔ (2. tekil şahıs Fiil Ekleri)\n✅ **die großen Paletten** ➔ büyük paletleri (Akkusativ Nesne + Sıfat Çekimi -en)\n✅ **ab** ➔ (Edat, \"ab\" fiili ile birlikte \"kaldırmak\" anlamında)\n✅ **?** ➔ (Soru işareti, cümlenin soru olduğunu gösterir) \n✅ **Holst du** ➔ Kaldırıyorsun (2. tekil şahıs Fiil Ekleri ile birlikte)\n✅ **die großen Paletten ab** ➔ büyük paletleri kaldırıyorsun (Akkusativ Nesne + Sıfat Çekimi -en ve Edat ile birlikte)\n✅ **Holst du die großen Paletten ab** ➔ Büyük paletleri kaldırıyorsun (Tam cümle)",
+      "v61_s6_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **die kleinen Gepäckstücke** ➔ küçük bagajları (Akkusativ Nesne + Sıfat Çekimi -e)\n✅ **ab** ➔ (Edat, ancak bu durumda \"abholen\" fiilinin bir parçası olarak kabul edilir, ancak burada ayrı olarak ele alınmıştır)",
+      "v61_s7_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **meinen Umschlag** ➔ benim zarfımı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Edat, cümledeki yeri: ayrı bir öbek olarak değerlendirilmez, ancak \"abholen\" fiilinin bir parçası olarak düşünülebilir. Doğru analiz için: ✅ **ab** ➔ -den (Edat))\n✅ **ab** ➔ Bu durumda \"ab\" ayrı bir öbek olarak değerlendirilmez, çünkü \"abholen\" fiilinin bir parçası olarak düşünülür. Doğru analiz: ✅ **Ich hole meinen Umschlag ab** cümlesinde \"ab\" fiil \"hole\" ile birlikte \"abholen\" (almak) anlamına gelir. Bu nedenle, doğru analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil, ancak \"ab\" ile birlikte \"abholen\" fiilini oluşturur)\n✅ **meinen Umschlag** ➔ benim zarfımı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ Bu, \"abholen\" fiilinin bir parçası olarak düşünülür. \nAncak, daha doğru bir analiz için:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole ab** ➔ almak (Esas Fiil, \"abholen\" fiili)\n✅ **meinen Umschlag** ➔ benim zarfımı (Akkusativ Nesne + Sıfat Çekimi)",
+      "v61_s7_1": "✅ **Holst** ➔ Tut (Esas Fiil / 2. Tekil Şimdiki Zaman)\n✅ **du** ➔ sen (Özne / 2. Tekil Şimdiki Zaman)\n✅ **deine Palette** ➔ paletini (Akkusativ Nesne + Sahiplik Sıfatı)\n✅ **ab** ➔ çıkarma (Edat)\n✅ **?** ➔ soru işareti (Soru ifadesi)",
+      "v61_s7_2": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ihr Gepäck** ➔ bagajını (Akkusativ Nesne + Sahip Sıfat)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holt\" ile birlikte \"abholen\" fiilinin kısaltılmış hali olarak kullanıldığından, ayrı bir öbek olarak ele alınmamıştır. Doğru analiz için cümlenin tamamı göz önünde bulundurulmalıdır.) \n\nDüzeltme:\n✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ihr Gepäck ab** ➔ bagajını alır (Akkusativ Nesne + Sahip Sıfat + Edat Grubu, ancak \"ab\" burada \"abholen\" fiilinin parçası olarak görülür)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak görülmemeli, \"ihr Gepäck ab\" birlikte \"abholen\" fiilinin nesnesi olarak düşünülmelidir.)\n\nSonuç olarak, doğru analiz:\n✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **ihr Gepäck ab** ➔ bagajını (Akkusativ Nesne + Sahip Sıfat + Edat Grubu, \"abholen\" fiilinin nesnesi)",
+      "v61_s7_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **unseren Umschlag** ➔ bizim zarfımızı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Edat, ancak cümledeki kullanımı \"abholen\" fiilinin bir parçası olarak görülür, bu nedenle ayrı bir öbek olarak ele alınmaz. Doğru analiz: ✅ **abholen** ➔ almak için, ancak bu cümlede \"ab\" ayrı olarak verilmiş, bu nedenle cümledeki kullanım şekliyle uyumlu olarak analiz edilmiştir.)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak görülmemeli, \"abholen\" fiilinin bir parçası olarak düşünülmelidir. Ancak cümledeki kullanım \"ab\" ayrı olarak verildiğinden, bu şekilde analiz edilmiştir. Doğru kullanım: ✅ **abholen** ➔ almak için)\n\nGramer Analizi:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **unseren Umschlag** ➔ bizim zarfımızı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak görülmemeli, ancak cümledeki kullanım şekliyle uyumlu olarak analiz edilmiştir.)\n\nDüzeltme:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **unseren Umschlag** ➔ bizim zarfımızı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak görülmemeli, ancak cümledeki kullanım şekliyle uyumlu olarak analiz edilmiştir.)\n\nSonuç:\n✅ **Wir** ➔ Biz (Özne",
+      "v61_s7_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs Çoğulu)\n✅ **holt** ➔ alırsınız (Esas Fiil / 2. Tekil Şahıs Çoğulu)\n✅ **eure Paletten** ➔ paletlerinizi (Akkusativ Nesne + Sahiplik Sıfatı)\n✅ **ab** ➔ (Yönelme Edat, ancak bu cümlede \"ab\" bir edat olarak \"alma\" veya \"indirme\" anlamında kullanılmaktadır, ancak \"abholen\" fiilinin bir parçası olarak görülebilir)\n✅ **ab** ➔ Bu durumda \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak ele alınmalıdır. Dolayısıyla, \"ab\" ile \"holt\" birlikte \"abholen\" fiilinin 2. tekil şahıs çoğulu olan \"abholst\" veya \"ab\" ile \"holt\" birlikte \"ab\"ın bir edat olarak \"alma\" veya \"indirme\" anlamında kullanıldığını göstermek için ayrı bir öbek olarak ele alınabilir. Ancak, daha doğru bir analiz için cümledeki \"ab\"ın \"abholen\" fiilinin bir parçası olarak görülmesi ve \"holt\" ile birlikte \"abholen\" fiilinin 2. tekil şahıs çoğulu olarak analiz edilmesi daha uygun olacaktır. \n✅ **ab** ➔ Yukarıdaki açıklamaya göre, \"ab\" ile \"holt\" birlikte \"abholen\" fiilinin bir parçası olarak ele alınmalıdır. Dolayısıyla, \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak ele alınmalıdır. \n✅ **holt** ➔ alırsınız (Esas Fiil / 2. Tekil Şahıs Çoğulu, \"abholen\" fiilinin 2. tekil şahıs çoğulu)\n✅ **eure Paletten ab**",
+      "v61_s7_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **Ihr Gepäck** ➔ bagajlarını (Akkusativ Nesne + Sahiplik Sıfatı)\n✅ **ab** ➔ (Edat, cümledeki yeri: \"abholen\" fiilinin bir parçası olarak)\n✅ **ab** ➔ almayı (Edat + Fiil, \"abholen\" fiilinin bir parçası olarak) \n✅ **Sie holen Ihr Gepäck ab** cümlesinde \"ab\" edatının \"holen\" fiiliyle birleşik kullanımı \"abholen\" fiilini oluşturur. Bu nedenle, daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen Ihr Gepäck ab** ➔ bagajlarını almak (Esas Fiil + Akkusativ Nesne + Edat, \"abholen\" fiilinin bir parçası olarak)\nAncak, daha önce verilen talimatlara uygun olarak:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **Ihr Gepäck ab** ➔ bagajlarını (Akkusativ Nesne + Edat Grubu, \"abholen\" fiilinin bir parçası olarak)\nBu analizde, \"ab\" edatının \"holen\" fiiliyle birleşik kullanımı \"abholen\" fiilini oluşturur. \nAncak, daha doğru bir analiz için:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen Ihr Gepäck ab** ➔ bagajlarını almak (Esas Fiil + Akkusativ Nesne + Edat, \"abholen\" fiilinin bir parçası olarak)\n✅ **ab** ➔ (Edat, cümledeki yeri",
+      "v61_s8_0": "✅ **Wer** ➔ Kim (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Sıfat Çekimi -en)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holt\" ile birlikte \"abholen\" fiilini oluşturuyor, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak bu kullanım \"abholen\" fiilinin bir parçası olarak görülür, bu nedenle ayrı bir öbek olarak ele alınmamalıdır. Doğru analiz: ✅ **den Umschlag ab** ➔ zarfı (Akkusativ Nesne + Sıfat Çekimi -en) + (Edat Grubu))\n✅ **ab** ➔ (Yukarıdaki açıklamaya göre, \"ab\" ayrı bir öbek olarak ele alınmamalıdır. Doğru analiz: ✅ **den Umschlag ab** ➔ zarfı (Akkusativ Nesne + Sıfat Çekimi -en) + (Edat Grubu))\n\nDoğru Çıktı:\n✅ **Wer** ➔ Kim (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **den Umschlag ab** ➔ zarfı alır (Akkusativ Nesne + Sıfat Çekimi -en + Edat Grubu)",
+      "v61_s8_1": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **holst** ➔ alıyorsun (2. Tekil Şahıs Fiil)\n✅ **du** ➔ sen (Özne / 2. Tekil Şahıs Zamir)\n✅ **ab** ➔ (Edat, cümledeki yeri ve anlamı: alıyorsun neyi?)",
+      "v61_s8_2": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **holt er** ➔ o alır (Özne ve Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak için\")\n✅ **Wann holt er das Gepäck ab** cümlesinde \"ab\" kelimesi \"abholen\" (almak için) fiilinin bir parçası olarak kullanılmaktadır. Bu nedenle, \"ab\" kelimesi ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülebilir. Ancak, bu analizde \"ab\" kelimesi ayrı bir öbek olarak gösterilmiştir.",
+      "v61_s8_3": "✅ **Wo** ➔ nerede (Yer Belirtme Zarfı)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak için\")\n✅ **ab** ➔ Bu durumda \"ab\" ayrı bir öbek olarak ele alınabilir, ancak \"abholen\" fiilinin bir parçası olarak da düşünülebilir. Bu nedenle, daha doğru bir analiz için:\n✅ **die Palette ab** ➔ paleti (Akkusativ Nesne + Edat \"ab\" ile birlikte, \"abholen\" fiilinin nesnesi olarak)\n✅ **holen** ➔ almak (Esas Fiil, \"abholen\" fiilinin bir parçası)\nAncak, daha uygun bir analiz:\n✅ **Wo** ➔ nerede (Yer Belirtme Zarfı)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak için\")\n✅ **holen** ➔ almak (Esas Fiil)\nDaha doğru bir analiz için, \"ab\" ve \"holen\" birlikte \"abholen\" fiilini oluşturur, ancak bu cümlede \"ab\" ayrı bir edat olarak kullanılmıştır. \n✅ **Wo** ➔ nerede (Yer Belirtme Zarfı)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak için\")\n✅ **holen** ➔ almak (Esas Fiil)\nAncak, daha",
+      "v61_s8_4": "✅ **Warum** ➔ Neden (Neden Sorusu)\n✅ **holt** ➔ alırsınız (Esas Fiil, 2. Tekil Şahıs Çekimi)\n✅ **ihr** ➔ siz (Özne, 2. Tekil Şahıs Çekimi)\n✅ **ihn** ➔ onu (Akkusativ Nesne, Eril)\n✅ **ab** ➔ (Edat, \"almak\" fiili ile birlikte \"alırsınız\" anlamını tamamlar)\n✅ **ab** ➔ (Bu öbek, \"abholen\" fiilinin bir parçası olarak kabul edilebilir, ancak cümledeki kullanımı \"ab\" şeklinde tek başına edat olarak görülmektedir. Dolayısıyla, \"ab\" ayrı bir öbek olarak ele alınabilir.)\n✅ **ab** ➔ (Yönelme Edat Grubu, \"alırsınız\" fiilinin hedefini belirtir)\n✅ **ihn ab** ➔ onu (Akkusativ Nesne + Edat Grubu, birlikte \"onu alırsınız\" anlamını verir)\n✅ **Warum holt ihr ihn ab** ➔ Neden onu alırsınız? (Tam Cümle)\n\nAncak, daha doğru bir analiz için:\n✅ **Warum** ➔ Neden (Neden Sorusu)\n✅ **holt** ➔ alırsınız (Esas Fiil, 2. Tekil Şahıs Çekimi)\n✅ **ihr** ➔ siz (Özne, 2. Tekil Şahıs Çekimi)\n✅ **ihn** ➔ onu (Akkusativ Nesne, Eril)\n✅ **ab** ➔ (Edat, \"almak\" fiili ile birlikte \"alırsınız\" anlamını tamamlar)\n✅ **ihn ab** ➔ onu alırsınız (Akkusativ Nesne + Edat Grubu, birlikte \"onu alırsınız\" anlamını verir)\n\nDaha doğru analiz:\n✅",
+      "v61_s8_5": "✅ **Wie** ➔ nasıl (Soru Zarfı)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **sie** ➔ onları (Akkusativ Nesne / Onlar)\n✅ **sie** ➔ onları (Akkusativ Nesne / Onlar, tekrar usage)\n✅ **ab** ➔ (Yönelme Edat Grubu, \"almak\" fiilinin yönelme edatı)",
+      "v61_s9_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **keinen Umschlag** ➔ hiçbir zarfı (Akkusativ Nesne + Sıfat Çekimi -0)\n✅ **ab** ➔ (Edat, ancak cümledeki kullanımı \"alma\" fiilinin anlamını değiştirerek \"getirmek\" anlamını verir, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak \"ab\" tek başına bir edat olarak düşünülürse) ➔ (getirmek için) \nAncak daha doğru bir analiz için:\n✅ **keinen Umschlag ab** ➔ hiçbir zarfı getirmek (Akkusativ Nesne + Sıfat Çekimi -0 ve Edat Grubu)\n✅ **ab** ifadesi \"hole\" fiilinin anlamını değiştirdiği için ayrı bir öbek olarak düşünülmemelidir. \nDolayısıyla daha doğru analiz:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **keinen Umschlag ab** ➔ hiçbir zarfı getirmek (Akkusativ Nesne + Sıfat Çekimi -0 ve Edat Grubu)",
+      "v61_s9_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ çekiyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **keine Palette** ➔ hiçbir paleti (Akkusativ Nesne + Sıfat Çekimi)\n✅ **ab** ➔ çıkarmak (Fiil \"abholen\" Mastar Sonda / Edat Grubu Olarak)\n \n⚠️ **İstisna:** Cümledeki \"ab\" normalde \"abholen\" fiilinin bir parçası olarak kullanılır, ancak burada \"holst\" fiiliyle birleştirilerek \"abholst\" (çıkarıyorsun) anlamını verir.",
+      "v61_s9_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **kein Gepäck** ➔ hiçbir bagaj (Nesne + Belirsiz Artikel ve Sıfat Çekimi)\n✅ **ab** ➔ (Edat, ancak cümledeki kullanımı \"abholen\" fiilinin bir parçası olarak görülür, bu nedenle ayrı bir öbek olarak ele alınabilir)\n✅ **ab** ➔ (Ancak \"ab\" tek başına bir edat olarak ele alındığında) ➔ -den (Edat)\nAncak daha doğru bir analiz için:\n✅ **kein Gepäck ab** ➔ hiçbir bagajı (Nesne + Belirsiz Artikel ve Sıfat Çekimi + Edat Grubu) \n✅ **holt** ➔ alır (Esas Fiil)\nBu nedenle, daha doğru analiz:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **kein Gepäck ab** ➔ hiçbir bagajı (Nesne + Belirsiz Artikel ve Sıfat Çekimi + Edat Grubu)",
+      "v61_s9_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **die Umschläge** ➔ zarfları (Akkusativ Nesne)\n✅ **nicht ab** ➔ almıyoruz (Olumsuzluk + Edat Grubu)\n✅ **Wir holen die Umschläge nicht ab** cümlesinde \"nicht ab\" ifadesi \"almıyoruz\" anlamına gelir ve \"nicht\" olumsuzluk ekidir, \"ab\" ise \"almak\" fiilinin edatla birleşmiş halidir.",
+      "v61_s9_4": "✅ **Ihr** ➔ Sen/Siz (Özne / Nominativ, 2. tekil veya çoğul şahıs)\n✅ **holt** ➔ alırsın/alar (Esas Fiil, 2. tekil şahıs, basit şimdiki zaman)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **nicht ab** ➔ değil, almaz (Olumsuzlama + Edat Grubu)\n✅ **holt die Palette nicht ab** cümlesinde \"nicht ab\" ifadesi \"almaz\" anlamına gelir ve \"holt\" fiilini olumsuzlar. \n⚠️ **İstisna:** \"holt\" fiili, \"holen\" fiilinin 2. tekil şahıs, basit şimdiki zaman çekimidir.",
+      "v61_s9_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **nicht** ➔ değil (Negatif Edat)\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **ab** ➔ (Zaman veya Eylem Belirtme - Bu bağlamda \"ab\"nin kullanımı \"abholen\" fiilinin bir parçası olarak görülür, ancak cümledeki kullanımı \"ab\"nin bir edat olarak çalıştığı ve \"heute ab\"nin birlikte \"bugün itibaren\" gibi bir anlam taşımadığından, burada \"ab\"nin kullanımı biraz farklıdır. \"Ab\" burada \"abholen\" fiilinin bir parçası olarak \"almak\" eyleminin zamanını veya şeklini belirtmektedir.)\n✅ **heute ab** ➔ bugün (Zaman Belirtme - \"ab\"nin burada kullanımı, \"abholen\" fiilinin bir parçası olarak görülür, ancak cümledeki kullanım şekliyle \"heute ab\" birlikte \"bugün\" anlamına gelir, ancak \"ab\"nin kullanımı \"abholen\" fiilinin bir parçası olarak görülür.)\n\nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **nicht** ➔ değil (Negatif Edat)\n✅ **heute ab** ➔ bugün (Zaman Belirtme - \"ab\"nin burada kullanımı, \"abholen\" fiilinin bir parçası olarak görülür)\n✅ **nicht heute ab** ➔ bugün değil (Zaman Belirtme - \"nicht\" ve \"heute ab\" birlikte \"bugün değil\" anlamına gelir)\n\nSonuç:\n✅ **Sie** ➔",
+      "v61_s9_6": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **nicht ab** ➔ almıyorum (Olumsuzluk Ekleri ve Edat Grubu)\n✅ **.** ➔ (Cümle Sonu) \n\nNot: Cümle \"Ich hole nicht ab\" oldukça kısa ve basit bir cümledir. \"Nicht ab\" ifadesi birlikte kullanıldığında \"almıyorum\" veya \"getirmiyorum\" gibi anlamlara gelebilir. Bu analizde, \"nicht ab\" ifadesi birlikte ele alınmıştır.",
+      "v61_s9_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ kaldırmazsın (Esas Fiil / 2. Tekil Şimdiki Zaman)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)\n✅ **ab** ➔ çıkarmazsın (Fiil \"abholen\"ın 2. tekil hali değil, \"ab\"Separable Prefix olarak ele alınır, ancak bu cümlede \"ab\" fiil \"holen\" ile birleşik olarak \"abholen\" fiilinin 2. tekil hali \"abholst\" değil, \"holst\"Separable Prefix \"ab\" ile birleşik olarak \"abholen\" fiilinin 2. tekil hali \"abholst\" değil, \"ab\" ile \"holst\" ayrı yazılmış, \"ab\" bir edat olarak ele alınır ve \"nicht ab\" ifadesi \"kaldırmazsın\" ifadesinin olumsuzlaması olarak \"çıkarmazsın\" anlamında)\n✅ **nicht ab** ➔ ifadesi \"nicht\" ve \"ab\" ayrı ayrı ele alınmamalıdır, \"nicht ab\" ifadesi \"kaldırmazsın\" ifadesinin olumsuzlaması olarak \"çıkarmazsın\" anlamında, ancak bu cümlede \"ab\" bir edat olarak ele alınır ve \"nicht ab\" ifadesi \"kaldırmazsın\" ifadesinin olumsuzlaması olarak \"çıkarmazsın\" anlamında, ancak bu cümlede \"ab\" bir edat olarak ele alınır ve \"nicht ab\" ifadesi \"holst\" fiilinin olumsuzlaması olarak \"kaldırmazsın\" ifadesinin olumsuzlaması olarak \"çıkarmazsın\" anlamında, ancak bu cümlede \"ab\" bir edat olarak ele alınır ve \"nicht ab\" ifadesi \"holst\" fiil",
+      "v61_s10_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **das Paket** ➔ paketi (Akkusativ Nesne)\n✅ **von der Post** ➔ postaneden (Ablativ Edat Grubu)\n✅ **ab** ➔ almak (İkinci Fiil / Mastar Sonda)",
+      "v61_s10_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ çekiyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **aus dem Büro** ➔ ofisten (Yönelme Edat Grubu + Belirtme)\n✅ **ab** ➔ çıkarmak (İkinci Fiil / Mastar Sonda)",
+      "v61_s10_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **vom Bahnhof ab** ➔ istasyondan (Yönelme Edat Grubu)\n✅ **ab** ➔ Bu öbek zaten \"vom Bahnhof ab\" içerisinde analiz edildi. \n✅ **(Yok, sadece 5 öbek var.)**",
+      "v61_s10_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **vom Flughafen** ➔ havalimanından (Ablativ Edat Grubu)\n✅ **ab** ➔ (Yönelme Edat Grubu / abholen fiilinin parçası)",
+      "v61_s10_4": "✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **den Kunden** ➔ müşteriyi (Akkusativ Nesne)\n✅ **am Eingang** ➔ girişte (Yer Edat Grubu)\n✅ **ab** ➔ (Zaman veya Edat, cümledeki yeri ve anlamı netleştirilmelidir, ancak bu cümlede \"ab\" genellikle \"almak\" fiilinin zamanını veya yerini belirtmek için kullanılır, örneğin \"abholen\" fiilinin bir parçası olarak)",
+      "v61_s10_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **die Waren** ➔ malları (Akkusativ Nesne)\n✅ **an der Rezeption** ➔ resepsiyonda (Yer Edat Grubu)\n✅ **ab** ➔ (Edat, cümledeki yeri: \"an der Rezeption ab\" ifadesinin bir parçası olarak already analiz edildi)",
+      "v61_s11_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **hole** ➔ almak (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **ab** ➔ (Zaman veya Eylem Belirtme - Burada \"al\" fiilinin zamanını veya eylemini belirtmek için kullanılmış)",
+      "v61_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **holst** ➔ kaldırıyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **jetzt** ➔ şimdi (Zaman Belirtme)\n✅ **ab** ➔ aşağı (Yönelme Edat)",
+      "v61_s11_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **ab** ➔ (Edat, ancak bu durumda \"ab\" bir yön edatı olarak kabul ediliyor ve \"sofort ab\" birlikte bir edat grubu oluşturuyor, ancak \"sofort ab\" birlikte tek bir öbek olarak kabul edilebilir)\n✅ **sofort ab** ➔ hemen (Zarf + Edat Grubu, ancak bu kullanım biraz tartışmalı, \"sofort\" ve \"ab\" ayrı ayrı ele alınabilir)\n \nDaha doğru bir analiz:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **ab** ➔ (Edat, ancak bu durumda \"ab\" bir yön edatı olarak kabul ediliyor)\n\nAncak, \"sofort ab\" birlikte bir edat grubu olarak kabul edilemez, çünkü \"sofort\" bir zarf, \"ab\" ise bir edattır. Doğru analiz:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **ab** ➔ (Edat)\n\nAncak, \"ab\" tek başına bir anlam ifade etmez, bu nedenle:\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **sofort ab** ➔ hemen (Zarf + Edat Gr",
+      "v61_s11_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **morgen** ➔ yarın (Zaman Belirtme)\n✅ **ab** ➔ (Edat, buradaki anlamı ile \"götürmek\" fiilinin eşliğinde \"almak\" anlamında)",
+      "v61_s11_4": "✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **später** ➔ sonra (Zaman Belirleyici)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"abholen\" fiilinin bir parçası olarak kabul edilir ve \"später ab\" birlikte \"sonra alır\" anlamında kullanılır, ancak \"ab\" tek başına bir edat olarak kabul edildiğinde, genellikle \"dan\" anlamında kullanılır. Bu cümlede \"später ab\" birlikte ele alınmalıdır.)\n✅ **später ab** ➔ sonra (Zaman Belirleyici ve Edat Grubu, ancak bu durumda \"ab\" fiil \"abholen\" ile bağlantılı olarak ele alınmalıdır, bu nedenle ayrı bir öbek olarak değil, birlikte \"abholen\" fiilinin bir parçası olarak düşünülmelidir.)\n\nDüzeltme:\n✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **später ab** ➔ sonra (Zaman Belirleyici ve Edat Grubu, \"abholen\" fiilinin bir parçası olarak)\nAncak, daha doğru bir analiz:\n✅ **Ihr** ➔ Onlar (Özne / Nominativ)\n✅ **holt** ➔ alır (Esas Fiil, \"abholen\" fiilinin bir parçası)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **später** ➔ sonra (Zaman Belirleyici)\n✅ **ab** ➔ (Bu durumda \"ab\" ayrı bir öbek olarak değil, \"abholen\" fiilinin bir parçası olarak düşünülmelidir, ancak bu analizde \"ab\" ayrı bir öbek olarak gösterilmemelidir.)\n\nSonuç olarak,",
+      "v61_s11_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holen** ➔ almak (Esas Fiil)\n✅ **es** ➔ onu (Akkusativ Nesne)\n✅ **schnell** ➔ hızlı (Durum Zarfı)\n✅ **ab** ➔ (Yönelme Edat)\n \n⚠️ **İstisna:** \"ab\" kelimesi bazı bağlamlarda \"down\" veya \"away\" olarak çevrilebilir, ancak bu cümlede \"schnell ab\" birlikte kullanıldığında \"hızlı bir şekilde\" anlamını verir.",
+      "v61_s12_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **habe** ➔ -miş (Esas Fiil / Yardımcı Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **abgeholt** ➔ aldım (Esas Fiil / Geçmiş Zaman)",
+      "v61_s12_1": "✅ **Hast** ➔ -sın/-sın (Şimdiki Zamana Göre Fiil Çekimi)\n✅ **du** ➔ (Kişi Zamirinin 2. Tekil Şahıs Şimdiki Zamandaki Hali)\n✅ **die Palette** ➔ paleti (Belirsiz Artikel Olmadığından Belirli Artikel + İsim)\n✅ **abgeholt** ➔ aldın (2. Tekil Şahıs Geçmiş Zaman Fiil Çekimi)\n⚠️ **İstisna:** Bu cümle bir soru cümlesidir ve \"Hast du\" ifadesi \"Have you\" gibi kullanılmaktadır.",
+      "v61_s12_2": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **abgeholt** ➔ almak (Esas Fiil / Mastar Sonda, Partizip II)",
+      "v61_s12_3": "✅ **Ihr** ➔ Siz (Özne / Nominativ)\n✅ **habt** ➔ -siniz (Yardımcı Fiil 2. sırada, Çoğul)\n✅ **sie** ➔ onları (Akkusativ Nesne)\n✅ **abgeholt** ➔ aldınız (Esas Fiil / Geçmiş Zaman)",
+      "v61_s12_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **holte** ➔ aldım (Esas Fiil / 1. Tekil Şahıs Geçmiş Zaman)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)\n✅ **ab** ➔ (Edat, ancak bu cümlede \"ab\" fiil \"holte\" ile birlikte \"abholen\" fiilinin geçmiş hali olarak kullanıldığından, ayrı bir öbek olarak değil, fiil öbeğinin parçası olarak değerlendirilebilir. Bu nedenle, \"ab\" ayrı bir öbek olarak gösterilmeyecektir.)\n \nDolayısıyla, \"ab\" nin fiil \"holte\" ile birleşik olarak \"abholte\" (aldım) şeklinde düşünülmesi daha uygun olacaktır. Bu nedenle, düzeltilmiş çıktı:\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **holte ab** ➔ aldım (Esas Fiil / 1. Tekil Şahıs Geçmiş Zaman, \"abholen\" fiilinin geçmiş hali)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Belirtili Artikel)",
+      "v61_s12_5": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **holte** ➔ aldı (Esas Fiil / Geçmiş Zaman)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak\" fiili ile birleşik olarak \"almak\" anlamına geliyor, ancak burada bağımsız edat olarak ele alınmıştır)",
+      "v61_s12_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **holten** ➔ aldık (Esas Fiil / Geçmiş Zaman)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **ab** ➔ (Edat, buradaki anlamı \"almak\" fiili ile birlikte \"indirmek\" veya \"almak\" olarak yorumlanabilir, ancak burada bağımsız bir öbek olarak ele alınmıştır)",
+      "v61_s12_7": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **holten** ➔ aldılar (Esas Fiil / Geçmiş Zaman)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **ab** ➔ (Yönelme Edat Grubu)",
+      "v61_s13_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil)\n✅ **den Umschlag** ➔ zarfı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v61_s13_1": "✅ **Kannst du** ➔ -abilirsin (Modal Fiil + Özne, 2. tekil şahıs)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v61_s13_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **will** ➔ istiyor (Modal Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v61_s13_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **sollen** ➔ -meli/-malı (Modal Fiil)\n✅ **ihn** ➔ onu (Akkusativ Nesne)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v61_s13_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **dürft** ➔ -ebilirsiniz (Modal Fiil 2. sırada, izin kipi)\n✅ **die Palette** ➔ paleti (Akkusativ Nesne)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v61_s13_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **möchten** ➔ -mek ister (Modal Fiil)\n✅ **das Gepäck** ➔ bagajı (Akkusativ Nesne)\n✅ **abholen** ➔ almak (Esas Fiil / Mastar Sonda)",
+      "v62_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardım etmek (Esas Fiil)",
+      "v62_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil 2. Tekil Şahıs)",
+      "v62_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardım ediyor (Esas Fiil)",
+      "v62_s1_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)",
+      "v62_s1_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil / 2. tekil şahıs çoğul)",
+      "v62_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)",
+      "v62_s2_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)",
+      "v62_s2_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihr** ➔ onlara (Belirsiz Dativ Nesne)",
+      "v62_s2_2": "✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)",
+      "v62_s2_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v62_s2_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil, 2. tekil şahıs çoğul)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)",
+      "v62_s3_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)",
+      "v62_s3_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **der Person** ➔ kişiye (Belirli Dativ Nesne)",
+      "v62_s3_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardım ediyor (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)",
+      "v62_s3_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)",
+      "v62_s3_4": "✅ **Helft** ➔ yardım ediyor (Esas Fiil)\n✅ **ihr** ➔ siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **der Person** ➔ kişiye (Belirli Dativ Nesne)\n✅ **?** ➔ soru işareti (Cümlenin soru olduğunu belirtir)",
+      "v62_s3_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)",
+      "v62_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **den Kunden** ➔ müşterilere (Belirli Akkusativ Nesne)",
+      "v62_s4_1": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs Çoğulu)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil / 2. Tekil Şahıs Çoğulu)\n✅ **den Personen** ➔ kişilere (Belirli Dativ Nesne)",
+      "v62_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **den Kindern** ➔ çocuklara (Belirli Dativ Nesne)",
+      "v62_s4_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **den Kollegen** ➔ meslektaşlara (Belirli Dativ Nesne)",
+      "v62_s4_4": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Frauen** ➔ kadınlara (Belirli Dativ Nesne)",
+      "v62_s4_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **den Männern** ➔ adamlara (Belirli Dativ Nesne)",
+      "v62_s5_0": "✅ **Hilf** ➔ yardım et (Esas Fiil)\n✅ **ihm** ➔ ona (Dativ Nesne)",
+      "v62_s5_1": "✅ **Helft** ➔ yardım edin (Emir Kipi Fiil)\n✅ **ihr** ➔ siz (Özne / Nominativ, 2. tekil şahıs çoğul)",
+      "v62_s5_2": "✅ **Helfen** ➔ yardım etmek (Esas Fiil / Emir Kipi)\n✅ **Sie** ➔ siz (Hitap Zamiri / Nominativ, Emir Kipi için özne)\n✅ **bitte** ➔ lütfen (Dilek Zarfı)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)",
+      "v62_s5_3": "✅ **Hilf** ➔ yardım et (Esas Fiil)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **nicht** ➔ değil/hayır (Olumsuzluk Ekleri)\n \n⚠️ **İstisna:** Cümle bir emir cümlesidir, bu nedenle fiil cümle başındadır.",
+      "v62_s6_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **dem alten Kunden** ➔ yaşlı müşteriye (Belirli Dativ Nesne + Sıfat Çekimi)",
+      "v62_s6_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil)\n✅ **der jungen Person** ➔ genç kişiye (Belirli Dativ Nesne)",
+      "v62_s6_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **dem kranken Kind** ➔ hasta çocuğa (Belirli Dativ Nesne + Sıfat Çekimi)",
+      "v62_s6_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **dem gesunden Kunden** ➔ sağlıklı müşteriye (Belirli Dativ Nesne + Sıfat Çekimi)\n \n(Not: Bu cümlede Modal Fiil veya Edat Grubu bulunmadığı için ilgili kısımlar çıktıda yer almamıştır.)",
+      "v62_s6_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil)\n✅ **den alten Personen** ➔ yaşlı kişilere (Belirli Dativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v62_s6_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **den jungen Kindern** ➔ genç çocuklara (Belirli Dativ Nesne + Sıfat Çekimi)",
+      "v62_s7_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardım etmek (Esas Fiil)\n✅ **meinem Kunden** ➔ müşterime (Belirli Dativ Nesne)",
+      "v62_s7_1": "✅ **Hilfst** ➔ yardım ediyor (Esas Fiil)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **deinem Freund** ➔ arkadaşına (Belirli Dativ Nesne)",
+      "v62_s7_2": "✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **ihrem Kind** ➔ çocuğuna (Belirli Dativ Nesne + Sıfat Çekimi)",
+      "v62_s7_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **unserem Kunden** ➔ müşterimize (Belirli Dativ Nesne + Sıfat Çekimi -em)",
+      "v62_s7_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs Çoğulu)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil, 2. Tekil Şahıs Çoğulu)\n✅ **euren Kindern** ➔ çocuklarınıza (Belirli Dativ Nesne + Sahiplik Sıfatı)",
+      "v62_s7_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **Ihrer Person** ➔ sizin kişiye (Belirli Dativ Nesne)",
+      "v62_s8_0": "✅ **Wem** ➔ kime (Soru Zamiri / Dativ)\n✅ **hilfst** ➔ yardım ediyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v62_s8_1": "✅ **Wer** ➔ Kim (Soru Zamiri / Özne / Nominativ)\n✅ **hilft** ➔ yardımcı oluyor (Esas Fiil / 2. Tekil Şahıs)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)",
+      "v62_s8_2": "✅ **Warum** ➔ neden (Neden Sorusu)\n✅ **hilft** ➔ yardımcı oluyor (Esas Fiil)\n✅ **er** ➔ o (Özne / Nominativ, 3. tekil şahıs)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)",
+      "v62_s8_3": "✅ **Wo** ➔ nerede (Zarf)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v62_s8_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **helft** ➔ yardım ediyorsunuz (Fiil, 2. tekil şahıs, yardımcı fiil olarak)\n✅ **ihr** ➔ size (Dativ Nesne, 2. çoğul şahıs)\n✅ **ihr** ➔ ona (Akkusativ Nesne, 3. tekil şahıs)\n⚠️ **İstisna:** Bu cümlede \"ihr\" iki farklı anlam ve gramatik fonksiyona sahip. Birincisi, \"ihr\" Dativ Nesne olarak \"size\" anlamına geliyor ve ikincisi, \"ihr\" Akkusativ Nesne olarak \"ona\" anlamına geliyor.",
+      "v62_s8_5": "✅ **Wie** ➔ nasıl (Soru Zarfı)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **sie** ➔ onlar (Özne / Nominativ, 3. tekil şahıs)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne, eril)",
+      "v62_s9_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardım ediyorum (Esas Fiil)\n✅ **keinem Kunden** ➔ hiçbir müşteriye (Belirsiz Dativ Nesne) \n⚠️ **İstisna:** \"kein\" ile birlikte \"Kunden\" sıfat çekimi göstermez.",
+      "v62_s9_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **keiner Person** ➔ hiçbir kişiye (Belirsiz Dativ Nesne)",
+      "v62_s9_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **keinem Kind** ➔ hiçbir çocuğa (Belirsiz Dativ Nesne)",
+      "v62_s9_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **keinen Kindern** ➔ hiçbir çocuğa (Akkusativ Nesne + Negatif Belirtme)",
+      "v62_s9_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil / 2. Tekil Şahıs)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)\n✅ **Ihr helft dem Kunden nicht** cümlesinde \"nicht\" olumsuzluk ekidir. \n⚠️ **İstisna:** Bu cümlede \"nicht\" olumsuzluk ekidir ve cümlenin anlamını değiştirir.",
+      "v62_s9_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **ihr** ➔ ona (Belirsiz Dativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzlama)\n✅ **(İstisna yok)**",
+      "v62_s9_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **nicht** ➔ değil / hayır (Olumsuzluk Ekleri)",
+      "v62_s9_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **nicht** ➔ değil / değilim / değildir (Olumsuzluk Ekleri)\n✅ **heute nicht** ➔ bugün değil (Zaman ve Olumsuzluk Birleşimi) ➔ Bu öbek doğru değil, \"heute\" ve \"nicht\" ayrı ayrı ele alınmalıdır.\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **nicht** ➔ değil (Olumsuzluk)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs) ➔ Bu fiil zaten analiz edildi.\n✅ **Du hilfst** ➔ Sen yardımcı oluyorsun (Özne ve Fiil Birleşimi) ➔ Bu analiz doğru değil, \"Du\" ve \"hilfst\" ayrı ayrı ele alınmalıdır.\n\nGerekli düzeltme:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **nicht** ➔ değil (Olumsuzluk)\n\nSonuç:\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **heute** ➔ bugün (Zaman Belirtme)\n✅ **nicht** ➔ değil (Olumsuzluk)",
+      "v62_s10_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)\n✅ **beim Beladen** ➔ yüklemekte (Edat Grubu + Mastar -de / -nde hali)",
+      "v62_s10_1": "✅ **Hilfst** ➔ yardımcı oluyorsun (Şimdiki Zamanda Fiil, 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. Tekil Şahıs)\n✅ **mir** ➔ bana (Dativ Nesne, 1. Tekil Şahıs)\n✅ **beim Packen** ➔ paketleme sırasında (Edat Grubu + Mastar)\n✅ **?** ➔ soru işareti (Soru ifadesi)",
+      "v62_s10_2": "✅ **Sie** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardımcı olmak (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)\n✅ **mit dem Koffer** ➔ valizle (Alet Edat Grubu)",
+      "v62_s10_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirsiz Dativ Nesne)\n✅ **beim Tragen** ➔ taşımada (Edat Grubu + Mastar)",
+      "v62_s10_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **helft** ➔ yardımcı oluyorsunuz (Esas Fiil, 2. tekil şahıs çoğul)\n✅ **ihr** ➔ size (Belirli Dativ Nesne, 2. tekil şahıs çoğul)\n✅ **im Auto** ➔ arabada (Yer Edat Grubu)\n✅ **helft** ➔ yardımcı oluyorsunuz (Bu durumda yardımcı fiil olarak da düşünülebilir ancak cümledeki esas fiil olarak işlev görüyor)",
+      "v62_s10_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne)\n✅ **mit dem Problem** ➔ problemle (İlgi Edat Grubu)",
+      "v62_s11_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **helfe** ➔ yardımcı olmak (Esas Fiil)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **sofort** ➔ hemen (Zaman Belirtme Zarfı)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) \n⚠️ **İstisna:** Cümledeki \"liefern\" fiili bulunmuyor, \"helfe\" fiili esas fiil olarak kullanılıyor.",
+      "v62_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hilfst** ➔ yardımcı oluyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihr** ➔ onlara (Belirsiz Dativ Nesne)\n✅ **immer** ➔ her zaman (Zaman Belirleyici)\n✅ **immer** ➔ her zaman (Zarf) \n✅ **hilfst ihr** ifadesi birlikte \"Du hilfst ihr\" cümlesinin anlamını tamamlar. \n✅ **immer** ➔ her zaman (Zarf)",
+      "v62_s11_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **hilft** ➔ yardım ediyor (Esas Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **gerne** ➔ seve seve (Durum Zarfı)",
+      "v62_s11_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **dort** ➔ orada (Zarf / Yer Belirtmesi)",
+      "v62_s11_4": "✅ **Helft** ➔ yardım ediyor musunuz (Esas Fiil, 2. tekil şahıs, soru)\n✅ **ihr** ➔ siz (Özne / Nominativ, 2. çoğul şahıs)\n✅ **oft** ➔ sık (Zarf / Sıklık Bildirimi)",
+      "v62_s11_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)\n✅ **morgen** ➔ yarın (Zaman Belirtme)",
+      "v62_s12_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **habe** ➔ -miş (Esas Fiil / Yardımcı Fiil, 2. sırada)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **geholfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda)",
+      "v62_s12_1": "✅ **Hast** ➔ -mi/-mi/-muş (Soru Zamiri)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **ihr** ➔ ona/kıza (Belirsiz Dativ Nesne)\n✅ **geholfen** ➔ yardım etmek (Esas Fiil, 2. tekil şahıs geçmiş zaman)",
+      "v62_s12_2": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **geholten** ➔ yardım etmek (Esas Fiil / Mastar Sonda, 3. şahıs için \"geholten\" değil \"geholten\" fiilinin doğru hali \"geholfen\" olmalıdır, bu nedenle doğru analiz: **geholfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda)) \n✅ **Wir haben dem Kind geholfen.** cümlesinin doğru analizi:\n✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **geholfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda)",
+      "v62_s12_3": "✅ **Ihr** ➔ Siz (Özne / Nominativ)\n✅ **habt** ➔ -siniz (Yardımcı Fiil 2. sırada, yardımcı fiil olarak kullanılıyor)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **geholfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda, yardımcı fiille birleşik olarak kullanılıyor)",
+      "v62_s12_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **half** ➔ yardımcı olmak (Esas Fiil / Geçmiş Zaman)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)",
+      "v62_s12_5": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **half** ➔ yardım etti (Esas Fiil / Geçmiş Zaman)\n✅ **dem Kind** ➔ çocuğa (Belirtili Dativ Nesne)",
+      "v62_s12_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **halfen** ➔ yardım ettik (Esas Fiil / Geçmiş Zaman)\n✅ **der Person** ➔ kişiye (Belirli Dativ Nesne)",
+      "v62_s12_7": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **halfen** ➔ yardım ettiler (Esas Fiil / Geçmiş Zaman)\n✅ **mir** ➔ bana (Dativ Nesne)",
+      "v62_s13_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil 2. sırada)\n✅ **dem Kunden** ➔ müşteriye (Belirli Dativ Nesne)\n✅ **helfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda)",
+      "v62_s13_1": "✅ **Kannst** ➔ -abilir/-ebilir (Modal Fiil, 2. tekil şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. tekil şahıs)\n✅ **ihr** ➔ ona/kadına (Belirsiz Dativ Nesne)\n✅ **helfen** ➔ yardım etmek (Esas Fiil / Mastar)",
+      "v62_s13_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **will** ➔ istiyor (Modal Fiil)\n✅ **dem Kind** ➔ çocuğa (Belirli Dativ Nesne)\n✅ **helfen** ➔ yardım etmek (Esas Fiil / Mastar Sonda)",
+      "v62_s13_3": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **sollen** ➔ -meli/-malı (Modal Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **helfen** ➔ yardım etmek (Esas Fiil)",
+      "v62_s13_4": "✅ **Ihr** ➔ Siz (Özne / Nominativ, 2. tekil şahıs çoğul)\n✅ **dürft** ➔ -ebilirsiniz (Modal Fiil, 2. sırada, izin kipi)\n✅ **hier helfen** ➔ burada yardım etmek (Esas Fiil + Yer Zarfı)",
+      "v62_s13_5": "⚠️ Yapay zeka servisine ulaşılamadı."
     },
     "verbs": {
       "v1": "sehen fiili Akkusativ alır. Örneğin: Ich sehe den Film (Filmi görüyorum). 'den Film' Akkusativ haldedir.",
@@ -26775,6 +26927,7 @@
       "v63": "\"übergeben\" - Hızlı Öğrenme Rehberi\n1. Temel Anlam\nBir şeyi birine teslim etmek, vermek (resmi/önemli)\n2. Ayrılabilir Fiil! ÖNEMLİ! 🔴\n\nüber + geben = ikiye ayrılır\nüber → cümle sonuna gider\ngeben → çekimlenir (düzensiz!)\n\n3. Çekim (sadece önemlileri)\n\nich gebe... über\ndu gibst... über ⚠️\ner/sie gibt... über ⚠️\nPerfekt: Ich habe übergeben\n\n4. Temel Cümle Yapısı\nIch gebe + [neyi] + [kime] + über\n5. En Sık Kullanılan 5 Cümle (ezberle!)\n\nIch gebe dir das Dokument über. (Dokümanı sana teslim ediyorum)\nEr gibt den Schlüssel über. (Anahtarı teslim ediyor)\nWann können Sie das übergeben? (Bunu ne zaman teslim edebilirsiniz?)\nIch habe es schon übergeben. (Onu zaten teslim ettim)\nBitte übergeben Sie das Paket! (Lütfen paketi teslim edin!)\n\n6. Günlük Hayatta Kullan\n\n📄 Belge/evrak teslimi\n🔑 Anahtar teslimi\n📦 Paket/kargo teslimi\n🏠 Daire teslimi (taşınırken)\n🎁 Hediye verme (resmi)\n\n7. DİKKAT! İki Farklı Anlam Var! ⚠️\nA) übergeben (ayrılabilir) = teslim etmek ✅\nIch gebe das Paket über.\nB) sich übergeben (ayrılamaz) = kusmak 🤢\nIch muss mich übergeben. (Kusmam gerekiyor)\n\nBurada über ayrılmaz!\n\n8. Benzer Fiiller ile Fark\n\ngeben = vermek (genel, günlük)\nübergeben = teslim etmek (resmi, önemli)\nabgeben = teslim etmek (okul, iş yerinde)"
     },
     "sections": {
+      "B0": "İSİM ÇEKİMLERİ & ARTIKELLER (Nomen Deklination)",
       "B1": "KİŞİ ZAMİRLERİ (Personalpronomen)",
       "B2": "KİŞİ ZAMİRİ NESNELERİ (Objektpronomen)",
       "B3": "NESNELER TEKİL (Objekte Singular)",
