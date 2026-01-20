@@ -2757,10 +2757,11 @@ window.openContextHint = function(type) {
         // JSON'daki 'B6', 'B7' gibi anahtarlarla kodun kullandığı sayısal ID'leri eşleştirmek için geçici bir harita.
         // İdeal olan, JSON dosyasındaki anahtarları sayısal ID'ler (6, 16 vb.) ile değiştirmektir.
         const topicIdMapping = {
-            '6': 'B7',  // İyelik Sıfatları (Possessivpronomen)
-            '16': 'B6' // Sıfat Çekimleri (Adjektivdeklination)
+            '0': 'B0' // YENİ: Konu 0 için haritalama
         };
-        const hintKey = topicIdMapping[tId];
+        let hintKey = topicIdMapping[tId];
+        if (!hintKey) hintKey = 'B' + tId; // YENİ: Otomatik eşleştirme (B1, B2 vb.)
+        
         if (window.data.hints.sections && hintKey && window.data.hints.sections[hintKey]) {
             content = window.data.hints.sections[hintKey];
         }
@@ -2769,14 +2770,48 @@ window.openContextHint = function(type) {
     let modal = document.createElement('div');
     modal.id = 'hintModal';
     modal.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:12000;display:flex;align-items:center;justify-content:center;";
+    
+    // YENİ: Gelişmiş Modal Tasarımı (Tam Ekran ve Tema Uyumlu)
     modal.innerHTML = `
-        <div class="content-box" style="width:90%;max-width:600px;max-height:80vh;background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:var(--primary);color:#fff;padding:15px;font-weight:bold;">💡 ${title}</div>
-            <div id="richHintContent" style="padding:20px;overflow-y:auto;">${content.replace(/\n/g,'<br>')}</div>
-            <button class="btn btn-secondary btn-block" onclick="document.getElementById('hintModal').remove()" style="margin:10px;">Kapat</button>
+        <div id="hintContentBox" class="content-box" style="width:90%;max-width:600px;max-height:80vh;background:var(--bg-card);color:var(--text-main);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.3s ease;border:1px solid var(--border-color);box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+            <div style="background:var(--gold-main);color:var(--gold-text);padding:15px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+                <span style="font-size:1.1rem; display:flex; align-items:center; gap:10px;">💡 ${title}</span>
+                <div style="display:flex; gap:8px;">
+                    <button class="btn btn-sm" onclick="window.toggleHintFullScreen()" style="background:rgba(255,255,255,0.3); border:none; color:var(--gold-text); width:32px; height:32px; display:flex; align-items:center; justify-content:center; border-radius:50%; cursor:pointer;" title="Tam Ekran">⛶</button>
+                    <button class="btn btn-sm" onclick="document.getElementById('hintModal').remove()" style="background:rgba(255,255,255,0.3); border:none; color:var(--gold-text); width:32px; height:32px; display:flex; align-items:center; justify-content:center; border-radius:50%; cursor:pointer;" title="Kapat">✕</button>
+                </div>
+            </div>
+            <div id="richHintContent" style="padding:20px;overflow-y:auto;flex-grow:1;line-height:1.6;font-size:1rem;">
+                ${content.replace(/\n/g,'<br>')}
+            </div>
+            <div style="padding:10px; border-top:1px solid var(--border-color); background:var(--bg-body); flex-shrink:0;">
+                <button class="btn btn-secondary btn-block" onclick="document.getElementById('hintModal').remove()">Kapat</button>
+            </div>
         </div>
     `;
     document.body.appendChild(modal);
+};
+
+// YENİ: Tam Ekran Geçiş Fonksiyonu
+window.toggleHintFullScreen = function() {
+    const box = document.getElementById('hintContentBox');
+    if (!box) return;
+    
+    if (box.style.width === '100%') {
+        // Normale Dön
+        box.style.width = '90%';
+        box.style.maxWidth = '600px';
+        box.style.height = 'auto';
+        box.style.maxHeight = '80vh';
+        box.style.borderRadius = '12px';
+    } else {
+        // Tam Ekran Yap
+        box.style.width = '100%';
+        box.style.maxWidth = '100%';
+        box.style.height = '100%';
+        box.style.maxHeight = '100%';
+        box.style.borderRadius = '0';
+    }
 };
 
 window.findNextLearningUnit = function() {
