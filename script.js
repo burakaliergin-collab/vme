@@ -2127,12 +2127,29 @@ window.startTekrar = function(status) {
     if (srsKeys.length === 0) { alert(`'${status}' havuzunda cümle yok.`); return; }
 
     const deck = [];
+    
+    // 1. Statik İçerik (JSON'daki content)
     Object.keys(window.data.content || {}).forEach(k => {
         window.data.content[k].forEach((s, i) => {
             const id = `${k}_${i}`;
             if (srsKeys.includes(id)) deck.push({ ...s, id: id });
         });
     });
+
+    // 2. Dinamik İçerik (Konu 0 - İsim Çekimleri)
+    if (window.data.verbs) {
+        Object.values(window.data.verbs).flat().forEach(verb => {
+            if (verb.objects) {
+                const dynamicCards = window.generateDeclensionCards(verb);
+                dynamicCards.forEach((s, i) => {
+                    const id = `${verb.id}_s0_${i}`;
+                    if (srsKeys.includes(id)) {
+                        deck.push({ ...s, id: id });
+                    }
+                });
+            }
+        });
+    }
 
     if (deck.length === 0) { alert("Veri hatası: ID var ama içerik yok."); return; }
     window.state.deck = deck; window.state.deckPos = 0;
@@ -2698,7 +2715,7 @@ window.startStoryTest = function(groupId) {
     let container = document.getElementById('storyQuestionsContent');
     if(!container) {
         const d = document.createElement('div'); d.id = 'storyQuestionsView'; d.className='view';
-        d.innerHTML = `<div class="content-box"><h3>📝 Test</h3><div id="storyQuestionsContent"></div><button class="btn btn-secondary btn-block" onclick="window.showView('storyView')">Geri</button></div>`;
+        d.innerHTML = `<div class="content-box" style="margin-top: 80px;"><h3>📝 Test</h3><div id="storyQuestionsContent"></div><button class="btn btn-secondary btn-block" onclick="window.showView('storyView')">Geri</button></div>`;
         document.querySelector('.site-container').appendChild(d);
         container = document.getElementById('storyQuestionsContent');
     }
