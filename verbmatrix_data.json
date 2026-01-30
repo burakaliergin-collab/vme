@@ -2326,6 +2326,352 @@
         "de": "Er möchte dem Lehrer zuhören"
       }
     ],
+    "v4_s1": [
+      {
+        "tr": "Ben yiyorum",
+        "de": "Ich esse"
+      },
+      {
+        "tr": "Sen yiyorsun",
+        "de": "Du isst"
+      },
+      {
+        "tr": "O yiyor",
+        "de": "Er isst"
+      },
+      {
+        "tr": "O yiyor",
+        "de": "Sie isst"
+      },
+      {
+        "tr": "Biz yiyoruz",
+        "de": "Wir essen"
+      },
+      {
+        "tr": "Onlar yiyorlar",
+        "de": "Sie essen"
+      }
+    ],
+    "v4_s2": [
+      {
+        "tr": "Ben onu yiyorum",
+        "de": "Ich esse ihn"
+      },
+      {
+        "tr": "Sen onu yiyorsun",
+        "de": "Du isst sie"
+      },
+      {
+        "tr": "O onu yiyor",
+        "de": "Er isst es"
+      },
+      {
+        "tr": "O onları yiyor",
+        "de": "Sie isst sie"
+      },
+      {
+        "tr": "Biz onu yiyoruz",
+        "de": "Wir essen sie"
+      },
+      {
+        "tr": "Onlar onu yiyorlar",
+        "de": "Sie essen es"
+      },
+      {
+        "tr": "Sen onları yiyorsun",
+        "de": "Du isst sie"
+      },
+      {
+        "tr": "Ben onu bitiriyorum",
+        "de": "Ich esse ihn auf"
+      }
+    ],
+    "v4_s3": [
+      {
+        "tr": "Biz pastayı yiyoruz",
+        "de": "Wir essen die Pasta"
+      },
+      {
+        "tr": "Sen salatayı yiyorsun",
+        "de": "Du isst den Salat"
+      },
+      {
+        "tr": "Onlar balığı yiyorlar",
+        "de": "Sie essen den Fisch"
+      },
+      {
+        "tr": "O peyniri yiyor",
+        "de": "Sie isst den Käse"
+      },
+      {
+        "tr": "Ben tereyağını yiyorum",
+        "de": "Ich esse die Butter"
+      },
+      {
+        "tr": "O eti yiyor",
+        "de": "Er isst das Fleisch"
+      }
+    ],
+    "v4_s4": [
+      {
+        "tr": "Biz ekmekleri yiyoruz",
+        "de": "Wir essen die Brote"
+      },
+      {
+        "tr": "Sen çorbaları yiyorsun",
+        "de": "Du isst die Suppen"
+      },
+      {
+        "tr": "Onlar elmaları yiyorlar",
+        "de": "Sie essen die Äpfel"
+      },
+      {
+        "tr": "O ekmekleri yiyor",
+        "de": "Sie isst die Brote"
+      },
+      {
+        "tr": "Ben çorbaları yiyorum",
+        "de": "Ich esse die Suppen"
+      },
+      {
+        "tr": "O elmaları yiyor",
+        "de": "Er isst die Äpfel"
+      }
+    ],
+    "v4_s5": [
+      {
+        "tr": "Ekmeği ye!",
+        "de": "Iss das Brot!"
+      },
+      {
+        "tr": "Çorbayı yiyin!",
+        "de": "Esst die Suppe!"
+      },
+      {
+        "tr": "Elmayı yiyin!",
+        "de": "Essen Sie den Apfel!"
+      },
+      {
+        "tr": "Ekmekleri ye!",
+        "de": "Iss die Brote!"
+      }
+    ],
+    "v4_s6": [
+      {
+        "tr": "Biz sıcak ekmeği yiyoruz",
+        "de": "Wir essen das warme Brot"
+      },
+      {
+        "tr": "Sen soğuk çorbayı yiyorsun",
+        "de": "Du isst die kalte Suppe"
+      },
+      {
+        "tr": "Onlar sağlıklı elmayı yiyorlar",
+        "de": "Sie essen den gesunden Apfel"
+      },
+      {
+        "tr": "O sağlıksız ekmeği yiyor",
+        "de": "Sie isst das ungesunde Brot"
+      },
+      {
+        "tr": "Ben sıcak çorbayı yiyorum",
+        "de": "Ich esse die warme Suppe"
+      },
+      {
+        "tr": "O soğuk elmayı yiyor",
+        "de": "Er isst den kalten Apfel"
+      }
+    ],
+    "v4_s7": [
+      {
+        "tr": "Biz sizin ekmeğinizi yiyoruz",
+        "de": "Wir essen Ihr Brot"
+      },
+      {
+        "tr": "Sen benim çorbamı yiyorsun",
+        "de": "Du isst meine Suppe"
+      },
+      {
+        "tr": "Onlar onun elmasını yiyorlar",
+        "de": "Sie essen seinen Apfel"
+      },
+      {
+        "tr": "O onların ekmeğini yiyor",
+        "de": "Sie isst ihr Brot"
+      },
+      {
+        "tr": "Ben senin çorbanı yiyorum",
+        "de": "Ich esse deine Suppe"
+      },
+      {
+        "tr": "O onun elmasını yiyor",
+        "de": "Er isst ihren Apfel"
+      }
+    ],
+    "v4_s8": [
+      {
+        "tr": "Neyi yiyorsunuz?",
+        "de": "Was essen Sie?"
+      },
+      {
+        "tr": "Hangi ekmeği yiyorsun?",
+        "de": "Welches Brot isst du?"
+      },
+      {
+        "tr": "Kim çorbayı yiyor?",
+        "de": "Wer isst die Suppe?"
+      },
+      {
+        "tr": "Nerede elmayı yiyorlar?",
+        "de": "Wo essen sie den Apfel?"
+      },
+      {
+        "tr": "Ne zaman ekmeği yiyoruz?",
+        "de": "Wann essen wir das Brot?"
+      }
+    ],
+    "v4_s9": [
+      {
+        "tr": "Biz hiçbir ekmek yemiyoruz",
+        "de": "Wir essen kein Brot"
+      },
+      {
+        "tr": "Sen hiçbir çorba yemiyorsun",
+        "de": "Du isst keine Suppe"
+      },
+      {
+        "tr": "Onlar hiçbir elma yemiyorlar",
+        "de": "Sie essen keinen Apfel"
+      },
+      {
+        "tr": "O hiçbir ekmek yemiyor",
+        "de": "Sie isst keine Brote"
+      },
+      {
+        "tr": "Ben ekmeği yemiyorum",
+        "de": "Ich esse das Brot nicht"
+      },
+      {
+        "tr": "O çorbayı yemiyor",
+        "de": "Er isst die Suppe nicht"
+      },
+      {
+        "tr": "Onlar elmayı yemiyorlar",
+        "de": "Sie essen den Apfel nicht"
+      },
+      {
+        "tr": "Biz ekmekleri yemiyoruz",
+        "de": "Wir essen die Brote nicht"
+      }
+    ],
+    "v4_s10": [
+      {
+        "tr": "Biz kahvaltıda ekmeği yiyoruz",
+        "de": "Wir essen das Brot zum Frühstück"
+      },
+      {
+        "tr": "Sen arkadaşlarla çorbayı yiyorsun",
+        "de": "Du isst die Suppe mit Freunden"
+      },
+      {
+        "tr": "Onlar restoranda elmayı yiyorlar",
+        "de": "Sie essen den Apfel im Restaurant"
+      },
+      {
+        "tr": "O etsiz ekmeği yiyor",
+        "de": "Sie isst das Brot ohne Fleisch"
+      },
+      {
+        "tr": "Ben poşetten çorbayı yiyorum",
+        "de": "Ich esse die Suppe aus der Tüte"
+      }
+    ],
+    "v4_s11": [
+      {
+        "tr": "Biz ekmeği yavaşça yiyoruz",
+        "de": "Wir essen das Brot langsam"
+      },
+      {
+        "tr": "Sen çorbayı hızlıca yiyorsun",
+        "de": "Du isst die Suppe schnell"
+      },
+      {
+        "tr": "Onlar elmayı sessizce yiyorlar",
+        "de": "Sie essen den Apfel ruhig"
+      },
+      {
+        "tr": "O ekmeği açgözlüce yiyor",
+        "de": "Sie isst das Brot gierig"
+      },
+      {
+        "tr": "Ben çorbayı dikkatli yiyorum",
+        "de": "Ich esse die Suppe vorsichtig"
+      },
+      {
+        "tr": "O elmayı her zaman yiyor",
+        "de": "Er isst den Apfel immer"
+      }
+    ],
+    "v4_s12": [
+      {
+        "tr": "Biz ekmeği yedik",
+        "de": "Wir haben das Brot gegessen"
+      },
+      {
+        "tr": "Sen çorbayı yedin",
+        "de": "Du hast die Suppe gegessen"
+      },
+      {
+        "tr": "Onlar elmayı yediler",
+        "de": "Sie haben den Apfel gegessen"
+      },
+      {
+        "tr": "O ekmeği yedi",
+        "de": "Sie hat das Brot gegessen"
+      },
+      {
+        "tr": "Ben çorbayı yedim (PRETERİTUM)",
+        "de": "Ich aß die Suppe"
+      },
+      {
+        "tr": "O elmayı yedi (PRETERİTUM)",
+        "de": "Er aß den Apfel"
+      },
+      {
+        "tr": "Onlar ekmeği yediler (PRETERİTUM)",
+        "de": "Sie aßen das Brot"
+      },
+      {
+        "tr": "Sen çorbayı yedin (PRETERİTUM)",
+        "de": "Du aßest die Suppe"
+      }
+    ],
+    "v4_s13": [
+      {
+        "tr": "Biz ekmeği yemek istiyoruz",
+        "de": "Wir wollen das Brot essen"
+      },
+      {
+        "tr": "Sen çorbayı yiyebiliyorsun",
+        "de": "Du kannst die Suppe essen"
+      },
+      {
+        "tr": "Onlar elmayı yemeli",
+        "de": "Sie sollen den Apfel essen"
+      },
+      {
+        "tr": "O ekmeği yemek zorunda",
+        "de": "Sie muss das Brot essen"
+      },
+      {
+        "tr": "Ben çorbayı yiyebilirim",
+        "de": "Ich darf die Suppe essen"
+      },
+      {
+        "tr": "O elmayı yemek istiyor",
+        "de": "Er möchte den Apfel essen"
+      }
+    ],
     "v5_s2": [
       {
         "tr": "O bana tadı geliyor",
@@ -2369,9 +2715,6 @@
       }
     ],
     "v5_s4": [
-      {
-        "text": "Yemekler bize tadı geliyor, Die Essen schmecken uns]"
-      },
       {
         "tr": "Pastalar sana tadı geliyor",
         "de": "Die Torten schmecken dir"
@@ -23066,352 +23409,6 @@
         "tr": "Biz onu (kalemi) müşteriye uzatıyoruz.",
         "de": "Wir reichen ihn dem Kunden."
       }
-    ],
-    "v4_s1": [
-      {
-        "tr": "Ben yiyorum",
-        "de": "Ich esse"
-      },
-      {
-        "tr": "Sen yiyorsun",
-        "de": "Du isst"
-      },
-      {
-        "tr": "O yiyor",
-        "de": "Er isst"
-      },
-      {
-        "tr": "O yiyor",
-        "de": "Sie isst"
-      },
-      {
-        "tr": "Biz yiyoruz",
-        "de": "Wir essen"
-      },
-      {
-        "tr": "Onlar yiyorlar",
-        "de": "Sie essen"
-      }
-    ],
-    "v4_s2": [
-      {
-        "tr": "Ben onu yiyorum",
-        "de": "Ich esse ihn"
-      },
-      {
-        "tr": "Sen onu yiyorsun",
-        "de": "Du isst sie"
-      },
-      {
-        "tr": "O onu yiyor",
-        "de": "Er isst es"
-      },
-      {
-        "tr": "O onları yiyor",
-        "de": "Sie isst sie"
-      },
-      {
-        "tr": "Biz onu yiyoruz",
-        "de": "Wir essen sie"
-      },
-      {
-        "tr": "Onlar onu yiyorlar",
-        "de": "Sie essen es"
-      },
-      {
-        "tr": "Sen onları yiyorsun",
-        "de": "Du isst sie"
-      },
-      {
-        "tr": "Ben onu bitiriyorum",
-        "de": "Ich esse ihn auf"
-      }
-    ],
-    "v4_s3": [
-      {
-        "tr": "Biz pastayı yiyoruz",
-        "de": "Wir essen die Pasta"
-      },
-      {
-        "tr": "Sen salatayı yiyorsun",
-        "de": "Du isst den Salat"
-      },
-      {
-        "tr": "Onlar balığı yiyorlar",
-        "de": "Sie essen den Fisch"
-      },
-      {
-        "tr": "O peyniri yiyor",
-        "de": "Sie isst den Käse"
-      },
-      {
-        "tr": "Ben tereyağını yiyorum",
-        "de": "Ich esse die Butter"
-      },
-      {
-        "tr": "O eti yiyor",
-        "de": "Er isst das Fleisch"
-      }
-    ],
-    "v4_s4": [
-      {
-        "tr": "Biz ekmekleri yiyoruz",
-        "de": "Wir essen die Brote"
-      },
-      {
-        "tr": "Sen çorbaları yiyorsun",
-        "de": "Du isst die Suppen"
-      },
-      {
-        "tr": "Onlar elmaları yiyorlar",
-        "de": "Sie essen die Äpfel"
-      },
-      {
-        "tr": "O ekmekleri yiyor",
-        "de": "Sie isst die Brote"
-      },
-      {
-        "tr": "Ben çorbaları yiyorum",
-        "de": "Ich esse die Suppen"
-      },
-      {
-        "tr": "O elmaları yiyor",
-        "de": "Er isst die Äpfel"
-      }
-    ],
-    "v4_s5": [
-      {
-        "tr": "Ekmeği ye!",
-        "de": "Iss das Brot!"
-      },
-      {
-        "tr": "Çorbayı yiyin!",
-        "de": "Esst die Suppe!"
-      },
-      {
-        "tr": "Elmayı yiyin!",
-        "de": "Essen Sie den Apfel!"
-      },
-      {
-        "tr": "Ekmekleri ye!",
-        "de": "Iss die Brote!"
-      }
-    ],
-    "v4_s6": [
-      {
-        "tr": "Biz sıcak ekmeği yiyoruz",
-        "de": "Wir essen das warme Brot"
-      },
-      {
-        "tr": "Sen soğuk çorbayı yiyorsun",
-        "de": "Du isst die kalte Suppe"
-      },
-      {
-        "tr": "Onlar sağlıklı elmayı yiyorlar",
-        "de": "Sie essen den gesunden Apfel"
-      },
-      {
-        "tr": "O sağlıksız ekmeği yiyor",
-        "de": "Sie isst das ungesunde Brot"
-      },
-      {
-        "tr": "Ben sıcak çorbayı yiyorum",
-        "de": "Ich esse die warme Suppe"
-      },
-      {
-        "tr": "O soğuk elmayı yiyor",
-        "de": "Er isst den kalten Apfel"
-      }
-    ],
-    "v4_s7": [
-      {
-        "tr": "Biz sizin ekmeğinizi yiyoruz",
-        "de": "Wir essen Ihr Brot"
-      },
-      {
-        "tr": "Sen benim çorbamı yiyorsun",
-        "de": "Du isst meine Suppe"
-      },
-      {
-        "tr": "Onlar onun elmasını yiyorlar",
-        "de": "Sie essen seinen Apfel"
-      },
-      {
-        "tr": "O onların ekmeğini yiyor",
-        "de": "Sie isst ihr Brot"
-      },
-      {
-        "tr": "Ben senin çorbanı yiyorum",
-        "de": "Ich esse deine Suppe"
-      },
-      {
-        "tr": "O onun elmasını yiyor",
-        "de": "Er isst ihren Apfel"
-      }
-    ],
-    "v4_s8": [
-      {
-        "tr": "Neyi yiyorsunuz?",
-        "de": "Was essen Sie?"
-      },
-      {
-        "tr": "Hangi ekmeği yiyorsun?",
-        "de": "Welches Brot isst du?"
-      },
-      {
-        "tr": "Kim çorbayı yiyor?",
-        "de": "Wer isst die Suppe?"
-      },
-      {
-        "tr": "Nerede elmayı yiyorlar?",
-        "de": "Wo essen sie den Apfel?"
-      },
-      {
-        "tr": "Ne zaman ekmeği yiyoruz?",
-        "de": "Wann essen wir das Brot?"
-      }
-    ],
-    "v4_s9": [
-      {
-        "tr": "Biz hiçbir ekmek yemiyoruz",
-        "de": "Wir essen kein Brot"
-      },
-      {
-        "tr": "Sen hiçbir çorba yemiyorsun",
-        "de": "Du isst keine Suppe"
-      },
-      {
-        "tr": "Onlar hiçbir elma yemiyorlar",
-        "de": "Sie essen keinen Apfel"
-      },
-      {
-        "tr": "O hiçbir ekmek yemiyor",
-        "de": "Sie isst keine Brote"
-      },
-      {
-        "tr": "Ben ekmeği yemiyorum",
-        "de": "Ich esse das Brot nicht"
-      },
-      {
-        "tr": "O çorbayı yemiyor",
-        "de": "Er isst die Suppe nicht"
-      },
-      {
-        "tr": "Onlar elmayı yemiyorlar",
-        "de": "Sie essen den Apfel nicht"
-      },
-      {
-        "tr": "Biz ekmekleri yemiyoruz",
-        "de": "Wir essen die Brote nicht"
-      }
-    ],
-    "v4_s10": [
-      {
-        "tr": "Biz kahvaltıda ekmeği yiyoruz",
-        "de": "Wir essen das Brot zum Frühstück"
-      },
-      {
-        "tr": "Sen arkadaşlarla çorbayı yiyorsun",
-        "de": "Du isst die Suppe mit Freunden"
-      },
-      {
-        "tr": "Onlar restoranda elmayı yiyorlar",
-        "de": "Sie essen den Apfel im Restaurant"
-      },
-      {
-        "tr": "O etsiz ekmeği yiyor",
-        "de": "Sie isst das Brot ohne Fleisch"
-      },
-      {
-        "tr": "Ben poşetten çorbayı yiyorum",
-        "de": "Ich esse die Suppe aus der Tüte"
-      }
-    ],
-    "v4_s11": [
-      {
-        "tr": "Biz ekmeği yavaşça yiyoruz",
-        "de": "Wir essen das Brot langsam"
-      },
-      {
-        "tr": "Sen çorbayı hızlıca yiyorsun",
-        "de": "Du isst die Suppe schnell"
-      },
-      {
-        "tr": "Onlar elmayı sessizce yiyorlar",
-        "de": "Sie essen den Apfel ruhig"
-      },
-      {
-        "tr": "O ekmeği açgözlüce yiyor",
-        "de": "Sie isst das Brot gierig"
-      },
-      {
-        "tr": "Ben çorbayı dikkatli yiyorum",
-        "de": "Ich esse die Suppe vorsichtig"
-      },
-      {
-        "tr": "O elmayı her zaman yiyor",
-        "de": "Er isst den Apfel immer"
-      }
-    ],
-    "v4_s12": [
-      {
-        "tr": "Biz ekmeği yedik",
-        "de": "Wir haben das Brot gegessen"
-      },
-      {
-        "tr": "Sen çorbayı yedin",
-        "de": "Du hast die Suppe gegessen"
-      },
-      {
-        "tr": "Onlar elmayı yediler",
-        "de": "Sie haben den Apfel gegessen"
-      },
-      {
-        "tr": "O ekmeği yedi",
-        "de": "Sie hat das Brot gegessen"
-      },
-      {
-        "tr": "Ben çorbayı yedim (PRETERİTUM)",
-        "de": "Ich aß die Suppe"
-      },
-      {
-        "tr": "O elmayı yedi (PRETERİTUM)",
-        "de": "Er aß den Apfel"
-      },
-      {
-        "tr": "Onlar ekmeği yediler (PRETERİTUM)",
-        "de": "Sie aßen das Brot"
-      },
-      {
-        "tr": "Sen çorbayı yedin (PRETERİTUM)",
-        "de": "Du aßest die Suppe"
-      }
-    ],
-    "v4_s13": [
-      {
-        "tr": "Biz ekmeği yemek istiyoruz",
-        "de": "Wir wollen das Brot essen"
-      },
-      {
-        "tr": "Sen çorbayı yiyebiliyorsun",
-        "de": "Du kannst die Suppe essen"
-      },
-      {
-        "tr": "Onlar elmayı yemeli",
-        "de": "Sie sollen den Apfel essen"
-      },
-      {
-        "tr": "O ekmeği yemek zorunda",
-        "de": "Sie muss das Brot essen"
-      },
-      {
-        "tr": "Ben çorbayı yiyebilirim",
-        "de": "Ich darf die Suppe essen"
-      },
-      {
-        "tr": "O elmayı yemek istiyor",
-        "de": "Er möchte den Apfel essen"
-      }
     ]
   },
   "groups": [
@@ -26930,7 +26927,176 @@
       "v4_s9_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **keinen Apfel** ➔ hiçbir elma (Akkusativ Nesne + Negatif Belirtme)",
       "v4_s9_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **isst** ➔ yemektedir (Esas Fiil)\n✅ **keine Brote** ➔ hiçbir ekmeği (Akkusativ Nesne + Sıfat Çekimi)\n✅ **liefern** yok, sadece \"isst\" var, o da esas fiil. \nBu cümlede modal fiil veya başka bir fiil bulunmamaktadır.",
       "v4_s9_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **esse** ➔ yemek (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n \n⚠️ **İstisna:** Cümle bir olumsuz cümledir ve \"nicht\" olumsuzluk ekini taşır.",
-      "v4_s9_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **isst** ➔ yemek (Esas Fiil)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **nicht** ➔ değil / hayır (Olumsuzluk Ekleri)\n✅ **nicht** ➔ (Bu cümlede \"nicht\" olumsuzluk ekidir, ancak cümlenin sonuna konulması daha uygun olurdu. Bu kullanım bazı bağlamlarda kabul edilebilir.)\n✅ **isst die Suppe nicht** ➔ (Bu cümlede \"isst die Suppe nicht\" ifadesi bir bütün olarak olumsuz bir eylem ifade eder. Ancak bu analizde her öge ayrı ayrı ele alınmıştır.)"
+      "v4_s9_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **isst** ➔ yemek (Esas Fiil)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **nicht** ➔ değil / hayır (Olumsuzluk Ekleri)\n✅ **nicht** ➔ (Bu cümlede \"nicht\" olumsuzluk ekidir, ancak cümlenin sonuna konulması daha uygun olurdu. Bu kullanım bazı bağlamlarda kabul edilebilir.)\n✅ **isst die Suppe nicht** ➔ (Bu cümlede \"isst die Suppe nicht\" ifadesi bir bütün olarak olumsuz bir eylem ifade eder. Ancak bu analizde her öge ayrı ayrı ele alınmıştır.)",
+      "v4_s9_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n✅ **nicht** ➔ (Bu cümlede \"nicht\" fiilin önüne gelerek fiili olumsuzluyor, ancak \"nicht\" tek başına bir öbek olarak kabul ediliyor) \n✅ **nicht** ➔ (Bu durumda \"nicht\" cümlenin sonuna gelerek cümleyi olumsuzluyor, ancak bu kullanım daha çok bir edat gibi çalışıyor ve cümlenin sonuna gelmesi gerekiyor, bu nedenle ayrı bir öbek olarak kabul ediliyor) \n✅ **nicht** ➔ (Ancak bu kullanım doğru değil, \"nicht\" tek bir öbek olarak kabul edilmeli ve cümlenin sonuna gelmelidir)\n✅ **den Apfel nicht** ➔ (Bu kullanım da doğru değil, \"nicht\" \"den Apfel\" öbeğinin içine dahil edilmemeli)\n✅ **Sie essen den Apfel nicht** ➔ (Bu kullanım da doğru değil, tüm cümle tek bir öbek olarak kabul edilmemeli)\n✅ **den Apfel** ➔ (Bu öbek doğru, ancak \"nicht\" ayrı bir öbek olarak kabul edilmeli)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n✅ **Sie essen** ➔ Onlar yemek (Özne + Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Bel",
+      "v4_s9_7": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **die Brote** ➔ ekmekleri (Akkusativ Nesne + Belirtili Artikel)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **nicht** ➔ Bu cümledeki \"nicht\" olumsuzluk ekidir.",
+      "v4_s10_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **zum Frühstück** ➔ kahvaltı için (Zaman Edat Grubu)",
+      "v4_s10_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **isst** ➔ yiyor (Esas Fiil)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne + Belirtme)\n✅ **mit Freunden** ➔ arkadaşlarla (Refakat Edat Grubu)\n✅ **liefern** ➔ teslim etmek (Bu cümlede yoktur, esas fiil \"isst\" dir)",
+      "v4_s10_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **im Restaurant** ➔ restoranda (Yer Edat Grubu)",
+      "v4_s10_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **isst** ➔ yemektedir (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **ohne Fleisch** ➔ et olmadan (Olumsuz Edat Grubu)\n✅ **liefern** ➔ Bu cümlede esas fiil \"isst\" tir. Liefern fiili bu cümlede geçmez.",
+      "v6_s1_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)",
+      "v6_s1_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs Şimdiki Zaman)",
+      "v6_s1_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil / 3. Tekil Şahıs)",
+      "v6_s1_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)",
+      "v6_s1_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)",
+      "v6_s1_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)",
+      "v6_s2_0": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne / İyelik Zamiri)",
+      "v6_s2_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **mir** ➔ bana (Belirsiz Dativ Nesne)",
+      "v6_s2_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)",
+      "v6_s2_3": "✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **ihr** ➔ ona/kendine (Dativ Nesne/Zarf)",
+      "v6_s2_4": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **euch** ➔ size (Belirsiz Dativ Nesne)",
+      "v6_s2_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)",
+      "v6_s2_6": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v6_s2_7": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **ihr** ➔ ona/kendine (Belirsiz Dativ Nesne)",
+      "v6_s2_8": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **Ihnen** ➔ size (Belirli Dativ Nesne)",
+      "v6_s2_9": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)",
+      "v6_s3_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **den Tee** ➔ çayı (Akkusativ Nesne)",
+      "v6_s3_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **den Saft** ➔ suyu (Akkusativ Nesne + Belirtisiz Artikel)",
+      "v6_s3_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **die Milch** ➔ sütü (Akkusativ Nesne)",
+      "v6_s3_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)",
+      "v6_s3_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Pasta** ➔ makarnayı (Akkusativ Nesne)",
+      "v6_s4_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **die Wasser** ➔ suyu (Akkusativ Nesne)",
+      "v6_s4_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Zeitungen** ➔ gazeteleri (Akkusativ Nesne)",
+      "v6_s4_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **die Kaffees** ➔ kahveleri (Akkusativ Nesne)",
+      "v6_s4_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **die Wasser** ➔ suyu (Akkusativ Nesne)",
+      "v6_s4_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Zeitungen** ➔ gazeteleri (Akkusativ Nesne)",
+      "v6_s4_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **die Kaffees** ➔ kahveleri (Akkusativ Nesne)",
+      "v6_s5_0": "✅ **Bring** ➔ getir (Emir Kipi Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n⚠️ **İstisna:** Bu cümle emir kipi kullanılarak oluştuğundan, özne genellikle belirtilmez, ancak \"du\" (sen) olarak anlaşılır.",
+      "v6_s5_1": "✅ **Bringt** ➔ getirin (Emir Kipi Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Belirsiz Akkusativ Nesne + Sıfat Çekimi)\n \n⚠️ **İstisna:** Bu cümle emir kipi usedığı için özne belirtilmemiştir.",
+      "v6_s5_2": "✅ **Bringen** ➔ getirmek (Esas Fiil / Emir Kipi)\n✅ **Sie** ➔ siz (Özne / Nominativ, Emir Kipi için)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)",
+      "v6_s5_3": "✅ **Bring** ➔ getir (Emir Kipi Fiil)\n✅ **die Wasser** ➔ suyu (Akkusativ Nesne + Belirtisiz Artikel)\n⚠️ **İstisna:** \"Wasser\" sıvı isim olduğu için belirli artikel almaz, ancak burada \"die Wasser\" ifadesi kullanılmıştır ki bu, normalde \"Wasser\" için kullanılan \"das\" artikelinin yerine \"die\" artikelinin kullanıldığı bir durum değildir. Doğru kullanım \"Bring das Wasser!\" veya \"Bring Wasser!\" olmalıdır.",
+      "v6_s6_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **das frische Wasser** ➔ taze suyu (Akkusativ Nesne + Sıfat Çekimi)",
+      "v6_s6_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die abgestandene Zeitung** ➔ eskimiş gazeteyi (Akkusativ Nesne + Sıfat Çekimi)\n \n(Not: Cümledeki öbekler bu şekilde analiz edilmiştir. İstisna veya özel durum bulunmamaktadır.)",
+      "v6_s6_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **den heißen Kaffee** ➔ sıcak kahveyi (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v6_s6_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **das kalte Wasser** ➔ soğuk suyu (Akkusativ Nesne + Sıfat Çekimi)",
+      "v6_s6_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die frische Zeitung** ➔ taze gazetayı (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v6_s6_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **den abgestandenen Kaffee** ➔ kokuşmuş kahveyi (Akkusativ Nesne + Sıfat Çekimi)\n \n(İstisna notu yok)",
+      "v6_s7_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **Ihr Wasser** ➔ Sizin suyunuzu (Akkusativ Nesne + Sahiplik Sıfatı)",
+      "v6_s7_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **meine Zeitung** ➔ benim gazетом (Akkusativ Nesne + Sahiplik Sıfatı)",
+      "v6_s7_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **seinen Kaffee** ➔ onun kahvesini (Akkusativ Nesne + Sahip Sıfat)",
+      "v6_s7_3": "✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **ihr Wasser** ➔ suyunu (Akkusativ Nesne + Sahip Sıfat)",
+      "v6_s7_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **deine Zeitung** ➔ senin gazeten (Akkusativ Nesne + Sahiplik Sıfatı)",
+      "v6_s7_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **ihren Kaffee** ➔ onun kahvesini (Akkusativ Nesne + Sahip Sıfat)",
+      "v6_s8_0": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **Sie** ➔ Siz (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v6_s8_1": "✅ **Welches Wasser** ➔ hangi su (Soru Sıfatı + İsim, Belirsiz Akkusativ Nesne)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil, 2. Tekil Şahıs)\n✅ **du** ➔ sen (Özne / Nominativ, 2. Tekil Şahıs)",
+      "v6_s8_2": "✅ **Wer** ➔ Kim (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)",
+      "v6_s8_3": "✅ **Wo** ➔ nerede (Yer Belirtme Zarfı)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **sie** ➔ onlar (Özne / Nominativ)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne + Belirtme Artikel)\n⚠️ **İstisna:** Bu cümlede soru söz konusu olduğundan, fiil cümlenin başına gelmiş ve normal cümle yapısından farklılık göstermektedir.",
+      "v6_s8_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **wir** ➔ biz (Özne / Nominativ)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)",
+      "v6_s9_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **kein Wasser** ➔ su getirmemek (Nesne + Negatif Belirtme)",
+      "v6_s9_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **keine Zeitung** ➔ hiçbir gazete (Akkusativ Nesne + Belirsiz Artikel ve Sıfat Çekimi)\n \n⚠️ **İstisna:** Cümle negatif bir yapıya sahip, \"keine\" negatif belirteci \"Zeitung\" ismini etkiliyor.",
+      "v6_s9_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **keinen Kaffee** ➔ hiç kahve (Akkusativ Nesne + Negatif Belirtme)\n✅ **nicht** ➔ yok (Negatif Edat) (Cümlede \"kein\" var, \"nicht\" yok, ancak \"kein\" negatif bir sıfat olarak kullanılmış)\n✅ **keinen** ➔ **kein** + **en** (Akkusativ Belirtme + Negatif Sıfat Çekimi) \nAncak \"keinen\" zaten \"kein\" ve \"en\"nin birleşimidir ve \"keinen Kaffee\" tek bir öbek olarak ele alınmalıdır.\n\nDüzeltme:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **keinen Kaffee** ➔ hiç kahve (Akkusativ Nesne + Negatif Belirtme)\n✅ **nicht** ➔ yok (Negatif Edat) (Cümlede \"kein\" var, \"nicht\" yok, ancak \"kein\" negatif bir sıfat olarak kullanılmış)\n\nAncak cümlenin doğru analizi:\n✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **keinen Kaffee** ➔ hiç kahve (Akkusativ Nesne + Negatif Belirtme)",
+      "v6_s9_3": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **nicht** ➔ değil/değil (Olumsuzluk Ekleri)\n✅ **bringe** ➔ getirmek (Esas Fiil / Olumsuz Cümle)",
+      "v6_s9_4": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **nicht** ➔ değil / hayır (Olumsuzluk Ekleri)\n✅ **nicht** ➔ (Bu cümlede \"nicht\" esas fiilden önce gelerek tüm cümleyi olumsuz hale getiriyor)",
+      "v6_s9_5": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirirler (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **nicht** ➔ değil/değil (Olumsuzluk Ekleri)\n✅ **nicht** ➔ (Bu cümlede \"nicht\" esas fiilden önce gelerek fiili olumsuzlar, ancak \"nicht\" tek başına bir öbek olarak düşünülürse, bu durumda cümlenin sonuna bir not eklenmelidir.)\n⚠️ **İstisna:** \"nicht\" esas fiilden önce gelerek cümleyi olumsuzlar, ancak bu analizde \"nicht\" ayrı bir öbek olarak ele alınmıştır.",
+      "v6_s9_6": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getiriyoruz (Esas Fiil)\n✅ **die Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **nicht** ➔ değil / yok (Olumsuzluk Ekleri)",
+      "v6_s10_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **aus der Küche** ➔ mutfaktan (Yönelme Edat Grubu)",
+      "v6_s10_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **für den Gast** ➔ misafir için (İlgi Edat Grubu)",
+      "v6_s10_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **an den Tisch** ➔ masaya (Yönelme Edat Grubu)",
+      "v6_s10_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **zu mir** ➔ bana (Yönelme Edat Grubu + Dativ Pronomen)\n \n⚠️ **İstisna:** Bu cümlede \"zu\" edatı, \"mir\" (bana) gibi bir yönelme ifadesini belirtmek için kullanılır ve ayrı bir öbek olarak ele alınır.",
+      "v6_s10_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **nach Hause** ➔ eve (Yönelme Edat Grubu)",
+      "v6_s10_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **ohne Zucker** ➔ şekersiz (Olumsuz Edat Grubu)\n✅ **ohne Zucker** ifadesi bir edat grubudur ve \"şekersiz\" anlamına gelir. Bu grupta \"ohne\" edatı ve \"Zucker\" nesnesi birlikte kullanılır.",
+      "v6_s11_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **schnell** ➔ hızlı (Durum Zarfı)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) -> Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **schnell** ➔ hızlı (Durum Zarfı) -> Bu cümlede \"schnell\" hızlı anlamına gelmekte ve cümleyi tamamlamaktadır.",
+      "v6_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **langsam** ➔ yavaşça (Durum Zarfı) \n✅ **bringst die Zeitung** ➔ gazeteyi getiriyorsun (Fiil ve Nesne)\n✅ **Du bringst** ➔ sen getiriyorsun (Özne ve Fiil)\n✅ **die Zeitung langsam** ➔ gazeteyi yavaşça (Nesne ve Zarf)\n✅ **Du bringst die Zeitung** ➔ sen gazeteyi getiriyorsun (Özne, Fiil ve Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **Du bringst die Zeitung langsam** ➔ sen gazeteyi yavaşça getiriyorsun (Tam Cümle)\n✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **Du bringst die Zeitung** ➔ sen gazeteyi getiriyorsun (Özne, Fiil ve Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)\n✅ **",
+      "v6_s11_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **vorsichtig** ➔ dikkatlice (Durum Zarfı)",
+      "v6_s11_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **immer** ➔ her zaman (Zaman Zarfı)\n✅ **immer** ➔ her zaman (Sıklık Zarfı) \n✅ **das Wasser immer** ➔ tüm cümledeki \"immer\"nin yeri farklı olabilir. \n⚠️ **İstisna:** \"immer\" cümledeki yerini değiştirebilir, ancak anlam değişmez.",
+      "v6_s11_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **manchmal** ➔ bazen (Zaman Belirleyici)\n✅ **manchmal** ➔ bazen (Zarf) \n✅ **bringe** ➔ getirmek (Esas Fiil) \n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne) \n✅ **manchmal** ➔ bazen (Zarf) \n✅ **Ich bringe die Zeitung manchmal** ➔ Ben bazen gazeteyi getiriyorum (Cümle Anlamı)\n✅ **bringe** ➔ getirmek (Esas Fiil) \n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne) \n✅ **manchmal** ➔ bazen (Zarf) \n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **manchmal** ➔ bazen (Zarf)\n✅ **Ich bringe die Zeitung manchmal** ➔ Ben bazen gazeteyi getiriyorum (Cümle Anlamı)\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **manchmal** ➔ bazen (Zarf)\n✅ **Ich bringe die Zeitung manchmal** ➔ Ben bazen gazeteyi getiriyorum (Cümle Anlamı)\n✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **bringe** ➔ getirmek (Esas Fiil)\n✅ **die",
+      "v6_s11_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **sofort** ➔ hemen (Zarf) \n✅ **bringt** ➔ getirir (Esas Fiil) \n✅ **den Kaffee sofort** ➔ cümledeki \"sofort\" kelimesi zarf olarak kullanılmış ve cümleyi tekrar gözden geçirerek analiz edilmiştir. \n✅ **Er bringt** ➔ O getirir (Özne ve Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **Er bringt den Kaffee** ➔ O kahveyi getirir (Özne, Fiil ve Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt den Kaffee** ➔ kahveyi getirir (Esas Fiil ve Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **Er** ➔ O (Özne / Nominativ)\n✅ **bringt** ➔ getirir (Esas Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **sofort** ➔ hemen (Zarf)\n✅ **Er bringt** ➔ O getirir (Özne ve",
+      "v6_s12_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **gebracht** ➔ getirmek (Esas Fiil / 3. şahıs geçmiş zaman)",
+      "v6_s12_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hast** ➔ -miş (Yardımcı Fiil 2. sırada)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **gebracht** ➔ getirmek (Esas Fiil / Mastar Sonda)",
+      "v6_s12_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **haben** ➔ -miş/-mişler (Yardımcı Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne + Belirtili Artikel)\n✅ **gebracht** ➔ getirmek (Esas Fiil / Geçmiş Partiцип)",
+      "v6_s12_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **hat** ➔ -miştir/-miştir (Yardımcı Fiil / 3. şahıs tekil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **gebracht** ➔ getirmek (Esas Fiil / 3. şahıs tekil geçmiş zaman)",
+      "v6_s12_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **brachte** ➔ getirdim (Esas Fiil / 2. şahıs tekil geçmiş zaman)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)",
+      "v6_s12_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **brachte** ➔ getirdi (Esas Fiil / Geçmiş Zaman)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)",
+      "v6_s12_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **brachten** ➔ getirdiler (Esas Fiil / Geçmiş Zaman)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)",
+      "v6_s12_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **brachtest** ➔ getirdin (Esas Fiil / 2. şahıs tekil geçmiş zaman)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)",
+      "v6_s13_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **wollen** ➔ istemek (Yardımcı Fiil)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **bringen** ➔ getirmek (Esas Fiil / Mastar Sonda)",
+      "v6_s13_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **kannst** ➔ -abilir/-ebilir (Modal Fiil 2. sırada)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n✅ **bringen** ➔ getirmek (Esas Fiil / Mastar Sonda)",
+      "v6_s13_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sollen** ➔ -meliler/-malılar (Modal Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **bringen** ➔ getirmek (Esas Fiil)",
+      "v6_s13_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil 2. sırada)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **bringen** ➔ getirmek (Esas Fiil / Mastar Sonda)",
+      "v6_s13_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **darf** ➔ -ebilir/-ebilir (Modal Fiil 2. sırada)\n✅ **die Zeitung bringen** ➔ gazeteyi getirmek (Esas Fiil + Akkusativ Nesne) \n✅ Not: \"die Zeitung\" ifadesi \"die Zeitung bringen\" öbeğinin içinde yer alan bir Akkusativ Nesne ve Sıfat Çekimi olarak kabul edilebilir.",
+      "v6_s13_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **möchte** ➔ istiyor (Modal Fiil)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)\n✅ **bringen** ➔ getirmek (Esas Fiil)",
+      "v6_s14_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n \n(Not: Cümledeki öbekler bu şekilde analiz edilmiştir. İstisna notu bulunmamaktadır.)",
+      "v6_s14_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **bringst** ➔ getiriyorsun (Esas Fiil / 2. Tekil Şahıs)\n✅ **mir** ➔ bana (Dativ Nesne / Kişiye)\n✅ **die Zeitung** ➔ gazeteyi (Akkusativ Nesne)\n \n⚠️ **İstisna:** Bu cümlede modal fiil bulunmamaktadır.",
+      "v6_s14_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **bringen** ➔ getirmek (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)\n✅ **den Kaffee** ➔ kahveyi (Akkusativ Nesne)",
+      "v6_s14_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **bringt** ➔ getiriyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)\n✅ **das Wasser** ➔ suyu (Akkusativ Nesne)\n✅ **(Yok)** ➔ (Cümlede \"nach Hause\" gibi bir edat grubu veya \"vorsichtig\" gibi bir durum zarfı bulunmuyor.)",
+      "v4_s10_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **esse** ➔ yemek (Esas Fiil)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **aus der Tüte** ➔ torbadan (Yönelme Edat Grubu)",
+      "v4_s11_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **langsam** ➔ yavaşça (Durum Zarfı)",
+      "v4_s11_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **isst** ➔ yiyor (Esas Fiil / 2. Tekil Şahıs)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **schnell** ➔ hızlı (Durum Zarfı)\n✅ **liefern** ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır.",
+      "v4_s11_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **essen** ➔ yemek (Esas Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **ruhig** ➔ sakin (Durum Zarfı)\n \n⚠️ **İstisna:** Cümledeki \"ruhig\" kelimesi, fiilin durumunu veya öznenin halini belirten bir zarf olarak kullanılmıştır.",
+      "v4_s11_3": "✅ **Sie** ➔ O/Kızı (Özne / Nominativ)\n✅ **isst** ➔ yemektedir (Esas Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **gierig** ➔ açgözlüce (Durum Zarfı)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır. \n✅ **gierig** ➔ açgözlüce (Durum Zarfı) \n⚠️ **İstisna:** Cümledeki \"gierig\" kelimesi, fiil \"isst\" için durum zarfı olarak kullanılmıştır ve cümleyi \"Sie isst das Brot gierig\" olarak analiz ettik.",
+      "v4_s11_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **esse** ➔ yemek (Esas Fiil)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **vorsichtig** ➔ dikkatlice (Durum Zarfı)",
+      "v4_s11_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **isst** ➔ yemektedir (Esas Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **immer** ➔ her zaman (Zaman Zarfı)\n✅ **immer** ➔ Bu cümlede \"immer\" fiilden sonra gelerek fiilin sıklığını belirtmektedir.",
+      "v4_s12_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **haben** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **gegessen** ➔ yemek (Esas Fiil / 3. sırada, Partizip II)",
+      "v4_s12_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **hast** ➔ -miş (Yardımcı Fiil / 2. sırada)\n✅ **die Suppe** ➔ çorabayı (Akkusativ Nesne)\n✅ **gegessen** ➔ yemek (Esas Fiil / Geçmiş Partiцип)",
+      "v4_s12_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **haben** ➔ -miş/-mişler (Yardımcı Fiil, 2. sırada)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **gegessen** ➔ yemek (Esas Fiil, 3. sırada, Partizip II)",
+      "v4_s12_3": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **hat** ➔ -miş/-miş gibi (Yardımcı Fiil / 3. şahıs tekil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **gegessen** ➔ yemek (Esas Fiil / Partisip II)",
+      "v4_s12_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **aß** ➔ yedim (Esas Fiil / 1. Tekil Şahıs Geçmiş Zaman)\n✅ **die Suppe** ➔ çorba (Belirli Akkusativ Nesne)",
+      "v4_s12_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **aß** ➔ yedi (Esas Fiil / Geçmiş Zaman)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne)",
+      "v4_s12_6": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **aßen** ➔ yediler (Esas Fiil / Geçmiş Zaman)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)",
+      "v4_s12_7": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **aßest** ➔ yedin (2. Tekil Şahıs Geçmiş Zaman Fiil)\n✅ **die Suppe** ➔ çorabayı (Akkusativ Nesne)",
+      "v4_s13_0": "✅ **Wir** ➔ Biz (Özne / Nominativ)\n✅ **wollen** ➔ -lemek istiyoruz (Modal Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar Sonda)",
+      "v4_s13_1": "✅ **Du** ➔ Sen (Özne / Nominativ)\n✅ **kannst** ➔ -abilir/-ebilir (Modal Fiil 2. sırada)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar Sonda)",
+      "v4_s13_2": "✅ **Sie** ➔ Onlar (Özne / Nominativ)\n✅ **sollen** ➔ -meli/-malı (Modal Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar)",
+      "v4_s13_3": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **muss** ➔ -meli/-malı (Modal Fiil)\n✅ **das Brot** ➔ ekmeği (Akkusativ Nesne)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar Sonda)",
+      "v4_s13_4": "✅ **Ich** ➔ Ben (Özne / Nominativ)\n✅ **darf** ➔ -ebilir/-ebilir (Modal Fiil 2. sırada)\n✅ **die Suppe** ➔ çorba (Akkusativ Nesne)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar Sonda)",
+      "v4_s13_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **möchte** ➔ istiyor (Modal Fiil)\n✅ **den Apfel** ➔ elmayı (Akkusativ Nesne + Belirtisiz Artikel)\n✅ **essen** ➔ yemek (Esas Fiil / Mastar Sonda)",
+      "v5_s2_0": "✅ **Es** ➔ O (Özne / Nominativ, belirsiz)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne, kişisel zamir)",
+      "v5_s2_1": "✅ **Sie** ➔ O/Kız (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne / Sen)",
+      "v5_s2_2": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirsiz Dativ Nesne)",
+      "v5_s2_3": "✅ **Es** ➔ O (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihr** ➔ ona/kendine (Dativ Nesne)",
+      "v5_s2_4": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)",
+      "v5_s2_5": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **euch** ➔ size (Dativ Nesne / İyelik Zamiri)",
+      "v5_s2_6": "✅ **Es** ➔ O/Onlar (Özne / Nominativ, belirsiz)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v5_s2_7": "✅ **Sie** ➔ O/Kişi (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **Ihnen** ➔ size (Belirli Dativ Nesne)",
+      "v5_s2_8": "✅ **Er** ➔ O (Özne / Nominativ)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Verenin Nesnesi)\n✅ **gar nicht** ➔ hiç değil (Olumsuzluk Ekleri)\n✅ **liefern** ➔ Bu cümlede \"liefern\" fiili bulunmamaktadır.",
+      "v5_s2_9": "✅ **Es** ➔ O/On (Özne / Nominativ, 3. tekil şahıs)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne, 2. tekil şahıs)\n✅ **sehr** ➔ çok (Durum Zarfı)",
+      "v5_s4_0": "✅ **Die Torten** ➔ pastalar (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (İyelik Zamiri / Dativ)",
+      "v5_s4_1": "✅ **Die Kuchen** ➔ kekler (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v5_s4_2": "✅ **Die Essen** ➔ Yemekler (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoşlanmak (Esas Fiil)\n✅ **ihr** ➔ ona (Dativ Nesne / Objekt)",
+      "v5_s4_3": "✅ **Die Torten** ➔ pastalar (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş geliyor (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Verenin Kişi Zamirleri)",
+      "v5_s4_4": "✅ **Die Kuchen** ➔ Kekler (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)",
+      "v5_s4_5": "✅ **Die Kuchen** ➔ Kekler (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)",
+      "v5_s6_0": "✅ **Das süße Essen** ➔ tatlı yemek (Belirli Akkusativ Nesne + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)",
+      "v5_s6_1": "✅ **Die saure Torte** ➔ ekşi pastayı (Akkusativ Nesne + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (Sen için Dativ / İyelik Eki)",
+      "v5_s6_2": "✅ **Der leckere Kuchen** ➔ lezzetli kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v5_s6_3": "✅ **Das schlechte Essen** ➔ kötü yemek (Akkusativ Nesne + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **ihr** ➔ onlara (Dativ Nesne / Onlar)",
+      "v5_s6_4": "✅ **Die süße Torte** ➔ tatlı pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Verenin Nesnesi)",
+      "v5_s6_5": "✅ **Der saure Kuchen** ➔ ekşi kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Dativ Nesne)",
+      "v5_s7_0": "✅ **Ihr Essen** ➔ Yemeğiniz (İsim + Sahip Sıfat)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)",
+      "v5_s7_1": "✅ **Meine Torte** ➔ benim pastam (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (Dativ Nesne / Sen)",
+      "v5_s7_2": "✅ **Sein Kuchen** ➔ Onun pastası (İsim Grubu + Sahip Sıfatı)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirsiz Dativ Nesne)",
+      "v5_s7_3": "✅ **Ihr** ➔ Sen/Onlar (Özne / Nominativ, 2. tekil veya 3. çoğul kişi)\n✅ **Essen** ➔ Yemek (Belirsiz veya Belirli Nesne, burada öznenin yemekleri olduğu için \"ihr\" ile ilişkilendirilebilir)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil, 3. tekil kişi için)\n✅ **ihr** ➔ sana/onlara (Dativ Nesne, \"ihr\" burada yemeklerin kime hoş geldiğini belirtir)",
+      "v5_s7_4": "✅ **Deine Torte** ➔ senin pastan (İsim + Sahip Sıfat, Nominativ Nesne)\n✅ **schmeckt** ➔ hoşuma gidiyor (Esas Fiil, 2. tekil şahıs)\n✅ **mir** ➔ bana (Kişisel Pronomen, Dativ, 1. tekil şahıs)",
+      "v5_s7_5": "✅ **Ihr Kuchen** ➔ Onun pastası (İsim Grubu - Sahiplik Sıfatı ile İsim)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Dativ Nesne, Kişiye göre Dativ)",
+      "v5_s8_0": "✅ **Was** ➔ Ne (Soru Kelimesi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **Ihnen** ➔ Sizin size (Sorumlu Özne / Dativ)",
+      "v5_s8_1": "✅ **Welche Torte** ➔ hangi pasta (Soru Sıfatı + İsim, Belirsiz Akkusativ Nesne)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil, 2. tekil şahıs)\n✅ **dir** ➔ sana (Seni gösteren Dativ Pronomen, 2. tekil şahıs)",
+      "v5_s8_2": "✅ **Wem** ➔ Kime (Soru Zamiri / Dativ)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **das Essen** ➔ yemek (Nesne + Belirtisiz Artikel)",
+      "v5_s8_3": "✅ **Wo** ➔ nerede (Yer Belirtme Zarfı)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirsiz Dativ Nesne)\n✅ **der Kuchen** ➔ kek (Belirli Akkusativ Nesne)",
+      "v5_s8_4": "✅ **Wann** ➔ Ne zaman (Zaman Sorusu)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirsiz Dativ Nesne)\n✅ **die Torte** ➔ pastayı (Akkusativ Nesne)",
+      "v5_s9_0": "✅ **Kein Essen** ➔ Hiç yemek (Belirsiz Nesne + İsim)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **uns** ➔ bize (İyelik Zamiri / Dativ)",
+      "v5_s9_1": "✅ **Keine Torte** ➔ Hiçbir tarta (Belirsiz Nesne + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **dir** ➔ sana (Sen için Datif Pronomen)",
+      "v5_s9_2": "✅ **Kein Kuchen** ➔ Hiçbir kek (Belirsiz Nesne + İsim)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)",
+      "v5_s9_3": "✅ **Das Essen** ➔ Yemek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Kişiye)\n✅ **nicht** ➔ değil / değilse (Olumsuzluk Ekleri)\n \n⚠️ **İstisna:** Cümledeki \"mir\" Dativ olarak kullanılmıştır.",
+      "v5_s9_4": "✅ **Die Torte** ➔ pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **dir** ➔ sana (İyelik Zamiri / Dativ)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)",
+      "v5_s9_5": "✅ **Der Kuchen** ➔ Kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)",
+      "v5_s9_6": "✅ **Die Essen** ➔ Yiyecekler (Belirli Nesne + Sıfat Çekimi)\n✅ **schmecken** ➔ hoş gelmek (Esas Fiil)\n✅ **uns** ➔ bize (İyelik Zamiri, Dativ)\n✅ **nicht** ➔ değil (Olumsuzluk Ekleri)\n \n⚠️ **İstisna:** Cümledeki \"Die Essen\" ifadesi, Almanca'da \"yiyecekler\" veya \"yemekler\" olarak çevrilebilir.",
+      "v5_s10_0": "✅ **Das Essen** ➔ Yemek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)\n✅ **nach Schokolade** ➔ çikolata gibi (Yönelme Edat Grubu)\n \n⚠️ **İstisna:** Cümledeki \"nach Schokolade\" ifadesi, \"nach\" edatının \"Schokolade\" ismiyle birleşerek bir benzerlik veya benzeme anlamı ifade etmesini göstermektedir.",
+      "v5_s10_1": "✅ **Die Torte** ➔ pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (Sahip / Dativ)\n✅ **nach nichts** ➔ hiçbir şeye benzemiyor (Yönelme Edat Grubu)",
+      "v5_s10_2": "✅ **Der Kuchen** ➔ Kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **nach mehr** ➔ daha fazlasına (Yönelme Edat Grubu)",
+      "v5_s10_3": "✅ **Die Torte** ➔ pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Verenin Belirtimi)\n✅ **nach Sommer** ➔ yaz gibi (Benzerlik Edat Grubu)\n✅ **nach Sommer** ifadesi, \"nach\" edatının \"Sommer\" kelimesiyle birleşerek bir benzerlik ifade ettiğini göstermektedir. Bu, Almanca'da \"gibi\" anlamını taşır.",
+      "v5_s11_0": "✅ **Das Essen** ➔ Yemek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **uns** ➔ bize (Belirli Dativ Nesne)\n✅ **wunderbar** ➔ harika (Durum Zarfı)",
+      "v5_s11_1": "✅ **Die Torte** ➔ pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **dir** ➔ sana (İyelik Zamiri / Dativ)\n✅ **sehr** ➔ çok (Durum Zarfı)",
+      "v5_s11_2": "✅ **Der Kuchen** ➔ Kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihnen** ➔ onlara (Belirli Dativ Nesne)\n✅ **etwas** ➔ bir şeyler (Belirsiz Nesne)",
+      "v5_s11_3": "✅ **Das Essen** ➔ Yemek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş gelmek (Esas Fiil)\n✅ **ihr** ➔ onlara (Dativ Nesne / Pronomen)\n✅ **gar nicht** ➔ hiç değil (Olumsuzluk Ekleri)\n✅ **liefern** ➔ teslim etmek (Esas Fiil / Mastar Sonda) ⚠️ **İstisna:** Bu cümlede \"liefern\" fiili bulunmamaktadır.",
+      "v5_s11_4": "✅ **Die Torte** ➔ pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **mir** ➔ bana (Dativ Nesne / Verenin Belirtimi)\n✅ **immer** ➔ her zaman (Zarf / Süreç Bildirimi)",
+      "v5_s11_5": "✅ **Der Kuchen** ➔ Kek (Özne / Nominativ + Sıfat Çekimi)\n✅ **schmeckt** ➔ hoş geliyor (Esas Fiil)\n✅ **ihm** ➔ ona (Belirli Dativ Nesne)\n✅ **manchmal** ➔ bazen (Zaman Belirleyici)\n✅ **manchmal** ➔ bazen (Zarf) \n✅ **schmeckt ihm manchmal** cümlesinde \"manchmal\" zarf olarak kullanılmıştır. \n⚠️ **İstisna:** Cümledeki \"manchmal\" kelimesi, fiil \"schmeckt\" ile \"ihm\" arasında yer almasına rağmen, cümledeki anlam bütünlüğü nedeniyle ayrı bir öbek olarak ele alınmıştır.",
+      "v5_s12_0": "✅ **Das Essen** ➔ Yemek (Özne / Nominativ + İsim)\n✅ **hat** ➔ -miştir (Yardımcı Fiil / 3. Tekil Şahıs Geçmiş Zaman)\n✅ **uns** ➔ bize (Dativ Nesne / 1. Tekil Çoğul Şahıs)\n✅ **geschmeckt** ➔ hoş gelmiş (Esas Fiil / 3. Tekil Şahıs Geçmiş Zaman)",
+      "v5_s12_1": "✅ **Die Torte** ➔ Pasta (Özne / Nominativ + Sıfat Çekimi)\n✅ **hat** ➔ -miştir (Yardımcı Fiil / 3. Tekil Şahıs Geçmiş Zaman)\n✅ **dir** ➔ sana (Dativ Nesne / 2. Tekil Şahıs)\n✅ **geschmeckt** ➔ hoş gelmiş (Esas Fiil / 3. Tekil Şahıs Geçmiş Zaman)",
+      "v5_s12_2": "⚠️ Yapay zeka servisine ulaşılamadı.",
+      "v5_s12_3": "⚠️ Yapay zeka servisine ulaşılamadı.",
+      "v5_s12_4": "⚠️ Yapay zeka servisine ulaşılamadı.",
+      "v5_s12_5": "⚠️ Yapay zeka servisine ulaşılamadı.",
+      "v5_s12_6": "⚠️ Yapay zeka servisine ulaşılamadı."
     },
     "verbs": {
       "v1": "sehen fiili Akkusativ alır. Örneğin: Ich sehe den Film (Filmi görüyorum). 'den Film' Akkusativ haldedir.",
